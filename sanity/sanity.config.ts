@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'Connor Laughlin Portfolio',
 
-  projectId: 'your-project-id', // Will be set during sanity init
+  projectId: 'ltgs5cu3',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],

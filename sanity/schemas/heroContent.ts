@@ -1,4 +1,4 @@
-export default {
+export const HeroContent = {
   name: 'heroContent',
   title: 'Homepage Hero',
   type: 'document',

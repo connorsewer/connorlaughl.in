@@ -1,4 +1,4 @@
-export default {
+export const CaseStudy = {
   name: 'caseStudy',
   title: 'Case Study',
   type: 'document',

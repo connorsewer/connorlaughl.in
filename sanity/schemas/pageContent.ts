@@ -1,4 +1,4 @@
-export default {
+export const PageContent = {
   name: 'pageContent',
   title: 'Page Content',
   type: 'document',
