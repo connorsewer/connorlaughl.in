@@ -38,13 +38,21 @@ export default function Home() {
                   <span className="font-display text-4xl mb-1 block">300%</span>
                   <span className="font-mono text-[9px] tracking-[0.2em] text-paper/40 uppercase block">Inbound Growth</span>
                 </div>
-                <div className="pt-4 border-t border-rule">
+                <div className="pt-4 border-t border-rule space-y-3">
                   <a 
                     href="#catalogue" 
                     className="font-mono text-[10px] tracking-[0.2em] text-accent uppercase hover:text-paper transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded inline-block"
                   >
                     Explore Index ↓
                   </a>
+                  <div>
+                    <a 
+                      href="/case-studies" 
+                      className="font-mono text-[10px] tracking-[0.2em] text-paper/60 uppercase hover:text-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded inline-block"
+                    >
+                      View Archive →
+                    </a>
+                  </div>
                 </div>
               </aside>
             </div>

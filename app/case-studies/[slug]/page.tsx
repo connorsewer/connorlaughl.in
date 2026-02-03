@@ -21,9 +21,9 @@ export default async function CaseStudyPage({
           <header className="flex items-center justify-between gap-6 flex-wrap">
             <Link 
               className="text-sm text-paper/70 hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded" 
-              href="/proof"
+              href="/case-studies"
             >
-              ← Back to proof
+              ← Back to archive
             </Link>
             <span className="font-mono text-[11px] tracking-[0.32em] text-paper/60 uppercase">
               Case Study

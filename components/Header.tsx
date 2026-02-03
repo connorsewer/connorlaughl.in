@@ -44,13 +44,24 @@ export function Header() {
               <Link
                 href="/proof"
                 className={`transition-colors ${
-                  isActive("/proof") 
+                  pathname === "/proof" 
                     ? "text-accent" 
                     : "text-paper/60 hover:text-accent"
                 }`}
-                aria-current={isActive("/proof") ? "page" : undefined}
+                aria-current={pathname === "/proof" ? "page" : undefined}
               >
                 Index
+              </Link>
+              <Link
+                href="/case-studies"
+                className={`transition-colors ${
+                  pathname.startsWith("/case-studies")
+                    ? "text-accent" 
+                    : "text-paper/60 hover:text-accent"
+                }`}
+                aria-current={pathname.startsWith("/case-studies") ? "page" : undefined}
+              >
+                Archive
               </Link>
               <Link
                 href="/#contact"
