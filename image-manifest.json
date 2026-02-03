@@ -1,0 +1,286 @@
+{
+  "generated_at": "2026-02-03T04:55:07Z",
+  "target_max_kb": 200,
+  "sizes_config": {
+    "full": 1920,
+    "medium": 1080,
+    "small": 640
+  },
+  "images": [
+    {
+      "key": "salesforce-32k-prospects",
+      "alt": "Salesforce dashboard showing 32,000 prospect records with enriched data fields, demonstrating the scale of TSI's demand generation operations and database management capabilities.",
+      "caption": "32,000 enriched prospects managed in Salesforce \u2014 from Apollo enrichment to sales-ready handoff. This is what scaled B2B demand gen looks like.",
+      "category": "hero",
+      "priority": 1,
+      "sizes": {
+        "full": {
+          "width": 1665,
+          "height": 988,
+          "webp": {
+            "filename": "salesforce-32k-prospects-full.webp",
+            "size_kb": 52.2,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "salesforce-32k-prospects-full.jpg",
+            "size_kb": 131.84,
+            "quality": 90
+          }
+        },
+        "medium": {
+          "width": 1080,
+          "height": 640,
+          "webp": {
+            "filename": "salesforce-32k-prospects-medium.webp",
+            "size_kb": 30.47,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "salesforce-32k-prospects-medium.jpg",
+            "size_kb": 71.29,
+            "quality": 90
+          }
+        },
+        "small": {
+          "width": 640,
+          "height": 379,
+          "webp": {
+            "filename": "salesforce-32k-prospects-small.webp",
+            "size_kb": 14.24,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "salesforce-32k-prospects-small.jpg",
+            "size_kb": 32.23,
+            "quality": 90
+          }
+        }
+      },
+      "srcset": {
+        "webp": "/portfolio-assets/optimized/salesforce-32k-prospects-full.webp 1665w, /portfolio-assets/optimized/salesforce-32k-prospects-medium.webp 1080w, /portfolio-assets/optimized/salesforce-32k-prospects-small.webp 640w",
+        "jpeg": "/portfolio-assets/optimized/salesforce-32k-prospects-full.jpg 1665w, /portfolio-assets/optimized/salesforce-32k-prospects-medium.jpg 1080w, /portfolio-assets/optimized/salesforce-32k-prospects-small.jpg 640w"
+      }
+    },
+    {
+      "key": "apollo-lead-gen-dashboard",
+      "alt": "Apollo.io lead generation dashboard showing prospect sourcing metrics, email sequences, and enrichment data for B2B outreach campaigns.",
+      "caption": "Sourced and enriched 32K+ prospects via Apollo \u2014 validated emails, direct dials, and intent signals.",
+      "category": "supporting",
+      "priority": 2,
+      "sizes": {
+        "full": {
+          "width": 1854,
+          "height": 1123,
+          "webp": {
+            "filename": "apollo-lead-gen-dashboard-full.webp",
+            "size_kb": 87.44,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "apollo-lead-gen-dashboard-full.jpg",
+            "size_kb": 180.03,
+            "quality": 90
+          }
+        },
+        "medium": {
+          "width": 1080,
+          "height": 654,
+          "webp": {
+            "filename": "apollo-lead-gen-dashboard-medium.webp",
+            "size_kb": 35.66,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "apollo-lead-gen-dashboard-medium.jpg",
+            "size_kb": 75.04,
+            "quality": 90
+          }
+        },
+        "small": {
+          "width": 640,
+          "height": 387,
+          "webp": {
+            "filename": "apollo-lead-gen-dashboard-small.webp",
+            "size_kb": 14.8,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "apollo-lead-gen-dashboard-small.jpg",
+            "size_kb": 29.64,
+            "quality": 90
+          }
+        }
+      },
+      "srcset": {
+        "webp": "/portfolio-assets/optimized/apollo-lead-gen-dashboard-full.webp 1854w, /portfolio-assets/optimized/apollo-lead-gen-dashboard-medium.webp 1080w, /portfolio-assets/optimized/apollo-lead-gen-dashboard-small.webp 640w",
+        "jpeg": "/portfolio-assets/optimized/apollo-lead-gen-dashboard-full.jpg 1854w, /portfolio-assets/optimized/apollo-lead-gen-dashboard-medium.jpg 1080w, /portfolio-assets/optimized/apollo-lead-gen-dashboard-small.jpg 640w"
+      }
+    },
+    {
+      "key": "hubspot-pipeline-growth",
+      "alt": "HubSpot CRM dashboard displaying sales pipeline growth, deal stages, and revenue progression from marketing-qualified leads.",
+      "caption": "Pipeline impact: Qualified opportunities generated from outbound sequences and inbound engagement.",
+      "category": "supporting",
+      "priority": 3,
+      "sizes": {
+        "full": {
+          "width": 1878,
+          "height": 891,
+          "webp": {
+            "filename": "hubspot-pipeline-growth-full.webp",
+            "size_kb": 39.25,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "hubspot-pipeline-growth-full.jpg",
+            "size_kb": 89.6,
+            "quality": 90
+          }
+        },
+        "medium": {
+          "width": 1080,
+          "height": 512,
+          "webp": {
+            "filename": "hubspot-pipeline-growth-medium.webp",
+            "size_kb": 18.88,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "hubspot-pipeline-growth-medium.jpg",
+            "size_kb": 41.44,
+            "quality": 90
+          }
+        },
+        "small": {
+          "width": 640,
+          "height": 303,
+          "webp": {
+            "filename": "hubspot-pipeline-growth-small.webp",
+            "size_kb": 9.29,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "hubspot-pipeline-growth-small.jpg",
+            "size_kb": 19.91,
+            "quality": 90
+          }
+        }
+      },
+      "srcset": {
+        "webp": "/portfolio-assets/optimized/hubspot-pipeline-growth-full.webp 1878w, /portfolio-assets/optimized/hubspot-pipeline-growth-medium.webp 1080w, /portfolio-assets/optimized/hubspot-pipeline-growth-small.webp 640w",
+        "jpeg": "/portfolio-assets/optimized/hubspot-pipeline-growth-full.jpg 1878w, /portfolio-assets/optimized/hubspot-pipeline-growth-medium.jpg 1080w, /portfolio-assets/optimized/hubspot-pipeline-growth-small.jpg 640w"
+      }
+    },
+    {
+      "key": "linkedin-campaign-metrics",
+      "alt": "LinkedIn Campaign Manager dashboard showing sponsored content performance, engagement rates, cost per lead, and audience targeting metrics.",
+      "caption": "LinkedIn demand gen: Precision targeting with measurable engagement and lead quality metrics.",
+      "category": "supporting",
+      "priority": 4,
+      "sizes": {
+        "full": {
+          "width": 1920,
+          "height": 811,
+          "webp": {
+            "filename": "linkedin-campaign-metrics-full.webp",
+            "size_kb": 52.06,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "linkedin-campaign-metrics-full.jpg",
+            "size_kb": 103.06,
+            "quality": 90
+          }
+        },
+        "medium": {
+          "width": 1080,
+          "height": 456,
+          "webp": {
+            "filename": "linkedin-campaign-metrics-medium.webp",
+            "size_kb": 21.26,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "linkedin-campaign-metrics-medium.jpg",
+            "size_kb": 43.29,
+            "quality": 90
+          }
+        },
+        "small": {
+          "width": 640,
+          "height": 270,
+          "webp": {
+            "filename": "linkedin-campaign-metrics-small.webp",
+            "size_kb": 8.93,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "linkedin-campaign-metrics-small.jpg",
+            "size_kb": 17.84,
+            "quality": 90
+          }
+        }
+      },
+      "srcset": {
+        "webp": "/portfolio-assets/optimized/linkedin-campaign-metrics-full.webp 1920w, /portfolio-assets/optimized/linkedin-campaign-metrics-medium.webp 1080w, /portfolio-assets/optimized/linkedin-campaign-metrics-small.webp 640w",
+        "jpeg": "/portfolio-assets/optimized/linkedin-campaign-metrics-full.jpg 1920w, /portfolio-assets/optimized/linkedin-campaign-metrics-medium.jpg 1080w, /portfolio-assets/optimized/linkedin-campaign-metrics-small.jpg 640w"
+      }
+    },
+    {
+      "key": "ga4-search-console-traffic",
+      "alt": "Google Analytics 4 dashboard integrated with Search Console data showing search impressions with significant month-over-month growth.",
+      "caption": "Organic growth engine: Search impressions driving inbound pipeline alongside targeted outbound campaigns.",
+      "category": "supporting",
+      "priority": 5,
+      "sizes": {
+        "full": {
+          "width": 1824,
+          "height": 929,
+          "webp": {
+            "filename": "ga4-search-console-traffic-full.webp",
+            "size_kb": 40.63,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "ga4-search-console-traffic-full.jpg",
+            "size_kb": 103.93,
+            "quality": 90
+          }
+        },
+        "medium": {
+          "width": 1080,
+          "height": 550,
+          "webp": {
+            "filename": "ga4-search-console-traffic-medium.webp",
+            "size_kb": 19.55,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "ga4-search-console-traffic-medium.jpg",
+            "size_kb": 50.84,
+            "quality": 90
+          }
+        },
+        "small": {
+          "width": 640,
+          "height": 325,
+          "webp": {
+            "filename": "ga4-search-console-traffic-small.webp",
+            "size_kb": 9.22,
+            "quality": 85
+          },
+          "jpeg": {
+            "filename": "ga4-search-console-traffic-small.jpg",
+            "size_kb": 22.81,
+            "quality": 90
+          }
+        }
+      },
+      "srcset": {
+        "webp": "/portfolio-assets/optimized/ga4-search-console-traffic-full.webp 1824w, /portfolio-assets/optimized/ga4-search-console-traffic-medium.webp 1080w, /portfolio-assets/optimized/ga4-search-console-traffic-small.webp 640w",
+        "jpeg": "/portfolio-assets/optimized/ga4-search-console-traffic-full.jpg 1824w, /portfolio-assets/optimized/ga4-search-console-traffic-medium.jpg 1080w, /portfolio-assets/optimized/ga4-search-console-traffic-small.jpg 640w"
+      }
+    }
+  ]
+}

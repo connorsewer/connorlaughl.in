@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #070707;
+  --color-paper: #F6F1E7;
+  --color-accent: #B7AA7A;
+  --color-rule: rgba(246, 241, 231, 0.12);
+  
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --shadow-editorial: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+:root {
+  /* Default: dark-first */
+  --ink: #070707;
+  --paper: #F6F1E7;
+  --accent: #B7AA7A;
+  --rule: rgba(246, 241, 231, 0.12);
+  --paper-muted: rgba(246, 241, 231, 0.72);
+}
+
+/* Light theme (applied via next-themes: class="light" on <html>) */
+html.light {
+  --ink: #F6F1E7;
+  --paper: #070707;
+  --accent: #7D744D; /* slightly deeper khaki so it reads on light */
+  --rule: rgba(7, 7, 7, 0.12);
+  --paper-muted: rgba(7, 7, 7, 0.70);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--ink);
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Luxury Grain / Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+}
+
+html.light body::before {
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+}
+
+/* Editorial selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--ink);
+}
+
+.font-display { font-family: var(--font-display), serif; }
+.font-mono { font-family: var(--font-mono), monospace; }
+
+.text-balance { text-wrap: balance; }
+
+/* Custom Underline */
+.link-editorial {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-editorial::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.link-editorial:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+
+/* High-visibility focus indicators (WCAG 2.4.7) */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Remove default outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Enhanced focus for interactive elements */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent);
+  color: var(--ink);
+  padding: 8px 16px;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Reduced motion preferences (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Preserve essential motion for functionality */
+  .motion-essential,
+  [data-motion="essential"] {
+    transition-duration: 0.15s !important;
+  }
+}
+
+/* Respect user's contrast preferences */
+@media (prefers-contrast: more) {
+  :root {
+    --rule: rgba(246, 241, 231, 0.3);
+  }
+  
+  html.light {
+    --rule: rgba(7, 7, 7, 0.3);
+  }
+  
+  *:focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* Print styles */
+@media print {
+  body::before {
+    display: none;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Ensure good contrast for printing */
+  body {
+    background: white;
+    color: black;
+  }
+}
