@@ -146,7 +146,7 @@ export default async function Home() {
 
             {/* Proof Grid */}
             <div className="grid md:grid-cols-2 gap-6">
-              {proofPoints.length > 0 ? (
+              {proofPoints?.length > 0 ? (
                 proofPoints.map((point: any) => (
                   <div
                     key={point._id}
@@ -237,7 +237,7 @@ export default async function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {services.length > 0 ? (
+              {services?.length > 0 ? (
                 services.map((service: any) => (
                   <div
                     key={service._id}
@@ -308,21 +308,18 @@ export default async function Home() {
                 View All →
               </a>
             </div>
-            <ProofExplorer
-              items={
-                caseStudies.length > 0
-                  ? caseStudies.map((cs: any) => ({
-                      id: cs._id,
-                      title: cs.title,
-                      href: `/case-studies/${cs.slug.current}`,
-                      label: cs.label,
-                      deck: cs.deck,
-                      outcome: cs.outcome,
-                      tags: cs.scope || [],
-                    }))
-                  : []
-              }
-            />
+            {caseStudies?.length > 0 && (
+              <ProofExplorer
+                items={caseStudies.filter((cs: any) => cs?.slug?.current).map((cs: any) => ({
+                  slug: cs.slug.current,
+                  title: cs.title,
+                  label: cs.label,
+                  deck: cs.deck,
+                  outcome: cs.outcome,
+                  stack: (cs.stack || []).join(', '),
+                }))}
+              />
+            )}
           </div>
         </section>
 
