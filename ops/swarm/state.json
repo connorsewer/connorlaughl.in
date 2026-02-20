@@ -1,0 +1,17 @@
+{
+  "dedupe": {},
+  "lastRunAt": "2026-02-20T03:20:00-06:00",
+  "lessons_learned": [],
+  "recent": [
+    {
+      "timestamp": "2026-02-20T01:20:00-06:00",
+      "action": "Decision run: system freshly initialized. State.json reset, queue.json missing. No workers, no queue items. Nothing to dispatch."
+    },
+    {
+      "timestamp": "2026-02-20T03:20:00-06:00",
+      "action": "Decision run: queue.json still missing, no workers, no queue items. System idle."
+    }
+  ],
+  "schemaVersion": "2.0",
+  "workers": []
+}

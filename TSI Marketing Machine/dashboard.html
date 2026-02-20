@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSI Marketing Machine - Mission Control</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #3b82f6;
+            --success: #22c55e;
+            --warning: #eab308;
+            --border: #334155;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 40px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        h1 { margin: 0; font-size: 24px; font-weight: 600; }
+        .subtitle { color: var(--text-secondary); margin-top: 5px; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .section { background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border); }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        h2 { margin: 0; font-size: 18px; font-weight: 500; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+        th { color: var(--text-secondary); font-size: 12px; text-transform: uppercase; font-weight: 600; }
+        tr:last-child td { border-bottom: none; }
+        .status-badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 600; }
+        .status-ready { background: rgba(34, 197, 94, 0.1); color: var(--success); }
+        .status-archived { background: rgba(59, 130, 246, 0.1); color: var(--accent); }
+        .status-draft { background: rgba(234, 179, 8, 0.1); color: var(--warning); }
+        .file-link { color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
+        .file-link:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mission Control</h1>
+            <div class="subtitle">TSI Marketing Machine • System Status • Last Updated: 2026-01-22 20:58:12</div>
+        </header>
+
+        <div class="dashboard-grid">
+            
+            <!-- DRAFTS (INBOX) -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>🟡 Active Drafts (Needs Review)</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>File</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                        <tr>
+                            <td>2026-01-22</td>
+                            <td><a href="drafts/reaction_asset_2026-01-22_ARM.md" class="file-link">reaction_asset_2026-01-22_ARM.md</a></td>
+                            <td><span class="status-badge status-ready">Ready for Review</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-22</td>
+                            <td><a href="drafts/2026-01-22_Healthcare_compliance_review.md" class="file-link">2026-01-22_Healthcare_compliance_review.md</a></td>
+                            <td><span class="status-badge status-ready">Ready for Review</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-22</td>
+                            <td><a href="drafts/2026-01-22_ARM_content_production.md" class="file-link">2026-01-22_ARM_content_production.md</a></td>
+                            <td><span class="status-badge status-ready">Ready for Review</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-22</td>
+                            <td><a href="drafts/reaction_asset_2026-01-22_BPO.md" class="file-link">reaction_asset_2026-01-22_BPO.md</a></td>
+                            <td><span class="status-badge status-ready">Ready for Review</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-22</td>
+                            <td><a href="drafts/2026-01-22_Healthcare_content_production.md" class="file-link">2026-01-22_Healthcare_content_production.md</a></td>
+                            <td><span class="status-badge status-ready">Ready for Review</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-22</td>
+                            <td><a href="drafts/reaction_asset_2026-01-22_DebtNext.md" class="file-link">reaction_asset_2026-01-22_DebtNext.md</a></td>
+                            <td><span class="status-badge status-ready">Ready for Review</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-22</td>
+                            <td><a href="drafts/reaction_asset_2026-01-22_Healthcare.md" class="file-link">reaction_asset_2026-01-22_Healthcare.md</a></td>
+                            <td><span class="status-badge status-ready">Ready for Review</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-22</td>
+                            <td><a href="drafts/2026-01-22_ARM_compliance_review.md" class="file-link">2026-01-22_ARM_compliance_review.md</a></td>
+                            <td><span class="status-badge status-ready">Ready for Review</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/2026-01-21_Healthcare_campaign_content.md" class="file-link">2026-01-21_Healthcare_campaign_content.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/reaction_asset_2026-01-21_DebtNext.md" class="file-link">reaction_asset_2026-01-21_DebtNext.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/2026-01-21_ARM_compliance_review.md" class="file-link">2026-01-21_ARM_compliance_review.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/2026-01-21_DebtNext_campaign_content.md" class="file-link">2026-01-21_DebtNext_campaign_content.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/reaction_asset_2026-01-21_BPO.md" class="file-link">reaction_asset_2026-01-21_BPO.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/2026-01-21_ARM_content_production.md" class="file-link">2026-01-21_ARM_content_production.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/2026-01-21_BPO_campaign_content.md" class="file-link">2026-01-21_BPO_campaign_content.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/2026-01-21_ARM_campaign_content.md" class="file-link">2026-01-21_ARM_campaign_content.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/reaction_asset_2026-01-21_ARM.md" class="file-link">reaction_asset_2026-01-21_ARM.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-21</td>
+                            <td><a href="drafts/reaction_asset_2026-01-21_Healthcare.md" class="file-link">reaction_asset_2026-01-21_Healthcare.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-20</td>
+                            <td><a href="drafts/reaction_asset_2026-01-20_BPO.md" class="file-link">reaction_asset_2026-01-20_BPO.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-20</td>
+                            <td><a href="drafts/reaction_asset_2026-01-20_ARM.md" class="file-link">reaction_asset_2026-01-20_ARM.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-20</td>
+                            <td><a href="drafts/reaction_asset_2026-01-20_Healthcare.md" class="file-link">reaction_asset_2026-01-20_Healthcare.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-20</td>
+                            <td><a href="drafts/reaction_asset_2026-01-20_DebtNext.md" class="file-link">reaction_asset_2026-01-20_DebtNext.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="drafts/visual_brief_2026_auth.md" class="file-link">visual_brief_2026_auth.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="drafts/draft_auth_email_sequence.md" class="file-link">draft_auth_email_sequence.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="drafts/test_compliance_violation.md" class="file-link">test_compliance_violation.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="drafts/simulation_healthcare_brochure.md" class="file-link">simulation_healthcare_brochure.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="drafts/brief_stress_test.md" class="file-link">brief_stress_test.md</a></td>
+                            <td><span class="status-badge status-draft">Draft</span></td>
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ARCHIVED -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>🟢 Archived / Published</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>File</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="final_assets/published_QA-Check.json" class="file-link">published_QA-Check.json</a></td>
+                            <td><span class="status-badge status-archived">Archived</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="final_assets/published_2026_auth.json" class="file-link">published_2026_auth.json</a></td>
+                            <td><span class="status-badge status-archived">Archived</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="final_assets/ready_to_publish/zoho_mock_verification_campaign.json" class="file-link">zoho_mock_verification_campaign.json</a></td>
+                            <td><span class="status-badge status-ready">Ready to Publish</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="final_assets/ready_to_publish/zoho_stress_test.json" class="file-link">zoho_stress_test.json</a></td>
+                            <td><span class="status-badge status-ready">Ready to Publish</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="final_assets/2026/2026-01-19_BPO_Email_Mock-Verification-Campaign.md" class="file-link">2026-01-19_BPO_Email_Mock-Verification-Campaign.md</a></td>
+                            <td><span class="status-badge status-archived">Archived</span></td>
+                        </tr>
+        
+                        <tr>
+                            <td>2026-01-19</td>
+                            <td><a href="final_assets/2026/2026-01-19_Healthcare_Email_Q1-Denials-Prevention.md" class="file-link">2026-01-19_Healthcare_Email_Q1-Denials-Prevention.md</a></td>
+                            <td><span class="status-badge status-archived">Archived</span></td>
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    

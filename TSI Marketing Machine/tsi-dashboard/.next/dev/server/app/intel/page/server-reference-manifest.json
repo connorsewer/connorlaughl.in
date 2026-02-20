@@ -1,0 +1,50 @@
+{
+  "node": {
+    "605cb1c2e35f1e4429892c59cdfa7a8d1c12479336": {
+      "workers": {
+        "app/intel/page": {
+          "moduleId": "[project]/.next-internal/server/app/intel/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "triggerAutopilot",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/intel/page": "action-browser"
+      },
+      "exportedName": "triggerAutopilot",
+      "filename": "app/actions.ts"
+    },
+    "708bef6abe21fc311dd754f1b8d633e3ca2a152036": {
+      "workers": {
+        "app/intel/page": {
+          "moduleId": "[project]/.next-internal/server/app/intel/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "publishAsset",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/intel/page": "action-browser"
+      },
+      "exportedName": "publishAsset",
+      "filename": "app/actions.ts"
+    },
+    "007348100226a0906d1aa37b280acf67b46ebc0029": {
+      "workers": {
+        "app/intel/page": {
+          "moduleId": "[project]/.next-internal/server/app/intel/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getPublishQueueAction",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/intel/page": "action-browser"
+      },
+      "exportedName": "getPublishQueueAction",
+      "filename": "app/actions.ts"
+    }
+  },
+  "edge": {}
+}
