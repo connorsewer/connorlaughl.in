@@ -1,15 +1,45 @@
 # Portfolio Redesign Plan
 
 **Created:** February 21, 2026  
+**Last Updated:** February 23, 2026  
 **Goal:** Comprehensive research and planning for ideal portfolio website for VP/GTM role in AI industry
+
+---
+
+## Research Summary (Feb 23, 2026)
+
+**Sources consulted:**
+- ReallyGoodDesigns 2026 Web Design Trends
+- Awwwards Portfolio Collection
+- Prismic/Feather headless CMS comparisons
+- Product Marketing Alliance PMM portfolio guide
+- Reddit r/ProductMarketing discussions
+
+**Key findings:**
+- 2026 trends favor AI-personalization, 3D elements, dynamic motion, and typographic boldness
+- Sanity remains top pick for headless CMS flexibility
+- Framer Motion is the clear winner for React-based portfolios
+- VP/GTM portfolios should focus on metrics + thought leadership over flashy design
 
 ---
 
 ## 1. Modern Design Trends (2026)
 
+### 🔥 Hot 2026 Trends (From Awwwards/Design Research)
+
+1. **AI-Enhanced Creativity**: AI-generated layouts, real-time content personalization based on visitor behavior
+2. **Virtual Reality Websites**: Immersive 3D environments, digital showrooms (WebGL-powered)
+3. **Dynamic Motion Design**: Logo animations, scroll-triggered animations as brand identity
+4. **Interactive 3D Models**: Objects that react to scroll/hover, depth effects pulling users in
+5. **Exploratory Layouts**: Modular/floating grids users discover piece by piece
+6. **Typographic Statements**: Animated typography that stretches/shifts on scroll, oversized sans-serifs
+7. **Cinematic Heroes**: Full-bleed video backgrounds with bold typography overlay
+8. **Mixed Scroll Directions**: Horizontal + vertical scrolling for narrative flow
+9. **Noise & Chromatic Mash-Ups**: Textured, grainy effects with bold color overlays
+
 ### Key Visual Directions
 
-- **Bold Typography**: Oversized, experimental fonts dominating hero sections. Use distinctive sans-serifs (e.g., MuseoModerno, Satoshi)
+- **Bold Typography**: Oversized, experimental fonts dominating hero sections. Use distinctive sans-serifs (e.g., MuseoModerno, Satoshi, Cabinet Grotesk)
 - **Dark Mode First**: Default dark with light toggle. Reduces eye strain, adds premium tech feel
 - **3D & Immersive Elements**: Interactive 3D elements, WebGL, subtle depth in hero sections
 - **Gradients & Color Transitions**: Bold accent gradients (purple→blue→cyan common in AI) directing attention
@@ -44,7 +74,11 @@
 
 ### Recommendation for VP/GTM Role
 
-**Sanity.io** or **Notion (via Super.so)** — Sanity offers maximum flexibility for a sophisticated portfolio with structured content (case studies, metrics, bio). Notion is easier if content updates are frequent and you want zero dev overhead.
+**Sanity.io** — Best for maximum creative control, structured content (case studies, metrics), real-time collaboration, and image pipeline. Best-in-class for React/Next.js integration.
+
+**Notion (via Super.so)** — Easiest for zero-dev content updates. Great if you want to write case studies in Notion and have them automatically published.
+
+**Framer** (Alternative) — If you want fastest route to launch with design-to-code. Limited CMS but excellent animations built-in. Good for rapid prototyping.
 
 ---
 
@@ -62,9 +96,13 @@
 
 ### Recommendation
 
-**Framer Motion** — Native React integration, excellent for scroll animations, layout transitions, and hover interactions. Pairs perfectly with Next.js. Use GSAP only if you need complex timeline sequences.
+**Framer Motion** — Native React integration, excellent for scroll animations, layout transitions, and hover interactions. Pairs perfectly with Next.js. ~40kb bundle. Best for VP-level portfolio.
 
-**Optional Spline** — For subtle 3D elements (abstract shapes, interactive objects) without full Three.js overhead.
+**GSAP** — Only if you need complex timeline sequences or scroll-triggered animations beyond Framer's capabilities.
+
+**Spline** (via @splinetool/react-spline) — For subtle 3D elements (abstract shapes, interactive objects) without full Three.js overhead. Easy to embed, no-code 3D creation.
+
+**Avoid Three.js** — Unless 3D is core to your brand. Too much overhead for a personal portfolio.
 
 ---
 
@@ -110,7 +148,13 @@
 - **Lenny Rachitsky** (ex-Head of Growth, Notion) — Newsletter-forward, simple, content-heavy
 - **Eliot** (VP Growth, Scale AI) — Metrics-focused, clean
 - **Andrew Chen** (ex-Uber, Andreessen Horowitz) — Research-heavy, essay format
-- **Elena Verna** ( advisor) — Minimal, advisory focus, company logos
+- **Elena Verna** (advisor) — Minimal, advisory focus, company logos
+
+### Product Marketing Leader Portfolios (From Reddit/PMM Community)
+
+- **Squarespace-based PMM portfolios**: Typically include pages for Portfolio, Leadership, About Me, Contact
+- **GTM Launch case studies**: Separate pages for launches, messaging projects, case studies, campaign videos
+- **Positioning & Messaging deep dives**: Battlecards, competitive intelligence examples
 
 ### Patterns from Top Exec Portfolios
 
@@ -120,13 +164,14 @@
 - Writing/links as main content (thought leadership)
 - Clear contact path
 
-### Differentiation Opportunity
+### Differentiation Opportunity for VP/GTM AI Role
 
 While competitors are minimal, you can stand out with:
-- Interactive GTM framework visualizations
-- Subtle AI-themed micro-animations
-- Case studies with animated metric reveals
-- Dark mode as default (tech-forward feel)
+- **Interactive GTM framework visualizations** — Show your strategic thinking visually
+- **Animated metric reveals** — Numbers that count up, showing $X pipeline built
+- **Dark mode as default** — Tech-forward feel (aligned with AI industry)
+- **3D accent elements** — Subtle Spline embeds (not overwhelming)
+- **AI-personalization** — Content that adapts slightly to visitor (e.g., shows relevant case studies)
 
 ---
 
@@ -134,18 +179,20 @@ While competitors are minimal, you can stand out with:
 
 ### Build
 
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 14+ (App Router) with TypeScript
 - **Styling**: Tailwind CSS
 - **Animation**: Framer Motion
 - **CMS**: Sanity.io (headless) OR Notion + Super.so
-- **Hosting**: Vercel
-- **Domain**: Namecheap/Cloudflare
+- **Hosting**: Vercel (free tier sufficient)
+- **Domain**: Cloudflare (DNS + domain registration)
 
 ### Optional Enhancements
 
-- **3D Accents**: Spline embed (low overhead)
+- **3D Accents**: Spline embed (@splinetool/react-spline) — low overhead, no-code 3D
 - **Interactive Diagrams**: Mermaid.js or custom SVG for GTM frameworks
 - **Contact**: Cal.com embed for scheduling
+- **SEO**: Next.js Metadata API + sitemap
+- **Analytics**: Vercel Analytics (free) or Plausible (privacy-focused)
 
 ---
 
