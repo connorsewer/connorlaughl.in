@@ -11,3 +11,7 @@ Format:
 - **2026-02-23 08:31**: GA4 daily report failed - script not found at ops/scripts/ga4_report.py
 
 - **2026-02-24 08:31**: GA4 daily report - script created but GA4_PROPERTY_ID environment variable not set. Need to configure Google Analytics property ID for the Data API.
+- [2026-02-25T01:30:38Z] singularity-executor: Failed to fetch approvals: Failed to run Convex query: Command '['npx', 'convex', 'run', 'approvals:listApproved', '{"limit": 20}']' timed out after 30 seconds
+- [2026-02-25T01:31:15Z] singularity-executor: Failed to fetch approvals: Failed to run Convex query: Command '['npx', 'convex', 'run', 'approvals:listApproved', '{"limit": 20}']' timed out after 30 seconds
+- [2026-02-25T01:31:59Z] singularity-executor: Failed to fetch approvals: Failed to run Convex query: Command '['npx', 'convex', 'run', 'approvals:listApproved', '{"limit": 20}']' timed out after 30 seconds
+- [2026-02-25T00:30:xxZ] singularity-executor: Convex query timeout (30s) - no approved approvals to execute
