@@ -1,15 +1,39 @@
 {
   "dedupe": {},
-  "lastRunAt": "2026-02-20T03:20:00-06:00",
+  "lastRunAt": "2026-02-26T17:20:00-06:00",
   "lessons_learned": [],
   "recent": [
     {
-      "timestamp": "2026-02-20T01:20:00-06:00",
-      "action": "Decision run: system freshly initialized. State.json reset, queue.json missing. No workers, no queue items. Nothing to dispatch."
+      "timestamp": "2026-02-26T17:20:00-06:00",
+      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
     },
     {
-      "timestamp": "2026-02-20T03:20:00-06:00",
-      "action": "Decision run: queue.json still missing, no workers, no queue items. System idle."
+      "timestamp": "2026-02-26T17:00:00-06:00",
+      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json, tsi-leadgen/). No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-02-26T14:20:00-06:00",
+      "action": "Decision run: Signal files empty (projects.json, open-loops.json). No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-02-26T11:00:00-06:00",
+      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). Portfolio plan exists but no active tasks with owners. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-02-26T09:40:00-06:00",
+      "action": "Decision run: Signal files empty (projects.json, open-loops.json). No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-02-26T05:00:00-06:00",
+      "action": "Decision run: Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-02-26T04:40:00-06:00",
+      "action": "Decision run: Signal files empty (projects.json, open-loops.json). No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-02-26T02:20:00-06:00",
+      "action": "Decision run: Signal files empty. No tasks to dispatch."
     }
   ],
   "schemaVersion": "2.0",
