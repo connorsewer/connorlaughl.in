@@ -1,8 +1,12 @@
 {
   "dedupe": {},
-  "lastRunAt": "2026-02-28T06:00:00-06:00",
+  "lastRunAt": "2026-02-28T09:00:00-06:00",
   "lessons_learned": [],
   "recent": [
+    {
+      "timestamp": "2026-02-28T09:00:00-06:00",
+      "action": "Decision run: All signal files empty. No tasks to dispatch."
+    },
     {
       "timestamp": "2026-02-28T06:00:00-06:00",
       "action": "Decision run: All signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
@@ -10,10 +14,6 @@
     {
       "timestamp": "2026-02-28T03:00:00-06:00",
       "action": "Decision run: Signal files empty. No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-28T02:20:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
     }
   ],
   "schemaVersion": "2.0",
