@@ -1,47 +1,19 @@
 {
   "dedupe": {},
-  "lastRunAt": "2026-02-27T00:00:00-06:00",
+  "lastRunAt": "2026-02-28T06:00:00-06:00",
   "lessons_learned": [],
   "recent": [
     {
-      "timestamp": "2026-02-27T00:00:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json, tsi-leadgen/, career/pipeline.json, career/intel/). No tasks to dispatch."
+      "timestamp": "2026-02-28T06:00:00-06:00",
+      "action": "Decision run: All signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
     },
     {
-      "timestamp": "2026-02-26T23:44:00-06:00",
+      "timestamp": "2026-02-28T03:00:00-06:00",
+      "action": "Decision run: Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-02-28T02:20:00-06:00",
       "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-26T23:20:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-26T22:20:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-26T21:40:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-26T20:20:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-26T19:40:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json, tsi-leadgen/, open-loops.md). No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-26T17:20:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, queue.json). No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-26T17:00:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json, tsi-leadgen/). No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-02-26T14:20:00-06:00",
-      "action": "Decision run: Signal files empty (projects.json, open-loops.json). No tasks to dispatch."
     }
   ],
   "schemaVersion": "2.0",
