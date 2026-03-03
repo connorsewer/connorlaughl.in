@@ -1,10 +1,23 @@
 {
   "dedupe": {},
-  "lastRunAt": "2026-03-02T10:00:00-06:00",
+  "lastRunAt": "2026-03-02T14:20:00-06:00",
   "lessons_learned": [
-    "Signal files (projects.json, open-loops.json, queue.json) all empty - no tasks to dispatch"
+    "Signal files (projects.json, open-loops.json, queue.json) all empty - no tasks to dispatch",
+    "Referenced signal paths (career/pipeline.json, tsi-leadgen/) do not exist"
   ],
   "recent": [
+    {
+      "timestamp": "2026-03-02T14:20:00-06:00",
+      "action": "Decision run: Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-03-02T13:20:00-06:00",
+      "action": "Decision run: Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-03-02T12:20:00-06:00",
+      "action": "Decision run: Signal files empty. No tasks to dispatch."
+    },
     {
       "timestamp": "2026-03-02T10:00:00-06:00",
       "action": "Decision run: Signal files empty. No tasks to dispatch."
@@ -23,14 +36,6 @@
     },
     {
       "timestamp": "2026-03-02T04:15:00-06:00",
-      "action": "Decision run: Signal files empty. No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-03-02T03:20:00-06:00",
-      "action": "Decision run: Signal files empty. No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-03-02T00:20:00-06:00",
       "action": "Decision run: Signal files empty. No tasks to dispatch."
     }
   ],
