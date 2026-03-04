@@ -1,33 +1,25 @@
 {
   "dedupe": {},
-  "lastRunAt": "2026-03-03T10:40:00-06:00",
+  "lastRunAt": "2026-03-03T23:20:00-06:00",
   "lessons_learned": [
     "Signal files (projects.json, open-loops.json) remain empty - no tasks to dispatch",
     "context-pack.md does not exist at expected path"
   ],
   "recent": [
     {
-      "timestamp": "2026-03-03T11:00:00-06:00",
+      "timestamp": "2026-03-03T23:20:00-06:00",
       "action": "Decision run: Signal files empty. No tasks to dispatch."
     },
     {
-      "timestamp": "2026-03-03T10:20:00-06:00",
+      "timestamp": "2026-03-03T23:00:00-06:00",
       "action": "Decision run: Signal files empty. No tasks to dispatch."
     },
     {
-      "timestamp": "2026-03-03T09:20:00-06:00",
+      "timestamp": "2026-03-03T21:40:00-06:00",
       "action": "Decision run: Signal files empty. No tasks to dispatch."
     },
     {
-      "timestamp": "2026-03-03T09:00:00-06:00",
-      "action": "Decision run: Signal files empty. No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-03-03T05:00:00-06:00",
-      "action": "Decision run: Signal files empty. No tasks to dispatch."
-    },
-    {
-      "timestamp": "2026-03-03T03:40:00-06:00",
+      "timestamp": "2026-03-03T21:00:00-06:00",
       "action": "Decision run: Signal files empty. No tasks to dispatch."
     }
   ],

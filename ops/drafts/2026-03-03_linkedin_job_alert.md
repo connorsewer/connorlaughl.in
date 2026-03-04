@@ -1,17 +1,20 @@
-# Draft: Job Alert - LinkedIn
+# Email Draft - LinkedIn Job Alert
+
 **Date:** 2026-03-03
 **Source:** LinkedIn Job Alerts
 **Category:** jobs
+**Urgency:** low
 
-## Original Subject
-"Head of Marketing Operations": Grant Thornton (US) - Director, Integrated Marketing (Special Projects & Growth Initiatives)
+## Email Details
+- **From:** LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+- **Subject:** "Vice President of Revenue...": Wpromote - Vice President, Revenue Operations and Enablement and more
+- **Thread ID:** 19cb5ebf98a816c9
 
 ## Summary
-Job alert for Director-level marketing ops role at Grant Thornton.
+Job alert for VP-level positions (Revenue Operations, Revenue Enablement).
 
-## Action Items
-- [ ] Review job details if interested in marketing leadership roles
-- [ ] Determine if Grant Thornton aligns with career goals
+## Action
+Review if interested in VP Revenue Ops roles. No draft reply needed (this is a notification, not recruiter outreach).
 
-## Notes
-Not a direct recruiter outreach - job alert notification.
+---
+*Processed by INBOX GUARDIAN - Do not send automatically*
