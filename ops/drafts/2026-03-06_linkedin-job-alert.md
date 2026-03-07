@@ -1,20 +1,17 @@
-# Email Draft Stub
+# Draft: LinkedIn Job Alert
+
 **Date:** 2026-03-06
-**Source:** LinkedIn Job Alerts
+**From:** LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+**Subject:** "chief marketing officer": Orpine Inc, an Inc 5000 Company - Interim Chief Marketing Officer
 **Category:** jobs
-**Processed:** 2026-03-06T13:45:00Z
 
-## Original Email
-- **From:** LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
-- **Subject:** "vice president marketing": Jobgether - VP, Marketing and more
-- **Date:** March 6, 2026 12:57 PM
+## Preview
+Orpine Inc, an Inc 5000 Company is hiring for Interim Chief Marketing Officer – Demand Generation & Modern Search/ Interim CMO/ Chief Marketing Officer/ Fractional CMO...
 
-## Summary
-Job alert for "vice president marketing" positions via Jobgether
+## Actions Taken
+- [ ] Review job details on LinkedIn
+- [ ] Decide if interested
+- [ ] If interested: save job ID for later
 
-## Action Items
-- [ ] Review job listings
-- [ ] Decide if interested in applying
-
-## Response Status
-Not a direct recruiter outreach - job alert email. No reply needed.
+## Notes
+Job alert notification (not a direct recruiter outreach). This is informational - no reply needed unless you want to save the job.
