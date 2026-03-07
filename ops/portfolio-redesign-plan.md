@@ -1,7 +1,7 @@
 # Portfolio Redesign Plan
 
-**Prepared:** March 6, 2026  
-**Goal:** Comprehensive research and planning for VP/GTM portfolio website
+**Created:** March 7, 2026  
+**Goal:** Comprehensive planning for VP/GTM portfolio website
 
 ---
 
@@ -9,58 +9,75 @@
 
 ### Key Visual Directions
 
-- **AI-meets-human aesthetic**: Blending digital precision with organic, handmade elements for warmth
-- **Modular layouts**: Dynamic grid systems that break traditional rigid structures — great for showcasing diverse work
-- **Quiet neutrals + warm accents**: Layered highlights, subtle depth, sophisticated color palettes
-- **Micro-interactions**: Thoughtful animations on hover, scroll-triggered reveals
-- **3D/WebGL integration**: Interactive 3D elements (Spline, Three.js) for standout visual impact
+**Minimalist & Typography-Led**
+- Clean layouts with generous white space
+- Bold, distinctive typography as the hero element
+- Focus on elegant serif/sans-serif pairings
+- "Content first" approach where work takes center stage
 
-### Awwwards/Dribbble Inspirations
+**Modular & Bento Grids**
+- Grid-based layouts with modular card systems
+- Bento-style (Apple-inspired) content blocks
+- Flexible, asymmetric compositions
+- Great for showcasing diverse work types
 
-- Brutalist design with mini-games (Toggl example) — bold, memorable
-- Scroll-driven storytelling with parallax
-- Typography-led design with bold, distinctive type choices
-- Dark mode with glowing accents for tech-forward feel
+**Immersive & Interactive**
+- 3D elements (Spline, Three.js)
+- Micro-interactions and hover states
+- Scroll-triggered animations
+- Subtle parallax effects
 
-### Recommended Approach
+**Brutalist Accents**
+- Raw, unpolished aesthetic touches
+- Bold colors contrasted with monochrome
+- Playful elements (mini-games, unexpected interactions)
+- Works for differentiation in creative agencies
 
-- **Hero:** Clean, statement typography with subtle 3D element or motion
-- **Navigation:** Minimal, sticky, with smooth scroll anchors
-- **Layout:** Asymmetric modular grid for case studies
-- **Footer:** Contact info, social links, downloadable resume
+**AI-Collaborative Design**
+- AI-generated visuals integrated thoughtfully
+- Dynamic, data-driven content sections
+- Personalized experiences based on visitor behavior
+
+### Recommended Aesthetic Direction
+For VP/GTM roles, lean toward **minimalist + professional + subtle polish**:
+- Typography-led design (trust, expertise)
+- Subtle animations (modern, not distracting)
+- Clean grid layouts (organized, strategic thinking)
+- Avoid overly flashy—credibility is the goal
 
 ---
 
-## 2. CMS Options
+## 2. CMS Options Comparison
 
-### Headless CMS Comparison
+### Options for Portfolio Content
 
-| CMS | Best For | Pros | Cons |
-|-----|----------|------|------|
-| **Sanity** | Complex content, custom schemas | Real-time collaboration, highly customizable Studio, GROQ query language | Steeper learning curve |
-| **Notion** | Simple, familiar interface | Ultra-easy for non-technical editors, free tier | Limited API flexibility, less structured |
-| **Prismic** | Visual page building | Slice machine, great for repeatable components | Less flexible than Sanity |
-| **Contentful** | Enterprise-scale | Robust, well-documented, strong integrations | Can feel bloated for personal site |
-| **Strapi** | Full control, self-hosted | Open-source, complete customization | Requires server management |
+| CMS | Type | Best For | Pros | Cons |
+|-----|------|----------|------|------|
+| **Notion** | Simple/API | Fast setup, ease of use | Free, familiar UI, easy updates | Limited customization, API complexity for dynamic sites |
+| **Sanity** | Headless | Full control, custom schemas | Real-time collaboration, highly customizable | Steeper learning curve, more setup |
+| **Contentful** | Headless | Enterprise, scalability | Strong integrations, good docs | Can be pricey, rigid structure |
+| **Prismic** | Headless | Visual editing | Slice machine, visual builder | Less flexible than Sanity |
+| **Framer** | All-in-one | Speed, design-forward | Built-in CMS, beautiful templates | Less control, platform dependency |
+| **Webflow** | All-in-one | Design freedom | Powerful designer, CMS built-in | Learning curve, hosting costs |
 
 ### Recommendation for VP/GTM Portfolio
 
-**Option A — Notion (Simplest)**
-- Use Notion as backend, export via Super.so or similar
-- Perfect if you want zero maintenance
-- Great for content-heavy case studies
+**Primary: Framer** (if going fast)
+- Fastest path to beautiful result
+- Built-in CMS works for case studies/blog
+- Native hosting and analytics
+- Templates available
 
-**Option B — Sanity (Best Balance)**
-- Custom studio tailored to your content types
-- Portable, future-proof
-- Works seamlessly with Next.js
+**Alternative: Sanity + Next.js** (if wanting full control)
+- Complete flexibility
+- Portable content (not locked to platform)
+- Best for future-proofing
+- Requires more dev work
 
-**Option C — No CMS (Static)**
-- Markdown/MDX files in repo
-- Maximum performance, version control
-- Manual edits only
-
-**Recommended:** Start with **Notion + Super.so** for ease, graduate to **Sanity** if you need richer customization.
+**Simplest: Notion + Super.so** (if minimizing effort)
+- Write in Notion, Super publishes to site
+- Free, instant updates
+- Limited design control
 
 ---
 
@@ -68,23 +85,35 @@
 
 ### Comparison
 
-| Library | Use Case | Learning Curve | Bundle Size | Best For |
-|---------|----------|----------------|-------------|----------|
-| **Framer Motion** | React UI animations | Low | ~30kb | Page transitions, scroll animations, state-based interactions |
-| **GSAP** | Complex, precise animations | Medium | ~60kb+ (plugins extra) | Timeline sequences, scroll-triggered, complex choreography |
-| **Three.js / React Three Fiber** | 3D/WebGL | High | ~500kb+ | Immersive 3D experiences |
-| **Spline** | 3D without code | Low | Embed only | Interactive 3D elements, exports to embed |
+| Library | Use Case | Learning Curve | Performance | Best For |
+|---------|----------|---------------|-------------|----------|
+| **Motion (Framer Motion)** | React apps | Low | Excellent | UI transitions, scroll animations, layout shifts |
+| **GSAP** | Complex animations | Medium | Excellent | Timeline-based sequences, complex interactions |
+| **Three.js / React Three Fiber** | 3D experiences | High | Good | 3D models, immersive scenes |
+| **Spline** | 3D elements | Low-Medium | Good | Embeddable 3D, simple interactions |
+| **Lenis** | Smooth scrolling | Low | Excellent | Modern scroll experience |
 
-### Modern Recommendation
+### Recommendation
 
-- **Primary:** Framer Motion (now "Motion") — native React, excellent DX, hardware-accelerated
-- **Secondary:** GSAP for complex scroll sequences (ScrollTrigger)
-- **Accent:** Spline for lightweight 3D embeds (lowest overhead vs. full Three.js)
+**Primary: Motion (Framer Motion)**
+- Easiest to learn and maintain
+- Perfect for portfolio interactions
+- Great documentation
+- React ecosystem standard
 
-### Performance Note
-- Keep animations purposeful, not decorative
-- Respect `prefers-reduced-motion`
-- Lazy-load 3D elements
+**Add-on: Lenis for Smooth Scroll**
+- Pairs with any animation library
+- Professional polish
+- Easy integration
+
+**Optional: Spline for 3D Accents**
+- If wanting subtle 3D (not full 3D site)
+- Embed as components
+- Lower maintenance than Three.js
+
+**Skip: GSAP** unless you need complex timelines
+- Overkill for portfolio
+- More expensive to maintain
 
 ---
 
@@ -92,152 +121,178 @@
 
 ### Audience
 - Recruiters and hiring managers
-- Potential employers (CTOs, CEOs, board members)
-- Partnership leads, investors
+- C-suite executives (potential employers)
+- Board members (advisory/board roles)
+- Potential clients/partners
 
-### Key Sections
+### Key Content Sections
 
-1. **Hero Statement**
-   - Clear value prop in 1-2 sentences
-   - "I help [company type] achieve [specific outcome]"
-   - No generic "I build strategies"
+**1. Hero/Intro**
+- Clear value proposition in 5-10 seconds
+- "I help [specific outcome] for [specific company type]"
+- Professional tone, not salesy
 
-2. **About / Origin Story**
-   - Brief narrative: background, philosophy, what drives you
-   - Show personality — executive presence without corporate speak
+**2. About/Background**
+- Executive summary (2-3 paragraphs max)
+- Career highlights with quantifiable results
+- Leadership philosophy (brief)
+- Personal element (1 sentence, optional)
 
-3. **Experience Timeline**
-   - Reverse chronological
-   - Focus on **impact + outcomes** over responsibilities
-   - Metrics: revenue growth %, pipeline generated, team size, market expansion
+**3. Experience/Track Record**
+- Companies worked at + tenure
+- Key achievements (quantified: revenue, growth, teams)
+- 3-5 featured case studies with outcomes
+- Not just responsibilities—focus on impact
 
-4. **Case Studies / Wins**
-   - 3-5 detailed projects
-   - Problem → Strategy → Execution → Results format
-   - Quantifiable outcomes (e.g., "$2M pipeline generated," "3x conversion")
+**4. What I Do / Services** (if consulting)
+- Clear offering
+- Target客户/role types
 
-5. **Thought Leadership** (optional but recommended)
-   - Links to talks, articles, podcasts
-   - Demonstrates position as subject matter expert
+**5. Thought Leadership** (optional but valuable)
+- Links to articles, talks, podcasts
+- Speaking topics
+- Industry perspectives
 
-6. **Services / What I Do**
-   - If consulting/advisory: clear offerings
-   - If full-time: what you're looking for
+**6. Contact**
+- Email, LinkedIn, calendar link
+- Clear call to action
 
-7. **Contact**
-   - Email, LinkedIn, Calendly link
-   - Clear CTA
-
-### Tone
-- **Confident, not arrogant** — lead with results
-- **Specific over general** — "GTM strategy" → "Product-led growth for B2B SaaS"
-- **Human** — this is a person, not a resume
+### Tone & Voice
+- **Confident, not arrogant** — results speak
+- **Strategic, not tactical** — big-picture thinking
+- **Action-oriented** — verbs, outcomes, impact
+- **Brief** — executives have 30 seconds
 
 ---
 
-## 5. Competitor Portfolios (AI/Tech Executives)
+## 5. Competitor/Reference Portfolios
 
 ### Inspiration Sources
 
-- **Deepak Mann** (deepakmann.com) — VP Marketing portfolio example
-- **GrowthMentor** platform — Head of Growth profiles
-- **Awwwards Portfolio** category — filter by "minimal" or "creative"
-- **SiteBuilderReport Personal Websites** — curated executive examples
+**Executive Portfolio Examples:**
+- Former GTM leaders at scaling startups
+- VP Marketing/Revenue at AI companies
+- Advisory/board member profiles
 
-### AI Company Leadership to Study
+**Portfolio Templates to Study:**
+- Awwwards "Portfolio" category (filter by minimal)
+- Dribbble "Portfolio" search (filter by dark mode, minimal)
+- Framer Template Gallery (search "portfolio", "minimal")
 
-- Look at leadership pages of: Anthropic, OpenAI, xAI, Mistral, Cohere
-- Note: Most have minimal individual pages — your differentiator is having a strong personal presence
+**AI Company Leadership to Reference:**
+- Anthropic leadership page (anthropic.com/about)
+- OpenAI leadership (openai.com/about)
+- Scale AI executive profiles
+- Note: These are company pages, but show how tech leaders present
 
-### What Works
-
-- Clean, typography-driven design
-- Minimal visual noise — content is the star
-- Subtle animations that feel premium, not flashy
-- Dark mode common in tech
+### Elements to Borrow
+- Clear value proposition formats
+- Quantified achievement displays
+- Professional but distinctive layouts
+- Mobile-first responsive approach
 
 ---
 
 ## 6. Technical Recommendations
 
-### Stack
+### Recommended Stack
 
-| Layer | Recommendation |
-|-------|---------------|
-| **Framework** | Next.js 14+ (App Router) |
-| **Styling** | Tailwind CSS |
-| **Animation** | Motion (Framer Motion) + GSAP (ScrollTrigger) |
-| **3D** | Spline embeds |
-| **Hosting** | Vercel |
-| **CMS** | Notion (via Super.so) or Sanity |
-| **Analytics** | Vercel Analytics or simple Plausible |
+**Option A: Fastest to Launch**
+```
+Framer → Built-in CMS → Vercel hosting (automatic)
+```
 
-### Performance Targets
+**Option B: Maximum Control**
+```
+Next.js + Sanity + Motion + Tailwind CSS
+```
 
-- Lighthouse Performance: 90+
-- First Contentful Paint: <1.5s
-- Total bundle: <200kb (excluding images)
-- LCP: <2.5s on mobile
+**Option C: Simplest**
+```
+Notion → Super.so → Custom domain
+```
 
-### Accessibility
-
-- WCAG 2.1 AA minimum
-- Keyboard navigation
-- Screen reader friendly
-- Reduced motion support
+### For This Use Case
+Given VP/GTM role focus, **recommend Option A (Framer)**:
+- Time-efficient for busy executive
+- Professional results without dev overhead
+- Easy to update case studies yourself
+- Built-in SEO and analytics
 
 ---
 
 ## 7. Implementation Roadmap
 
-### Phase 1: Foundation (Week 1)
-- [ ] Define content strategy and gather assets
-- [ ] Choose CMS approach
-- [ ] Wireframe/UX design
-- [ ] Set up Next.js + Tailwind
+### Phase 1: Strategy & Content (Week 1)
+- [ ] Finalize value proposition
+- [ ] Write executive bio
+- [ ] Select 3-5 case studies with metrics
+- [ ] Gather assets (headshots, logos, graphics)
 
-### Phase 2: Build (Week 2)
-- [ ] Implement core pages
+### Phase 2: Design & Build (Week 2-3)
+- [ ] Choose template or start custom
+- [ ] Customize typography and colors
+- [ ] Build all sections
 - [ ] Add animations (Motion)
-- [ ] Integrate CMS
-- [ ] Mobile responsive
+- [ ] Mobile responsive check
 
-### Phase 3: Polish (Week 3)
-- [ ] 3D elements (Spline)
-- [ ] Scroll interactions (GSAP)
-- [ ] Performance optimization
-- [ ] Accessibility audit
+### Phase 3: Content & Polish (Week 4)
+- [ ] Populate all content
+- [ ] QA all interactions
+- [ ] SEO optimization
+- [ ] Performance audit
+- [ ] Cross-device testing
 
-### Phase 4: Launch (Week 4)
-- [ ] Testing across devices
-- [ ] SEO setup
-- [ ] Analytics
-- [ ] Deploy to Vercel
+### Phase 4: Launch (Week 5)
+- [ ] Connect custom domain
+- [ ] Set up analytics
+- [ ] Test all forms/links
+- [ ] Announce (LinkedIn, Twitter)
 
 ---
 
-## 8. Budget Considerations
+## 8. Key Decisions to Make
 
-| Item | Estimated Cost |
-|------|---------------|
-| Domain | $12/year |
-| Hosting (Vercel) | $0-20/month (free tier) |
-| CMS | $0-50/month (Notion free, Sanity free tier) |
-| 3D Tools (Spline) | $0 (free tier) |
-| Custom Design | Time investment |
+Before building, clarify:
+
+1. **Primary Goal** — Recruiting? Consulting? Board roles? Advisory?
+2. **Target Audience** — What roles/companies are you pursuing?
+3. **Budget** — $0 (Notion/Framer free) vs $500+ (custom)
+4. **Time Investment** — Template (hours) vs Custom (weeks)
+5. **Maintenance** — Who will update? How often?
+
+---
+
+## 9. Quick-Start Template Recommendations
+
+If using Framer, search for:
+- "Minimal Portfolio"
+- "Bento Portfolio"
+- "Personal Brand"
+- "Executive"
+- "Dark Mode Portfolio"
+
+Free options to evaluate:
+- Palmer (minimal)
+- BentoVibe (grid)
+- Kajo (minimal)
+- Various creator portfolios
 
 ---
 
 ## Summary
 
-For a VP/GTM portfolio in 2026, the ideal approach:
+For a VP/GTM portfolio in 2026:
 
-1. **Design:** Clean, typography-led with modular layouts and subtle premium animations
-2. **Content:** Focus on quantified outcomes and thought leadership
-3. **Tech:** Next.js + Motion + Tailwind + Notion (simplest) or Sanity (more control)
-3. **3D:** Spline for accent pieces, avoid full Three.js overhead
-4. **Vibe:** Professional, distinctive, memorable — show you understand modern product
+| Category | Recommendation |
+|----------|----------------|
+| **Design** | Minimalist, typography-led, subtle animations |
+| **CMS** | Framer (fastest) or Sanity (flexible) |
+| **Animations** | Motion (Framer Motion) + Lenis for scroll |
+| **Content** | Results-focused, quantified, brief |
+| **Stack** | Framer template + customizations |
+| **Timeline** | 4-5 weeks from start to launch |
 
 ---
 
-*Ready to build? Let me know and we can start Phase 1.*
+*Ready to build? Let me know which direction resonates and I'll move forward.*
