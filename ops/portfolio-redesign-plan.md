@@ -1,296 +1,303 @@
 # Portfolio Redesign Plan
 
-**Date:** March 8, 2026  
-**Purpose:** Deep research and comprehensive planning for ideal portfolio website for VP/GTM executive role at AI company
+**Date:** March 9, 2026  
+**Goal:** Comprehensive research and planning for a VP/GTM-focused portfolio website
 
 ---
 
-## 1. Modern Portfolio Design Trends (2026)
+## 1. Modern Portfolio Design Trends
 
-### Key Visual Directions
+### Key Themes for 2026
 
-| Trend | Description | Fit for VP/GTM |
-|-------|-------------|-----------------|
-| **AI-Human Collaborative Design** | Mix of digital precision with handmade/organic aesthetics | ✅ Strong - shows tech sophistication while humanizing |
-| **Modular/Asymmetric Layouts** | Breaking grid constraints, dynamic content blocks | ⚠️ Medium - can work but needs to remain professional |
-| **Brutalist Elements** | Raw, bold typography, unexpected interactions (e.g., Toggl's mini games) | ⚠️ Risk - too playful for executive brand |
-| **Dark Mode Dominance** | Sleek, premium feel with strategic accent colors | ✅ Strong - industry standard for AI/Tech |
-| **Micro-interactions** | Subtle animations on hover, scroll-triggered reveals | ✅ Essential - shows attention to detail |
-| **Immersive Typography** | Large, expressive type as visual hero | ✅ Strong - communicates authority |
+**AI-Human Collaboration**
+- Designers collaborate with AI to generate layouts, suggest typography, create visuals
+- Mixed digital + handmade aesthetics for unique, memorable look
+- Dynamic, alive website structures that feel non-static
 
-### Awwwards/Dribbble Inspiration
+**Visual & Layout Trends**
+- **Modular layouts** — flexible grids beyond traditional column structures
+- **Micro-interactions** — subtle animations on hover, scroll, click
+- **Dark mode** — prevalent in tech/AI portfolios
+- **Bento grids** — Apple-style modular card layouts gaining popularity
+- **Glassmorphism & blur effects** — depth through transparency layers
+- **Bold typography** — large, expressive type as hero elements
+- **Immersive scroll experiences** — parallax, scroll-triggered reveals
 
-- **Clean Minimalist** with bold headers and generous whitespace (prioritizes readability + professionalism)
-- **Interactive case studies** with scroll-driven storytelling
-- **Dynamic imagery** - not static photos but motion-enabled visuals
-- **Focus on outcomes** - metrics, revenue impact, growth percentages prominently displayed
+**Notable Platforms for Inspiration**
+- Awwwards Portfolio section (awwwards.com/websites/portfolio/)
+- Dribbble Portfolio tag
+- SiteBuilderReport UX Portfolios (30+ examples)
+- Lovable's "10 Website Design Trends 2026"
 
-### Recommended Aesthetic Direction
-> **"Sophisticated Minimalist"** - Dark theme with subtle depth, confident typography, strategic use of accent color. Prioritizes content hierarchy over decorative elements. Animations should feel premium, not playful.
+**Recommendation:** Lead with clean, sophisticated minimalism with selective micro-interactions. Avoid over-animation — GTM executives need to convey credibility, not just flash.
 
 ---
 
-## 2. CMS Options Comparison
+## 2. CMS Options
+
+### Comparison Matrix
+
+| CMS | Type | Best For | Learning Curve | Pricing |
+|-----|------|----------|----------------|---------|
+| **Notion** | Page-based/API | Simplicity, rapid setup | Low | Free tier, $10+/user |
+| **Sanity** | Headless | Custom schemas, real-time collab | Medium | Free tier, $50+/mo for pro |
+| **Contentful** | Headless | Enterprise, scale | Medium | Free tier, $75+/mo |
+| **Strapi** | Headless (open-source) | Full control, self-hosted | Medium-High | Free (self-hosted) |
+| **Prismic** | Headless | Visual page building | Low-Medium | Free tier, $7+/mo |
+| **Payload** | Headless | Developer-heavy, complex apps | High | Free (self-hosted) |
 
 ### Headless vs Traditional
 
-| Factor | Headless CMS | Traditional CMS (WordPress, etc.) |
-|--------|--------------|-----------------------------------|
-| **Flexibility** | ✅ Any frontend framework | ❌ Tied to template system |
-| **Performance** | ✅ Optimized API delivery | ⚠️ Can be slower |
-| **Developer Experience** | ✅ Code-driven content models | ❌ Visual but limited |
-| **Maintenance** | ✅ Less server management | ❌ Security updates, hosting |
-| **Cost** | ⚠️ May have API costs | ✅ Lower hosting costs |
+**Headless CMS** (recommended for this use case):
+- Content can be reused across multiple frontends (web, mobile, etc.)
+- Full control over frontend tech stack
+- Better performance, security, scalability
+- Contentful, Sanity, Strapi, Prismic, Payload
 
-### Recommended Options for Portfolio
+**Traditional CMS** (WordPress, Webflow):
+- All-in-one solution
+- Easier for non-technical editors
+- Less flexibility for custom animations/interactions
 
-| CMS | Pros | Cons | Best For |
-|-----|------|------|----------|
-| **Sanity** | Real-time collaboration, highly customizable studio, excellent Next.js integration, GROQ query language, generous free tier | Learning curve for content modeling | ✅ **Recommended** - Best balance of flexibility and DX |
-| **Notion** | Familiar interface, instant publishing via Super.so or similar, free | Limited API flexibility, page-based not structured | ⚠️ Good for quick MVP, less customizable |
-| **Contentful** | Enterprise-grade, strong integrations | Can be overkill, pricing scales | ⚠️ Overengineered for personal portfolio |
-| **Prismic** | Visual slice-based editing | Less flexible than Sanity | ⚠️ Medium |
-| **Builder.io** | Visual headless CMS, AI-assisted | Newer, less mature ecosystem | Good alternative |
+### Recommendation
 
-### Recommended Stack: **Sanity + Next.js**
-- Sanity provides structured content with real-time preview
-- Next.js offers excellent performance and SEO
-- Sanity Studio can be embedded or hosted separately
-- Free tier is generous for personal portfolio
+**Primary: Sanity**
+- Best-in-class developer experience
+- Real-time collaboration
+- Highly customizable Studio (React-based)
+- Strong AI/tech company adoption
+- GROQ query language is powerful
+- Portable — can export content anytime
+
+**Alternative: Notion + Super.so**
+- Fastest time to launch
+- Familiar interface
+- Super.so turns Notion into a website
+- Less customization for complex animations
 
 ---
 
-## 3. Animation Libraries Comparison
+## 3. Animation Libraries
 
-### Framer Motion (now "Motion") vs GSAP vs Three.js/Spline
+### Comparison
 
-| Library | Bundle Size | Learning Curve | Performance | Best Use Case |
-|---------|-------------|----------------|-------------|---------------|
-| **Motion (Framer Motion)** | ~30KB | Low (React-centric) | Excellent | UI animations, transitions, scroll-triggered |
-| **GSAP** | ~60KB+ (modular) | Medium | Exceptional | Complex timelines, scroll-driven, SVG |
-| **Three.js** | ~500KB+ | High | Good with optimization | Full 3D scenes, WebGL |
-| **Spline** | Runtime only | Low (visual) | Good | Quick 3D elements, no code |
+| Library | Use Case | Bundle Size | Learning Curve | React Integration |
+|---------|----------|-------------|---------------|-------------------|
+| **Framer Motion** (now "Motion") | UI animations, transitions | ~40KB | Low | Excellent |
+| **GSAP** | Complex timelines, scroll triggers | ~60KB+ | Medium | Good (with React plugins) |
+| **Three.js** | Full 3D experiences | ~500KB+ | High | Manual |
+| **React Three Fiber** | 3D in React | Varies | Medium-High | Excellent |
+| **Spline** | No-code 3D embeds | Varies | Low | Good (@splinetool/react-spline) |
 
-### Detailed Recommendations
+### Key Insights
 
-#### Primary: **Motion (Framer Motion)**
-- ✅ Native React integration
-- ✅ Declarative syntax matches component model
-- ✅ Scroll-triggered animations via `useScroll`
-- ✅ Layout animations with `layoutId` for smooth transitions
-- ✅ Gestures built-in (drag, hover, tap)
-- ✅ 3.6M weekly downloads, active community
+- **Framer Motion** = 99% of use cases; easiest for React
+- **GSAP** = That 1% complex animation (timelines, scroll triggers, club plugins)
+- **Three.js/R3F** = Full 3D pages, WebGL effects (high performance cost)
+- **Spline** = Best for adding 3D accents without full 3D dev expertise
 
-#### Secondary: **GSAP**
-- ✅ For complex scroll timelines
-- ✅ SVG animations
-- ✅ Plugin ecosystem (ScrollTrigger essential)
-- ⚠️ Use only when Motion falls short
+### Recommendation
 
-#### 3D: **Spline** (not Three.js directly)
-- ✅ No-code 3D design exported to React
-- ✅ @splinetool/react-spline package
-- ✅ Export to react-three-fiber if custom code needed
-- ⚠️ Three.js is overkill unless you need custom WebGL
+**Primary: Framer Motion**
+- Best developer experience for React/Next.js
+- Shared element transitions (layoutId)
+- AnimatePresence for mounting/unmounting
+- Hardware accelerated via native browser APIs
+- Open source
 
-### Animation Strategy for VP Portfolio
-1. **Subtle entrance animations** - Elements fade/slide in on load
-2. **Scroll-triggered reveals** - Content appears as user scrolls
-3. **Hover states** - Interactive elements respond to user action
-4. **Optional hero 3D** - Spline scene as accent (not full 3D site)
-5. **Avoid** - Excessive motion, distracting animations, "look at me" effects
+**Accent: Spline**
+- Add 1-2 interactive 3D elements (abstract shapes, objects)
+- Export to @splinetool/react-spline
+- Keep it subtle — don't overpower the content
+
+**Avoid for MVP:**
+- Full Three.js unless you're building a 3D-heavy experience
+- GSAP unless you need complex scroll-triggered timelines
 
 ---
 
 ## 4. Content Strategy for VP/GTM Roles
 
-### Audience Analysis
+### Target Audience
+- Board members & investors
+- Potential employers (C-level, VPs)
+- Portfolio company leadership (if PE/VC context)
+- Potential clients/consulting prospects
 
-**Primary Visitors:**
-- CEOs/Founders hiring for GTM leadership
-- Board members evaluating executive team
-- Recruiting firms
-- Potential investors (for company context)
-- Peer executives networking
+### Portfolio Sections
 
-**What They Care About:**
-- Proven track record and quantifiable results
-- Strategic thinking, not just tactics
-- Leadership capability and team building
-- Domain expertise in AI/Tech
-- Cultural fit and communication style
+**1. Hero**
+- Clear value proposition in 1-2 sentences
+- "VP of Go-to-Market" or similar title
+- Subtle indicator of AI/tech focus
+- Contact CTA
 
-### Content Architecture
+**2. About/Story**
+- Professional narrative — career arc, philosophy
+- Key themes: scale, execution, revenue growth
+- Not a full resume — curated highlights
+- Optional: brief video or voice
 
-| Section | Purpose | Key Elements |
-|---------|---------|--------------|
-| **Hero** | Immediate impact & value proposition | Tagline, credibility anchors, call to action |
-| **About** | Personal story + professional summary | Origin story, philosophy, leadership style |
-| **Experience** | Credibility through companies & roles | Timeline, company context, scope |
-| **Impact/Results** | Proof of capability | Metrics, % growth, revenue impact, key wins |
-| **Case Studies** | Deep dives into specific achievements | Challenge → Approach → Results format |
-| **Speaking/Thought Leadership** | Industry recognition | Talks, articles, podcasts, quotes |
-| **Connect** | Low-friction contact | Multiple channels, Calendly embed option |
+**3. Experience**
+- 3-5 key roles with focus on results
+- Quantifiable achievements: revenue growth %, ARR, pipeline generated
+- Company context (stage, sector)
+- Brief bullet points, not paragraphs
 
-### VP/GTM-Specific Messaging Themes
+**4. Case Studies / Wins**
+- 2-3 deep-dive projects
+- Problem → Approach → Result structure
+- Metrics-heavy (%, $, time saved)
+- Visual elements: charts, before/after
 
-1. **Revenue Growth Story** - Percentages, ARR, pipeline built
-2. **Team Building** - Organizations built, leaders developed
-3. **Go-to-Market Playbooks** - Playbooks created, frameworks developed
-4. **Cross-functional Leadership** - Sales + Marketing + Product alignment
-5. **AI/Tech Domain Expertise** - Specific understanding of AI market
+**5. Thought Leadership** (optional but recommended)
+- Link to LinkedIn articles
+- Speaking engagements
+- Key presentations (embed or link)
+- Newsletter subscription
 
-### Tone & Voice
+**6. Recommendations**
+- 2-4 brief testimonials from execs/board members
+- Name, title, company
+- Build credibility through social proof
 
-- **Confident but not arrogant** - Results speak, bragging feels different
-- **Strategic over tactical** - Focus on "why" not just "what"
-- **Action-oriented** - Verbs, outcomes, forward momentum
-- **Human** - Brief personal element but professional focus
+**7. Contact**
+- Email, LinkedIn, optional calendar link
+- Clear CTA
 
----
+### Content Principles
 
-## 5. Competitor/Peer Portfolio Analysis
-
-### AI Company Executive Profiles to Reference
-
-| Company | Role Type | Notable Elements |
-|---------|-----------|------------------|
-| **OpenAI** | VP/Business | Limited public presence, mostly company pages |
-| **Anthropic** | GTM Leadership | Company culture, research focus |
-| **Scale AI** | Revenue Leaders | Scale mindset, enterprise focus |
-| **Databricks** | VP Marketing/GTM | Data-driven narrative |
-| **Cohere** | Business Executives | AI platform positioning |
-
-### Personal Portfolio Examples (Non-AI but Relevant)
-
-- **Jessica Hische** - Designer, strong typography, clean hierarchy
-- **Agustín Schelstraete** (ashcamp) - Bold header, clean work showcase
-- **Ryan Sullivan** (Framer template) - Modern developer aesthetic
-
-### What Works for Executive Portfolios
-
-✅ **Strong**:
-- Results-frontloaded messaging ("Built $50M pipeline")
-- Company logos of notable employers
-- Clear value proposition in hero
-- Minimal navigation, focused journey
-- Professional photography (or strong abstract)
-- Downloadable one-pager/resume
-
-⚠️ **Avoid**:
-- Overly creative/flashy (distracts from credibility)
-- Too much about personal life
-- Weak or missing case studies
-- Outdated information
-- Generic "I help companies" messaging
+- **Results-first** — GTM is about execution and impact
+- **Quantify everything** — percentages, dollars, timelines
+- **Show, don't tell** — case studies over claims
+- **Credibility signals** — logos, testimonials, numbers
+- **Keep it fresh** — last update date visible
+- **Mobile-first** — executives review on phones
 
 ---
 
-## 6. Technical Recommendations
+## 5. Competitor/Peer Portfolios
 
-### Recommended Tech Stack
+### AI/GTM Executive References
 
-| Layer | Technology | Rationale |
-|-------|------------|-----------|
-| **Framework** | Next.js 14+ | Performance, SEO, React ecosystem |
-| **CMS** | Sanity | Structured content, real-time preview |
-| **Animation** | Motion (Framer Motion) | Primary; GSAP for complex |
-| **3D** | Spline | Accent elements only |
-| **Styling** | Tailwind CSS | Speed, consistency |
-| **Hosting** | Vercel | Native Next.js support, edge caching |
-| **Forms** | Formspree or Resend | Simple email capture |
+**LinkedIn Profiles to Study:**
+- Search: "VP Go-to-Market AI" or "Chief Revenue Officer AI"
+- Look for: People who have personal websites
 
-### Site Map
+**Portfolio Style References (Tech Execs):**
+- Ramp executive pages
+- Scale AI leadership
+- OpenAI leadership (minimal but credible)
+- Anthropic leadership
 
-```
-/
-├── Hero (value prop + CTA)
-├── Quick impact stats
-├── About (brief)
-├── Experience timeline
-├── Featured case studies (2-3)
-├── Thought leadership / speaking
-├── Contact
-```
+**Design Inspiration (Minimal + Bold):**
+- Linear-style dark interfaces
+- Vercel homepage aesthetic
+- Stripe executive pages
 
-### Optional Pages
-- `/about` - Full personal story
-- `/case-studies` - All case studies
-- `/speaking` - Talks and appearances
-- `/resume` - Downloadable PDF
+### What Works for This Level
+
+- Minimalist, sophisticated design
+- Content depth over visual flash
+- Clear positioning statement
+- Social proof (logos, testimonials)
+- No fluff — every section earns its place
 
 ---
 
-## 7. Implementation Phases
+## 6. Recommended Tech Stack
+
+### Option A: Full Custom (Recommended)
+
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js 15 (App Router) |
+| Styling | Tailwind CSS |
+| Animation | Framer Motion |
+| 3D Accents | Spline (selective) |
+| CMS | Sanity.io |
+| Deployment | Vercel |
+| Domain | Namecheap/Cloudflare |
+
+**Pros:** Full control, best performance, unique design  
+**Cons:** More development time
+
+### Option B: Hybrid Speed
+
+| Layer | Technology |
+|-------|------------|
+| Framework | Framer (framer.com) |
+| CMS | Notion + Super.so |
+| Animation | Built-in |
+| Deployment | Framer (managed) |
+
+**Pros:** Fastest launch, no code  
+**Cons:** Less customization, ongoing costs
+
+### Option C: Developer Forward
+
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js + TypeScript |
+| Styling | Tailwind + shadcn/ui |
+| Animation | Framer Motion |
+| CMS | Sanity |
+| Hosting | Vercel |
+
+**Pros:** Best DX, component library, type safety  
+**Cons:** Requires dev work
+
+---
+
+## 7. Implementation Roadmap
 
 ### Phase 1: Foundation (Week 1-2)
-- [ ] Set up Next.js project with TypeScript
-- [ ] Configure Sanity CMS schema
-- [ ] Design system tokens (colors, typography, spacing)
-- [ ] Base layout and navigation
+- [ ] Finalize content strategy & wireframes
+- [ ] Set up Sanity.io project & content schemas
+- [ ] Initialize Next.js project with Tailwind
 
-### Phase 2: Content (Week 2-3)
-- [ ] Write/edit all content (hero, about, case studies)
-- [ ] Sanity Studio configuration
-- [ ] Image assets and photography
-- [ ] Metrics verification
+### Phase 2: Core Build (Week 3-4)
+- [ ] Build all page sections
+- [ ] Implement Framer Motion animations
+- [ ] Add Spline 3D accents (1-2 max)
+- [ ] Connect Sanity CMS
 
-### Phase 3: Animation & Polish (Week 3-4)
-- [ ] Implement Motion animations
-- [ ] Scroll-triggered reveals
-- [ ] 3D accent elements (if using Spline)
-- [ ] Responsive testing
-
-### Phase 4: Launch (Week 4-5)
+### Phase 3: Content (Week 5)
+- [ ] Write/copy all content
+- [ ] Add case studies with visuals
+- [ ] Gather testimonials
 - [ ] SEO optimization
-- [ ] Performance audit (Core Web Vitals)
-- [ ] Mobile testing
+
+### Phase 4: Polish & Launch (Week 6)
+- [ ] Mobile responsive testing
+- [ ] Performance optimization
 - [ ] Analytics setup
-- [ ] Launch and validate
+- [ ] Domain & deployment
+- [ ] QA & launch
 
 ---
 
 ## 8. Key Decisions Needed
 
-Before building, clarify:
+Before building begins:
 
-1. **Primary Goal**: Brand awareness? Recruiting? Consulting? Board roles?
-2. **Personal Brand Angle**: What makes you different from other VP/GTMs?
-3. **Design Constraint**: Custom build vs. template (Framer, Linear-style)?
-4. **Content Depth**: How many case studies? Full case study format?
-5. **Maintenance**: How often will you update? Who will update?
-
----
-
-## 9. Success Metrics
-
-| Metric | Target |
-|--------|--------|
-| Lighthouse Performance | 90+ |
-| Core Web Vitals | All Green |
-| Mobile Score | 95+ |
-| Time on page | 2+ minutes |
-| Contact form submissions | 2+/month |
+1. **Stack choice:** Full custom (Next.js) vs Framer (faster)?
+2. **CMS:** Sanity vs Notion?
+3. **Content depth:** How many case studies? Full blog?
+4. **Personal branding:** Photo? Voice? Color palette?
+5. **Timeline:** MVP first or complete build?
+6. **Maintenance:** Who updates content post-launch?
 
 ---
 
-## Appendix: Resource Links
+## 9. Inspiration Links
 
-### Design Inspiration
-- [Awwwards Portfolio](https://www.awwwards.com/websites/portfolio/)
-- [Dribbble Portfolios](https://dribbble.com/tags/portfolio)
-- [Framer Gallery](https://www.framer.com/gallery/categories/portfolio)
-- [SiteBuilderReport Framer Templates](https://www.sitebuilderreport.com/framer-templates-for-portfolios)
-
-### Technical
-- [Motion (Framer Motion) Docs](https://motion.dev)
-- [Sanity + Next.js Guide](https://www.sanity.io/guides)
-- [Spline for React](https://docs.spline.design)
-
-### CMS Comparison
-- [Headless CMS 2026 Analysis](https://prismic.io/blog/best-headless-cms-for-developers)
-- [Sanity vs Contentful](https://www.digitalapplied.com/blog/headless-cms-2026-sanity-contentful-payload-comparison)
+- Awwwards Portfolio: https://www.awwwards.com/websites/portfolio/
+- UX Portfolios: https://www.sitebuilderreport.com/inspiration/ux-portfolios
+- Three.js Examples: https://www.awwwards.com/websites/three-js/
+- Spline Portfolio: https://spline.design/solutions/build-a-portfolio-website
+- 2026 Design Trends: https://reallygooddesigns.com/web-design-trends-2026/
 
 ---
 
-*Plan prepared for Portfolio Redesign Research session. Next step: Decision on key questions above before implementation.*
+*This plan is ready for execution. Next step: Confirm stack decisions and begin Phase 1.*

@@ -1,18 +1,20 @@
-# Email Draft - 2026-03-09
+# LinkedIn Job Alert Draft
+**Date:** 2026-03-09
+**Source:** linkedin.com
+**Category:** jobs
 
-## Message Info
+## Email Details
 - **From:** LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
-- **Subject:** "Head of Marketing Operations": Aarki - Head of Revenue Operations and more
-- **Date:** 2026-03-08 23:57
-- **Category:** jobs
+- **Subject:** "marketing director": Tinuiti - Senior Director, Strategic Planning and more
+- **ID:** 19cd4673d1dc1f28
 
-## Content Summary
-LinkedIn job alert for "Head of Marketing Operations" role at Aarki and similar positions.
+## Summary
+Job alert for "marketing director" positions including:
+- Tinuiti - Senior Director, Strategic Planning
 
 ## Action Items
-- Review if interested in Head of Marketing Operations / Revenue Operations roles
-- Click through to LinkedIn to view details if interested
+- [ ] Review job details on LinkedIn
+- [ ] Decide if worth applying
 
 ## Notes
-- Not a direct recruiter outreach
-- Job alert notification - lower priority
+Automated draft from INBOX GUARDIAN
