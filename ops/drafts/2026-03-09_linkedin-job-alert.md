@@ -1,20 +1,17 @@
-# LinkedIn Job Alert Draft
+# Inbox Guardian - Job Alert Note
+
 **Date:** 2026-03-09
-**Source:** linkedin.com
+**Time:** 21:57
+**From:** LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+**Subject:** "marketing executive": Jobgether - Sr. Marketing Executive (Remote) and more
 **Category:** jobs
 
-## Email Details
-- **From:** LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
-- **Subject:** "marketing director": Tinuiti - Senior Director, Strategic Planning and more
-- **ID:** 19cd4673d1dc1f28
-
 ## Summary
-Job alert for "marketing director" positions including:
-- Tinuiti - Senior Director, Strategic Planning
+LinkedIn job alert for "marketing executive" positions including:
+- Jobgether - Sr. Marketing Executive (Remote)
 
-## Action Items
-- [ ] Review job details on LinkedIn
-- [ ] Decide if worth applying
+## Action Needed?
+Review the job listings if interested. This is an automated alert, not a recruiter outreach.
 
-## Notes
-Automated draft from INBOX GUARDIAN
+**Processed:** Yes
+**Alert Sent:** No (not urgent - single job alert, not recruiter outreach)

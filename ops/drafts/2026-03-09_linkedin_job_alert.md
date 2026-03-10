@@ -1,22 +1,16 @@
-# Email Draft - 2026-03-09
+# Email Draft - Job Alert
 
-## Category: jobs
-
+**Date:** 2026-03-09
 **From:** LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
-**Subject:** "chief marketing officer": CENTEGIX - Chief Marketing Officer (CMO) and more
-**Date:** 2026-03-09 01:57
+**Subject:** "Head of Growth": Archer Lewis - Vice President of Marketing and more
+**Category:** jobs
 
-## Summary
-Job alert for "chief marketing officer" position at CENTEGIX. Related roles also included in this alert.
+## Preview
+Job alert for "Head of Growth" position - mentioned Archer Lewis
 
 ## Suggested Reply Stub
-Subject: Re: "chief marketing officer": CENTEGIX - Chief Marketing Officer (CMO) and more
+_(Review if interested in Head of Growth roles)_
 
-Hi,
-
-Thanks for the notification about the CMO role at CENTEGIX. I'm interested in learning more about this opportunity.
-
-[Add: specific interest points, availability, relevant experience]
-
----
-*Draft created by INBOX GUARDIAN*
+## Notes
+- Job alert notification
+- Check if worth responding to or adding to job tracker
