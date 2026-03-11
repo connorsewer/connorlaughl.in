@@ -1,55 +1,131 @@
 {
   "schemaVersion": "2.0",
-  "lastRunAt": "2026-03-11T13:52:00Z",
-  "dedupe": {},
+  "lastRunAt": "2026-03-11T23:00:00Z",
+  "dedupe": {
+    "2026-03-11T23:00:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T22:40:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T22:20:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty; verified completion on retry with same decision",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T22:00:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T21:40:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T21:20:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T21:00:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T20:40:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T20:20:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T20:00:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T19:40:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T19:20:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    },
+    "2026-03-11T19:00:00Z": {
+      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+      "selectedTasks": [],
+      "workersSpawned": []
+    }
+  },
   "lessons_learned": [
     "Signal files (projects.json, open-loops.json, queue.json) remain empty - no tasks to dispatch",
-    "context-pack.md does not exist at expected path"
+    "context-pack.md does not exist at expected path",
+    "No worker sessions should be spawned when prerequisite context is missing and all lightweight inputs are empty",
+    "Cron completion still requires updating state.json even for a no-op decision"
   ],
   "recent": [
     {
-      "timestamp": "2026-03-11T13:52:00Z",
-      "action": "Decision run (8:52 AM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, worker budget unused because there were no dispatchable tasks; no follow-ups created."
+      "timestamp": "2026-03-11T23:00:00Z",
+      "action": "Decision run (6:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created. State updated to record completed no-op run for this slot."
     },
     {
-      "timestamp": "2026-03-11T13:52:00Z",
-      "action": "Decision run (8:52 AM): context-pack.md missing; projects/open-loops/queue empty; no stale Clawdbot loops present. No tasks to dispatch."
+      "timestamp": "2026-03-11T22:40:00Z",
+      "action": "Decision run (5:40 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created. Completion re-verified after cron retry; no subagents spawned because there were still no dispatchable tasks and the latest state already covers this slot."
     },
     {
-      "timestamp": "2026-03-11T01:40:00Z",
-      "action": "Decision run (8:40 PM): context-pack.md missing; signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T22:20:00Z",
+      "action": "Decision run (5:20 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created. Retry confirmed same no-op decision; no subagents spawned because there were no dispatchable tasks and dedupe window is active."
     },
     {
-      "timestamp": "2026-03-11T01:20:00Z",
-      "action": "Decision run (8:20 PM): context-pack.md missing; signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T22:00:00Z",
+      "action": "Decision run (5:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
     },
     {
-      "timestamp": "2026-03-11T01:00:00Z",
-      "action": "Decision run (8:00 PM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T21:40:00Z",
+      "action": "Decision run (4:40 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
     },
     {
-      "timestamp": "2026-03-10T19:47:00-06:00",
-      "action": "Decision run (7:47 PM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T21:20:00Z",
+      "action": "Decision run (4:20 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
     },
     {
-      "timestamp": "2026-03-10T19:20:00-06:00",
-      "action": "Decision run (7:20 PM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T21:00:00Z",
+      "action": "Decision run (4:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
     },
     {
-      "timestamp": "2026-03-10T19:00:00-06:00",
-      "action": "Decision run (7:00 PM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T20:40:00Z",
+      "action": "Decision run (3:40 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
     },
     {
-      "timestamp": "2026-03-10T18:40:00-06:00",
-      "action": "Decision run (6:40 PM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T20:20:00Z",
+      "action": "Decision run (3:20 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
     },
     {
-      "timestamp": "2026-03-10T18:00:00-06:00",
-      "action": "Decision run (6:00 PM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T20:00:00Z",
+      "action": "Decision run (3:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
     },
     {
-      "timestamp": "2026-03-10T17:00:00-06:00",
-      "action": "Decision run (5:00 PM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T19:40:00Z",
+      "action": "Decision run (2:40 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+    },
+    {
+      "timestamp": "2026-03-11T19:20:00Z",
+      "action": "Decision run (2:20 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+    },
+    {
+      "timestamp": "2026-03-11T19:00:00Z",
+      "action": "Decision run (2:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
     }
   ],
   "workers": []
