@@ -1,32 +1,56 @@
 {
+  "schemaVersion": "2.0",
+  "lastRunAt": "2026-03-11T13:52:00Z",
   "dedupe": {},
-  "lastRunAt": "2026-03-10T05:20:00-06:00",
   "lessons_learned": [
     "Signal files (projects.json, open-loops.json, queue.json) remain empty - no tasks to dispatch",
     "context-pack.md does not exist at expected path"
   ],
   "recent": [
     {
-      "timestamp": "2026-03-10T05:20:00-06:00",
-      "action": "Decision run (5:20 AM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T13:52:00Z",
+      "action": "Decision run (8:52 AM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, worker budget unused because there were no dispatchable tasks; no follow-ups created."
     },
     {
-      "timestamp": "2026-03-10T03:20:00-06:00",
-      "action": "Decision run (3:20 AM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T13:52:00Z",
+      "action": "Decision run (8:52 AM): context-pack.md missing; projects/open-loops/queue empty; no stale Clawdbot loops present. No tasks to dispatch."
     },
     {
-      "timestamp": "2026-03-10T02:40:00-06:00",
-      "action": "Decision run (2:40 AM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T01:40:00Z",
+      "action": "Decision run (8:40 PM): context-pack.md missing; signal files empty. No tasks to dispatch."
     },
     {
-      "timestamp": "2026-03-10T02:29:00-06:00",
-      "action": "Decision run (2:29 AM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T01:20:00Z",
+      "action": "Decision run (8:20 PM): context-pack.md missing; signal files empty. No tasks to dispatch."
     },
     {
-      "timestamp": "2026-03-10T02:09:00-06:00",
-      "action": "Decision run (2:09 AM): Signal files empty. No tasks to dispatch."
+      "timestamp": "2026-03-11T01:00:00Z",
+      "action": "Decision run (8:00 PM): Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-03-10T19:47:00-06:00",
+      "action": "Decision run (7:47 PM): Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-03-10T19:20:00-06:00",
+      "action": "Decision run (7:20 PM): Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-03-10T19:00:00-06:00",
+      "action": "Decision run (7:00 PM): Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-03-10T18:40:00-06:00",
+      "action": "Decision run (6:40 PM): Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-03-10T18:00:00-06:00",
+      "action": "Decision run (6:00 PM): Signal files empty. No tasks to dispatch."
+    },
+    {
+      "timestamp": "2026-03-10T17:00:00-06:00",
+      "action": "Decision run (5:00 PM): Signal files empty. No tasks to dispatch."
     }
   ],
-  "schemaVersion": "2.0",
   "workers": []
 }
