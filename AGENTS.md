@@ -123,6 +123,7 @@ Use `graph/` as the structured knowledge layer for reusable methods, claims, wor
 
 Traversal order:
 - Start with `graph/index.md`
+- Read `graph/GRAPH_SCHEMA.md` when creating or refactoring graph content
 - Read the most relevant MOC in `graph/mocs/`
 - Follow targeted nodes in `graph/nodes/`
 - Use `ops/runbooks/` for operational sequences

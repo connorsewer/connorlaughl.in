@@ -23,6 +23,10 @@ This graph is for agent-operated knowledge, not generic wiki accumulation.
 - [[mocs/tooling-surfaces]] — choose the right mechanism for the task
 - [[mocs/memory-systems]] — short-term, long-term, and structured knowledge layers
 
+## Conventions
+
+- [[GRAPH_SCHEMA]] — minimal rules for filenames, frontmatter, links, and note roles
+
 ## Design Biases
 
 - Prefer many small notes over giant instruction dumps
