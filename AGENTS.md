@@ -171,6 +171,8 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 
 **Tip:** Batch similar periodic checks into `HEARTBEAT.md` instead of creating multiple cron jobs. Use cron for precise schedules and standalone tasks.
 
+**Proactive delivery rule:** If a cron is meant to proactively reach Connor on Telegram while he is away from the MacBook, do not rely on a main-session `systemEvent`. Use an isolated `agentTurn` cron with explicit announce delivery to Telegram.
+
 **Things to check (rotate through these, 2-4 times per day):**
 
 - **Emails** - Any urgent unread messages?
