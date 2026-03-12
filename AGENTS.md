@@ -135,6 +135,24 @@ Placement:
 - Navigational overviews -> `graph/mocs/`
 - Repeated operational sequences -> `ops/runbooks/`
 
+## Shared State & Handoffs
+
+Use shared files as the cross-session continuity layer when session visibility is restricted.
+
+Read first when continuity matters:
+- `ops/agent-state/current-focus.md`
+- `ops/agent-state/active-projects.md`
+- `ops/agent-state/open-loops.md`
+- `ops/agent-state/blockers.md`
+
+Write/update when:
+- a long-running effort changes materially
+- work may continue in another session, cron, or subagent
+- a blocker or instability appears
+- there are clear next actions worth preserving
+
+Use `ops/handoffs/` for structured project/task handoffs between sessions or agents.
+
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Platform Formatting:**
