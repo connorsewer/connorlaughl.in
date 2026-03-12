@@ -12,3 +12,4 @@ Track unresolved items that should survive session boundaries.
 - Investigate and potentially clean up skill-path warnings in gateway logs
 - Revisit locked Obsidian vault files when filesystem conditions are friendlier
 - Develop stronger cross-session handoff/update habits for cron and delegated work
+- Add more concrete examples/templates so the shared continuity system becomes habitual instead of aspirational
