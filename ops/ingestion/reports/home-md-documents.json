@@ -1,0 +1,2257 @@
+{
+  "generatedAt": 1773403565.294959,
+  "root": "/Users/connorlaughlin/Documents",
+  "count": 375,
+  "results": [
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Agent swarm operating model.md",
+      "score": 8,
+      "modifiedAt": 1773369108.6367493,
+      "size": 933
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Article - Elvis Sun on OpenClaw agent swarms.md",
+      "score": 8,
+      "modifiedAt": 1773369092.200409,
+      "size": 1600
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - System health and runtime reliability.md",
+      "score": 8,
+      "modifiedAt": 1773355726.8288562,
+      "size": 861
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Playbook - Cross-session knowledge hygiene.md",
+      "score": 8,
+      "modifiedAt": 1773355547.7758148,
+      "size": 769
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Cross-session continuity.md",
+      "score": 8,
+      "modifiedAt": 1773355547.1594276,
+      "size": 833
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Shared state as memory bus.md",
+      "score": 8,
+      "modifiedAt": 1773355546.5181777,
+      "size": 876
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Playbook - When a note should become a playbook.md",
+      "score": 8,
+      "modifiedAt": 1773348514.6353798,
+      "size": 746
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Playbook - When a capability should become a skill note.md",
+      "score": 8,
+      "modifiedAt": 1773348513.970872,
+      "size": 871
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - agents-md.md",
+      "score": 8,
+      "modifiedAt": 1773348465.2159321,
+      "size": 952
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Runbook - Diagnosing gateway instability.md",
+      "score": 8,
+      "modifiedAt": 1773348446.7944121,
+      "size": 1008
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Stable parallelization.md",
+      "score": 8,
+      "modifiedAt": 1773348279.9907029,
+      "size": 1216
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/MOC - OpenClaw playbooks.md",
+      "score": 8,
+      "modifiedAt": 1773347936.87592,
+      "size": 837
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Research to reusable knowledge.md",
+      "score": 8,
+      "modifiedAt": 1773347928.0364494,
+      "size": 821
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Delegating complex work.md",
+      "score": 8,
+      "modifiedAt": 1773347927.5240011,
+      "size": 808
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Handling proactive reminders and updates.md",
+      "score": 8,
+      "modifiedAt": 1773347926.771905,
+      "size": 864
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Handling browser tasks.md",
+      "score": 8,
+      "modifiedAt": 1773347926.2407167,
+      "size": 903
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Handling memory-sensitive questions.md",
+      "score": 8,
+      "modifiedAt": 1773347925.5059562,
+      "size": 804
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - AI & Tools - OpenClaw Operations.md",
+      "score": 8,
+      "modifiedAt": 1773347857.767133,
+      "size": 1033
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - exec and process.md",
+      "score": 8,
+      "modifiedAt": 1773347844.7600822,
+      "size": 637
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - nodes.md",
+      "score": 8,
+      "modifiedAt": 1773347843.7600951,
+      "size": 470
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - gateway.md",
+      "score": 8,
+      "modifiedAt": 1773347843.15706,
+      "size": 543
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - session_status.md",
+      "score": 8,
+      "modifiedAt": 1773347842.2101967,
+      "size": 506
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - sessions_send.md",
+      "score": 8,
+      "modifiedAt": 1773347841.6497066,
+      "size": 495
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - sessions_list.md",
+      "score": 8,
+      "modifiedAt": 1773347840.5686402,
+      "size": 507
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Choosing the right tool.md",
+      "score": 8,
+      "modifiedAt": 1773347839.8492768,
+      "size": 1560
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Proactive delivery patterns.md",
+      "score": 8,
+      "modifiedAt": 1773347504.6309516,
+      "size": 741
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Heartbeats vs cron.md",
+      "score": 8,
+      "modifiedAt": 1773347498.721554,
+      "size": 671
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/MOC - OpenClaw tools.md",
+      "score": 8,
+      "modifiedAt": 1773347484.6920285,
+      "size": 671
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - unbrowse_replay.md",
+      "score": 8,
+      "modifiedAt": 1773347482.965939,
+      "size": 503
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - unbrowse_capture.md",
+      "score": 8,
+      "modifiedAt": 1773347482.0384154,
+      "size": 572
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - unbrowse_browse.md",
+      "score": 8,
+      "modifiedAt": 1773347480.7415304,
+      "size": 549
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - subagents.md",
+      "score": 8,
+      "modifiedAt": 1773347479.6116793,
+      "size": 485
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - message.md",
+      "score": 8,
+      "modifiedAt": 1773347478.7822754,
+      "size": 609
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - sessions_spawn.md",
+      "score": 8,
+      "modifiedAt": 1773347477.6361504,
+      "size": 574
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - browser.md",
+      "score": 8,
+      "modifiedAt": 1773347476.4368093,
+      "size": 632
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - cron.md",
+      "score": 8,
+      "modifiedAt": 1773347475.4785798,
+      "size": 619
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - memory_get.md",
+      "score": 8,
+      "modifiedAt": 1773347473.9448273,
+      "size": 546
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - memory_search.md",
+      "score": 8,
+      "modifiedAt": 1773347472.9162984,
+      "size": 593
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Memory retrieval.md",
+      "score": 8,
+      "modifiedAt": 1773345803.735844,
+      "size": 664
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/MOC - OpenClaw capabilities.md",
+      "score": 8,
+      "modifiedAt": 1773345786.7411225,
+      "size": 886
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Messaging and routing.md",
+      "score": 8,
+      "modifiedAt": 1773345785.8097782,
+      "size": 905
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Sessions and orchestration.md",
+      "score": 8,
+      "modifiedAt": 1773345784.7573376,
+      "size": 818
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Browser vs capture vs replay.md",
+      "score": 8,
+      "modifiedAt": 1773345784.2022064,
+      "size": 1063
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Scheduled automation and delivery.md",
+      "score": 8,
+      "modifiedAt": 1773345783.4250987,
+      "size": 1011
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Memory retrieval.md",
+      "score": 8,
+      "modifiedAt": 1773345782.5997968,
+      "size": 1036
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - AI & Tools - Agent Systems.md",
+      "score": 8,
+      "modifiedAt": 1773345709.5887785,
+      "size": 1424
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Memory tools.md",
+      "score": 8,
+      "modifiedAt": 1773345706.7485366,
+      "size": 525
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Sessions and subagents.md",
+      "score": 8,
+      "modifiedAt": 1773345705.2372997,
+      "size": 547
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Memory and knowledge systems.md",
+      "score": 8,
+      "modifiedAt": 1773345522.4312723,
+      "size": 634
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - OpenClaw and agent-native tools.md",
+      "score": 8,
+      "modifiedAt": 1773345521.020763,
+      "size": 781
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Tooling/Browser tooling for agents.md",
+      "score": 8,
+      "modifiedAt": 1773345520.4253461,
+      "size": 1123
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Tooling/Agent-readable Markdown Conventions.md",
+      "score": 8,
+      "modifiedAt": 1773345518.7936938,
+      "size": 1719
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Spring Health/Spring Health - Product and AI strategy.md",
+      "score": 8,
+      "modifiedAt": 1773337293.4253705,
+      "size": 1757
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/03 Sources/Google Drive Imports/TSI/Source - TSI Master GTM Brief v1.md",
+      "score": 8,
+      "modifiedAt": 1773246822.3078291,
+      "size": 1017
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/Intelligence Briefing - The 2026 Accounts Receivable Management and Debt Collection Technology Ecosystem.md",
+      "score": 8,
+      "modifiedAt": 1772923606.9466014,
+      "size": 68993
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/Accounts Receivable Management and Debt Collection Platforms Ecosystem Intelligence Briefing.md",
+      "score": 8,
+      "modifiedAt": 1772923531.353933,
+      "size": 44496
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/debt_collection_platform_research_v1.md",
+      "score": 8,
+      "modifiedAt": 1772669521.9915175,
+      "size": 59999
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/Personal/AA/AA Old Town Beginners Meeting 1.md",
+      "score": 8,
+      "modifiedAt": 1771981012.232,
+      "size": 0
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/Personal/AA/AA Old Town Beginners Meeting.md",
+      "score": 8,
+      "modifiedAt": 1771981009.717,
+      "size": 3
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Wedding Plans - Ideas.md",
+      "score": 8,
+      "modifiedAt": 1771947263.56592,
+      "size": 221
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Wedding Attendees Travel plans.md",
+      "score": 7,
+      "modifiedAt": 1761530998.25,
+      "size": 630
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Notes for the day 3-16.md",
+      "score": 6,
+      "modifiedAt": 1710613255.631,
+      "size": 224
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Notes on KC-CL.md",
+      "score": 6,
+      "modifiedAt": 1606995942.038,
+      "size": 1664
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Maggie Notes.md",
+      "score": 6,
+      "modifiedAt": 1570673140.237999,
+      "size": 22
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Notes for Julia.md",
+      "score": 6,
+      "modifiedAt": 1557110499.720999,
+      "size": 288
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Gift notes for Brendan & Co..md",
+      "score": 6,
+      "modifiedAt": 1512944667.318,
+      "size": 386
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Knowledge Systems/Markdown sources across the MacBook.md",
+      "score": 5,
+      "modifiedAt": 1773371287.5695448,
+      "size": 715
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Knowledge Systems/High-value documents to process.md",
+      "score": 5,
+      "modifiedAt": 1773371232.0520637,
+      "size": 912
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Knowledge Systems/Source documents backlog.md",
+      "score": 5,
+      "modifiedAt": 1773371189.4513364,
+      "size": 696
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Knowledge Ingestion.md",
+      "score": 5,
+      "modifiedAt": 1773371165.1689117,
+      "size": 548
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Knowledge Systems/Vault ingestion pipeline.md",
+      "score": 5,
+      "modifiedAt": 1773371164.621537,
+      "size": 883
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Skills - Named skills.md",
+      "score": 5,
+      "modifiedAt": 1773348513.3511167,
+      "size": 640
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - commit.md",
+      "score": 5,
+      "modifiedAt": 1773348499.49962,
+      "size": 545
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - find-bugs.md",
+      "score": 5,
+      "modifiedAt": 1773348498.8560266,
+      "size": 631
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - iterate-pr.md",
+      "score": 5,
+      "modifiedAt": 1773348498.2891014,
+      "size": 623
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - create-pr.md",
+      "score": 5,
+      "modifiedAt": 1773348497.6606767,
+      "size": 593
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - modern-python.md",
+      "score": 5,
+      "modifiedAt": 1773348482.7974834,
+      "size": 626
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - wrangler.md",
+      "score": 5,
+      "modifiedAt": 1773348482.1465406,
+      "size": 688
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - cloudflare.md",
+      "score": 5,
+      "modifiedAt": 1773348481.568449,
+      "size": 672
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - n8n-workflow-patterns.md",
+      "score": 5,
+      "modifiedAt": 1773348480.938209,
+      "size": 649
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - security-review.md",
+      "score": 5,
+      "modifiedAt": 1773348467.2415001,
+      "size": 804
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - code-review.md",
+      "score": 5,
+      "modifiedAt": 1773348466.7036064,
+      "size": 790
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - doc-coauthoring.md",
+      "score": 5,
+      "modifiedAt": 1773348465.916768,
+      "size": 850
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Incident - Gateway instability during parallelization (2026-03-12).md",
+      "score": 5,
+      "modifiedAt": 1773348446.1006072,
+      "size": 1194
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Top 20 operational skills.md",
+      "score": 5,
+      "modifiedAt": 1773348280.7508054,
+      "size": 1206
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - AI & Tools - Knowledge Operations.md",
+      "score": 5,
+      "modifiedAt": 1773347937.407714,
+      "size": 751
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Device-aware workflows.md",
+      "score": 5,
+      "modifiedAt": 1773347857.0046651,
+      "size": 499
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Runtime control.md",
+      "score": 5,
+      "modifiedAt": 1773347856.3043342,
+      "size": 637
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Browser learning and replay.md",
+      "score": 5,
+      "modifiedAt": 1773347506.3145432,
+      "size": 627
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Knowledge Systems/Knowledge systems - Progressive disclosure.md",
+      "score": 5,
+      "modifiedAt": 1773345824.5897725,
+      "size": 688
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Knowledge Systems/Skill graphs.md",
+      "score": 5,
+      "modifiedAt": 1773345822.697068,
+      "size": 786
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Tooling/Tool - Playwright CLI.md",
+      "score": 5,
+      "modifiedAt": 1773345821.718277,
+      "size": 666
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Messaging and delivery.md",
+      "score": 5,
+      "modifiedAt": 1773345807.537672,
+      "size": 611
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Sessions and delegation.md",
+      "score": 5,
+      "modifiedAt": 1773345806.5337596,
+      "size": 595
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Scheduled automation.md",
+      "score": 5,
+      "modifiedAt": 1773345805.8141038,
+      "size": 664
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Browser automation.md",
+      "score": 5,
+      "modifiedAt": 1773345804.7124927,
+      "size": 659
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Cron and scheduled automation.md",
+      "score": 5,
+      "modifiedAt": 1773345708.441463,
+      "size": 490
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Messaging and proactive delivery.md",
+      "score": 5,
+      "modifiedAt": 1773345704.1081448,
+      "size": 710
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Browser control and capture.md",
+      "score": 5,
+      "modifiedAt": 1773345703.0352602,
+      "size": 573
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Tooling/Tool - Defuddle.md",
+      "score": 5,
+      "modifiedAt": 1773345700.8114123,
+      "size": 1188
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Productivity and workflow systems.md",
+      "score": 5,
+      "modifiedAt": 1773345525.6571145,
+      "size": 491
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Security and review.md",
+      "score": 5,
+      "modifiedAt": 1773345525.0608718,
+      "size": 442
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Code and engineering.md",
+      "score": 5,
+      "modifiedAt": 1773345523.9644094,
+      "size": 495
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Documentation and writing.md",
+      "score": 5,
+      "modifiedAt": 1773345523.3217175,
+      "size": 471
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Browser and web automation.md",
+      "score": 5,
+      "modifiedAt": 1773345521.8116796,
+      "size": 649
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Tooling/Tool - Lightpanda.md",
+      "score": 5,
+      "modifiedAt": 1773345519.4221911,
+      "size": 1484
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Backlog.md",
+      "score": 5,
+      "modifiedAt": 1773345311.1613088,
+      "size": 544
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Intake Pipeline.md",
+      "score": 5,
+      "modifiedAt": 1773345310.6514761,
+      "size": 870
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Taxonomy.md",
+      "score": 5,
+      "modifiedAt": 1773345309.8942406,
+      "size": 1074
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/MOC - Skills.md",
+      "score": 5,
+      "modifiedAt": 1773345309.0473046,
+      "size": 648
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Index.md",
+      "score": 5,
+      "modifiedAt": 1773345308.298253,
+      "size": 854
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/json-render/MOC - json-render.md",
+      "score": 5,
+      "modifiedAt": 1773345307.7693741,
+      "size": 683
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/json-render/json-render - Caveats and best practices.md",
+      "score": 5,
+      "modifiedAt": 1773345307.1574104,
+      "size": 923
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/json-render/json-render - Good use cases.md",
+      "score": 5,
+      "modifiedAt": 1773345306.6575289,
+      "size": 929
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/json-render/json-render - React usage.md",
+      "score": 5,
+      "modifiedAt": 1773345305.9935298,
+      "size": 1002
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/json-render/json-render - How to think about it.md",
+      "score": 5,
+      "modifiedAt": 1773345305.4938338,
+      "size": 972
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/json-render/json-render - Core concepts.md",
+      "score": 5,
+      "modifiedAt": 1773345304.6942575,
+      "size": 1230
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/json-render/Tool - json-render.md",
+      "score": 5,
+      "modifiedAt": 1773345304.0555017,
+      "size": 1541
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Call with Michael - Sales Reporting Info - 3.12.2026.md",
+      "score": 5,
+      "modifiedAt": 1773343548.0343068,
+      "size": 750
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/06 People/Adam Chekroud.md",
+      "score": 5,
+      "modifiedAt": 1773338829.288844,
+      "size": 552
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/06 People/April Koh.md",
+      "score": 5,
+      "modifiedAt": 1773338828.2300835,
+      "size": 686
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Spring Health/MOC - Spring Health.md",
+      "score": 5,
+      "modifiedAt": 1773337308.5753467,
+      "size": 830
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Spring Health.md",
+      "score": 5,
+      "modifiedAt": 1773337296.7679327,
+      "size": 736
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/06 People/George Michaels.md",
+      "score": 5,
+      "modifiedAt": 1773337295.9315338,
+      "size": 1048
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Spring Health/Spring Health - Interview angles.md",
+      "score": 5,
+      "modifiedAt": 1773337294.764207,
+      "size": 1942
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Spring Health/Spring Health - Competitive landscape.md",
+      "score": 5,
+      "modifiedAt": 1773337294.2088597,
+      "size": 1615
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Spring Health/Spring Health - GTM motion.md",
+      "score": 5,
+      "modifiedAt": 1773337292.634831,
+      "size": 2016
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Spring Health/Spring Health - Alma acquisition.md",
+      "score": 5,
+      "modifiedAt": 1773337291.9147944,
+      "size": 2040
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Spring Health/Company - Spring Health.md",
+      "score": 5,
+      "modifiedAt": 1773337291.271061,
+      "size": 2121
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/2026-03-11.md",
+      "score": 5,
+      "modifiedAt": 1773260512.705779,
+      "size": 0
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/03 Sources/Google Drive Imports/TSI/Source - TSI WebSights Traffic Intelligence Report Mar 2026.md",
+      "score": 5,
+      "modifiedAt": 1773246823.0333607,
+      "size": 902
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/03 Sources/Google Drive Imports/TSI/Source - TSI FACS Platform Reference.md",
+      "score": 5,
+      "modifiedAt": 1773246822.8268743,
+      "size": 948
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/03 Sources/Google Drive Imports/TSI/Source - TSI Definitive ICP Reference.md",
+      "score": 5,
+      "modifiedAt": 1773246822.6105108,
+      "size": 931
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Work.md",
+      "score": 5,
+      "modifiedAt": 1773246806.0812035,
+      "size": 197
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - TSI.md",
+      "score": 5,
+      "modifiedAt": 1773246803.538577,
+      "size": 1390
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/06 People/Person - Michael Orefice.md",
+      "score": 5,
+      "modifiedAt": 1773246796.932904,
+      "size": 478
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Domain - Debt Collection Software.md",
+      "score": 5,
+      "modifiedAt": 1773246789.1086662,
+      "size": 815
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Domain - Revenue Recovery.md",
+      "score": 5,
+      "modifiedAt": 1773246784.119346,
+      "size": 714
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Domain - Accounts Receivable Management.md",
+      "score": 5,
+      "modifiedAt": 1773246778.90902,
+      "size": 1026
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/05 Projects/Project - TSI GTM & Market Intelligence.md",
+      "score": 5,
+      "modifiedAt": 1773246771.0782545,
+      "size": 1711
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Debt Collection & ARM Technology.md",
+      "score": 5,
+      "modifiedAt": 1773246719.8406334,
+      "size": 237
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/FACS.md",
+      "score": 5,
+      "modifiedAt": 1773246719.081372,
+      "size": 244
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/DebtNext.md",
+      "score": 5,
+      "modifiedAt": 1773246718.774631,
+      "size": 156
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/06 People/Michael Orefice.md",
+      "score": 5,
+      "modifiedAt": 1773246718.0137122,
+      "size": 229
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Debt Collection & ARM Tech.md",
+      "score": 5,
+      "modifiedAt": 1773246717.6578677,
+      "size": 476
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/TSI.md",
+      "score": 5,
+      "modifiedAt": 1773246716.9559953,
+      "size": 382
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/00 System/Vault Inventory - Initial Snapshot.md",
+      "score": 5,
+      "modifiedAt": 1773246606.3339548,
+      "size": 841
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/03 Sources/Google Drive Imports/Google Drive Intake - Index.md",
+      "score": 5,
+      "modifiedAt": 1773246606.0834,
+      "size": 681
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/Sensitive Index.md",
+      "score": 5,
+      "modifiedAt": 1773246605.6323223,
+      "size": 420
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/02 Inbox/README.md",
+      "score": 5,
+      "modifiedAt": 1773246578.4295843,
+      "size": 77
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - AI & Tools.md",
+      "score": 5,
+      "modifiedAt": 1773246578.1074817,
+      "size": 81
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Travel.md",
+      "score": 5,
+      "modifiedAt": 1773246577.8343265,
+      "size": 81
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Writing & Ideas.md",
+      "score": 5,
+      "modifiedAt": 1773246577.5878494,
+      "size": 101
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Finance & Admin.md",
+      "score": 5,
+      "modifiedAt": 1773246577.3008683,
+      "size": 101
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Health.md",
+      "score": 5,
+      "modifiedAt": 1773246577.012625,
+      "size": 81
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Personal.md",
+      "score": 5,
+      "modifiedAt": 1773246576.7687576,
+      "size": 140
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - People.md",
+      "score": 5,
+      "modifiedAt": 1773246575.2334356,
+      "size": 168
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - Projects.md",
+      "score": 5,
+      "modifiedAt": 1773246575.0053859,
+      "size": 169
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/00 System/Import Pipeline - Google Drive.md",
+      "score": 5,
+      "modifiedAt": 1773246574.7858033,
+      "size": 436
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/00 System/Import Pipeline - Local Docs.md",
+      "score": 5,
+      "modifiedAt": 1773246574.560494,
+      "size": 333
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/00 System/Inbox Processing Guide.md",
+      "score": 5,
+      "modifiedAt": 1773246574.248078,
+      "size": 494
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/00 System/Sensitive Note Handling Standard.md",
+      "score": 5,
+      "modifiedAt": 1773246573.9973965,
+      "size": 656
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/00 System/Tagging & Frontmatter Standard.md",
+      "score": 5,
+      "modifiedAt": 1773246573.7438707,
+      "size": 969
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/00 System/Second Brain - Home.md",
+      "score": 5,
+      "modifiedAt": 1773246573.4992702,
+      "size": 680
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Folder system.md",
+      "score": 5,
+      "modifiedAt": 1773196601.926,
+      "size": 2555
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Cross Sell Opportunities.md",
+      "score": 5,
+      "modifiedAt": 1773089569.086744,
+      "size": 70
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/The AR management and collections software market in 2026.md",
+      "score": 5,
+      "modifiedAt": 1772923675.3162994,
+      "size": 29975
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/Personal/Transcript of Tim Dillon Podcast with Jeremy Scahill and Ryan Grim.md",
+      "score": 5,
+      "modifiedAt": 1772905221.790999,
+      "size": 91883
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/Personal/Jeremy Scahill and Ryan Grim of Dropsite News and the new political realities of the United States and Israel's War with Iran.md",
+      "score": 5,
+      "modifiedAt": 1772898479.667999,
+      "size": 8585
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Thoughts.md",
+      "score": 5,
+      "modifiedAt": 1772809301.061,
+      "size": 50
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/SME Stakeholders.md",
+      "score": 5,
+      "modifiedAt": 1772716558.8612978,
+      "size": 191
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/AI Writing - voiceDNA.md.md",
+      "score": 5,
+      "modifiedAt": 1772572755.0931764,
+      "size": 9690
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Rocket Receivables.md",
+      "score": 5,
+      "modifiedAt": 1772466540.5010018,
+      "size": 32
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/Personal/Dinner with John & Jim - Feb 28 2026.md",
+      "score": 5,
+      "modifiedAt": 1772328927.384,
+      "size": 4168
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/Campaigns 2026.md",
+      "score": 5,
+      "modifiedAt": 1772227831.0512512,
+      "size": 224
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/2.26.26 - Call with Michael Orefice.md",
+      "score": 5,
+      "modifiedAt": 1772126108.0663643,
+      "size": 21511
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/Sales Tracking Updates - call with Michael Orefice 2.24.26.md",
+      "score": 5,
+      "modifiedAt": 1772038529.3033338,
+      "size": 405
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/2026-02-24.md",
+      "score": 5,
+      "modifiedAt": 1772028458.394002,
+      "size": 209
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/2026-02-26.md",
+      "score": 5,
+      "modifiedAt": 1772027783.8870718,
+      "size": 0
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Pok\u00e9mon strengths and weaknesses.md",
+      "score": 5,
+      "modifiedAt": 1771947560.0018694,
+      "size": 1728
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/Metamask pass phrase.md",
+      "score": 5,
+      "modifiedAt": 1771947309.1039007,
+      "size": 46
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Satoshi.md",
+      "score": 5,
+      "modifiedAt": 1771947244.9769962,
+      "size": 191
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Travel Docs.md",
+      "score": 5,
+      "modifiedAt": 1771947220.7391963,
+      "size": 42
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Gemini 3.1 Pro Designer Prompt(s).md",
+      "score": 5,
+      "modifiedAt": 1771624216.496999,
+      "size": 6669
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/The exponential will continue, even if morale improves.md",
+      "score": 5,
+      "modifiedAt": 1771118159.073999,
+      "size": 56
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/Gemini API Key.md",
+      "score": 4,
+      "modifiedAt": 1769544388.852999,
+      "size": 39
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/OpenAI API.md",
+      "score": 4,
+      "modifiedAt": 1769543404.553999,
+      "size": 164
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Movies to watch.md",
+      "score": 4,
+      "modifiedAt": 1769230491.788,
+      "size": 3383
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Books.md",
+      "score": 4,
+      "modifiedAt": 1765908533.344,
+      "size": 28
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Kristin Xmas 2025.md",
+      "score": 4,
+      "modifiedAt": 1765818285.582999,
+      "size": 1635
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Xmas List 2025.md",
+      "score": 4,
+      "modifiedAt": 1765761859.888,
+      "size": 9091
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Job Search System \u2013 Deep-Dive Questionnaire.md",
+      "score": 4,
+      "modifiedAt": 1765506155.931999,
+      "size": 11253
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Marry Me Chicken & Gnocchi Soup \u2014 Shopping Checklist.md",
+      "score": 4,
+      "modifiedAt": 1763655508.905999,
+      "size": 631
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/To do Florence - Nov 10.md",
+      "score": 4,
+      "modifiedAt": 1762765175.361,
+      "size": 244
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Villa Aurelia post wedding checklist.md",
+      "score": 4,
+      "modifiedAt": 1762604829.812,
+      "size": 185
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/Banking.md",
+      "score": 4,
+      "modifiedAt": 1762247113.721999,
+      "size": 65
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/To do.md",
+      "score": 4,
+      "modifiedAt": 1762197191.737999,
+      "size": 416
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Prelude (20\u201325 min before ceremony) 1040-1100.md",
+      "score": 4,
+      "modifiedAt": 1761591340.019,
+      "size": 1986
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Kristin Bills.md",
+      "score": 4,
+      "modifiedAt": 1761346583.280999,
+      "size": 468
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Robert\u2019s Wedding Speech.md",
+      "score": 4,
+      "modifiedAt": 1760884964.872999,
+      "size": 2482
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Pre-Wedding CJL Checklist.md",
+      "score": 4,
+      "modifiedAt": 1760882774.476999,
+      "size": 119
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Wedding.md",
+      "score": 4,
+      "modifiedAt": 1760297606.217,
+      "size": 3
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Wedding Readings.md",
+      "score": 4,
+      "modifiedAt": 1760207207.446,
+      "size": 2671
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Requirements for the celebration of Weddings in the Church of Santo\u2026.md",
+      "score": 4,
+      "modifiedAt": 1759773030.085,
+      "size": 3430
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CJL Wedding Attire.md",
+      "score": 4,
+      "modifiedAt": 1759251537.976999,
+      "size": 4513
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Why am I choosing Kristin to be my wife.md",
+      "score": 3,
+      "modifiedAt": 1757788617.546999,
+      "size": 42
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Gottman Making Your Own Love Map.md",
+      "score": 3,
+      "modifiedAt": 1756567500.512,
+      "size": 953
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CJ Birthday List 2025.md",
+      "score": 3,
+      "modifiedAt": 1755642475.476,
+      "size": 1039
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Wedding for Laughlins.md",
+      "score": 3,
+      "modifiedAt": 1752178599.536999,
+      "size": 76
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Email to Salotto42.md",
+      "score": 3,
+      "modifiedAt": 1750725406.743999,
+      "size": 342
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/To-Do June \u201825.md",
+      "score": 3,
+      "modifiedAt": 1749653002.825999,
+      "size": 194
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Quick note.md",
+      "score": 3,
+      "modifiedAt": 1749163981.825999,
+      "size": 34
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Shopping 5-17-25.md",
+      "score": 3,
+      "modifiedAt": 1747507348.364,
+      "size": 152
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Manifesting.md",
+      "score": 3,
+      "modifiedAt": 1746916095.710999,
+      "size": 82
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Stability Journal.md",
+      "score": 3,
+      "modifiedAt": 1746757211.723,
+      "size": 2159
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/The Swan.md",
+      "score": 3,
+      "modifiedAt": 1745093702.382999,
+      "size": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Marketing + AI Ideas.md",
+      "score": 3,
+      "modifiedAt": 1744561091.765,
+      "size": 143
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Sea bream over sea bass for main dish.md",
+      "score": 3,
+      "modifiedAt": 1742564338.806999,
+      "size": 523
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Target.md",
+      "score": 3,
+      "modifiedAt": 1741472605.032999,
+      "size": 26
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/To do 2-22.md",
+      "score": 3,
+      "modifiedAt": 1740257238.667999,
+      "size": 196
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Costco Feb \u201825.md",
+      "score": 3,
+      "modifiedAt": 1739750793.700999,
+      "size": 89
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Groceries 2.15.25.md",
+      "score": 3,
+      "modifiedAt": 1739622761.078,
+      "size": 81
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Grocery list.md",
+      "score": 3,
+      "modifiedAt": 1739047408.588999,
+      "size": 436
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Request for Refund Due to Denied Boarding \u2013 Confirmation Number.md",
+      "score": 3,
+      "modifiedAt": 1738694179.789,
+      "size": 2062
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Chili.md",
+      "score": 3,
+      "modifiedAt": 1737925351.188999,
+      "size": 163
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Target List.md",
+      "score": 3,
+      "modifiedAt": 1737304872.459,
+      "size": 168
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/One in Christ.md",
+      "score": 3,
+      "modifiedAt": 1737066003.167999,
+      "size": 2181
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Mom\u2019s Toast.md",
+      "score": 3,
+      "modifiedAt": 1736714380.726,
+      "size": 1688
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Add to resume.md",
+      "score": 3,
+      "modifiedAt": 1735831812.562999,
+      "size": 359
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/To do week of 12-30-24.md",
+      "score": 3,
+      "modifiedAt": 1735503698.605999,
+      "size": 110
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Birthdays.md",
+      "score": 3,
+      "modifiedAt": 1735427261.262,
+      "size": 37
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Joanne.md",
+      "score": 3,
+      "modifiedAt": 1735422403.582,
+      "size": 0
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/To do 12.21.24.md",
+      "score": 3,
+      "modifiedAt": 1734788587.023,
+      "size": 110
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Costco.md",
+      "score": 3,
+      "modifiedAt": 1734717225.611999,
+      "size": 514
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/We need to get olive oil.md",
+      "score": 3,
+      "modifiedAt": 1734142818.693,
+      "size": 26
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Sure! Here\u2019s a detailed 10-step process write-up for your freelancing\u2026.md",
+      "score": 3,
+      "modifiedAt": 1733974456.293999,
+      "size": 7241
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Kristin\u2019s Xmas List.md",
+      "score": 3,
+      "modifiedAt": 1733883628.006,
+      "size": 3276
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/End of 2024 BIG To-Do List.md",
+      "score": 3,
+      "modifiedAt": 1733413078.907,
+      "size": 64
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Kristin\u2019s Kristmas Klist.md",
+      "score": 3,
+      "modifiedAt": 1732979203.065999,
+      "size": 3249
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CJ Christmas 2024.md",
+      "score": 3,
+      "modifiedAt": 1732624380.371999,
+      "size": 491
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Domenica meditation.md",
+      "score": 3,
+      "modifiedAt": 1732578728.546999,
+      "size": 66
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/V\u2019s Barbershop.md",
+      "score": 3,
+      "modifiedAt": 1732545288.571,
+      "size": 104
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Christmas Gifts 2024.md",
+      "score": 3,
+      "modifiedAt": 1731623344.483999,
+      "size": 190
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Text regarding no more family.md",
+      "score": 3,
+      "modifiedAt": 1730406697.891,
+      "size": 2273
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Delta Dental.md",
+      "score": 3,
+      "modifiedAt": 1730378585.163,
+      "size": 22
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Compass Family Session.md",
+      "score": 3,
+      "modifiedAt": 1729609159.446,
+      "size": 25
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/Apple Notes/LPAC Basement Key Code.md",
+      "score": 3,
+      "modifiedAt": 1729377752.513,
+      "size": 4
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Rosecrance Sober Living Debt.md",
+      "score": 3,
+      "modifiedAt": 1729024022.903,
+      "size": 455
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CJL Bounce Back - 10.24.md",
+      "score": 3,
+      "modifiedAt": 1728057517.891,
+      "size": 9189
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Sober coach.md",
+      "score": 3,
+      "modifiedAt": 1727219697.729,
+      "size": 13
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Home Depot 6-1-24.md",
+      "score": 3,
+      "modifiedAt": 1717257224.95,
+      "size": 145
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Movies.md",
+      "score": 3,
+      "modifiedAt": 1717191264.667,
+      "size": 783
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Costco week of 5.20.24.md",
+      "score": 3,
+      "modifiedAt": 1716324143.497999,
+      "size": 360
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Home Depot.md",
+      "score": 3,
+      "modifiedAt": 1715446573.825,
+      "size": 151
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Kristin things.md",
+      "score": 3,
+      "modifiedAt": 1711408285.851999,
+      "size": 91
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Warby options.md",
+      "score": 3,
+      "modifiedAt": 1711243058.937,
+      "size": 100
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/What can my partner do better next time.md",
+      "score": 3,
+      "modifiedAt": 1710170148.411999,
+      "size": 311
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CJ - Christmas List \u201823.md",
+      "score": 3,
+      "modifiedAt": 1701108573.914999,
+      "size": 526
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CJ\u2019s bday list 2023.md",
+      "score": 3,
+      "modifiedAt": 1701107292.987999,
+      "size": 532
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Get a dog.md",
+      "score": 3,
+      "modifiedAt": 1699382733.938999,
+      "size": 16
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/Medical Info.md",
+      "score": 3,
+      "modifiedAt": 1692035808.301,
+      "size": 217
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Yo - I don\u2019t want any bad blood between us, but I\u2019m really bummed\u2026.md",
+      "score": 3,
+      "modifiedAt": 1674319313.069999,
+      "size": 2517
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Text to Joey  - Dec 22.md",
+      "score": 3,
+      "modifiedAt": 1670892068.848999,
+      "size": 2740
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Move In w- Ryan.md",
+      "score": 3,
+      "modifiedAt": 1668881200.0,
+      "size": 99
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Sophie Vet.md",
+      "score": 3,
+      "modifiedAt": 1665754909.993,
+      "size": 157
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Fat bitch you fat cunt you dumb fat sloppy pig bitch you\u2019re disgusting\u2026.md",
+      "score": 3,
+      "modifiedAt": 1665669674.742,
+      "size": 137
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Books - must read.md",
+      "score": 3,
+      "modifiedAt": 1665270954.719,
+      "size": 122
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Tow.md",
+      "score": 3,
+      "modifiedAt": 1665235614.779,
+      "size": 46
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Date night ideas.md",
+      "score": 3,
+      "modifiedAt": 1664223083.206,
+      "size": 57
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Projects.md",
+      "score": 3,
+      "modifiedAt": 1664199403.43,
+      "size": 83
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Recipes 9-18.md",
+      "score": 3,
+      "modifiedAt": 1663545251.769999,
+      "size": 174
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Containers.md",
+      "score": 3,
+      "modifiedAt": 1662916782.819,
+      "size": 95
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Rainbow King.md",
+      "score": 3,
+      "modifiedAt": 1662570050.377,
+      "size": 1254
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Costco - Target List.md",
+      "score": 3,
+      "modifiedAt": 1661901888.881,
+      "size": 760
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/To Do\u2019s.md",
+      "score": 3,
+      "modifiedAt": 1661363341.411,
+      "size": 31
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Kristin likes list.md",
+      "score": 3,
+      "modifiedAt": 1661293280.529999,
+      "size": 32
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Grocery List 1.md",
+      "score": 3,
+      "modifiedAt": 1661292668.177,
+      "size": 673
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Dad\u2019s bday gift ideas.md",
+      "score": 3,
+      "modifiedAt": 1661213786.441999,
+      "size": 86
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Writing.md",
+      "score": 3,
+      "modifiedAt": 1660400895.743,
+      "size": 55
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Chase dispute.md",
+      "score": 3,
+      "modifiedAt": 1660076437.680999,
+      "size": 42
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Dominoes.md",
+      "score": 3,
+      "modifiedAt": 1658954696.286999,
+      "size": 132
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Shinola.md",
+      "score": 3,
+      "modifiedAt": 1658690920.095,
+      "size": 27
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/St. Simon\u2019s Grocery List.md",
+      "score": 3,
+      "modifiedAt": 1657481949.937,
+      "size": 751
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hotel Alita Checklist.md",
+      "score": 3,
+      "modifiedAt": 1657335920.183,
+      "size": 130
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/KC MO packing list.md",
+      "score": 3,
+      "modifiedAt": 1656013075.651999,
+      "size": 269
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Luther .md",
+      "score": 3,
+      "modifiedAt": 1651629493.937,
+      "size": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Purpose.md",
+      "score": 3,
+      "modifiedAt": 1649249156.763,
+      "size": 2552
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Groceries.md",
+      "score": 3,
+      "modifiedAt": 1647111260.517999,
+      "size": 610
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/hiya h. i\u2019ve read and reread yr botw - mindfulness piece 3 times now\u2026.md",
+      "score": 3,
+      "modifiedAt": 1616151869.197999,
+      "size": 457
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Status Check - Lamo.md",
+      "score": 3,
+      "modifiedAt": 1612396703.716,
+      "size": 205
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CJ Christmas List 2020.md",
+      "score": 3,
+      "modifiedAt": 1607722631.286,
+      "size": 707
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Meridian.md",
+      "score": 3,
+      "modifiedAt": 1607374667.292,
+      "size": 12
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/usernames - passwords - other important stuff.md",
+      "score": 3,
+      "modifiedAt": 1607022005.709,
+      "size": 253
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Janeen H Paul MD.md",
+      "score": 3,
+      "modifiedAt": 1606932288.684,
+      "size": 89
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Kristin Conrad.md",
+      "score": 3,
+      "modifiedAt": 1604512180.631999,
+      "size": 90
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CBS All Access.md",
+      "score": 3,
+      "modifiedAt": 1597269211.779999,
+      "size": 41
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Potbelly.md",
+      "score": 3,
+      "modifiedAt": 1578940457.351,
+      "size": 11
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hi. Thanks for sharing your location again. I shared mine back. I\u2026.md",
+      "score": 3,
+      "modifiedAt": 1576992306.089999,
+      "size": 728
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Star Wars.md",
+      "score": 3,
+      "modifiedAt": 1576829352.795,
+      "size": 1762
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hi Kristin. I truly appreciate that text and the sentiments you\u2019ve\u2026.md",
+      "score": 3,
+      "modifiedAt": 1576200051.098,
+      "size": 1571
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Christmas List 2019.md",
+      "score": 3,
+      "modifiedAt": 1575318391.582,
+      "size": 627
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/I\u2019m long j.md",
+      "score": 3,
+      "modifiedAt": 1573954457.64,
+      "size": 14
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Movie tix $18.md",
+      "score": 3,
+      "modifiedAt": 1567274864.157,
+      "size": 0
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Oct 3rd to London (get in the 4th).md",
+      "score": 3,
+      "modifiedAt": 1566597805.137,
+      "size": 175
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Dop kit.md",
+      "score": 3,
+      "modifiedAt": 1564720230.290999,
+      "size": 33
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Meaghan & Paul Wedding Reception Speech.md",
+      "score": 3,
+      "modifiedAt": 1564443449.098999,
+      "size": 564
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/K & C - Therapy Agenda.md",
+      "score": 3,
+      "modifiedAt": 1560820881.453999,
+      "size": 14
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Fuck off Chelsea FC you ain't got no history six European cups 18\u2026.md",
+      "score": 3,
+      "modifiedAt": 1559493105.956,
+      "size": 101
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/I\u2019m sorry I let you down tonight. I\u2019m sorry we find ourselves in an\u2026.md",
+      "score": 3,
+      "modifiedAt": 1558610823.874,
+      "size": 762
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/One red dragon roll.md",
+      "score": 3,
+      "modifiedAt": 1557698875.232,
+      "size": 126
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hi NAME. Heads up I\u2019ve recently been backsliding into old, bad\u2026.md",
+      "score": 3,
+      "modifiedAt": 1552086880.365,
+      "size": 262
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Citizens Collection Analytics.md",
+      "score": 3,
+      "modifiedAt": 1549647659.451999,
+      "size": 55
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hiya BabyLove. Firstly, I want to apologize for my behavior last night\u2026.md",
+      "score": 3,
+      "modifiedAt": 1548888961.572,
+      "size": 2251
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/Apple Notes/Kristin\u2019s Wag Lock Key Code.md",
+      "score": 3,
+      "modifiedAt": 1546889480.67,
+      "size": 3
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/For Jim 1-9-19.md",
+      "score": 3,
+      "modifiedAt": 1546875065.440999,
+      "size": 54
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Suit.md",
+      "score": 3,
+      "modifiedAt": 1545195571.849999,
+      "size": 73
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Foxtrot promo code.md",
+      "score": 3,
+      "modifiedAt": 1545177387.645999,
+      "size": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Connor\u2019s Christmas List 2k17 (presented in no particular order and\u2026.md",
+      "score": 3,
+      "modifiedAt": 1544665112.927,
+      "size": 2482
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Needs.md",
+      "score": 3,
+      "modifiedAt": 1543527008.233,
+      "size": 448
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Rt2392.md",
+      "score": 3,
+      "modifiedAt": 1538871519.398,
+      "size": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/https--www.shazam.com-partner-sc-273495238sc.md",
+      "score": 3,
+      "modifiedAt": 1533178845.706,
+      "size": 46
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Give anyone a sniff of a badge.md",
+      "score": 3,
+      "modifiedAt": 1532210632.233,
+      "size": 30
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/CollectX more data more power.md",
+      "score": 3,
+      "modifiedAt": 1529954456.263,
+      "size": 115
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/That person - the one who is fantasizing over buying us exceptionally\u2026.md",
+      "score": 3,
+      "modifiedAt": 1529907621.482,
+      "size": 759
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Edited note to KSK.md",
+      "score": 3,
+      "modifiedAt": 1529097951.276999,
+      "size": 1399
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hi name. I need to apologize to you for some of my actions of late\u2026.md",
+      "score": 3,
+      "modifiedAt": 1529094690.739,
+      "size": 2397
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Practice radical honesty.md",
+      "score": 3,
+      "modifiedAt": 1528164102.644999,
+      "size": 331
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/I am....md",
+      "score": 3,
+      "modifiedAt": 1527529045.243,
+      "size": 77
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Pcg509jrc5gdez92.md",
+      "score": 3,
+      "modifiedAt": 1525854328.437999,
+      "size": 16
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Gamification of SFDC -.md",
+      "score": 3,
+      "modifiedAt": 1525837097.299,
+      "size": 22
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/TSI Senior Leadership & Upper Management - 4-24-18.md",
+      "score": 3,
+      "modifiedAt": 1524638645.852999,
+      "size": 36
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Destinations for Evan.md",
+      "score": 3,
+      "modifiedAt": 1524334803.358999,
+      "size": 307
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hendricks & water.md",
+      "score": 3,
+      "modifiedAt": 1523161803.177,
+      "size": 11
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/LoZBOTW.md",
+      "score": 3,
+      "modifiedAt": 1521102322.221999,
+      "size": 16
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Milk.md",
+      "score": 3,
+      "modifiedAt": 1519346985.423,
+      "size": 292
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Laundry.md",
+      "score": 3,
+      "modifiedAt": 1519323861.372999,
+      "size": 30
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Advice on Taking LSD from Seasoned Acid Aficionados.md",
+      "score": 3,
+      "modifiedAt": 1517354624.019999,
+      "size": 91
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Parking.md",
+      "score": 3,
+      "modifiedAt": 1512840584.673,
+      "size": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/French waterway barge cruise.md",
+      "score": 3,
+      "modifiedAt": 1511562564.111999,
+      "size": 28
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Text to.md",
+      "score": 3,
+      "modifiedAt": 1509783121.493999,
+      "size": 22
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Text to Obot re. Tones & Doyers.md",
+      "score": 3,
+      "modifiedAt": 1509591302.193,
+      "size": 187
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/GORKA!!.md",
+      "score": 3,
+      "modifiedAt": 1504514824.989,
+      "size": 592
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Taco deli on 42nd and Lamar.md",
+      "score": 3,
+      "modifiedAt": 1503675262.641,
+      "size": 140
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/The corse of love.md",
+      "score": 3,
+      "modifiedAt": 1503632996.091,
+      "size": 16
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hook em.md",
+      "score": 3,
+      "modifiedAt": 1503620629.482,
+      "size": 23
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/JG Wentworth.md",
+      "score": 3,
+      "modifiedAt": 1503289902.665999,
+      "size": 164
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Hi hi hi. What're you and Lucy doing Tuesday evening That's John's\u2026.md",
+      "score": 3,
+      "modifiedAt": 1503286044.551,
+      "size": 212
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Jorah.md",
+      "score": 3,
+      "modifiedAt": 1500256878.232,
+      "size": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Alpha.md",
+      "score": 3,
+      "modifiedAt": 1500114279.469,
+      "size": 51
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Date Ideas.md",
+      "score": 3,
+      "modifiedAt": 1499830717.765,
+      "size": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Marketing 2017.md",
+      "score": 3,
+      "modifiedAt": 1498192683.036,
+      "size": 23
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Shirt size.md",
+      "score": 3,
+      "modifiedAt": 1497722839.732,
+      "size": 22
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/TSI Marketing Transformation 2017 (Q3).md",
+      "score": 3,
+      "modifiedAt": 1496952428.441999,
+      "size": 1720
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/TSI Marketing + Sales.md",
+      "score": 3,
+      "modifiedAt": 1496812699.65,
+      "size": 21
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/TSI Marketing Brainstorming Guidelines.md",
+      "score": 3,
+      "modifiedAt": 1496808135.756,
+      "size": 236
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/iBooks Wishlist.md",
+      "score": 3,
+      "modifiedAt": 1483493845.164999,
+      "size": 342
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Links to ppt templates.md",
+      "score": 3,
+      "modifiedAt": 1479683967.542,
+      "size": 769
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/https--www.everlane.com-collections-mens-scarves-hats-gloves-products\u2026.md",
+      "score": 3,
+      "modifiedAt": 1479022287.780999,
+      "size": 228
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/TSI marketing.md",
+      "score": 3,
+      "modifiedAt": 1456895751.065,
+      "size": 213
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Rez.md",
+      "score": 3,
+      "modifiedAt": 1454693747.819999,
+      "size": 97
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/90 Sensitive/UAS Twitter login.md",
+      "score": 3,
+      "modifiedAt": 1453821838.206,
+      "size": 159
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Tinder Mgr terms & conditions - contract.md",
+      "score": 3,
+      "modifiedAt": 1452403628.122999,
+      "size": 310
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Turkey Swiss w- everything but mayo & avocado..md",
+      "score": 3,
+      "modifiedAt": 1449421261.0,
+      "size": 57
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Warby Parker frames.md",
+      "score": 3,
+      "modifiedAt": 1449270467.535,
+      "size": 341
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Maddie Bedecarr\u00e9 Wedding gifts.md",
+      "score": 3,
+      "modifiedAt": 1447460150.855,
+      "size": 234
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Police report.md",
+      "score": 3,
+      "modifiedAt": 1446392832.963999,
+      "size": 43
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/The Current 89.3.md",
+      "score": 3,
+      "modifiedAt": 1443356778.97,
+      "size": 51
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/H access.md",
+      "score": 3,
+      "modifiedAt": 1440093082.006,
+      "size": 89
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Vodka tonic.md",
+      "score": 3,
+      "modifiedAt": 1439102733.092,
+      "size": 141
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Underground Empire.md",
+      "score": 3,
+      "modifiedAt": 1437866875.107,
+      "size": 53
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Warby Parker - Piper.md",
+      "score": 3,
+      "modifiedAt": 1437845519.187999,
+      "size": 55
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Instagram - Blocked from Adding Content.md",
+      "score": 3,
+      "modifiedAt": 1437580994.582,
+      "size": 1385
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Pay the toll at Eden spa Plaza 24.md",
+      "score": 3,
+      "modifiedAt": 1436239820.948999,
+      "size": 68
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/TOR info.md",
+      "score": 3,
+      "modifiedAt": 1366593363.790999,
+      "size": 354
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Tooth repair.md",
+      "score": 3,
+      "modifiedAt": 1365449298.503,
+      "size": 284
+    }
+  ]
+}

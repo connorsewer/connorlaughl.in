@@ -13,7 +13,7 @@ Shared cross-session snapshot of the most important active work right now.
 
 ## Current priorities
 
-- Build a markdown-native, agent-readable knowledge/skill graph across the workspace and Obsidian vault
-- Improve cross-session continuity through shared files, handoffs, and durable state
-- Harden OpenClaw runtime stability after gateway/subagent instability under load
-- Continue documenting tools, skills, playbooks, and operating patterns in Obsidian
+- Complete the knowledge-ingestion + Obsidian system build as the sole priority
+- Ingest and structure the highest-value material from `~/clawd`, `~/Downloads`, `~/Desktop`, and `~/Documents`
+- Lock in completion criteria, deterministic checks, and durable operating patterns
+- Continue hardening reliability only insofar as it directly helps finish this project

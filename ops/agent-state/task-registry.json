@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "updatedAt": "2026-03-12T21:28:00-05:00",
+  "tasks": [
+    {
+      "id": "obsidian-skill-graph-build",
+      "title": "Build Obsidian knowledge graph and skill system",
+      "type": "build",
+      "status": "running",
+      "owner": "main",
+      "modelOrAgent": "openai/gpt-5.4",
+      "artifacts": [
+        "CJL Vault/04 Domains/Skills",
+        "CJL Vault/04 Domains/OpenClaw",
+        "CJL Vault/01 Maps of Content"
+      ],
+      "startedAt": "2026-03-12T07:49:00-05:00",
+      "updatedAt": "2026-03-12T21:28:00-05:00",
+      "nextAction": "Finish first-pass ingestion of highest-value clawd and Downloads materials into structured Obsidian note clusters and lock in completion criteria",
+      "notifyOnComplete": true,
+      "retries": 0,
+      "notes": "Long-running documentation and systems-architecture effort"
+    },
+    {
+      "id": "cross-session-continuity-system",
+      "title": "Implement shared cross-session continuity layer",
+      "type": "ops",
+      "status": "running",
+      "owner": "main",
+      "modelOrAgent": "openai/gpt-5.4",
+      "artifacts": [
+        "ops/agent-state",
+        "ops/handoffs",
+        "ops/runbooks/cross-session-continuity.md"
+      ],
+      "startedAt": "2026-03-12T17:44:00-05:00",
+      "updatedAt": "2026-03-12T21:28:00-05:00",
+      "nextAction": "Add more handoff examples and use registry/state consistently",
+      "notifyOnComplete": true,
+      "retries": 0,
+      "notes": "Primary workaround for session visibility restrictions"
+    },
+    {
+      "id": "runtime-stability-hardening",
+      "title": "Diagnose and harden gateway/subagent runtime stability",
+      "type": "ops",
+      "status": "running",
+      "owner": "main",
+      "modelOrAgent": "openai/gpt-5.4",
+      "artifacts": [
+        "ops/agent-state/system-health.md",
+        "ops/tmp/gateway-subagent-diagnosis-2026-03-12.md"
+      ],
+      "startedAt": "2026-03-12T15:43:00-05:00",
+      "updatedAt": "2026-03-12T21:28:00-05:00",
+      "nextAction": "Investigate skill-path warning sources, continue observing post-concurrency reduction stability, and note qmd process/embed failures as part of runtime-health work",
+      "notifyOnComplete": true,
+      "retries": 1,
+      "notes": "Subagent concurrency already reduced from 8 to 4"
+    }
+  ]
+}

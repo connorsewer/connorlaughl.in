@@ -1,131 +1,136 @@
 {
   "schemaVersion": "2.0",
-  "lastRunAt": "2026-03-11T23:00:00Z",
+  "lastRunAt": "2026-03-13T17:00:00Z",
   "dedupe": {
-    "2026-03-11T23:00:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T17:00:00Z": {
+      "reason": "completed no-op decision for the 12:00 PM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T22:40:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T16:40:00Z": {
+      "reason": "completed no-op decision for the 11:40 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T22:20:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty; verified completion on retry with same decision",
+    "2026-03-13T16:20:00Z": {
+      "reason": "completed no-op decision for the 11:20 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T22:00:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T16:00:00Z": {
+      "reason": "completed no-op decision for the 11:00 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T21:40:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T15:40:00Z": {
+      "reason": "completed no-op decision for the 10:40 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T21:20:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T15:20:00Z": {
+      "reason": "completed no-op decision for the 10:20 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T21:00:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T15:00:00Z": {
+      "reason": "completed no-op decision for the 10:00 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T20:40:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T14:40:00Z": {
+      "reason": "completed no-op decision for the 9:40 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T20:20:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T14:20:00Z": {
+      "reason": "completed no-op decision for the 9:20 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T20:00:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T14:00:00Z": {
+      "reason": "completed no-op decision for the 9:00 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T19:40:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T13:40:00Z": {
+      "reason": "completed no-op decision for the 8:40 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T19:20:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T13:20:00Z": {
+      "reason": "completed no-op decision for the 8:20 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     },
-    "2026-03-11T19:00:00Z": {
-      "reason": "no-op: prerequisite context missing and lightweight inputs empty",
+    "2026-03-13T13:00:00Z": {
+      "reason": "completed no-op decision for the 8:00 AM slot: prerequisite read attempted for ops/context-pack.md and it is still missing, lightweight inputs remained empty (projects=0, open loops=0, queue=0), anti-stale scan found no Clawdbot-owned loops with lastTouchedAt >=20h ago, prior 6h state already records repeated no-op decisions on the same missing/empty signals, and there were no worker digests to await or follow-ups to create",
       "selectedTasks": [],
-      "workersSpawned": []
+      "workersSpawned": [],
+      "followUps": []
     }
   },
   "lessons_learned": [
     "Signal files (projects.json, open-loops.json, queue.json) remain empty - no tasks to dispatch",
     "context-pack.md does not exist at expected path",
     "No worker sessions should be spawned when prerequisite context is missing and all lightweight inputs are empty",
-    "Cron completion still requires updating state.json even for a no-op decision"
+    "Cron completion still requires updating state.json even for a no-op decision",
+    "Reruns for the same cron slot should only confirm state, not invent work when inputs are still empty",
+    "Completion-enforcement retries should still avoid spawning workers when the anti-stale scan and lightweight inputs yield zero dispatchable tasks",
+    "If a supervisor says the prior response did not complete, finish by rewriting state for the slot and returning only the final summary",
+    "Use full-file writes for state.json updates to avoid brittle exact-match edits during conductor cron runs"
   ],
   "recent": [
     {
-      "timestamp": "2026-03-11T23:00:00Z",
-      "action": "Decision run (6:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created. State updated to record completed no-op run for this slot."
+      "timestamp": "2026-03-13T17:00:00Z",
+      "action": "Decision run (12:00 PM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T22:40:00Z",
-      "action": "Decision run (5:40 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created. Completion re-verified after cron retry; no subagents spawned because there were still no dispatchable tasks and the latest state already covers this slot."
+      "timestamp": "2026-03-13T16:40:00Z",
+      "action": "Decision run (11:40 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T22:20:00Z",
-      "action": "Decision run (5:20 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created. Retry confirmed same no-op decision; no subagents spawned because there were no dispatchable tasks and dedupe window is active."
+      "timestamp": "2026-03-13T16:20:00Z",
+      "action": "Decision run (11:20 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T22:00:00Z",
-      "action": "Decision run (5:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+      "timestamp": "2026-03-13T16:00:00Z",
+      "action": "Decision run (11:00 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T21:40:00Z",
-      "action": "Decision run (4:40 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+      "timestamp": "2026-03-13T15:40:00Z",
+      "action": "Decision run (10:40 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T21:20:00Z",
-      "action": "Decision run (4:20 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+      "timestamp": "2026-03-13T15:20:00Z",
+      "action": "Decision run (10:20 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T21:00:00Z",
-      "action": "Decision run (4:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+      "timestamp": "2026-03-13T15:00:00Z",
+      "action": "Decision run (10:00 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T20:40:00Z",
-      "action": "Decision run (3:40 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+      "timestamp": "2026-03-13T14:40:00Z",
+      "action": "Decision run (9:40 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T20:20:00Z",
-      "action": "Decision run (3:20 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+      "timestamp": "2026-03-13T14:20:00Z",
+      "action": "Decision run (9:20 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     },
     {
-      "timestamp": "2026-03-11T20:00:00Z",
-      "action": "Decision run (3:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
-    },
-    {
-      "timestamp": "2026-03-11T19:40:00Z",
-      "action": "Decision run (2:40 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
-    },
-    {
-      "timestamp": "2026-03-11T19:20:00Z",
-      "action": "Decision run (2:20 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
-    },
-    {
-      "timestamp": "2026-03-11T19:00:00Z",
-      "action": "Decision run (2:00 PM): prerequisite context-pack.md missing; projects/open-loops/queue empty; anti-stale scan found no Clawdbot-owned loops >=20h old; maxTasksPerRun=3, no high-leverage tasks selected, worker budget unused, no follow-ups created."
+      "timestamp": "2026-03-13T14:00:00Z",
+      "action": "Decision run (9:00 AM): prerequisite read attempted for ops/context-pack.md and it is still missing. Lightweight inputs remained empty (projects=0, open loops=0, queue=0). Anti-stale rule produced no Clawdbot-owned loops with lastTouchedAt >=20h ago. Prior 6h history already records repeated no-op decisions on the same missing/empty signals, so no tasks were selected, no workers were spawned, no worker digests were awaited, and no follow-ups were created. State rewritten in full to preserve the completed no-op result for this slot."
     }
   ],
   "workers": []

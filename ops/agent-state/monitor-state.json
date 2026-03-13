@@ -1,7 +1,13 @@
 {
   "version": 1,
-  "lastCheckedAt": null,
+  "lastCheckedAt": "2026-03-13T16:52:00Z",
   "lastNotifiedAt": null,
   "lastBlockedOrFailedTaskIds": [],
-  "lastCrashSignals": []
+  "lastCrashSignals": [
+    "Gateway instability observed under heavier parallelization on 2026-03-12",
+    "Subagent/session behavior became unreliable during/after gateway restart window",
+    "openclaw doctor --non-interactive crashed with SIGABRT during diagnosis",
+    "qmd embed failed during model download",
+    "one qmd query process later aborted with SIGABRT"
+  ]
 }

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "updatedAt": "2026-03-13T07:05:00-05:00",
+  "next": [
+    {
+      "id": "ingest-clawd-runbooks-roadmaps",
+      "status": "queued",
+      "reason": "Highest leverage existing source cluster"
+    },
+    {
+      "id": "ingest-clawd-strategy-docs",
+      "status": "queued",
+      "reason": "Likely durable strategic and explanatory material"
+    },
+    {
+      "id": "triage-desktop-documents-markdown",
+      "status": "queued",
+      "reason": "Likely one-off but high-value local documents"
+    },
+    {
+      "id": "triage-downloads-pdf-docx",
+      "status": "queued",
+      "reason": "Likely high-friction external source documents"
+    }
+  ]
+}

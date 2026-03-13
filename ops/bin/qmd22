@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /Users/connorlaughlin/.nvm/versions/node/v22.22.0/bin/node /Users/connorlaughlin/.nvm/versions/node/v22.22.0/lib/node_modules/@tobilu/qmd/dist/cli/qmd.js "$@"

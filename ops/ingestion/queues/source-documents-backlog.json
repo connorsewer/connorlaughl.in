@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "updatedAt": "2026-03-13T07:10:00-05:00",
+  "sources": [
+    {
+      "id": "clawd-ops-runbooks-and-roadmaps",
+      "path": "/Users/connorlaughlin/clawd/ops",
+      "priority": "high",
+      "kind": "cluster",
+      "reason": "Closest to active system-building work; likely highest leverage for improving agent architecture and operational knowledge."
+    },
+    {
+      "id": "clawd-graph-and-memory",
+      "path": "/Users/connorlaughlin/clawd/graph",
+      "priority": "high",
+      "kind": "cluster",
+      "reason": "Core structured knowledge layer already being built and should continue feeding Obsidian/system notes."
+    },
+    {
+      "id": "downloads-recovery-os-architecture-suite",
+      "path": "/Users/connorlaughlin/Downloads/Recovery-OS-Architecture-Suite.md",
+      "priority": "high",
+      "kind": "file",
+      "reason": "Appears to be a substantial architecture suite directly relevant to systems, resilience, and operating-model design."
+    },
+    {
+      "id": "downloads-recovery-os-architecture-specs-cluster",
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs",
+      "priority": "high",
+      "kind": "cluster",
+      "reason": "Likely rich, structured systems/architecture material worth extracting into vault knowledge."
+    },
+    {
+      "id": "downloads-tsi-gtm-intelligence-briefs",
+      "path": "/Users/connorlaughlin/Downloads/TSI_Master_GTM_Narrative_and_Intelligence_Brief_v1.md",
+      "priority": "high",
+      "kind": "file",
+      "reason": "Likely durable GTM/strategy material with reusable value."
+    },
+    {
+      "id": "downloads-facs-research-cluster",
+      "path": "/Users/connorlaughlin/Downloads/FACS-deep-research-report.md",
+      "priority": "medium",
+      "kind": "cluster",
+      "reason": "Appears to be a substantial research area that may deserve structured extraction after more immediate system material."
+    },
+    {
+      "id": "desktop-and-documents-high-value-docs",
+      "path": "/Users/connorlaughlin/Desktop",
+      "priority": "medium",
+      "kind": "cluster",
+      "reason": "Likely one-off but potentially high-value local documents and artifacts."
+    },
+    {
+      "id": "documents-markdown-clusters",
+      "path": "/Users/connorlaughlin/Documents",
+      "priority": "medium",
+      "kind": "cluster",
+      "reason": "Broader markdown scan shows substantial material beyond the vault itself."
+    }
+  ]
+}

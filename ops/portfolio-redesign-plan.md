@@ -1,1117 +1,1090 @@
-# Portfolio Redesign Plan
+# Portfolio Redesign Research + Planning
 
-_Last updated: 2026-03-11_
+_Date:_ 2026-03-13  
+_Status:_ Research and planning only — do **not** build yet.
 
-## Goal
+## 1) Goal
 
-Research and plan an ideal portfolio website for a senior GTM / VP-level operator targeting AI companies.
+Design the ideal portfolio website for a senior VP / GTM / growth / AI-facing operator profile.
 
-This document is intentionally planning-only. It does **not** prescribe implementation work yet.
+This site should do four jobs at once:
+
+1. **Signal executive credibility fast**
+2. **Show strategic depth, not just aesthetics**
+3. **Package measurable business outcomes as case studies**
+4. **Be easy to maintain without turning into a side project**
+
+The right portfolio for this role is **not** a flashy designer portfolio and **not** a resume site with prettier fonts. It should feel like:
+
+- high-agency
+- modern
+- editorial
+- strategic
+- outcomes-first
+- quietly technical
+- selective rather than exhaustive
+
+The overall recommendation: **build a premium editorial portfolio with restrained motion, strong case-study storytelling, and a lightweight CMS layer that keeps publishing friction low.**
 
 ---
 
-## 1. Executive Summary
+## 2) Executive Summary / Recommendation
 
 ### Recommended direction
 
-Build a **high-trust, low-friction, editorial portfolio** that feels modern and premium without becoming a creative-tech demo.
+Build a **content-led, editorial personal site** with:
 
-For a VP/GTM audience, the site should communicate:
+- a bold but restrained homepage
+- 3–5 flagship case studies
+- a sharp positioning / bio page
+- a lightweight writing / insights section
+- a speaking / press / proof section if applicable
+- a simple contact / CTA path
+
+### Recommended stack direction
+
+**Best overall recommendation:**
+- **Frontend:** Next.js or equivalent modern React framework
+- **CMS:** **Sanity** as primary recommendation
+- **Animation:** **Motion (Framer Motion / motion.dev)** for most interactions, optionally small targeted **GSAP** use only if needed
+- **3D / immersive:** avoid defaulting to Three.js or Spline unless there is a very specific brand concept worth the performance cost
+
+### Why this is the best fit
+
+Because this portfolio needs to optimize for:
+
+- credibility over novelty
+- maintainability over experimentation
+- narrative clarity over visual spectacle
+- speed and readability over “look what web tech can do”
+
+A VP/GTM portfolio should feel closer to a **beautiful strategy memo + operating case study library** than an art-school playground.
+
+---
+
+## 3) Research Findings: Modern Portfolio Design Trends
+
+Research sources reviewed included current category pages and examples from:
+
+- Awwwards portfolio category
+- Awwwards creative portfolio collection/article
+- Framer portfolio gallery
+- Framer portfolio template ecosystem
+
+### What the current best portfolio sites are doing
+
+Across Awwwards and Framer examples, the recurring patterns are:
+
+#### 3.1 Big editorial typography
+Large type is doing most of the brand work.
+
+Common traits:
+- oversized headlines
+- sparse but confident copy
+- strong hierarchy
+- high contrast
+- lots of whitespace
+
+**Implication:** typography is the cheapest way to look premium. For this portfolio, strong type matters more than fancy interactions.
+
+#### 3.2 Strong visual rhythm and pacing
+Modern portfolio sites increasingly feel like guided narratives instead of grids.
+
+Patterns:
+- stacked full-width sections
+- alternating dense and sparse moments
+- section-by-section reveal
+- deliberate pacing using whitespace and scroll
+
+**Implication:** the homepage should read as a story arc, not a dump of tiles.
+
+#### 3.3 Case study previews with strong framing
+Better sites do not just show project names. They pre-frame the value.
+
+Common card structure:
+- project / company name
+- role or mandate
+- one-line strategic context
+- measurable result
+- visual identity or art direction
+
+**Implication:** for GTM work, each case study preview should telegraph a business problem and result immediately.
+
+#### 3.4 Motion is everywhere, but the best examples use restraint
+The strongest examples use:
+- hover states
+- layered parallax
+- fade / reveal / slide transitions
+- scroll-linked polish
+- subtle kinetic typography
+
+The weaker examples overuse:
+- unnecessary cursor gimmicks
+- heavy WebGL scenes
+- slow transitions that hurt reading
+- full-screen animation intros
+
+**Implication:** motion should support comprehension, not compete with it.
+
+#### 3.5 Personality is now expected
+Portfolio sites increasingly show a point of view, not just competence.
+
+This happens through:
+- voice in headlines
+- editorial curation
+- a selective project list
+- subtle visual identity
+- “what I believe” / “how I work” framing
+
+**Implication:** this portfolio should not be generic “growth leader with 10+ years…” copy. It needs a clear thesis.
+
+---
+
+## 4) Design Principles for This Specific Portfolio
+
+### Core positioning principle
+This site should present Connor as:
+
+- a strategic operator
+- with GTM depth
+- who can work at startup speed
+- who understands AI-era distribution, adoption, and revenue systems
+- and who can translate ambiguity into execution
+
+### Design principles
+
+1. **Outcome-first**  
+   Every major section should anchor to results, systems, or judgment.
+
+2. **Editorial over decorative**  
+   The design should feel like premium publishing, not a template carousel.
+
+3. **Selective over comprehensive**  
+   Better to have 4 excellent stories than 18 shallow ones.
+
+4. **Modern but not trendy-to-death**  
+   It should still look good in 2–3 years.
+
+5. **Readable before impressive**  
+   Recruiters, founders, and operators skim under time pressure.
+
+6. **Executive confidence**  
+   No “pick me” energy. Strong framing, calm design, proof-heavy content.
+
+---
+
+## 5) Recommended Information Architecture
+
+## Primary site map
+
+1. **Home**
+2. **Case Studies** (index)
+3. **Case Study Detail** (template)
+4. **About / Positioning**
+5. **Writing / Insights**
+6. **Speaking / Press / Proof** (optional but recommended if material exists)
+7. **Resume / PDF / LinkedIn / Contact**
+
+### Homepage recommended structure
+
+1. **Hero**
+   - clear positioning statement
+   - short proof strip
+   - primary CTA
+
+2. **Selected Impact**
+   - 3–4 high-signal metrics
+   - e.g. revenue influenced, pipeline built, launches led, teams scaled
+
+3. **Featured Case Studies**
+   - 3 flagship stories
+   - each with context, problem, result
+
+4. **How I Work / Operating Principles**
+   - short strategic framework
+   - e.g. narrative, systems, experimentation, enablement, distribution
+
+5. **AI / GTM Point of View**
+   - concise section showing current relevance
+   - why modern GTM is changing and how you operate within it
+
+6. **Selected Writing / Thinking**
+   - 2–4 posts or memos
+
+7. **Credibility / Logos / Testimonials / Quotes**
+   - optional, only if high quality
+
+8. **CTA footer**
+   - contact / intro / resume / LinkedIn
+
+### Navigation recommendation
+
+Keep nav minimal:
+- Work
+- About
+- Writing
+- Resume / Contact
+
+Do **not** create a bloated nav with too many top-level items.
+
+---
+
+## 6) Content Strategy for VP / GTM / AI Roles
+
+This is the most important part.
+
+A GTM/executive portfolio lives or dies on **framing**. The site should show that the owner can:
+
+- diagnose markets
+- position products
+- create adoption systems
+- align teams
+- build revenue motion
+- operate cross-functionally
+- make good bets under uncertainty
+
+### What employers / founders want to see
+
+They are not mainly looking for “good taste.” They want evidence of:
+
 - strategic judgment
-- measurable business outcomes
-- sharp taste
-- fluency in AI/modern SaaS
-- ability to turn ambiguity into growth systems
+- measurable outcomes
+- scope and complexity handled
+- leadership under ambiguity
+- ability to build systems, not just campaigns
+- understanding of AI market dynamics and modern demand gen / product-led / enterprise motion
 
-### Core recommendation
+### Recommended core content categories
 
-Use a **hybrid aesthetic**:
-- **editorial / minimal** structure for credibility
-- **tasteful motion** for polish
-- **selective visual experimentation** to signal modernity
-- **case-study-first information architecture** over gallery-first portfolio patterns
+#### 6.1 Flagship case studies
+These should be the heart of the site.
 
-### Strong recommendation
+Each one should answer:
+- What was the company/context?
+- What problem existed?
+- What was at stake?
+- What did you decide?
+- What did you build/change?
+- What happened?
+- What did you learn?
 
-Do **not** make the site feel like a designer/developer portfolio full of novelty interactions.
-For executive and GTM hiring, that usually lowers trust unless the interaction design is extremely disciplined.
+#### 6.2 Strategic essays / memos
+Short writing can massively increase perceived seniority.
 
-The right impression is:
-> “This person is strategic, current, and unusually sharp.”
+Examples:
+- what AI changes about GTM
+- why category narrative matters before scale
+- building adoption loops for technical products
+- how to diagnose broken positioning
+- growth systems vs isolated campaigns
 
-Not:
-> “This person spent three weeks perfecting parallax.”
+#### 6.3 Operating philosophy
+A short section on how you think:
+- market understanding
+- customer insight
+- positioning
+- systems design
+- experimentation
+- enablement
+- feedback loops
 
----
+#### 6.4 Career narrative / about page
+This should answer:
+- why this person
+- why now
+- why these roles
+- what kind of company/context fits best
 
-## 2. Research Synthesis
+### Tone recommendation
 
-## 2.1 Modern portfolio design trends
+Write like:
+- a sharp operator
+- not a corporate HR page
+- not a self-help LinkedIn post
+- not a designer manifesto
 
-### What current inspiration sources suggest
+Tone should be:
+- concise
+- concrete
+- opinionated
+- thoughtful
+- unsentimental
 
-Based on current Awwwards / Framer / design-trend coverage and portfolio galleries, the strongest recurring patterns are:
+### Content anti-patterns to avoid
 
-1. **Minimal layouts with strong art direction**
-   - large type
-   - clean sectioning
-   - generous whitespace
-   - restrained color systems
-
-2. **Editorial storytelling over grid dumps**
-   - fewer projects
-   - more context
-   - stronger narrative sequencing
-   - case studies that read like strategic memos
-
-3. **Motion as atmosphere, not gimmick**
-   - subtle reveal animation
-   - scroll-linked transitions
-   - lightweight hover states
-   - tasteful sequencing of content blocks
-
-4. **Selective 3D / interactive objects**
-   - used as identity accents or hero moments
-   - not spread across the whole site
-   - strongest when they support brand tone rather than show technical flex
-
-5. **Clear specialization upfront**
-   - best portfolios say exactly what the person does
-   - ambiguity kills trust
-   - especially important for senior operators, not just creatives
-
-6. **Proof-oriented structure**
-   - metrics
-   - client / company logos
-   - testimonials
-   - recognizable outcomes
-   - point-of-view writing
-
-### Practical interpretation for this project
-
-For a VP/GTM portfolio, the best modern references should be translated like this:
-
-- borrow **layout discipline** from designer portfolios
-- borrow **interaction quality** from creative sites
-- borrow **clarity and business proof** from high-performing marketing portfolios
-- avoid over-indexing on “look what the browser can do”
-
-### Design trend conclusions
-
-**Use:**
-- oversized headline system
-- asymmetrical but readable layout
-- dark mode or near-monochrome palette with one accent color
-- polished micro-motion
-- strong section pacing
-- sparse but meaningful imagery / diagrams
-
-**Avoid:**
-- constant parallax everywhere
-- dense homepages with too many cards
-- auto-playing hero videos unless exceptional
-- scroll-jacking
-- noisy gradients / startup cliché visuals unless tightly art-directed
-- 3D scenes that slow load or distract from credibility
+- giant walls of autobiography
+- generic “results-driven leader” language
+- shallow bullet-point case studies
+- overclaiming without evidence
+- too many projects with no narrative differentiation
+- trying to sound more “AI” by stuffing buzzwords
 
 ---
 
-## 2.2 CMS research
+## 7) Case Study Template Recommendation
 
-## Portfolio-specific requirements
+Each case study should follow a repeatable executive narrative.
 
-The CMS should support:
-- easy editing of homepage copy
-- case studies with modular sections
-- writing / ideas / essays
-- testimonials / logos / role history
-- optional media embeds
-- easy publishing without engineering friction
-- strong portability if the site evolves later
+## Recommended template
 
-## CMS options reviewed
+### 1. Snapshot
+- company / product / stage
+- role
+- timeline
+- market context
+- 2–4 key outcomes
 
-### Option A — Notion as CMS
+### 2. The problem
+- what wasn’t working
+- why it mattered
+- what constraints existed
 
-**Pros**
-- lowest friction for authoring
-- easy for rapid publishing
-- familiar editing experience
-- good if writing cadence matters more than design precision
+### 3. Diagnosis
+- what you observed
+- what insight changed the direction
+- where the bottleneck really was
 
-**Cons**
-- weaker control over content model
-- limited presentation flexibility without glue code
-- can feel fragile or improvised at scale
-- less ideal for polished premium portfolio experiences
+### 4. Strategy
+- positioning shift
+- GTM redesign
+- channel/system changes
+- team/process changes
 
-**Best fit when**
-- speed beats craft
-- primary goal is publishing notes/articles quickly
-- the site is content-led and operationally lightweight
+### 5. Execution
+- what was actually built
+- campaigns, systems, assets, team rituals, measurement, enablement, partnerships, etc.
 
-**Verdict**
-Good for prototypes or content backends, but **not ideal as the primary long-term system** for a premium VP/GTM portfolio.
+### 6. Outcomes
+- metrics
+- operational improvements
+- market effects
+- leadership lessons
 
----
+### 7. Reflection
+- what you’d do differently
+- what this says about how you work
 
-### Option B — Sanity
+### 8. Related artifacts (optional)
+- launch memo
+- deck snippet
+- playbook screenshot
+- dashboard crop
+- campaign assets
 
-**Pros**
-- highly flexible content modeling
-- strong fit for structured case studies
-- excellent for custom frontends
-- future-proof for multi-type content
-- strong developer control
-- good if site may later include experiments, feeds, or reusable modules
-
-**Cons**
-- setup overhead
-- requires schema design discipline
-- more engineering involvement than simpler CMS tools
-
-**Best fit when**
-- the portfolio is a serious long-term asset
-- content model matters
-- custom design and extensibility matter
-- you may expand into essays, media, speaking, or dynamic content later
-
-**Verdict**
-**Best overall recommendation** if the site will be custom-built and maintained thoughtfully.
+### Best practice
+Every case study needs:
+- a clear strategic thesis
+- at least one strong number
+- enough specificity to feel real
+- enough abstraction to preserve confidentiality where needed
 
 ---
 
-### Option C — Storyblok / visual headless CMS class
+## 8) CMS Research and Recommendation
 
-**Pros**
-- editor-friendly visual workflows
-- strong component-driven editing
-- good for marketing-style page composition
-- helpful if non-technical editing experience matters a lot
+Research considered:
+- Notion Sites / Notion-backed publishing
+- Sanity
+- Directus
+- Contentful
+- broader 2025 headless CMS comparisons mentioning Strapi, Payload, Hygraph, Ghost, Tina, etc.
 
-**Cons**
-- can introduce more CMS overhead than needed for a personal portfolio
-- may be overkill if the main content types are straightforward
-- less necessary if only one primary editor exists
+## What matters most for this portfolio CMS
 
-**Best fit when**
-- you want visual editing of page layouts
-- page assembly by non-developers matters
+The ideal CMS should support:
 
-**Verdict**
-A solid second-tier option, but probably **less aligned than Sanity** for a single-owner executive portfolio.
+- easy editing for essays and case studies
+- structured content models
+- lightweight media management
+- future flexibility
+- low maintenance burden
+- good preview / editorial workflow
+- no giant enterprise overhead
 
----
-
-### Option D — Contentful / enterprise headless CMS class
-
-**Pros**
-- mature ecosystem
-- structured content
-- enterprise familiarity
-
-**Cons**
-- often heavier and less pleasant for a personal site
-- can feel too enterprise for this use case
-- cost / complexity may not justify benefits
-
-**Verdict**
-Not the best fit unless there is a pre-existing preference or stack reason.
-
----
-
-### Option E — Traditional CMS (WordPress/Webflow-ish traditional page stack)
-
-**Pros**
-- fast to launch
-- broad ecosystem
-- easy authoring in many cases
-
-**Cons**
-- harder to preserve a highly custom feel cleanly
-- can become template-y fast
-- content modeling for bespoke case studies may get awkward
-- performance and maintainability vary widely by implementation
-
-**Verdict**
-Good for speed. Less ideal for a differentiated, custom, future-proof portfolio.
-
----
-
-## CMS recommendation
-
-### Recommended stack decision
-
-**Primary recommendation:**
-- **Custom frontend + Sanity**
-
-### Why
-
-This gives the best combination of:
-- executive-grade polish
-- structured case studies
-- future extensibility
-- easy ongoing updates
-- low risk of the site feeling generic
-
-### Fallback alternatives
-
-If optimizing for speed over flexibility:
-1. **Framer CMS/site builder** for very fast launch with strong visual quality
-2. **Notion-backed site** only if publishing speed is overwhelmingly more important than custom experience
-
----
-
-## 2.3 Animation library research
-
-## Goal for animation on this site
-
-Animation should:
-- increase perceived quality
-- guide attention
-- improve narrative pacing
-- signal product/AI fluency
-- stay invisible to performance problems
-
-It should **not** become the main character.
-
-## Options reviewed
-
-### Framer Motion / Motion
+### Option A: Notion Sites
 
 **Strengths**
-- excellent for React-based UI motion
-- ideal for entrance animations, layout transitions, hover states, scroll reveals
-- modern developer ergonomics
-- strong default choice for high-quality UI polish
+- easiest to start
+- low friction editing
+- familiar UI
+- decent for simple publishing
+- good for fast prototypes and basic portfolio pages
 
 **Weaknesses**
-- less ideal than GSAP for very complex bespoke timeline choreography
-- not the tool for deep 3D scenes
-
-**Best use on this site**
-- page transitions
-- component reveals
-- metric counters / staggered content
-- case study image/text sequencing
-- subtle scroll-linked UI effects
+- design control is limited
+- branding ceiling is lower
+- structured storytelling is weaker
+- harder to create a distinctly premium custom site
+- can feel like “published workspace” instead of crafted brand property
 
 **Verdict**
-**Primary recommendation** for the portfolio’s baseline motion system.
+Good for a quick MVP or temporary launch. **Not ideal** for the best-in-class version of this portfolio.
+
+### Option B: Sanity
+
+**Strengths**
+- schema-as-code model is excellent for case studies and structured narrative blocks
+- strong editorial flexibility
+- works well with modern frontend stacks
+- highly customizable
+- supports precision updates and scalable structured content
+- good long-term fit for content-rich sites
+
+**Weaknesses**
+- requires developer setup
+- more complexity than Notion
+- overkill for a single static page
+
+**Verdict**
+**Best overall choice.** This is the right balance of flexibility, structure, and future-proofing.
+
+### Option C: Payload CMS
+
+**Strengths**
+- strong developer control
+- modern and attractive in code-centric workflows
+- good fit if wanting a more app-like integrated stack
+
+**Weaknesses**
+- can be more infrastructure-heavy than necessary
+- may be more operational overhead than this project needs
+- content editing experience may not be as elegant for this use case as Sanity
+
+**Verdict**
+Strong alternative if wanting deeper code ownership. Still not my first pick for this portfolio.
+
+### Option D: Directus
+
+**Strengths**
+- powerful data modeling
+- good admin UX
+- flexible API access
+- good for teams and broader backend needs
+
+**Weaknesses**
+- feels more like a data/control platform than a narrative-first personal publishing tool
+- likely more backend than needed for a personal portfolio
+
+**Verdict**
+Good product, wrong center of gravity for this project.
+
+### Option E: Contentful
+
+**Strengths**
+- enterprise-grade
+- modular content
+- strong ecosystem
+
+**Weaknesses**
+- expensive/complex for this use case
+- unnecessary enterprise weight for a personal site
+
+**Verdict**
+Not recommended for this project.
+
+### Other alternatives worth noting
+
+- **Strapi**: strong open-source option, but usually more setup/admin than necessary here
+- **Ghost**: great if the site is blog-first, less ideal if the main asset is structured case studies
+- **Hygraph**: solid but not clearly better than Sanity for this use case
+- **Tina**: interesting for git-based content workflows, but less obviously superior here
+
+## CMS recommendation ranking
+
+1. **Sanity** — recommended
+2. **Payload** — if code-first self-hosted preference becomes important
+3. **Notion** — if speed-to-launch matters more than custom brand expression
+4. **Directus / Strapi / Hygraph** — possible, but not best-fit
+5. **Contentful** — avoid for this project
 
 ---
+
+## 9) Animation Library Research and Recommendation
+
+Research reviewed current product positioning and ecosystem signals for:
+- Motion / Framer Motion
+- GSAP
+- Three.js
+- Spline
+
+## What the animation layer needs to do
+
+The site needs motion that supports:
+- section reveals
+- hover polish
+- layout transitions
+- subtle scroll dynamics
+- maybe one “hero” flourish
+
+It does **not** need a cinematic game engine.
+
+### Motion / Framer Motion (motion.dev)
+
+**Strengths**
+- easy-to-use API
+- strong for React
+- excellent for layout animation, entrance transitions, gestures, and scroll-linked polish
+- lightweight enough for premium UI motion
+- ideal for modern editorial/product-feeling sites
+
+**Weaknesses**
+- less specialized than GSAP for ultra-complex scroll choreography
+
+**Verdict**
+**Primary recommendation.** Best default choice.
 
 ### GSAP
 
 **Strengths**
-- excellent for advanced timelines and choreographed sequences
-- extremely capable for custom interactions
-- good when motion design itself is a signature experience
+- extremely robust
+- great for professional-grade scroll choreography and advanced sequencing
+- ideal for rich storytelling interactions
 
 **Weaknesses**
-- more complexity
-- easier to overbuild
-- can be unnecessary for a portfolio whose credibility depends on clarity
-- licensing considerations are worth noting for some use cases
-
-**Best use on this site**
-- only if there is one standout hero sequence or highly custom scroll story
+- easier to overdo
+- can add complexity fast
+- often more than needed for tasteful executive portfolio motion
 
 **Verdict**
-Use **selectively**, not as the default animation layer.
-
----
+Use only if a specific interaction genuinely benefits from it. Treat as a scalpel, not the base layer.
 
 ### Three.js
 
 **Strengths**
-- powerful 3D and interactive scene rendering
-- strong visual differentiation when used well
+- powerful 3D engine
+- can create unforgettable branded experiences
 
 **Weaknesses**
-- complexity cost is high
-- performance risk is real
-- easiest way to make an executive portfolio feel overengineered
-- maintenance burden higher
-
-**Best use on this site**
-- maybe one small brand object, abstract data sculpture, or ambient hero accent
-- only if it materially strengthens the brand
+- major complexity and performance cost
+- easy to become gimmicky
+- not obviously aligned with a VP/GTM portfolio unless 3D has strategic meaning
 
 **Verdict**
-Not recommended as a primary layer.
-
----
+Avoid by default.
 
 ### Spline
 
 **Strengths**
-- accessible route to web 3D
-- faster than hand-building 3D from scratch
-- good for tasteful hero accents
+- faster path to interactive 3D scenes
+- more approachable than raw Three.js
 
 **Weaknesses**
-- still carries performance and taste risk
-- can feel trendy rather than necessary
-- many portfolio 3D scenes look interchangeable
-
-**Best use on this site**
-- optional single hero accent or background object
+- still introduces visual/performance overhead
+- can date the site if used as generic “floating 3D blob” decoration
 
 **Verdict**
-Possible accent layer, not core architecture.
+Optional only for one contained hero asset if brand concept truly warrants it.
+
+## Animation recommendation ranking
+
+1. **Motion** — default
+2. **GSAP** — selectively, for one or two hero sequences if necessary
+3. **Spline** — only for a tightly scoped visual concept
+4. **Three.js** — avoid unless there is a strong concept and execution budget
+
+## Motion design rules
+
+- use motion to create polish, not delay
+- keep durations short
+- avoid long loading sequences
+- no novelty cursor unless it adds real value
+- maintain fast perceived performance
+- respect reduced-motion settings
 
 ---
 
-## Animation recommendation
+## 10) Competitor / Benchmark Direction
 
-### Recommended motion stack
+Exact “perfect peers” are rare because executives often do not maintain strong public portfolios. Research should therefore benchmark across **adjacent categories**:
 
-**Default:**
-- Motion / Framer Motion for 90% of animation
+1. high-end personal portfolios
+2. operator / strategist personal sites
+3. AI company leadership / GTM role expectations
+4. strong editorial personal brands
 
-**Optional:**
-- GSAP for one high-impact hero sequence if needed
-- Spline only for one contained visual moment
+### Relevant benchmark groups
 
-**Avoid by default:**
-- site-wide Three.js dependency
-- heavy canvas-first portfolio architecture
+#### Group A: Creative portfolio inspiration
+Useful for visual system ideas:
+- typography
+- scroll pacing
+- modular case study cards
+- transitions
+- high-end layout treatment
 
-### Motion principles
+But do **not** copy their content structure wholesale. Most are too visual-first.
 
-1. Fast, soft, intentional
-2. Never block content comprehension
-3. Respect reduced-motion preferences
-4. Optimize for first impression and reading rhythm
-5. Every animation must justify itself
+#### Group B: Strategy/operator personal sites
+Useful for:
+- voice
+- thesis-driven homepage framing
+- how to package case studies and essays
+- how to balance biography and proof
 
----
+#### Group C: AI company role signals
+OpenAI GTM/partnerships role descriptions show strong signals around what matters in market-facing leadership roles:
+- operating cadence
+- cross-functional leadership
+- partner / revenue systems
+- performance reporting
+- target setting
+- analytics + business judgment
+- ability to scale execution in ambiguity
 
-## 2.4 Content strategy for VP / GTM roles
+**Implication:** portfolio content should surface exactly these capabilities.
 
-## The key content problem
+### Competitor content patterns to emulate
 
-Most portfolios are built for:
-- designers showing artifacts
-- developers showing code
-- freelancers showing deliverables
+- short, high-signal headlines
+- selective proof
+- intelligent writing
+- clear case-study structure
+- strong personal thesis
 
-A VP/GTM portfolio needs to show something harder:
-- judgment
-- systems thinking
-- strategic range
-- operating leverage
-- ability to create results through teams, process, positioning, and execution
+### Competitor patterns to avoid
 
-That means the site cannot just be:
-- resume + headshot + contact form
-
-It also cannot just be:
-- generic thought leadership blog
-
-It needs to bridge:
-- **operator credibility**
-- **business outcomes**
-- **point of view**
-
-## What hiring teams for senior GTM roles want to infer quickly
-
-Within a few minutes, they want evidence of:
-- market understanding
-- leadership seniority
-- execution range
-- metrics ownership
-- communication quality
-- positioning strength
-- hiring / team-building credibility
-- AI fluency and modernity
-
-## Recommended content architecture
-
-### 1. Hero section
-
-Must answer in one screen:
-- who you are
-- what kind of problems you solve
-- for what type of companies
-- why you are differentiated
-
-**Formula:**
-- Name / role framing
-- One-sentence positioning statement
-- One-line proof strip
-- CTA choices
-
-**Example structure:**
-- “VP / GTM leader building repeatable growth systems for AI and SaaS companies.”
-- “I help companies clarify positioning, scale demand, and turn GTM into an operating advantage.”
-- proof row: pipeline / revenue / growth / team / category logos
-- CTAs: View case studies / Read thinking / Get in touch
+- “consultant beige” copy
+- giant services menu
+- too many testimonials with no substance
+- fake thought leadership
+- flashy but empty interactions
 
 ---
 
-### 2. Proof / credibility band
+## 11) Positioning Strategy for the Site
 
-Immediately after hero:
-- key metrics
-- company logos
-- titles held
-- channels / domains owned
-- notable wins
+## Recommended top-line positioning territories
 
-This section should be scannable in 10 seconds.
+The homepage should likely position around one of these territories:
+
+### Option A: GTM systems builder
+“I build go-to-market systems for ambitious products in fast-moving categories.”
+
+Best for emphasizing repeatable execution and scale.
+
+### Option B: Narrative + adoption operator
+“I help technical products become legible, desirable, and adopted.”
+
+Best for AI/product marketing crossover positioning.
+
+### Option C: Executive growth strategist
+“I turn market ambiguity into positioning, demand, and revenue motion.”
+
+Best for senior leadership framing.
+
+### Option D: AI-era commercial operator
+“I design the narratives, systems, and teams that help AI products reach market.”
+
+Best for strongest AI-forward alignment.
+
+## Recommended positioning choice
+
+Best current direction: **blend B + C + D**.
+
+Why:
+- feels senior
+- feels current
+- highlights both strategy and execution
+- differentiates from generic growth marketing language
 
 ---
 
-### 3. Selected case studies
+## 12) Visual System Recommendation
 
-This is the center of gravity.
+### Overall aesthetic
+Think:
+- premium editorial publication
+- modern product company
+- subtle experimental edge
 
-Each case study should focus on:
-- company / market context
-- problem statement
-- diagnosis
-- strategic choice
-- execution system
-- measurable outcomes
-- what changed because of your leadership
+Not:
+- agency-template maximalism
+- startup landing-page cliché
+- dark-mode cyberpunk overload
 
-### Best case study format
+### Color direction
+Recommended approaches:
 
-For senior operator roles, use a structure like:
-1. Context
-2. Challenge
-3. Hypothesis / Strategy
-4. What I owned
-5. Team / cross-functional dynamics
-6. Execution
-7. Metrics and outcomes
-8. Lessons / repeatable playbook
+#### Option 1: Monochrome base + one accent
+- black / off-black
+- ivory / warm white
+- one sharp accent color
+
+Best for timelessness.
+
+#### Option 2: Soft neutral editorial palette
+- stone / cream / charcoal / muted accent
+
+Best for warmth and readability.
+
+#### Option 3: Dark mode default with disciplined use
+Only if done carefully. Can look premium, but easier to get cliché.
+
+**Recommendation:** start from **light editorial** or **balanced monochrome**, not gamer-dark.
+
+### Typography recommendation
+Use a pairing like:
+- one high-character serif or neo-grotesk headline font
+- one clean sans-serif for body / UI
+
+Desired feel:
+- intelligent
+- contemporary
+- expensive
+- legible
+
+### Layout recommendation
+- generous spacing
+- strong grid
+- asymmetry in moderation
+- image use should support credibility, not fill space
+- allow text to carry weight
+
+---
+
+## 13) Homepage Wireframe Spec
+
+## Hero
+
+**Purpose:** establish who this is, what they do, and why they matter.
+
+**Include:**
+- one-line positioning statement
+- one short supporting sentence
+- primary CTA: View work
+- secondary CTA: About / Resume / Contact
+- small proof strip beneath
+
+**Example content structure:**
+- Headline: senior, crisp, thesis-driven
+- Subhead: what kinds of companies / problems / outcomes
+- Proof strip: revenue, launches, teams, categories, partnerships, etc.
+
+## Impact section
+
+**Purpose:** make business value visible fast.
+
+Use 3–4 metrics only.
+
+Examples:
+- pipeline influenced
+- adoption / growth percentage
+- launch scale
+- team/org scope
+- strategic partnerships or major accounts
+
+## Featured work
+
+Each item should show:
+- company / initiative
+- context line
+- challenge line
+- measurable result
+- optional visual artifact
+
+## Operating principles
+
+Could be 4 short blocks:
+- Position before promotion
+- Build systems, not one-offs
+- Tight feedback loops beat big plans
+- Adoption is cross-functional
+
+## Writing section
+
+Show only best pieces.
+Do not create a content graveyard.
+
+## Final CTA
+
+Simple:
+- hiring / advisory / operator conversations
+- email + LinkedIn + resume
+
+---
+
+## 14) About Page Spec
+
+The About page should answer:
+
+- What kind of work do you do best?
+- What environments fit you best?
+- What makes your approach distinct?
+- Why AI / GTM / growth / product adoption?
+
+### Recommended sections
+
+1. short narrative intro
+2. how you work
+3. what problems you like solving
+4. career highlights timeline (lightweight)
+5. selected principles / beliefs
+6. personal note (optional, tasteful)
+
+### Avoid
+- a massive chronological autobiography
+- generic executive bio clichés
+- too much personality filler with no relevance
+
+---
+
+## 15) Writing / Insights Section Spec
+
+This section matters because it upgrades perceived seniority.
+
+### Recommended post types
+
+- short strategic memos
+- teardown-style GTM observations
+- AI adoption / positioning notes
+- lessons from launches / systems / org design
+
+### Recommended cadence
+
+Low volume is fine. Quality matters more than frequency.
+
+Even 4–8 strong essays is enough.
+
+### Recommendation
+
+Treat writing as **evidence of judgment**, not content marketing.
+
+---
+
+## 16) Media / Artifact Strategy
+
+The site will be much stronger if it includes selective supporting assets.
+
+### Good artifacts
+- launch screenshots
+- strategy framework diagrams
+- dashboards or charts (sanitized)
+- campaign stills
+- deck fragments
+- screenshots of systems/processes
+- speaking clips or event photos
+
+### Rules
+- every asset must earn its place
+- avoid generic stock imagery
+- do not clutter with decorative mockups
+- sanitize confidential materials carefully
+
+---
+
+## 17) SEO and Discoverability Considerations
+
+Even though this is a portfolio, SEO still matters for:
+- name search
+- recruiter discovery
+- thought-leadership discovery
+- AI/LLM citation / retrieval friendliness
+
+### Recommended SEO approach
+
+- clean semantic structure
+- strong metadata per case study / article
+- descriptive slugs
+- structured content blocks
+- author identity consistency
+- fast load times
+- strong internal linking between work and writing
 
 ### Important note
-
-Do **not** make the case study feel like a marketing campaign tear-down only.
-Show executive-level levers:
-- org design
-- process design
-- ICP / messaging shifts
-- demand architecture
-- reporting / operating rhythm
-- hiring and management
-- product / sales alignment
+The main traffic will likely be direct and referral, not pure search. So optimize for **clarity and credibility first**, SEO second.
 
 ---
 
-### 4. Operating philosophy / POV
+## 18) Performance / UX Constraints
 
-This is what differentiates the site from a resume.
+Non-negotiables:
+- fast first render
+- excellent mobile behavior
+- accessible contrast / type sizes
+- reduced-motion support
+- no heavy hero that delays content
+- no hidden important information behind interaction gimmicks
 
-Include a section or page for:
-- how you think about GTM in AI
-- your beliefs about positioning, demand, category creation, or growth systems
-- what senior leadership gets wrong
-- what you optimize for
-
-This can be presented as:
-- short manifesto
-- principles grid
-- linked essays
-- “how I work” memo
-
-This section matters a lot for senior roles because it lets people evaluate judgment, not just experience.
+### UX rule of thumb
+If a recruiter or founder can’t understand the value proposition in 8–12 seconds, the design failed.
 
 ---
 
-### 5. Writing / ideas library
+## 19) Phased Build Plan (for later)
 
-Recommended but not mandatory at launch.
+_Not to build now; this is planning for future execution._
 
-Best content types:
-- short essays on AI GTM
-- teardown-style thinking pieces
-- strategic memos
-- hiring / team-building lessons
-- category observations
+### Phase 0 — Content inventory
+- collect all possible projects / wins / artifacts
+- score them by signal and specificity
+- choose top 3–5 case studies
 
-Why this matters:
-- shows executive communication ability
-- compounds credibility over time
-- improves discoverability
-- creates shareable proof of thought leadership
+### Phase 1 — Positioning and narrative
+- finalize headline territory
+- write homepage copy skeleton
+- write case study templates
+- decide tone and visual references
 
----
+### Phase 2 — Design system
+- pick type, color, spacing, motion rules
+- create modular page sections
+- define image treatment
 
-### 6. About / bio
+### Phase 3 — CMS model
+- model case studies, essays, quotes, proof metrics, bio blocks
+- define editorial workflow
 
-Keep this sharp, not autobiographical.
+### Phase 4 — Build
+- implement pages
+- add motion sparingly
+- optimize responsiveness and performance
 
-Should include:
-- concise narrative arc
-- current focus
-- leadership / operating style
-- personal differentiators
-- maybe a tiny amount of personality
-
-Avoid long generic life stories.
-
----
-
-### 7. Testimonials / references
-
-Strongly recommended.
-
-Best sources:
-- founder
-- CEO
-- product peer
-- sales leader
-- team member you managed
-
-This gives 360-degree proof, not just top-down validation.
+### Phase 5 — Polish
+- metadata, analytics, QA, accessibility, proofreading
 
 ---
 
-### 8. Contact / CTA page
+## 20) Detailed Content Model Recommendation
 
-CTAs should support multiple intents:
-- hiring conversation
-- consulting / advisory inquiry
-- speaking / podcast / writing collaboration
-- networking
+If using Sanity, define structured models roughly like:
 
----
+### Site settings
+- site title
+- default SEO
+- nav items
+- CTA links
+- social links
 
-## Content principles
+### Author profile
+- name
+- role/positioning line
+- bio short
+- bio long
+- headshot / portrait
+- links
 
-### Lead with outcomes
-Bad:
-- “I’m passionate about growth and storytelling.”
+### Case study
+- title
+- slug
+- company
+- role
+- timeframe
+- stage / market
+- summary
+- hero metrics
+- challenge
+- diagnosis
+- strategy
+- execution
+- outcomes
+- lessons
+- featured media
+- tags
+- SEO fields
 
-Better:
-- “I’ve built GTM systems across AI and SaaS that improved pipeline quality, clarified positioning, and turned marketing into a measurable operating function.”
-
-### Show strategic altitude
-The site should read like someone who has:
-- run functions
-- made tradeoffs
-- influenced executives
-- built systems, not just campaigns
-
-### Use metrics carefully
-Metrics should be:
-- specific when possible
-- contextualized
-- tied to your scope
-- credible
-
-Prefer:
-- “Rebuilt demand architecture and messaging, helping grow qualified pipeline 2.3x in 9 months.”
-
-Over:
-- “Generated millions in revenue” with no context.
-
-### Fewer, better case studies
-Recommended launch set:
-- **3 flagship case studies**
-- optionally **2 mini-cases**
-
-That is enough.
-
----
-
-## 2.5 Competitor / reference portfolio patterns
-
-## What similar-role sites usually get wrong
-
-For executives, operators, marketers, and growth leaders, personal sites often fail in one of these ways:
-
-1. **Resume website syndrome**
-   - too static
-   - no evidence of thinking
-   - no story
-
-2. **Agency portfolio syndrome**
-   - lots of polish, little strategic substance
-
-3. **Thought-leader blog syndrome**
-   - lots of opinions, weak proof of execution
-
-4. **Creative overreach**
-   - fancy interactions that undermine seriousness
-
-## What the best comparable sites tend to do well
-
-Across strong marketing / strategy / executive portfolios, recurring best practices are:
-- clear niche positioning
-- immediate proof of expertise
-- featured work, not exhaustive archives
-- persuasive writing quality
-- selective personal brand expression
-- strong CTA paths
-
-## Competitive positioning opportunity
-
-A portfolio for AI-company VP/GTM roles can win by combining three things that are rarely strong together:
-
-1. **Executive clarity**
-2. **Modern product taste**
-3. **Operator-level case study depth**
-
-That combination is the opening.
-
-### Positioning statement for the site itself
-
-The site should feel like:
-- part executive brief
-- part product marketing artifact
-- part strategic memo archive
-
-That is a stronger frame than “personal portfolio.”
-
----
-
-## 3. Recommended Site Strategy
-
-## Brand direction
-
-### Desired traits
-- sharp
-- strategic
-- modern
-- calm
-- premium
-- rigorous
-- human
-
-### Traits to avoid
-- loud
-- overly playful
-- hyper-minimal to the point of emptiness
-- trend-chasing
-- startup landing-page cliché
-
-## Aesthetic direction
-
-### Recommended visual style
-- editorial typography-first layout
-- dark neutral or warm off-white base
-- one strong accent color
-- sparse, elegant diagrams / data visuals
-- subtle grid logic
-- soft motion and rhythm
-
-### Possible design references to emulate in spirit
-- Awwwards editorial portfolio structure
-- Framer-style clean, high-clarity marketing layouts
-- premium product / strategy memo feel
-
-### Not recommended
-- portfolio as 3D playground
-- brutalism unless very restrained
-- “futuristic AI” clichés like neon glows everywhere
-
----
-
-## 4. Recommended Information Architecture
-
-## Sitemap
-
-### Top-level pages
-1. **Home**
-2. **Case Studies**
-3. **Writing / Ideas**
-4. **About**
-5. **Contact**
-
-### Optional pages
-6. **Speaking / Press**
-7. **Resume**
-8. **Now / Focus**
-
-## Homepage structure
-
-1. Hero
-2. Proof band
-3. Selected case studies
-4. Operating principles / POV
-5. Selected writing
-6. Testimonials
-7. About preview
-8. CTA footer
-
-## Case study page template
-
-1. Hero summary
-2. Context
-3. Problem
-4. Strategy
-5. Execution
-6. Results
-7. Lessons / framework
-8. Related work / CTA
-
-## Writing page structure
-
-Group by:
-- GTM strategy
-- AI market observations
-- growth systems
-- leadership / operating notes
-
----
-
-## 5. Content Model / CMS Schema Recommendation
-
-If using Sanity, recommended content types:
-
-### Core document types
-- `siteSettings`
-- `homePage`
-- `caseStudy`
-- `article`
-- `testimonial`
-- `companyLogo`
-- `roleExperience`
-- `speakingAppearance`
-- `metricHighlight`
-
-### `caseStudy` fields
+### Insight article
 - title
 - slug
 - summary
-- company
-- sector
-- role
-- timeline
-- team context
-- challenge
-- hypothesis
-- strategy
-- executionBlocks[]
-- outcomes[]
-- metrics[]
-- lessons
-- testimonial
-- featuredImage / visual assets
-- visibility / featured flag
-
-### `article` fields
-- title
-- slug
-- excerpt
-- category
-- publishDate
 - body
-- relatedTopics
-- featured
+- tags
+- published date
+- featured flag
+- SEO fields
 
-### `roleExperience` fields
-- company
+### Proof metric
+- label
+- value
+- context
+- sort order
+
+### Testimonial / quote
+- quote
+- person
 - title
-- start/end
-- one-line summary
-- impact bullets
+- company
+- optional logo
+
+### Speaking / press item
+- title
+- event/publication
+- type
+- date
+- link
+- media
 
 ---
 
-## 6. UX / UI Requirements
+## 21) Open Questions Before Design Starts
 
-## UX goals
-- communicate credibility fast
-- support both quick scan and deeper reading
-- make case studies easy to browse
-- keep navigation simple
-- ensure mobile experience is excellent
+These need answers before execution:
 
-## UI requirements
+1. What exact roles is this portfolio optimizing for?
+   - VP Marketing?
+   - VP GTM?
+   - Head of Growth?
+   - AI GTM / product marketing leadership?
+   - advisory / consulting also?
 
-### Typography
-- premium, readable, editorial
-- strong hierarchy
-- oversized hero typography
-- body text optimized for longer reading
+2. What is the strongest positioning thesis?
 
-### Layout
-- modular sections
-- consistent spacing system
-- strong contrast between summary and depth
-- scannable proof blocks
+3. Which 3–5 case studies are highest-signal and safest to share?
 
-### Components needed
-- hero module
-- metric strip
-- logo cloud
-- featured case study cards
-- case study narrative sections
-- quote/testimonial blocks
-- article cards
-- CTA bands
-- sticky local nav on long case study pages
+4. Are there sanitized metrics and artifacts available?
 
-### Accessibility requirements
-- keyboard navigable
-- visible focus states
-- sufficient color contrast
-- motion reduced when user prefers reduced motion
-- semantic heading structure
+5. Should the voice lean more:
+   - operator / executive
+   - strategist / thinker
+   - builder / systems designer
+   - or a blend?
+
+6. Does the site need a blog cadence, or just a static “selected writing” shelf?
+
+7. Is the target outcome:
+   - recruiting / hiring
+   - consulting / advisory inbound
+   - speaking / credibility
+   - all three?
 
 ---
 
-## 7. Motion / Interaction Spec
+## 22) Final Recommendation
 
-## Baseline motion system
+If the goal is the **ideal** portfolio rather than the fastest one, the best direction is:
 
-### Use motion for
-- hero load sequence
-- staggered card reveals
-- section transitions
-- hover emphasis
-- image / text reveal inside case studies
-- smooth page transitions if they remain fast
+### Recommended final stack and approach
+- **Experience:** premium editorial portfolio
+- **Frontend:** modern React/Next-style custom site
+- **CMS:** **Sanity**
+- **Animation:** **Motion** by default, optional tiny dose of **GSAP** only where justified
+- **3D:** skip unless there is a very specific brand concept
 
-### Motion style
-- short durations
-- subtle easing
-- little to no bounce
-- confident, calm, not flashy
-
-### Avoid
-- long cinematic intros
-- animation before content appears
-- scroll traps
-- effects that make text harder to read
-
-## Optional standout interaction
-
-One of the following is enough:
-- animated “impact metrics” band
-- strategic system diagram with progressive reveal
-- subtle 3D object in hero
-- interactive timeline of roles / wins
-
-Only choose **one** signature interaction concept.
-
----
-
-## 8. Technical Direction (planning level only)
-
-## Recommended architecture
-
-### Preferred
-- custom React / Next.js-style frontend
-- Sanity backend
-- Motion for animation
-- statically optimized content pages
-
-### Why
-- best control over polish and SEO
-- easiest to scale into essays/case studies
-- good performance ceiling
-- avoids template feel
-
-### Performance requirements
-- homepage should feel fast on first load
-- no heavy blocking hero assets
-- optimize images aggressively
-- lazy-load non-critical visuals
-- avoid large runtime animation payloads
-
-### SEO requirements
-- strong metadata per page
-- article schema where relevant
-- good internal linking
-- clean slugs
-- social preview images for case studies and writing
-
----
-
-## 9. Visual / Brand System Recommendation
-
-## Color
-
-### Direction options
-
-#### Option A — Executive dark
-- charcoal / graphite base
-- warm white text
-- muted accent (electric blue, sage, or amber)
-
-#### Option B — Editorial light
-- off-white / paper background
-- deep charcoal text
-- restrained accent
-
-### Recommended choice
-**Executive dark** is likely stronger for AI/GTM positioning if handled with restraint.
-
-## Typography direction
-
-Mix:
-- one character-rich display face or strong grotesk for headlines
-- one highly readable body face
-
-Desired feeling:
-- modern but not trendy
-- premium but not luxury-brand theatrical
-- serious with some personality
-
-## Imagery
-
-Recommended imagery types:
-- sparse portraits if available
-- diagrams / frameworks
-- product screenshots only if relevant
-- selective data visualizations
-- logo marks and case-study visuals
-
-Avoid generic stock imagery entirely.
-
----
-
-## 10. Recommended Launch Scope
-
-## Phase 1 — Strong launch
-
-### Must-have
-- homepage
-- 3 flagship case studies
-- about page
-- contact page
-- 3–5 thought pieces or short essays
-- testimonials
-- proof metrics/logos
-
-### Nice-to-have
-- speaking page
-- downloadable resume
-- mini-case archive
-- now page
-
-### Do not include at launch
-- too many experiments
-- full blog archive
-- complicated filters unless content volume justifies it
-- heavy 3D scene work
-
----
-
-## 11. Example Messaging Directions
-
-## Positioning direction options
-
-### Direction 1 — Strategic operator
-“I build GTM systems for AI and SaaS companies — clarifying positioning, scaling demand, and turning growth into an operating advantage.”
-
-### Direction 2 — Executive builder
-“I help ambitious technology companies turn messy go-to-market motion into repeatable growth.”
-
-### Direction 3 — AI-market specialist
-“I lead go-to-market strategy for AI companies at the intersection of product narrative, demand generation, and market adoption.”
-
-## Proof language examples
-- Built demand engines, not just campaigns
-- Turned positioning into pipeline
-- Led GTM through ambiguity, change, and scale
-- Helped teams align product, sales, and marketing around what actually moved growth
-
----
-
-## 12. Risks and Tradeoffs
-
-## Biggest risks
-
-### 1. Overdesign
-Risk: the site becomes too “creative portfolio” and weakens executive trust.
-
-Mitigation:
-- bias toward readability and proof
-- keep signature interaction count low
-
-### 2. Underproofing
-Risk: polished site, weak business substance.
-
-Mitigation:
-- prioritize outcomes, metrics, context, ownership
-- write case studies like operator memos
-
-### 3. CMS overengineering
-Risk: too much backend complexity for a small content surface.
-
-Mitigation:
-- keep schema lean
-- only model what will actually be maintained
-
-### 4. Content bottleneck
-Risk: beautiful shell, not enough strong content.
-
-Mitigation:
-- design launch scope around 3 excellent cases, not 10 mediocre ones
-
----
-
-## 13. Final Recommendations
-
-## Best overall approach
-
-### Experience
-A **premium editorial portfolio for a modern AI/GTM operator**.
-
-### CMS
-**Sanity** as the primary recommendation.
-
-### Motion
-**Motion / Framer Motion** as default.
-Use **GSAP only if needed for one signature sequence**.
-Avoid heavy 3D-first architecture.
-
-### Content focus
+### Recommended strategic emphasis
 Lead with:
-- strategic positioning
-- measurable proof
-- 3 flagship case studies
-- operating philosophy
-- writing that demonstrates judgment
+- strategic clarity
+- measurable business outcomes
+- AI-era GTM relevance
+- concise operator voice
+- well-structured flagship case studies
 
-### Design focus
-- typography-led
-- restrained motion
-- high trust
-- modern but serious
+### What this portfolio should feel like
+A founder, recruiter, or exec should come away thinking:
 
----
+> This person has taste, judgment, and range — but more importantly, they know how to move a market-facing organization forward.
 
-## 14. Build Brief for Later Implementation
-
-When it is time to build, the implementation brief should optimize for:
-- premium first impression in under 5 seconds
-- sharp mobile experience
-- easy case-study authoring
-- strong page speed
-- a portfolio that feels closer to a strategic product artifact than a personal brochure
+That is the bar.
 
 ---
 
-## 15. Concise Decision Summary
+## 23) Immediate Next Step Recommendations
 
-### Chosen planning direction
-- **Style:** editorial + modern motion
-- **Audience:** AI companies hiring VP / GTM leadership
-- **Primary CTA:** explore case studies / start a hiring conversation
-- **CMS:** Sanity
-- **Animation:** Motion first, GSAP optional, Spline/Three only as accent
-- **Launch focus:** proof, case studies, POV, writing
-- **Anti-goal:** flashy creative-developer portfolio energy
+When ready to move beyond research, the next best sequence is:
 
----
+1. choose target role archetype(s)
+2. shortlist 5–7 possible case studies
+3. pick top 3 flagship stories
+4. define the homepage positioning statement
+5. gather artifacts and proof metrics
+6. then move into wireframes and content drafts
 
-## Appendix: Source signals used
-
-This plan was informed by current portfolio/design/CMS/animation research across:
-- Awwwards portfolio inspiration pages
-- Framer content on web animation tools and marketing portfolio examples
-- Motion documentation comparing Motion and GSAP
-- current marketing portfolio guides and examples
-- current headless CMS comparison coverage (Sanity / Storyblok / Contentful class)
-
-Because trend coverage is noisy and often self-promotional, recommendations above are synthesized for this specific use case rather than copied from any one source.
+Until then: **do not build. Finalize narrative first.**

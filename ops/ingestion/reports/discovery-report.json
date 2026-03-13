@@ -1,0 +1,3006 @@
+{
+  "generatedAt": 1773371186.305579,
+  "count": 5535,
+  "results": [
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/roadmaps/openclaw-power-user-upgrade-plan.md",
+      "size": 1705,
+      "modifiedAt": 1773370079.2179794,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/subagent-operating-policy.md",
+      "size": 606,
+      "modifiedAt": 1773369111.0507636,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/openclaw-native-task-registry.md",
+      "size": 601,
+      "modifiedAt": 1773369109.2620149,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/AGENTS.md",
+      "size": 9334,
+      "modifiedAt": 1773355529.3341718,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/tmp/gateway-subagent-diagnosis-2026-03-12.md",
+      "size": 2230,
+      "modifiedAt": 1773348255.7922056,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/tmp/spring-health-refactor-summary.md",
+      "size": 1270,
+      "modifiedAt": 1773337309.14251,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_docker-navigator_issue-27-secure-foundations-and-ai-agents-in-production.md",
+      "size": 490,
+      "modifiedAt": 1773335731.0284863,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/portfolio-redesign-plan.md",
+      "size": 27343,
+      "modifiedAt": 1773328368.3486607,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/mocs/memory-systems.md",
+      "size": 1313,
+      "modifiedAt": 1773328010.9993987,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/obsidian-vault-setup.md",
+      "size": 716,
+      "modifiedAt": 1773327991.3228815,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/tmp/obsidian-layout-plan.md",
+      "size": 2853,
+      "modifiedAt": 1773327971.7021523,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/obsidian-is-a-good-interface-not-a-requirement.md",
+      "size": 809,
+      "modifiedAt": 1773319831.1129618,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/atomic-notes-with-descriptions-outperform-monoliths.md",
+      "size": 640,
+      "modifiedAt": 1773319828.2384722,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/layered-memory-beats-bigger-context.md",
+      "size": 842,
+      "modifiedAt": 1773319823.3158877,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/mocs/agent-capability-architecture.md",
+      "size": 1162,
+      "modifiedAt": 1773319820.5456214,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/MEMORY.md",
+      "size": 1316,
+      "modifiedAt": 1773319678.0881982,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/gtm-prospect-list.md",
+      "size": 1583,
+      "modifiedAt": 1771678970.0189087,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/public/longform/01-bdr-pod-signal-to-meeting.md",
+      "size": 2392,
+      "modifiedAt": 1771567650.1330655,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/outcome-first-messaging-architecture.md",
+      "size": 2945,
+      "modifiedAt": 1771567650.1291056,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/debtnext-cross-sell-strategy.md",
+      "size": 3231,
+      "modifiedAt": 1771567650.1289442,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/outcome-first-messaging-architecture.md",
+      "size": 7256,
+      "modifiedAt": 1771567650.1284912,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/PORTFOLIO-REDESIGN-SPEC.md",
+      "size": 8312,
+      "modifiedAt": 1771567650.1242492,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/OPTIMIZATION-SUMMARY.md",
+      "size": 6465,
+      "modifiedAt": 1771567650.1241431,
+      "score": 10
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/public/longform/01-bdr-pod-signal-to-meeting.md",
+      "size": 2392,
+      "modifiedAt": 1770133315.273471,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/OPTIMIZATION-SUMMARY.md",
+      "size": 6465,
+      "modifiedAt": 1770094852.2386067,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/content/case-studies/outcome-first-messaging-architecture.md",
+      "size": 7256,
+      "modifiedAt": 1770089160.7081678,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/content/case-studies/stubs/debtnext-cross-sell-strategy.md",
+      "size": 3231,
+      "modifiedAt": 1770082641.3106859,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/content/case-studies/stubs/outcome-first-messaging-architecture.md",
+      "size": 2945,
+      "modifiedAt": 1770082580.95459,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/PORTFOLIO-REDESIGN-SPEC.md",
+      "size": 8312,
+      "modifiedAt": 1770067016.9578407,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/clarity-gate/rfc/RFC-001-format-spec-clarifications.md",
+      "size": 20306,
+      "modifiedAt": 1769828141.7664685,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/clarity-gate/docs/ROADMAP.md",
+      "size": 11418,
+      "modifiedAt": 1769828141.7644818,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/clarity-gate/docs/CLARITY_GATE_FORMAT_SPEC.md",
+      "size": 213775,
+      "modifiedAt": 1769828141.7629004,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/clarity-gate/docs/ARCHITECTURE.md",
+      "size": 17049,
+      "modifiedAt": 1769828141.7608225,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/clarity-gate/AGENTS.md",
+      "size": 4613,
+      "modifiedAt": 1769828141.7589135,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/llm-as-judge-skills/tools/orchestration/delegate-to-agent.md",
+      "size": 4430,
+      "modifiedAt": 1769828110.9722276,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/llm-as-judge-skills/prompts/research/research-synthesis-prompt.md",
+      "size": 4169,
+      "modifiedAt": 1769828110.9699392,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/llm-as-judge-skills/agents/research-agent/research-agent.md",
+      "size": 4442,
+      "modifiedAt": 1769828110.9686208,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/llm-as-judge-skills/agents/orchestrator-agent/orchestrator-agent.md",
+      "size": 4856,
+      "modifiedAt": 1769828110.9685063,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/llm-as-judge-skills/agents/evaluator-agent/evaluator-agent.md",
+      "size": 4360,
+      "modifiedAt": 1769828110.9683092,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/interleaved_thinking/docs/agentthinking.md",
+      "size": 6518,
+      "modifiedAt": 1769828110.9573798,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/digital-brain-skill/examples/meeting-prep.md",
+      "size": 5763,
+      "modifiedAt": 1769828110.9536176,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/digital-brain-skill/agents/AGENTS.md",
+      "size": 2599,
+      "modifiedAt": 1769828110.9520295,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/digital-brain-skill/AGENT.md",
+      "size": 1567,
+      "modifiedAt": 1769828110.951471,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/docs/gemini_research.md",
+      "size": 32317,
+      "modifiedAt": 1769828110.9462073,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/docs/claude_research.md",
+      "size": 15452,
+      "modifiedAt": 1769828110.9458234,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/docs/agentskills.md",
+      "size": 51608,
+      "modifiedAt": 1769828110.9448643,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/recursive-decomposition-skill/AGENTS.md",
+      "size": 5721,
+      "modifiedAt": 1769828110.406967,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/vexor/docs/roadmap.md",
+      "size": 1976,
+      "modifiedAt": 1769828110.0551586,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/vexor/AGENTS.md",
+      "size": 3162,
+      "modifiedAt": 1769828110.0410028,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/getsentry-skills/AGENTS.md",
+      "size": 2100,
+      "modifiedAt": 1769828106.5732605,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator/agent-prompt.md",
+      "size": 10197,
+      "modifiedAt": 1769828105.5126662,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/trailofbits-skills/plugins/spec-to-code-compliance/commands/spec-compliance.md",
+      "size": 547,
+      "modifiedAt": 1769828105.5072763,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/trailofbits-skills/plugins/sharp-edges/skills/sharp-edges/references/language-specific.md",
+      "size": 13267,
+      "modifiedAt": 1769828105.5069072,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/trailofbits-skills/plugins/culture-index/skills/interpreting-culture-index/workflows/plan-onboarding.md",
+      "size": 9447,
+      "modifiedAt": 1769828105.4918036,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/trailofbits-skills/plugins/culture-index/skills/interpreting-culture-index/workflows/interview-debrief.md",
+      "size": 7681,
+      "modifiedAt": 1769828105.4916031,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/cloudflare-skills/skills/cloudflare/references/zaraz/IMPLEMENTATION_SUMMARY.md",
+      "size": 3494,
+      "modifiedAt": 1769828104.946034,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/cloudflare-skills/skills/building-ai-agent-on-cloudflare/references/agent-patterns.md",
+      "size": 12349,
+      "modifiedAt": 1769828104.8970132,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/cloudflare-skills/commands/build-agent.md",
+      "size": 1341,
+      "modifiedAt": 1769828104.8947442,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/n8n-skills/skills/n8n-workflow-patterns/ai_agent_workflow.md",
+      "size": 17512,
+      "modifiedAt": 1769827418.7304835,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/eslint-plugin-import/docs/rules/consistent-type-specifier-style.md",
+      "size": 2822,
+      "modifiedAt": 1769732983.106207,
+      "score": 9
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/knowledge-ingestion-pipeline.md",
+      "size": 905,
+      "modifiedAt": 1773371163.2608407,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/proactive-watchdog.md",
+      "size": 692,
+      "modifiedAt": 1773370322.3870616,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-12.md",
+      "size": 19228,
+      "modifiedAt": 1773370035.4281633,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/deterministic-monitoring-loop.md",
+      "size": 667,
+      "modifiedAt": 1773369110.374838,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Agent swarm operating model.md",
+      "size": 933,
+      "modifiedAt": 1773369108.6367493,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Article - Elvis Sun on OpenClaw agent swarms.md",
+      "size": 1600,
+      "modifiedAt": 1773369092.200409,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-13.md",
+      "size": 593,
+      "modifiedAt": 1773367632.1091075,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin-job-alert_19ce4b2d78309cb4.md",
+      "size": 533,
+      "modifiedAt": 1773363684.4889424,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_19ce4a64830c8349_linkedin-job-alert.md",
+      "size": 531,
+      "modifiedAt": 1773363176.4094658,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/agent-state/open-loops.md",
+      "size": 684,
+      "modifiedAt": 1773355776.4171035,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - System health and runtime reliability.md",
+      "size": 861,
+      "modifiedAt": 1773355726.8288562,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/agent-state/system-health.md",
+      "size": 848,
+      "modifiedAt": 1773355726.289304,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/handoffs/TEMPLATE-delegated-work.md",
+      "size": 367,
+      "modifiedAt": 1773355715.674862,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/handoffs/TEMPLATE-cron-checkpoint.md",
+      "size": 360,
+      "modifiedAt": 1773355715.0321946,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/handoffs/TEMPLATE-project-handoff.md",
+      "size": 427,
+      "modifiedAt": 1773355714.136225,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Playbook - Cross-session knowledge hygiene.md",
+      "size": 769,
+      "modifiedAt": 1773355547.7758148,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Cross-session continuity.md",
+      "size": 833,
+      "modifiedAt": 1773355547.1594276,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Shared state as memory bus.md",
+      "size": 876,
+      "modifiedAt": 1773355546.5181777,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/cross-session-continuity.md",
+      "size": 1032,
+      "modifiedAt": 1773355529.9634807,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/handoffs/README.md",
+      "size": 478,
+      "modifiedAt": 1773355518.1509137,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/agent-state/blockers.md",
+      "size": 907,
+      "modifiedAt": 1773355517.3202145,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/agent-state/active-projects.md",
+      "size": 926,
+      "modifiedAt": 1773355515.8447866,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/agent-state/current-focus.md",
+      "size": 703,
+      "modifiedAt": 1773355515.1972983,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin-newsletter_19ce3e7b98d19cfc.md",
+      "size": 452,
+      "modifiedAt": 1773350244.5189254,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin-job-alert_19ce3d74389e5aa0.md",
+      "size": 459,
+      "modifiedAt": 1773349293.5424418,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Playbook - When a note should become a playbook.md",
+      "size": 746,
+      "modifiedAt": 1773348514.6353798,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Playbook - When a capability should become a skill note.md",
+      "size": 871,
+      "modifiedAt": 1773348513.970872,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill - agents-md.md",
+      "size": 952,
+      "modifiedAt": 1773348465.2159321,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Runbook - Diagnosing gateway instability.md",
+      "size": 1008,
+      "modifiedAt": 1773348446.7944121,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Stable parallelization.md",
+      "size": 1216,
+      "modifiedAt": 1773348279.9907029,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/MOC - OpenClaw playbooks.md",
+      "size": 837,
+      "modifiedAt": 1773347936.87592,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Research to reusable knowledge.md",
+      "size": 821,
+      "modifiedAt": 1773347928.0364494,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Delegating complex work.md",
+      "size": 808,
+      "modifiedAt": 1773347927.5240011,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Handling proactive reminders and updates.md",
+      "size": 864,
+      "modifiedAt": 1773347926.771905,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Handling browser tasks.md",
+      "size": 903,
+      "modifiedAt": 1773347926.2407167,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/Playbook - Handling memory-sensitive questions.md",
+      "size": 804,
+      "modifiedAt": 1773347925.5059562,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - AI & Tools - OpenClaw Operations.md",
+      "size": 1033,
+      "modifiedAt": 1773347857.767133,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - exec and process.md",
+      "size": 637,
+      "modifiedAt": 1773347844.7600822,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - nodes.md",
+      "size": 470,
+      "modifiedAt": 1773347843.7600951,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - gateway.md",
+      "size": 543,
+      "modifiedAt": 1773347843.15706,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - session_status.md",
+      "size": 506,
+      "modifiedAt": 1773347842.2101967,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - sessions_send.md",
+      "size": 495,
+      "modifiedAt": 1773347841.6497066,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - sessions_list.md",
+      "size": 507,
+      "modifiedAt": 1773347840.5686402,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Choosing the right tool.md",
+      "size": 1560,
+      "modifiedAt": 1773347839.8492768,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Proactive delivery patterns.md",
+      "size": 741,
+      "modifiedAt": 1773347504.6309516,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Heartbeats vs cron.md",
+      "size": 671,
+      "modifiedAt": 1773347498.721554,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/MOC - OpenClaw tools.md",
+      "size": 671,
+      "modifiedAt": 1773347484.6920285,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - unbrowse_replay.md",
+      "size": 503,
+      "modifiedAt": 1773347482.965939,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - unbrowse_capture.md",
+      "size": 572,
+      "modifiedAt": 1773347482.0384154,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - unbrowse_browse.md",
+      "size": 549,
+      "modifiedAt": 1773347480.7415304,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - subagents.md",
+      "size": 485,
+      "modifiedAt": 1773347479.6116793,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - message.md",
+      "size": 609,
+      "modifiedAt": 1773347478.7822754,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - sessions_spawn.md",
+      "size": 574,
+      "modifiedAt": 1773347477.6361504,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - browser.md",
+      "size": 632,
+      "modifiedAt": 1773347476.4368093,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - cron.md",
+      "size": 619,
+      "modifiedAt": 1773347475.4785798,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - memory_get.md",
+      "size": 546,
+      "modifiedAt": 1773347473.9448273,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw tool - memory_search.md",
+      "size": 593,
+      "modifiedAt": 1773347472.9162984,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skill family - Memory retrieval.md",
+      "size": 664,
+      "modifiedAt": 1773345803.735844,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/MOC - OpenClaw capabilities.md",
+      "size": 886,
+      "modifiedAt": 1773345786.7411225,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Messaging and routing.md",
+      "size": 905,
+      "modifiedAt": 1773345785.8097782,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Sessions and orchestration.md",
+      "size": 818,
+      "modifiedAt": 1773345784.7573376,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Browser vs capture vs replay.md",
+      "size": 1063,
+      "modifiedAt": 1773345784.2022064,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Scheduled automation and delivery.md",
+      "size": 1011,
+      "modifiedAt": 1773345783.4250987,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/OpenClaw/OpenClaw - Memory retrieval.md",
+      "size": 1036,
+      "modifiedAt": 1773345782.5997968,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/01 Maps of Content/MOC - AI & Tools - Agent Systems.md",
+      "size": 1424,
+      "modifiedAt": 1773345709.5887785,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Memory tools.md",
+      "size": 525,
+      "modifiedAt": 1773345706.7485366,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Sessions and subagents.md",
+      "size": 547,
+      "modifiedAt": 1773345705.2372997,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - Memory and knowledge systems.md",
+      "size": 634,
+      "modifiedAt": 1773345522.4312723,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Skills/Skills - OpenClaw and agent-native tools.md",
+      "size": 781,
+      "modifiedAt": 1773345521.020763,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Tooling/Browser tooling for agents.md",
+      "size": 1123,
+      "modifiedAt": 1773345520.4253461,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Tooling/Agent-readable Markdown Conventions.md",
+      "size": 1719,
+      "modifiedAt": 1773345518.7936938,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_job-alerts_head-of-growth-crossover-head-of-marketing-gtschool.md",
+      "size": 691,
+      "modifiedAt": 1773342110.6779337,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/tmp/MOC - Spring Health.fixed.md",
+      "size": 904,
+      "modifiedAt": 1773338840.253824,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/tmp/Spring Health.fixed.md",
+      "size": 861,
+      "modifiedAt": 1773338839.6093082,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/pSEO Implementation Guidelines/pSEO_Gian_Design_Brief.docx",
+      "size": 23557,
+      "modifiedAt": 1773338600.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Spring Health/Spring Health - Product and AI strategy.md",
+      "size": 1757,
+      "modifiedAt": 1773337293.4253705,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/tmp/spring-health-source.md",
+      "size": 14521,
+      "modifiedAt": 1773337242.6050262,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_james-merrill-you-have-an-invitation.md",
+      "size": 907,
+      "modifiedAt": 1773336667.4272866,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_think-with-google_profit-loss-vs-marketing.md",
+      "size": 456,
+      "modifiedAt": 1773334970.423765,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_invitation_james-merrill-mba.md",
+      "size": 404,
+      "modifiedAt": 1773334951.3075082,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_final-call-b2b-buying-2026.md",
+      "size": 338,
+      "modifiedAt": 1773331388.2063804,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_greylock_axiamatic-ai-for-enterprise-transformation.md",
+      "size": 357,
+      "modifiedAt": 1773331388.2061517,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/proactive-messaging-jobs.md",
+      "size": 1179,
+      "modifiedAt": 1773330289.719034,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_job-alerts_marketing-director_maven-clinic.md",
+      "size": 761,
+      "modifiedAt": 1773328549.7132783,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/mocs/skill-graph-design.md",
+      "size": 1436,
+      "modifiedAt": 1773328009.806458,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/index.md",
+      "size": 1284,
+      "modifiedAt": 1773328009.4178843,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/proactive-maintenance.md",
+      "size": 1328,
+      "modifiedAt": 1773327990.523967,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/GRAPH_SCHEMA.md",
+      "size": 1369,
+      "modifiedAt": 1773327990.0730283,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/tmp/graph-conventions-review.md",
+      "size": 1845,
+      "modifiedAt": 1773327972.5219948,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/tmp/proactive-best-practices.md",
+      "size": 3365,
+      "modifiedAt": 1773327972.2129745,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/incidents.md",
+      "size": 3256,
+      "modifiedAt": 1773322397.1036694,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_inmail-from-adea-p.md",
+      "size": 395,
+      "modifiedAt": 1773321439.9078891,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_linkedin_joanna-just-messaged-you.md",
+      "size": 420,
+      "modifiedAt": 1773320660.640516,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/runbooks/knowledge-graph-maintenance.md",
+      "size": 814,
+      "modifiedAt": 1773319831.6397872,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/browser-tools-should-be-token-efficient.md",
+      "size": 716,
+      "modifiedAt": 1773319830.5585232,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/links-should-carry-semantic-meaning.md",
+      "size": 654,
+      "modifiedAt": 1773319829.7341893,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/maps-of-content-steer-attention.md",
+      "size": 602,
+      "modifiedAt": 1773319829.1514876,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/promote-recurring-friction-into-structure.md",
+      "size": 645,
+      "modifiedAt": 1773319827.117789,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/heartbeat-for-batched-checks-cron-for-precise-timing.md",
+      "size": 708,
+      "modifiedAt": 1773319825.5312402,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/operationalize-repeated-work.md",
+      "size": 693,
+      "modifiedAt": 1773319824.9282646,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/proactivity-needs-clear-bounds.md",
+      "size": 728,
+      "modifiedAt": 1773319824.337981,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/nodes/progressive-disclosure-is-a-capability-multiplier.md",
+      "size": 751,
+      "modifiedAt": 1773319823.8256717,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/mocs/tooling-surfaces.md",
+      "size": 949,
+      "modifiedAt": 1773319822.2347193,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/mocs/proactive-work-patterns.md",
+      "size": 954,
+      "modifiedAt": 1773319821.14328,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/graph/README.md",
+      "size": 898,
+      "modifiedAt": 1773319819.395011,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_glassdoor_company-bowl-access.md",
+      "size": 577,
+      "modifiedAt": 1773310525.740329,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-12_indeed_senior-creative-director_coopers-hawk.md",
+      "size": 677,
+      "modifiedAt": 1773298953.9717143,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-11_19ce068419298a94.md",
+      "size": 483,
+      "modifiedAt": 1773291820.2535017,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-11.md",
+      "size": 542,
+      "modifiedAt": 1773290234.655341,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-11_vice-president-of-revenue-linkedin-alert.md",
+      "size": 369,
+      "modifiedAt": 1773284623.030495,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-11_linkedin-page-mentioned_19cde1ce61490ad4.md",
+      "size": 430,
+      "modifiedAt": 1773253846.6390526,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_LinkedIn_Post_Brief_Security_Comms_March_2026_v2.docx",
+      "size": 310717,
+      "modifiedAt": 1773252194.0610986,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Security_Posture_LinkedIn_Post_Brief_Gian_Mika_March2026.docx",
+      "size": 309524,
+      "modifiedAt": 1773250200.561299,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-11_linkedin-job-alert_19cddd57dd5c4088.md",
+      "size": 562,
+      "modifiedAt": 1773248524.7172196,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/03 Sources/Google Drive Imports/TSI/Source - TSI Master GTM Brief v1.md",
+      "size": 1017,
+      "modifiedAt": 1773246822.3078291,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/03 Sources/Google Drive Imports/TSI/TSI_Master_GTM_Brief_v1.docx",
+      "size": 48455,
+      "modifiedAt": 1773246738.3531613,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-10.md",
+      "size": 773,
+      "modifiedAt": 1773193038.511516,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-10_linkedin-job-alert.md",
+      "size": 990,
+      "modifiedAt": 1773183762.2662456,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-10_jobs_linkedin_alert.md",
+      "size": 576,
+      "modifiedAt": 1773176585.435849,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_CrossSell_Strategy.docx",
+      "size": 325639,
+      "modifiedAt": 1773164130.5248358,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-10_linkedin-notification.md",
+      "size": 864,
+      "modifiedAt": 1773159383.1396897,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-10_linkedin_spring_health.md",
+      "size": 552,
+      "modifiedAt": 1773147757.2946427,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-09.md",
+      "size": 303,
+      "modifiedAt": 1773117472.7049394,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-09_linkedin-job-alert.md",
+      "size": 576,
+      "modifiedAt": 1773112569.1376603,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-09_linkedin_job_alert.md",
+      "size": 455,
+      "modifiedAt": 1773105093.9557374,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-09_linkedin_learning.md",
+      "size": 394,
+      "modifiedAt": 1773105093.493692,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-09_linkedin_adea_roundtable.md",
+      "size": 1643,
+      "modifiedAt": 1773086618.3217862,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/heartbeat-log.md",
+      "size": 44,
+      "modifiedAt": 1773081325.7952776,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-09_linkedin_invitation.md",
+      "size": 617,
+      "modifiedAt": 1773068533.609402,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-09_linkedin_head-of-growth.md",
+      "size": 427,
+      "modifiedAt": 1773065745.515242,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-09_indeed_director_brand_comms.md",
+      "size": 600,
+      "modifiedAt": 1773037923.5073109,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-08.md",
+      "size": 168,
+      "modifiedAt": 1773031037.2346246,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-08_linkedin-job-alert.md",
+      "size": 584,
+      "modifiedAt": 1773025680.4671447,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/06-operational-architecture-and-resilience.md",
+      "size": 22813,
+      "modifiedAt": 1772962876.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/01-event-ledger-and-data-architecture.md",
+      "size": 31518,
+      "modifiedAt": 1772962876.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-08_linkedin_job_alert.md",
+      "size": 447,
+      "modifiedAt": 1772954032.9365754,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-07.md",
+      "size": 259,
+      "modifiedAt": 1772949270.8369792,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Recovery-OS-Architecture-Suite.md",
+      "size": 192323,
+      "modifiedAt": 1772947130.5995476,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-07_linkedin-job-alert.md",
+      "size": 651,
+      "modifiedAt": 1772946150.558721,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Recovery OS \u2014 Architecture Remediation & Risk Mitigation  > **Document type-** Technical Risk Assessment & Solutions Blueprint.md",
+      "size": 25759,
+      "modifiedAt": 1772941282.243007,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/architecture-decisions.md",
+      "size": 10035,
+      "modifiedAt": 1772936564.0558197,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/ARM & Debt Collection Tech Briefing.md",
+      "size": 69135,
+      "modifiedAt": 1772927381.2926939,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/FACS Replacement Strategy Report.md",
+      "size": 48722,
+      "modifiedAt": 1772927200.6446664,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/FACS-Claude-Research.md",
+      "size": 41570,
+      "modifiedAt": 1772927107.3319333,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/FACS-deep-research-report.md",
+      "size": 37897,
+      "modifiedAt": 1772926960.5111709,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/Intelligence Briefing - The 2026 Accounts Receivable Management and Debt Collection Technology Ecosystem.md",
+      "size": 68993,
+      "modifiedAt": 1772923606.9466014,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/Accounts Receivable Management and Debt Collection Platforms Ecosystem Intelligence Briefing.md",
+      "size": 44496,
+      "modifiedAt": 1772923531.353933,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/chatgpt-collections-software-deep-research-report.md",
+      "size": 44556,
+      "modifiedAt": 1772923407.028387,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-07_inbox-guardian-auth-issue.md",
+      "size": 353,
+      "modifiedAt": 1772922684.5428982,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-07_gmail-auth-issue.md",
+      "size": 473,
+      "modifiedAt": 1772917369.3398206,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-07_inbox.md",
+      "size": 363,
+      "modifiedAt": 1772898366.0158584,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-06.md",
+      "size": 190,
+      "modifiedAt": 1772861869.6833458,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-06_linkedin_job_alert.md",
+      "size": 479,
+      "modifiedAt": 1772859695.7771301,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-06_linkedin-job-alert.md",
+      "size": 689,
+      "modifiedAt": 1772845352.6540713,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Master_GTM_Brief_v1.docx",
+      "size": 38980,
+      "modifiedAt": 1772817732.6319106,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Master_GTM_Narrative_and_Intelligence_Brief_v1.md",
+      "size": 77970,
+      "modifiedAt": 1772816938.382095,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI Marketing - Enterprise GTM Narrative Strategy Development - March 2026.md",
+      "size": 55095,
+      "modifiedAt": 1772811906.6886132,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-06_inbox-guardian.md",
+      "size": 447,
+      "modifiedAt": 1772778702.9643009,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-05.md",
+      "size": 417,
+      "modifiedAt": 1772776107.473981,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-05_linkedin-notification.md",
+      "size": 538,
+      "modifiedAt": 1772772385.9299684,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-05_linkedin-job-alert.md",
+      "size": 551,
+      "modifiedAt": 1772758928.2521083,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI Marketing Research \u2014 Ideal Customer Profile (ICP) Analysis Across Five Lines of Business.md",
+      "size": 75649,
+      "modifiedAt": 1772752531.357889,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-05_marketing-cx-event.md",
+      "size": 829,
+      "modifiedAt": 1772739145.656003,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-05_linkedin-job-ninjatrader.md",
+      "size": 984,
+      "modifiedAt": 1772737363.2457035,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2025-03-05.md",
+      "size": 185,
+      "modifiedAt": 1772732232.38536,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI SMB TAM & GTM Strategy.md",
+      "size": 56319,
+      "modifiedAt": 1772722528.823319,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-05_linkedin_head-of-growth.md",
+      "size": 729,
+      "modifiedAt": 1772719956.87656,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/gmail-triage-2026-03-05.md",
+      "size": 315,
+      "modifiedAt": 1772716712.4979606,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-05_linkedin_hiring_inquiry.md",
+      "size": 510,
+      "modifiedAt": 1772701319.0606391,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-04.md",
+      "size": 161,
+      "modifiedAt": 1772689046.8135865,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_forbes_newsletter.md",
+      "size": 289,
+      "modifiedAt": 1772682351.1650903,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_linkedin_job_alert.md",
+      "size": 325,
+      "modifiedAt": 1772682350.7597437,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_linkedin-job-alert.md",
+      "size": 672,
+      "modifiedAt": 1772677919.9857266,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_razorfish-newsletter.md",
+      "size": 441,
+      "modifiedAt": 1772673389.9600496,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/AGENTS.md",
+      "size": 7298,
+      "modifiedAt": 1772671477.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/churn-prevention/references/dunning-playbook.md",
+      "size": 12688,
+      "modifiedAt": 1772671477.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/revops/references/automation-playbooks.md",
+      "size": 10861,
+      "modifiedAt": 1772671477.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ad-creative/references/platform-specs.md",
+      "size": 6525,
+      "modifiedAt": 1772671477.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/pricing-strategy/references/research-methods.md",
+      "size": 4780,
+      "modifiedAt": 1772671477.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/competitor-alternatives/references/content-architecture.md",
+      "size": 7591,
+      "modifiedAt": 1772671477.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/programmatic-seo/references/playbooks.md",
+      "size": 8316,
+      "modifiedAt": 1772671477.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/TSI/debt_collection_platform_research_v1.md",
+      "size": 59999,
+      "modifiedAt": 1772669521.9915175,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Marketing_debt_collection_platform_research_v1.md",
+      "size": 54213,
+      "modifiedAt": 1772669094.243911,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_linkedin_inmail_promo.md",
+      "size": 627,
+      "modifiedAt": 1772662570.957179,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_linkedin-job-alert_head-of-growth.md",
+      "size": 554,
+      "modifiedAt": 1772658202.8836234,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_linkedin_reputation_report.md",
+      "size": 343,
+      "modifiedAt": 1772646365.9294884,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_linkedin-jason-hoffman.md",
+      "size": 575,
+      "modifiedAt": 1772637384.336956,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Social_Media_Strategy_Playbook.docx",
+      "size": 18698,
+      "modifiedAt": 1772632768.198072,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI-Sales-Team-Meeting-984b4fec-f354.md",
+      "size": 86361,
+      "modifiedAt": 1772632727.9939072,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_linkedin_august.md",
+      "size": 1026,
+      "modifiedAt": 1772631968.2459538,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-04_linkedin_august_tesfasilase.md",
+      "size": 968,
+      "modifiedAt": 1772631178.2285805,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-03.md",
+      "size": 440,
+      "modifiedAt": 1772602641.0790787,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-03_linkedin-job-alert.md",
+      "size": 544,
+      "modifiedAt": 1772601349.4146895,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-03_linkedin_job_alert.md",
+      "size": 638,
+      "modifiedAt": 1772578935.6731243,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-03_linkedin-invite-august.md",
+      "size": 921,
+      "modifiedAt": 1772559135.479663,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-03_linkedin-invitation.md",
+      "size": 749,
+      "modifiedAt": 1772558168.8197458,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-03_linkedin_a16z.md",
+      "size": 466,
+      "modifiedAt": 1772550969.3144112,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-03_indeed_job.md",
+      "size": 491,
+      "modifiedAt": 1772521317.074863,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-02.md",
+      "size": 233,
+      "modifiedAt": 1772516239.8517427,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-02_linkedin-job-alert.md",
+      "size": 538,
+      "modifiedAt": 1772503304.474732,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-02_linkedin_job_alert.md",
+      "size": 824,
+      "modifiedAt": 1772502365.8468578,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-02_linkedin-job-alert-cmo.md",
+      "size": 556,
+      "modifiedAt": 1772499673.9475513,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-02_linkedin_editorial.md",
+      "size": 396,
+      "modifiedAt": 1772483450.7589407,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-03-01.md",
+      "size": 175,
+      "modifiedAt": 1772429854.1608555,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-01_linkedin_job_vacatia.md",
+      "size": 630,
+      "modifiedAt": 1772400628.3327763,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-01_linkedin_job_alert.md",
+      "size": 561,
+      "modifiedAt": 1772398932.8094923,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-01_linkedin-job-alert.md",
+      "size": 699,
+      "modifiedAt": 1772378153.2576466,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-01_indeed_alerts.md",
+      "size": 358,
+      "modifiedAt": 1772358346.2669945,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-03-01_linkedin_digest.md",
+      "size": 321,
+      "modifiedAt": 1772358346.2513518,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-28.md",
+      "size": 193,
+      "modifiedAt": 1772343466.6296954,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-28_linkedin-job-alert.md",
+      "size": 452,
+      "modifiedAt": 1772335863.6431634,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-28_linkedin_head_of_growth.md",
+      "size": 421,
+      "modifiedAt": 1772334953.238503,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-28_linkedin-job-alert-gartner.md",
+      "size": 555,
+      "modifiedAt": 1772306138.9540005,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-28_inbox-guardian-auth-alert.md",
+      "size": 334,
+      "modifiedAt": 1772295401.1617293,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/alerts/inbox-guardian-auth-required.md",
+      "size": 219,
+      "modifiedAt": 1772291095.9528558,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/inbox-guardian-auth-failure.md",
+      "size": 286,
+      "modifiedAt": 1772288167.3435342,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/alerts/2026-02-28_token_expired.md",
+      "size": 254,
+      "modifiedAt": 1772286367.0848904,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-27.md",
+      "size": 337,
+      "modifiedAt": 1772257038.5032017,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-27_linkedin-job-alert.md",
+      "size": 503,
+      "modifiedAt": 1772255755.855862,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-26.md",
+      "size": 145,
+      "modifiedAt": 1772171044.6237533,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-26_linkin-cmo-alert.md",
+      "size": 654,
+      "modifiedAt": 1772168475.3377984,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-26_linkedin-vp-marketing-alert.md",
+      "size": 763,
+      "modifiedAt": 1772161289.4305067,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-26_linkedin-job-alert.md",
+      "size": 659,
+      "modifiedAt": 1772158554.3238578,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-26_linkedin_ethan_autry.md",
+      "size": 1029,
+      "modifiedAt": 1772129761.5694864,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Marketing_Request_Process_Architecture_UPDATE_Feb2026 (2).docx",
+      "size": 31644,
+      "modifiedAt": 1772127688.077379,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Sales_Pipeline_Reporting_Plan.docx",
+      "size": 322821,
+      "modifiedAt": 1772126848.4843194,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Michael_Connor_Call_Summary_20260226.md",
+      "size": 21754,
+      "modifiedAt": 1772126011.3480792,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-26_linkedin-invite.md",
+      "size": 497,
+      "modifiedAt": 1772125332.5113118,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/agents/INBOX_GUARDIAN.md",
+      "size": 697,
+      "modifiedAt": 1772114468.4208922,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-26_linkedin-tsi-hiring.md",
+      "size": 466,
+      "modifiedAt": 1772094691.7389715,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-25.md",
+      "size": 419,
+      "modifiedAt": 1772084260.3988402,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-25_linkedin-job-alert.md",
+      "size": 767,
+      "modifiedAt": 1772074930.3740964,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-25_linkedin-job-alert-ladders.md",
+      "size": 515,
+      "modifiedAt": 1772056886.2563493,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-25_networking_cory_docken.md",
+      "size": 687,
+      "modifiedAt": 1772047885.6556015,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-25_linkedin-job-alert-head-of-growth.md",
+      "size": 1037,
+      "modifiedAt": 1772031664.3738008,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-25_linkedin-message-ella-adriano.md",
+      "size": 837,
+      "modifiedAt": 1772028962.9966886,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-24.md",
+      "size": 2642,
+      "modifiedAt": 1771999625.9048789,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-job-alert-7.md",
+      "size": 654,
+      "modifiedAt": 1771983931.1996877,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-job-alert-6.md",
+      "size": 737,
+      "modifiedAt": 1771981281.5904222,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/Personal/AA/AA Old Town Beginners Meeting 1.md",
+      "size": 0,
+      "modifiedAt": 1771981012.232,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Efforts/Personal/AA/AA Old Town Beginners Meeting.md",
+      "size": 3,
+      "modifiedAt": 1771981009.717,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-job-alert-5.md",
+      "size": 635,
+      "modifiedAt": 1771974198.1410315,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-news.md",
+      "size": 562,
+      "modifiedAt": 1771970506.491554,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-job-alert-4.md",
+      "size": 676,
+      "modifiedAt": 1771966863.795756,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-groups-notification.md",
+      "size": 691,
+      "modifiedAt": 1771964143.2128353,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-job-alert-3.md",
+      "size": 714,
+      "modifiedAt": 1771959653.4356146,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-job-alert-2.md",
+      "size": 653,
+      "modifiedAt": 1771952466.0695844,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Documents/CJL Vault/Apple Notes/Wedding Plans - Ideas.md",
+      "size": 221,
+      "modifiedAt": 1771947263.56592,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-24_linkedin-job-alert.md",
+      "size": 666,
+      "modifiedAt": 1771945271.7377574,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-23.md",
+      "size": 3827,
+      "modifiedAt": 1771925826.319939,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-22.md",
+      "size": 1297,
+      "modifiedAt": 1771825033.9388525,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-22_linkedin_vp_revenue.md",
+      "size": 466,
+      "modifiedAt": 1771808443.639828,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-21.md",
+      "size": 244,
+      "modifiedAt": 1771695431.202909,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-21_linkedin_job_alert_2.md",
+      "size": 453,
+      "modifiedAt": 1771693256.641424,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/2026-02-21_linkedin_job_alert.md",
+      "size": 541,
+      "modifiedAt": 1771686068.108363,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/resume-executive.md",
+      "size": 7140,
+      "modifiedAt": 1771683499.7819924,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/google-drive-inventory.md",
+      "size": 4046,
+      "modifiedAt": 1771682867.8638184,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/career-profile-master.md",
+      "size": 8191,
+      "modifiedAt": 1771681168.5521243,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/career-deep-dive.md",
+      "size": 6957,
+      "modifiedAt": 1771681061.4964724,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/gtm-outreach-sequence.md",
+      "size": 2484,
+      "modifiedAt": 1771678920.2899728,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/drafts/gtm-consulting-offer.md",
+      "size": 1478,
+      "modifiedAt": 1771678899.374313,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/memory/2026-02-20.md",
+      "size": 3255,
+      "modifiedAt": 1771652252.8681839,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Marketing_Request_Process_Architecture_UPDATE_Feb2026 (1).docx",
+      "size": 31644,
+      "modifiedAt": 1771614130.917323,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_GoogleStitch_PromptPlaybook.docx",
+      "size": 34763,
+      "modifiedAt": 1771610971.5929978,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_2026_Healthcare_Conference_Research_Briefing.docx",
+      "size": 22297,
+      "modifiedAt": 1771608772.4384763,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_2026_Healthcare_Conference_Marketing_Playbook.docx",
+      "size": 30741,
+      "modifiedAt": 1771608724.5053282,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Marketing_Request_Process_Architecture_UPDATE_Feb2026.docx",
+      "size": 31568,
+      "modifiedAt": 1771608366.9508038,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/BOOTSTRAP.md",
+      "size": 1470,
+      "modifiedAt": 1771567710.8716354,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/HEARTBEAT.md",
+      "size": 168,
+      "modifiedAt": 1771567710.8707373,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/USER.md",
+      "size": 477,
+      "modifiedAt": 1771567710.8705754,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/IDENTITY.md",
+      "size": 636,
+      "modifiedAt": 1771567710.870471,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/TOOLS.md",
+      "size": 860,
+      "modifiedAt": 1771567710.8703713,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/SOUL.md",
+      "size": 1673,
+      "modifiedAt": 1771567710.8702412,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/public/longform/03-marketing-org-design-governance.md",
+      "size": 3677,
+      "modifiedAt": 1771567650.1332152,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/public/longform/02-outcome-first-repositioning.md",
+      "size": 3522,
+      "modifiedAt": 1771567650.1331406,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/work-page-layout.md",
+      "size": 14698,
+      "modifiedAt": 1771567650.1298323,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/visual-asset-inventory.md",
+      "size": 6525,
+      "modifiedAt": 1771567650.1297195,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/saas-gtm-framework.md",
+      "size": 20236,
+      "modifiedAt": 1771567650.1296153,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/consulting-page-v2.md",
+      "size": 7735,
+      "modifiedAt": 1771567650.129362,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/revenue-funnel-self-assessment.md",
+      "size": 3385,
+      "modifiedAt": 1771567650.1292667,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/revenue-funnel-kpi-framework.md",
+      "size": 3330,
+      "modifiedAt": 1771567650.1291864,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/healthcare-rcm-pulse-saga-automation.md",
+      "size": 3721,
+      "modifiedAt": 1771567650.1290238,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/cxbpo-repositioning-initiative.md",
+      "size": 3363,
+      "modifiedAt": 1771567650.1288652,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/bdr-salesforce-workflow-guide.md",
+      "size": 3346,
+      "modifiedAt": 1771567650.1287882,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/bdr-pod-lead-generation-program.md",
+      "size": 2818,
+      "modifiedAt": 1771567650.1287081,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/stubs/README.md",
+      "size": 4529,
+      "modifiedAt": 1771567650.128627,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/one-tsi-revenue-infrastructure.md",
+      "size": 3817,
+      "modifiedAt": 1771567650.1283484,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/debtnext-saas-integration.md",
+      "size": 11761,
+      "modifiedAt": 1771567650.1281683,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/case-studies/bdr-pod-lead-generation.md",
+      "size": 7294,
+      "modifiedAt": 1771567650.1280708,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/content/attribution-framework.md",
+      "size": 4435,
+      "modifiedAt": 1771567650.127833,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/accessibility-audit.md",
+      "size": 10533,
+      "modifiedAt": 1771567650.1244206,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/README.md",
+      "size": 342,
+      "modifiedAt": 1771567650.1243246,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/DESIGN_TEMPLATE_AND_COPY.md",
+      "size": 12504,
+      "modifiedAt": 1771567650.1238523,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ARCHIVE_QA.md",
+      "size": 2167,
+      "modifiedAt": 1771567650.1237366,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/DESIGN_TEMPLATE_AND_COPY.md",
+      "size": 9449,
+      "modifiedAt": 1771141547.0662856,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/docs/spec.json",
+      "size": 138624,
+      "modifiedAt": 1770250948.168518,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/rxjs/src/tsconfig.types.spec.json",
+      "size": 140,
+      "modifiedAt": 1770155533.4854572,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/rxjs/src/tsconfig.cjs.spec.json",
+      "size": 275,
+      "modifiedAt": 1770155533.4849873,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@babel/compat-data/data/corejs3-shipped-proposals.json",
+      "size": 88,
+      "modifiedAt": 1770155532.8162346,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/interleaved_thinking/optimization_artifacts/summary.json",
+      "size": 1002,
+      "modifiedAt": 1769828110.9661517,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/Agent-Skills-for-Context-Engineering/examples/interleaved_thinking/generated_skills/comprehensive-research-agent/references/optimization_summary.json",
+      "size": 899,
+      "modifiedAt": 1769828110.9583704,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/n8n-skills/evaluations/workflow-patterns/eval-004-ai-agent.json",
+      "size": 754,
+      "modifiedAt": 1769827418.7072814,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/ops/skills-sources/n8n-skills/evaluations/node-configuration/eval-002-operation-specific-config.json",
+      "size": 609,
+      "modifiedAt": 1769827418.705845,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/language-subtag-registry/data/json/special.json",
+      "size": 59,
+      "modifiedAt": 1769732982.986425,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-22_Healthcare.md",
+      "size": 1403,
+      "modifiedAt": 1769136930.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-22_ARM.md",
+      "size": 1603,
+      "modifiedAt": 1769136443.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-22_DebtNext.md",
+      "size": 1436,
+      "modifiedAt": 1769135771.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-22_BPO.md",
+      "size": 1693,
+      "modifiedAt": 1769135770.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/tsi-dashboard/node_modules/eslint-plugin-import/docs/rules/consistent-type-specifier-style.md",
+      "size": 2822,
+      "modifiedAt": 1769135070.7166219,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-21_ARM.md",
+      "size": 1603,
+      "modifiedAt": 1768997280.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-21_BPO.md",
+      "size": 1693,
+      "modifiedAt": 1768996385.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-21_DebtNext.md",
+      "size": 1411,
+      "modifiedAt": 1768996385.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-21_Healthcare.md",
+      "size": 1384,
+      "modifiedAt": 1768996384.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/OPTIMIZATION_SUMMARY.md",
+      "size": 10697,
+      "modifiedAt": 1768946922.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/CLAUDE_CODE_SPEC.md",
+      "size": 11340,
+      "modifiedAt": 1768925594.466033,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/CLAUDE_CODE_SPEC.md",
+      "size": 11340,
+      "modifiedAt": 1768925594.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/intelligence/intel_briefing_2026-01-20_DebtNext.md",
+      "size": 1428,
+      "modifiedAt": 1768924166.14903,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-20_DebtNext.md",
+      "size": 1428,
+      "modifiedAt": 1768924166.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/intelligence/intel_briefing_2026-01-20_BPO.md",
+      "size": 1693,
+      "modifiedAt": 1768924165.6452463,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/intelligence/intel_briefing_2026-01-20_healthcare.md",
+      "size": 1384,
+      "modifiedAt": 1768924165.1126058,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-20_healthcare.md",
+      "size": 1384,
+      "modifiedAt": 1768924165.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-20_BPO.md",
+      "size": 1693,
+      "modifiedAt": 1768924165.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/intelligence/intel_briefing_2026-01-20_ARM.md",
+      "size": 1473,
+      "modifiedAt": 1768924164.4941483,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_2026-01-20_ARM.md",
+      "size": 1473,
+      "modifiedAt": 1768924164.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/campaigns/strategy_nyc_reaction.md",
+      "size": 586,
+      "modifiedAt": 1768922836.9660678,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/campaigns/strategy_nyc_reaction.md",
+      "size": 586,
+      "modifiedAt": 1768922836.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/campaigns/campaign_strategy_QA-Check.md",
+      "size": 299,
+      "modifiedAt": 1768885589.254933,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/campaigns/campaign_strategy_QA-Check.md",
+      "size": 299,
+      "modifiedAt": 1768885589.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/intelligence/intel_briefing_QA-Check.md",
+      "size": 436,
+      "modifiedAt": 1768885587.3421433,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/intelligence/intel_briefing_QA-Check.md",
+      "size": 436,
+      "modifiedAt": 1768885587.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/drafts/visual_brief_2026_auth.md",
+      "size": 1066,
+      "modifiedAt": 1768884596.3419487,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/drafts/visual_brief_2026_auth.md",
+      "size": 1066,
+      "modifiedAt": 1768884596.3419487,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/campaigns/campaign_strategy_2026_auth.md",
+      "size": 874,
+      "modifiedAt": 1768884447.5009642,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/campaigns/campaign_strategy_2026_auth.md",
+      "size": 874,
+      "modifiedAt": 1768884447.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/drafts/brief_stress_test.md",
+      "size": 390,
+      "modifiedAt": 1768882196.9341216,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/drafts/brief_stress_test.md",
+      "size": 390,
+      "modifiedAt": 1768882196.9341216,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/positioning/messaging_architecture.md",
+      "size": 5979,
+      "modifiedAt": 1768881595.7226958,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/positioning/messaging_architecture.md",
+      "size": 5979,
+      "modifiedAt": 1768881595.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/compliance/marketing_compliance_playbook.md",
+      "size": 3784,
+      "modifiedAt": 1768881142.3781915,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/docs/foundation/tsi_handbook/09_agent_ground_rules.md",
+      "size": 1890,
+      "modifiedAt": 1768881142.3475459,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/compliance/marketing_compliance_playbook.md",
+      "size": 3784,
+      "modifiedAt": 1768881142.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/docs/foundation/tsi_handbook/09_agent_ground_rules.md",
+      "size": 1890,
+      "modifiedAt": 1768881142.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/tests/q1_attack_plan_log.md",
+      "size": 2305,
+      "modifiedAt": 1768880060.714151,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/tests/q1_attack_plan_log.md",
+      "size": 2305,
+      "modifiedAt": 1768880060.714151,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/campaigns/simulation_healthcare_brief.md",
+      "size": 781,
+      "modifiedAt": 1768878471.0894296,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/campaigns/simulation_healthcare_brief.md",
+      "size": 781,
+      "modifiedAt": 1768878471.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine/tests/simulation_plan.md",
+      "size": 1432,
+      "modifiedAt": 1768878457.2060628,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Antigravity/TSI Marketing Machine copy/tests/simulation_plan.md",
+      "size": 1432,
+      "modifiedAt": 1768878457.2060628,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Lawncare Uber App Project/Comprehensive_MVP_Product_Spec.md",
+      "size": 10106,
+      "modifiedAt": 1768686542.617064,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Lawncare Uber App Project/12_LAUNCH_AND_BETA_PLAN.md",
+      "size": 875,
+      "modifiedAt": 1768679761.332797,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Lawncare Uber App Project/11_TEST_PLAN_AND_EDGE_CASES.md",
+      "size": 740,
+      "modifiedAt": 1768679698.773596,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Lawncare Uber App Project/07_API_SPECIFICATION.md",
+      "size": 764,
+      "modifiedAt": 1768679503.673224,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Lawncare Uber App Project/01_VISION_AND_STRATEGY.md",
+      "size": 1538,
+      "modifiedAt": 1768666445.081307,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/tsi_agent_packs_v1/agent_routing_matrix.md",
+      "size": 3088,
+      "modifiedAt": 1768623780.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Cursor/Project 1/TSI Context Pack/agents/agent_routing_matrix.md",
+      "size": 3088,
+      "modifiedAt": 1768623780.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/messaging_architecture.md",
+      "size": 5462,
+      "modifiedAt": 1768623496.8748245,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Cursor/Project 1/TSI Context Pack/positioning/messaging_architecture.md",
+      "size": 5462,
+      "modifiedAt": 1768623496.8748245,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/09_agent_ground_rules.md",
+      "size": 1815,
+      "modifiedAt": 1768607092.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/tsi_wikipedia_bundle/docs/tsi_handbook/09_agent_ground_rules.md",
+      "size": 1815,
+      "modifiedAt": 1768607092.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Coding/Cursor/Project 1/TSI Context Pack/compliance/09_agent_ground_rules.md",
+      "size": 1815,
+      "modifiedAt": 1768607092.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/TSI-ARM-L3-Proposal.pdf",
+      "size": 977343,
+      "modifiedAt": 1768590428.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/TSI-Customer-Experience-and-BPO-Partnership-Proposal-L2.pdf",
+      "size": 955751,
+      "modifiedAt": 1768590398.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/TSI-Accounts-Receivable-Management-ARM-Partnership-Proposal-L2.pdf",
+      "size": 867795,
+      "modifiedAt": 1768590376.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/TSI-Marketing-Research-and-Analysis-DebtNext-and-Recovery-Vendor-Management-SaaS.pdf",
+      "size": 506701,
+      "modifiedAt": 1768590226.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/TSI-Marketing-Research-and-Analysis-HCRCM.pdf",
+      "size": 768858,
+      "modifiedAt": 1768590114.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/TSI-Marketing-Research-and-Analysis.pdf",
+      "size": 858879,
+      "modifiedAt": 1768589794.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/TSI/TSI Context Pack/TSI-Marketing-Research-and-Analysis-ARM-and-Debt-Collection (1).pdf",
+      "size": 486851,
+      "modifiedAt": 1768589672.0,
+      "score": 7
+    },
+    {
+      "path": "/Users/connorlaughlin/Desktop/Portfolio Update v2/node_modules/@babel/compat-data/data/corejs3-shipped-proposals.json",
+      "size": 88,
+      "modifiedAt": 1771630576.147154,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/mcOS-deploy/ANALYSIS.md",
+      "size": 7674,
+      "modifiedAt": 1770427499.8300924,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/mcOS-deploy/README.md",
+      "size": 3512,
+      "modifiedAt": 1770426018.7584395,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/src/integrations/ai/prompts/pdf-parser-user.md",
+      "size": 367,
+      "modifiedAt": 1770250948.304876,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/src/integrations/ai/prompts/pdf-parser-system.md",
+      "size": 4081,
+      "modifiedAt": 1770250948.3048007,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/src/integrations/ai/prompts/docx-parser-user.md",
+      "size": 204,
+      "modifiedAt": 1770250948.3047235,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/src/integrations/ai/prompts/docx-parser-system.md",
+      "size": 5650,
+      "modifiedAt": 1770250948.3046494,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/skills/resume-builder/references/schema.md",
+      "size": 7147,
+      "modifiedAt": 1770250948.2841623,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/skills/resume-builder/SKILL.md",
+      "size": 4772,
+      "modifiedAt": 1770250948.2840166,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/rhyhorn.pdf",
+      "size": 269961,
+      "modifiedAt": 1770250948.2615566,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/pikachu.pdf",
+      "size": 293974,
+      "modifiedAt": 1770250948.2595046,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/onyx.pdf",
+      "size": 260303,
+      "modifiedAt": 1770250948.2577286,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/leafish.pdf",
+      "size": 259212,
+      "modifiedAt": 1770250948.2555268,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/lapras.pdf",
+      "size": 698937,
+      "modifiedAt": 1770250948.2531857,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/kakuna.pdf",
+      "size": 264289,
+      "modifiedAt": 1770250948.2493467,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/glalie.pdf",
+      "size": 260348,
+      "modifiedAt": 1770250948.2485263,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/gengar.pdf",
+      "size": 268553,
+      "modifiedAt": 1770250948.2477522,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/ditto.pdf",
+      "size": 263659,
+      "modifiedAt": 1770250948.2470572,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/ditgar.pdf",
+      "size": 217104,
+      "modifiedAt": 1770250948.2458656,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/chikorita.pdf",
+      "size": 267524,
+      "modifiedAt": 1770250948.2438898,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/bronzor.pdf",
+      "size": 250169,
+      "modifiedAt": 1770250948.2422755,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/public/templates/pdf/azurill.pdf",
+      "size": 243445,
+      "modifiedAt": 1770250948.2403572,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/README.md",
+      "size": 9469,
+      "modifiedAt": 1770250948.1416776,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/skills/resume-builder/CLAUDE.md",
+      "size": 4381,
+      "modifiedAt": 1770250948.141001,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/SANITY_SETUP_GUIDE.md",
+      "size": 3571,
+      "modifiedAt": 1770169479.9895098,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/rxjs/README.md",
+      "size": 3834,
+      "modifiedAt": 1770155533.651802,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/rxjs/CODE_OF_CONDUCT.md",
+      "size": 3280,
+      "modifiedAt": 1770155533.6517465,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/rxjs/CHANGELOG.md",
+      "size": 263084,
+      "modifiedAt": 1770155533.6516683,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/motion-dom/LICENSE.md",
+      "size": 1100,
+      "modifiedAt": 1770155533.3512208,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/lodash/README.md",
+      "size": 1107,
+      "modifiedAt": 1770155533.3400488,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/framer-motion/README.md",
+      "size": 6415,
+      "modifiedAt": 1770155533.3140771,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/framer-motion/dom/README.md",
+      "size": 96,
+      "modifiedAt": 1770155533.3140268,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/framer-motion/client/README.md",
+      "size": 99,
+      "modifiedAt": 1770155533.3138244,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/framer-motion/LICENSE.md",
+      "size": 1078,
+      "modifiedAt": 1770155533.3135993,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/refractor/readme.md",
+      "size": 37178,
+      "modifiedAt": 1770155533.23345,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/lodash-es/README.md",
+      "size": 356,
+      "modifiedAt": 1770155533.1978705,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/client/README.md",
+      "size": 91388,
+      "modifiedAt": 1770155533.105148,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/mutate/README.md",
+      "size": 10836,
+      "modifiedAt": 1770155533.099904,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/xstate/README.md",
+      "size": 16216,
+      "modifiedAt": 1770155533.0873172,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/next-sanity/README.md",
+      "size": 48809,
+      "modifiedAt": 1770155533.085712,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/hotscript/README.md",
+      "size": 8585,
+      "modifiedAt": 1770155533.0607734,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/uuid/node_modules/uuid/README.md",
+      "size": 16564,
+      "modifiedAt": 1770155533.0530362,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/uuid/node_modules/uuid/LICENSE.md",
+      "size": 1109,
+      "modifiedAt": 1770155533.0525336,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/uuid/node_modules/uuid/CONTRIBUTING.md",
+      "size": 513,
+      "modifiedAt": 1770155533.0518465,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/uuid/node_modules/uuid/CHANGELOG.md",
+      "size": 12680,
+      "modifiedAt": 1770155533.0514307,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/visual-editing/README.md",
+      "size": 16042,
+      "modifiedAt": 1770155533.0486305,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/visual-editing/CHANGELOG.md",
+      "size": 80898,
+      "modifiedAt": 1770155533.0364122,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/ui/README.md",
+      "size": 659,
+      "modifiedAt": 1770155533.0060468,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/get-it/README.md",
+      "size": 8155,
+      "modifiedAt": 1770155532.985272,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/uuid/README.md",
+      "size": 17309,
+      "modifiedAt": 1770155532.9649565,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/uuid/LICENSE.md",
+      "size": 1109,
+      "modifiedAt": 1770155532.9642608,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/property-information/readme.md",
+      "size": 63852,
+      "modifiedAt": 1770155532.9607942,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@juggle/resize-observer/README.md",
+      "size": 10185,
+      "modifiedAt": 1770155532.9524093,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@noble/hashes/README.md",
+      "size": 24015,
+      "modifiedAt": 1770155532.9087338,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/readable-stream/README.md",
+      "size": 4710,
+      "modifiedAt": 1770155532.907958,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/readable-stream/GOVERNANCE.md",
+      "size": 5550,
+      "modifiedAt": 1770155532.9075155,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/icons/README.md",
+      "size": 417,
+      "modifiedAt": 1770155532.9068198,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/readable-stream/CONTRIBUTING.md",
+      "size": 1443,
+      "modifiedAt": 1770155532.9067976,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/preview-url-secret/README.md",
+      "size": 12307,
+      "modifiedAt": 1770155532.9041085,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/preview-url-secret/CHANGELOG.md",
+      "size": 33926,
+      "modifiedAt": 1770155532.9036548,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/motion/README.md",
+      "size": 6486,
+      "modifiedAt": 1770155532.9017503,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/motion/LICENSE.md",
+      "size": 1100,
+      "modifiedAt": 1770155532.901336,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/valibot/README.md",
+      "size": 5075,
+      "modifiedAt": 1770155532.8831968,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/valibot/LICENSE.md",
+      "size": 1065,
+      "modifiedAt": 1770155532.8828762,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/diff-match-patch/README.md",
+      "size": 5697,
+      "modifiedAt": 1770155532.8721204,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/eventsource/README.md",
+      "size": 3258,
+      "modifiedAt": 1770155532.8718002,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/hastscript/readme.md",
+      "size": 11536,
+      "modifiedAt": 1770155532.8702621,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/eventsource/HISTORY.md",
+      "size": 10638,
+      "modifiedAt": 1770155532.8701515,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/eventsource/CONTRIBUTING.md",
+      "size": 274,
+      "modifiedAt": 1770155532.8690155,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/history/README.md",
+      "size": 2113,
+      "modifiedAt": 1770155532.8653867,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@sanity/image-url/README.md",
+      "size": 11020,
+      "modifiedAt": 1770155532.8485467,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/@floating-ui/utils/README.md",
+      "size": 163,
+      "modifiedAt": 1770155532.8480737,
+      "score": 6
+    },
+    {
+      "path": "/Users/connorlaughlin/clawd/career/portfolio-v2/node_modules/mendoza/README.md",
+      "size": 2249,
+      "modifiedAt": 1770155532.8466039,
+      "score": 6
+    }
+  ]
+}

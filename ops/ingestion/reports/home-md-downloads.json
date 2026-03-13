@@ -1,0 +1,1543 @@
+{
+  "generatedAt": 1773403565.25618,
+  "root": "/Users/connorlaughlin/Downloads",
+  "count": 256,
+  "results": [
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/06-operational-architecture-and-resilience.md",
+      "score": 6,
+      "modifiedAt": 1772962876.0,
+      "size": 22813
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/01-event-ledger-and-data-architecture.md",
+      "score": 6,
+      "modifiedAt": 1772962876.0,
+      "size": 31518
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Recovery-OS-Architecture-Suite.md",
+      "score": 6,
+      "modifiedAt": 1772947130.5995476,
+      "size": 192323
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Recovery OS \u2014 Architecture Remediation & Risk Mitigation  > **Document type-** Technical Risk Assessment & Solutions Blueprint.md",
+      "score": 6,
+      "modifiedAt": 1772941282.243007,
+      "size": 25759
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/architecture-decisions.md",
+      "score": 6,
+      "modifiedAt": 1772936564.0558197,
+      "size": 10035
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/ARM & Debt Collection Tech Briefing.md",
+      "score": 6,
+      "modifiedAt": 1772927381.2926939,
+      "size": 69135
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/FACS Replacement Strategy Report.md",
+      "score": 6,
+      "modifiedAt": 1772927200.6446664,
+      "size": 48722
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/FACS-Claude-Research.md",
+      "score": 6,
+      "modifiedAt": 1772927107.3319333,
+      "size": 41570
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/FACS-deep-research-report.md",
+      "score": 6,
+      "modifiedAt": 1772926960.5111709,
+      "size": 37897
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/chatgpt-collections-software-deep-research-report.md",
+      "score": 6,
+      "modifiedAt": 1772923407.028387,
+      "size": 44556
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Master_GTM_Narrative_and_Intelligence_Brief_v1.md",
+      "score": 6,
+      "modifiedAt": 1772816938.382095,
+      "size": 77970
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI Marketing - Enterprise GTM Narrative Strategy Development - March 2026.md",
+      "score": 6,
+      "modifiedAt": 1772811906.6886132,
+      "size": 55095
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI Marketing Research \u2014 Ideal Customer Profile (ICP) Analysis Across Five Lines of Business.md",
+      "score": 6,
+      "modifiedAt": 1772752531.357889,
+      "size": 75649
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI SMB TAM & GTM Strategy.md",
+      "score": 6,
+      "modifiedAt": 1772722528.823319,
+      "size": 56319
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/AGENTS.md",
+      "score": 6,
+      "modifiedAt": 1772671477.0,
+      "size": 7298
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/churn-prevention/references/dunning-playbook.md",
+      "score": 6,
+      "modifiedAt": 1772671477.0,
+      "size": 12688
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/revops/references/automation-playbooks.md",
+      "score": 6,
+      "modifiedAt": 1772671477.0,
+      "size": 10861
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ad-creative/references/platform-specs.md",
+      "score": 6,
+      "modifiedAt": 1772671477.0,
+      "size": 6525
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/pricing-strategy/references/research-methods.md",
+      "score": 6,
+      "modifiedAt": 1772671477.0,
+      "size": 4780
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/competitor-alternatives/references/content-architecture.md",
+      "score": 6,
+      "modifiedAt": 1772671477.0,
+      "size": 7591
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/programmatic-seo/references/playbooks.md",
+      "score": 6,
+      "modifiedAt": 1772671477.0,
+      "size": 8316
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Marketing_debt_collection_platform_research_v1.md",
+      "score": 6,
+      "modifiedAt": 1772669094.243911,
+      "size": 54213
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI-Sales-Team-Meeting-984b4fec-f354.md",
+      "score": 6,
+      "modifiedAt": 1772632727.9939072,
+      "size": 86361
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Michael_Connor_Call_Summary_20260226.md",
+      "score": 6,
+      "modifiedAt": 1772126011.3480792,
+      "size": 21754
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Proposal for Revised Compensation Plan.md",
+      "score": 5,
+      "modifiedAt": 1769737130.4346662,
+      "size": 5686
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/CJL Resume - The Architecture of Trust_ Transforming Revenue Recovery for the AI Era.md",
+      "score": 5,
+      "modifiedAt": 1769572009.2540796,
+      "size": 4942
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/drive-download-20260128T155949Z-3-001/TSI_Responsive_Answer_Library_Agentic.md",
+      "score": 5,
+      "modifiedAt": 1769133544.0,
+      "size": 8208323
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/drive-download-20260128T155949Z-3-001/TSI_Responsive_Answer_Library_Agentic_MARKETING_SAFE.md",
+      "score": 5,
+      "modifiedAt": 1769133528.0,
+      "size": 8205643
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/tsi_agent_packs_v1/agent_routing_matrix.md",
+      "score": 5,
+      "modifiedAt": 1768623780.0,
+      "size": 3088
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/messaging_architecture.md",
+      "score": 5,
+      "modifiedAt": 1768623496.8748245,
+      "size": 5462
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/PSEOv2/pSEO_Project_Tracker.md",
+      "score": 3,
+      "modifiedAt": 1773337856.0,
+      "size": 21557
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/PSEOv2/pSEO_Master_Blueprint.md",
+      "score": 3,
+      "modifiedAt": 1773337856.0,
+      "size": 20662
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/pSEO_Instructions_v2.md",
+      "score": 3,
+      "modifiedAt": 1773326155.7945366,
+      "size": 15770
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/pSEO_files/pSEO_Taxonomy_03_Compliance_Glossary_Benchmarks_Assessments.md",
+      "score": 3,
+      "modifiedAt": 1773277456.0,
+      "size": 26724
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/pSEO_files/pSEO_Content_Schemas.md",
+      "score": 3,
+      "modifiedAt": 1773277456.0,
+      "size": 22229
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/pSEO_files/pSEO_Taxonomy_02_Industry_Solutions.md",
+      "score": 3,
+      "modifiedAt": 1773277456.0,
+      "size": 43725
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/pSEO_files/pSEO_Project_Tracker.md",
+      "score": 3,
+      "modifiedAt": 1773277456.0,
+      "size": 20809
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/pSEO_files/pSEO_Master_Blueprint.md",
+      "score": 3,
+      "modifiedAt": 1773277456.0,
+      "size": 17238
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/pSEO_files/pSEO_Taxonomy_01_State_Collection_Laws.md",
+      "score": 3,
+      "modifiedAt": 1773277456.0,
+      "size": 44536
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Digital-Improvement-TSICO-COM-a9b88aa8-29da.md",
+      "score": 3,
+      "modifiedAt": 1773247010.9790902,
+      "size": 28315
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Digital-Improvement-TSICO-COM-be7cb6e9-542a.md",
+      "score": 3,
+      "modifiedAt": 1773246986.9140155,
+      "size": 31993
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/tsico_accessibility_statement.md",
+      "score": 3,
+      "modifiedAt": 1773157591.3161163,
+      "size": 2193
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/00-recovery-os-definitive-vision.md",
+      "score": 3,
+      "modifiedAt": 1772996739.0509946,
+      "size": 65216
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/07-cross-cutting-concerns-and-verification-matrix.md",
+      "score": 3,
+      "modifiedAt": 1772962876.0,
+      "size": 31218
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/04-ai-to-ai-negotiation-protocol.md",
+      "score": 3,
+      "modifiedAt": 1772962876.0,
+      "size": 23871
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/02-policy-engine-and-regulatory-execution.md",
+      "score": 3,
+      "modifiedAt": 1772962876.0,
+      "size": 34510
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/03-intelligence-layer-and-adversarial-defense.md",
+      "score": 3,
+      "modifiedAt": 1772962876.0,
+      "size": 33611
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_architecture_specs/05-strangler-migration-and-legacy-integration.md",
+      "score": 3,
+      "modifiedAt": 1772962876.0,
+      "size": 21807
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_energy_and_utilities.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 208670
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_financial_services.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 140358
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_pricing.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 38287
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_quality_assurance.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 260219
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_attorney_network.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 65482
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_debtnext.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 205240
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_client_services.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 84040
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_implementation.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 201583
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_commercial.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 1594
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_healthcare.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 770619
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_library_index.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 5653
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_arm.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 615167
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_general.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 1125481
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_training.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 5986
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_reporting.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 293250
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_healthcare_rcm.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 233238
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_hr.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 139270
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_diversity.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 23768
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_uas.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 227190
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_government.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 446843
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_vetvantage.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 4147
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_security_and_compliance.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 78650
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_hr_and_staffing.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 68547
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_tsi_canada.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 754822
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_cx_bpo.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 574518
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI RFP MD and JSON files/rfp_higher_education.md",
+      "score": 3,
+      "modifiedAt": 1772943740.0,
+      "size": 207777
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery_os_assessment_memo.md",
+      "score": 3,
+      "modifiedAt": 1772941938.1924422,
+      "size": 22644
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery-os-assessment.md",
+      "score": 3,
+      "modifiedAt": 1772941312.8189175,
+      "size": 41523
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery-os-critique-prompt.md",
+      "score": 3,
+      "modifiedAt": 1772939091.113811,
+      "size": 19879
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/recovery-os-platform-vision.md",
+      "score": 3,
+      "modifiedAt": 1772937783.6433942,
+      "size": 77291
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/facs_platform_reference.md",
+      "score": 3,
+      "modifiedAt": 1772933727.9548879,
+      "size": 27743
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Claude_Project_Setup_ARM_Platform.md",
+      "score": 3,
+      "modifiedAt": 1772930583.9196377,
+      "size": 22812
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/ARM_Collections_Software_Ecosystem_2026.md",
+      "score": 3,
+      "modifiedAt": 1772929262.7443929,
+      "size": 59627
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/FACS_Unified_Intelligence_Report.md",
+      "score": 3,
+      "modifiedAt": 1772928056.8721154,
+      "size": 62507
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/The AR Management and collections software market in 2026.md",
+      "score": 3,
+      "modifiedAt": 1772927292.363901,
+      "size": 30307
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Remotion Video Generation Skill.md",
+      "score": 3,
+      "modifiedAt": 1772813756.10529,
+      "size": 23343
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_GTM_narrative_and_positioning_for_regulated_enterprise_buyers.md",
+      "score": 3,
+      "modifiedAt": 1772811685.3915904,
+      "size": 41916
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Competitive_Intelligence_and_Market_Analysis_5_LOBs_March_2026.md",
+      "score": 3,
+      "modifiedAt": 1772811628.5780153,
+      "size": 33254
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/tsi-gtm-narrative-prompt.md",
+      "score": 3,
+      "modifiedAt": 1772756081.6079323,
+      "size": 11766
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Definitive_ICP_Reference.md",
+      "score": 3,
+      "modifiedAt": 1772755396.267662,
+      "size": 66666
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI Go-To-Market ICP Analysis.md",
+      "score": 3,
+      "modifiedAt": 1772752625.008115,
+      "size": 86904
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Transworld Systems Ideal Customer Profile Deep Dive Across Five Lines of Business.md",
+      "score": 3,
+      "modifiedAt": 1772752523.342653,
+      "size": 43996
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_SMB_collection_TAM_strategic_analysis.md",
+      "score": 3,
+      "modifiedAt": 1772720998.963301,
+      "size": 33373
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/VERSIONS.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3081
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/README.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 15300
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/CONTRIBUTING.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2580
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/CLAUDE.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7298
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/REGISTRY.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 20759
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/marketing-psychology/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 21739
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/programmatic-seo/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7077
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/site-architecture/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 13659
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/cold-email/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7189
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/seo-audit/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 10688
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/copywriting/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7533
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/launch-strategy/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 12738
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/social-content/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 8606
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/competitor-alternatives/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 8309
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/copy-editing/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 13426
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/product-marketing-context/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7561
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/marketing-ideas/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5117
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/pricing-strategy/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7050
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/free-tool-strategy/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5810
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/content-strategy/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 12062
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/analytics-tracking/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 8341
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/paid-ads/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 10222
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/form-cro/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 11034
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/page-cro/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6041
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ad-creative/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 13579
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/signup-flow-cro/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 10377
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ai-seo/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 17351
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/sales-enablement/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 14335
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/onboarding-cro/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6603
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/paywall-upgrade-cro/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5796
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/schema-markup/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5215
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/popup-cro/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 11731
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/revops/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 15095
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/email-sequence/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 8343
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/churn-prevention/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 18457
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ab-test-setup/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7431
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/referral-program/SKILL.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7248
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/referral-program/references/affiliate-programs.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4191
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/referral-program/references/program-examples.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3309
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ab-test-setup/references/test-templates.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6473
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ab-test-setup/references/sample-size-guide.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7453
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/churn-prevention/references/cancel-flow-patterns.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 10678
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/email-sequence/references/sequence-templates.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3918
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/email-sequence/references/copy-guidelines.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2332
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/email-sequence/references/email-types.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 14250
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/revops/references/lifecycle-definitions.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7019
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/revops/references/scoring-models.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7450
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/revops/references/routing-rules.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6792
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/schema-markup/references/schema-examples.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 8229
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/paywall-upgrade-cro/references/experiments.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5419
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/onboarding-cro/references/experiments.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7796
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/sales-enablement/references/deck-frameworks.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7730
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/sales-enablement/references/demo-scripts.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 11769
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/sales-enablement/references/one-pager-templates.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5823
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/sales-enablement/references/objection-library.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 13393
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ai-seo/references/content-patterns.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 10037
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ai-seo/references/platform-ranking-factors.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 10536
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/ad-creative/references/generative-tools.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 24084
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/page-cro/references/experiments.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7850
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/paid-ads/references/platform-setup-checklists.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7613
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/paid-ads/references/audience-targeting.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6067
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/paid-ads/references/ad-copy-templates.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4821
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/analytics-tracking/references/ga4-implementation.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6343
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/analytics-tracking/references/event-library.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 8654
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/analytics-tracking/references/gtm-implementation.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7570
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/free-tool-strategy/references/tool-types.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4012
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/pricing-strategy/references/tier-structure.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7199
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/marketing-ideas/references/ideas-by-category.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 15226
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/copy-editing/references/plain-english-alternatives.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 8258
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/competitor-alternatives/references/templates.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5415
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/social-content/references/reverse-engineering.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5551
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/social-content/references/platforms.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4420
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/social-content/references/post-templates.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3694
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/copywriting/references/copy-frameworks.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 7887
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/copywriting/references/natural-transitions.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5684
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/seo-audit/references/ai-writing-detection.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6528
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/cold-email/references/personalization.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4437
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/cold-email/references/frameworks.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5403
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/cold-email/references/benchmarks.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5817
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/cold-email/references/subject-lines.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3015
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/cold-email/references/follow-up-sequences.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3875
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/site-architecture/references/mermaid-templates.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4922
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/site-architecture/references/site-type-templates.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 9624
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/skills/site-architecture/references/navigation-patterns.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 10733
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/clearbit.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4073
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/buffer.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3695
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/dataforseo.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3513
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/resend.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2987
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/coupler.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3565
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/clay.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3270
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/sendgrid.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2822
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/ga4.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2895
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/airops.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3019
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/beehiiv.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3953
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/tiktok-ads.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3308
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/similarweb.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4301
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/onesignal.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5501
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/crossbeam.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3274
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/activecampaign.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6384
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/dub-co.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3148
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/partnerstack.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4677
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/brevo.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5651
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/intercom.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5256
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/meta-ads.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3457
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/rewardful.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3256
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/tolt.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2874
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/g2.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4525
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/google-ads.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3914
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/trustpilot.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4681
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/linkedin-ads.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3220
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/segment.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3054
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/semrush.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2755
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/wistia.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3841
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/stripe.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3211
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/livestorm.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 6811
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/klaviyo.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4866
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/close.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4073
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/wordpress.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3173
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/adobe-analytics.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3252
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/keywords-everywhere.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3906
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/shopify.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3146
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/typeform.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3991
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/postmark.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 5485
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/lemlist.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2805
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/zapier.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2606
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/apollo.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3515
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/webflow.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3556
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/instantly.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2912
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/mailchimp.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2898
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/pendo.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4701
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/demio.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4059
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/kit.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3020
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/calendly.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4041
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/optimizely.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3989
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/zoominfo.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4488
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/hotjar.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3262
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/ahrefs.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3002
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/outreach.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4588
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/supermetrics.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3884
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/posthog.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2885
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/mention-me.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3245
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/snov.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2283
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/plausible.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4169
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/hubspot.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3141
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/savvycal.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3442
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/hunter.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2077
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/salesforce.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3052
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/paddle.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 4354
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/google-search-console.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2839
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/customer-io.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 3253
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/amplitude.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2630
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/integrations/mixpanel.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 2606
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/marketingskills-main/tools/clis/README.md",
+      "score": 3,
+      "modifiedAt": 1772671477.0,
+      "size": 8172
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/voicedna.md",
+      "score": 3,
+      "modifiedAt": 1772564789.103807,
+      "size": 9690
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Blog_Yale_AI_Collections.md",
+      "score": 3,
+      "modifiedAt": 1772547022.8135476,
+      "size": 18102
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/Sales-Ops-Marketing-Trackers-Value-Props-aa6dbaaf-40f9.md",
+      "score": 3,
+      "modifiedAt": 1772124707.043645,
+      "size": 47471
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI-Marketing-Request-Process-Enablement-5af2594d-1524.md",
+      "score": 3,
+      "modifiedAt": 1771603687.4797347,
+      "size": 37795
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/case_studies_inventory.md",
+      "score": 3,
+      "modifiedAt": 1771358698.867129,
+      "size": 35154
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Analytics_Digital_Presence_Deep_Dive_v2.docx.md",
+      "score": 3,
+      "modifiedAt": 1771016946.521548,
+      "size": 18543
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Brand_Film_v2_THE_DOCUMENT_THAT_BUILDS_ITSELF.md",
+      "score": 3,
+      "modifiedAt": 1770914884.38994,
+      "size": 90589
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Brand_Film_Creative_Concept_v2.md",
+      "score": 3,
+      "modifiedAt": 1770912988.2972708,
+      "size": 53769
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_BrandFilm_ClaudeCode_MegaPrompt.md",
+      "score": 3,
+      "modifiedAt": 1770901265.277048,
+      "size": 50132
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_BrandFilm_Remotion_Scaffold.md",
+      "score": 3,
+      "modifiedAt": 1770836718.431417,
+      "size": 45976
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Technology_Platform_Reference_v2.md",
+      "score": 3,
+      "modifiedAt": 1770835271.8714156,
+      "size": 33790
+    },
+    {
+      "path": "/Users/connorlaughlin/Downloads/TSI_Technology_Platform_Reference.md",
+      "score": 3,
+      "modifiedAt": 1770833770.921323,
+      "size": 27068
+    }
+  ]
+}
