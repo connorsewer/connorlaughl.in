@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "updatedAt": "2026-03-13T13:23:00-05:00",
+  "sources": [
+    {
+      "id": "tsi-golden-source-cluster",
+      "path": "/Users/connorlaughlin/Downloads",
+      "priority": "high",
+      "kind": "cluster",
+      "reason": "Likely source of TSI GTM, narrative, intelligence, and strategy documents already identified as high value."
+    },
+    {
+      "id": "job-search-doc-clusters",
+      "path": "/Users/connorlaughlin/Documents",
+      "priority": "high",
+      "kind": "cluster",
+      "reason": "Likely source of resumes, applications, interview notes, and career materials."
+    },
+    {
+      "id": "desktop-active-career-materials",
+      "path": "/Users/connorlaughlin/Desktop",
+      "priority": "medium",
+      "kind": "cluster",
+      "reason": "Likely source of recent active-search files, tailored docs, and one-off interview/application materials."
+    },
+    {
+      "id": "clawd-career-and-tsi-materials",
+      "path": "/Users/connorlaughlin/clawd",
+      "priority": "medium",
+      "kind": "cluster",
+      "reason": "May contain supporting strategy, notes, and job-search/career-adjacent system material."
+    }
+  ]
+}

@@ -19,7 +19,7 @@
       "nextAction": "Finish first-pass ingestion of highest-value clawd and Downloads materials into structured Obsidian note clusters and lock in completion criteria",
       "notifyOnComplete": true,
       "retries": 0,
-      "notes": "Long-running documentation and systems-architecture effort"
+      "notes": "Long-running documentation and systems-architecture effort; active ingestion outputs now include Recovery OS notes, TSI GTM notes, and FACS research notes in the vault."
     },
     {
       "id": "cross-session-continuity-system",

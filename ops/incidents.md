@@ -37,3 +37,7 @@ Format:
 2026-03-12 08:15 CDT — singularity approvals executor wrapper error — zsh read-only variable 'status' in cron wrapper after underlying script reported no approved approvals — reran underlying approved-actions script directly; avoid assigning to reserved zsh variable name `status`
 2026-03-12 08:32 CT — GA4 daily report cron failed: GA4_PROPERTY_ID environment variable not set.
 2026-03-13 08:30 CT - GA4 daily report cron failed: GA4_PROPERTY_ID environment variable not set.
+2026-03-14 08:31 CT - GA4 daily report cron failed: GA4_PROPERTY_ID environment variable not set.
+- [2026-03-14T18:01:33Z] singularity-executor: Failed to fetch approvals: Failed to run Convex query: Convex error: ✖ Error fetching GET  https://api.convex.dev/api/deployment/uncommon-walrus-373/team_and_project 401 Unauthorized: AuthenticationFailed: A valid access token is required for this command.
+Authenticate with `npx convex dev`
+

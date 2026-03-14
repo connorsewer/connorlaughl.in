@@ -14,6 +14,6 @@ Shared cross-session snapshot of the most important active work right now.
 ## Current priorities
 
 - Complete the knowledge-ingestion + Obsidian system build as the sole priority
-- Ingest and structure the highest-value material from `~/clawd`, `~/Downloads`, `~/Desktop`, and `~/Documents`
+- Ingest and structure the highest-value material from `~/clawd`, `~/Downloads`, `~/Desktop`, and `~/Documents`, with special emphasis on TSI and job-search materials until this domain is exhaustively mapped
 - Lock in completion criteria, deterministic checks, and durable operating patterns
 - Continue hardening reliability only insofar as it directly helps finish this project
