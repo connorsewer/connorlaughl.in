@@ -40,4 +40,8 @@ Format:
 2026-03-14 08:31 CT - GA4 daily report cron failed: GA4_PROPERTY_ID environment variable not set.
 - [2026-03-14T18:01:33Z] singularity-executor: Failed to fetch approvals: Failed to run Convex query: Convex error: ✖ Error fetching GET  https://api.convex.dev/api/deployment/uncommon-walrus-373/team_and_project 401 Unauthorized: AuthenticationFailed: A valid access token is required for this command.
 Authenticate with `npx convex dev`
+2026-03-15 08:30 CT - GA4 daily report cron failed: GA4_PROPERTY_ID environment variable not set.
+2026-03-15 15:05 CT - Swarm→Convex publish failed: ops/swarm/state.json is malformed JSON (unterminated string at line 275 column 17), so publish_swarm_activity.py could not build payload.
 
+2026-03-15 15:21 CT - publish_swarm_activity.py failed: JSONDecodeError reading ops/swarm/state.json (Unterminated string at line 277 column 17 / char 30920).
+2026-03-15 15:35 CT — publish_swarm_activity.py failed: Convex publish aborted because ops/swarm/state.json is invalid JSON (Unterminated string at line 277 column 17).
