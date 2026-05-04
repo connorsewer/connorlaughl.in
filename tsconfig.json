@@ -24,11 +24,29 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "next.config.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "content/**/*.ts",
+    "content/**/*.tsx",
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "TSI Marketing Machine",
+    "backups",
+    "career",
+    "graph",
+    "mcOS-deploy",
+    "memory",
+    "ops",
+    "singularity-core",
+    "singularity-infra",
+    "skills"
+  ]
 }
