@@ -53,11 +53,11 @@ export function ProofExplorer({ items }: { items: CaseStudy[] }) {
             
             <div className="grid grid-cols-2 gap-8 mb-12">
               <div>
-                <div className="font-mono text-[9px] tracking-[0.2em] text-paper/40 uppercase mb-2">Outcome</div>
+                <div className="font-mono text-[9px] tracking-[0.2em] text-paper/58 uppercase mb-2">Outcome</div>
                 <div className="text-sm border-l border-accent/30 pl-4">{activeItem.outcome}</div>
               </div>
               <div>
-                <div className="font-mono text-[9px] tracking-[0.2em] text-paper/40 uppercase mb-2">Primary Stack</div>
+                <div className="font-mono text-[9px] tracking-[0.2em] text-paper/58 uppercase mb-2">Primary Stack</div>
                 <div className="text-sm border-l border-accent/30 pl-4">{activeItem.stack}</div>
               </div>
             </div>

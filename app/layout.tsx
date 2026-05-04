@@ -23,9 +23,9 @@ const display = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Connor J. Laughlin — The Architecture of Trust",
+  title: "Connor J. Laughlin — GTM Engineer for AI-Native Revenue Systems",
   description:
-    "Luxury editorial portfolio: GTM Ops / RevOps / GTM Systems, built on governance, instrumentation, and narrative discipline.",
+    "Executive GTM portfolio organized around flagship systems: agentic marketing OS, RevOps accountability, and platform narrative infrastructure.",
 };
 
 export default function RootLayout({

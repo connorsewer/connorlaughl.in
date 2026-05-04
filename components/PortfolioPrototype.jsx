@@ -99,11 +99,7 @@ const skills = [
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("home");
   const [expandedCase, setExpandedCase] = useState(null);
-  const [animateMetrics, setAnimateMetrics] = useState(false);
-
-  useEffect(() => {
-    setAnimateMetrics(true);
-  }, []);
+  const [animateMetrics] = useState(true);
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -264,16 +260,16 @@ export default function Portfolio() {
 
             <div className="space-y-6 text-slate-300 leading-relaxed">
               <p>
-                I'm a marketing and go-to-market executive based in Chicago who has spent the last decade building revenue engines from scratch. My career took an unconventional path — from business development at the Vatican Museums, to executive search at Reilly Partners, to content creation at Brad's Deals (10M+ monthly visitors), to a decade-long transformation at TSI where I rose from Digital Marketing Manager to VP of Marketing & GTM.
+                I&apos;m a marketing and go-to-market executive based in Chicago who has spent the last decade building revenue engines from scratch. My career took an unconventional path — from business development at the Vatican Museums, to executive search at Reilly Partners, to content creation at Brad&apos;s Deals (10M+ monthly visitors), to a decade-long transformation at TSI where I rose from Digital Marketing Manager to VP of Marketing & GTM.
               </p>
               <p>
-                At TSI, a $454M enterprise, I didn't inherit a marketing function — I built one. From zero to $159.4M in influenced pipeline, from manual outreach to production AI agents generating 40-60 qualified meetings per month, from a legacy "debt collection" brand to an AI-powered Revenue Operating System positioned for the C-suite.
+                At TSI, a $454M enterprise, I didn&apos;t inherit a marketing function — I built one. From zero to $159.4M in influenced pipeline, from manual outreach to production AI agents generating 40-60 qualified meetings per month, from a legacy &quot;debt collection&quot; brand to an AI-powered Revenue Operating System positioned for the C-suite.
               </p>
               <p>
                 What makes me tick is the intersection of systems thinking and storytelling. My Santa Clara Finance degree taught me how to build the model. My Northwestern Journalism training taught me how to tell the story. Together, they let me design revenue architectures that are both analytically rigorous and narratively compelling.
               </p>
               <p>
-                I'm now looking for my next challenge: a VP/CMO/Head of GTM role at a high-growth, AI-forward company where I can build the revenue engine from the ground up. I'm especially drawn to companies where AI isn't a feature — it's the foundation.
+                I&apos;m now looking for my next challenge: a VP/CMO/Head of GTM role at a high-growth, AI-forward company where I can build the revenue engine from the ground up. I&apos;m especially drawn to companies where AI isn&apos;t a feature — it&apos;s the foundation.
               </p>
             </div>
 
@@ -475,10 +471,10 @@ export default function Portfolio() {
         {/* CONTACT */}
         {activeTab === "contact" && (
           <div className="max-w-2xl mx-auto px-6 py-20 text-center">
-            <h1 className="text-4xl font-bold mb-4">Let's Build Something</h1>
+            <h1 className="text-4xl font-bold mb-4">Let&apos;s Build Something</h1>
             <p className="text-slate-400 mb-12">
-              I'm exploring VP/CMO/Head of GTM opportunities at AI-forward companies.
-              If you're building something ambitious, I'd love to hear about it.
+              I&apos;m exploring VP/CMO/Head of GTM opportunities at AI-forward companies.
+              If you&apos;re building something ambitious, I&apos;d love to hear about it.
             </p>
 
             <div className="grid gap-4 mb-12">

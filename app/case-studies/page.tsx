@@ -38,7 +38,7 @@ export default function CaseStudiesIndex() {
                   {study.deck}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[9px] tracking-[0.2em] text-paper/40 uppercase">
+                  <span className="font-mono text-[9px] tracking-[0.2em] text-paper/58 uppercase">
                     {study.outcome}
                   </span>
                   <span className="text-accent text-sm">→</span>

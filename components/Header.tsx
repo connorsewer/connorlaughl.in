@@ -6,15 +6,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
-  
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    if (href === "/proof") return pathname === "/proof" || pathname.startsWith("/case-studies");
-    return pathname.startsWith(href);
-  };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[60] py-6">
+    <header className="fixed top-0 left-0 right-0 z-[60] py-4 backdrop-blur-xl bg-ink/55 supports-[backdrop-filter]:bg-ink/40">
       {/* Skip to main content link for keyboard users */}
       <a 
         href="#main-content" 
@@ -30,15 +24,15 @@ export function Header() {
             className="group flex items-baseline gap-2"
             aria-label="Connor J. Laughlin - Home"
           >
-            <span className="font-mono text-[10px] tracking-[0.3em] text-accent transition-colors group-hover:text-paper">
+            <span className="font-mono text-[11px] tracking-[0.3em] text-accent transition-colors group-hover:text-paper">
               CJL
             </span>
-            <span className="font-display text-lg tracking-tight">Connor J. Laughlin</span>
+            <span className="font-display text-xl tracking-tight">Connor J. Laughlin</span>
           </Link>
 
           <div className="flex items-center gap-4">
             <nav 
-              className="flex items-center gap-8 font-mono text-[10px] tracking-[0.2em] uppercase"
+              className="hidden md:flex items-center gap-8 font-mono text-[11px] tracking-[0.2em] uppercase"
               aria-label="Main navigation"
             >
               <Link
