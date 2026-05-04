@@ -2,9 +2,9 @@
 
 @theme inline {
   --color-ink: #070707;
-  --color-paper: #F6F1E7;
-  --color-accent: #B7AA7A;
-  --color-rule: rgba(246, 241, 231, 0.12);
+  --color-paper: #FAF7EF;
+  --color-accent: #D2C27C;
+  --color-rule: rgba(250, 247, 239, 0.16);
   
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
@@ -16,10 +16,10 @@
 :root {
   /* Default: dark-first */
   --ink: #070707;
-  --paper: #F6F1E7;
-  --accent: #B7AA7A;
-  --rule: rgba(246, 241, 231, 0.12);
-  --paper-muted: rgba(246, 241, 231, 0.72);
+  --paper: #FAF7EF;
+  --accent: #D2C27C;
+  --rule: rgba(250, 247, 239, 0.16);
+  --paper-muted: rgba(250, 247, 239, 0.76);
 }
 
 /* Light theme (applied via next-themes: class="light" on <html>) */

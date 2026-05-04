@@ -1,43 +1,73 @@
+import Link from "next/link";
 import { client } from "@/lib/sanity";
 import {
-  heroContentQuery,
   featuredCaseStudiesQuery,
   proofPointsQuery,
   servicesQuery,
 } from "@/lib/queries";
 import { Header } from "@/components/Header";
+import { FlagshipSystems } from "@/components/FlagshipSystems";
 import { ProofExplorer } from "@/components/ProofExplorer";
-import { urlFor } from "@/lib/sanity";
+import { caseStudies as localCaseStudies } from "@/content/case-studies";
 import type { Metadata } from "next";
 
+type HeroStat = { value: string; label: string };
+type ProofPoint = { _id: string; metric: string; title: string; description: string };
+type Service = { _id: string; title: string; description: string };
+type CaseStudyCard = {
+  slug?: { current?: string };
+  title?: string;
+  label?: string;
+  deck?: string;
+  outcome?: string;
+  stack?: string[];
+};
+type CaseStudyCardWithSlug = CaseStudyCard & { slug: { current: string } };
+
+function hasCurrentSlug(cs: CaseStudyCard): cs is CaseStudyCardWithSlug {
+  return Boolean(cs?.slug?.current);
+}
+
 export const metadata: Metadata = {
-  title: "Connor Laughlin | VP Marketing & GTM Systems Architect",
+  title: "Connor Laughlin | GTM Engineer for AI-Native Revenue Systems",
   description:
-    "I build revenue systems that actually work. Operating proof: $15M+ influenced pipeline, 300% inbound growth, and AI-native GTM systems.",
+    "Executive GTM operator and hands-on systems builder. Flagship proof: agentic marketing OS, RevOps accountability, and platform narrative systems.",
 };
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const hero = await client.fetch(heroContentQuery);
   const caseStudies = await client.fetch(featuredCaseStudiesQuery);
   const proofPoints = await client.fetch(proofPointsQuery);
   const services = await client.fetch(servicesQuery);
 
-  // Fallback content if Sanity returns null
-  const headline = hero?.headline || "I build revenue systems that actually work.";
+  // Keep the homepage positioning local-first so stale CMS copy cannot override the GTM Engineer narrative.
+  const headline = "GTM Engineer for AI-native revenue systems.";
   const subheadline =
-    hero?.subheadline ||
-    "Not decks. Not theory. Operating proof: $15M+ influenced pipeline, 300% inbound growth, and AI-native GTM systems.";
-  const tagline = hero?.tagline || "VP Marketing @ TSI • GTM Systems Architect";
-  const stats = hero?.stats || [
+    "I turn ambiguous growth mandates into governed systems: signal capture, routing, narrative, pipeline accountability, and AI-enabled operating leverage.";
+  const tagline = "VP Marketing @ TSI • GTM Engineer • AI-Native Systems Builder";
+  const stats: HeroStat[] = [
     { value: "$15M+", label: "Influenced Pipeline" },
     { value: "300%", label: "Inbound Growth" },
     { value: "40-60", label: "Meetings/Month" },
     { value: "2hr", label: "Signal-to-Meeting SLA" },
   ];
-  const primaryCTA = hero?.primaryCTA || { text: "See Operating Proof →", link: "/case-studies" };
-  const secondaryCTA = hero?.secondaryCTA || { text: "By The Numbers", link: "#proof" };
+  const primaryCTA = { text: "View Flagship Systems →", link: "#flagship-systems" };
+  const secondaryCTA = { text: "See Operating Proof", link: "#proof" };
+  const catalogueItems = caseStudies?.length > 0
+    ? caseStudies.filter(hasCurrentSlug).map((cs: CaseStudyCardWithSlug) => ({
+        slug: cs.slug.current,
+        title: cs.title || "Untitled system",
+        label: cs.label || "Operating Proof",
+        deck: cs.deck || "Redacted system brief.",
+        outcome: cs.outcome || "Outcome details available in the full dossier.",
+        scope: "",
+        stack: (cs.stack || []).join(", "),
+        governance: "",
+        bullets: [],
+        interviewLine: "",
+      }))
+    : localCaseStudies.slice(0, 6);
 
   return (
     <div className="selection:bg-accent selection:text-ink">
@@ -70,7 +100,7 @@ export default async function Home() {
                   <span className="block animate-slide-up">{headline}</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-paper/60 max-w-2xl leading-relaxed text-balance animate-slide-up delay-200">
+                <p className="text-xl md:text-2xl text-paper/72 max-w-2xl leading-relaxed text-balance animate-slide-up delay-200">
                   {subheadline}
                 </p>
 
@@ -92,8 +122,8 @@ export default async function Home() {
               </div>
 
               {/* Stats grid */}
-              <aside className="flex flex-col gap-6 lg:w-72 animate-slide-in-right delay-300">
-                {stats.map((stat: any, i: number) => (
+              <aside className="grid grid-cols-2 lg:grid-cols-1 gap-4 lg:w-80 animate-slide-in-right delay-300 border border-rule bg-paper/[0.02] p-5">
+                {stats.map((stat: HeroStat) => (
                   <div
                     key={stat.label}
                     className="group border-l-2 border-rule hover:border-accent pl-4 transition-all"
@@ -101,7 +131,7 @@ export default async function Home() {
                     <span className="font-display text-4xl group-hover:text-accent transition-colors">
                       {stat.value}
                     </span>
-                    <span className="font-mono text-[9px] tracking-[0.2em] text-paper/40 uppercase block">
+                    <span className="font-mono text-[10px] tracking-[0.18em] text-paper/58 uppercase block">
                       {stat.label}
                     </span>
                   </div>
@@ -110,16 +140,14 @@ export default async function Home() {
             </div>
           </div>
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in delay-1000">
-            <div className="w-px h-16 bg-gradient-to-b from-paper/40 to-transparent" />
-          </div>
         </section>
+
+        <FlagshipSystems />
 
         {/* PROOF SECTION - The Story */}
         <section
           id="proof"
-          className="py-32 px-6 bg-paper/[0.02] border-y border-rule"
+          className="py-24 md:py-28 px-6 bg-paper/[0.02] border-y border-rule"
         >
           <div className="mx-auto max-w-6xl">
             <div className="grid lg:grid-cols-2 gap-16 mb-20">
@@ -136,7 +164,7 @@ export default async function Home() {
                 </h2>
               </div>
               <div className="flex items-end">
-                <p className="text-paper/60 text-lg">
+                <p className="text-paper/72 text-lg">
                   These aren&apos;t aspirational slides. These are governed systems
                   with enforced SLAs, audit trails, and measured outcomes. Built
                   under real constraints at real scale.
@@ -147,7 +175,7 @@ export default async function Home() {
             {/* Proof Grid */}
             <div className="grid md:grid-cols-2 gap-6">
               {proofPoints?.length > 0 ? (
-                proofPoints.map((point: any) => (
+                proofPoints.map((point: ProofPoint) => (
                   <div
                     key={point._id}
                     className="group p-8 border border-rule hover:border-accent transition-all duration-300 hover:bg-paper/[0.02]"
@@ -158,7 +186,7 @@ export default async function Home() {
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
                       {point.title}
                     </h3>
-                    <p className="text-paper/50 text-sm">{point.description}</p>
+                    <p className="text-paper/68 text-sm">{point.description}</p>
                   </div>
                 ))
               ) : (
@@ -171,7 +199,7 @@ export default async function Home() {
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
                       BDR Pod Transformation
                     </h3>
-                    <p className="text-paper/50 text-sm">
+                    <p className="text-paper/68 text-sm">
                       Scaled from 1 to 4 signal-driven squads with 2-hour SLA
                     </p>
                   </div>
@@ -182,7 +210,7 @@ export default async function Home() {
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
                       Outcome-First Repositioning
                     </h3>
-                    <p className="text-paper/50 text-sm">
+                    <p className="text-paper/68 text-sm">
                       Repositioned 6 business units from service to outcome
                       language
                     </p>
@@ -194,7 +222,7 @@ export default async function Home() {
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
                       AI-Native GTM Engine
                     </h3>
-                    <p className="text-paper/50 text-sm">
+                    <p className="text-paper/68 text-sm">
                       Governed RFP automation with 99%+ compliance accuracy
                     </p>
                   </div>
@@ -205,7 +233,7 @@ export default async function Home() {
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
                       Two-Function Marketing
                     </h3>
-                    <p className="text-paper/50 text-sm">
+                    <p className="text-paper/68 text-sm">
                       7-day brief-to-ship SLA with governed workflow
                     </p>
                   </div>
@@ -214,18 +242,18 @@ export default async function Home() {
             </div>
 
             <div className="mt-12 text-center">
-              <a
+              <Link
                 href="/case-studies"
                 className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent hover:text-paper transition-colors inline-flex items-center gap-2"
               >
                 View Full Case Studies <span>→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
 
         {/* WHAT I DO SECTION */}
-        <section className="py-32 px-6">
+        <section className="py-24 md:py-28 px-6">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-20">
               <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
@@ -238,13 +266,13 @@ export default async function Home() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {services?.length > 0 ? (
-                services.map((service: any) => (
+                services.map((service: Service) => (
                   <div
                     key={service._id}
                     className="p-6 border-l-2 border-rule hover:border-accent transition-all"
                   >
                     <h3 className="font-display text-xl mb-4">{service.title}</h3>
-                    <p className="text-paper/50 text-sm leading-relaxed">
+                    <p className="text-paper/68 text-sm leading-relaxed">
                       {service.description}
                     </p>
                   </div>
@@ -256,7 +284,7 @@ export default async function Home() {
                     <h3 className="font-display text-xl mb-4">
                       GTM Systems Architecture
                     </h3>
-                    <p className="text-paper/50 text-sm leading-relaxed">
+                    <p className="text-paper/68 text-sm leading-relaxed">
                       Design and implement revenue systems: attribution, routing,
                       SLAs, and the governance that keeps them honest.
                     </p>
@@ -265,7 +293,7 @@ export default async function Home() {
                     <h3 className="font-display text-xl mb-4">
                       AI-Native Operations
                     </h3>
-                    <p className="text-paper/50 text-sm leading-relaxed">
+                    <p className="text-paper/68 text-sm leading-relaxed">
                       Deploy governed AI workflows for RFPs, outreach, and
                       content—human-in-the-loop with full audit trails.
                     </p>
@@ -274,7 +302,7 @@ export default async function Home() {
                     <h3 className="font-display text-xl mb-4">
                       Org Design & Execution
                     </h3>
-                    <p className="text-paper/50 text-sm leading-relaxed">
+                    <p className="text-paper/68 text-sm leading-relaxed">
                       Restructure teams with clear lanes, enforced SLAs, and
                       output accountability. Marketing as product.
                     </p>
@@ -289,7 +317,7 @@ export default async function Home() {
         <section
           id="catalogue"
           aria-labelledby="catalogue-heading"
-          className="py-32 px-6 bg-paper/[0.02] border-y border-rule"
+          className="py-24 md:py-28 px-6 bg-paper/[0.02] border-y border-rule"
         >
           <div className="mx-auto max-w-6xl">
             <div className="flex justify-between items-end mb-12">
@@ -301,25 +329,14 @@ export default async function Home() {
                   All Projects
                 </h2>
               </div>
-              <a
+              <Link
                 href="/case-studies"
-                className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/60 hover:text-accent transition-colors"
+                className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/72 hover:text-accent transition-colors"
               >
                 View All →
-              </a>
+              </Link>
             </div>
-            {caseStudies?.length > 0 && (
-              <ProofExplorer
-                items={caseStudies.filter((cs: any) => cs?.slug?.current).map((cs: any) => ({
-                  slug: cs.slug.current,
-                  title: cs.title,
-                  label: cs.label,
-                  deck: cs.deck,
-                  outcome: cs.outcome,
-                  stack: (cs.stack || []).join(', '),
-                }))}
-              />
-            )}
+            <ProofExplorer items={catalogueItems} />
           </div>
         </section>
 
@@ -327,7 +344,7 @@ export default async function Home() {
         <section
           id="contact"
           aria-labelledby="contact-heading"
-          className="py-32 px-6"
+          className="py-24 md:py-28 px-6"
         >
           <div className="mx-auto max-w-3xl text-center">
             <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-8 uppercase block">
@@ -341,7 +358,7 @@ export default async function Home() {
               <br />
               that <span className="italic text-accent">outperform</span>.
             </h2>
-            <p className="text-paper/60 text-lg mb-12 max-w-xl mx-auto">
+            <p className="text-paper/72 text-lg mb-12 max-w-xl mx-auto">
               For executive hiring or strategic consulting. I provide redacted
               walkthroughs of full GTM operating blueprints with governance,
               SLAs, and outcomes.
@@ -357,7 +374,7 @@ export default async function Home() {
                 href="https://linkedin.com/in/connorlaughlin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/60 hover:text-paper transition-colors px-6 py-4"
+                className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/72 hover:text-paper transition-colors px-6 py-4"
               >
                 LinkedIn →
               </a>

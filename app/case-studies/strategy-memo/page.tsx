@@ -74,10 +74,10 @@ export default function StrategyMemo() {
               <div className="mt-5 rounded-2xl border border-rule bg-ink/55 p-6">
                 <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">GOVERNANCE CHECKLIST</div>
                 <ul className="mt-4 space-y-3 text-sm">
-                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/45">—</span> What data does it touch? Who approved that access?</li>
-                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/45">—</span> Where does it write? Who owns the side-effects?</li>
-                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/45">—</span> What gets logged? What’s auditable?</li>
-                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/45">—</span> When does it stop and ask for a human?</li>
+                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">—</span> What data does it touch? Who approved that access?</li>
+                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">—</span> Where does it write? Who owns the side-effects?</li>
+                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">—</span> What gets logged? What’s auditable?</li>
+                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">—</span> When does it stop and ask for a human?</li>
                 </ul>
               </div>
             </section>
