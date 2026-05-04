@@ -12,6 +12,18 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // This repository contains unrelated nested workspaces/archive folders.
+    // Keep portfolio linting scoped to the actual Next app files.
+    "TSI Marketing Machine/**",
+    "backups/**",
+    "career/**",
+    "graph/**",
+    "mcOS-deploy/**",
+    "memory/**",
+    "ops/**",
+    "singularity-core/**",
+    "singularity-infra/**",
+    "skills/**",
   ]),
 ]);
 
