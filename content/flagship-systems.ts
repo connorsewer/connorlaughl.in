@@ -3,6 +3,7 @@ export type FlagshipSystem = {
   eyebrow: string;
   title: string;
   thesis: string;
+  plainEnglish: string;
   problem: string;
   system: string;
   governance: string;
@@ -18,6 +19,8 @@ export const flagshipSystems: FlagshipSystem[] = [
     title: "22-Agent Marketing OS",
     thesis:
       "A governed execution layer for turning strategy, market signals, and buyer context into faster marketing output without sacrificing review discipline.",
+    plainEnglish:
+      "I built a governed AI workflow that helps a small marketing team research, draft, QA, and summarize work faster while keeping humans in control before anything external ships.",
     problem:
       "Marketing teams drown in handoffs, context loss, and one-off requests. AI adds speed, but without governance it also adds drift and risk.",
     system:
@@ -39,6 +42,8 @@ export const flagshipSystems: FlagshipSystem[] = [
     title: "Ghost Pipeline Detector",
     thesis:
       "A revenue accountability system for exposing hidden funnel leakage, ambiguous ownership, and pipeline that looks real until inspected.",
+    plainEnglish:
+      "I built the rules and reporting layer that shows where leads stall, who owns the next step, and whether pipeline is real or just sitting in the CRM.",
     problem:
       "Most funnel problems hide in definitions, stale stages, weak SLAs, and unclear handoffs between marketing, BDR, sales, and leadership reporting.",
     system:
@@ -60,6 +65,8 @@ export const flagshipSystems: FlagshipSystem[] = [
     title: "Platform Narrative / ICP Intelligence System",
     thesis:
       "A positioning and market-intelligence system that turns fragmented offerings into a coherent executive buying narrative and repeatable GTM motion.",
+    plainEnglish:
+      "I turned a confusing portfolio of services into a buyer-ready story with clear ICPs, value props, proof points, and language sales could reuse.",
     problem:
       "Enterprise portfolios often sell as a list of services. Buyers need a clear market architecture, quantified outcomes, and proof they can trust.",
     system:
