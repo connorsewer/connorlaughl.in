@@ -17,8 +17,8 @@ export default function CaseStudiesIndex() {
             <span className="text-accent italic">Archive.</span>
           </h1>
           <p className="text-xl text-paper/60 max-w-2xl mb-16 leading-relaxed">
-            Deep dives into GTM systems, revenue operations, and AI-native architectures. 
-            Each case includes outcome metrics, system design, and governance frameworks.
+            Deep dives into GTM systems, revenue operations, and AI workflows.
+            Each case shows the business problem, the system I built, what changed, and how the work was governed.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

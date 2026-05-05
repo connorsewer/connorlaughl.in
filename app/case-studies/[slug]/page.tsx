@@ -69,7 +69,7 @@ export default async function CaseStudyPage({
             <ul className="mt-4 space-y-3 text-paper/80" role="list">
               {cs.bullets.map((b, index) => (
                 <li key={index} className="leading-relaxed">
-                  <span className="font-mono text-[11px] tracking-[0.32em] text-paper/62" aria-hidden="true">—</span> {b}
+                  <span className="font-mono text-[11px] tracking-[0.32em] text-paper/62" aria-hidden="true">•</span> {b}
                 </li>
               ))}
             </ul>

@@ -23,7 +23,7 @@ const display = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Connor J. Laughlin — GTM Engineer for AI-Native Revenue Systems",
+  title: "Connor J. Laughlin | GTM Engineer for AI-Native Revenue Systems",
   description:
     "Executive GTM portfolio organized around flagship systems: agentic marketing OS, RevOps accountability, and platform narrative infrastructure.",
 };

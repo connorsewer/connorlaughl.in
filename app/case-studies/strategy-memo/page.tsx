@@ -18,7 +18,7 @@ export default function StrategyMemo() {
             <div className="font-mono text-[11px] tracking-[0.32em] text-paper/65">THE ARCHITECTURE OF TRUST</div>
             <h1 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Trust-first, AI-native GTM</h1>
             <p className="mt-4 text-lg text-paper-muted leading-relaxed max-w-2xl">
-              A public-safe memo on how modern GTM gets built: governance, instrumentation, and narrative discipline — not dashboard theater.
+              A public-safe memo on how modern GTM gets built: governance, instrumentation, narrative discipline, and less dashboard theater.
             </p>
           </div>
 
@@ -26,7 +26,7 @@ export default function StrategyMemo() {
 
           <div className="mt-8 grid md:grid-cols-3 gap-4">
             {[
-              ["THESIS", "Trust isn’t brand. It’s infrastructure."],
+              ["THESIS", "Trust isn't brand. It's infrastructure."],
               ["METHOD", "Define KPIs → build routing → add automation → enforce governance."],
               ["PROMISE", "Speed without trust debt."],
             ].map(([k, v]) => (
@@ -43,9 +43,9 @@ export default function StrategyMemo() {
             <section>
               <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">1) THE PROBLEM</div>
               <p className="mt-4">
-                Most GTM teams don’t have a performance problem — they have a <span className="text-paper font-display">trust problem</span>.
+                Most GTM teams call it a performance problem. The real problem is <span className="text-paper font-display">trust</span>.
                 Definitions drift. Attribution becomes politics. Dashboards turn into theater.
-                When the reporting layer can’t be believed, the organization stops making clean decisions.
+                When the reporting layer can&apos;t be believed, the organization stops making clean decisions.
               </p>
             </section>
 
@@ -61,7 +61,7 @@ export default function StrategyMemo() {
               <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">3) THE PIVOT</div>
               <p className="mt-4">
                 The pivot is to treat compliance and customer experience as <span className="text-paper font-display">product features</span>.
-                You don’t “market around” risk — you operationalize the reduction of it, then make that operational truth legible to the buyer.
+                Reduce the risk in the operation first. Then make that operational truth legible to the buyer.
               </p>
             </section>
 
@@ -74,10 +74,10 @@ export default function StrategyMemo() {
               <div className="mt-5 rounded-2xl border border-rule bg-ink/55 p-6">
                 <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">GOVERNANCE CHECKLIST</div>
                 <ul className="mt-4 space-y-3 text-sm">
-                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">—</span> What data does it touch? Who approved that access?</li>
-                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">—</span> Where does it write? Who owns the side-effects?</li>
-                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">—</span> What gets logged? What’s auditable?</li>
-                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">—</span> When does it stop and ask for a human?</li>
+                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">•</span> What data does it touch? Who approved that access?</li>
+                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">•</span> Where does it write? Who owns the side effects?</li>
+                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">•</span> What gets logged? What&apos;s auditable?</li>
+                  <li><span className="font-mono text-[11px] tracking-[0.32em] text-paper/62">•</span> When does it stop and ask for a human?</li>
                 </ul>
               </div>
             </section>
@@ -86,7 +86,7 @@ export default function StrategyMemo() {
               <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">5) THE OPERATING SYSTEM</div>
               <p className="mt-4">
                 Instrumentation before dashboards; routing before automation; governance before scale.
-                The goal is an org that ships faster over time — and forecasts with confidence.
+                The goal is an org that ships faster over time and forecasts with confidence.
               </p>
             </section>
           </div>
