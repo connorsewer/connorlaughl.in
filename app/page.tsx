@@ -29,9 +29,9 @@ function hasCurrentSlug(cs: CaseStudyCard): cs is CaseStudyCardWithSlug {
 }
 
 export const metadata: Metadata = {
-  title: "Connor Laughlin | GTM Engineer for AI-Native Revenue Systems",
+  title: "Connor Laughlin | Marketing Executive & GTM Systems Engineer",
   description:
-    "Executive GTM operator and hands-on systems builder. Flagship proof: agentic marketing OS, RevOps accountability, and platform narrative systems.",
+    "Connor Laughlin is a marketing executive and GTM systems builder who turns messy revenue operations, positioning, analytics, and AI workflows into measurable growth systems.",
 };
 
 export const revalidate = 60;
@@ -42,18 +42,65 @@ export default async function Home() {
   const services = await client.fetch(servicesQuery);
 
   // Keep the homepage positioning local-first so stale CMS copy cannot override the GTM Engineer narrative.
-  const headline = "GTM Engineer for AI-native revenue systems.";
+  const headline = "Marketing executive. GTM systems engineer.";
   const subheadline =
-    "I turn ambiguous growth mandates into governed systems: signal capture, routing, narrative, pipeline accountability, and AI-enabled operating leverage.";
-  const tagline = "VP Marketing @ TSI • GTM Engineer • AI-Native Systems Builder";
+    "I can set the GTM strategy in the boardroom and build the system that makes it real. I turn scattered marketing, sales, data, and AI workflows into operating systems with clear ownership, trusted pipeline, governed automation, and measurable growth.";
+  const tagline = "VP Marketing / Acting CMO • Revenue Systems • Governed AI";
   const stats: HeroStat[] = [
-    { value: "$15M+", label: "Influenced Pipeline" },
-    { value: "300%", label: "Inbound Growth" },
-    { value: "40-60", label: "Meetings/Month" },
-    { value: "2hr", label: "Signal-to-Meeting SLA" },
+    { value: "13+", label: "Years Enterprise GTM" },
+    { value: "4", label: "Promotions" },
+    { value: "VP", label: "Marketing / GTM Operator" },
+    { value: "AI", label: "Systems Builder" },
   ];
-  const primaryCTA = { text: "View Flagship Systems →", link: "#flagship-systems" };
-  const secondaryCTA = { text: "See Operating Proof", link: "#proof" };
+  const primaryCTA = { text: "See the Systems →", link: "#flagship-systems" };
+  const secondaryCTA = { text: "What I Actually Do", link: "#what-that-means" };
+  const operatingModes = [
+    {
+      title: "Executive marketing leadership",
+      description:
+        "Brand, demand generation, content, sales enablement, budget cases, team design, agency management, and executive reporting.",
+    },
+    {
+      title: "Revenue systems engineering",
+      description:
+        "Funnel definitions, attribution, CRM workflows, routing rules, SLAs, KPI architecture, and pipeline accountability.",
+    },
+    {
+      title: "Governed AI operations",
+      description:
+        "AI-assisted research, content, RFP, reporting, and workflow automation with human review gates and quality standards.",
+    },
+  ];
+  const evolution = [
+    {
+      step: "Writer and researcher",
+      description: "Learned how to make complex ideas clear, credible, and useful.",
+    },
+    {
+      step: "First digital marketing hire",
+      description:
+        "Built the early web, SEO, analytics, campaign, and attribution foundation from zero.",
+    },
+    {
+      step: "VP / acting CMO operator",
+      description:
+        "Led marketing and GTM across a complex PE-backed enterprise with multiple verticals, brands, stakeholders, and regulated markets.",
+    },
+    {
+      step: "GTM systems engineer",
+      description:
+        "Built the systems underneath growth: RevOps accountability, AI workflows, structured content engines, buyer intelligence, and executive reporting.",
+    },
+  ];
+  const usefulWhen = [
+    "Your story is too complicated for sales to repeat consistently.",
+    "Your pipeline reporting is hard to trust.",
+    "Marketing ships activity, but leadership cannot see the revenue system.",
+    "AI experiments are happening, but there is no governance or workflow design.",
+    "Sales and marketing disagree on definitions, handoffs, and ownership.",
+    "Acquired brands or products need one coherent GTM motion.",
+    "You need a VP-level operator who can still get hands-on with systems, copy, data, and automation.",
+  ];
   const catalogueItems = caseStudies?.length > 0
     ? caseStudies.filter(hasCurrentSlug).map((cs: CaseStudyCardWithSlug) => ({
         slug: cs.slug.current,
@@ -142,6 +189,101 @@ export default async function Home() {
 
         </section>
 
+        <section
+          id="what-that-means"
+          aria-labelledby="what-that-means-heading"
+          className="py-24 md:py-28 px-6 border-t border-rule"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 mb-14">
+              <div>
+                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
+                  What that actually means
+                </span>
+                <h2
+                  id="what-that-means-heading"
+                  className="font-display text-4xl md:text-5xl leading-tight"
+                >
+                  I lead the strategy,
+                  <br />
+                  <span className="text-accent italic">then build the machine.</span>
+                </h2>
+              </div>
+              <div className="flex items-end">
+                <p className="text-paper/72 text-lg leading-relaxed">
+                  A lot of people can lead campaigns. Some can build dashboards.
+                  A few can write a good narrative. My work is connecting all of
+                  it into one operating system, so the team knows what to say,
+                  what to measure, who owns the next step, and where AI can
+                  remove drag without creating risk.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {operatingModes.map((mode) => (
+                <div
+                  key={mode.title}
+                  className="p-7 border border-rule bg-paper/[0.018] hover:border-accent/70 transition-all"
+                >
+                  <h3 className="font-display text-2xl mb-4">{mode.title}</h3>
+                  <p className="text-paper/70 text-sm leading-relaxed">
+                    {mode.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          aria-labelledby="through-line-heading"
+          className="py-24 md:py-28 px-6 bg-paper/[0.02] border-y border-rule"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-14">
+              <div>
+                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
+                  The through-line
+                </span>
+                <h2
+                  id="through-line-heading"
+                  className="font-display text-4xl md:text-5xl leading-tight mb-6"
+                >
+                  Not a channel.
+                  <br />
+                  <span className="text-accent italic">A pattern.</span>
+                </h2>
+                <p className="text-paper/72 text-lg leading-relaxed">
+                  The common thread is turning ambiguity into a system people
+                  can run. That started with writing and digital marketing, then
+                  became enterprise GTM leadership, RevOps accountability, and
+                  AI-native workflow design.
+                </p>
+              </div>
+
+              <ol className="grid gap-5">
+                {evolution.map((item, index) => (
+                  <li
+                    key={item.step}
+                    className="grid sm:grid-cols-[72px_1fr] gap-5 p-6 border border-rule bg-ink/[0.12]"
+                  >
+                    <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase">
+                      0{index + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-display text-2xl mb-2">{item.step}</h3>
+                      <p className="text-paper/70 text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
         <FlagshipSystems />
 
         {/* PROOF SECTION - The Story */}
@@ -156,18 +298,18 @@ export default async function Home() {
                   Operating Proof
                 </span>
                 <h2 className="font-display text-4xl md:text-5xl leading-tight">
-                  Systems I&apos;ve built
+                  Operating outcomes
                   <br />
                   <span className="text-accent italic">
-                    and the outcomes they produced.
+                    after the systems shipped.
                   </span>
                 </h2>
               </div>
               <div className="flex items-end">
                 <p className="text-paper/72 text-lg">
-                  These aren&apos;t aspirational slides. These are governed systems
-                  with enforced SLAs, audit trails, and measured outcomes. Built
-                  under real constraints at real scale.
+                  These are not a wall of claims. Each example starts with a
+                  business problem, then shows what I built, what changed, and
+                  what the work proves about how I operate.
                 </p>
               </div>
             </div>
@@ -252,21 +394,47 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* WHAT I DO SECTION */}
+        {/* BEST-FIT PROBLEMS SECTION */}
         <section className="py-24 md:py-28 px-6">
           <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-20">
-              <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
-                Services
-              </span>
-              <h2 className="font-display text-4xl md:text-5xl">
-                What I Actually Do
-              </h2>
+            <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-14 mb-14">
+              <div>
+                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
+                  I&apos;m useful when
+                </span>
+                <h2 className="font-display text-4xl md:text-5xl leading-tight">
+                  The opportunity is real,
+                  <br />
+                  <span className="text-accent italic">but the system is underbuilt.</span>
+                </h2>
+              </div>
+              <div className="flex items-end">
+                <p className="text-paper/72 text-lg leading-relaxed">
+                  I am strongest in messy, high-leverage GTM environments: the
+                  story needs work, pipeline is hard to trust, the team is
+                  stretched, and leaders need someone who can operate at VP
+                  level without floating above the details.
+                </p>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {services?.length > 0 ? (
-                services.map((service: Service) => (
+            <div className="grid md:grid-cols-2 gap-4">
+              {usefulWhen.map((item, index) => (
+                <div
+                  key={item}
+                  className={`flex gap-4 p-5 border border-rule bg-paper/[0.018] ${
+                    index === usefulWhen.length - 1 ? "md:col-span-2" : ""
+                  }`}
+                >
+                  <span className="text-accent mt-1">→</span>
+                  <p className="text-paper/72 text-sm leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+
+            {services?.length > 0 && (
+              <div className="mt-12 grid md:grid-cols-3 gap-8">
+                {services.map((service: Service) => (
                   <div
                     key={service._id}
                     className="p-6 border-l-2 border-rule hover:border-accent transition-all"
@@ -276,40 +444,9 @@ export default async function Home() {
                       {service.description}
                     </p>
                   </div>
-                ))
-              ) : (
-                // Fallback services
-                <>
-                  <div className="p-6 border-l-2 border-rule hover:border-accent transition-all">
-                    <h3 className="font-display text-xl mb-4">
-                      GTM Systems Architecture
-                    </h3>
-                    <p className="text-paper/68 text-sm leading-relaxed">
-                      Design and implement revenue systems: attribution, routing,
-                      SLAs, and the governance that keeps them honest.
-                    </p>
-                  </div>
-                  <div className="p-6 border-l-2 border-rule hover:border-accent transition-all">
-                    <h3 className="font-display text-xl mb-4">
-                      AI-Native Operations
-                    </h3>
-                    <p className="text-paper/68 text-sm leading-relaxed">
-                      Deploy governed AI workflows for RFPs, outreach, and
-                      content—human-in-the-loop with full audit trails.
-                    </p>
-                  </div>
-                  <div className="p-6 border-l-2 border-rule hover:border-accent transition-all">
-                    <h3 className="font-display text-xl mb-4">
-                      Org Design & Execution
-                    </h3>
-                    <p className="text-paper/68 text-sm leading-relaxed">
-                      Restructure teams with clear lanes, enforced SLAs, and
-                      output accountability. Marketing as product.
-                    </p>
-                  </div>
-                </>
-              )}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
@@ -323,10 +460,10 @@ export default async function Home() {
             <div className="flex justify-between items-end mb-12">
               <div>
                 <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
-                  Archive
+                  Systems Portfolio
                 </span>
                 <h2 id="catalogue-heading" className="font-display text-3xl">
-                  All Projects
+                  Operating proof
                 </h2>
               </div>
               <Link
@@ -354,21 +491,22 @@ export default async function Home() {
               id="contact-heading"
               className="font-display text-5xl md:text-6xl mb-8"
             >
-              Let&apos;s build systems
+              Lead the strategy.
               <br />
-              that <span className="italic text-accent">outperform</span>.
+              Build the <span className="italic text-accent">system</span>.
             </h2>
             <p className="text-paper/72 text-lg mb-12 max-w-xl mx-auto">
-              For executive hiring or strategic consulting. I provide redacted
-              walkthroughs of full GTM operating blueprints with governance,
-              SLAs, and outcomes.
+              I&apos;m looking for roles and advisory work where strategy and
+              systems both matter: VP Marketing, CMO, Head of GTM, VP RevOps,
+              Head of Growth, or GTM Engineer roles at AI-native B2B SaaS,
+              complex enterprise software, and PE-backed growth companies.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
               <a
                 href="mailto:connor.laughlin@gmail.com"
                 className="font-mono text-[11px] tracking-[0.2em] uppercase bg-accent text-ink px-10 py-4 rounded-full hover:bg-paper transition-all"
               >
-                Start a Conversation
+                Let&apos;s Talk
               </a>
               <a
                 href="https://linkedin.com/in/connorlaughlin"

@@ -17,16 +17,16 @@ export function FlagshipSystems() {
               id="flagship-systems-heading"
               className="font-display text-4xl md:text-6xl leading-tight"
             >
-              Proof that I build
+              Systems I&apos;ve built
               <br />
-              <span className="text-accent italic">operating leverage.</span>
+              <span className="text-accent italic">and what they prove.</span>
             </h2>
           </div>
           <div className="flex items-end">
             <p className="text-paper/72 text-lg leading-relaxed">
-              The portfolio is organized around systems: how ambiguity becomes
-              instrumented workflow, governed AI, accountable pipeline, and a
-              market narrative sales teams can actually run.
+              These are the systems that explain how I work. Each one started
+              as a messy business problem, then became a repeatable operating
+              model with owners, rules, proof, and a clearer next step.
             </p>
           </div>
         </div>
@@ -47,6 +47,14 @@ export function FlagshipSystems() {
                   </h3>
                 </div>
                 <p className="text-paper/72 leading-relaxed">{system.thesis}</p>
+                <div className="border border-rule bg-ink/[0.16] p-4">
+                  <h4 className="font-mono text-[9px] tracking-[0.24em] text-accent uppercase mb-2">
+                    In plain English
+                  </h4>
+                  <p className="text-paper/76 text-sm leading-relaxed">
+                    {system.plainEnglish}
+                  </p>
+                </div>
                 <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-paper/58 leading-relaxed border-l border-accent pl-4">
                   {system.interviewLine}
                 </p>
@@ -99,7 +107,7 @@ export function FlagshipSystems() {
                   </div>
                   <div>
                     <h4 className="font-mono text-[10px] tracking-[0.25em] text-paper/58 uppercase mb-3">
-                      Redacted Artifact Slots
+                      Redacted System Artifacts
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {system.artifacts.map((artifact) => (
