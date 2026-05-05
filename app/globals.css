@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #070707;
-  --color-paper: #FAF7EF;
-  --color-accent: #D2C27C;
-  --color-rule: rgba(250, 247, 239, 0.16);
+  /* Bind Tailwind utilities to runtime theme variables so next-themes can
+     invert text/background colors without leaving dark-mode text in light mode. */
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-paper-muted: var(--paper-muted);
+  --color-accent: var(--accent);
+  --color-rule: var(--rule);
   
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
