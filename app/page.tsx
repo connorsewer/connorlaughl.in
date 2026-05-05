@@ -250,9 +250,9 @@ export default async function Home() {
                   id="through-line-heading"
                   className="font-display text-4xl md:text-5xl leading-tight mb-6"
                 >
-                  Not a channel.
+                  The pattern
                   <br />
-                  <span className="text-accent italic">A pattern.</span>
+                  <span className="text-accent italic">behind the work.</span>
                 </h2>
                 <p className="text-paper/72 text-lg leading-relaxed">
                   The common thread is turning ambiguity into a system people
@@ -307,9 +307,9 @@ export default async function Home() {
               </div>
               <div className="flex items-end">
                 <p className="text-paper/72 text-lg">
-                  These are not a wall of claims. Each example starts with a
-                  business problem, then shows what I built, what changed, and
-                  what the work proves about how I operate.
+                  Each example starts with a business problem, then shows what
+                  I built, what changed, and what the work proves about how I
+                  operate.
                 </p>
               </div>
             </div>
@@ -410,10 +410,10 @@ export default async function Home() {
               </div>
               <div className="flex items-end">
                 <p className="text-paper/72 text-lg leading-relaxed">
-                  I am strongest in messy, high-leverage GTM environments: the
-                  story needs work, pipeline is hard to trust, the team is
-                  stretched, and leaders need someone who can operate at VP
-                  level without floating above the details.
+                  I am strongest in messy GTM environments where the story
+                  needs work, pipeline is hard to trust, the team is stretched,
+                  and leaders need someone who can operate at VP level without
+                  floating above the details.
                 </p>
               </div>
             </div>

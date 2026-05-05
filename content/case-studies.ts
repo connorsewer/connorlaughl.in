@@ -27,21 +27,21 @@ export const caseStudies: CaseStudy[] = [
     governance:
       "Event + naming standards • hidden-field requirements • QA checklist • change control",
     bullets: [
-      "Before → After — Reporting polluted by mixed traffic → GA4 audiences separated B2B prospects from consumer visitors.",
-      "System — Line-of-business content grouping across 7 verticals for attribution by solution line.",
-      "System — Conversion event taxonomy prioritized around generate_lead (primary), file_download (nurture), click_to_call, click_to_email.",
-      "Governance — CRM capture requirements: UTM + GCLID stored in hidden fields; enforced for lead-source integrity.",
-      "Governance — Cross-domain/subdomain tracking requirements specified for form flows; measurement QA built into release steps.",
+      "Before: reporting was polluted by mixed traffic. After: GA4 audiences separated B2B prospects from consumer visitors.",
+      "Built line-of-business content grouping across 7 verticals for attribution by solution line.",
+      "Built a conversion event taxonomy around generate_lead, file_download, click_to_call, and click_to_email.",
+      "Set CRM capture requirements: UTM and GCLID stored in hidden fields to protect lead-source integrity.",
+      "Specified cross-domain and subdomain tracking for form flows, with measurement QA built into release steps.",
     ],
     interviewLine:
-      "I treat analytics as infrastructure—if attribution is wrong, every decision is wrong.",
+      "I treat analytics as infrastructure. If attribution is wrong, every decision is wrong.",
   },
   {
     slug: "gtm-strategy-positioning",
     label: "GTM STRATEGY",
     title: "GTM Strategy + Positioning System",
     deck:
-      "Outcome-first messaging with a claims register—so sales moves fast without making things up.",
+      "Outcome-first messaging with a claims register, so sales can move fast without making things up.",
     outcome:
       "One narrative system across 6 business units; tighter proof governance; faster enablement and more consistent win themes.",
     scope:
@@ -50,14 +50,14 @@ export const caseStudies: CaseStudy[] = [
     governance:
       "Claims register (Verified/Directional/Projected) • versioned messaging • voice/style rules",
     bullets: [
-      "System — Authored 50+ page messaging architecture spanning 6 business units with outcome-first positioning.",
-      "System — 5-pillar framework: Recover More/Faster; Protect Brand & Experience; Reduce Risk/Compliance Exposure; Lifecycle Visibility; Start Fast/Scale on Proof.",
-      "System — Persona value props mapped as: client outcomes → delivery mechanisms → proof/KPIs → use cases.",
-      "Governance — Proof library + claims register with explicit status tracking to prevent unverified external claims.",
-      "Before → After — Service-language decks → quantified, buyer-aligned talk tracks with guardrails (plain English, active voice, no empty superlatives).",
+      "Authored a 50+ page messaging architecture across 6 business units with outcome-first positioning.",
+      "Built a 5-pillar framework: Recover More/Faster; Protect Brand & Experience; Reduce Risk/Compliance Exposure; Lifecycle Visibility; Start Fast/Scale on Proof.",
+      "Mapped persona value props from client outcomes to delivery mechanisms, proof, KPIs, and use cases.",
+      "Created a proof library and claims register with status tracking to prevent unverified external claims.",
+      "Before: service-language decks. After: quantified, buyer-aligned talk tracks with plain English, active voice, and no empty superlatives.",
     ],
     interviewLine:
-      "I build positioning as a governed system—clear claims, clear proof, language rules.",
+      "I build positioning as a governed system with clear claims, clear proof, and language rules.",
   },
   {
     slug: "revenue-operations-signal-to-revenue",
@@ -73,11 +73,11 @@ export const caseStudies: CaseStudy[] = [
     governance:
       "Lifecycle definitions • disposition codes • SLA enforcement • weekly operating review",
     bullets: [
-      "Outcome — Built an end-to-end revenue funnel KPI framework (35+ KPIs) covering Awareness → Revenue + unit economics.",
-      "System — Reverse-funnel calculator to translate quota into required leads, meetings, and capacity (lead→revenue math).",
-      "System — 90-day, budget-light BDR pod model repurposing existing reps into a focused signal-to-meeting motion.",
-      "Governance — WebSights signal-to-meeting workflow with tiered SLAs (Tier A: ≤2 hours; Tier B: ≤24 hours) and timestamped accountability.",
-      "Governance — Lead lifecycle definitions + qualification criteria + disposition codes to keep CRM data usable for forecasting.",
+      "Built an end-to-end revenue funnel KPI framework with 35+ KPIs across awareness, revenue, and unit economics.",
+      "Built a reverse-funnel calculator to translate quota into required leads, meetings, and capacity.",
+      "Designed a 90-day BDR pod model that repurposed existing reps into a focused signal-to-meeting motion.",
+      "Created a WebSights signal-to-meeting workflow with tiered SLAs: Tier A at 2 hours or less, Tier B at 24 hours or less.",
+      "Defined lead lifecycle stages, qualification criteria, and disposition codes to keep CRM data usable for forecasting.",
     ],
     interviewLine:
       "I turn demand into RevOps: defined funnel, enforced SLAs, made CRM trustworthy.",
@@ -96,11 +96,11 @@ export const caseStudies: CaseStudy[] = [
     governance:
       "RACI • SLAs • weekly reviews • version control • escalation paths",
     bullets: [
-      "Before → After — Ad hoc requests and random priorities → two accountable lanes (Demand Gen vs Enablement) with documented handoffs.",
-      "Governance — Enforced brief-to-ship SLAs and output floors; work ran like a product team (cadence + templates + review loops).",
-      "System — Repurposed existing roles (telesales → BDR) with targets, QA gates, and manager review.",
-      "System — Built reusable artifacts: process maps, templates, and weekly operating review formats.",
-      "Systems thinking — Treated CRM + analytics as shared infrastructure (definitions, capture requirements, change control), not “someone else’s tool.”",
+      "Before: ad hoc requests and random priorities. After: 2 accountable lanes, Demand Gen and Enablement, with documented handoffs.",
+      "Enforced brief-to-ship SLAs and output floors so the work ran like a product team.",
+      "Repurposed existing telesales roles into BDR roles with targets, QA gates, and manager review.",
+      "Built reusable process maps, templates, and weekly operating review formats.",
+      "Treated CRM and analytics as shared infrastructure, with definitions, capture requirements, and change control.",
     ],
     interviewLine:
       "I lead by building systems: clear lanes, measurable SLAs, review loops.",
@@ -115,34 +115,34 @@ export const caseStudies: CaseStudy[] = [
     stack: "n8n • RAG • CRM • LLM",
     governance: "Approval gates • audit logs • drift reviews",
     bullets: [
-      "Outcome — 40% cycle-time reduction via automated enrichment and draft generation.",
-      "Outcome — 99%+ compliance accuracy via mandatory approvals on all AI artifacts.",
-      "System — RAG-backed knowledge base for governed RFP and outbound drafting.",
-      "Governance — Post-run review loops: error tagging → prompt updates → regression checks.",
-      "Artifacts — Workflow map, approval-gate checklist, audit-log schema.",
+      "Reduced cycle time 40% through automated enrichment and draft generation.",
+      "Reached 99%+ compliance accuracy through mandatory approvals on AI artifacts.",
+      "Built a RAG-backed knowledge base for governed RFP and outbound drafting.",
+      "Added post-run review loops: error tagging, prompt updates, and regression checks.",
+      "Artifacts available: workflow map, approval-gate checklist, and audit-log schema.",
     ],
     interviewLine:
-      "I engineered a governed automation layer—more throughput, lower risk.",
+      "I engineered a governed automation layer with more throughput and lower risk.",
   },
   {
     slug: "bdr-pod-signal-to-meeting",
     label: "DEMAND GEN",
     title: "BDR Pod: Signal-to-Meeting",
     deck: "Signal-driven BDR pod with a hard ≤2-hour signal-to-touch SLA.",
-    outcome: "40–60 meetings + 12–20 SQLs (90 days); ≤2-hour signal-to-touch.",
+    outcome: "40 to 60 meetings + 12 to 20 SQLs (90 days); 2-hour signal-to-touch.",
     scope: "Signal capture → enrichment → ICP score → 2-hour outreach SLA.",
     stack: "ZoomInfo • Enrichment • CRM • Outbound",
     governance: "Enforced SLA • documented workflow • weekly operating review",
     longformHref: "/longform/01-bdr-pod-signal-to-meeting.md",
     bullets: [
-      "Outcome — 40–60 meetings + 12–20 SQLs in 90 days under a hard ≤2-hour SLA.",
-      "System — WebSights signal ingest → company match → ICP score → contact append.",
-      "Governance — SLA with teeth: every signal timestamped; misses fixed at process layer.",
-      "Governance — Repurposed existing telesales into a signal-driven 2-person BDR pod.",
-      "Artifacts — Process map, SLA doc, weekly review template.",
+      "Targeted 40 to 60 meetings and 12 to 20 SQLs in 90 days under a hard 2-hour SLA.",
+      "Built the flow from WebSights signal ingest to company match, ICP score, and contact append.",
+      "Put teeth on the SLA: every signal was timestamped, and misses were fixed at the process layer.",
+      "Repurposed existing telesales into a signal-driven 2-person BDR pod.",
+      "Artifacts available: process map, SLA doc, and weekly review template.",
     ],
     interviewLine:
-      "I built a signal-driven BDR pod—2-hour SLA, 40-60 meetings in 90 days.",
+      "I built a signal-driven BDR pod with a 2-hour SLA and 40 to 60 meetings targeted in 90 days.",
   },
   {
     slug: "outcome-first-repositioning",
@@ -155,14 +155,14 @@ export const caseStudies: CaseStudy[] = [
     governance: "Language rules • claim owners • versioned messaging system",
     longformHref: "/longform/02-outcome-first-repositioning.md",
     bullets: [
-      "Outcome — ~10% payment lift + 20%+ cost reduction via outcome-anchored tracks.",
-      "Outcome — 26-day reduction in appeals cycle time baked into healthcare talk tracks.",
-      "System — Mapped features to quantified outcomes across 6 business units.",
-      "Governance — Mandatory Do/Don’t language guide; claim consistency for legal review.",
-      "Artifacts — Messaging architecture v1.0, language guide, exec deck.",
+      "Built outcome-anchored tracks tied to about 10% payment lift and 20%+ cost reduction.",
+      "Baked a 26-day appeals cycle-time reduction into healthcare talk tracks.",
+      "Mapped features to quantified outcomes across 6 business units.",
+      "Created a mandatory Do/Don't language guide to keep claims consistent for legal review.",
+      "Artifacts available: Messaging Architecture v1.0, language guide, and executive deck.",
     ],
     interviewLine:
-      "I rebuilt the narrative around quantified outcomes—~10% payment lift, 20%+ cost reduction.",
+      "I rebuilt the narrative around quantified outcomes, including about 10% payment lift and 20%+ cost reduction.",
   },
   {
     slug: "marketing-org-design-governance",
@@ -175,15 +175,15 @@ export const caseStudies: CaseStudy[] = [
     governance: "7-day SLA • output minimums • version control • cadence reviews",
     longformHref: "/longform/03-marketing-org-design-governance.md",
     bullets: [
-      "Outcome — 7-day brief-to-ship SLA enforced across all content and sales assets.",
-      "Outcome — 200+/yr content output floor including 26 press releases per year.",
-      "System — Two accountable lanes: Demand Gen (pipeline) + Enablement (asset factory).",
-      "Governance — Centralized intake-to-archive + Beautiful.ai version control.",
-      "Governance — GA4 audience segregation: B2B reporting isolated from consumer noise.",
-      "Artifacts — SLA doc, output cadence dashboard, GA4 requirements.",
+      "Enforced a 7-day brief-to-ship SLA across content and sales assets.",
+      "Set a 200+/year content output floor, including 26 press releases per year.",
+      "Created 2 accountable lanes: Demand Gen for pipeline and Enablement for seller assets.",
+      "Centralized intake-to-archive workflow and Beautiful.ai version control.",
+      "Segregated GA4 audiences so B2B reporting stayed separate from consumer noise.",
+      "Artifacts available: SLA doc, output cadence dashboard, and GA4 requirements.",
     ],
     interviewLine:
-      "I rebuilt marketing into two functions with a 7-day ship SLA—runs like a product team.",
+      "I rebuilt marketing into 2 functions with a 7-day ship SLA. It runs like a product team.",
   },
   {
     slug: "debtnext-integration",
@@ -195,14 +195,14 @@ export const caseStudies: CaseStudy[] = [
     stack: "DebtNext API • SQL • CRM • PowerBI",
     governance: "SOC2-aligned handling • daily ledger checks • anomaly alerts",
     bullets: [
-      "Outcome — Eliminated ~40 hours/month of manual reconciliation with an automated ledger.",
-      "System — API ingest + SQL middleware normalizing platform data into one view.",
-      "System — Executive BI dashboards for recovery mix, performance, and drift visibility.",
-      "Governance — Daily reconciliation + anomaly detection to catch portfolio drift early.",
-      "Artifacts — Field mapping spec, reconciliation query set, dashboard screenshots.",
+      "Eliminated about 40 hours per month of manual reconciliation with an automated ledger.",
+      "Built API ingest and SQL middleware to normalize platform data into one view.",
+      "Built executive BI dashboards for recovery mix, performance, and drift visibility.",
+      "Added daily reconciliation and anomaly detection to catch portfolio drift early.",
+      "Artifacts available: field mapping spec, reconciliation query set, and dashboard screenshots.",
     ],
     interviewLine:
-      "I built a real-time performance ledger—cut 40 hours/month manual work, surfaced drift.",
+      "I built a real-time performance ledger that cut 40 hours per month of manual work and surfaced drift.",
   },
   {
     slug: "enterprise-site-overhaul",
@@ -215,14 +215,14 @@ export const caseStudies: CaseStudy[] = [
     stack: "WordPress • Elementor • GA4 • GTM",
     governance: "Conversion IA standards • strict B2B routing • measurement QA",
     bullets: [
-      "Outcome — 6× increase in qualified traffic (directional) alongside +28% organic clicks and +19% enterprise lead engagement.",
-      "System — Conversion-first IA built for enterprise buyers, not consumer traffic.",
-      "System — GA4/GTM instrumentation for high-intent events and event taxonomy.",
-      "Governance — Strict B2B routing to eliminate consumer leakage into enterprise funnels.",
-      "Artifacts — IA map, event taxonomy, conversion report snapshots.",
+      "Produced a directional 6x increase in qualified traffic, plus 28% organic click growth and 19% higher enterprise lead engagement.",
+      "Built conversion-first IA for enterprise buyers and strict separation from consumer traffic.",
+      "Built GA4/GTM instrumentation for high-intent events and event taxonomy.",
+      "Added strict B2B routing to keep consumer traffic out of enterprise funnels.",
+      "Artifacts available: IA map, event taxonomy, and conversion report snapshots.",
     ],
     interviewLine:
-      "I rebuilt tsico.com for enterprise conversion—clean routing, clean measurement, measurable growth.",
+      "I rebuilt tsico.com for enterprise conversion with clean routing, clean measurement, and measurable growth.",
   },
 ];
 

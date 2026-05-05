@@ -1,46 +1,50 @@
 # BDR Pod: Signal-to-Meeting in 2 Hours
 
-**Category:** Demand Generation · Pipeline Operations  
-**Role:** VP Marketing, TSI  
-**Archive Reference:** Operating Proof — BDR Signal-to-Meeting Workflow
+Category: Demand Generation · Pipeline Operations
+Role: VP Marketing, TSI
+Archive reference: Operating Proof, BDR Signal-to-Meeting Workflow
 
 ---
 
-## The Problem
+## The problem
 
-TSI had telesales reps making dials. No intent signals. No prioritization logic. No SLA between a website visit and an outbound touch. Marketing generated traffic; sales worked a static list. The gap between interest and contact was measured in days — if it was measured at all.
+TSI had telesales reps making dials. No intent signals. No prioritization logic. No SLA between a website visit and an outbound touch.
 
-## What I Built
+Marketing generated traffic. Sales worked a static list. The gap between interest and contact was measured in days, if it was measured at all.
 
-Repurposed existing telesales headcount into a dedicated 2-person BDR pod (Ethan & Cynthia). Designed the operating system from scratch:
+## What I built
 
-- **Signal source:** ZoomInfo WebSights daily exports identifying B2B companies visiting TSI properties
-- **Enrichment layer:** Company match → ICP score → contact append — all before a human touches it
-- **2-hour SLA:** From signal identification to first outbound touch. Not a target. A rule.
-- **DebtNext cross-sell motion:** Parallel track targeting existing DebtNext accounts for TSI upsell — warm pipeline from day one
-- **Weekly review cadence:** Signal quality, conversion rates, disqualification patterns — iterating the machine weekly
+I repurposed existing telesales headcount into a dedicated 2-person BDR pod (Ethan and Cynthia). Then I built the operating system around it.
 
-## The Numbers
+- ZoomInfo WebSights identified B2B companies visiting TSI properties each day.
+- Company match, ICP score, and contact append happened before a human touched the signal.
+- The pod worked under a hard 2-hour SLA from signal identification to first outbound touch.
+- A DebtNext cross-sell motion gave the team a warm account track from day one.
+- Weekly reviews looked at signal quality, conversion rates, and disqualification patterns.
 
-| Metric | Target (First 90 Days) |
+## The numbers
+
+| Metric | Target, first 90 days |
 |---|---|
-| Meetings booked | 40–60 |
-| SQLs generated | 12–20 |
-| Signal-to-touch SLA | ≤ 2 hours |
+| Meetings booked | 40 to 60 |
+| SQLs generated | 12 to 20 |
+| Signal-to-touch SLA | 2 hours or less |
 | Weekly review cadence | Every Friday |
 
-## Why This Matters at the VP+ Level
+## Why this matters at the VP+ level
 
-This isn't a "we hired SDRs" story. This is a resource reallocation play — no new headcount, no new budget. Took existing telesales capacity, added an intent signal layer, imposed operational discipline, and turned a cost center into a pipeline engine.
+This was a resource reallocation play. No new headcount. No new budget.
 
-The governance piece is what separates it: documented workflows, SLAs with teeth, weekly iteration loops. Most BDR pods die from neglect. This one was designed to self-correct.
+I took existing telesales capacity, added an intent signal layer, put operational discipline around it, and turned a cost center into a pipeline engine.
 
-## Interview Anchor
+The governance is the point: documented workflows, SLAs with teeth, and weekly iteration loops. Most BDR pods die from neglect. This one was designed to self-correct.
 
-> "I didn't ask for new headcount. I repurposed existing telesales into a signal-driven BDR pod with a 2-hour SLA. First 90 days: targeting 40-60 meetings and 12-20 SQLs. The unlock was governance — weekly reviews, documented workflows, and a cross-sell motion into an existing install base."
+## Interview anchor
 
-## Artifacts Available
+> "I didn't ask for new headcount. I repurposed existing telesales into a signal-driven BDR pod with a 2-hour SLA. First 90 days: targeting 40 to 60 meetings and 12 to 20 SQLs. Governance made the system work: weekly reviews, documented workflows, and a cross-sell motion into an existing install base."
 
-- BDR Signal-to-Meeting Workflow (process map)
-- ZoomInfo WebSights → enrichment → outreach SLA documentation
+## Artifacts available
+
+- BDR Signal-to-Meeting Workflow process map
+- ZoomInfo WebSights enrichment and outreach SLA documentation
 - Weekly review template and cadence structure

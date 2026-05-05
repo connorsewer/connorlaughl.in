@@ -1,56 +1,58 @@
-# Outcome-First: Repositioning a Legacy Category for the C-Suite
+# Outcome-first repositioning for a legacy category
 
-**Category:** Strategic Positioning · Narrative Architecture  
-**Role:** VP Marketing, TSI  
-**Archive Reference:** Operating Proof — Outcome-First Messaging Architecture v1.0
+Category: Strategic Positioning · Narrative Architecture
+Role: VP Marketing, TSI
+Archive reference: Operating Proof, Outcome-First Messaging Architecture v1.0
 
 ---
 
-## The Problem
+## The problem
 
-TSI operates in accounts receivable management and business process outsourcing. The inherited language — "collections," "debt recovery," "outsourced services" — triggers defensiveness in every C-suite conversation. CFOs hear compliance risk. CIOs hear integration headaches. CHROs hear consumer complaints.
+TSI operates in accounts receivable management and business process outsourcing. The inherited language made buyers defensive: "collections," "debt recovery," "outsourced services."
 
-The product had evolved. The language hadn't. TSI was selling a modern, AI-augmented revenue recovery and customer experience platform using words that made buyers flinch.
+CFOs heard compliance risk. CIOs heard integration headaches. CHROs heard consumer complaints.
 
-## What I Built
+The product had evolved. The language hadn't. TSI was selling a modern, AI-augmented revenue recovery and customer experience platform with words that made buyers flinch.
 
-Led a full narrative repositioning — not a rebrand, not a tagline exercise. A systematic rewrite of how TSI talks about what it does, anchored in buyer outcomes instead of service descriptions.
+## What I built
 
-### The Architecture
+I led a full narrative repositioning. The work rewrote how TSI talks about what it does, anchored in buyer outcomes instead of service descriptions.
 
-- **Messaging framework:** Mapped every feature across 6 business units to a benefit, then mapped every benefit to a quantified outcome. Three layers deep. No feature left orphaned.
-- **"Outcome-First" talk tracks:** Replaced "we do collections" with "recover more at lower net-cost." Replaced "we handle calls" with "reduce appeals cycle time by 26 days."
-- **Compliance-as-differentiation:** Positioned TSI's governance posture (SOC 2, PCI, HIPAA) not as table stakes but as a competitive moat — "auditable by design" became a selling point, not a checkbox.
-- **Do/Don't language guide:** Explicit rules. "Never lead with the service. Always lead with the number." Distributed to every seller, every deck, every RFP response.
+## The architecture
 
-### Proof Points Embedded
+- I mapped every feature across 6 business units to a benefit, then mapped every benefit to a quantified outcome. Three layers deep. No feature left orphaned.
+- The "Outcome-First" talk tracks replaced "we do collections" with "recover more at lower net-cost." They replaced "we handle calls" with "reduce appeals cycle time by 26 days."
+- TSI's governance posture, including SOC 2, PCI, and HIPAA, became part of the sales argument. "Auditable by design" was the point.
+- The Do/Don't language guide gave sellers explicit rules: never lead with the service. Lead with the number.
+
+## Proof points embedded
 
 | Outcome | Metric |
 |---|---|
-| AI-driven payment lift | ~10% increase |
-| Cost savings via digital-first | 20%+ reduction (80% digital mix target) |
+| AI-driven payment lift | About 10% increase |
+| Cost savings via digital-first | 20%+ reduction, tied to 80% digital mix target |
 | Healthcare appeals cycle reduction (PULSE/SAGA) | 26 fewer days |
-| Approval odds improvement | ~47% increase |
+| Approval odds improvement | About 47% increase |
 
-## The Ripple Effect
+## What changed
 
-This wasn't a marketing project. It changed how sales opened conversations, how RFP responses were structured, how the website IA was organized, and how executives presented at industry events.
+The repositioning changed how sales opened conversations, how RFP responses were structured, how the website IA was organized, and how executives presented at industry events.
 
-When the language changes, the pipeline changes. When the pipeline changes, the business changes.
+When the language changes, the pipeline changes.
 
-## Why This Matters at the VP+ Level
+## Why this matters at the VP+ level
 
-Repositioning in a stigmatized category is the hardest marketing problem there is. You can't just "tell a better story" — you have to rebuild the proof architecture so the new claim survives procurement, legal review, and a risk-averse buying committee.
+Repositioning in a stigmatized category is hard because the new claim has to survive procurement, legal review, and a risk-averse buying committee.
 
-This required cross-functional alignment across 6 business units, sales enablement, product marketing, and executive leadership. The output was a messaging system — not a campaign.
+That required alignment across 6 business units, sales enablement, product marketing, and executive leadership. The output was a messaging system with proof underneath it.
 
-## Interview Anchor
+## Interview anchor
 
-> "The company had a modern product trapped in legacy language. I led the Outcome-First repositioning: mapped features to benefits to quantified outcomes across all 6 lines of business. We stopped saying 'collections' and started proving 'recover more at lower net-cost' with real numbers — 10% payment lift, 20%+ cost reduction, 26-day cycle time improvement. The messaging architecture became the operating system for every seller conversation."
+> "The company had a modern product trapped in legacy language. I led the Outcome-First repositioning and mapped features to benefits to quantified outcomes across all 6 lines of business. We moved the conversation from 'collections' to 'recover more at lower net-cost' with real proof: 10% payment lift, 20%+ cost reduction, and a 26-day cycle-time improvement. The messaging architecture became the operating system for every seller conversation."
 
-## Artifacts Available
+## Artifacts available
 
-- Outcome-First Messaging Architecture v1.0 (full feature → benefit → outcome mapping)
+- Outcome-First Messaging Architecture v1.0 with full feature, benefit, and outcome mapping
 - Do/Don't language guide
-- DebtNext feature sheets (Nexie AI, DME)
+- DebtNext feature sheets for Nexie AI and DME
 - Executive presentation decks with repositioned narrative
