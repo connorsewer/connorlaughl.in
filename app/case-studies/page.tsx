@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { ProofExplorer } from "@/components/ProofExplorer";
 import { caseStudies } from "@/content/case-studies";
 import Link from "next/link";
 
@@ -19,6 +20,23 @@ export default function CaseStudiesIndex() {
           <p className="text-xl text-paper/72 max-w-2xl mb-16 leading-relaxed">
             Each case shows the mess I walked into, what I changed, and what the business could do afterward.
           </p>
+
+          <section
+            id="proof-index"
+            aria-labelledby="proof-index-heading"
+            className="mb-16 rounded-3xl border border-rule bg-ink/35 px-6 py-8 md:px-10 md:py-10"
+          >
+            <div className="mb-8 max-w-2xl">
+              <span className="meta-label-accent mb-4 block">Proof index</span>
+              <h2 id="proof-index-heading" className="font-display text-3xl md:text-4xl leading-tight">
+                Scan the work before you open a case.
+              </h2>
+              <p className="mt-4 text-paper/72 leading-relaxed">
+                Start here for a faster read on the work. Hover or focus a case to preview the problem, the build, and what changed before opening the full case study.
+              </p>
+            </div>
+            <ProofExplorer items={caseStudies} />
+          </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {caseStudies.map((study) => (

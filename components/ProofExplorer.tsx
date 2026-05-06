@@ -11,9 +11,9 @@ export function ProofExplorer({ items }: { items: CaseStudy[] }) {
   const activeItem = items.find(i => i.slug === hovered) || items[0];
 
   return (
-    <div className="grid lg:grid-cols-[400px_1fr] gap-12 min-h-[600px]">
+    <div className="grid gap-10 lg:min-h-[600px] lg:grid-cols-[400px_1fr] lg:gap-12">
       {/* Left List */}
-      <div className="flex flex-col border-r border-rule pr-8">
+      <div className="flex flex-col border-b border-rule pb-8 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8">
         <div className="meta-label-accent mb-8">Case studies</div>
         <div className="flex flex-col">
           {items.map((item) => (
@@ -21,7 +21,7 @@ export function ProofExplorer({ items }: { items: CaseStudy[] }) {
               key={item.slug}
               href={`/case-studies/${item.slug}`}
               onMouseEnter={() => setHovered(item.slug)}
-              className="group py-4 border-b border-rule/50 flex items-baseline justify-between transition-colors hover:text-accent"
+              className="group flex flex-col gap-2 border-b border-rule/50 py-4 transition-colors hover:text-accent sm:flex-row sm:items-baseline sm:justify-between"
             >
               <span className={`font-display text-2xl transition-transform duration-300 ${hovered === item.slug ? 'translate-x-2' : ''}`}>
                 {item.title}
@@ -35,7 +35,7 @@ export function ProofExplorer({ items }: { items: CaseStudy[] }) {
       </div>
 
       {/* Right Preview */}
-      <div className="relative pt-12 lg:pt-0">
+      <div className="relative lg:pt-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeItem.slug}
