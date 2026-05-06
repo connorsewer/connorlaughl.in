@@ -14,7 +14,7 @@ export function ProofExplorer({ items }: { items: CaseStudy[] }) {
     <div className="grid lg:grid-cols-[400px_1fr] gap-12 min-h-[600px]">
       {/* Left List */}
       <div className="flex flex-col border-r border-rule pr-8">
-        <div className="meta-label-accent mb-8">Project Catalogue</div>
+        <div className="meta-label-accent mb-8">Case studies</div>
         <div className="flex flex-col">
           {items.map((item) => (
             <Link 
@@ -45,7 +45,7 @@ export function ProofExplorer({ items }: { items: CaseStudy[] }) {
             transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
             className="sticky top-32"
           >
-            <div className="meta-label-accent mb-4">Case logic</div>
+            <div className="meta-label-accent mb-4">What happened</div>
             <h3 className="font-display text-4xl mb-6 text-balance">{activeItem.title}</h3>
             <p className="text-paper/72 text-lg leading-relaxed mb-8 max-w-xl">
               {activeItem.businessProblem}
@@ -67,7 +67,7 @@ export function ProofExplorer({ items }: { items: CaseStudy[] }) {
               className="inline-flex items-center gap-4 group"
             >
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase border border-paper/20 px-6 py-3 rounded-full group-hover:bg-paper group-hover:text-ink transition-all">
-                View Full Dossier
+                Read case study
               </span>
             </Link>
           </motion.div>

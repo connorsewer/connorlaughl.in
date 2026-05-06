@@ -59,13 +59,13 @@ export default async function CaseStudyPage({
             <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-8">
               <div>
                 <span className="meta-label-accent">
-                  Case logic
+                  Work in plain English
                 </span>
                 <h2 id="story-heading" className="mt-3 font-display text-3xl md:text-4xl leading-tight">
-                  Problem, build, change, proof.
+                  What happened, what changed.
                 </h2>
                 <p className="mt-4 text-paper-muted leading-relaxed">
-                  Each case follows the same pattern: what was broken, what I built, what moved, why it mattered, and what the work says about how I operate.
+                  This section keeps the work close to the ground: the business problem, the build, the change, and what it proves.
                 </p>
               </div>
 
@@ -142,17 +142,17 @@ export default async function CaseStudyPage({
               <div className="rule mt-10" role="separator" />
               <section aria-labelledby="longform-heading" className="mt-8">
                 <h2 id="longform-heading" className="meta-label-muted">
-                  Longform draft
+                  Longform case notes
                 </h2>
                 <p className="mt-3 text-paper-muted leading-relaxed">
-                  A longer markdown version is available for this case.
+                  A longer markdown version is available for this case study.
                 </p>
                 <div className="mt-4">
                   <Link
                     className="text-sm text-paper/80 hover:text-paper underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
                     href={cs.longformHref}
                   >
-                    Open longform draft →
+                    Open longform notes →
                   </Link>
                 </div>
               </section>
@@ -163,14 +163,14 @@ export default async function CaseStudyPage({
 
           <section aria-labelledby="deep-dive-heading" className="mt-8">
             <h2 id="deep-dive-heading" className="meta-label-muted">
-              Live walkthrough
+              Walkthrough notes
             </h2>
             <p className="mt-3 text-paper-muted leading-relaxed">
-              In a live walkthrough I can share redacted artifacts: process maps, KPI dictionaries, reporting packs, QA checklists, and automation logs.
+              In a live walkthrough I can share redacted artifacts: process maps, KPI dictionaries, reporting packs, QA checklists, and workflow logs.
             </p>
             <div className="mt-5">
               <RedactionReveal>
-                Example artifacts: routing decision tree; KPI dictionary excerpt; QA checklist; weekly "what changed?" narrative page.
+                Example artifacts: routing decision tree; KPI dictionary excerpt; QA checklist; weekly review notes.
               </RedactionReveal>
             </div>
           </section>

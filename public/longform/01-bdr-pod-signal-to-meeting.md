@@ -2,7 +2,7 @@
 
 Category: Demand Generation · Pipeline Operations
 Role: VP Marketing, TSI
-Archive reference: Operating Proof, BDR Signal-to-Meeting Workflow
+Archive reference: BDR Signal-to-Meeting Workflow
 
 ---
 
@@ -14,7 +14,7 @@ Marketing generated traffic. Sales worked a static list. The gap between interes
 
 ## What I built
 
-I repurposed existing telesales headcount into a dedicated 2-person BDR pod (Ethan and Cynthia). Then I built the operating system around it.
+I repurposed existing telesales headcount into a dedicated 2-person BDR pod. Then I built the operating model around it.
 
 - ZoomInfo WebSights identified B2B companies visiting TSI properties each day.
 - Company match, ICP score, and contact append happened before a human touched the signal.
@@ -22,26 +22,26 @@ I repurposed existing telesales headcount into a dedicated 2-person BDR pod (Eth
 - A DebtNext cross-sell motion gave the team a warm account track from day one.
 - Weekly reviews looked at signal quality, conversion rates, and disqualification patterns.
 
-## The numbers
+## The 90-day targets
 
-| Metric | Target, first 90 days |
+| Metric | First 90-day target |
 |---|---|
 | Meetings booked | 40 to 60 |
 | SQLs generated | 12 to 20 |
 | Signal-to-touch SLA | 2 hours or less |
 | Weekly review cadence | Every Friday |
 
-## Why this matters at the VP+ level
+## Why this matters at the VP level
 
 This was a resource reallocation play. No new headcount. No new budget.
 
-I took existing telesales capacity, added an intent signal layer, put operational discipline around it, and turned a cost center into a pipeline engine.
+I took existing telesales capacity, added an intent signal layer, and put operating discipline around the handoff from website signal to sales touch.
 
-The governance is the point: documented workflows, SLAs with teeth, and weekly iteration loops. Most BDR pods die from neglect. This one was designed to self-correct.
+The controls made the pod usable: documented workflows, SLAs with teeth, and weekly reviews that fixed misses at the process layer.
 
 ## Interview anchor
 
-> "I didn't ask for new headcount. I repurposed existing telesales into a signal-driven BDR pod with a 2-hour SLA. First 90 days: targeting 40 to 60 meetings and 12 to 20 SQLs. Governance made the system work: weekly reviews, documented workflows, and a cross-sell motion into an existing install base."
+> "I didn't ask for new headcount. I repurposed existing telesales into a signal-driven BDR pod with a 2-hour SLA and first-90-day targets of 40 to 60 meetings and 12 to 20 SQLs. The system worked because the workflow, review cadence, and cross-sell motion were defined before the team started dialing."
 
 ## Artifacts available
 

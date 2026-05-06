@@ -31,7 +31,7 @@ function hasCurrentSlug(cs: CaseStudyCard): cs is CaseStudyCardWithSlug {
 export const metadata: Metadata = {
   title: "Connor Laughlin | Marketing Executive & GTM Systems Engineer",
   description:
-    "Connor Laughlin is a marketing executive and GTM systems builder who turns messy revenue operations, positioning, analytics, and AI workflows into measurable growth systems.",
+    "Connor Laughlin is a marketing executive and GTM systems builder who turns messy revenue operations, positioning, analytics, and AI workflows into operating models teams can run.",
 };
 
 export const revalidate = 60;
@@ -44,16 +44,16 @@ export default async function Home() {
   // Keep the homepage positioning local-first so stale CMS copy cannot override the GTM Engineer narrative.
   const headline = ["Marketing executive.", "GTM systems engineer."];
   const subheadline =
-    "I can set the GTM strategy in the boardroom and build the system that makes it real. I turn scattered marketing, sales, data, and AI workflows into operating systems with clear ownership, trusted pipeline, governed automation, and measurable growth.";
-  const tagline = "VP Marketing / Acting CMO • Revenue Systems • Governed AI";
+    "I can set the GTM strategy in the boardroom and build the workflows that make it real. I turn scattered marketing, sales, data, and AI work into clear ownership, cleaner pipeline, reviewable automation, and growth a team can actually manage.";
+  const tagline = "VP Marketing / Acting CMO • Revenue systems • Governed AI";
   const stats: HeroStat[] = [
-    { value: "13+", label: "Years Enterprise GTM" },
+    { value: "13+", label: "Years in enterprise GTM" },
     { value: "4", label: "Promotions" },
-    { value: "VP", label: "Marketing / GTM Operator" },
-    { value: "AI", label: "Systems Builder" },
+    { value: "VP", label: "Marketing and GTM operator" },
+    { value: "AI", label: "Systems builder" },
   ];
-  const primaryCTA = { text: "See the Systems →", link: "#flagship-systems" };
-  const secondaryCTA = { text: "What I Actually Do", link: "#what-that-means" };
+  const primaryCTA = { text: "See the systems →", link: "#flagship-systems" };
+  const secondaryCTA = { text: "What I actually do", link: "#what-that-means" };
   const operatingModes = [
     {
       title: "Executive marketing leadership",
@@ -63,12 +63,12 @@ export default async function Home() {
     {
       title: "Revenue systems engineering",
       description:
-        "Funnel definitions, attribution, CRM workflows, routing rules, SLAs, KPI architecture, and pipeline accountability.",
+        "Funnel definitions, attribution, CRM workflows, routing rules, SLAs, KPI math, and pipeline accountability.",
     },
     {
       title: "Governed AI operations",
       description:
-        "AI-assisted research, content, RFP, reporting, and workflow automation with human review gates and quality standards.",
+        "AI-assisted research, content, RFP, reporting, and workflow automation with human review gates and quality checks.",
     },
   ];
   const evolution = [
@@ -89,14 +89,14 @@ export default async function Home() {
     {
       step: "GTM systems engineer",
       description:
-        "Built the systems underneath growth: RevOps accountability, AI workflows, structured content engines, buyer intelligence, and executive reporting.",
+        "Built the systems underneath growth: RevOps accountability, AI workflows, content engines, buyer intelligence, and executive reporting.",
     },
   ];
   const usefulWhen = [
     "Your story is too complicated for sales to repeat consistently.",
     "Your pipeline reporting is hard to trust.",
-    "Marketing ships activity, but leadership cannot see the revenue system.",
-    "AI experiments are happening, but there is no governance or workflow design.",
+    "Marketing ships activity, and leadership still cannot see the revenue system.",
+    "AI experiments are happening without governance or workflow design.",
     "Sales and marketing disagree on definitions, handoffs, and ownership.",
     "Acquired brands or products need one coherent GTM motion.",
     "You need a VP-level operator who can still get hands-on with systems, copy, data, and automation.",
@@ -105,17 +105,17 @@ export default async function Home() {
     ? caseStudies.filter(hasCurrentSlug).map((cs: CaseStudyCardWithSlug) => ({
         slug: cs.slug.current,
         title: cs.title || "Untitled system",
-        label: cs.label || "Operating Proof",
+        label: cs.label || "Work proof",
         deck: cs.deck || "Redacted system brief.",
-        outcome: cs.outcome || "Outcome details available in the full dossier.",
+        outcome: cs.outcome || "Outcome details available in the case study.",
         scope: "",
         stack: (cs.stack || []).join(", "),
         governance: "",
-        businessProblem: cs.deck || "Business problem details available in the full dossier.",
-        whatIBuilt: "Build details available in the full dossier.",
-        whatChanged: cs.outcome || "Outcome details available in the full dossier.",
-        whyItMattered: "Business context available in the full dossier.",
-        whatItProves: "Operating proof available in the full dossier.",
+        businessProblem: cs.deck || "Business problem details available in the case study.",
+        whatIBuilt: "Build details available in the case study.",
+        whatChanged: cs.outcome || "Outcome details available in the case study.",
+        whyItMattered: "Business context available in the case study.",
+        whatItProves: "Operating proof available in the case study.",
         bullets: [],
         interviewLine: "",
       }))
@@ -220,11 +220,7 @@ export default async function Home() {
               </div>
               <div className="flex items-end">
                 <p className="text-paper/72 text-lg leading-relaxed">
-                  A lot of people can lead campaigns. Some can build dashboards.
-                  A few can write a good narrative. My work is connecting all of
-                  it into one operating system, so the team knows what to say,
-                  what to measure, who owns the next step, and where AI can
-                  remove drag without creating risk.
+                  I connect the parts that usually live in different rooms: the story, the funnel math, the CRM rules, the sales handoff, and the AI review path. The goal is simple. The team knows what to say, what to measure, who owns the next step, and where automation can remove drag without creating risk.
                 </p>
               </div>
             </div>
@@ -264,10 +260,7 @@ export default async function Home() {
                   <span className="text-accent italic">behind the work.</span>
                 </h2>
                 <p className="text-paper/72 text-lg leading-relaxed">
-                  The common thread is turning ambiguity into a system people
-                  can run. That started with writing and digital marketing, then
-                  became enterprise GTM leadership, RevOps accountability, and
-                  AI-native workflow design.
+                  The common thread is turning ambiguity into work people can run. It started with writing and digital marketing, then became enterprise GTM leadership, RevOps accountability, and AI workflow design.
                 </p>
               </div>
 
@@ -304,21 +297,19 @@ export default async function Home() {
             <div className="grid lg:grid-cols-2 gap-16 mb-20">
               <div>
                 <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
-                  Operating Proof
+                  Work proof
                 </span>
                 <h2 className="font-display text-4xl md:text-5xl leading-tight">
-                  Operating outcomes
+                  What changed
                   <br />
                   <span className="text-accent italic">
-                    after the systems shipped.
+                    after the work shipped.
                   </span>
                 </h2>
               </div>
               <div className="flex items-end">
                 <p className="text-paper/72 text-lg">
-                  Each example starts with a business problem, then shows what
-                  I built, what changed, and what the work proves about how I
-                  operate.
+                  Each example shows the mess I walked into, what I changed, and what the business could do afterward.
                 </p>
               </div>
             </div>
@@ -345,47 +336,46 @@ export default async function Home() {
                 <>
                   <div className="group p-8 border border-rule hover:border-accent transition-all duration-300 hover:bg-paper/[0.02]">
                     <span className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase mb-4 block">
-                      212% pipeline growth
+                      Pipeline discipline
                     </span>
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
-                      BDR Pod Transformation
+                      BDR pod rebuild
                     </h3>
                     <p className="text-paper/68 text-sm">
-                      Scaled from 1 to 4 signal-driven squads with 2-hour SLA
+                      Signal follow-up moved into a tighter SLA-driven rhythm
                     </p>
                   </div>
                   <div className="group p-8 border border-rule hover:border-accent transition-all duration-300 hover:bg-paper/[0.02]">
                     <span className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase mb-4 block">
-                      10% payment lift
+                      Outcome proof
                     </span>
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
-                      Outcome-First Repositioning
+                      Outcome-first repositioning
                     </h3>
                     <p className="text-paper/68 text-sm">
-                      Repositioned 6 business units from service to outcome
-                      language
+                      Rewrote 6 business-unit stories around buyer outcomes and proof
                     </p>
                   </div>
                   <div className="group p-8 border border-rule hover:border-accent transition-all duration-300 hover:bg-paper/[0.02]">
                     <span className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase mb-4 block">
-                      40% cycle reduction
+                      AI workflow control
                     </span>
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
-                      AI-Native GTM Engine
+                      Governed AI GTM engine
                     </h3>
                     <p className="text-paper/68 text-sm">
-                      Governed RFP automation with 99%+ compliance accuracy
+                      RFP and outbound drafts moved through approval gates before release
                     </p>
                   </div>
                   <div className="group p-8 border border-rule hover:border-accent transition-all duration-300 hover:bg-paper/[0.02]">
                     <span className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase mb-4 block">
-                      200+/yr output
+                      Ship rhythm
                     </span>
                     <h3 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
-                      Two-Function Marketing
+                      Two-function marketing
                     </h3>
                     <p className="text-paper/68 text-sm">
-                      7-day brief-to-ship SLA with governed workflow
+                      7-day brief-to-ship SLA with clearer intake and review rules
                     </p>
                   </div>
                 </>
@@ -397,7 +387,7 @@ export default async function Home() {
                 href="/case-studies"
                 className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent hover:text-paper transition-colors inline-flex items-center gap-2"
               >
-                View Full Case Studies <span>→</span>
+                View case studies <span>→</span>
               </Link>
             </div>
           </div>
@@ -414,15 +404,12 @@ export default async function Home() {
                 <h2 className="font-display text-4xl md:text-5xl leading-tight">
                   The opportunity is real,
                   <br />
-                  <span className="text-accent italic">but the system is underbuilt.</span>
+                  <span className="text-accent italic">and the system is underbuilt.</span>
                 </h2>
               </div>
               <div className="flex items-end">
                 <p className="text-paper/72 text-lg leading-relaxed">
-                  I am strongest in messy GTM environments where the story
-                  needs work, pipeline is hard to trust, the team is stretched,
-                  and leaders need someone who can operate at VP level without
-                  floating above the details.
+                  I am strongest in messy GTM environments where the story needs work, pipeline is hard to trust, the team is stretched, and leaders need a VP-level operator who still gets into the details.
                 </p>
               </div>
             </div>
@@ -469,7 +456,7 @@ export default async function Home() {
             <div className="flex justify-between items-end mb-12">
               <div>
                 <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
-                  Systems Portfolio
+                  Systems portfolio
                 </span>
                 <h2 id="catalogue-heading" className="font-display text-3xl">
                   Operating proof
@@ -479,7 +466,7 @@ export default async function Home() {
                 href="/case-studies"
                 className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/72 hover:text-accent transition-colors"
               >
-                View All →
+                View all →
               </Link>
             </div>
             <ProofExplorer items={catalogueItems} />
@@ -494,7 +481,7 @@ export default async function Home() {
         >
           <div className="mx-auto max-w-3xl text-center">
             <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-8 uppercase block">
-              Get in Touch
+              Get in touch
             </span>
             <h2
               id="contact-heading"
@@ -515,7 +502,7 @@ export default async function Home() {
                 href="mailto:connor.laughlin@gmail.com"
                 className="font-mono text-[11px] tracking-[0.2em] uppercase bg-accent text-ink px-10 py-4 rounded-full hover:bg-paper transition-all"
               >
-                Let&apos;s Talk
+                Let&apos;s talk
               </a>
               <a
                 href="https://linkedin.com/in/connorlaughlin"
@@ -532,7 +519,7 @@ export default async function Home() {
         <footer className="py-12 border-t border-rule px-6">
           <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4 opacity-40 font-mono text-[9px] tracking-[0.3em] uppercase">
             <span>© 2026 Connor Laughlin</span>
-            <span>Built with systems thinking</span>
+            <span>Built by Connor Laughlin</span>
             <span>TSI • Chicago • Remote</span>
           </div>
         </footer>

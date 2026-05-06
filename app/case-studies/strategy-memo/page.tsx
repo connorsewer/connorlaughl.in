@@ -15,10 +15,10 @@ export default function StrategyMemo() {
           </div>
 
           <div className="mt-8">
-            <div className="font-mono text-[11px] tracking-[0.32em] text-paper/65">THE ARCHITECTURE OF TRUST</div>
-            <h1 className="mt-4 font-display text-4xl md:text-5xl leading-tight">Trust-first, AI-native GTM</h1>
+            <div className="font-mono text-[11px] tracking-[0.32em] text-paper/65">HOW TRUST GETS BUILT</div>
+            <h1 className="mt-4 font-display text-4xl md:text-5xl leading-tight">How I build GTM systems people can trust</h1>
             <p className="mt-4 text-lg text-paper-muted leading-relaxed max-w-2xl">
-              A public-safe memo on how modern GTM gets built: governance, instrumentation, narrative discipline, and less dashboard theater.
+              A public version of how I think about GTM systems: clear definitions, useful instrumentation, safer automation, and language buyers can believe.
             </p>
           </div>
 
@@ -26,9 +26,9 @@ export default function StrategyMemo() {
 
           <div className="mt-8 grid md:grid-cols-3 gap-4">
             {[
-              ["THESIS", "Trust isn't brand. It's infrastructure."],
-              ["METHOD", "Define KPIs → build routing → add automation → enforce governance."],
-              ["PROMISE", "Speed without trust debt."],
+              ["THESIS", "Trust has to show up in the work."],
+              ["METHOD", "Define KPIs → build routing → add automation → add review gates."],
+              ["PROMISE", "Speed the business can defend."],
             ].map(([k, v]) => (
               <div key={k} className="rounded-2xl border border-rule bg-ink/55 p-5">
                 <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">{k}</div>
@@ -43,9 +43,7 @@ export default function StrategyMemo() {
             <section>
               <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">1) THE PROBLEM</div>
               <p className="mt-4">
-                Most GTM teams call it a performance problem. The real problem is <span className="text-paper font-display">trust</span>.
-                Definitions drift. Attribution becomes politics. Dashboards turn into theater.
-                When the reporting layer can&apos;t be believed, the organization stops making clean decisions.
+                GTM teams often treat bad reporting as a performance problem. I treat it as a trust problem. Definitions drift. Attribution becomes politics. When the reporting layer can&apos;t be believed, leaders stop making clean decisions.
               </p>
             </section>
 
@@ -58,18 +56,16 @@ export default function StrategyMemo() {
             </section>
 
             <section>
-              <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">3) THE PIVOT</div>
+              <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">3) THE MOVE</div>
               <p className="mt-4">
-                The pivot is to treat compliance and customer experience as <span className="text-paper font-display">product features</span>.
-                Reduce the risk in the operation first. Then make that operational truth legible to the buyer.
+                I treat compliance and customer experience as product features. First, reduce risk in the operation. Then make that operating truth legible to the buyer.
               </p>
             </section>
 
             <section>
-              <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">4) THE ENGINE</div>
+              <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">4) THE AI LAYER</div>
               <p className="mt-4">
-                AI can scale output. Only governance can scale trust.
-                Every automation needs an owner, a log, a threshold for human review, and an escalation path.
+                AI can scale output. Trust comes from the controls around it: an owner, a log, a threshold for human review, and an escalation path.
               </p>
               <div className="mt-5 rounded-2xl border border-rule bg-ink/55 p-6">
                 <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">GOVERNANCE CHECKLIST</div>
@@ -85,8 +81,7 @@ export default function StrategyMemo() {
             <section>
               <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60">5) THE OPERATING SYSTEM</div>
               <p className="mt-4">
-                Instrumentation before dashboards; routing before automation; governance before scale.
-                The goal is an org that ships faster over time and forecasts with confidence.
+                Instrumentation comes before dashboards. Routing comes before automation. Review gates come before scale. The goal is an org that ships faster over time and forecasts with more confidence.
               </p>
             </section>
           </div>
@@ -94,7 +89,7 @@ export default function StrategyMemo() {
           <div className="rule mt-10" />
 
           <div className="mt-8 text-sm text-paper/65">
-            Public-safe. In a deep dive I can share redacted artifacts and walk through the operating blueprint.
+            Public version. In a deep dive I can share redacted artifacts and walk through the operating blueprint.
           </div>
 
           <div className="mt-6">

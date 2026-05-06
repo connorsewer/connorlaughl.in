@@ -11,13 +11,13 @@ export default function ProofPage() {
           <div className="flex items-end justify-between gap-6 flex-wrap">
             <div>
               <div className="font-mono text-[11px] tracking-[0.32em] text-paper/70">
-                QUANTIFIED PROOF
+                WORK PROOF
               </div>
               <h1 className="mt-4 font-display text-4xl md:text-5xl leading-tight">
-                A proof index (built for exec review)
+                A proof index for exec review
               </h1>
               <p className="mt-4 max-w-2xl text-paper-muted leading-relaxed">
-                Hover to preview. Open to read. Public-safe by default; deeper artifacts available in a live walkthrough.
+                Hover to preview. Open to read. The public version stays careful; deeper artifacts are available in a live walkthrough.
               </p>
             </div>
           </div>
