@@ -29,7 +29,7 @@
 html.light {
   --ink: #F6F1E7;
   --paper: #070707;
-  --accent: #7D744D; /* slightly deeper khaki so it reads on light */
+  --accent: #746A43; /* deeper khaki so small labels read on light */
   --rule: rgba(7, 7, 7, 0.12);
   --paper-muted: rgba(7, 7, 7, 0.70);
 }

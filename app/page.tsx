@@ -129,7 +129,7 @@ export default async function Home() {
         {/* DYNAMIC HERO SECTION */}
         <section
           aria-labelledby="hero-heading"
-          className="min-h-screen flex flex-col justify-center px-6 pt-20 relative overflow-hidden"
+          className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-14 relative overflow-hidden sm:pt-20 sm:pb-0"
         >
           {/* Animated background gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-paper/5 pointer-events-none" />
@@ -137,7 +137,7 @@ export default async function Home() {
           <div className="mx-auto max-w-6xl w-full relative">
             {/* Top tagline */}
             <div className="animate-fade-in">
-              <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-6 uppercase block">
+              <span className="meta-label-accent mb-6 block max-w-[17rem] sm:max-w-none">
                 {tagline}
               </span>
             </div>
@@ -147,7 +147,7 @@ export default async function Home() {
               <div className="max-w-4xl">
                 <h1
                   id="hero-heading"
-                  className="font-display text-[clamp(3rem,9vw,6.5rem)] leading-[0.9] tracking-tight mb-8"
+                  className="font-display text-[clamp(2.75rem,12.5vw,6.5rem)] leading-[0.96] tracking-tight mb-8 sm:leading-[0.9]"
                 >
                   {headline.map((line) => (
                     <span key={line} className="block animate-slide-up">
@@ -156,7 +156,7 @@ export default async function Home() {
                   ))}
                 </h1>
 
-                <p className="text-xl md:text-2xl text-paper/72 max-w-2xl leading-relaxed text-balance animate-slide-up delay-200">
+                <p className="text-lg text-paper/78 max-w-2xl leading-relaxed text-balance animate-slide-up delay-200 sm:text-xl md:text-2xl md:text-paper/72">
                   {subheadline}
                 </p>
 
@@ -164,13 +164,13 @@ export default async function Home() {
                 <div className="flex flex-wrap gap-4 mt-10 animate-slide-up delay-400">
                   <a
                     href={primaryCTA.link}
-                    className="font-mono text-[11px] tracking-[0.2em] uppercase bg-accent text-ink px-8 py-4 rounded-full hover:bg-paper transition-all"
+                    className="w-full rounded-full bg-accent px-8 py-4 text-center font-mono text-[11px] uppercase tracking-[0.18em] text-ink transition-all hover:bg-paper sm:w-auto sm:tracking-[0.2em]"
                   >
                     {primaryCTA.text}
                   </a>
                   <a
                     href={secondaryCTA.link}
-                    className="font-mono text-[11px] tracking-[0.2em] uppercase border border-paper/30 px-8 py-4 rounded-full hover:border-accent transition-all"
+                    className="w-full rounded-full border border-paper/40 px-8 py-4 text-center font-mono text-[11px] uppercase tracking-[0.18em] text-paper/82 transition-all hover:border-accent hover:text-accent sm:w-auto sm:tracking-[0.2em]"
                   >
                     {secondaryCTA.text}
                   </a>
