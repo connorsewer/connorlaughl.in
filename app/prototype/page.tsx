@@ -1,7 +1,5 @@
-"use client";
-
-import Portfolio from "@/components/PortfolioPrototype";
+import { redirect } from "next/navigation";
 
 export default function PrototypePage() {
-  return <Portfolio />;
+  redirect("/");
 }

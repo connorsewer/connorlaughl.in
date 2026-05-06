@@ -24,9 +24,7 @@ export function FlagshipSystems() {
           </div>
           <div className="flex items-end">
             <p className="text-paper/72 text-lg leading-relaxed">
-              These are the systems that explain how I work. Each one started
-              as a messy business problem, then became a repeatable operating
-              model with owners, rules, proof, and a clearer next step.
+              These examples show how I work. I take a messy handoff, write the rules, assign owners, and make the work reviewable.
             </p>
           </div>
         </div>
@@ -91,7 +89,7 @@ export function FlagshipSystems() {
                 <div className="space-y-6">
                   <div>
                     <h4 className="meta-label-accent mb-3">
-                      Operating Proof
+                      What changed
                     </h4>
                     <ul className="space-y-3">
                       {system.proof.map((proof) => (
@@ -107,7 +105,7 @@ export function FlagshipSystems() {
                   </div>
                   <div>
                     <h4 className="meta-label-muted mb-3">
-                      Redacted System Artifacts
+                      Artifacts I can walk through
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {system.artifacts.map((artifact) => (

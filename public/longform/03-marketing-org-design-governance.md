@@ -2,7 +2,7 @@
 
 Category: Marketing Operations · Organizational Design · Governance
 Role: VP Marketing, TSI
-Archive reference: Operating Proof, TSI Marketing 2026 Plan
+Archive reference: TSI Marketing 2026 Plan
 
 ---
 
@@ -32,10 +32,10 @@ I restructured marketing into 2 clear, accountable functions.
 
 ## The governance layer
 
-Most org redesigns draw new boxes and leave the work untouched. I rebuilt how work moved.
+I started with how work moved before touching the org chart.
 
 - The Brief-to-Ship SLA set a 7-day turnaround for content assets: brief, outline, draft, review, build, ship.
-- Output floors made the work measurable: 26 press releases per year, 4+ weekly content posts, and 1 new sales asset per week.
+- Output floors made the work measurable: a published cadence for press releases, weekly content, and sales assets.
 - Beautiful.ai governance centralized deck management, version control, and brand compliance.
 - Monthly DebtNext and TSI Marketing reviews gave product marketing a real cadence.
 - GA4 audience segregation kept B2B lead-gen reporting separate from consumer traffic.
@@ -44,23 +44,23 @@ Most org redesigns draw new boxes and leave the work untouched. I rebuilt how wo
 
 | Output | Cadence |
 |---|---|
-| Press releases | 26/year |
-| Content posts, LOB-specific | 4+/week |
-| New sales assets | 1/week |
+| Press releases | Published annual cadence |
+| Content posts, LOB-specific | Weekly cadence |
+| New sales assets | Weekly cadence |
 | Brief-to-Ship SLA | 7 days max |
 | Cross-team alignment | Monthly |
 
-## Why this matters at the VP+ level
+## Why this matters at the VP level
 
-Org design is strategy made visible. I scrapped the inherited structure and rebuilt it around 2 questions: what drives pipeline, and what arms sellers?
+Org design only matters if it changes how work gets routed, reviewed, and shipped. I rebuilt the inherited structure around 2 questions: what drives pipeline, and what arms sellers?
 
-The answer shaped the governance, SLAs, cadences, and tooling. The result was a marketing function that operated like a product team, with defined inputs and measurable output.
+The answer shaped the review rules, SLAs, cadences, and tooling. The result was a marketing function with defined inputs and measurable output.
 
-The GA4 governance piece is worth a conversation by itself. A lot of companies can't tell which web traffic is B2B prospect activity and which traffic is consumer noise. We solved that at the tracking layer.
+The GA4 piece is worth a conversation by itself. We separated B2B prospect activity from consumer traffic at the tracking layer.
 
 ## Interview anchor
 
-> "I restructured marketing into 2 functions: Demand Gen and Sales Enablement. Then I put a 7-day Brief-to-Ship SLA, published output minimums, and strict GA4 audience segregation underneath it. Marketing stopped acting like a service desk and started operating like a product team: 26 press releases a year, 4+ weekly content posts, and 1 new sales asset per week, all tracked and governed."
+> "I restructured marketing into 2 functions: Demand Gen and Sales Enablement. Then I put a 7-day Brief-to-Ship SLA, published output floors, and strict GA4 audience separation underneath it. Marketing stopped acting like a service desk because the work had lanes, owners, and review rules."
 
 ## Artifacts available
 

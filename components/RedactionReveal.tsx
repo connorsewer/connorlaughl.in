@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { KeyboardEvent, PropsWithChildren, useState } from "react";
 
 /**
- * Public-safe artifact preview.
+ * Careful artifact preview.
  * Default: lightly redacted. Hover, focus, click, Enter, or Space reveal it.
  */
 export function RedactionReveal({
