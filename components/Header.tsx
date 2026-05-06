@@ -36,17 +36,6 @@ export function Header() {
               aria-label="Main navigation"
             >
               <Link
-                href="/proof"
-                className={`transition-colors ${
-                  pathname === "/proof" 
-                    ? "text-accent" 
-                    : "text-paper/60 hover:text-accent"
-                }`}
-                aria-current={pathname === "/proof" ? "page" : undefined}
-              >
-                Index
-              </Link>
-              <Link
                 href="/case-studies"
                 className={`transition-colors ${
                   pathname.startsWith("/case-studies")
@@ -55,7 +44,7 @@ export function Header() {
                 }`}
                 aria-current={pathname.startsWith("/case-studies") ? "page" : undefined}
               >
-                Archive
+                Case studies
               </Link>
               <Link
                 href="/#contact"

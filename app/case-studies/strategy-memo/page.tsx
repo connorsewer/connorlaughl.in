@@ -93,7 +93,7 @@ export default function StrategyMemo() {
           </div>
 
           <div className="mt-6">
-            <Link className="text-sm text-paper/75 hover:text-paper" href="/proof">
+            <Link className="text-sm text-paper/75 hover:text-paper" href="/case-studies#proof-index">
               Open the proof index →
             </Link>
           </div>
