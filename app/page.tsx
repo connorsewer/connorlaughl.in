@@ -111,6 +111,11 @@ export default async function Home() {
         scope: "",
         stack: (cs.stack || []).join(", "),
         governance: "",
+        businessProblem: cs.deck || "Business problem details available in the full dossier.",
+        whatIBuilt: "Build details available in the full dossier.",
+        whatChanged: cs.outcome || "Outcome details available in the full dossier.",
+        whyItMattered: "Business context available in the full dossier.",
+        whatItProves: "Operating proof available in the full dossier.",
         bullets: [],
         interviewLine: "",
       }))

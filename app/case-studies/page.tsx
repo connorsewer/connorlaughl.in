@@ -17,8 +17,8 @@ export default function CaseStudiesIndex() {
             <span className="text-accent italic">Archive.</span>
           </h1>
           <p className="text-xl text-paper/60 max-w-2xl mb-16 leading-relaxed">
-            Deep dives into GTM systems, revenue operations, and AI workflows.
-            Each case shows the business problem, the system I built, what changed, and how the work was governed.
+            Each case starts with the business problem, then shows what I built,
+            what changed, why it mattered, and what the work proves about how I operate.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -35,11 +35,11 @@ export default function CaseStudiesIndex() {
                   {study.title}
                 </h2>
                 <p className="text-paper/60 text-sm mb-4 line-clamp-2">
-                  {study.deck}
+                  {study.businessProblem}
                 </p>
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[9px] tracking-[0.2em] text-paper/58 uppercase">
-                    {study.outcome}
+                <div className="flex items-center justify-between gap-6">
+                  <span className="font-mono text-[9px] tracking-[0.08em] text-paper/58">
+                    {study.whatChanged}
                   </span>
                   <span className="text-accent text-sm">→</span>
                 </div>

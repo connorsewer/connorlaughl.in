@@ -45,20 +45,20 @@ export function ProofExplorer({ items }: { items: CaseStudy[] }) {
             transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
             className="sticky top-32"
           >
-            <div className="font-mono text-[10px] tracking-[0.3em] text-accent mb-4 uppercase">Executive Summary</div>
+            <div className="font-mono text-[10px] tracking-[0.3em] text-accent mb-4 uppercase">Case logic</div>
             <h3 className="font-display text-4xl mb-6 text-balance">{activeItem.title}</h3>
             <p className="text-paper/60 text-lg leading-relaxed mb-8 max-w-xl">
-              {activeItem.deck}
+              {activeItem.businessProblem}
             </p>
             
-            <div className="grid grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div>
-                <div className="font-mono text-[9px] tracking-[0.2em] text-paper/58 uppercase mb-2">Outcome</div>
-                <div className="text-sm border-l border-accent/30 pl-4">{activeItem.outcome}</div>
+                <div className="font-mono text-[9px] tracking-[0.2em] text-paper/58 uppercase mb-2">What I built</div>
+                <div className="text-sm border-l border-accent/30 pl-4">{activeItem.whatIBuilt}</div>
               </div>
               <div>
-                <div className="font-mono text-[9px] tracking-[0.2em] text-paper/58 uppercase mb-2">Primary Stack</div>
-                <div className="text-sm border-l border-accent/30 pl-4">{activeItem.stack}</div>
+                <div className="font-mono text-[9px] tracking-[0.2em] text-paper/58 uppercase mb-2">What changed</div>
+                <div className="text-sm border-l border-accent/30 pl-4">{activeItem.whatChanged}</div>
               </div>
             </div>
 

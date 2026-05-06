@@ -14,24 +14,38 @@ export default async function CaseStudyPage({
   const cs = getCaseStudy(slug);
   if (!cs) return notFound();
 
+  const story = [
+    ["Business problem", cs.businessProblem],
+    ["What I built", cs.whatIBuilt],
+    ["What changed", cs.whatChanged],
+    ["Why it mattered", cs.whyItMattered],
+    ["What it proves", cs.whatItProves],
+  ] as const;
+
+  const details = [
+    ["Scope", cs.scope],
+    ["Stack", cs.stack],
+    ["Governance", cs.governance],
+  ] as const;
+
   return (
     <div className="min-h-screen">
       <Header />
-      <main id="main-content" className="mx-auto max-w-4xl px-6 pt-10 md:pt-14 pb-20">
+      <main id="main-content" className="mx-auto max-w-5xl px-6 pt-10 md:pt-14 pb-20">
         <article className="rounded-3xl border border-rule bg-ink/35 px-6 md:px-10 py-10 md:py-12">
           <header className="flex items-center justify-between gap-6 flex-wrap">
-            <Link 
-              className="text-sm text-paper/70 hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded" 
+            <Link
+              className="text-sm text-paper/70 hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
               href="/case-studies"
             >
               ← Back to archive
             </Link>
             <span className="font-mono text-[11px] tracking-[0.32em] text-paper/60 uppercase">
-              Case Study
+              Case study
             </span>
           </header>
 
-          <div className="mt-8">
+          <div className="mt-8 max-w-3xl">
             <span className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
               {cs.label}
             </span>
@@ -41,15 +55,52 @@ export default async function CaseStudyPage({
 
           <div className="rule mt-8" role="separator" />
 
+          <section aria-labelledby="story-heading" className="mt-8">
+            <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-8">
+              <div>
+                <span className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">
+                  Case logic
+                </span>
+                <h2 id="story-heading" className="mt-3 font-display text-3xl md:text-4xl leading-tight">
+                  Problem, build, change, proof.
+                </h2>
+                <p className="mt-4 text-paper-muted leading-relaxed">
+                  Each case follows the same pattern: what was broken, what I built, what moved, why it mattered, and what the work says about how I operate.
+                </p>
+              </div>
+
+              <div className="grid gap-4">
+                {story.map(([label, value], index) => (
+                  <section
+                    key={label}
+                    aria-labelledby={`story-${index}`}
+                    className="rounded-2xl border border-rule bg-ink/55 p-5"
+                  >
+                    <div className="flex items-start gap-4">
+                      <span className="mt-1 font-mono text-[11px] tracking-[0.2em] text-accent" aria-hidden="true">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 id={`story-${index}`} className="font-mono text-[11px] tracking-[0.24em] text-paper/62 uppercase">
+                          {label}
+                        </h3>
+                        <p className="mt-2 text-paper/82 leading-relaxed">{value}</p>
+                      </div>
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <div className="rule mt-10" role="separator" />
+
           <section aria-labelledby="details-heading" className="mt-8">
-            <h2 id="details-heading" className="sr-only">Project Details</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {([
-                ["Outcome", cs.outcome],
-                ["Scope", cs.scope],
-                ["Stack", cs.stack],
-                ["Governance", cs.governance],
-              ] as const).map(([k, v]) => (
+            <h2 id="details-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
+              System details
+            </h2>
+            <div className="mt-4 grid md:grid-cols-3 gap-4">
+              {details.map(([k, v]) => (
                 <div key={k} className="rounded-2xl border border-rule bg-ink/55 p-5">
                   <h3 className="font-mono text-[11px] tracking-[0.32em] text-paper/60 uppercase">
                     {k}
@@ -62,9 +113,9 @@ export default async function CaseStudyPage({
 
           <div className="rule mt-10" role="separator" />
 
-          <section aria-labelledby="shipped-heading" className="mt-8">
-            <h2 id="shipped-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
-              What I Shipped
+          <section aria-labelledby="build-notes-heading" className="mt-8">
+            <h2 id="build-notes-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
+              Build notes
             </h2>
             <ul className="mt-4 space-y-3 text-paper/80" role="list">
               {cs.bullets.map((b, index) => (
@@ -79,7 +130,7 @@ export default async function CaseStudyPage({
 
           <section aria-labelledby="interview-heading" className="mt-8">
             <h2 id="interview-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
-              Interview Line
+              Interview line
             </h2>
             <blockquote className="mt-3 text-paper/85 leading-relaxed">
               <span aria-hidden="true">"</span>{cs.interviewLine}<span aria-hidden="true">"</span>
@@ -91,14 +142,14 @@ export default async function CaseStudyPage({
               <div className="rule mt-10" role="separator" />
               <section aria-labelledby="longform-heading" className="mt-8">
                 <h2 id="longform-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
-                  Longform Draft
+                  Longform draft
                 </h2>
                 <p className="mt-3 text-paper-muted leading-relaxed">
-                  Longform draft available (markdown).
+                  A longer markdown version is available for this case.
                 </p>
                 <div className="mt-4">
-                  <Link 
-                    className="text-sm text-paper/80 hover:text-paper underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded" 
+                  <Link
+                    className="text-sm text-paper/80 hover:text-paper underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
                     href={cs.longformHref}
                   >
                     Open longform draft →
@@ -112,14 +163,14 @@ export default async function CaseStudyPage({
 
           <section aria-labelledby="deep-dive-heading" className="mt-8">
             <h2 id="deep-dive-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
-              Deep Dive
+              Live walkthrough
             </h2>
             <p className="mt-3 text-paper-muted leading-relaxed">
-              In a live walkthrough I can share redacted artifacts (process maps, KPI dictionaries, example reporting packs, and automation logs).
+              In a live walkthrough I can share redacted artifacts: process maps, KPI dictionaries, reporting packs, QA checklists, and automation logs.
             </p>
             <div className="mt-5">
               <RedactionReveal>
-                Example artifacts: routing decision tree; KPI dictionary excerpt; QA checklist; a "what changed?" weekly narrative page.
+                Example artifacts: routing decision tree; KPI dictionary excerpt; QA checklist; weekly "what changed?" narrative page.
               </RedactionReveal>
             </div>
           </section>
