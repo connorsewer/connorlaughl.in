@@ -17,7 +17,7 @@ export function ThemeToggle() {
     return (
       <button
         aria-label="Toggle theme"
-        className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/60 border border-rule px-4 py-2 rounded-full"
+        className="font-mono text-[10px] tracking-[0.16em] uppercase text-paper/70 border border-rule px-3 py-2 rounded-full sm:text-[11px] sm:tracking-[0.2em] sm:px-4"
       >
         THEME
       </button>
@@ -31,7 +31,7 @@ export function ThemeToggle() {
     <button
       aria-label={`Switch to ${next} theme`}
       onClick={() => setTheme(next)}
-      className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/70 hover:text-accent hover:border-accent/60 transition-colors border border-rule px-4 py-2 rounded-full"
+      className="font-mono text-[10px] tracking-[0.16em] uppercase text-paper/78 hover:text-accent hover:border-accent/60 transition-colors border border-rule px-3 py-2 rounded-full sm:text-[11px] sm:tracking-[0.2em] sm:px-4"
     >
       {current === "dark" ? "Light" : "Dark"}
     </button>

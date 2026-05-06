@@ -8,7 +8,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[60] border-b border-rule bg-ink/92 py-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)] backdrop-blur-xl supports-[backdrop-filter]:bg-ink/82">
+    <header className="fixed top-0 left-0 right-0 z-[60] border-b border-rule bg-ink/92 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.18)] backdrop-blur-xl supports-[backdrop-filter]:bg-ink/82 sm:py-4">
       {/* Skip to main content link for keyboard users */}
       <a 
         href="#main-content" 
@@ -17,17 +17,17 @@ export function Header() {
         Skip to content
       </a>
       
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-center justify-between border-b border-rule pb-4">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex items-center justify-between">
           <Link 
             href="/" 
-            className="group flex items-baseline gap-2"
+            className="group flex min-w-0 items-baseline gap-1.5 sm:gap-2"
             aria-label="Connor J. Laughlin - Home"
           >
-            <span className="font-mono text-[11px] tracking-[0.3em] text-accent transition-colors group-hover:text-paper">
+            <span className="shrink-0 font-mono text-[10px] tracking-[0.26em] text-accent transition-colors group-hover:text-paper sm:text-[11px] sm:tracking-[0.3em]">
               CJL
             </span>
-            <span className="font-display text-xl tracking-tight">Connor J. Laughlin</span>
+            <span className="truncate font-display text-lg tracking-tight sm:text-xl">Connor J. Laughlin</span>
           </Link>
 
           <div className="flex items-center gap-4">
