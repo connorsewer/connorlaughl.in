@@ -31,7 +31,7 @@ export default async function CaseStudyPage({
   return (
     <div className="min-h-screen">
       <Header />
-      <main id="main-content" className="mx-auto max-w-5xl px-6 pt-10 md:pt-14 pb-20">
+      <main id="main-content" className="mx-auto max-w-5xl px-6 pt-32 md:pt-36 pb-20">
         <article className="rounded-3xl border border-rule bg-ink/35 px-6 md:px-10 py-10 md:py-12">
           <header className="flex items-center justify-between gap-6 flex-wrap">
             <Link
