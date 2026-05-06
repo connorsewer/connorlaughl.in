@@ -1,56 +1,62 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { PropsWithChildren, useCallback } from "react";
+import { motion } from "framer-motion";
+import { KeyboardEvent, PropsWithChildren, useState } from "react";
 
 /**
- * Luxury-friendly “public-safe / deep-dive” reveal.
- * Default: subtle redaction bars. On hover/focus: bars slide to expose content.
+ * Public-safe artifact preview.
+ * Default: lightly redacted. Hover, focus, click, Enter, or Space reveal it.
  */
 export function RedactionReveal({
-  label = "DEEP DIVE",
+  label = "Deep dive",
   children,
 }: PropsWithChildren<{ label?: string }>) {
-  const x = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 250, damping: 30 });
+  const [revealed, setRevealed] = useState(false);
 
-  const onMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const px = (e.clientX - rect.left) / rect.width;
-      x.set(px);
-    },
-    [x]
-  );
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setRevealed(true);
+    }
+  };
 
   return (
     <div
-      onMouseMove={onMove}
-      className="relative rounded-2xl border border-rule bg-ink/35 p-5 overflow-hidden"
+      aria-expanded={revealed}
+      aria-label={`${revealed ? "Hide" : "Reveal"} artifact examples`}
+      className="group relative overflow-hidden rounded-2xl border border-rule bg-ink/35 p-6 transition-colors hover:border-accent/70 focus-visible:border-accent"
+      onBlur={() => setRevealed(false)}
+      onClick={() => setRevealed(true)}
+      onFocus={() => setRevealed(true)}
+      onKeyDown={onKeyDown}
+      onMouseEnter={() => setRevealed(true)}
+      onMouseLeave={() => setRevealed(false)}
+      role="button"
       tabIndex={0}
     >
-      <div className="flex items-center justify-between gap-4">
-        <div className="font-mono text-[11px] tracking-[0.28em] text-paper/70">
-          {label}
-        </div>
-        <div className="font-mono text-[11px] tracking-[0.28em] text-accent/90">
-          HOVER TO REVEAL
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="meta-label-muted">{label}</div>
+        <div className="meta-label-accent">
+          {revealed ? "Shown" : "Focus or hover to reveal artifacts"}
         </div>
       </div>
 
-      <div className="mt-4 text-paper/80 leading-relaxed">{children}</div>
+      <div className={`mt-4 min-h-14 pb-1 leading-relaxed transition-colors ${revealed ? "text-paper/82" : "text-paper/52"}`}>
+        {children}
+      </div>
 
-      {/* Redaction bars layer */}
       <motion.div
-        aria-hidden
-        style={{ translateX: sx }}
-        className="pointer-events-none absolute inset-0 opacity-[0.92]"
+        animate={{ opacity: revealed ? 0 : 0.86 }}
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-2 top-[3.9rem]"
+        initial={false}
+        transition={{ duration: 0.25, ease: [0.19, 1, 0.22, 1] }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink to-transparent" />
-        <div className="absolute left-[-35%] top-0 h-full w-[70%]">
-          <div className="absolute left-0 top-[28%] h-8 w-full rounded-xl bg-black/70" />
-          <div className="absolute left-0 top-[47%] h-6 w-full rounded-xl bg-black/65" />
-          <div className="absolute left-0 top-[62%] h-7 w-full rounded-xl bg-black/60" />
+        <div className="absolute inset-0 bg-ink/88 backdrop-blur-[1px]" />
+        <div className="absolute inset-x-5 top-0 h-full">
+          <div className="absolute left-0 right-0 top-[18%] h-7 rounded-xl bg-paper/18" />
+          <div className="absolute left-0 right-10 top-[44%] h-6 rounded-xl bg-paper/16" />
+          <div className="absolute left-0 right-24 top-[66%] h-7 rounded-xl bg-paper/14" />
         </div>
       </motion.div>
     </div>
