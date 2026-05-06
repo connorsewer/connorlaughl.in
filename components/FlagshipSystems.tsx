@@ -10,7 +10,7 @@ export function FlagshipSystems() {
       <div className="mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 mb-16">
           <div>
-            <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-4 uppercase block">
+            <span className="meta-label-accent mb-4 block">
               Flagship Systems
             </span>
             <h2
@@ -39,7 +39,7 @@ export function FlagshipSystems() {
             >
               <div className="space-y-6">
                 <div>
-                  <span className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase block mb-4">
+                  <span className="meta-label-accent block mb-4">
                     0{index + 1} / {system.eyebrow}
                   </span>
                   <h3 className="font-display text-3xl md:text-4xl leading-tight group-hover:text-accent transition-colors">
@@ -48,14 +48,14 @@ export function FlagshipSystems() {
                 </div>
                 <p className="text-paper/72 leading-relaxed">{system.thesis}</p>
                 <div className="border border-rule bg-ink/[0.16] p-4">
-                  <h4 className="font-mono text-[9px] tracking-[0.24em] text-accent uppercase mb-2">
+                  <h4 className="meta-label-accent mb-2">
                     In plain English
                   </h4>
                   <p className="text-paper/76 text-sm leading-relaxed">
                     {system.plainEnglish}
                   </p>
                 </div>
-                <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-paper/58 leading-relaxed border-l border-accent pl-4">
+                <p className="meta-label-subtle leading-relaxed border-l border-accent pl-4">
                   {system.interviewLine}
                 </p>
               </div>
@@ -63,7 +63,7 @@ export function FlagshipSystems() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-5">
                   <div>
-                    <h4 className="font-mono text-[10px] tracking-[0.25em] text-paper/58 uppercase mb-2">
+                    <h4 className="meta-label-muted mb-2">
                       Problem
                     </h4>
                     <p className="text-paper/70 text-sm leading-relaxed">
@@ -71,7 +71,7 @@ export function FlagshipSystems() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-mono text-[10px] tracking-[0.25em] text-paper/58 uppercase mb-2">
+                    <h4 className="meta-label-muted mb-2">
                       System
                     </h4>
                     <p className="text-paper/70 text-sm leading-relaxed">
@@ -79,7 +79,7 @@ export function FlagshipSystems() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-mono text-[10px] tracking-[0.25em] text-paper/58 uppercase mb-2">
+                    <h4 className="meta-label-muted mb-2">
                       Governance
                     </h4>
                     <p className="text-paper/70 text-sm leading-relaxed">
@@ -90,7 +90,7 @@ export function FlagshipSystems() {
 
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-mono text-[10px] tracking-[0.25em] text-accent uppercase mb-3">
+                    <h4 className="meta-label-accent mb-3">
                       Operating Proof
                     </h4>
                     <ul className="space-y-3">
@@ -106,14 +106,14 @@ export function FlagshipSystems() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-mono text-[10px] tracking-[0.25em] text-paper/58 uppercase mb-3">
+                    <h4 className="meta-label-muted mb-3">
                       Redacted System Artifacts
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {system.artifacts.map((artifact) => (
                         <span
                           key={artifact}
-                          className="font-mono text-[9px] tracking-[0.14em] uppercase border border-rule bg-ink/30 px-3 py-2 text-paper/62"
+                          className="meta-label-subtle border border-rule bg-ink/30 px-3 py-2"
                         >
                           {artifact}
                         </span>

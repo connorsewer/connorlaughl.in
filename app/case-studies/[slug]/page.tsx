@@ -40,13 +40,13 @@ export default async function CaseStudyPage({
             >
               ← Back to archive
             </Link>
-            <span className="font-mono text-[11px] tracking-[0.32em] text-paper/60 uppercase">
+            <span className="meta-label-muted">
               Case study
             </span>
           </header>
 
           <div className="mt-8 max-w-3xl">
-            <span className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
+            <span className="meta-label-muted">
               {cs.label}
             </span>
             <h1 className="mt-4 font-display text-4xl md:text-5xl leading-tight">{cs.title}</h1>
@@ -58,7 +58,7 @@ export default async function CaseStudyPage({
           <section aria-labelledby="story-heading" className="mt-8">
             <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-8">
               <div>
-                <span className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">
+                <span className="meta-label-accent">
                   Case logic
                 </span>
                 <h2 id="story-heading" className="mt-3 font-display text-3xl md:text-4xl leading-tight">
@@ -77,11 +77,11 @@ export default async function CaseStudyPage({
                     className="rounded-2xl border border-rule bg-ink/55 p-5"
                   >
                     <div className="flex items-start gap-4">
-                      <span className="mt-1 font-mono text-[11px] tracking-[0.2em] text-accent" aria-hidden="true">
+                      <span className="mt-1 meta-label-accent" aria-hidden="true">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <div>
-                        <h3 id={`story-${index}`} className="font-mono text-[11px] tracking-[0.24em] text-paper/62 uppercase">
+                        <h3 id={`story-${index}`} className="meta-label-muted">
                           {label}
                         </h3>
                         <p className="mt-2 text-paper/82 leading-relaxed">{value}</p>
@@ -96,13 +96,13 @@ export default async function CaseStudyPage({
           <div className="rule mt-10" role="separator" />
 
           <section aria-labelledby="details-heading" className="mt-8">
-            <h2 id="details-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
+            <h2 id="details-heading" className="meta-label-muted">
               System details
             </h2>
             <div className="mt-4 grid md:grid-cols-3 gap-4">
               {details.map(([k, v]) => (
                 <div key={k} className="rounded-2xl border border-rule bg-ink/55 p-5">
-                  <h3 className="font-mono text-[11px] tracking-[0.32em] text-paper/60 uppercase">
+                  <h3 className="meta-label-muted">
                     {k}
                   </h3>
                   <p className="mt-2 text-sm text-paper/80 leading-relaxed">{v}</p>
@@ -114,13 +114,13 @@ export default async function CaseStudyPage({
           <div className="rule mt-10" role="separator" />
 
           <section aria-labelledby="build-notes-heading" className="mt-8">
-            <h2 id="build-notes-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
+            <h2 id="build-notes-heading" className="meta-label-muted">
               Build notes
             </h2>
             <ul className="mt-4 space-y-3 text-paper/80" role="list">
               {cs.bullets.map((b, index) => (
                 <li key={index} className="leading-relaxed">
-                  <span className="font-mono text-[11px] tracking-[0.32em] text-paper/62" aria-hidden="true">•</span> {b}
+                  <span className="meta-label-muted" aria-hidden="true">•</span> {b}
                 </li>
               ))}
             </ul>
@@ -129,7 +129,7 @@ export default async function CaseStudyPage({
           <div className="rule mt-10" role="separator" />
 
           <section aria-labelledby="interview-heading" className="mt-8">
-            <h2 id="interview-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
+            <h2 id="interview-heading" className="meta-label-muted">
               Interview line
             </h2>
             <blockquote className="mt-3 text-paper/85 leading-relaxed">
@@ -141,7 +141,7 @@ export default async function CaseStudyPage({
             <>
               <div className="rule mt-10" role="separator" />
               <section aria-labelledby="longform-heading" className="mt-8">
-                <h2 id="longform-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
+                <h2 id="longform-heading" className="meta-label-muted">
                   Longform draft
                 </h2>
                 <p className="mt-3 text-paper-muted leading-relaxed">
@@ -162,7 +162,7 @@ export default async function CaseStudyPage({
           <div className="rule mt-10" role="separator" />
 
           <section aria-labelledby="deep-dive-heading" className="mt-8">
-            <h2 id="deep-dive-heading" className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
+            <h2 id="deep-dive-heading" className="meta-label-muted">
               Live walkthrough
             </h2>
             <p className="mt-3 text-paper-muted leading-relaxed">
