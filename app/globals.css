@@ -36,7 +36,12 @@ html.light {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
   background-color: var(--ink);
+}
+
+[id] {
+  scroll-margin-top: 7rem;
 }
 
 body {
@@ -166,18 +171,24 @@ a:focus-visible,
 
 /* Skip link for keyboard navigation */
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
   background: var(--accent);
   color: var(--ink);
   padding: 8px 16px;
   z-index: 1000;
-  transition: top 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-150%);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.skip-link:focus {
-  top: 0;
+.skip-link:focus,
+.skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* Screen reader only content */

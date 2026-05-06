@@ -8,7 +8,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[60] py-4 backdrop-blur-xl bg-ink/55 supports-[backdrop-filter]:bg-ink/40">
+    <header className="fixed top-0 left-0 right-0 z-[60] border-b border-rule bg-ink/92 py-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)] backdrop-blur-xl supports-[backdrop-filter]:bg-ink/82">
       {/* Skip to main content link for keyboard users */}
       <a 
         href="#main-content" 

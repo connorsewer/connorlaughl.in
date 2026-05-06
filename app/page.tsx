@@ -42,7 +42,7 @@ export default async function Home() {
   const services = await client.fetch(servicesQuery);
 
   // Keep the homepage positioning local-first so stale CMS copy cannot override the GTM Engineer narrative.
-  const headline = "Marketing executive. GTM systems engineer.";
+  const headline = ["Marketing executive.", "GTM systems engineer."];
   const subheadline =
     "I can set the GTM strategy in the boardroom and build the system that makes it real. I turn scattered marketing, sales, data, and AI workflows into operating systems with clear ownership, trusted pipeline, governed automation, and measurable growth.";
   const tagline = "VP Marketing / Acting CMO • Revenue Systems • Governed AI";
@@ -149,7 +149,11 @@ export default async function Home() {
                   id="hero-heading"
                   className="font-display text-[clamp(3rem,9vw,6.5rem)] leading-[0.9] tracking-tight mb-8"
                 >
-                  <span className="block animate-slide-up">{headline}</span>
+                  {headline.map((line) => (
+                    <span key={line} className="block animate-slide-up">
+                      {line}
+                    </span>
+                  ))}
                 </h1>
 
                 <p className="text-xl md:text-2xl text-paper/72 max-w-2xl leading-relaxed text-balance animate-slide-up delay-200">
