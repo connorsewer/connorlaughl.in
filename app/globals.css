@@ -76,6 +76,46 @@ html.light body::before {
 
 .text-balance { text-wrap: balance; }
 
+/* Readable metadata labels.
+   The site uses small mono labels as a visual system. These classes keep that
+   style while avoiding the tiny, low-opacity labels that were hard to read in
+   light mode and dense card layouts. */
+.meta-label-accent,
+.meta-label-muted,
+.meta-label-subtle {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 650;
+  letter-spacing: 0.22em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.meta-label-accent {
+  color: var(--accent);
+}
+
+.meta-label-muted {
+  color: color-mix(in srgb, var(--paper) 74%, transparent);
+}
+
+.meta-label-subtle {
+  color: color-mix(in srgb, var(--paper) 68%, transparent);
+  letter-spacing: 0.16em;
+}
+
+.meta-label-normal {
+  text-transform: none;
+}
+
+@media (min-width: 768px) {
+  .meta-label-accent,
+  .meta-label-muted,
+  .meta-label-subtle {
+    font-size: 0.75rem;
+  }
+}
+
 /* Custom Underline */
 .link-editorial {
   position: relative;

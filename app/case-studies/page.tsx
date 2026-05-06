@@ -9,14 +9,14 @@ export default function CaseStudiesIndex() {
       
       <main id="main-content" className="min-h-screen pt-32 px-6">
         <div className="mx-auto max-w-6xl">
-          <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-6 uppercase block">
+          <span className="meta-label-accent mb-6 block">
             Operating Proof
           </span>
           <h1 className="font-display text-[clamp(3rem,8vw,5rem)] leading-[0.9] tracking-tight mb-8">
             Case Study<br />
             <span className="text-accent italic">Archive.</span>
           </h1>
-          <p className="text-xl text-paper/60 max-w-2xl mb-16 leading-relaxed">
+          <p className="text-xl text-paper/72 max-w-2xl mb-16 leading-relaxed">
             Each case starts with the business problem, then shows what I built,
             what changed, why it mattered, and what the work proves about how I operate.
           </p>
@@ -28,17 +28,17 @@ export default function CaseStudiesIndex() {
                 href={`/case-studies/${study.slug}`}
                 className="group block p-8 border border-rule hover:border-accent transition-colors"
               >
-                <span className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase block mb-4">
+                <span className="meta-label-accent block mb-4">
                   {study.label}
                 </span>
                 <h2 className="font-display text-2xl mb-3 group-hover:text-accent transition-colors">
                   {study.title}
                 </h2>
-                <p className="text-paper/60 text-sm mb-4 line-clamp-2">
+                <p className="text-paper/72 text-sm mb-4 line-clamp-2 leading-relaxed">
                   {study.businessProblem}
                 </p>
                 <div className="flex items-center justify-between gap-6">
-                  <span className="font-mono text-[9px] tracking-[0.08em] text-paper/58">
+                  <span className="text-paper/72 text-sm leading-relaxed">
                     {study.whatChanged}
                   </span>
                   <span className="text-accent text-sm">→</span>
@@ -50,7 +50,7 @@ export default function CaseStudiesIndex() {
       </main>
 
       <footer className="py-12 border-t border-rule px-6 mt-32">
-        <div className="mx-auto max-w-6xl flex justify-between items-center opacity-30 font-mono text-[9px] tracking-[0.3em] uppercase">
+        <div className="mx-auto max-w-6xl flex justify-between items-center opacity-55 meta-label-subtle">
           <span>© 2026 CJL</span>
           <span>Built on Trust</span>
         </div>
