@@ -8,6 +8,7 @@ import {
 import { Header } from "@/components/Header";
 import { FlagshipSystems } from "@/components/FlagshipSystems";
 import { ProofExplorer } from "@/components/ProofExplorer";
+import { VisualAsset } from "@/components/VisualAsset";
 import { caseStudies as localCaseStudies } from "@/content/case-studies";
 import type { Metadata } from "next";
 
@@ -142,15 +143,15 @@ export default async function Home() {
               </span>
             </div>
 
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
+            <div className="flex flex-col justify-between gap-12 mb-16 lg:flex-row lg:items-center">
               {/* Main headline */}
-              <div className="max-w-4xl">
+              <div className="max-w-4xl lg:max-w-3xl">
                 <h1
                   id="hero-heading"
-                  className="font-display text-[clamp(2.75rem,12.5vw,6.5rem)] leading-[0.96] tracking-tight mb-8 sm:leading-[0.9]"
+                  className="font-display text-[clamp(2.75rem,12.5vw,6.5rem)] leading-[0.96] tracking-tight mb-8 sm:leading-[0.9] lg:text-[clamp(4.25rem,6.2vw,5.6rem)]"
                 >
                   {headline.map((line) => (
-                    <span key={line} className="block animate-slide-up">
+                    <span key={line} className="block animate-slide-up lg:whitespace-nowrap">
                       {line}
                     </span>
                   ))}
@@ -177,21 +178,34 @@ export default async function Home() {
                 </div>
               </div>
 
-              {/* Stats grid */}
-              <aside className="grid grid-cols-2 lg:grid-cols-1 gap-4 lg:w-80 animate-slide-in-right delay-300 border border-rule bg-paper/[0.02] p-5">
-                {stats.map((stat: HeroStat) => (
-                  <div
-                    key={stat.label}
-                    className="group border-l-2 border-rule hover:border-accent pl-4 transition-all"
-                  >
-                    <span className="font-display text-4xl group-hover:text-accent transition-colors">
-                      {stat.value}
-                    </span>
-                    <span className="font-mono text-[10px] tracking-[0.18em] text-paper/58 uppercase block">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
+              <aside className="w-full animate-slide-in-right delay-300 lg:w-[24rem] xl:w-[27rem]">
+                <VisualAsset
+                  src="/visuals/dithered/01-homepage-hero-artifact.webp"
+                  mobileSrc="/visuals/exported/01-homepage-hero-artifact-mobile.webp"
+                  alt=""
+                  width={1122}
+                  height={1402}
+                  mobileWidth={720}
+                  mobileHeight={900}
+                  priority
+                  className="aspect-[4/5] rounded-[2rem] border border-rule bg-paper/[0.025] shadow-editorial"
+                  imageClassName="opacity-[0.86] mix-blend-normal"
+                />
+                <div className="mt-5 grid grid-cols-2 gap-4 border border-rule bg-paper/[0.02] p-5">
+                  {stats.map((stat: HeroStat) => (
+                    <div
+                      key={stat.label}
+                      className="group border-l-2 border-rule pl-4 transition-all hover:border-accent"
+                    >
+                      <span className="font-display text-4xl transition-colors group-hover:text-accent">
+                        {stat.value}
+                      </span>
+                      <span className="meta-label-subtle block">
+                        {stat.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </aside>
             </div>
           </div>

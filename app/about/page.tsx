@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { VisualAsset } from "@/components/VisualAsset";
 
 export const metadata: Metadata = {
   title: "About Connor Laughlin | Personal notes",
@@ -63,10 +64,23 @@ export default function AboutPage() {
               </h1>
             </div>
 
-            <div className="max-w-2xl text-lg leading-relaxed text-paper/76 md:text-xl">
-              <p>
-                I spend a lot of time thinking about systems, stories, and how work actually gets done. Away from the laptop, life is smaller and better: Kristin, 3 dogs, football, movies, music, and getting to the gym before the day can talk me out of it.
-              </p>
+            <div className="grid gap-7">
+              <VisualAsset
+                src="/visuals/exported/02-about-personal-still-life.webp"
+                mobileSrc="/visuals/exported/02-about-personal-still-life-mobile.webp"
+                alt="A warm still life of travel, film, music, sports, and dog-tag objects on dark paper."
+                width={1122}
+                height={1402}
+                mobileWidth={720}
+                mobileHeight={900}
+                priority
+                className="aspect-[4/5] rounded-[2rem] border border-rule bg-paper/[0.02] shadow-editorial"
+              />
+              <div className="max-w-2xl text-lg leading-relaxed text-paper/76 md:text-xl">
+                <p>
+                  I spend a lot of time thinking about systems, stories, and how work actually gets done. Away from the laptop, life is smaller and better: Kristin, 3 dogs, football, movies, music, and getting to the gym before the day can talk me out of it.
+                </p>
+              </div>
             </div>
           </div>
 

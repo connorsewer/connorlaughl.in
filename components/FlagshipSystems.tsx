@@ -1,4 +1,5 @@
 import { flagshipSystems } from "@/content/flagship-systems";
+import { VisualAsset } from "@/components/VisualAsset";
 
 export function FlagshipSystems() {
   return (
@@ -8,7 +9,7 @@ export function FlagshipSystems() {
       className="py-24 md:py-28 px-6 border-y border-rule bg-paper/[0.015]"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 mb-16">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 mb-10">
           <div>
             <span className="meta-label-accent mb-4 block">
               Flagship Systems
@@ -28,6 +29,17 @@ export function FlagshipSystems() {
             </p>
           </div>
         </div>
+
+        <VisualAsset
+          src="/visuals/exported/07-flagship-systems-artifact.webp"
+          mobileSrc="/visuals/exported/07-flagship-systems-artifact-mobile.webp"
+          alt="Abstract paper cards and connector lines arranged like a GTM systems map."
+          width={1600}
+          height={900}
+          mobileWidth={720}
+          mobileHeight={405}
+          className="mb-16 aspect-video rounded-[2rem] border border-rule bg-paper/[0.02] shadow-editorial"
+        />
 
         <div className="grid gap-8">
           {flagshipSystems.map((system, index) => (
