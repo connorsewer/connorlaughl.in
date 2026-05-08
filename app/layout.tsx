@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { GeistPixelSquare } from "geist/font/pixel";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const sans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-sans",
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
-});
-
-// Cool, modern serif for headers (luxury editorial)
 const display = Instrument_Serif({
   subsets: ["latin"],
   weight: ["400"],
@@ -23,9 +13,33 @@ const display = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Connor J. Laughlin — The Architecture of Trust",
+  title: "Connor J. Laughlin — VP Marketing & GTM",
   description:
-    "Luxury editorial portfolio: GTM Ops / RevOps / GTM Systems, built on governance, instrumentation, and narrative discipline.",
+    "Notes on the systems I've built. $15M influenced pipeline, 300% inbound growth, governed AI workflows, and the org designs underneath them.",
+  metadataBase: new URL("https://www.connorlaughl.in"),
+  openGraph: {
+    title: "Connor J. Laughlin — VP Marketing & GTM",
+    description:
+      "Notes on the systems I've built. $15M influenced pipeline, 300% inbound growth, governed AI workflows, and the org designs underneath them.",
+    url: "https://www.connorlaughl.in",
+    siteName: "Connor J. Laughlin",
+    type: "website",
+    images: [
+      {
+        url: "/og/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Connor J. Laughlin — VP Marketing & GTM",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Connor J. Laughlin — VP Marketing & GTM",
+    description:
+      "Notes on the systems I've built. $15M influenced pipeline, 300% inbound growth, governed AI workflows.",
+    images: ["/og/og.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -36,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${sans.variable} ${mono.variable} ${display.variable} antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${display.variable} antialiased`}
       >
         <ThemeProvider>{children}</ThemeProvider>
       </body>
