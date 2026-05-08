@@ -14,62 +14,75 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[60] py-6">
+    <header className="site-header fixed top-0 left-0 right-0 z-[60]">
       {/* Skip to main content link for keyboard users */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="skip-link font-mono text-[10px] tracking-[0.2em] uppercase"
       >
         Skip to content
       </a>
-      
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-center justify-between border-b border-rule pb-4">
-          <Link 
-            href="/" 
-            className="group flex items-baseline gap-2"
-            aria-label="Connor J. Laughlin - Home"
+
+      <div className="mx-auto max-w-6xl px-6 py-5">
+        <div className="flex items-center justify-between gap-6">
+          <Link
+            href="/"
+            className="group flex items-baseline gap-2 shrink-0"
+            aria-label="Connor J. Laughlin — Home"
           >
-            <span className="font-mono text-[10px] tracking-[0.3em] text-accent transition-colors group-hover:text-paper">
+            <span className="font-pixel text-[11px] tracking-[0.3em] text-accent transition-colors group-hover:text-paper">
               CJL
             </span>
             <span className="font-display text-lg tracking-tight">Connor J. Laughlin</span>
           </Link>
 
-          <div className="flex items-center gap-4">
-            <nav 
-              className="flex items-center gap-8 font-mono text-[10px] tracking-[0.2em] uppercase"
+          <div className="flex items-center gap-7">
+            <nav
+              className="hidden md:flex items-center gap-7 font-mono text-[10px] tracking-[0.2em] uppercase"
               aria-label="Main navigation"
             >
               <Link
+                href="/case-studies"
+                className={`transition-colors ${
+                  pathname.startsWith("/case-studies")
+                    ? "text-accent"
+                    : "text-paper/65 hover:text-accent"
+                }`}
+                aria-current={pathname.startsWith("/case-studies") ? "page" : undefined}
+              >
+                Work
+              </Link>
+              <Link
                 href="/proof"
                 className={`transition-colors ${
-                  pathname === "/proof" 
-                    ? "text-accent" 
-                    : "text-paper/60 hover:text-accent"
+                  pathname === "/proof"
+                    ? "text-accent"
+                    : "text-paper/65 hover:text-accent"
                 }`}
                 aria-current={pathname === "/proof" ? "page" : undefined}
               >
                 Index
               </Link>
               <Link
-                href="/case-studies"
+                href="/about"
                 className={`transition-colors ${
-                  pathname.startsWith("/case-studies")
-                    ? "text-accent" 
-                    : "text-paper/60 hover:text-accent"
+                  pathname === "/about"
+                    ? "text-accent"
+                    : "text-paper/65 hover:text-accent"
                 }`}
-                aria-current={pathname.startsWith("/case-studies") ? "page" : undefined}
+                aria-current={pathname === "/about" ? "page" : undefined}
               >
-                Archive
+                About
               </Link>
               <Link
                 href="/#contact"
-                className="text-paper/60 hover:text-accent transition-colors"
+                className="text-paper/65 hover:text-accent transition-colors"
               >
                 Contact
               </Link>
             </nav>
+
+            <span aria-hidden="true" className="hidden md:inline-block w-px h-4 bg-rule" />
 
             <ThemeToggle />
           </div>

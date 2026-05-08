@@ -14,23 +14,26 @@ export function ThemeToggle() {
     return (
       <button
         aria-label="Toggle theme"
-        className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/40 border border-rule px-4 py-2 rounded-full"
+        className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/40 inline-flex items-center gap-2"
       >
-        THEME
+        <span aria-hidden="true">◐</span>
+        Theme
       </button>
     );
   }
 
   const current = theme === "system" ? resolvedTheme : theme;
   const next = current === "dark" ? "light" : "dark";
+  const glyph = current === "dark" ? "○" : "●";
 
   return (
     <button
       aria-label={`Switch to ${next} theme`}
       onClick={() => setTheme(next)}
-      className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/60 hover:text-accent transition-colors border border-rule px-4 py-2 rounded-full"
+      className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/65 hover:text-accent transition-colors inline-flex items-center gap-2"
     >
-      {current === "dark" ? "Light" : "Dark"}
+      <span aria-hidden="true" className="text-accent">{glyph}</span>
+      {next}
     </button>
   );
 }
