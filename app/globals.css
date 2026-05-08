@@ -71,20 +71,20 @@ body::before {
   z-index: 100;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.13  0 0 0 0 0.10  0 0 0 0 0.07  0 0 0 0.7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
-  background-size: 240px 240px;
-  opacity: 0.05;
+  background-size: 220px 220px;
+  opacity: 0.10;
   mix-blend-mode: overlay;
 }
 
 html.light body::before {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.04  0 0 0 0 0.02  0 0 0 0.8 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
-  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.04  0 0 0 0 0.02  0 0 0 0.95 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
+  opacity: 0.14;
   mix-blend-mode: multiply;
 }
 
-/* Layer 2: soft warm vignette — like a page lit from above-center.
-   Dark mode darkens corners; light mode adds a barely-there warm
-   aura without graying the cream. */
+/* Layer 2: warm radial wash + corner vignette. Reads as "page under
+   museum lighting" — directional warmth from above-center, deeper
+   tone at the corners. */
 body::after {
   content: "";
   position: fixed;
@@ -95,13 +95,13 @@ body::after {
     radial-gradient(
       ellipse 130% 110% at 50% 28%,
       transparent 0%,
-      transparent 55%,
-      rgba(0, 0, 0, 0.22) 100%
+      transparent 50%,
+      rgba(0, 0, 0, 0.42) 100%
     ),
     radial-gradient(
-      ellipse 80% 60% at 50% 35%,
-      rgba(183, 170, 122, 0.045) 0%,
-      transparent 60%
+      ellipse 75% 55% at 50% 32%,
+      rgba(183, 170, 122, 0.10) 0%,
+      transparent 65%
     );
   mix-blend-mode: multiply;
 }
@@ -111,13 +111,13 @@ html.light body::after {
     radial-gradient(
       ellipse 130% 110% at 50% 28%,
       transparent 0%,
-      transparent 60%,
-      rgba(60, 40, 20, 0.05) 100%
+      transparent 55%,
+      rgba(60, 40, 20, 0.13) 100%
     ),
     radial-gradient(
-      ellipse 80% 60% at 50% 32%,
-      rgba(125, 116, 77, 0.035) 0%,
-      transparent 60%
+      ellipse 75% 55% at 50% 30%,
+      rgba(125, 116, 77, 0.09) 0%,
+      transparent 65%
     );
   mix-blend-mode: normal;
 }
