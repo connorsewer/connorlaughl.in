@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Header } from "@/components/Header";
 import type { Metadata } from "next";
 
@@ -24,7 +25,29 @@ export default function StrategyMemo() {
             <span className="status-pill pixel-flicker">Memo · 2024</span>
           </div>
 
-          <div className="mt-8">
+          <figure className="mt-8 flex flex-col gap-3">
+            <div className="dither-frame w-full">
+              <div className="frame-well relative w-full overflow-hidden bg-ink aspect-[16/9]">
+                <Image
+                  src="/strategy-memo/cover.webp"
+                  alt="Flat-lay of printed worksheets, a black notebook, a pen, paperclips, and a glass of water on a desk."
+                  fill
+                  sizes="(min-width: 1024px) 56rem, 100vw"
+                  priority
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[10px] tracking-[0.2em] uppercase text-paper/55">
+              <span className="fig-num">Fig. 50</span>
+              <span aria-hidden="true">·</span>
+              <span className="normal-case tracking-wide text-paper/65">
+                The desk · KPI dictionary, claims register, audit log
+              </span>
+            </figcaption>
+          </figure>
+
+          <div className="mt-10">
             <span className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">
               Public-safe memo
             </span>
@@ -105,6 +128,26 @@ export default function StrategyMemo() {
               <p className="mt-4">
                 Instrumentation before dashboards. Routing before automation. Governance before scale. The goal is an org that ships faster over time and forecasts with confidence.
               </p>
+              <figure className="mt-8 flex flex-col gap-3">
+                <div className="dither-frame w-full">
+                  <div className="frame-well relative w-full overflow-hidden bg-ink aspect-[16/9]">
+                    <Image
+                      src="/strategy-memo/operating-review.webp"
+                      alt="Open three-ring binder showing a Weekly Operating Review packet next to a coffee cup and pen."
+                      fill
+                      sizes="(min-width: 1024px) 56rem, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[10px] tracking-[0.2em] uppercase text-paper/55">
+                  <span className="fig-num">Fig. 51</span>
+                  <span aria-hidden="true">·</span>
+                  <span className="normal-case tracking-wide text-paper/65">
+                    Weekly operating review · current quarter
+                  </span>
+                </figcaption>
+              </figure>
             </section>
           </div>
 
