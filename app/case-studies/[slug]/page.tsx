@@ -22,14 +22,14 @@ const FIGS: Record<string, SlugFigures> = {
         src: "/case-studies/ga4-taxonomy.webp",
         alt: "GA4 event taxonomy worksheet with event names, triggers, parameters, and CRM mappings.",
         caption: "GA4 event taxonomy · Plate GA-EV-TAX-01",
-        ratio: "3/2",
+        ratio: "16/9",
         fig: 26,
       },
       {
         src: "/case-studies/utm-spec.webp",
         alt: "UTM and hidden-field capture specification document with parameter definitions, form schematic, and CRM mappings.",
         caption: "UTM capture spec · Plate UTM-SPEC-27",
-        ratio: "16/10",
+        ratio: "16/9",
         fig: 27,
       },
     ],
@@ -47,7 +47,7 @@ const FIGS: Record<string, SlugFigures> = {
         src: "/case-studies/claims-register.webp",
         alt: "A redacted claims register tracking marketing claim status, evidence, and approvals.",
         caption: "Claims register · Plate MK-CR-18",
-        ratio: "3/2",
+        ratio: "16/9",
         fig: 29,
       },
     ],
@@ -72,7 +72,7 @@ const FIGS: Record<string, SlugFigures> = {
         src: "/case-studies/reverse-funnel.webp",
         alt: "Reverse funnel capacity planner with quota, conversion-rate inputs, and required volumes back-calculated.",
         caption: "Reverse funnel capacity planner · Fig. 16",
-        ratio: "3/2",
+        ratio: "16/9",
         fig: 32,
       },
     ],
@@ -122,7 +122,7 @@ const FIGS: Record<string, SlugFigures> = {
         src: "/case-studies/rfp-gate.webp",
         alt: "Governed RFP approval gate checklist with audit trail and approval-required stamp.",
         caption: "RFP approval gate · Fig. 20",
-        ratio: "3/2",
+        ratio: "16/9",
         fig: 38,
       },
     ],
@@ -132,7 +132,7 @@ const FIGS: Record<string, SlugFigures> = {
       src: "/case-studies/signal-routing.webp",
       alt: "Signal-to-meeting routing flowchart with website signal scoring, enrichment, tier gating, and SDR queue.",
       caption: "Signal-to-meeting routing · Fig. 14",
-      ratio: "3/2",
+      ratio: "16/9",
       fig: 39,
     },
     body: [
@@ -140,7 +140,7 @@ const FIGS: Record<string, SlugFigures> = {
         src: "/case-studies/bdr-logbook.webp",
         alt: "BDR signal-to-touch SLA logbook tracking time received, signal type, tier, and SLA status by row.",
         caption: "Signal-to-touch SLA logbook",
-        ratio: "3/2",
+        ratio: "16/9",
         fig: 40,
       },
     ],
@@ -158,7 +158,7 @@ const FIGS: Record<string, SlugFigures> = {
         src: "/case-studies/claims-register.webp",
         alt: "Claims register with redacted rows showing claim category, evidence sources, and approval status.",
         caption: "Claims register · Plate MK-CR-18",
-        ratio: "3/2",
+        ratio: "16/9",
         fig: 42,
       },
     ],
@@ -168,7 +168,7 @@ const FIGS: Record<string, SlugFigures> = {
       src: "/case-studies/intake-board.webp",
       alt: "Brief-to-ship intake board across seven days from request through ship and archive.",
       caption: "Brief-to-ship intake board · MKT-INT-01",
-      ratio: "3/2",
+      ratio: "16/9",
       fig: 43,
     },
     body: [
@@ -176,7 +176,7 @@ const FIGS: Record<string, SlugFigures> = {
         src: "/case-studies/content-calendar.webp",
         alt: "Content governance calendar and asset queue with content workflow lanes and library access controls.",
         caption: "Content governance calendar · CGC-24-RE",
-        ratio: "3/2",
+        ratio: "16/9",
         fig: 44,
       },
       {
@@ -211,7 +211,7 @@ const FIGS: Record<string, SlugFigures> = {
       src: "/case-studies/ia-map.webp",
       alt: "Enterprise website conversion information-architecture map with global elements, solutions, and conversion routes.",
       caption: "Website conversion IA · IA-MAP-26",
-      ratio: "3/2",
+      ratio: "16/9",
       fig: 48,
     },
     body: [
@@ -240,7 +240,7 @@ function FigureBlock({ figure }: { figure: Figure }) {
             alt={figure.alt}
             fill
             sizes="(min-width: 1024px) 56rem, 100vw"
-            className="object-cover"
+            className="object-contain"
           />
         </div>
       </div>

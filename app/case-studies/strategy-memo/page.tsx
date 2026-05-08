@@ -34,7 +34,7 @@ export default function StrategyMemo() {
                   fill
                   sizes="(min-width: 1024px) 56rem, 100vw"
                   priority
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function StrategyMemo() {
                       alt="Open three-ring binder showing a Weekly Operating Review packet next to a coffee cup and pen."
                       fill
                       sizes="(min-width: 1024px) 56rem, 100vw"
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                 </div>
