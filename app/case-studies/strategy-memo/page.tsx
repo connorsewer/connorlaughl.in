@@ -27,14 +27,15 @@ export default function StrategyMemo() {
 
           <figure className="mt-8 flex flex-col gap-3">
             <div className="dither-frame w-full">
-              <div className="frame-well relative w-full overflow-hidden bg-ink aspect-[16/9]">
+              <div className="frame-well relative w-full">
                 <Image
                   src="/strategy-memo/cover.webp"
                   alt="Flat-lay of printed worksheets, a black notebook, a pen, paperclips, and a glass of water on a desk."
-                  fill
+                  width={1600}
+                  height={901}
                   sizes="(min-width: 1024px) 56rem, 100vw"
                   priority
-                  className="object-contain"
+                  className="block w-full h-auto"
                 />
               </div>
             </div>
@@ -130,13 +131,14 @@ export default function StrategyMemo() {
               </p>
               <figure className="mt-8 flex flex-col gap-3">
                 <div className="dither-frame w-full">
-                  <div className="frame-well relative w-full overflow-hidden bg-ink aspect-[16/9]">
+                  <div className="frame-well relative w-full">
                     <Image
                       src="/strategy-memo/operating-review.webp"
                       alt="Open three-ring binder showing a Weekly Operating Review packet next to a coffee cup and pen."
-                      fill
+                      width={1600}
+                      height={979}
                       sizes="(min-width: 1024px) 56rem, 100vw"
-                      className="object-contain"
+                      className="block w-full h-auto"
                     />
                   </div>
                 </div>

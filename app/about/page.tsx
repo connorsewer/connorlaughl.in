@@ -136,8 +136,23 @@ type Photo = {
   alt: string;
   fig: number;
   caption: string;
-  ratio: string; // e.g. "3/4", "16/10"
+  ratio?: string; // legacy, unused — frame sizes from PHOTO_DIMS
   span: 4 | 6 | 8 | 12;
+};
+
+// Actual webp pixel dimensions per source — frame matches each image exactly.
+const PHOTO_DIMS: Record<string, [number, number]> = {
+  "/about/anfield.webp": [1400, 1750],
+  "/about/car-sandwiches.webp": [1400, 1750],
+  "/about/castel-bride.webp": [1400, 934],
+  "/about/colosseum.webp": [1400, 788],
+  "/about/dog-asleep.webp": [1400, 2488],
+  "/about/family-rome.webp": [1400, 1750],
+  "/about/music-box.webp": [1400, 2488],
+  "/about/phone-booth.webp": [1400, 1750],
+  "/about/tweeds.webp": [1400, 1750],
+  "/about/wedding-courtyard.webp": [1400, 1750],
+  "/about/wedding-toast.webp": [1400, 1750],
 };
 
 const photos: Photo[] = [
@@ -518,23 +533,22 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <ul className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <ul className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
               {photos.map((p) => {
                 const figLabel = `Fig. ${p.fig.toString().padStart(2, "0")}`;
+                const [pw, ph] = PHOTO_DIMS[p.src] ?? [1400, 1750];
                 return (
                   <li key={p.src} className={`flex flex-col gap-3 ${spanClass[p.span]}`}>
                     <figure className="flex flex-col gap-3">
                       <div className="dither-frame w-full">
-                        <div
-                          className="frame-well relative w-full overflow-hidden bg-ink"
-                          style={{ aspectRatio: p.ratio }}
-                        >
+                        <div className="frame-well relative w-full">
                           <Image
                             src={p.src}
                             alt={p.alt}
-                            fill
+                            width={pw}
+                            height={ph}
                             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                            className="object-cover"
+                            className="block w-full h-auto"
                           />
                         </div>
                       </div>

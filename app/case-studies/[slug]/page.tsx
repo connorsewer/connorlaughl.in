@@ -5,8 +5,35 @@ import { Header } from "@/components/Header";
 import { getCaseStudy } from "@/content/case-studies";
 import { RedactionReveal } from "@/components/RedactionReveal";
 
-type Figure = { src: string; alt: string; caption: string; ratio: string; fig: number };
+type Figure = { src: string; alt: string; caption: string; ratio?: string; fig: number };
 type SlugFigures = { hero?: Figure; body?: Figure[] };
+
+// Actual webp pixel dimensions per source — frames size to match exactly.
+const DIMS: Record<string, [number, number]> = {
+  "/case-studies/tracking-pixel.webp": [1600, 901],
+  "/case-studies/tracking-pixel-alt.webp": [1600, 901],
+  "/case-studies/ga4-taxonomy.webp": [1600, 901],
+  "/case-studies/utm-spec.webp": [1600, 930],
+  "/case-studies/messaging-pillars.webp": [1600, 901],
+  "/case-studies/claims-register.webp": [1600, 901],
+  "/case-studies/kpi-dictionary.webp": [1600, 901],
+  "/case-studies/crm-lifecycle.webp": [1600, 901],
+  "/case-studies/reverse-funnel.webp": [1600, 901],
+  "/case-studies/org-chart.webp": [1600, 901],
+  "/case-studies/cadence-wall.webp": [1600, 901],
+  "/case-studies/mainframe.webp": [1600, 901],
+  "/case-studies/rag-index.webp": [1600, 901],
+  "/case-studies/ai-audit-log.webp": [1600, 878],
+  "/case-studies/rfp-gate.webp": [1600, 878],
+  "/case-studies/signal-routing.webp": [1600, 901],
+  "/case-studies/bdr-logbook.webp": [1600, 901],
+  "/case-studies/outcome-first.webp": [1600, 901],
+  "/case-studies/intake-board.webp": [1600, 901],
+  "/case-studies/content-calendar.webp": [1600, 961],
+  "/case-studies/recovery-ledger.webp": [1600, 928],
+  "/case-studies/ia-map.webp": [1600, 961],
+  "/case-studies/cross-sell-matrix.webp": [1600, 901],
+};
 
 const FIGS: Record<string, SlugFigures> = {
   "marketing-analytics-architecture": {
@@ -228,19 +255,18 @@ const FIGS: Record<string, SlugFigures> = {
 
 function FigureBlock({ figure }: { figure: Figure }) {
   const figLabel = `Fig. ${figure.fig.toString().padStart(2, "0")}`;
+  const [w, h] = DIMS[figure.src] ?? [1600, 900];
   return (
     <figure className="flex flex-col gap-3">
       <div className="dither-frame w-full">
-        <div
-          className="frame-well relative w-full overflow-hidden bg-ink"
-          style={{ aspectRatio: figure.ratio }}
-        >
+        <div className="frame-well relative w-full">
           <Image
             src={figure.src}
             alt={figure.alt}
-            fill
+            width={w}
+            height={h}
             sizes="(min-width: 1024px) 56rem, 100vw"
-            className="object-contain"
+            className="block w-full h-auto"
           />
         </div>
       </div>
