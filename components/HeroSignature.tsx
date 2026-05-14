@@ -1,13 +1,21 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 
-type Props = {
+export type HeroSlide = {
   src: string;
   alt: string;
-  caption?: string;
-  /** CSS aspect-ratio string. Defaults to a near-square 4:5 portrait. */
+  fig: string;
+  caption: string;
+};
+
+type Props = {
+  slides: HeroSlide[];
+  /** Seconds per slide (includes the 1.5s cross-fade). */
+  intervalSec?: number;
+  /** CSS aspect-ratio string, e.g. "16 / 9". */
   aspect?: string;
 };
 
@@ -17,19 +25,24 @@ const WebGLHero = dynamic(() => import("./webgl/WebGLHero"), {
 });
 
 /**
- * HeroSignature renders the figure shell (dither-frame, static img,
- * caption) on every paint. The OGL canvas is loaded as a separate chunk
- * and overlays the static image with a mouse-driven displacement.
+ * HeroSignature renders a figure shell with a rolodex of base-art plates.
+ * The first slide is the static-img / SSR fallback. The OGL canvas
+ * crossfades through every slide on a `intervalSec` cadence via a
+ * dither-sweep shader, and reports the active slide back so the caption
+ * underneath swaps in lockstep.
  *
- * Reduced-motion users get the static image only; the WebGL chunk never
- * loads.
- *
- * No-WebGL users (or anyone whose context creation fails) keep the
- * static image because the canvas stays at opacity 0 until the OGL
- * effect reports ready.
+ * Reduced-motion users keep the first slide as a static image. The
+ * WebGL chunk never loads.
  */
-export function HeroSignature({ src, alt, caption, aspect = "4 / 5" }: Props) {
+export function HeroSignature({
+  slides,
+  intervalSec = 5,
+  aspect = "16 / 9",
+}: Props) {
   const reduced = usePrefersReducedMotion();
+  const [active, setActive] = useState(0);
+
+  const current = slides[active] ?? slides[0];
 
   return (
     <figure className="flex flex-col gap-3 w-full">
@@ -42,17 +55,30 @@ export function HeroSignature({ src, alt, caption, aspect = "4 / 5" }: Props) {
               When the WebGL canvas reports ready, it fades in on top. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={src}
-            alt={alt}
+            src={slides[0]?.src}
+            alt={slides[0]?.alt ?? ""}
             className="absolute inset-0 w-full h-full object-cover"
             loading="eager"
           />
-          {!reduced && <WebGLHero src={src} alt={alt} />}
+          {!reduced && slides.length > 0 && (
+            <WebGLHero
+              slides={slides.map((s) => ({ src: s.src, alt: s.alt }))}
+              intervalSec={intervalSec}
+              onSlideChange={setActive}
+            />
+          )}
         </div>
       </div>
-      {caption ? (
-        <figcaption className="font-mono fig-num">{caption}</figcaption>
-      ) : null}
+      <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[10px] tracking-[0.2em] uppercase text-paper/55">
+        <span className="fig-num">{current.fig}</span>
+        <span aria-hidden="true">·</span>
+        <span
+          className="normal-case tracking-wide text-paper/65 transition-opacity duration-300"
+          key={current.fig}
+        >
+          {current.caption}
+        </span>
+      </figcaption>
     </figure>
   );
 }

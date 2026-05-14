@@ -4,6 +4,8 @@ import { Header } from "@/components/Header";
 import { HeroSignature } from "@/components/HeroSignature";
 import { SplitText } from "@/components/SplitText";
 import { ImpactLedger } from "@/components/ImpactLedger";
+import { FigureMarquee } from "@/components/FigureMarquee";
+import { Magnetic } from "@/components/Magnetic";
 import { JsonLd, personSchema } from "@/components/JsonLd";
 import { CountUp } from "@/components/CountUp";
 import { HireSignal } from "@/components/HireSignal";
@@ -91,29 +93,54 @@ export default function Home() {
                 </ul>
 
                 <div className="flex flex-wrap gap-4 mt-4 animate-slide-up delay-400">
-                  <a
-                    href={hero.primaryCta.href}
-                    className="cta-scan font-mono text-[11px] tracking-[0.2em] uppercase bg-accent text-ink px-7 py-3.5 rounded-full hover:bg-paper transition-colors"
-                  >
-                    {hero.primaryCta.text}
-                  </a>
-                  <a
-                    href={hero.secondaryCta.href}
-                    className="font-mono text-[11px] tracking-[0.2em] uppercase border border-paper/30 px-7 py-3.5 rounded-full hover:border-accent transition-colors"
-                  >
-                    {hero.secondaryCta.text}
-                  </a>
+                  <Magnetic>
+                    <a
+                      href={hero.primaryCta.href}
+                      data-cursor="talk"
+                      className="cta-scan font-mono text-[11px] tracking-[0.2em] uppercase bg-accent text-ink px-7 py-3.5 rounded-full hover:bg-paper transition-colors inline-block"
+                    >
+                      {hero.primaryCta.text}
+                    </a>
+                  </Magnetic>
+                  <Magnetic>
+                    <a
+                      href={hero.secondaryCta.href}
+                      data-cursor="read"
+                      className="font-mono text-[11px] tracking-[0.2em] uppercase border border-paper/30 px-7 py-3.5 rounded-full hover:border-accent transition-colors inline-block"
+                    >
+                      {hero.secondaryCta.text}
+                    </a>
+                  </Magnetic>
                 </div>
               </div>
 
-              {/* Signature WebGL plate, cols 7-12. Mouse-driven dither swell.
-                  Reduced-motion users get the static poster only. */}
+              {/* Signature WebGL rolodex, cols 7-12. Mouse-driven dither swell
+                  on three base-art plates, dither-sweep crossfade every 5s.
+                  Reduced motion shows the first plate as a static image. */}
               <div className="lg:col-span-6 lg:col-start-7 animate-fade-in delay-500">
                 <HeroSignature
-                  src="/hero/ascii-poster.jpg"
-                  alt="Connor at the Vatican Museums, dithered halftone portrait"
-                  caption="[Fig. 01] Signature, mouse-driven swell"
-                  aspect="4 / 5"
+                  intervalSec={5}
+                  aspect="16 / 9"
+                  slides={[
+                    {
+                      src: "/hero/bdr-pod-base.webp",
+                      alt: "BDR Pod signal-to-meeting system diagram, isometric technical drawing",
+                      fig: "[Fig. 04]",
+                      caption: "BDR Pod, signal-to-meeting system",
+                    },
+                    {
+                      src: "/hero/mainframe-base.webp",
+                      alt: "1970s mainframe terminal with operator, dithered halftone photograph",
+                      fig: "[Fig. 08]",
+                      caption: "AI operating system, 22-agent governance",
+                    },
+                    {
+                      src: "/hero/org-chart-base.webp",
+                      alt: "Marketing organization design blueprint, hierarchical box diagram",
+                      fig: "[Fig. 06]",
+                      caption: "Marketing org design, near-$0 to board",
+                    },
+                  ]}
                 />
               </div>
             </div>
@@ -124,6 +151,27 @@ export default function Home() {
             <div className="w-px h-14 bg-gradient-to-b from-paper/40 to-transparent" />
           </div>
         </section>
+
+        {/* FIGURE MARQUEE ===========================================
+            Press-release ticker of the work and the numbers underneath
+            it. Stock-ticker cadence, paused on hover, reduced-motion safe. */}
+        <FigureMarquee
+          durationSec={42}
+          items={[
+            { fig: "[Fig. 01]", label: "Connor J. Laughlin, VP Marketing and GTM" },
+            { fig: "$159.4M", label: "marketing-influenced pipeline" },
+            { fig: "[Fig. 04]", label: "BDR Pod, signal to meeting in 2h" },
+            { fig: "$52.5M", label: "net-new revenue contribution" },
+            { fig: "[Fig. 08]", label: "AI operating system, 22 agents" },
+            { fig: "35+", label: "RevOps KPI framework" },
+            { fig: "[Fig. 06]", label: "Marketing org, near-$0 to board" },
+            { fig: "7", label: "acquisitions integrated" },
+            { fig: "[Fig. 05]", label: "Outcome-first messaging architecture" },
+            { fig: "+1,073%", label: "MQL growth from baseline" },
+            { fig: "[Fig. 07]", label: "GA4 governance, exploded view" },
+            { fig: "$25M+", label: "margin contribution" },
+          ]}
+        />
 
         {/* WHAT I BUILD ============================================= */}
         <section
@@ -230,6 +278,7 @@ export default function Home() {
                 <li key={cs.slug}>
                   <Link
                     href={`/case-studies/${cs.slug}`}
+                    data-cursor="open"
                     className="group flex flex-col gap-5 p-7 border border-rule hover:border-accent transition-colors h-full"
                   >
                     <div className="flex items-center justify-between gap-3">
@@ -240,7 +289,10 @@ export default function Home() {
                         {cs.label}
                       </span>
                     </div>
-                    <h3 className="font-display text-2xl md:text-[1.65rem] group-hover:text-accent transition-colors text-balance leading-tight">
+                    <h3
+                      className="font-display text-2xl md:text-[1.65rem] group-hover:text-accent transition-colors text-balance leading-tight"
+                      style={{ viewTransitionName: `case-title-${cs.slug}` }}
+                    >
                       {cs.title}
                     </h3>
                     <p className="text-paper/75 text-base leading-relaxed italic">
