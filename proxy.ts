@@ -1,15 +1,18 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Per-request proxy that emits a nonce-based Content Security Policy plus
- * security headers. Runs on the Edge in Next 16 (replaces middleware.ts).
+ * Per-request proxy that emits a Content Security Policy plus security
+ * headers. Runs on the Edge in Next 16 (replaces middleware.ts).
  *
- * The CSP is strict by default: nothing loads cross-origin except what we
- * explicitly allow. Inline scripts use a per-request nonce; styles allow
- * 'unsafe-inline' for Tailwind v4 + Next styled-jsx.
+ * Why no nonce + strict-dynamic: Next.js prerendered HTML is baked at
+ * build time and ships without a per-request nonce. A nonce + strict-
+ * dynamic policy invalidates the chunk + inline bootstrap scripts that
+ * actually power the page. The pragmatic policy here keeps host-based
+ * allowlisting strict, blocks cross-origin script execution, and uses
+ * 'unsafe-inline' for the bootstrap scripts and styled-jsx style tags
+ * that the framework requires.
  */
 export function proxy(request: NextRequest) {
-  const nonce = crypto.randomUUID().replace(/-/g, "");
   const isDev = process.env.NODE_ENV !== "production";
 
   const directives: Record<string, string[]> = {
@@ -20,11 +23,6 @@ export function proxy(request: NextRequest) {
     "object-src": ["'none'"],
     "script-src": [
       "'self'",
-      `'nonce-${nonce}'`,
-      "'strict-dynamic'",
-      // Modern browsers ignore unsafe-inline when strict-dynamic is present.
-      // This lets non-executable JSON-LD scripts pass and provides a graceful
-      // fallback for older browsers without breaking executable-script policy.
       "'unsafe-inline'",
       ...(isDev ? ["'unsafe-eval'"] : []),
     ],
@@ -43,16 +41,10 @@ export function proxy(request: NextRequest) {
     .map(([k, v]) => `${k} ${v.join(" ")}`)
     .join("; ");
 
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
-  requestHeaders.set("content-security-policy", csp);
+  const response = NextResponse.next();
 
-  const response = NextResponse.next({
-    request: { headers: requestHeaders },
-  });
-
-  // CSP only in production: dev HMR + Turbopack rely on inline scripts that
-  // do not get the nonce, and a strict CSP would break the workflow.
+  // CSP only in production: dev HMR + Turbopack rely on inline scripts
+  // that violate the host-restricted policy.
   if (!isDev) {
     response.headers.set("Content-Security-Policy", csp);
   }
