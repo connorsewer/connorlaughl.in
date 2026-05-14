@@ -6,6 +6,7 @@ import { SplitText } from "@/components/SplitText";
 import { ImpactLedger } from "@/components/ImpactLedger";
 import { FigureMarquee } from "@/components/FigureMarquee";
 import { Magnetic } from "@/components/Magnetic";
+import { SectionDivider } from "@/components/SectionDivider";
 import { JsonLd, personSchema } from "@/components/JsonLd";
 import { CountUp } from "@/components/CountUp";
 import { HireSignal } from "@/components/HireSignal";
@@ -82,14 +83,26 @@ export default function Home() {
                   </span>
                 </div>
 
-                <SplitText
-                  as="h1"
-                  granularity="word"
-                  className="font-display font-black text-[clamp(2.75rem,7.5vw,5.5rem)] leading-[0.92] tracking-tight text-balance"
-                  style={{ marginBottom: 0 }}
+                <h1
+                  id="hero-heading"
+                  className="font-display text-[clamp(2.75rem,7.5vw,5.5rem)] leading-[0.92] tracking-tight text-balance"
                 >
-                  {hero.headlinePrimary}
-                </SplitText>
+                  <SplitText
+                    as="span"
+                    granularity="word"
+                    className="font-display font-black block"
+                  >
+                    {hero.headlinePart1}
+                  </SplitText>
+                  <SplitText
+                    as="span"
+                    granularity="word"
+                    delay={0.45}
+                    className="font-display font-medium italic block text-paper/85"
+                  >
+                    {hero.headlinePart2}
+                  </SplitText>
+                </h1>
 
                 <div className="space-y-5 animate-slide-up delay-200">
                   <p className="text-lg md:text-xl text-paper/75 max-w-xl leading-relaxed text-balance">
@@ -167,18 +180,18 @@ export default function Home() {
         <FigureMarquee
           durationSec={42}
           items={[
-            { fig: "[Fig. 01]", label: "Connor J. Laughlin, VP Marketing and GTM" },
             { fig: "$159.4M", label: "marketing-influenced pipeline" },
-            { fig: "[Fig. 04]", label: "BDR Pod, signal to meeting in 2h" },
             { fig: "$52.5M", label: "net-new revenue contribution" },
-            { fig: "[Fig. 08]", label: "AI operating system, 22 agents" },
-            { fig: "35+", label: "RevOps KPI framework" },
-            { fig: "[Fig. 06]", label: "Marketing org, near-$0 to board" },
-            { fig: "7", label: "acquisitions integrated" },
-            { fig: "[Fig. 05]", label: "Outcome-first messaging architecture" },
-            { fig: "+1,073%", label: "MQL growth from baseline" },
-            { fig: "[Fig. 07]", label: "GA4 governance, exploded view" },
+            { fig: "[Fig. 04]", label: "BDR Pod, signal to meeting in 2h" },
             { fig: "$25M+", label: "margin contribution" },
+            { fig: "+1,073%", label: "MQL growth from baseline" },
+            { fig: "[Fig. 08]", label: "AI operating system, 22 agents" },
+            { fig: "35+", label: "KPI revenue funnel framework" },
+            { fig: "7", label: "acquisitions integrated" },
+            { fig: "[Fig. 06]", label: "Marketing org, near-$0 to board" },
+            { fig: "+757%", label: "SQL growth, CRM-defined" },
+            { fig: "$2.5M+", label: "first-90-day pipeline, signal BDR" },
+            { fig: "[Fig. 05]", label: "Outcome-first messaging architecture" },
           ]}
         />
 
@@ -258,6 +271,13 @@ export default function Home() {
           </div>
         </section>
 
+        <SectionDivider
+          src="/dividers/control-panel.webp"
+          alt="Vintage analog control panel with labeled dials, rocker switches, and toggle banks"
+          fig="[Fig. 10]"
+          caption="Control panel, the operating layer underneath the numbers"
+        />
+
         {/* SIGNATURE SYSTEMS ======================================= */}
         <section
           id="systems"
@@ -287,7 +307,7 @@ export default function Home() {
                 <li key={cs.slug}>
                   <Link
                     href={`/case-studies/${cs.slug}`}
-                    data-cursor="open"
+                    data-cursor={`file-${String(i + 1).padStart(2, "0")}`}
                     className="group flex flex-col gap-5 p-7 border border-rule hover:border-accent transition-colors h-full"
                   >
                     <div className="flex items-center justify-between gap-3">
@@ -361,6 +381,13 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <SectionDivider
+          src="/dividers/grid.webp"
+          alt="Abstract ASCII grid pattern with varying density across the field"
+          fig="[Fig. 09]"
+          caption="The grid, what the work runs on"
+        />
 
         {/* ABOUT TEASER ============================================ */}
         <section

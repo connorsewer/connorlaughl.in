@@ -11,8 +11,12 @@
  */
 
 export const hero = {
-  eyebrow: "Connor J. Laughlin. Chicago. VP of Marketing & GTM (acting CMO).",
+  eyebrow: "Chicago · VP Marketing & GTM (acting CMO) · 2026",
   headlinePrimary: "Marketing executive. GTM systems engineer.",
+  /** The two pieces of the H1, rendered with a weight ladder
+      (Black for the primary claim, Medium italic for the qualifier). */
+  headlinePart1: "Marketing executive.",
+  headlinePart2: "GTM systems engineer.",
   /** Alternate H1 for the more forceful posture if Connor approves it. */
   headlineAlt: "I build revenue engines from zero.",
   subheadPart1:
