@@ -73,9 +73,28 @@ gradient skies, Stripe-clone aesthetic, neon, isometric icon pack
 
 When a new image is needed, append a row at the bottom. Existing figure numbers must stay stable because copy in the site body references them.
 
+### Shipped status (as of 2026-05-14)
+
+Live in production:
+
+- **Fig. 01 — desk portrait of Connor + Henry at the desk, Lincoln Park** (overrides the registry row; see note below). File: `public/hero/desk-portrait.webp`, aspect 2:3.
+- **Fig. 02 — typographic OG poster**. File: `public/og/og.webp`.
+- **Fig. 04 — BDR Pod isometric system diagram**. File: `public/case-studies/bdr-pod.webp`.
+- **Fig. 05 — outcome-first before/after panel**. File: `public/case-studies/outcome-first.webp`.
+- **Fig. 06 — marketing org chart blueprint**. File: `public/case-studies/org-chart.webp`.
+- **Fig. 07 — tracking pixel exploded view**. File: `public/case-studies/tracking-pixel.webp`.
+- **Fig. 08 — mainframe / AI operating system**. File: `public/case-studies/mainframe.webp`.
+- **Fig. 09 — ASCII grid divider**. File: `public/dividers/grid.webp`. Used as the work-to-personal homepage divider.
+- **Fig. 10 — control panel divider**. File: `public/dividers/control-panel.webp`. Used as the ledger-to-systems homepage divider.
+- **Fig. 11 — blueprint divider**. File: `public/dividers/blueprint.webp`. Used as the `/case-studies` archive index divider.
+
+Pending / not yet generated: Fig. 12-30 plus the SVG schematics in §E (Revenue OS, agent mesh, signal-demand, platform-narrative, post-acquisition). The Ghost Pipeline Detector at `public/case-studies/ghost-pipeline.svg` is the reference style for those.
+
+### Registry
+
 | Fig. | File | Aspect | Layer | Where used | Subject |
 |---|---|---|---|---|---|
-| 01 | `public/hero/signature-base.webp` | 1:1 (1024×1024) | Raster | Homepage WebGL hero base art | Dithered portrait of Connor, high-contrast halftone (replaces the ASCII video) |
+| 01 | `public/hero/desk-portrait.webp` (shipped) | 2:3 (1024×1537) | Raster | Homepage WebGL hero | Hand-drawn ink illustration of Connor at his standing desk with Henry, looking out at Lincoln Park. Mouse-driven swell shader runs on top. |
 | 02 | `public/og/og.jpg` | 1200×630 | Raster | Root OG meta image | Typographic poster, mono uppercase wordmark, dithered background |
 | 03 | `public/about/portrait.webp` | 1:1 | Raster | /about hero | Connor portrait, dithered halftone, three-quarter angle |
 | 04 | `public/case-studies/bdr-logbook.webp` | 16:9 | Raster | BDR Pod artifact | Open notebook with hand-written BDR call notes and signal tags |
