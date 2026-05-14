@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { HeroSignature } from "@/components/HeroSignature";
 import { SplitText } from "@/components/SplitText";
+import { ImpactLedger } from "@/components/ImpactLedger";
 import { JsonLd, personSchema } from "@/components/JsonLd";
 import { CountUp } from "@/components/CountUp";
 import { HireSignal } from "@/components/HireSignal";
@@ -16,7 +17,7 @@ import {
   contact,
   timeline,
 } from "@/content/homepage-copy";
-import { heroProofStrip, impactLedger } from "@/content/proof-metrics";
+import { heroProofStrip } from "@/content/proof-metrics";
 import { getSignatureCaseStudies } from "@/content/case-studies";
 
 export const metadata: Metadata = {
@@ -233,33 +234,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-10">
-              {impactLedger.map((group) => (
-                <div key={group.id} className="grid lg:grid-cols-12 gap-6 items-start">
-                  <h3 className="lg:col-span-3 font-mono text-[11px] tracking-[0.3em] uppercase text-accent pt-2">
-                    {group.title}
-                  </h3>
-                  <ul className="lg:col-span-9 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rule">
-                    {group.metrics.map((m) => (
-                      <li
-                        key={`${group.id}-${m.label}`}
-                        className="bg-ink p-5 hover:bg-paper/[0.02] transition-colors flex flex-col gap-2"
-                      >
-                        <span className="font-display text-2xl leading-tight">
-                          {m.value}
-                        </span>
-                        <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-paper/65 leading-snug">
-                          {m.label}
-                        </span>
-                        <span className="text-paper/55 text-xs leading-relaxed">
-                          {m.context}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <ImpactLedger />
           </div>
         </section>
 
