@@ -7,6 +7,7 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { CustomCursor } from "@/components/CustomCursor";
 
 /**
  * GT Sectra Fine, the editorial display face. Five weights plus italics,
@@ -81,6 +82,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>
