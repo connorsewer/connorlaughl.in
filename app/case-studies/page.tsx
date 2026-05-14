@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { CaseStudyArchive } from "@/components/CaseStudyArchive";
+import { SectionDivider } from "@/components/SectionDivider";
 import { audienceTags, caseStudies } from "@/content/case-studies";
 import type { Metadata } from "next";
 
@@ -24,10 +25,22 @@ export default function CaseStudiesIndex() {
             Case studies in GTM systems I built and{" "}
             <span className="text-accent italic">ran.</span>
           </h1>
-          <p className="text-xl text-paper/70 max-w-3xl mb-12 leading-relaxed text-balance">
+          <p className="text-xl text-paper/70 max-w-3xl mb-6 leading-relaxed text-balance">
             These are not campaign recaps. Each case shows the business problem, the system I built, what changed, and what it proves about how I operate.
           </p>
+        </div>
 
+        <div className="-mx-6">
+          <SectionDivider
+            src="/dividers/blueprint.webp"
+            alt="Cropped technical blueprint of a mechanical assembly with dimension callouts and reference numbers"
+            fig="[Fig. 11]"
+            caption="Index, the file before the file"
+            aspect="16 / 3"
+          />
+        </div>
+
+        <div className="mx-auto max-w-6xl">
           <Suspense
             fallback={
               <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-paper/45">
