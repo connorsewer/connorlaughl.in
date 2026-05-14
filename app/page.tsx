@@ -32,30 +32,19 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 /**
- * Hero rolodex slides. Hoisted to module scope so the array reference is
- * stable across renders; otherwise WebGLHero's useEffect would tear down
- * + remount each time HeroSignature re-renders (which it does every
- * time the active caption changes), resetting the rolodex clock and
- * sticking the visible plate on slide 0.
+ * Hero plate. Single-slide static hero (the rolodex API still drives the
+ * shader, with one slide it renders without crossfade). The mouse-driven
+ * dither swell + ambient sin wave continue to apply. Reduced-motion
+ * users see the same plate as a plain <img>.
+ *
+ * Hoisted to module scope so the reference is stable across renders.
  */
 const HERO_SLIDES = [
   {
-    src: "/hero/bdr-pod-base.webp",
-    alt: "BDR Pod signal-to-meeting system diagram, isometric technical drawing",
-    fig: "[Fig. 04]",
-    caption: "BDR Pod, signal-to-meeting system",
-  },
-  {
-    src: "/hero/mainframe-base.webp",
-    alt: "1970s mainframe terminal with operator, dithered halftone photograph",
-    fig: "[Fig. 08]",
-    caption: "AI operating system, 22-agent governance",
-  },
-  {
-    src: "/hero/org-chart-base.webp",
-    alt: "Marketing organization design blueprint, hierarchical box diagram",
-    fig: "[Fig. 06]",
-    caption: "Marketing org design, near-$0 to board",
+    src: "/hero/desk-portrait.webp",
+    alt: "Connor at his standing desk with Henry the dog, looking out a window onto Lincoln Park, Chicago. Hand-drawn ink illustration",
+    fig: "[Fig. 01]",
+    caption: "Connor and Henry at the desk, Lincoln Park, Chicago",
   },
 ];
 
@@ -155,15 +144,12 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Signature WebGL rolodex, cols 7-12. Mouse-driven dither swell
-                  on three base-art plates, dither-sweep crossfade every 5s.
-                  Reduced motion shows the first plate as a static image. */}
+              {/* Signature WebGL plate, cols 7-12. Mouse-driven dither swell
+                  on the desk portrait. Single-slide hero; the WebGL shader
+                  still applies the swell, vignette, and dither overlay.
+                  Reduced motion shows the plate as a plain static image. */}
               <div className="lg:col-span-6 lg:col-start-7 animate-fade-in delay-500">
-                <HeroSignature
-                  intervalSec={5}
-                  aspect="16 / 9"
-                  slides={HERO_SLIDES}
-                />
+                <HeroSignature aspect="2 / 3" slides={HERO_SLIDES} />
               </div>
             </div>
           </div>
