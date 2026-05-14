@@ -20,7 +20,8 @@ type Block =
   | { type: "ol"; items: string[] }
   | { type: "blockquote"; text: string }
   | { type: "hr" }
-  | { type: "code"; lang?: string; text: string };
+  | { type: "code"; lang?: string; text: string }
+  | { type: "table"; headers: string[]; rows: string[][] };
 
 function tokenize(md: string): Block[] {
   const lines = md.replace(/\r\n/g, "\n").split("\n");
@@ -75,6 +76,27 @@ function tokenize(md: string): Block[] {
       continue;
     }
 
+    // Pipe-table:
+    //   | Col1 | Col2 |
+    //   |------|------|
+    //   | A    | B    |
+    // The separator row is required and must contain only -, :, |, and spaces.
+    if (
+      line.startsWith("|") &&
+      i + 1 < lines.length &&
+      /^\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/.test(lines[i + 1])
+    ) {
+      const headers = splitTableRow(line);
+      i += 2; // skip header + separator
+      const rows: string[][] = [];
+      while (i < lines.length && lines[i].trim().startsWith("|")) {
+        rows.push(splitTableRow(lines[i]));
+        i += 1;
+      }
+      blocks.push({ type: "table", headers, rows });
+      continue;
+    }
+
     if (/^([*-]|\d+\.)\s+/.test(line)) {
       const items: string[] = [];
       const ordered = /^\d+\.\s+/.test(line);
@@ -97,6 +119,27 @@ function tokenize(md: string): Block[] {
   }
 
   return blocks;
+}
+
+function splitTableRow(row: string): string[] {
+  return row
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((c) => c.trim());
+}
+
+/**
+ * Swap the green check emoji and a handful of other emojis for editorial
+ * glyphs that match the typographic register. ASCII-safe replacements only;
+ * everything else passes through.
+ */
+function deEmoji(src: string): string {
+  return src
+    .replace(/✅/g, "▪") // green check -> filled square bullet
+    .replace(/❌/g, "×") // red X -> multiplication sign
+    .replace(/⚠️?/g, "⚠"); // warning -> bare warning glyph
 }
 
 function escape(s: string): string {
@@ -185,7 +228,7 @@ function parseInline(src: string): InlineToken[] {
 }
 
 function renderInline(src: string, key: string): ReactNode[] {
-  const tokens = parseInline(src);
+  const tokens = parseInline(deEmoji(src));
   return tokens.map((t, idx) => {
     const k = `${key}-${idx}`;
     if (t.type === "text") return <Fragment key={k}>{t.v}</Fragment>;
@@ -227,7 +270,7 @@ function renderInline(src: string, key: string): ReactNode[] {
 export function renderMarkdown(md: string): ReactNode {
   const blocks = tokenize(md);
   return (
-    <div className="space-y-6 text-paper/85 leading-relaxed">
+    <div className="space-y-6 text-paper/85 leading-relaxed max-w-[68ch]">
       {blocks.map((b, idx) => {
         const k = `b-${idx}`;
         if (b.type === "hr")
@@ -312,15 +355,57 @@ export function renderMarkdown(md: string): ReactNode {
               {renderInline(b.text, k)}
             </blockquote>
           );
+        if (b.type === "code")
+          return (
+            <pre
+              key={k}
+              className="bg-paper/[0.04] border border-rule rounded-lg p-4 overflow-x-auto font-mono text-[12px] text-paper/80"
+            >
+              <code
+                dangerouslySetInnerHTML={{ __html: escape(b.text) }}
+              />
+            </pre>
+          );
+
+        // table
         return (
-          <pre
+          <div
             key={k}
-            className="bg-paper/[0.04] border border-rule rounded-lg p-4 overflow-x-auto font-mono text-[12px] text-paper/80"
+            className="overflow-x-auto -mx-2 my-2 max-w-none"
           >
-            <code
-              dangerouslySetInnerHTML={{ __html: escape(b.text) }}
-            />
-          </pre>
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-rule">
+                  {b.headers.map((h, j) => (
+                    <th
+                      key={`${k}-th-${j}`}
+                      scope="col"
+                      className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/65 text-left px-3 py-2.5"
+                    >
+                      {renderInline(h, `${k}-th-${j}`)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {b.rows.map((row, ri) => (
+                  <tr
+                    key={`${k}-tr-${ri}`}
+                    className="border-b border-rule/70 last:border-b-0"
+                  >
+                    {row.map((cell, ci) => (
+                      <td
+                        key={`${k}-td-${ri}-${ci}`}
+                        className="px-3 py-2.5 align-top text-paper/85 tabular-nums"
+                      >
+                        {renderInline(cell, `${k}-td-${ri}-${ci}`)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         );
       })}
     </div>
