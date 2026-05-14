@@ -15,8 +15,9 @@ const INTENSITY_DOT: Record<typeof roles[number]["intensity"], string> = {
 export function HireSignal() {
   return (
     <section
+      id="hire-signal"
       aria-labelledby="hire-signal-heading"
-      className="py-24 px-6 border-t border-rule"
+      className="py-24 px-6 border-t border-rule scroll-mt-24"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-12 gap-10 mb-10">
