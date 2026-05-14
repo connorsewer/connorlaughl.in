@@ -378,7 +378,10 @@ export default async function CaseStudyPage({
             <span className="font-mono text-[11px] tracking-[0.32em] text-paper/65 uppercase">
               {cs.label}
             </span>
-            <h1 className="mt-4 font-display text-4xl md:text-5xl leading-tight text-balance">
+            <h1
+              className="mt-4 font-display text-4xl md:text-5xl leading-tight text-balance"
+              style={{ viewTransitionName: `case-title-${slug}` }}
+            >
               {cs.title}
             </h1>
             <p className="mt-5 text-lg md:text-xl text-paper/80 leading-relaxed italic">
