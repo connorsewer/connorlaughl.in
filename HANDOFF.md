@@ -1,9 +1,9 @@
-# HANDOFF — connorlaughl.in design overhaul, in-progress 2026-05-14
+# HANDOFF — connorlaughl.in soft-skills incorporation, queued 2026-05-14
 
-**For:** the next Claude Code session, picking up where this one left off.
-**Working directory:** `/Users/connorlaughlin/clawd/career/portfolio-v2/.claude/worktrees/thirsty-shirley-52e7b0`
-**Branch:** `claude/thirsty-shirley-52e7b0` (worktree off `origin/main`).
-**Status:** local commits only. No push, no PR, no deploy.
+**For:** the next Claude Code session, picking up after the design overhaul shipped.
+**Working directory:** `/Users/connorlaughlin/clawd/career/portfolio-v2` (root worktree on `main`) or any fresh worktree off `main`.
+**Branch:** `main` is current; the redesign work merged in via fast-forward.
+**Status:** **shipped**. The redesign is live on `connorlaughl.in`. Merge point at `19818b66` (CSP fix), doc alignment at `a182c175`. The next session works on top of `main`.
 **Tip:** 30 commits since the checkpoint at `b915b4fb`.
 
 ---

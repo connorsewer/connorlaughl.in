@@ -264,7 +264,7 @@ When an image isn't yet generated, render the `<DitheredImage placeholder />` st
 
 ### Hero plate
 
-The 5s ASCII portrait video at [public/hero/ascii.mp4](public/hero/ascii.mp4) gets retired in Block B. Replaced by a WebGL signature plate. The new plate base art lives at [public/hero/signature-base.webp](public/hero/signature-base.webp) (to be generated). Reduced-motion shows the static base art.
+Shipped state: the homepage hero is a single static plate of Connor at his standing desk with Henry the dog, looking out at Lincoln Park. Hand-drawn ink illustration. The plate lives at [public/hero/desk-portrait.webp](public/hero/desk-portrait.webp), aspect 2:3. The OGL canvas runs a mouse-driven Gaussian swell + ambient sin-wave + hash-dither + corner-vignette shader over the plate. Reduced-motion + no-WebGL users see the plate as a plain `<img>`; the OGL chunk never loads. The legacy ASCII portrait video at `public/hero/ascii.mp4` is no longer referenced but the file remains in the repo as a fallback asset.
 
 ---
 
