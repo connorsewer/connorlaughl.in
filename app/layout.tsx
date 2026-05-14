@@ -1,15 +1,38 @@
 import type { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { GeistPixelSquare } from "geist/font/pixel";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const display = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
+/**
+ * GT Sectra Fine, the editorial display face. Five weights plus italics,
+ * self-hosted from public/fonts/gt-sectra-fine/.
+ *
+ * Weight mapping (Tailwind utility -> source file):
+ *   300 (font-light)    Book
+ *   400 (font-normal)   Regular
+ *   500 (font-medium)   Medium
+ *   700 (font-bold)     Bold
+ *   900 (font-black)    Black
+ */
+const display = localFont({
+  src: [
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-Book.ttf",         weight: "300", style: "normal" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-BookItalic.ttf",   weight: "300", style: "italic" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-Regular.ttf",      weight: "400", style: "normal" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-RegularItalic.ttf",weight: "400", style: "italic" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-Medium.ttf",       weight: "500", style: "normal" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-MediumItalic.ttf", weight: "500", style: "italic" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-Bold.ttf",         weight: "700", style: "normal" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-BoldItalic.ttf",   weight: "700", style: "italic" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-Black.ttf",        weight: "900", style: "normal" },
+    { path: "../public/fonts/gt-sectra-fine/GTSectraFine-BlackItalic.ttf",  weight: "900", style: "italic" },
+  ],
   variable: "--font-display",
+  display: "swap",
+  fallback: ["Georgia", "serif"],
 });
 
 const SITE_TITLE =
