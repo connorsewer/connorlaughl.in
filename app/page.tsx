@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
-import { HeroAsciiVideo } from "@/components/HeroAsciiVideo";
+import { HeroSignature } from "@/components/HeroSignature";
+import { SplitText } from "@/components/SplitText";
 import { JsonLd, personSchema } from "@/components/JsonLd";
 import { CountUp } from "@/components/CountUp";
 import { HireSignal } from "@/components/HireSignal";
@@ -51,12 +52,14 @@ export default function Home() {
                   </span>
                 </div>
 
-                <h1
-                  id="hero-heading"
-                  className="font-display text-[clamp(2.75rem,7.5vw,5.5rem)] leading-[0.95] tracking-tight text-balance animate-slide-up"
+                <SplitText
+                  as="h1"
+                  granularity="word"
+                  className="font-display font-black text-[clamp(2.75rem,7.5vw,5.5rem)] leading-[0.92] tracking-tight text-balance"
+                  style={{ marginBottom: 0 }}
                 >
                   {hero.headlinePrimary}
-                </h1>
+                </SplitText>
 
                 <div className="space-y-5 animate-slide-up delay-200">
                   <p className="text-lg md:text-xl text-paper/75 max-w-xl leading-relaxed text-balance">
@@ -103,9 +106,15 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Video, cols 7-12 */}
+              {/* Signature WebGL plate, cols 7-12. Mouse-driven dither swell.
+                  Reduced-motion users get the static poster only. */}
               <div className="lg:col-span-6 lg:col-start-7 animate-fade-in delay-500">
-                <HeroAsciiVideo />
+                <HeroSignature
+                  src="/hero/ascii-poster.jpg"
+                  alt="Connor at the Vatican Museums, dithered halftone portrait"
+                  caption="[Fig. 01] Signature, mouse-driven swell"
+                  aspect="4 / 5"
+                />
               </div>
             </div>
           </div>
