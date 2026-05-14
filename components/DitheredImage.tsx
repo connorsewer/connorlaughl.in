@@ -56,7 +56,7 @@ export function DitheredImage({
               className="absolute inset-0 grid place-items-center bg-[repeating-linear-gradient(0deg,transparent_0,transparent_3px,rgba(7,7,7,0.04)_3px,rgba(7,7,7,0.04)_4px)]"
             >
               <span className="font-pixel text-paper/40 text-xs tracking-[0.2em] uppercase">
-                [{figLabel.toUpperCase()} — image pending]
+                [{figLabel.toUpperCase()} · image pending]
               </span>
             </div>
           )}

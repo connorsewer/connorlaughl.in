@@ -44,7 +44,7 @@ export function RedactionReveal({
           {children}
         </div>
 
-        {/* Redaction bars overlay — fades out on reveal */}
+        {/* Redaction bars overlay. Fades out on reveal. */}
         <div
           aria-hidden="true"
           className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-out ${

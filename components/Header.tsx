@@ -6,16 +6,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
-  
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    if (href === "/proof") return pathname === "/proof" || pathname.startsWith("/case-studies");
-    return pathname.startsWith(href);
-  };
 
   return (
     <header className="site-header fixed top-0 left-0 right-0 z-[60]">
-      {/* Skip to main content link for keyboard users */}
       <a
         href="#main-content"
         className="skip-link font-mono text-[10px] tracking-[0.2em] uppercase"
@@ -28,12 +21,14 @@ export function Header() {
           <Link
             href="/"
             className="group flex items-baseline gap-2 shrink-0"
-            aria-label="Connor J. Laughlin — Home"
+            aria-label="Connor J. Laughlin, home"
           >
             <span className="font-pixel text-[11px] tracking-[0.3em] text-accent transition-colors group-hover:text-paper">
               CJL
             </span>
-            <span className="font-display text-lg tracking-tight">Connor J. Laughlin</span>
+            <span className="font-display text-lg tracking-tight">
+              Connor J. Laughlin
+            </span>
           </Link>
 
           <div className="flex items-center gap-7">
@@ -41,28 +36,6 @@ export function Header() {
               className="hidden md:flex items-center gap-7 font-mono text-[10px] tracking-[0.2em] uppercase"
               aria-label="Main navigation"
             >
-              <Link
-                href="/case-studies"
-                className={`transition-colors ${
-                  pathname.startsWith("/case-studies")
-                    ? "text-accent"
-                    : "text-paper/65 hover:text-accent"
-                }`}
-                aria-current={pathname.startsWith("/case-studies") ? "page" : undefined}
-              >
-                Work
-              </Link>
-              <Link
-                href="/proof"
-                className={`transition-colors ${
-                  pathname === "/proof"
-                    ? "text-accent"
-                    : "text-paper/65 hover:text-accent"
-                }`}
-                aria-current={pathname === "/proof" ? "page" : undefined}
-              >
-                Index
-              </Link>
               <Link
                 href="/about"
                 className={`transition-colors ${
@@ -75,6 +48,19 @@ export function Header() {
                 About
               </Link>
               <Link
+                href="/case-studies"
+                className={`transition-colors ${
+                  pathname.startsWith("/case-studies")
+                    ? "text-accent"
+                    : "text-paper/65 hover:text-accent"
+                }`}
+                aria-current={
+                  pathname.startsWith("/case-studies") ? "page" : undefined
+                }
+              >
+                Case studies
+              </Link>
+              <Link
                 href="/#contact"
                 className="text-paper/65 hover:text-accent transition-colors"
               >
@@ -82,7 +68,10 @@ export function Header() {
               </Link>
             </nav>
 
-            <span aria-hidden="true" className="hidden md:inline-block w-px h-4 bg-rule" />
+            <span
+              aria-hidden="true"
+              className="hidden md:inline-block w-px h-4 bg-rule"
+            />
 
             <ThemeToggle />
           </div>

@@ -12,15 +12,18 @@ const display = Instrument_Serif({
   variable: "--font-display",
 });
 
+const SITE_TITLE =
+  "Connor J. Laughlin | VP of Marketing & GTM (acting CMO), GTM Engineer";
+const SITE_DESCRIPTION =
+  "Connor J. Laughlin is a Chicago-based VP of Marketing & GTM (acting CMO) and GTM Engineer who built revenue infrastructure, RevOps systems, governed AI workflows, and executive reporting behind $159.4M in influenced pipeline.";
+
 export const metadata: Metadata = {
-  title: "Connor J. Laughlin — VP Marketing & GTM",
-  description:
-    "Notes on the systems I've built. $15M influenced pipeline, 300% inbound growth, governed AI workflows, and the org designs underneath them.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   metadataBase: new URL("https://www.connorlaughl.in"),
   openGraph: {
-    title: "Connor J. Laughlin — VP Marketing & GTM",
-    description:
-      "Notes on the systems I've built. $15M influenced pipeline, 300% inbound growth, governed AI workflows, and the org designs underneath them.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: "https://www.connorlaughl.in",
     siteName: "Connor J. Laughlin",
     type: "website",
@@ -29,15 +32,14 @@ export const metadata: Metadata = {
         url: "/og/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Connor J. Laughlin — VP Marketing & GTM",
+        alt: "Connor J. Laughlin, VP of Marketing & GTM (acting CMO), GTM Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Connor J. Laughlin — VP Marketing & GTM",
-    description:
-      "Notes on the systems I've built. $15M influenced pipeline, 300% inbound growth, governed AI workflows.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/og/og.jpg"],
   },
 };

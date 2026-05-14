@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 
 type Props = {
   poster?: string;
@@ -14,16 +15,7 @@ export function HeroAsciiVideo({
   caption = "[Fig. 01] WFH // ASCII Loop: CJL + Henry",
 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mql.matches);
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    mql.addEventListener("change", handler);
-    return () => mql.removeEventListener("change", handler);
-  }, []);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     if (!videoRef.current) return;
@@ -31,7 +23,7 @@ export function HeroAsciiVideo({
       videoRef.current.pause();
     } else {
       videoRef.current.play().catch(() => {
-        /* autoplay policy may block — poster stays */
+        /* autoplay policy may block, poster stays */
       });
     }
   }, [reducedMotion]);

@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — Connor J. Laughlin",
+  title: "About | Connor J. Laughlin",
   description:
     "The part around the work. Kristin, three dogs, a big family, Liverpool FC, golf, cooking, travel, and what's currently on the desk.",
 };
@@ -136,11 +136,11 @@ type Photo = {
   alt: string;
   fig: number;
   caption: string;
-  ratio?: string; // legacy, unused — frame sizes from PHOTO_DIMS
+  ratio?: string; // legacy, unused. Frame sizes from PHOTO_DIMS.
   span: 4 | 6 | 8 | 12;
 };
 
-// Actual webp pixel dimensions per source — frame matches each image exactly.
+// Actual webp pixel dimensions per source. Frame matches each image exactly.
 const PHOTO_DIMS: Record<string, [number, number]> = {
   "/about/anfield.webp": [1400, 1750],
   "/about/car-sandwiches.webp": [1400, 1750],
@@ -321,16 +321,16 @@ export default function AboutPage() {
           <section className="mt-24 grid lg:grid-cols-12 gap-12">
             <div className="lg:col-span-7 lg:col-start-3 space-y-6 text-paper/78 text-lg leading-relaxed">
               <p className="drop-cap">
-                The short version: Chicago, by way of a few unexpected stops. Vatican Museums for a college internship that turned into something longer. Executive search for a couple of years. Content at Brad's Deals when it was running ten million visitors a month. A decade at TSI that started as a marketing manager job and turned into building a function from the ground up.
+                The short version: Chicago, by way of a few unexpected stops. Vatican Museums for a college internship that turned into something longer. Executive search for a couple of years. Content at Brad&rsquo;s Deals when it was running ten million visitors a month. A decade at TSI that started as a marketing manager job and turned into building a function from the ground up.
               </p>
               <p>
-                I'm the oldest of five. Four siblings, two parents who live a short drive away in the North Shore Chicago suburbs. Holidays are loud. Group chats are louder. My nephew George is 5 and convinced he runs the Lego shop. He may be right.
+                I&rsquo;m the oldest of five. Four siblings, two parents who live a short drive away in the North Shore Chicago suburbs. Holidays are loud. Group chats are louder. My nephew George is 5 and convinced he runs the Lego shop. He may be right.
               </p>
               <p>
-                The longer version is mostly about people. The team I get to work with. The friends who keep me honest. Kristin, who sees things faster than I do and tells me when I'm wrong with great precision. The three dogs who think of the calendar as a suggestion.
+                The longer version is mostly about people. The team I get to work with. The friends who keep me honest. Kristin, who sees things faster than I do and tells me when I&rsquo;m wrong with great precision. The three dogs who think of the calendar as a suggestion.
               </p>
               <p>
-                I read a lot. I write more than I publish. I've been told I think out loud, which I take as both a compliment and a warning. If we ever sit down for a coffee, I'll probably ask what you're working on before you finish your first sentence.
+                I read a lot. I write more than I publish. I&rsquo;ve been told I think out loud, which I take as both a compliment and a warning. If we ever sit down for a coffee, I&rsquo;ll probably ask what you&rsquo;re working on before you finish your first sentence.
               </p>
             </div>
           </section>
@@ -357,7 +357,7 @@ export default function AboutPage() {
               </div>
 
               <p className="lg:col-span-7 lg:col-start-6 text-paper/70 text-lg leading-relaxed self-end">
-                What's open on the desk, what's been on the screen, what I'm playing, and what I'm building when nobody's billing for it.
+                What&rsquo;s open on the desk, what&rsquo;s been on the screen, what I&rsquo;m playing, and what I&rsquo;m building when nobody&rsquo;s billing for it.
               </p>
             </div>
 
@@ -583,7 +583,7 @@ export default function AboutPage() {
                   Maps and stamps.
                 </h2>
                 <p className="mt-4 text-paper/55 text-base leading-relaxed">
-                  A short list of places I'd happily go back to. Mostly road trips and long flights, all with a notebook in the bag.
+                  A short list of places I&rsquo;d happily go back to. Mostly road trips and long flights, all with a notebook in the bag.
                 </p>
               </div>
 

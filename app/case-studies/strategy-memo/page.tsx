@@ -4,9 +4,9 @@ import { Header } from "@/components/Header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Strategy memo — Connor J. Laughlin",
+  title: "Strategy memo | Connor J. Laughlin",
   description:
-    "A public-safe memo on how modern GTM gets built. Governance, instrumentation, narrative discipline.",
+    "A short memo on how modern GTM gets built. Governance, instrumentation, narrative discipline.",
 };
 
 export default function StrategyMemo() {
@@ -50,13 +50,13 @@ export default function StrategyMemo() {
 
           <div className="mt-10">
             <span className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">
-              Public-safe memo
+              Short memo
             </span>
             <h1 className="mt-4 font-display text-4xl md:text-5xl leading-tight text-balance">
               How I think about GTM right now.
             </h1>
             <p className="mt-4 text-lg text-paper-muted leading-relaxed max-w-2xl">
-              Governance. Instrumentation. Narrative discipline. The dashboard isn't the system. The system is the system.
+              Governance. Instrumentation. Narrative discipline. The dashboard is not the system. The system is the system.
             </p>
           </div>
 
@@ -81,21 +81,21 @@ export default function StrategyMemo() {
             <section>
               <div className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">01. The problem</div>
               <p className="mt-4 drop-cap">
-                Most GTM teams don't have a performance problem. They have a trust problem. Definitions drift. Attribution becomes politics. The reporting layer turns into theater. When numbers can't be believed, decisions can't be made.
+                Most GTM teams do not have a performance problem. They have a trust problem. Definitions drift. Attribution becomes politics. The reporting layer turns into theater. When numbers cannot be believed, decisions cannot be made.
               </p>
             </section>
 
             <section>
               <div className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">02. The category trap</div>
               <p className="mt-4">
-                Legacy industries inherit language they didn't write. One word can sink a whole cycle: risk, compliance, collections, outsourcing. If the narrative is wrong, even excellent execution stays invisible.
+                Legacy industries inherit language they did not write. One word can sink a whole cycle: risk, compliance, collections, outsourcing. If the narrative is wrong, even excellent execution stays invisible.
               </p>
             </section>
 
             <section>
               <div className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">03. The pivot</div>
               <p className="mt-4">
-                Treat compliance and customer experience as product features. Don't market around risk. Operationalize the reduction of it, then make the operational truth legible to the buyer.
+                Treat compliance and customer experience as product features. Do not market around risk. Operationalize the reduction of it, then make the operational truth legible to the buyer.
               </p>
             </section>
 
@@ -156,7 +156,7 @@ export default function StrategyMemo() {
           <div className="rule mt-10" />
 
           <div className="mt-8 text-sm text-paper/65">
-            Public-safe. In a walkthrough I can share redacted artifacts and the operating blueprint underneath this memo.
+            In a walkthrough I can share redacted artifacts and the operating blueprint underneath this memo.
           </div>
 
           <div className="mt-6 flex flex-wrap gap-4">
