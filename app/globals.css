@@ -618,7 +618,8 @@ body[data-grid="on"]::after {
     background-position 900ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.figure-reveal[data-revealed="false"]::after {
+/* Sweep is gated on data-js="active" so no-JS users never see it. */
+.figure-reveal[data-js="active"][data-revealed="false"]::after {
   opacity: 0.5;
 }
 
@@ -627,9 +628,11 @@ body[data-grid="on"]::after {
   opacity: 0;
 }
 
-.figure-reveal[data-revealed="false"] .frame-well > * {
-  filter: blur(8px) saturate(0.3);
-  transform: scale(1.02);
+/* Blur is gated on data-js="active" so the image stays clean for
+   crawlers, no-JS browsers, and CMD+F users. Reduced motion never blurs. */
+.figure-reveal[data-js="active"][data-revealed="false"] .frame-well > * {
+  filter: blur(4px) saturate(0.6);
+  transform: scale(1.015);
 }
 
 .figure-reveal .frame-well > * {
@@ -639,11 +642,10 @@ body[data-grid="on"]::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .figure-reveal[data-revealed="false"]::after,
-  .figure-reveal[data-revealed="true"]::after {
+  .figure-reveal::after {
     display: none;
   }
-  .figure-reveal[data-revealed="false"] .frame-well > * {
+  .figure-reveal[data-js="active"][data-revealed="false"] .frame-well > * {
     filter: none;
     transform: none;
   }

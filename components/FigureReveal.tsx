@@ -8,6 +8,12 @@ type Props = { children: ReactNode };
 /**
  * Wraps a frame and runs a single redaction-sweep reveal the first time the
  * wrapped frame enters the viewport. Respects prefers-reduced-motion.
+ *
+ * SSR ships data-js="inactive" so the blurred state CSS never applies to
+ * crawlers, no-JS browsers, or pre-hydration paints. On mount, the data-js
+ * attribute flips to "active" via the ref so the observer can take over.
+ * The IntersectionObserver runs with a 200px bottom rootMargin so figures
+ * start revealing a beat before they cross the fold.
  */
 export function FigureReveal({ children }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -15,9 +21,12 @@ export function FigureReveal({ children }: Props) {
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    if (reducedMotion || revealed) return;
     const el = ref.current;
     if (!el) return;
+    el.dataset.js = "active";
+
+    if (reducedMotion || revealed) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -27,7 +36,7 @@ export function FigureReveal({ children }: Props) {
           }
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.15, rootMargin: "0px 0px 200px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -36,7 +45,8 @@ export function FigureReveal({ children }: Props) {
   return (
     <div
       ref={ref}
-      data-revealed={reducedMotion ? "true" : revealed ? "true" : "false"}
+      data-js="inactive"
+      data-revealed={reducedMotion || revealed ? "true" : "false"}
       className="figure-reveal"
     >
       {children}
