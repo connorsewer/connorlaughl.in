@@ -40,7 +40,11 @@ html.light {
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Scroll behavior:
+     - When SmoothScrollProvider mounts Lenis, html gets the `.lenis` class
+       and lenis/dist/lenis.css enforces `scroll-behavior: auto !important`.
+     - When reduced-motion users bypass Lenis, native scroll runs without
+       smooth easing, which is the correct reduced-motion behavior. */
   background-color: var(--ink);
 }
 

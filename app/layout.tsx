@@ -4,7 +4,9 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { GeistPixelSquare } from "geist/font/pixel";
 import "./globals.css";
+import "lenis/dist/lenis.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
 /**
  * GT Sectra Fine, the editorial display face. Five weights plus italics,
@@ -77,7 +79,9 @@ export default function RootLayout({
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${display.variable} antialiased`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
