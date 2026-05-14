@@ -521,6 +521,47 @@ a:focus-visible,
 .animate-slide-up      { animation: slideUp 0.8s ease-out forwards; }
 .animate-slide-in-right{ animation: slideInRight 0.8s ease-out forwards; }
 
+/* Marquee — infinite horizontal scroll with hover pause.
+   Doubled track inside .marquee container; translateX(-50%) lands the
+   second copy precisely where the first started, so the seam is invisible. */
+@keyframes marquee-track {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee {
+  --marquee-duration: 30s;
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee-track var(--marquee-duration) linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Custom cursor: when active, native cursor hides on body so the
+   ink crosshair owns the surface. Interactive controls keep `cursor:
+   pointer` so screen readers + voice-over interaction stays correct. */
+html[data-custom-cursor="on"] body {
+  cursor: none;
+}
+html[data-custom-cursor="on"] body input,
+html[data-custom-cursor="on"] body textarea,
+html[data-custom-cursor="on"] body [contenteditable="true"] {
+  cursor: text;
+}
+
 .delay-200  { animation-delay: 200ms; }
 .delay-300  { animation-delay: 300ms; }
 .delay-400  { animation-delay: 400ms; }
