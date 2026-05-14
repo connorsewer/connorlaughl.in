@@ -11,7 +11,6 @@ import { NowFeed } from "@/components/NowFeed";
 import {
   hero,
   whatIBuild,
-  builtFromZero,
   impactLedgerCopy,
   signatureSystems,
   contact,
@@ -170,47 +169,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BUILT FROM ZERO ========================================= */}
-        <section
-          aria-labelledby="built-from-zero-heading"
-          className="px-6 py-24 bg-paper/[0.02] border-y border-rule"
-        >
-          <div className="mx-auto max-w-6xl grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-5">
-              <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-5 uppercase block">
-                {builtFromZero.eyebrow}
-              </span>
-              <h2
-                id="built-from-zero-heading"
-                className="font-display text-4xl md:text-5xl leading-[1.05] text-balance"
-              >
-                {builtFromZero.heading}
-              </h2>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7 space-y-6">
-              <p className="text-lg text-paper/75 leading-relaxed">
-                {builtFromZero.body}
-              </p>
-              <ul className="space-y-4">
-                {builtFromZero.bullets.map((bullet, i) => (
-                  <li key={i} className="flex gap-4 border-l-2 border-rule pl-4">
-                    <span
-                      className="font-pixel text-[10px] tracking-[0.2em] text-accent shrink-0 mt-1.5"
-                      aria-hidden="true"
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-paper/80 text-base leading-relaxed">
-                      {bullet}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* IMPACT LEDGER =========================================== */}
+        {/* IMPACT LEDGER ===========================================
+            The prior "Built from zero" section was deleted in B.4: its
+            four bullets duplicated content the impact ledger and case
+            studies already carry. The body line below preserves the
+            "from near-zero" framing as a tight editorial intro. */}
         <section
           id="impact-ledger"
           aria-labelledby="impact-ledger-heading"
