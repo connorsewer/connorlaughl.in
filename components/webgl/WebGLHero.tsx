@@ -89,7 +89,12 @@ const fragment = /* glsl */ `
       vUv.x + ditherEdge - 0.03
     );
 
-    vec3 col = mix(col0, col1, sweepMask);
+    // Swept fragments (to the right of the line) keep the current
+    // texture (col0); fragments left of the line show the incoming one
+    // (col1). As uMix goes 0 -> 1, the line walks left-to-right, so the
+    // new texture appears on the left first and finishes by overwriting
+    // the whole frame, like a printed page sliding underneath.
+    vec3 col = mix(col1, col0, sweepMask);
 
     // Vignette toward the corners.
     vec2 cv = vUv - 0.5;

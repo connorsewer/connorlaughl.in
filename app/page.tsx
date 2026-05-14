@@ -45,7 +45,7 @@ export default function Home() {
           className="min-h-screen px-6 pt-32 pb-20 relative overflow-hidden"
         >
           <div className="mx-auto max-w-6xl w-full relative">
-            <div className="grid lg:grid-cols-12 gap-12 items-end">
+            <div className="grid lg:grid-cols-12 gap-12 items-start">
               {/* Text, cols 1-6 */}
               <div className="lg:col-span-6 flex flex-col gap-10">
                 <div className="animate-fade-in">
