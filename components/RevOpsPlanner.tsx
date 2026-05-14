@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { PulseOnChange } from "@/components/PulseOnChange";
 
 type NumericKey =
   | "quotaAnnual"
@@ -234,8 +235,8 @@ function ResultCard({
       <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-accent">
         {eyebrow}
       </div>
-      <div className="font-display text-3xl md:text-4xl leading-tight mt-2">
-        {value}
+      <div className="font-display text-3xl md:text-4xl leading-tight mt-2 tabular-nums">
+        <PulseOnChange value={value}>{value}</PulseOnChange>
       </div>
       <p className="text-paper/65 text-sm leading-relaxed mt-2">{context}</p>
     </div>
