@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 
 export type HeroSlide = {
@@ -44,6 +44,15 @@ export function HeroSignature({
 
   const current = slides[active] ?? slides[0];
 
+  // Stable reference for the projection passed to WebGLHero. Without this,
+  // `slides.map(...)` would return a new array every render (including the
+  // re-render fired by setActive), and WebGLHero's useEffect would tear
+  // down + remount on every slide change, resetting the rolodex clock.
+  const webglSlides = useMemo(
+    () => slides.map((s) => ({ src: s.src, alt: s.alt })),
+    [slides],
+  );
+
   return (
     <figure className="flex flex-col gap-3 w-full">
       <div className="dither-frame w-full">
@@ -62,7 +71,7 @@ export function HeroSignature({
           />
           {!reduced && slides.length > 0 && (
             <WebGLHero
-              slides={slides.map((s) => ({ src: s.src, alt: s.alt }))}
+              slides={webglSlides}
               intervalSec={intervalSec}
               onSlideChange={setActive}
             />

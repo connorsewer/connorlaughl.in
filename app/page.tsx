@@ -30,6 +30,34 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
+/**
+ * Hero rolodex slides. Hoisted to module scope so the array reference is
+ * stable across renders; otherwise WebGLHero's useEffect would tear down
+ * + remount each time HeroSignature re-renders (which it does every
+ * time the active caption changes), resetting the rolodex clock and
+ * sticking the visible plate on slide 0.
+ */
+const HERO_SLIDES = [
+  {
+    src: "/hero/bdr-pod-base.webp",
+    alt: "BDR Pod signal-to-meeting system diagram, isometric technical drawing",
+    fig: "[Fig. 04]",
+    caption: "BDR Pod, signal-to-meeting system",
+  },
+  {
+    src: "/hero/mainframe-base.webp",
+    alt: "1970s mainframe terminal with operator, dithered halftone photograph",
+    fig: "[Fig. 08]",
+    caption: "AI operating system, 22-agent governance",
+  },
+  {
+    src: "/hero/org-chart-base.webp",
+    alt: "Marketing organization design blueprint, hierarchical box diagram",
+    fig: "[Fig. 06]",
+    caption: "Marketing org design, near-$0 to board",
+  },
+];
+
 export default function Home() {
   const signatureCases = getSignatureCaseStudies();
 
@@ -121,26 +149,7 @@ export default function Home() {
                 <HeroSignature
                   intervalSec={5}
                   aspect="16 / 9"
-                  slides={[
-                    {
-                      src: "/hero/bdr-pod-base.webp",
-                      alt: "BDR Pod signal-to-meeting system diagram, isometric technical drawing",
-                      fig: "[Fig. 04]",
-                      caption: "BDR Pod, signal-to-meeting system",
-                    },
-                    {
-                      src: "/hero/mainframe-base.webp",
-                      alt: "1970s mainframe terminal with operator, dithered halftone photograph",
-                      fig: "[Fig. 08]",
-                      caption: "AI operating system, 22-agent governance",
-                    },
-                    {
-                      src: "/hero/org-chart-base.webp",
-                      alt: "Marketing organization design blueprint, hierarchical box diagram",
-                      fig: "[Fig. 06]",
-                      caption: "Marketing org design, near-$0 to board",
-                    },
-                  ]}
+                  slides={HERO_SLIDES}
                 />
               </div>
             </div>
