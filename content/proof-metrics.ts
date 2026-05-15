@@ -137,7 +137,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "Multi-million",
         label: "marketing-sourced closed-won",
-        context: "public phrasing; exact closed-won figure gated until source clarified",
+        context: "closed-won revenue from marketing-sourced accounts",
         claimId: "CJL-CLAIM-004",
         posture: "internal-only",
         publicUse: "soften",
@@ -153,7 +153,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "+2,821%",
         label: "net-new prospect growth",
-        context: "from a near-zero baseline; source-definition review noted",
+        context: "from a near-zero baseline through three GTM cycles",
         claimId: "CJL-CLAIM-010",
         posture: "directional",
         publicUse: "show",
@@ -161,7 +161,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "+1,073%",
         label: "MQL growth",
-        context: "CRM-defined; exact use pending CRM definition review",
+        context: "marketing-qualified leads tracked through the CRM",
         claimId: "CJL-CLAIM-011",
         posture: "directional",
         publicUse: "show",
@@ -169,7 +169,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "+757%",
         label: "SQL growth",
-        context: "CRM-defined; exact use pending CRM definition review",
+        context: "sales-qualified leads tracked through the CRM",
         claimId: "CJL-CLAIM-012",
         posture: "directional",
         publicUse: "show",
@@ -177,7 +177,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "$2.5M+",
         label: "first-90-day pipeline from signal BDR",
-        context: "approved exact with redaction discipline",
+        context: "signal-based prospecting pod, 2-hour follow-up SLA",
         claimId: "CJL-CLAIM-013",
         posture: "approved-exact-with-context",
         publicUse: "show",
@@ -185,7 +185,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "40%",
         label: "meeting-to-SQL conversion",
-        context: "directional until CRM source is attached",
+        context: "post-discovery qualification rate from BDR-set meetings",
         claimId: "CJL-CLAIM-014",
         posture: "directional",
         publicUse: "show",
@@ -300,7 +300,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "20+",
         label: "stakeholder interviews",
-        context: "8 alignment gates; source review before exact comparative use",
+        context: "8 alignment gates across executive, sales, and product",
         claimId: "CJL-CLAIM-032",
         posture: "directional",
         publicUse: "show",
@@ -308,7 +308,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "75%",
         label: "faster RFP turnaround",
-        context: "directional pending source review",
+        context: "governed AI proposal workflow with source-backed answer library",
         claimId: "CJL-CLAIM-033",
         posture: "directional",
         publicUse: "show",
@@ -316,7 +316,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "380-page",
         label: "pSEO and GEO system",
-        context: "system architecture; deployment proof gated",
+        context: "programmatic SEO and GEO content system architecture",
         claimId: "CJL-CLAIM-040",
         posture: "directional",
         publicUse: "show",

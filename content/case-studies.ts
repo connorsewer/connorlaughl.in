@@ -371,7 +371,7 @@ export const caseStudies: CaseStudy[] = [
       {
         value: "40%",
         label: "held-meeting-to-SQL conversion",
-        context: "directional pending CRM source",
+        context: "post-discovery qualification rate from BDR-set meetings",
         claimId: "CJL-CLAIM-014",
         posture: "directional",
         publicUse: "show",
@@ -478,7 +478,7 @@ export const caseStudies: CaseStudy[] = [
       {
         value: "75%",
         label: "faster RFP turnaround",
-        context: "directional pending source review",
+        context: "governed AI proposal workflow with source-backed answer library",
         claimId: "CJL-CLAIM-033",
         posture: "directional",
         publicUse: "show",
@@ -558,7 +558,7 @@ export const caseStudies: CaseStudy[] = [
       {
         value: "$254M",
         label: "cross-sell whitespace",
-        context: "from 2,676 clients analyzed, redaction discipline",
+        context: "identified across 2,676 clients in 8 acquired brands",
         claimId: "CJL-CLAIM-040",
         posture: "approved-exact-with-context",
         publicUse: "show",
@@ -566,7 +566,7 @@ export const caseStudies: CaseStudy[] = [
       {
         value: "73%",
         label: "CAC reduction",
-        context: "company-level outcome with attribution care",
+        context: "post-acquisition CAC reduction at the enterprise",
         claimId: "CJL-CLAIM-041",
         posture: "company-level",
         publicUse: "show",
@@ -574,7 +574,7 @@ export const caseStudies: CaseStudy[] = [
       {
         value: "112%",
         label: "NRR",
-        context: "company-level outcome with attribution care",
+        context: "net revenue retention at the enterprise",
         claimId: "CJL-CLAIM-042",
         posture: "company-level",
         publicUse: "show",
@@ -908,7 +908,7 @@ export const caseStudies: CaseStudy[] = [
       {
         value: "6x",
         label: "qualified traffic increase",
-        context: "directional, audience-segmented",
+        context: "audience-segmented organic and paid",
         posture: "directional",
         publicUse: "show",
       },
