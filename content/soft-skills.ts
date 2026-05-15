@@ -6,10 +6,12 @@
  *   04 Domains/Career/Resume & Positioning/
  *     Executive Soft Skills Compendium - GTM Engineer - 2026-05-13.md
  *
- * The vault file is a drafting source with internal-only naming and
- * approval-gated metrics. This file is the public-safe projection. It
- * mirrors the claim-posture model in proof-metrics.ts so the Edge page
- * can render confident copy while governance lives in source.
+ * The vault file is a drafting source with internal-only naming,
+ * approval-gated metrics, and prep artifacts (resume bullets, recruiter
+ * lines, interview prompts, avoid-reducing-to phrases). This file is
+ * the public-safe projection. Each chapter publishes a single
+ * principle plus a concrete signature; the prep material stays in the
+ * vault.
  *
  * Render rule: a proof anchor renders its `internalName` only when
  * `publicUse === "show"`. Otherwise the public surface gets the
@@ -64,12 +66,10 @@ export type ProofAnchor = {
 };
 
 export type SoftSkillLanguage = {
-  /** Single-line resume bullet, sentence case. */
-  resume: string;
-  /** First-person recruiter framing, one or two sentences. */
-  recruiter: string;
-  /** Interview prompt this skill answers. */
-  interview: string;
+  /** First-person principle. The position this chapter publishes. */
+  principle: string;
+  /** Concrete behavioral marker. What this looks like in operator work. */
+  signature: string;
 };
 
 export type SoftSkill = {
@@ -89,10 +89,8 @@ export type SoftSkill = {
   connorRead: string;
   /** Three to five proof anchors per skill. */
   proof: ProofAnchor[];
-  /** Language aside content. */
+  /** Language aside content (principle + signature). */
   language: SoftSkillLanguage;
-  /** Avoid-reducing-to phrases joined by middot in the NOT footer. */
-  not: string[];
 };
 
 /**
@@ -158,17 +156,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Built AI-enabled GTM workflows that increased team throughput while preserving executive-quality review, brand standards, and claim discipline.",
-      recruiter:
+      principle:
         "The value is faster recognition. I can tell quickly whether an idea, a claim, or an output will land for a buyer, a board, or a sales team.",
-      interview: "Tell me about a time you improved speed without lowering quality.",
+      signature:
+        "GTM workflows that lift team throughput without surrendering executive-quality review, brand standards, or claim discipline.",
     },
-    not: [
-      "AI-powered content machine",
-      "creative visionary",
-      "move fast and break things",
-    ],
   },
 
   {
@@ -215,13 +207,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Translated ambiguous GTM priorities into executable briefs, schemas, workflows, SLAs, and review gates across marketing, sales, RevOps, and proposal operations.",
-      recruiter:
+      principle:
         "I am strongest where strategy has to become an operating spec: who owns what, which inputs matter, what the output must prove, and where human judgment stays in the loop.",
-      interview: "How do you brief people or agents when the problem is ambiguous?",
+      signature:
+        "Briefs, schemas, workflows, SLAs, and review gates that translate ambiguous priorities into work an executive, a vendor, or an AI agent can actually execute.",
     },
-    not: ["great communicator", "detail oriented", "prompt engineer"],
   },
 
   {
@@ -265,13 +255,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Built decision-grade reporting that separated actual performance from instrumentation gaps across attribution, routing, CRM follow-up, and pipeline inspection.",
-      recruiter:
+      principle:
         "I do not treat dashboards as truth by default. I look for the instrumentation gaps, incentive problems, and false negatives that distort GTM decisions.",
-      interview: "Describe a decision you had to make with incomplete or unreliable data.",
+      signature:
+        "Decision-grade reporting that separates actual performance from instrumentation gaps across attribution, routing, CRM follow-up, and pipeline inspection.",
     },
-    not: ["data-driven leader", "analytics expert", "decisive executive"],
   },
 
   {
@@ -316,13 +304,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Built outcome-first narrative architecture across complex business lines, connecting buyer pain, proof, market context, and sales-ready messaging.",
-      recruiter:
+      principle:
         "I build narrative the way I build systems. Buyer economics, proof, constraints, claims, channels, and adoption paths all connect.",
-      interview: "How do you create alignment when the business is complex or fragmented?",
+      signature:
+        "Outcome-first narrative architecture across complex business lines, connecting buyer pain, proof, market context, and sales-ready messaging into one frame.",
     },
-    not: ["storyteller", "brand strategist", "strong communicator"],
   },
 
   {
@@ -364,13 +350,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Created claims governance and proof-library discipline to accelerate GTM execution while reducing legal, compliance, and credibility risk.",
-      recruiter:
+      principle:
         "My bias is to move with a clear thesis, but I do not let the thesis outrun the proof. That matters in regulated markets and matters more with AI-generated work.",
-      interview: "Tell me about a time you changed your mind after new evidence came in.",
+      signature:
+        "Claims governance and proof-library discipline that lets a team move fast without legal, compliance, or credibility exposure.",
     },
-    not: ["humble leader", "lifelong learner", "confident decision maker"],
   },
 
   {
@@ -419,14 +403,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Built GTM operating artifacts usable across Sales, Marketing, RevOps, Finance, Compliance, Product, and executive stakeholders.",
-      recruiter:
+      principle:
         "I can move between the CRO question, the CFO question, the product question, and the operator question without losing the GTM thread.",
-      interview:
-        "How do you align Sales, Marketing, Finance, Product, and Compliance around one GTM motion?",
+      signature:
+        "Operating artifacts that finance, sales, executives, product, compliance, and technical teams can each use without translation.",
     },
-    not: ["collaborative", "cross-functional communicator", "stakeholder manager"],
   },
 
   {
@@ -478,13 +459,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Designed AI and reporting workflows with trust calibration built in: source-backed inputs, sampling, human approval gates, auditability, and claim-status governance.",
-      recruiter:
+      principle:
         "The productivity gain from AI only matters if people can trust what ships. I design the review loops and source discipline that make that possible.",
-      interview: "When do you ship AI-assisted work, and when do you verify or reject it?",
+      signature:
+        "AI and reporting workflows with trust calibration built in: source-backed inputs, sampling, human approval gates, auditability, and claim-status governance.",
     },
-    not: ["AI governance", "responsible AI", "quality assurance"],
   },
 
   {
@@ -527,13 +506,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Designed multi-agent GTM workflows with role-specific context, templates, handoffs, QA gates, and human approval loops.",
-      recruiter:
+      principle:
         "I do not use agents as one-off tools. I give them context, constraints, review cycles, and operating roles, the same way I would onboard a new team member into a sensitive workflow.",
-      interview: "What changes when you delegate work to AI agents instead of people?",
+      signature:
+        "Multi-agent GTM workflows with role-specific context, templates, handoffs, QA gates, and human approval loops.",
     },
-    not: ["AI enthusiast", "prompting expert", "automation user"],
   },
 
   {
@@ -575,13 +552,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Built lightweight governance systems for regulated GTM work: proof tiers, approved-language libraries, review checkpoints, and public-safe claim boundaries.",
-      recruiter:
+      principle:
         "I am comfortable operating in markets where speed matters but the cost of an unsupported claim is high.",
-      interview: "How do you keep governance from slowing everyone down?",
+      signature:
+        "Lightweight governance for regulated GTM work: proof tiers, approved-language libraries, review checkpoints, and public-safe claim boundaries.",
     },
-    not: ["process oriented", "risk manager", "compliance minded"],
   },
 
   {
@@ -626,13 +601,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Rebuilt GTM measurement logic around signal quality, attribution hygiene, lifecycle definitions, and sales follow-up inspection.",
-      recruiter:
+      principle:
         "A lot of GTM underperformance comes from measurement failure, routing failure, or handoff failure wearing a strategy costume.",
-      interview: "How do you know whether a GTM motion is actually working?",
+      signature:
+        "GTM measurement logic rebuilt around signal quality, attribution hygiene, lifecycle definitions, and sales follow-up inspection.",
     },
-    not: ["data-driven", "dashboard builder", "funnel analytics"],
   },
 
   {
@@ -675,13 +648,11 @@ export const softSkills: SoftSkill[] = [
       },
     ],
     language: {
-      resume:
-        "Converted GTM strategy into adopted operating habits through playbooks, intake processes, review cadences, training loops, and role-specific artifacts.",
-      recruiter:
+      principle:
         "I care less about whether a system looks impressive and more about whether the people closest to the work can use it every week.",
-      interview: "Tell me about a system you built that people actually adopted.",
+      signature:
+        "GTM strategy converted into adopted operating habits through playbooks, intake processes, review cadences, training loops, and role-specific artifacts.",
     },
-    not: ["team player", "people leader", "change manager"],
   },
 ];
 

@@ -2,7 +2,6 @@ import { FigureReveal } from "@/components/FigureReveal";
 import { ChapterPlate } from "./ChapterPlate";
 import { ProofBlock } from "./ProofBlock";
 import { LanguageAside } from "./LanguageAside";
-import { NotFooter } from "./NotFooter";
 import type { SoftSkill } from "@/content/soft-skills";
 
 type Props = {
@@ -10,10 +9,10 @@ type Props = {
 };
 
 /**
- * One chapter. Renders a six-component editorial unit: the chapter
+ * One chapter. Renders a five-component editorial unit: the chapter
  * plate (giant number + name), a lead paragraph weaving definition
- * and why-it-matters, the Connor-specific read, the proof block,
- * the fig-captioned language aside, and the NOT footer.
+ * and why-it-matters, the Connor-specific read, the proof block, and
+ * the fig-captioned language aside (principle + signature).
  *
  * Layout: 9-column inner grid (sits inside the 9-of-12 chapters
  * lane). Plate hangs in cols 1-3, body in cols 4-9. Stacks at <lg.
@@ -54,13 +53,10 @@ export function ChapterSection({ skill }: Props) {
           <FigureReveal>
             <LanguageAside
               fig={figNum}
-              resume={skill.language.resume}
-              recruiter={skill.language.recruiter}
-              interview={skill.language.interview}
+              principle={skill.language.principle}
+              signature={skill.language.signature}
             />
           </FigureReveal>
-
-          <NotFooter items={skill.not} />
         </div>
       </div>
     </section>
