@@ -7,6 +7,7 @@ import { ImpactLedger } from "@/components/ImpactLedger";
 import { FigureMarquee } from "@/components/FigureMarquee";
 import { Magnetic } from "@/components/Magnetic";
 import { SectionDivider } from "@/components/SectionDivider";
+import { EdgeEcho } from "@/components/edge/EdgeEcho";
 import { JsonLd, personSchema } from "@/components/JsonLd";
 import { CountUp } from "@/components/CountUp";
 import { HireSignal } from "@/components/HireSignal";
@@ -367,6 +368,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* EDGE ECHO ============================================== */}
+        <EdgeEcho />
 
         <SectionDivider
           src="/dividers/grid.webp"
