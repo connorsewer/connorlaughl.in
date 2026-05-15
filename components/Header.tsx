@@ -1,20 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { MobileNav } from "@/components/MobileNav";
+import { NavDropdown, type NavItem } from "@/components/NavDropdown";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { availability } from "@/content/hire-signal";
 
-type NavItem = { href: string; label: string; matchPrefix?: boolean };
-
-const NAV: NavItem[] = [
+const ME_ITEMS: NavItem[] = [
   { href: "/about", label: "About" },
+  { href: "/journal", label: "Journal", matchPrefix: true },
+];
+
+const WORK_ITEMS: NavItem[] = [
   { href: "/case-studies", label: "Case studies", matchPrefix: true },
   { href: "/resume", label: "Resume" },
   { href: "/tools/revops-capacity-planner", label: "Tools", matchPrefix: true },
   { href: "/edge", label: "Edge" },
-  { href: "/journal", label: "Journal", matchPrefix: true },
 ];
 
 function pillForState(state: typeof availability.state) {
@@ -41,7 +43,7 @@ function pillForState(state: typeof availability.state) {
 }
 
 export function Header() {
-  const pathname = usePathname();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pill = pillForState(availability.state);
 
   return (
@@ -92,28 +94,23 @@ export function Header() {
             />
 
             <nav
-              className="hidden md:flex items-center gap-4 lg:gap-6 font-mono text-[10px] tracking-[0.2em] uppercase"
+              className="hidden md:flex items-center gap-5 lg:gap-7 font-mono text-[10px] tracking-[0.2em] uppercase"
               aria-label="Main navigation"
             >
-              {NAV.map(({ href, label, matchPrefix }) => {
-                const active = matchPrefix
-                  ? pathname.startsWith(href.split("#")[0])
-                  : pathname === href;
-                return (
-                  <Link
-                    key={href}
-                    href={href}
-                    className={`transition-colors ${
-                      active
-                        ? "text-accent"
-                        : "text-paper/65 hover:text-accent"
-                    }`}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    {label}
-                  </Link>
-                );
-              })}
+              <NavDropdown
+                id="me"
+                label="Me"
+                items={ME_ITEMS}
+                openId={openDropdown}
+                setOpenId={setOpenDropdown}
+              />
+              <NavDropdown
+                id="work"
+                label="My work"
+                items={WORK_ITEMS}
+                openId={openDropdown}
+                setOpenId={setOpenDropdown}
+              />
             </nav>
 
             <span

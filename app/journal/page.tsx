@@ -42,7 +42,7 @@ export default function JournalIndex() {
             <span className="text-accent italic">life.</span>
           </h1>
           <p className="text-xl text-paper/70 max-w-3xl mb-6 leading-relaxed text-balance">
-            Because you&rsquo;re not a writer if you don&rsquo;t write.
+            Because I&rsquo;m not a writer if I don&rsquo;t write.
           </p>
         </div>
 
