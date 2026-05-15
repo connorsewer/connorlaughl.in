@@ -89,7 +89,7 @@ export const heroProofStrip: ProofMetric[] = [
     value: "5 verticals",
     label: "regulated GTM operating scope",
     context:
-      "7 acquisitions, 8 acquired brands, 3 web properties, Canadian business unit",
+      "7 acquisitions, 8 acquired brands, 3 web properties, international footprint",
     claimId: "CJL-CLAIM-050",
     posture: "approved-exact-with-context",
     publicUse: "show",
