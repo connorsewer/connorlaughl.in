@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { EdgeHero } from "@/components/edge/EdgeHero";
 import { EdgeStakeBlock } from "@/components/edge/EdgeStakeBlock";
+import { EdgeChapters } from "@/components/edge/EdgeChapters";
 import { HireSignal } from "@/components/HireSignal";
 
 export const metadata: Metadata = {
@@ -29,9 +30,10 @@ export default function EdgePage() {
       <main id="main-content">
         <EdgeHero />
         <EdgeStakeBlock />
+        <EdgeChapters />
 
-        {/* Chapter run, three-act dividers, sticky TOC, and closing
-            pull-quote land in subsequent commits. */}
+        {/* Sticky chapter index and closing pull-quote land in
+            subsequent commits. */}
 
         <HireSignal />
       </main>
