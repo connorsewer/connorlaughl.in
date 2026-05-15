@@ -204,6 +204,16 @@ html.light .site-header {
   color: var(--paper);
 }
 
+/* Journal entry body — drop-cap on the first paragraph of the rendered markdown. */
+.journal-prose > div > p:first-of-type::first-letter {
+  font-family: var(--font-display), serif;
+  font-size: 4.6em;
+  line-height: 0.86;
+  float: left;
+  margin: 0.06em 0.12em 0 0;
+  color: var(--accent);
+}
+
 /* Status pill — pixel font, terminal flavor */
 .status-pill {
   display: inline-flex;
