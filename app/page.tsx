@@ -88,7 +88,7 @@ export default function Home() {
                     as="span"
                     granularity="word"
                     delay={0.45}
-                    className="font-display font-medium italic block text-paper/85"
+                    className="font-display font-medium italic block text-accent"
                   >
                     {hero.headlinePart2}
                   </SplitText>
