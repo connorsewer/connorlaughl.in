@@ -39,7 +39,7 @@ export type ProofMetric = {
 export const heroProofStrip: ProofMetric[] = [
   {
     value: "$159.4M",
-    label: "marketing-influenced pipeline",
+    label: "marketing-influenced pipeline FY25",
     context: "GTM infrastructure built from zero",
     claimId: "CJL-CLAIM-001",
     posture: "approved-exact-with-context",
@@ -48,8 +48,9 @@ export const heroProofStrip: ProofMetric[] = [
   },
   {
     value: "$52.5M",
-    label: "net-new revenue contribution",
-    context: "marketing-attributed conversion at the same enterprise",
+    label: "net-new revenue contribution FY25",
+    context:
+      "GTM strategy, demand generation, and sales enablement infrastructure",
     claimId: "CJL-CLAIM-002",
     posture: "approved-exact-with-context",
     publicUse: "show",
@@ -67,8 +68,8 @@ export const heroProofStrip: ProofMetric[] = [
       "candidate-profile-master-v3.md:257-279; directional pending workflow map publication.",
   },
   {
-    value: "35+",
-    label: "RevOps KPI framework",
+    value: "35+ KPI",
+    label: "RevOps reporting framework",
     context: "funnel, attribution, unit economics, pipeline movement",
     claimId: "CJL-CLAIM-025",
     posture: "verified",
@@ -76,22 +77,24 @@ export const heroProofStrip: ProofMetric[] = [
     sourceNote: "candidate-profile-master-v3.md:379-409; verified.",
   },
   {
-    value: "7 acquisitions",
-    label: "marketing integration scope",
-    context: "8 acquired brands, 3 web properties, regulated Canadian business unit",
+    value: "$2.5M+",
+    label: "first-90-day BDR pipeline",
+    context: "signal-driven demand engine with 2-hour SLA",
+    posture: "verified",
+    publicUse: "show",
+    sourceNote:
+      "Resume FY24 BDR-pod result; verified per signal-based demand engine case study.",
+  },
+  {
+    value: "5 verticals",
+    label: "regulated GTM operating scope",
+    context:
+      "7 acquisitions, 8 acquired brands, 3 web properties, Canadian business unit",
     claimId: "CJL-CLAIM-050",
     posture: "approved-exact-with-context",
     publicUse: "show",
-    sourceNote: "candidate-profile-master-v3.md:212-228; approved corrected scope.",
-  },
-  {
-    value: "near-$0 to board-backed",
-    label: "marketing function built from scratch",
-    context: "2 offshore resources to 4 direct reports and a 16-person international model",
-    claimId: "SCOPE-004",
-    posture: "approved-exact-with-context",
-    publicUse: "show",
-    sourceNote: "candidate-profile-master-v3.md:212-228; approval overlay.",
+    sourceNote:
+      "candidate-profile-master-v3.md:212-228; approved corrected scope. Restructured around 5 regulated verticals.",
   },
 ];
 
