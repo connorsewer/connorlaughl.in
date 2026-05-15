@@ -12,7 +12,7 @@ const NAV: NavItem[] = [
   { href: "/case-studies", label: "Case studies", matchPrefix: true },
   { href: "/resume", label: "Resume" },
   { href: "/tools/revops-capacity-planner", label: "Tools", matchPrefix: true },
-  { href: "/#contact", label: "Contact" },
+  { href: "/edge", label: "Edge" },
 ];
 
 function pillForState(state: typeof availability.state) {
