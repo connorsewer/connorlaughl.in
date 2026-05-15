@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { EdgeHero } from "@/components/edge/EdgeHero";
 import { EdgeStakeBlock } from "@/components/edge/EdgeStakeBlock";
 import { EdgeChapters } from "@/components/edge/EdgeChapters";
+import { EdgeClosing } from "@/components/edge/EdgeClosing";
 import { EdgeMobileChip } from "@/components/edge/EdgeMobileChip";
 import { EdgeReadingProgress } from "@/components/edge/EdgeReadingProgress";
 import { HireSignal } from "@/components/HireSignal";
@@ -35,8 +36,7 @@ export default function EdgePage() {
         <EdgeHero />
         <EdgeStakeBlock />
         <EdgeChapters />
-
-        {/* Closing pull-quote lands in the next commit. */}
+        <EdgeClosing />
 
         <HireSignal />
       </main>
