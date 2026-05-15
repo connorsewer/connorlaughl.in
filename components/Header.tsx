@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MobileNav } from "@/components/MobileNav";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { availability } from "@/content/hire-signal";
 
@@ -119,7 +120,11 @@ export function Header() {
               className="hidden md:inline-block w-px h-4 bg-rule"
             />
 
-            <ThemeToggle />
+            <div className="hidden md:inline-flex">
+              <ThemeToggle />
+            </div>
+
+            <MobileNav />
           </div>
         </div>
       </div>
