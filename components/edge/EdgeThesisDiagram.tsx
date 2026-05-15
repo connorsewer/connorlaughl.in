@@ -15,10 +15,10 @@ type Leader = {
 };
 
 const LEADERS: Leader[] = [
-  { d: "M 308 56 L 460 130", delayMs: 0 },
-  { d: "M 308 130 L 460 130", delayMs: 180 },
-  { d: "M 308 204 L 460 130", delayMs: 360 },
-  { d: "M 460 130 L 488 130", delayMs: 540 },
+  { d: "M 256 56 L 400 130", delayMs: 0 },
+  { d: "M 256 130 L 400 130", delayMs: 180 },
+  { d: "M 256 204 L 400 130", delayMs: 360 },
+  { d: "M 400 130 L 420 130", delayMs: 540 },
 ];
 
 const DRAW_DURATION_MS = 720;
@@ -69,8 +69,8 @@ export function EdgeThesisDiagram() {
             aspectRatio: "640 / 260",
             padding: "20px 24px",
             backgroundImage:
-              "radial-gradient(circle, color-mix(in oklab, var(--paper) 22%, transparent) 1px, transparent 1.6px)",
-            backgroundSize: "9px 9px",
+              "radial-gradient(circle, color-mix(in oklab, var(--paper) 11%, transparent) 0.75px, transparent 1.25px)",
+            backgroundSize: "11px 11px",
             backgroundPosition: "0 0",
           }}
         >
@@ -92,7 +92,7 @@ export function EdgeThesisDiagram() {
             {AXES.map(({ label, y }) => (
               <text
                 key={label}
-                x={296}
+                x={240}
                 y={y}
                 textAnchor="end"
                 dominantBaseline="middle"
@@ -133,7 +133,7 @@ export function EdgeThesisDiagram() {
             </g>
 
             <circle
-              cx={460}
+              cx={400}
               cy={130}
               r={3.5}
               fill="var(--accent)"
@@ -146,7 +146,7 @@ export function EdgeThesisDiagram() {
             />
 
             <text
-              x={500}
+              x={432}
               y={130}
               dominantBaseline="middle"
               fill="var(--paper)"
