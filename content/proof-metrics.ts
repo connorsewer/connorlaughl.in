@@ -35,7 +35,7 @@ export type ProofMetric = {
   sourceNote?: string;
 };
 
-/** Five hero proof statistics rendered above the fold. */
+/** Six hero proof statistics rendered above the fold. */
 export const heroProofStrip: ProofMetric[] = [
   {
     value: "$159.4M",
@@ -45,6 +45,16 @@ export const heroProofStrip: ProofMetric[] = [
     posture: "approved-exact-with-context",
     publicUse: "show",
     sourceNote: "candidate-profile-master-v3.md:96-103; approved with context.",
+  },
+  {
+    value: "$52.5M",
+    label: "net-new revenue contribution",
+    context: "marketing-attributed conversion at the same enterprise",
+    claimId: "CJL-CLAIM-002",
+    posture: "approved-exact-with-context",
+    publicUse: "show",
+    sourceNote:
+      "Pairs with CJL-CLAIM-001; net-new revenue companion to influenced-pipeline figure.",
   },
   {
     value: "22-agent",

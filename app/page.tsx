@@ -103,7 +103,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                {/* 5-stat proof strip with count-up motion */}
+                {/* 6-stat proof strip with count-up motion. Lays out as 3x2
+                    at md+ for a balanced grid. */}
                 <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6 mt-2 animate-slide-up delay-300">
                   {heroProofStrip.map((stat, idx) => (
                     <li

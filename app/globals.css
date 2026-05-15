@@ -137,7 +137,16 @@ html.light body::after {
   color: var(--ink);
 }
 
-.font-display { font-family: var(--font-display), serif; }
+.font-display {
+  font-family: var(--font-display), serif;
+  /* Editorial display tightening. -1.5% tracking pulls letterforms
+     together for a more premium magazine-set feel without crowding.
+     Per-element `tracking-*` utilities still override when needed
+     (e.g. the hero H1 uses `tracking-tight` to push further). */
+  letter-spacing: -0.015em;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  font-kerning: normal;
+}
 .font-mono { font-family: var(--font-geist-mono), ui-monospace, monospace; }
 .font-pixel { font-family: var(--font-geist-pixel-square), var(--font-geist-mono), ui-monospace, monospace; letter-spacing: 0.05em; }
 
