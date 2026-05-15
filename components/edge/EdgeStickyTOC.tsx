@@ -65,15 +65,19 @@ export function EdgeStickyTOC() {
         </span>
       </div>
 
-      <ol className="flex flex-col gap-2.5 max-h-[70vh] overflow-y-auto pr-2 -mr-2">
+      <div className="flex flex-col gap-5 max-h-[72vh] overflow-y-auto pr-2 -mr-2">
         {ACT_ORDER.map((actSlug, actIndex) => {
           const act = ACTS[actSlug];
           const skillsInAct = softSkills.filter((s) => s.act === actSlug);
           return (
-            <li key={actSlug} className="flex flex-col gap-2.5 list-none">
+            <section
+              key={actSlug}
+              aria-label={`Act ${act.number}: ${act.title}`}
+              className="flex flex-col gap-2.5"
+            >
               <div
                 className={`flex items-center gap-2 font-mono text-[9px] tracking-[0.3em] uppercase text-paper/35 ${
-                  actIndex > 0 ? "pt-3" : ""
+                  actIndex > 0 ? "pt-1" : ""
                 }`}
               >
                 <span aria-hidden="true">───</span>
@@ -82,44 +86,48 @@ export function EdgeStickyTOC() {
                   ──────────
                 </span>
               </div>
-              {skillsInAct.map((skill) => {
-                const idx = softSkills.findIndex((s) => s.slug === skill.slug);
-                const isActive = skill.slug === activeSlug;
-                const isPast = idx < activeIdx;
-                const stateClass = isActive
-                  ? "text-paper text-[15px]"
-                  : isPast
-                    ? "text-paper/35 text-[13px]"
-                    : "text-paper/65 text-[13px]";
-                const link = (
-                  <a
-                    href={`#${skill.number}-${skill.slug}`}
-                    aria-current={isActive ? "location" : undefined}
-                    data-cursor="read"
-                    className={`flex items-baseline gap-2.5 leading-tight font-display transition-all duration-300 ease-out hover:text-paper hover:opacity-100 ${stateClass}`}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className={`shrink-0 -ml-1 w-2 ${isActive ? "text-accent" : ""}`}
+              <ol className="flex flex-col gap-2.5">
+                {skillsInAct.map((skill) => {
+                  const idx = softSkills.findIndex(
+                    (s) => s.slug === skill.slug,
+                  );
+                  const isActive = skill.slug === activeSlug;
+                  const isPast = idx < activeIdx;
+                  const stateClass = isActive
+                    ? "text-paper text-[15px]"
+                    : isPast
+                      ? "text-paper/35 text-[13px]"
+                      : "text-paper/65 text-[13px]";
+                  const link = (
+                    <a
+                      href={`#${skill.number}-${skill.slug}`}
+                      aria-current={isActive ? "location" : undefined}
+                      data-cursor="read"
+                      className={`flex items-baseline gap-2.5 leading-tight font-display transition-all duration-300 ease-out hover:text-paper hover:opacity-100 ${stateClass}`}
                     >
-                      {isActive ? "▌" : ""}
-                    </span>
-                    <span className="font-mono text-[10px] tracking-[0.22em] text-paper/55 shrink-0 mt-[2px]">
-                      {skill.number}
-                    </span>
-                    <span className="text-balance">{skill.name}</span>
-                  </a>
-                );
-                return (
-                  <li key={skill.slug} className="list-none">
-                    {isActive ? <Magnetic max={4}>{link}</Magnetic> : link}
-                  </li>
-                );
-              })}
-            </li>
+                      <span
+                        aria-hidden="true"
+                        className={`shrink-0 -ml-1 w-2 ${isActive ? "text-accent" : ""}`}
+                      >
+                        {isActive ? "▌" : ""}
+                      </span>
+                      <span className="font-mono text-[10px] tracking-[0.22em] text-paper/55 shrink-0 mt-[2px]">
+                        {skill.number}
+                      </span>
+                      <span className="text-balance">{skill.name}</span>
+                    </a>
+                  );
+                  return (
+                    <li key={skill.slug} className="list-none">
+                      {isActive ? <Magnetic max={4}>{link}</Magnetic> : link}
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
           );
         })}
-      </ol>
+      </div>
     </nav>
   );
 }
