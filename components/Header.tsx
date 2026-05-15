@@ -14,6 +14,7 @@ const NAV: NavItem[] = [
   { href: "/resume", label: "Resume" },
   { href: "/tools/revops-capacity-planner", label: "Tools", matchPrefix: true },
   { href: "/edge", label: "Edge" },
+  { href: "/journal", label: "Journal", matchPrefix: true },
 ];
 
 function pillForState(state: typeof availability.state) {
