@@ -46,6 +46,10 @@ html {
      - When reduced-motion users bypass Lenis, native scroll runs without
        smooth easing, which is the correct reduced-motion behavior. */
   background-color: var(--ink);
+  /* Prevent horizontal scrollbars from any full-bleed -mx tricks or
+     transient layout overshoots while resizing. `clip` is the modern
+     replacement for `hidden` that allows position:sticky to work. */
+  overflow-x: clip;
 }
 
 body {
@@ -55,6 +59,7 @@ body {
   -webkit-font-smoothing: antialiased;
   position: relative;
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 /* Page texture — fine paper grain layered with a warm radial wash

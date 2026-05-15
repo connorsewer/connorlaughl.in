@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -42,6 +42,15 @@ const SITE_TITLE =
   "Connor J. Laughlin | VP of Marketing & GTM (acting CMO), GTM Engineer";
 const SITE_DESCRIPTION =
   "Connor J. Laughlin is a Chicago-based VP of Marketing & GTM (acting CMO) and GTM Engineer who built revenue infrastructure, RevOps systems, governed AI workflows, and executive reporting behind $159.4M in influenced pipeline.";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#070707" },
+    { media: "(prefers-color-scheme: light)", color: "#F6F1E7" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
