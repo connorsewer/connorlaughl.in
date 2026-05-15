@@ -1,5 +1,6 @@
 import { ChapterSection } from "./ChapterSection";
 import { ActDivider } from "./ActDivider";
+import { EdgeStickyTOC } from "./EdgeStickyTOC";
 import { ACTS, softSkills, type ActSlug } from "@/content/soft-skills";
 
 const ACT_ORDER: ActSlug[] = ["move", "make-sense", "build-leverage"];
@@ -41,11 +42,9 @@ export function EdgeChapters() {
             })}
           </div>
 
-          {/* Right rail reserved for the sticky chapter index. */}
-          <aside
-            aria-hidden="true"
-            className="hidden lg:block lg:col-span-3"
-          />
+          <aside className="hidden lg:block lg:col-span-3">
+            <EdgeStickyTOC />
+          </aside>
         </div>
       </div>
     </section>

@@ -3,6 +3,8 @@ import { Header } from "@/components/Header";
 import { EdgeHero } from "@/components/edge/EdgeHero";
 import { EdgeStakeBlock } from "@/components/edge/EdgeStakeBlock";
 import { EdgeChapters } from "@/components/edge/EdgeChapters";
+import { EdgeMobileChip } from "@/components/edge/EdgeMobileChip";
+import { EdgeReadingProgress } from "@/components/edge/EdgeReadingProgress";
 import { HireSignal } from "@/components/HireSignal";
 
 export const metadata: Metadata = {
@@ -26,14 +28,15 @@ export default function EdgePage() {
   return (
     <div className="selection:bg-accent selection:text-ink">
       <Header />
+      <EdgeMobileChip />
+      <EdgeReadingProgress />
 
       <main id="main-content">
         <EdgeHero />
         <EdgeStakeBlock />
         <EdgeChapters />
 
-        {/* Sticky chapter index and closing pull-quote land in
-            subsequent commits. */}
+        {/* Closing pull-quote lands in the next commit. */}
 
         <HireSignal />
       </main>
