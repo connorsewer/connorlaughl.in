@@ -65,10 +65,14 @@ function toEntry(slug: string, data: Frontmatter): JournalEntry {
   };
 }
 
+// Cache in production (build-time prerender hits loadAll() many times across
+// generateStaticParams + per-route calls). Skip the cache in development so
+// content edits surface without a server restart.
+const isProd = process.env.NODE_ENV === "production";
 let cached: JournalPost[] | null = null;
 
 function loadAll(): JournalPost[] {
-  if (cached) return cached;
+  if (isProd && cached) return cached;
   const files = readdirSync(DIR).filter((f) => f.endsWith(".md"));
   const posts: JournalPost[] = files.map((file) => {
     const src = readFileSync(path.join(DIR, file), "utf8");
@@ -77,7 +81,7 @@ function loadAll(): JournalPost[] {
     return { ...toEntry(slug, data), body };
   });
   posts.sort((a, b) => b.date.localeCompare(a.date));
-  cached = posts;
+  if (isProd) cached = posts;
   return posts;
 }
 
