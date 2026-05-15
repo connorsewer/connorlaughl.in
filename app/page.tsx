@@ -45,7 +45,7 @@ const HERO_SLIDES = [
     src: "/hero/desk-portrait.webp",
     alt: "Connor at his standing desk with Henry the dog, looking out a window onto Lincoln Park, Chicago. Hand-drawn ink illustration",
     fig: "[Fig. 01]",
-    caption: "Connor and Henry at the desk, Lincoln Park, Chicago",
+    caption: "Connor and Henry hard at work - Chicago, IL",
   },
 ];
 
