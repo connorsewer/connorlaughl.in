@@ -34,7 +34,7 @@ Top to bottom, single column at narrow viewports, 12-col grid at lg+:
 2. **Hero block** — H1 in GT Sectra weight-ladder (`**Taste** *applied at* **velocity**`, Black + Light Italic + Black). Lede paragraph: the *portfolio version* paragraph from the compendium, GT Sectra 24–28px, 68ch cap. Typeset thesis diagram (no Midjourney work) — three short axis labels (Executive GTM judgment / Systems fluency / AI-native operating leverage) converging on the mono caption *judgment at speed*. Walnut frame, fig-captioned.
 3. **Stake block** — single mono line, full-width: *"Generation is cheap. The bottleneck is recognition."* GT Sectra Light Italic, 28–32px, two lines, sentence break for a beat. Letters split with `<SplitText>` at 30ms stagger.
 4. **Eleven numbered chapters** — see §4.
-5. **Closing block** — the one-line moat from the compendium, GT Sectra 32–40px, 50ch cap, centered, between two walnut rules. Fig-captioned `[Fig. 12.12] · ONE-LINE MOAT`.
+5. **Closing block** — the one-line moat from the compendium, GT Sectra 32–40px, 50ch cap, centered, between two walnut rules. Fig-captioned `[Fig. 40.12] · ONE-LINE MOAT`.
 6. **Hire-signal carry** — site-standard hire-signal block, no customization.
 7. **Footer** — site default.
 
@@ -50,7 +50,7 @@ Each of the eleven skills renders as one continuous editorial chapter with six c
 2. **Lead paragraph** — working definition + why-it-matters woven into one passage. GT Sectra 20–22px, 68ch cap. Real prose, no labeled-bullet pattern.
 3. **Connor-specific read** — second paragraph, 2–3 sentences, lands the claim.
 4. **Proof block** — walnut hairline above (animates 0→100% width on chapter enter, once, 600ms), mono `PROOF` label, typeset list of 3–5 anchors. Each anchor rendered through the posture model (§5.2). Anchors with `caseStudySlug` are quiet underline-on-hover links.
-5. **Language aside** — fig-captioned sidebar card, mono labels + GT Sectra body at ~14px, narrow column (40–50ch). Three rows: Resume language / Recruiter language / Interview prompt. Slightly tinted paper background (4–6% delta from `--ink`), 1px walnut hairline border. Reads as paratext. Fig-captioned `[Fig. 12.NN]` where NN is the chapter number.
+5. **Language aside** — fig-captioned sidebar card, mono labels + GT Sectra body at ~14px, narrow column (40–50ch). Three rows: Resume language / Recruiter language / Interview prompt. Slightly tinted paper background (4–6% delta from `--ink`), 1px walnut hairline border. Reads as paratext. Fig-captioned `[Fig. 40.NN]` where NN is the chapter number.
 6. **Not footer** — single mono line, dim, prefixed `NOT:` carrying the avoid-reducing-to phrases as `·`-separated. Walnut hairline below closes the chapter.
 
 The compendium's *portfolio angle* field is **not rendered**. It drives `caseStudySlug` metadata on the proof anchors.
@@ -291,12 +291,12 @@ Verification: visit `/`, `/about`, `/resume`, `/case-studies`, `/edge` in both m
 
 ## 13. Fig-number registry
 
-`MIDJOURNEY_PROMPTS.md` claims Fig. 12 for `/edge` with sub-numbering:
-- `[Fig. 12]` — hero thesis diagram
-- `[Fig. 12.01]` through `[Fig. 12.11]` — per-chapter language asides
-- `[Fig. 12.12]` — closing one-line moat pull-quote
+`MIDJOURNEY_PROMPTS.md` claims Fig. 40 for `/edge` with sub-numbering:
+- `[Fig. 40]` — hero thesis diagram
+- `[Fig. 40.01]` through `[Fig. 40.11]` — per-chapter language asides
+- `[Fig. 40.12]` — closing one-line moat pull-quote
 
-No Midjourney artwork is required for any Fig. 12 entry — they are all typographic.
+No Midjourney artwork is required for any Fig. 40 entry — they are all typographic.
 
 ## 14. Acceptance criteria
 

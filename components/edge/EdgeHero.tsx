@@ -22,7 +22,7 @@ export function EdgeHero() {
       <div className="mx-auto max-w-6xl flex flex-col gap-14 md:gap-20">
         <div className="flex flex-col gap-8 md:gap-10">
           <span className="font-mono text-[10px] tracking-[0.4em] text-accent uppercase">
-            [Fig. 12] · Edge · 2026
+            [Fig. 40] · Edge · 2026
           </span>
 
           <h1

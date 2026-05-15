@@ -33,7 +33,7 @@ export default async function OG() {
             color: "#d6b773",
           }}
         >
-          <span>[Fig. 12] · Edge · 2026</span>
+          <span>[Fig. 40] · Edge · 2026</span>
           <span>Connor J. Laughlin</span>
         </div>
 

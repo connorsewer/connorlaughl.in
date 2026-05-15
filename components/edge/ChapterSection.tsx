@@ -20,7 +20,7 @@ type Props = {
  */
 export function ChapterSection({ skill }: Props) {
   const headingId = `heading-${skill.slug}`;
-  const figNum = `Fig. 12.${skill.number}`;
+  const figNum = `Fig. 40.${skill.number}`;
   const sectionId = `${skill.number}-${skill.slug}`;
   const cursorLabel = `read-chapter-${skill.number}`;
 

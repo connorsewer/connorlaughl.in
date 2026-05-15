@@ -162,7 +162,7 @@ export function EdgeThesisDiagram() {
         </div>
       </div>
       <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[10px] tracking-[0.2em] uppercase text-paper/55">
-        <span className="fig-num">[Fig. 12]</span>
+        <span className="fig-num">[Fig. 40]</span>
         <span aria-hidden="true">·</span>
         <span className="normal-case tracking-wide text-paper/65">
           Three operating axes converging on the thesis

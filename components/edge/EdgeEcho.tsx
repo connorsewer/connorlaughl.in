@@ -8,7 +8,7 @@ import {
 /**
  * Homepage echo for /edge.
  *
- * Single full-bleed editorial band: eyebrow with the [Fig. 12] claim
+ * Single full-bleed editorial band: eyebrow with the [Fig. 40] claim
  * and a reading-time marker, the umbrella thesis as H2, the
  * portfolio-version paragraph as the lede, and four numbered chapter
  * teasers deep-linked to /edge anchors. Inside the same 12-col grid
@@ -30,7 +30,7 @@ export function EdgeEcho() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 mb-12">
           <div className="lg:col-span-5 flex flex-col gap-5">
             <div className="flex flex-wrap items-baseline gap-x-3 font-mono text-[10px] tracking-[0.32em] uppercase">
-              <span className="text-accent fig-num">[Fig. 12] · Edge</span>
+              <span className="text-accent fig-num">[Fig. 40] · Edge</span>
               <span aria-hidden="true" className="text-paper/30">
                 ·
               </span>
