@@ -1,6 +1,6 @@
 ---
-title: "The part of Chicago I trust"
-slug: "the-part-of-chicago-i-trust"
+title: "In Chicago I trust"
+slug: "in-chicago-i-trust"
 date: "2025-11-18"
 theme: "Chicago"
 read_time: "5 min"
