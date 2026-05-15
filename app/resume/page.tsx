@@ -305,6 +305,36 @@ export default function ResumePage() {
           <div className="rule mt-10" role="separator" />
 
           <section
+            aria-labelledby="how-i-work-heading"
+            className="mt-8 grid md:grid-cols-[10rem_1fr] gap-4 md:gap-8"
+          >
+            <h2
+              id="how-i-work-heading"
+              className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent self-start"
+            >
+              How I work
+            </h2>
+            <div className="space-y-3">
+              <p className="text-paper/85 text-base leading-relaxed">
+                The soft-skill edge a resume can&apos;t carry: taste applied at
+                velocity, specification clarity, trust calibration, and the
+                operating discipline that comes from delegating real work to
+                AI agents.
+              </p>
+              <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-accent">
+                <Link
+                  href="/edge"
+                  className="link-editorial hover:text-paper transition-colors"
+                >
+                  Operating edge <span aria-hidden="true">→</span>
+                </Link>
+              </p>
+            </div>
+          </section>
+
+          <div className="rule mt-10" role="separator" />
+
+          <section
             aria-labelledby="education-heading"
             className="mt-8 grid md:grid-cols-[10rem_1fr] gap-4 md:gap-8"
           >
