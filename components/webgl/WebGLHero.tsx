@@ -63,15 +63,13 @@ const fragment = /* glsl */ `
   void main() {
     vec2 uv = vUv;
 
-    // Mouse swell, eases the texture toward the cursor.
+    // Mouse swell, eases the texture toward the cursor. Geometry is
+    // otherwise static at rest so the portrait reads as a print, not a
+    // moving surface. The dither nudge below still adds print grain.
     vec2 toMouse = uMouse - uv;
     float dist = length(toMouse * vec2(uResolution.x / uResolution.y, 1.0));
     float swell = exp(-dist * dist * 9.0) * 0.022 * uHover;
     uv += toMouse * swell;
-
-    // Ambient print-grain wave.
-    float wave = sin(uv.y * 80.0 + uTime * 0.6) * 0.0012;
-    uv.x += wave;
 
     vec2 uv0 = coverUV(uv, uTex0Res);
     vec2 uv1 = coverUV(uv, uTex1Res);

@@ -65,7 +65,14 @@ export function EdgeThesisDiagram() {
       <div className="dither-frame w-full">
         <div
           className="frame-well bg-ink overflow-hidden flex items-center"
-          style={{ aspectRatio: "640 / 260", padding: "20px 24px" }}
+          style={{
+            aspectRatio: "640 / 260",
+            padding: "20px 24px",
+            backgroundImage:
+              "radial-gradient(circle, color-mix(in oklab, var(--paper) 22%, transparent) 1px, transparent 1.6px)",
+            backgroundSize: "9px 9px",
+            backgroundPosition: "0 0",
+          }}
         >
           <svg
             viewBox="0 0 640 260"
