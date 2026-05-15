@@ -3,7 +3,7 @@ import { ActDivider } from "./ActDivider";
 import { EdgeStickyTOC } from "./EdgeStickyTOC";
 import { ACTS, softSkills, type ActSlug } from "@/content/soft-skills";
 
-const ACT_ORDER: ActSlug[] = ["move", "make-sense", "build-leverage"];
+const ACT_ORDER: ActSlug[] = ["move", "make-sense", "build-systems"];
 
 /**
  * /edge chapters block. Renders the three-act structure:

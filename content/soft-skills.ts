@@ -17,7 +17,7 @@
  */
 import type { ClaimPosture, PublicUse } from "./proof-metrics";
 
-export type ActSlug = "move" | "make-sense" | "build-leverage";
+export type ActSlug = "move" | "make-sense" | "build-systems";
 
 export type Act = {
   /** Roman numeral for the divider plate. */
@@ -39,7 +39,7 @@ export const ACTS: Record<ActSlug, Act> = {
     title: "How I make ambiguity legible",
     subtitle: "Narrative, evidence, and trust as one stack.",
   },
-  "build-leverage": {
+  "build-systems": {
     number: "III",
     title: "How I scale judgment",
     subtitle: "Delegation, governance, and the systems people actually use.",
@@ -491,7 +491,7 @@ export const softSkills: SoftSkill[] = [
     number: "08",
     slug: "delegation-to-non-humans",
     name: "Delegation to non-humans",
-    act: "build-leverage",
+    act: "build-systems",
     definition:
       "Treating AI agents as operating participants that need context, goals, constraints, feedback, memory, review cycles, and ownership boundaries.",
     whyNow:
@@ -540,7 +540,7 @@ export const softSkills: SoftSkill[] = [
     number: "09",
     slug: "governance-without-drag",
     name: "Governance without drag",
-    act: "build-leverage",
+    act: "build-systems",
     definition:
       "Adding enough structure to make work safe, repeatable, and reviewable without turning the organization into a compliance swamp.",
     whyNow:
@@ -588,7 +588,7 @@ export const softSkills: SoftSkill[] = [
     number: "10",
     slug: "signal-detection-and-instrumentation-skepticism",
     name: "Signal detection and instrumentation skepticism",
-    act: "build-leverage",
+    act: "build-systems",
     definition:
       "Finding the hidden signal in messy GTM data while questioning whether the system is measuring the right thing at all.",
     whyNow:
@@ -639,7 +639,7 @@ export const softSkills: SoftSkill[] = [
     number: "11",
     slug: "operator-empathy-and-adoption-design",
     name: "Operator empathy and adoption design",
-    act: "build-leverage",
+    act: "build-systems",
     definition:
       "Designing systems people will actually use: clear ownership, low-friction handoffs, feedback loops, and enough training to make the new behavior stick.",
     whyNow:

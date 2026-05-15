@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ACTS, softSkills, type ActSlug } from "@/content/soft-skills";
 import { Magnetic } from "@/components/Magnetic";
 
-const ACT_ORDER: ActSlug[] = ["move", "make-sense", "build-leverage"];
+const ACT_ORDER: ActSlug[] = ["move", "make-sense", "build-systems"];
 
 /**
  * Sticky chapter index for /edge.
