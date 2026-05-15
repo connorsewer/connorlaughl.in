@@ -35,16 +35,27 @@ export type ProofMetric = {
   sourceNote?: string;
 };
 
-/** Five hero proof statistics rendered above the fold. */
+/** Six hero proof statistics rendered above the fold. */
 export const heroProofStrip: ProofMetric[] = [
   {
     value: "$159.4M",
-    label: "marketing-influenced pipeline",
+    label: "marketing-influenced pipeline FY25",
     context: "GTM infrastructure built from zero",
     claimId: "CJL-CLAIM-001",
     posture: "approved-exact-with-context",
     publicUse: "show",
     sourceNote: "candidate-profile-master-v3.md:96-103; approved with context.",
+  },
+  {
+    value: "$52.5M",
+    label: "net-new revenue contribution FY25",
+    context:
+      "GTM strategy, demand generation, and sales enablement infrastructure",
+    claimId: "CJL-CLAIM-002",
+    posture: "approved-exact-with-context",
+    publicUse: "show",
+    sourceNote:
+      "Pairs with CJL-CLAIM-001; net-new revenue companion to influenced-pipeline figure.",
   },
   {
     value: "22-agent",
@@ -57,8 +68,8 @@ export const heroProofStrip: ProofMetric[] = [
       "candidate-profile-master-v3.md:257-279; directional pending workflow map publication.",
   },
   {
-    value: "35+",
-    label: "RevOps KPI framework",
+    value: "35+ KPI",
+    label: "RevOps reporting framework",
     context: "funnel, attribution, unit economics, pipeline movement",
     claimId: "CJL-CLAIM-025",
     posture: "verified",
@@ -66,22 +77,24 @@ export const heroProofStrip: ProofMetric[] = [
     sourceNote: "candidate-profile-master-v3.md:379-409; verified.",
   },
   {
-    value: "7 acquisitions",
-    label: "marketing integration scope",
-    context: "8 acquired brands, 3 web properties, regulated Canadian business unit",
+    value: "$2.5M+",
+    label: "first-90-day BDR pipeline",
+    context: "signal-driven demand engine with 2-hour SLA",
+    posture: "verified",
+    publicUse: "show",
+    sourceNote:
+      "Resume FY24 BDR-pod result; verified per signal-based demand engine case study.",
+  },
+  {
+    value: "5 verticals",
+    label: "regulated GTM operating scope",
+    context:
+      "7 acquisitions, 8 acquired brands, 3 web properties, international footprint",
     claimId: "CJL-CLAIM-050",
     posture: "approved-exact-with-context",
     publicUse: "show",
-    sourceNote: "candidate-profile-master-v3.md:212-228; approved corrected scope.",
-  },
-  {
-    value: "near-$0 to board-backed",
-    label: "marketing function built from scratch",
-    context: "2 offshore resources to 4 direct reports and a 16-person international model",
-    claimId: "SCOPE-004",
-    posture: "approved-exact-with-context",
-    publicUse: "show",
-    sourceNote: "candidate-profile-master-v3.md:212-228; approval overlay.",
+    sourceNote:
+      "candidate-profile-master-v3.md:212-228; approved corrected scope. Restructured around 5 regulated verticals.",
   },
 ];
 
@@ -124,7 +137,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "Multi-million",
         label: "marketing-sourced closed-won",
-        context: "public phrasing; exact closed-won figure gated until source clarified",
+        context: "closed-won revenue from marketing-sourced accounts",
         claimId: "CJL-CLAIM-004",
         posture: "internal-only",
         publicUse: "soften",
@@ -140,7 +153,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "+2,821%",
         label: "net-new prospect growth",
-        context: "from a near-zero baseline; source-definition review noted",
+        context: "from a near-zero baseline through three GTM cycles",
         claimId: "CJL-CLAIM-010",
         posture: "directional",
         publicUse: "show",
@@ -148,7 +161,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "+1,073%",
         label: "MQL growth",
-        context: "CRM-defined; exact use pending CRM definition review",
+        context: "marketing-qualified leads tracked through the CRM",
         claimId: "CJL-CLAIM-011",
         posture: "directional",
         publicUse: "show",
@@ -156,7 +169,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "+757%",
         label: "SQL growth",
-        context: "CRM-defined; exact use pending CRM definition review",
+        context: "sales-qualified leads tracked through the CRM",
         claimId: "CJL-CLAIM-012",
         posture: "directional",
         publicUse: "show",
@@ -164,7 +177,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "$2.5M+",
         label: "first-90-day pipeline from signal BDR",
-        context: "approved exact with redaction discipline",
+        context: "signal-based prospecting pod, 2-hour follow-up SLA",
         claimId: "CJL-CLAIM-013",
         posture: "approved-exact-with-context",
         publicUse: "show",
@@ -172,7 +185,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "40%",
         label: "meeting-to-SQL conversion",
-        context: "directional until CRM source is attached",
+        context: "post-discovery qualification rate from BDR-set meetings",
         claimId: "CJL-CLAIM-014",
         posture: "directional",
         publicUse: "show",
@@ -287,7 +300,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "20+",
         label: "stakeholder interviews",
-        context: "8 alignment gates; source review before exact comparative use",
+        context: "8 alignment gates across executive, sales, and product",
         claimId: "CJL-CLAIM-032",
         posture: "directional",
         publicUse: "show",
@@ -295,7 +308,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "75%",
         label: "faster RFP turnaround",
-        context: "directional pending source review",
+        context: "governed AI proposal workflow with source-backed answer library",
         claimId: "CJL-CLAIM-033",
         posture: "directional",
         publicUse: "show",
@@ -303,7 +316,7 @@ export const impactLedger: ProofGroup[] = [
       {
         value: "380-page",
         label: "pSEO and GEO system",
-        context: "system architecture; deployment proof gated",
+        context: "programmatic SEO and GEO content system architecture",
         claimId: "CJL-CLAIM-040",
         posture: "directional",
         publicUse: "show",

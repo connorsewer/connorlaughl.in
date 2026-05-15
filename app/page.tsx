@@ -7,6 +7,7 @@ import { ImpactLedger } from "@/components/ImpactLedger";
 import { FigureMarquee } from "@/components/FigureMarquee";
 import { Magnetic } from "@/components/Magnetic";
 import { SectionDivider } from "@/components/SectionDivider";
+import { EdgeEcho } from "@/components/edge/EdgeEcho";
 import { JsonLd, personSchema } from "@/components/JsonLd";
 import { CountUp } from "@/components/CountUp";
 import { HireSignal } from "@/components/HireSignal";
@@ -44,7 +45,7 @@ const HERO_SLIDES = [
     src: "/hero/desk-portrait.webp",
     alt: "Connor at his standing desk with Henry the dog, looking out a window onto Lincoln Park, Chicago. Hand-drawn ink illustration",
     fig: "[Fig. 01]",
-    caption: "Connor and Henry at the desk, Lincoln Park, Chicago",
+    caption: "Connor and Henry hard at work - Chicago, IL",
   },
 ];
 
@@ -102,7 +103,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                {/* 5-stat proof strip with count-up motion */}
+                {/* 6-stat proof strip with count-up motion. Lays out as 3x2
+                    at md+ for a balanced grid. */}
                 <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6 mt-2 animate-slide-up delay-300">
                   {heroProofStrip.map((stat, idx) => (
                     <li
@@ -367,6 +369,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* EDGE ECHO ============================================== */}
+        <EdgeEcho />
 
         <SectionDivider
           src="/dividers/grid.webp"

@@ -63,15 +63,13 @@ const fragment = /* glsl */ `
   void main() {
     vec2 uv = vUv;
 
-    // Mouse swell, eases the texture toward the cursor.
+    // Mouse swell, eases the texture toward the cursor. Geometry is
+    // otherwise static at rest so the portrait reads as a print, not a
+    // moving surface. The dither nudge below still adds print grain.
     vec2 toMouse = uMouse - uv;
     float dist = length(toMouse * vec2(uResolution.x / uResolution.y, 1.0));
     float swell = exp(-dist * dist * 9.0) * 0.022 * uHover;
     uv += toMouse * swell;
-
-    // Ambient print-grain wave.
-    float wave = sin(uv.y * 80.0 + uTime * 0.6) * 0.0012;
-    uv.x += wave;
 
     vec2 uv0 = coverUV(uv, uTex0Res);
     vec2 uv1 = coverUV(uv, uTex1Res);
@@ -234,41 +232,58 @@ export default function WebGLHero({
     const start = performance.now();
     const transitionWindow = 1.5; // seconds at the end of each slot
     let lastReportedSlot = -1;
+    const isSingleSlide = slides.length <= 1;
 
     function frame() {
       if (visible) {
-        const tSec = (performance.now() - start) / 1000;
-        const slot = Math.floor(tSec / intervalSec);
-        const localTime = tSec - slot * intervalSec;
+        let mix = 0;
+        let activeSlide = 0;
 
-        const fromIdx = slot % slides.length;
-        const toIdx = (slot + 1) % slides.length;
+        if (isSingleSlide) {
+          // No rolodex cycle. Both texture uniforms point at the one
+          // loaded plate; uMix stays at 0 so the sweep mask never runs.
+          const t = textures[0];
+          if (t.ready) {
+            program.uniforms.uTex0.value = t.tex;
+            program.uniforms.uTex1.value = t.tex;
+            program.uniforms.uTex0Res.value = t.res;
+            program.uniforms.uTex1Res.value = t.res;
+          }
+        } else {
+          const tSec = (performance.now() - start) / 1000;
+          const slot = Math.floor(tSec / intervalSec);
+          const localTime = tSec - slot * intervalSec;
 
-        // Mix lives only inside the final transitionWindow seconds.
-        const mixRaw =
-          localTime > intervalSec - transitionWindow
-            ? (localTime - (intervalSec - transitionWindow)) / transitionWindow
-            : 0;
-        const mix = Math.max(0, Math.min(1, mixRaw));
+          const fromIdx = slot % slides.length;
+          const toIdx = (slot + 1) % slides.length;
 
-        // Active slide for caption: stays on `fromIdx` until the sweep is
-        // 50% through, then flips to `toIdx`. This keeps the caption from
-        // racing ahead of the visible image.
-        const activeSlide = mix > 0.5 ? toIdx : fromIdx;
+          // Mix lives only inside the final transitionWindow seconds.
+          const mixRaw =
+            localTime > intervalSec - transitionWindow
+              ? (localTime - (intervalSec - transitionWindow)) / transitionWindow
+              : 0;
+          mix = Math.max(0, Math.min(1, mixRaw));
+
+          // Active slide for caption: stays on `fromIdx` until the sweep
+          // is 50% through, then flips to `toIdx`. This keeps the caption
+          // from racing ahead of the visible image.
+          activeSlide = mix > 0.5 ? toIdx : fromIdx;
+
+          const t0 = textures[fromIdx];
+          const t1 = textures[toIdx];
+          if (t0.ready) {
+            program.uniforms.uTex0.value = t0.tex;
+            program.uniforms.uTex0Res.value = t0.res;
+          }
+          if (t1.ready) {
+            program.uniforms.uTex1.value = t1.tex;
+            program.uniforms.uTex1Res.value = t1.res;
+          }
+        }
+
         if (activeSlide !== lastReportedSlot) {
           lastReportedSlot = activeSlide;
           onSlideChangeRef.current?.(activeSlide);
-        }
-
-        const t0 = textures[fromIdx];
-        const t1 = textures[toIdx];
-        if (t0.ready) {
-          program.uniforms.uTex0.value = t0.tex;
-          program.uniforms.uTex0Res.value = t0.res;
-        }
-        if (t1.ready) {
-          program.uniforms.uTex1.value = t1.tex;
-          program.uniforms.uTex1Res.value = t1.res;
         }
         program.uniforms.uMix.value = mix;
 

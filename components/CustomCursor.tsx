@@ -16,6 +16,11 @@ import { useMediaQuery, usePrefersReducedMotion } from "@/hooks/useMediaQuery";
  *       "file-NN"   -> READ FILE NN
  *       "scroll"    -> SCROLL
  *
+ * The crosshair and label use `mix-blend-difference` against a fixed
+ * white foreground, which returns the exact inverse of whatever pixel
+ * sits underneath. That keeps the cursor visible against both the
+ * cream paper (light mode) and ink (dark mode) surfaces by definition.
+ *
  * Only active on devices with a fine pointer (mouse / trackpad), at lg+
  * widths, and when reduced-motion is off. Touch + reduced-motion render
  * nothing and the native cursor stays visible.
@@ -125,13 +130,13 @@ export function CustomCursor() {
     >
       <span
         ref={ringRef}
-        className="absolute block w-2.5 h-2.5 rounded-full border border-paper/80 bg-paper/0"
+        className="absolute block w-2.5 h-2.5 rounded-full border border-white/80 bg-white/0"
         style={{ willChange: "transform" }}
       />
       <span
         ref={labelRef}
         data-shown="0"
-        className="absolute left-5 top-3 font-mono text-[10px] tracking-[0.2em] uppercase whitespace-nowrap text-paper/85 opacity-0 data-[shown=1]:opacity-100 transition-opacity duration-150"
+        className="absolute left-5 top-3 font-mono text-[10px] tracking-[0.2em] uppercase whitespace-nowrap text-white/85 opacity-0 data-[shown=1]:opacity-100 transition-opacity duration-150"
       />
     </div>
   );

@@ -130,6 +130,7 @@ Pending / not yet generated: Fig. 12-30 plus the SVG schematics in §E (Revenue 
 | 34 | `public/schematics/signal-demand.svg` | 16:9 | SVG | Signal-Based Demand Engine card | Signal source → routing → SLA → meeting, see §E.3 |
 | 35 | `public/schematics/platform-narrative.svg` | 16:9 | SVG | Platform Narrative card | Before/after positioning panel with ICP overlay, see §E.4 |
 | 36 | `public/schematics/post-acquisition.svg` | 16:9 | SVG | Post-Acquisition SaaS GTM Bridge | Two systems converging, bridge symbol, see §E.5 |
+| 40 | (typeset, no asset) | n/a | Typeset | /edge route | Fig. 40 hero thesis diagram (inline SVG, three converging axes meeting at "judgment at speed"); Fig. 40.01–40.11 per-chapter language asides on /edge; Fig. 40.12 closing one-line moat pull-quote. No raster generation needed. |
 
 ---
 

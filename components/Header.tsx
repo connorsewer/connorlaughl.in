@@ -12,17 +12,29 @@ const NAV: NavItem[] = [
   { href: "/case-studies", label: "Case studies", matchPrefix: true },
   { href: "/resume", label: "Resume" },
   { href: "/tools/revops-capacity-planner", label: "Tools", matchPrefix: true },
-  { href: "/#contact", label: "Contact" },
+  { href: "/edge", label: "Edge" },
 ];
 
 function pillForState(state: typeof availability.state) {
   switch (state) {
     case "available":
-      return { dot: "bg-[color:var(--terminal-green)]", label: "Open to roles" };
+      return {
+        dot: "bg-[color:var(--terminal-green)]",
+        glow: "var(--terminal-green)",
+        label: "Open to roles",
+      };
     case "exploring":
-      return { dot: "bg-accent", label: "Exploring fits" };
+      return {
+        dot: "bg-accent",
+        glow: "var(--accent)",
+        label: "Exploring fits",
+      };
     case "closed":
-      return { dot: "bg-paper/40", label: "Closed" };
+      return {
+        dot: "bg-paper/40",
+        glow: "transparent",
+        label: "Closed",
+      };
   }
 }
 
@@ -61,11 +73,12 @@ export function Header() {
               aria-label={`Availability status: ${pill.label}`}
             >
               <span
-                className={`relative inline-block w-2 h-2 rounded-full ${pill.dot}`}
+                className={`relative inline-block w-2.5 h-2.5 rounded-full ${pill.dot}`}
+                style={{ boxShadow: `0 0 12px ${pill.glow}` }}
                 aria-hidden="true"
               >
                 <span
-                  className={`absolute inset-0 rounded-full ${pill.dot} opacity-60 motion-safe:animate-ping`}
+                  className={`absolute inset-0 rounded-full ${pill.dot} opacity-90 motion-safe:animate-ping`}
                 />
               </span>
               <span>{pill.label}</span>
