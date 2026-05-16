@@ -17,7 +17,7 @@ Complete repositioning of TSI's go-to-market messaging from feature-centric to o
 ### 2. BDR Pod & Lead Generation Program
 **File:** `bdr-pod-lead-generation-program.md`
 
-90-day BDR program design repurposing telesales reps into a lead generation pod. Includes operating model, daily cadence, messaging kits, ABM list strategy, and WebSights signal-to-meeting workflow.
+90-day BDR program design repurposing telesales reps into a lead generation pod. Includes operating model, daily cadence, messaging kits, ABM list strategy, and account-intent signal-to-meeting workflow.
 
 **Key Proof Points:** 40-60 first meetings target, 3-5 weekly meetings per BDR, 100% Tier-A touch SLA
 

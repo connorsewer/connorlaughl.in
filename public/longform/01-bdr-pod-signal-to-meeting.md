@@ -14,7 +14,7 @@ TSI had telesales reps making dials. No intent signals. No prioritization logic.
 
 Repurposed existing telesales headcount into a dedicated 2-person BDR pod (Ethan & Cynthia). Designed the operating system from scratch:
 
-- **Signal source:** ZoomInfo WebSights daily exports identifying B2B companies visiting TSI properties
+- **Signal source:** account-intent exports identifying B2B companies visiting TSI properties
 - **Enrichment layer:** Company match → ICP score → contact append — all before a human touches it
 - **2-hour SLA:** From signal identification to first outbound touch. Not a target. A rule.
 - **DebtNext cross-sell motion:** Parallel track targeting existing DebtNext accounts for TSI upsell — warm pipeline from day one
@@ -42,5 +42,5 @@ The governance piece is what separates it: documented workflows, SLAs with teeth
 ## Artifacts Available
 
 - BDR Signal-to-Meeting Workflow (process map)
-- ZoomInfo WebSights → enrichment → outreach SLA documentation
+- account-intent signal → enrichment → outreach SLA documentation
 - Weekly review template and cadence structure

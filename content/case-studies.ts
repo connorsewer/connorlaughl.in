@@ -352,7 +352,7 @@ export const caseStudies: CaseStudy[] = [
     businessProblem:
       "There was no clean outbound motion, no BDR budget, and no reliable way to decide which account signals deserved immediate sales action.",
     whatIBuilt:
-      "I built a signal-based BDR pod from existing resources, with fit scoring, WebSights and account intent, enrichment, routing, a 2-hour high-priority SLA, weekly signal review, playbooks, sequences, and a coaching cadence.",
+      "I built a signal-based BDR pod from existing resources, with fit scoring, account-intent signals, enrichment, routing, a high-priority SLA, weekly signal review, playbooks, sequences, and a coaching cadence.",
     whatChanged:
       "Sales had a clearer way to prioritize interest, work the right accounts faster, and inspect whether signals became meetings and SQLs.",
     whyItMattered:
@@ -361,20 +361,26 @@ export const caseStudies: CaseStudy[] = [
       "I can build pipeline motion without waiting for perfect budget or headcount.",
     proofMetrics: [
       {
-        value: "$2.5M+",
-        label: "first-90-day pipeline",
+        value: "Multi-million",
+        label: "first-90-day signal pipeline",
         context: "signal-based BDR pod from existing resources",
         claimId: "CJL-CLAIM-013",
         posture: "approved-exact-with-context",
-        publicUse: "show",
+        publicValue: "Multi-million",
+        publicLabel: "first-90-day signal pipeline",
+        publicContext: "signal-based BDR pod from existing resources",
+        publicUse: "soften",
       },
       {
-        value: "40%",
-        label: "held-meeting-to-SQL conversion",
+        value: "Directional",
+        label: "held-meeting-to-SQL conversion signal",
         context: "post-discovery qualification rate from BDR-set meetings",
         claimId: "CJL-CLAIM-014",
         posture: "directional",
-        publicUse: "show",
+        publicValue: "Directional",
+        publicLabel: "held-meeting-to-SQL conversion signal",
+        publicContext: "post-discovery qualification trend held without the private exact rate",
+        publicUse: "soften",
       },
       {
         value: "2 hours",
@@ -385,19 +391,19 @@ export const caseStudies: CaseStudy[] = [
         publicUse: "show",
       },
       {
-        value: "12,500+",
-        label: "monthly company visitors analyzed",
-        context: "reconcile before exact comparative use",
+        value: "Hidden",
+        label: "monthly company visitor volume",
+        context: "private visitor count held from public route",
         claimId: "CJL-CLAIM-016",
         posture: "directional",
-        publicUse: "show",
+        publicUse: "hide",
       },
     ],
     systemsBuilt: [
-      "WebSights signal ingest with company match",
+      "Account-intent signal ingest with company match",
       "ICP fit scoring and tiered routing",
       "Enrichment, contact append, and CRM handoff",
-      "2-hour high-priority signal-to-touch SLA",
+      "High-priority signal-to-touch SLA",
       "Weekly signal review and rep coaching cadence",
     ],
     artifactIdeas: [
@@ -414,19 +420,19 @@ export const caseStudies: CaseStudy[] = [
       "I built a signal-driven BDR pod from existing resources. The system, not the budget, made the pipeline.",
     sourceCrossrefs: ["candidate-profile-master-v3.md:283-311"],
 
-    deck: "Signal-driven BDR pod with a 2-hour SLA and pipeline accountability.",
+    deck: "Signal-driven BDR pod with SLA discipline and pipeline accountability.",
     outcome:
-      "$2.5M+ first-90-day pipeline. 40% held-meeting-to-SQL (directional). 2-hour high-priority SLA.",
+      "Multi-million first-90-day signal pipeline. Directional held-meeting-to-SQL conversion. High-priority SLA discipline.",
     scope: "Signal capture → ICP score → enrichment → routing → SLA → review.",
-    stack: "ZoomInfo WebSights • CRM • Outreach/Sequences • Enrichment",
+    stack: "Account-intent signals • CRM • sequences • enrichment",
     governance: "Enforced SLA • documented workflow • weekly operating review",
     longformHref: "/longform/signal-based-demand-engine",
     bullets: [
-      "Outcome: $2.5M+ first-90-day pipeline from a signal-driven BDR pod built from existing resources.",
-      "Outcome: 2-hour high-priority signal-to-touch SLA, timestamped per signal.",
+      "Outcome: multi-million first-90-day signal pipeline from a BDR pod built from existing resources.",
+      "Outcome: high-priority signal-to-touch SLA, timestamped per signal.",
       "System: Signal ingest, ICP score, enrichment, and tiered routing into the rep queue.",
       "Governance: Weekly signal review, coaching cadence, and process fixes for SLA misses.",
-      "Outcome: 40% held-meeting-to-SQL conversion as a directional indicator pending CRM source.",
+      "Outcome: held-meeting-to-SQL conversion tracked as a directional indicator pending CRM source.",
     ],
   },
   {

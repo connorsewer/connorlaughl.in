@@ -10,8 +10,8 @@ Design and deployment of a 90-day, budget-light BDR (Business Development Repres
 - **250-300** daily dials per BDR
 - **80-120** new contacts added weekly per BDR
 - **60-80** new sequences started weekly per BDR
-- **30-40%** held meeting to SQL conversion rate
-- **100%** WebSights Tier-A touch SLA (within 2 hours)
+- **Directional** held meeting to SQL conversion rate
+- **100%** account-intent Tier-A touch SLA (within 2 hours)
 
 ## What Connor Built
 - **Complete BDR Operating Model** (90-day plan):
@@ -19,7 +19,7 @@ Design and deployment of a 90-day, budget-light BDR (Business Development Repres
   - Daily cadence schedule (6 blocks from 8:30 AM - 4:00 PM)
   - Weekly targets and KPI framework
   - ICP definitions and value hooks by vertical
-  - Signal-to-meeting workflow (ZoomInfo WebSights)
+  - Signal-to-meeting workflow (account-intent signals)
   - ABM list strategy (3 target lists: DebtNext install base, Top 250 Healthcare, Utilities/Tolling)
 
 - **Outbound Messaging Kits**:
@@ -48,7 +48,7 @@ Design and deployment of a 90-day, budget-light BDR (Business Development Repres
 ## Attribution Clarity
 **Connor's Work:** Program design, operating model, workflow documentation, messaging templates, sequence frameworks, Salesforce configuration specs, training materials, KPI dashboards, compliance guardrails, implementation roadmap.
 
-**TSI's Assets:** ZoomInfo WebSights tool, Salesforce CRM, existing telesales reps (Ethan Goldsmith, Cynthia Acuna), product capabilities (CollectX, MENSA, PULSE/SAGA), compliance infrastructure, client references.
+**TSI's Assets:** account-intent signal source, CRM, existing telesales reps, product capabilities, compliance infrastructure, client references.
 
 ## Strategic Impact
 This program transformed TSI's lead generation from reactive (waiting for inbound) to proactive (signal-based ABM). The DebtNext cross-sell strategy leveraged existing software customers to open services conversations — creating a lower-friction entry point than cold outreach. The operating model was designed to run with minimal budget and existing headcount.

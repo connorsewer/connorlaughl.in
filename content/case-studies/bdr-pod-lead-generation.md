@@ -14,7 +14,7 @@
 TSI's growth had always been inbound — referrals, RFPs, brand recognition from 40+ years in ARM. But the market was shifting:
 
 - **Competitors** were building proactive outbound engines
-- **Website signals** (ZoomInfo WebSights) showed 200+ high-intent visitors monthly with zero follow-up
+- **Website signals** showed high-intent account activity with no structured follow-up
 - **Telesales reps** were underutilized, spending time on low-value activities
 - **Sales team** wanted more first meetings but had no systematic prospecting support
 
@@ -54,12 +54,12 @@ I worked with their manager to carve out 100% of their time for the BDR pilot an
 | Daily dials | 250-300 | Activity baseline |
 | New contacts/week | 80-120 | List building velocity |
 | Sequences started/week | 60-80 | Outreach volume |
-| Held meeting → SQL | 30-40% | Quality filter |
+| Held meeting → SQL | Directional | Quality filter |
 | Tier-A signal SLA | 100% (<2 hours) | Speed-to-lead advantage |
 
 #### 3. Signal-to-Meeting Workflow
-- **ZoomInfo WebSights** → Daily signal report
-- **Tier-A accounts** (top 250 Healthcare, DebtNext install base) → 2-hour touch SLA
+- **Account-intent signals** → Daily signal report
+- **Tier-A accounts** → high-priority touch SLA
 - **Tier-B accounts** (utilities, tolling) → 24-hour touch SLA
 - **Tier-C accounts** (all others) → 48-hour touch SLA
 
@@ -67,7 +67,7 @@ I worked with their manager to carve out 100% of their time for the BDR pilot an
 
 **Week 1:** Bootcamp
 - Day 1: TSI value props, ICP profiles, competitive landscape
-- Day 2: ZoomInfo training, Salesforce workflows, WebSights dashboard
+- Day 2: signal-workflow training, CRM workflows, intent dashboard
 - Day 3: Call scripts, email templates, objection handling
 - Day 4: Live call listening, shadowing AEs
 - Day 5: Practice calls, sequence building, Q&A
@@ -110,7 +110,7 @@ I documented everything in a **BDR Playbook** — 40+ pages covering:
 
 ### Meeting Generation
 - **40-60 first meetings** in 90 days (vs. 0 baseline)
-- **12-20 SQLs** generated (30-40% conversion)
+- **SQLs generated** with conversion tracked directionally
 - **100% Tier-A signal SLA** maintained (<2 hour response)
 
 ### Team Development
@@ -119,7 +119,7 @@ I documented everything in a **BDR Playbook** — 40+ pages covering:
 - **Playbook created** for scaling to additional BDRs
 
 ### Pipeline Impact
-- **$2.5M+ pipeline** created from BDR-sourced meetings
+- **Multi-million pipeline** created from BDR-sourced meetings
 - **3 closed-won deals** in pilot period (DebtNext cross-sell)
 - **Template for scale:** Proved the model before expanding headcount
 
@@ -165,7 +165,7 @@ I didn't just say "make calls." I built:
 - Implementation roadmap
 
 **TSI's Assets:**
-- ZoomInfo WebSights tool
+- Account-intent signal source
 - Salesforce CRM
 - Telesales reps (Ethan Goldsmith, Cynthia Acuna)
 - Product capabilities (CollectX, MENSA, PULSE/SAGA)
@@ -180,7 +180,7 @@ I didn't just say "make calls." I built:
 
 **Systematic Enablement:** Training wasn't "figure it out" — it was structured, measured, and iterated.
 
-**Signal-Based Prioritization:** WebSights data meant BDRs called accounts already researching TSI, not cold lists.
+**Signal-Based Prioritization:** intent data meant BDRs called accounts already researching TSI, not cold lists.
 
 **Speed-to-Lead:** The 2-hour Tier-A SLA meant we caught prospects while they were still in research mode.
 

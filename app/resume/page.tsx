@@ -28,7 +28,7 @@ const ROLES = [
     title: "Director of Marketing, then Senior Director",
     period: "2018 to 2024",
     points: [
-      "Built signal-based BDR pod from existing resources. $2.5M+ first-90-day pipeline, 2-hour high-priority signal-to-touch SLA.",
+      "Built signal-based BDR pod from existing resources. Multi-million first-90-day signal pipeline, high-priority signal-to-touch SLA.",
       "Authored 774-line messaging architecture across 5 regulated business lines plus a 10,900-word master GTM brief.",
       "Rebuilt tsico.com twice for enterprise conversion. Clean B2B routing, GA4 and GTM instrumentation, +28% organic clicks.",
       "Designed the post-acquisition GTM bridge, identified $254M cross-sell whitespace from 2,676 clients, supported 73% CAC reduction and 112% NRR at the company level.",

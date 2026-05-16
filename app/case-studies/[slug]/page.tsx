@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
+import { renderableProofMetrics } from "@/content/proof-metrics";
 import { RedactionReveal } from "@/components/RedactionReveal";
 import { FigureReveal } from "@/components/FigureReveal";
 import { ReadingPathJump } from "@/components/ReadingPathJump";
@@ -348,6 +349,7 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const cs = getCaseStudy(slug);
   if (!cs) return notFound();
+  const proofMetrics = renderableProofMetrics(cs.proofMetrics);
 
   const figs = FIGS[slug];
 
@@ -426,7 +428,7 @@ export default async function CaseStudyPage({
               TLDR · 90 seconds
             </h2>
             <div className="mt-4 grid sm:grid-cols-3 gap-3">
-              {cs.proofMetrics.slice(0, 3).map((m) => (
+              {proofMetrics.slice(0, 3).map((m) => (
                 <div
                   key={`tldr-${cs.slug}-${m.label}`}
                   className="rounded-2xl border border-rule bg-ink/55 p-4"
@@ -495,7 +497,7 @@ export default async function CaseStudyPage({
               Proof
             </h2>
             <ul className="mt-5 grid sm:grid-cols-2 gap-3">
-              {cs.proofMetrics.map((m) => (
+              {proofMetrics.map((m) => (
                 <li
                   key={`${cs.slug}-proof-${m.label}`}
                   className="rounded-2xl border border-rule bg-ink/55 p-5 flex flex-col gap-2"

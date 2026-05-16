@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
+import { renderableProofMetrics } from "@/content/proof-metrics";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -18,7 +19,7 @@ export default async function CaseStudyOG({
   const cs = getCaseStudy(slug);
   const title = cs?.title ?? "Case study";
   const hook = cs?.hook ?? "GTM systems Connor J. Laughlin built and ran.";
-  const topMetrics = (cs?.proofMetrics ?? []).slice(0, 3);
+  const topMetrics = renderableProofMetrics(cs?.proofMetrics ?? []).slice(0, 3);
 
   return new ImageResponse(
     (

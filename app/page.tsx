@@ -20,7 +20,7 @@ import {
   contact,
   timeline,
 } from "@/content/homepage-copy";
-import { heroProofStrip } from "@/content/proof-metrics";
+import { heroProofStrip, renderableProofMetrics } from "@/content/proof-metrics";
 import { getSignatureCaseStudies } from "@/content/case-studies";
 
 export const metadata: Metadata = {
@@ -51,6 +51,7 @@ const HERO_SLIDES = [
 
 export default function Home() {
   const signatureCases = getSignatureCaseStudies();
+  const heroStats = renderableProofMetrics(heroProofStrip);
 
   return (
     <div className="selection:bg-accent selection:text-ink">
@@ -106,7 +107,7 @@ export default function Home() {
                 {/* 6-stat proof strip with count-up motion. Lays out as 3x2
                     at md+ for a balanced grid. */}
                 <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6 mt-2 animate-slide-up delay-300">
-                  {heroProofStrip.map((stat, idx) => (
+                  {heroStats.map((stat, idx) => (
                     <li
                       key={stat.label}
                       className="border-l-2 border-rule pl-4 hover:border-accent transition-colors"
@@ -178,7 +179,7 @@ export default function Home() {
             { fig: "7", label: "acquisitions integrated" },
             { fig: "[Fig. 06]", label: "Marketing org, near-$0 to board" },
             { fig: "+757%", label: "SQL growth, CRM-defined" },
-            { fig: "$2.5M+", label: "first-90-day pipeline, signal BDR" },
+            { fig: "Multi-million", label: "first-90-day signal pipeline" },
             { fig: "[Fig. 05]", label: "Outcome-first messaging architecture" },
           ]}
         />
@@ -334,7 +335,7 @@ export default function Home() {
                       </div>
                     </dl>
                     <ul className="mt-1 flex flex-wrap gap-2 pt-2 border-t border-rule/60">
-                      {cs.proofMetrics.slice(0, 3).map((m) => (
+                      {renderableProofMetrics(cs.proofMetrics).slice(0, 3).map((m) => (
                         <li
                           key={`${cs.slug}-${m.label}`}
                           className="font-mono text-[10px] tracking-[0.12em] text-accent border border-rule/80 px-2.5 py-1 rounded-full"

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "proof:guard": "node scripts/check-public-proof-metrics.mjs"
   },
   "dependencies": {
     "geist": "^1.7.0",

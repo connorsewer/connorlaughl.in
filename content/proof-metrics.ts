@@ -25,6 +25,12 @@ export type ProofMetric = {
   label: string;
   /** Plain language context that travels with the number in public UI. */
   context: string;
+  /** Public-safe value for softened/target claims. Used instead of value. */
+  publicValue?: string;
+  /** Public-safe label for softened/target claims. Used instead of label. */
+  publicLabel?: string;
+  /** Public-safe context for softened/target claims. Used instead of context. */
+  publicContext?: string;
   /** ID from Portfolio Claims Register where applicable. */
   claimId?: string;
   /** Governance posture; lives in source so future edits cannot drift. */
@@ -34,6 +40,60 @@ export type ProofMetric = {
   /** Optional source citation for internal review. Never rendered. */
   sourceNote?: string;
 };
+
+export type RenderableProofMetric = Pick<ProofMetric, "value" | "label" | "context">;
+
+const SOFTENED_METRIC_FALLBACK: RenderableProofMetric = {
+  value: "Directional proof",
+  label: "private metric held for review",
+  context: "Exact value remains gated until public-use approval.",
+};
+
+const TARGET_METRIC_FALLBACK: RenderableProofMetric = {
+  value: "Target",
+  label: "target metric",
+  context: "Forward-looking claim labeled as a target.",
+};
+
+/**
+ * Returns the only ProofMetric shape that public routes may render.
+ *
+ * Raw `value` / `label` / `context` are rendered only when publicUse === "show".
+ * Softened and target claims must use public-safe overrides, with conservative
+ * fallbacks that avoid leaking exact private values. Hidden claims are dropped.
+ */
+export function renderableProofMetric(metric: ProofMetric): RenderableProofMetric | null {
+  if (metric.publicUse === "hide") return null;
+
+  if (metric.publicUse === "soften") {
+    return {
+      value: metric.publicValue ?? SOFTENED_METRIC_FALLBACK.value,
+      label: metric.publicLabel ?? SOFTENED_METRIC_FALLBACK.label,
+      context: metric.publicContext ?? SOFTENED_METRIC_FALLBACK.context,
+    };
+  }
+
+  if (metric.publicUse === "label-as-target") {
+    return {
+      value: metric.publicValue ?? TARGET_METRIC_FALLBACK.value,
+      label: metric.publicLabel ?? TARGET_METRIC_FALLBACK.label,
+      context: metric.publicContext ?? TARGET_METRIC_FALLBACK.context,
+    };
+  }
+
+  return {
+    value: metric.publicValue ?? metric.value,
+    label: metric.publicLabel ?? metric.label,
+    context: metric.publicContext ?? metric.context,
+  };
+}
+
+export function renderableProofMetrics(metrics: ProofMetric[]): RenderableProofMetric[] {
+  return metrics.flatMap((metric) => {
+    const renderable = renderableProofMetric(metric);
+    return renderable ? [renderable] : [];
+  });
+}
 
 /** Six hero proof statistics rendered above the fold. */
 export const heroProofStrip: ProofMetric[] = [
@@ -77,11 +137,14 @@ export const heroProofStrip: ProofMetric[] = [
     sourceNote: "candidate-profile-master-v3.md:379-409; verified.",
   },
   {
-    value: "$2.5M+",
-    label: "first-90-day BDR pipeline",
+    value: "Multi-million",
+    label: "first-90-day signal pipeline",
     context: "signal-driven demand engine with 2-hour SLA",
+    publicValue: "Multi-million",
+    publicLabel: "first-90-day signal pipeline",
+    publicContext: "signal-driven demand engine with a documented high-priority SLA",
     posture: "verified",
-    publicUse: "show",
+    publicUse: "soften",
     sourceNote:
       "Resume FY24 BDR-pod result; verified per signal-based demand engine case study.",
   },
@@ -138,11 +201,14 @@ export const impactLedger: ProofGroup[] = [
         value: "Multi-million",
         label: "marketing-sourced closed-won",
         context: "closed-won revenue from marketing-sourced accounts",
+        publicValue: "Multi-million",
+        publicLabel: "marketing-sourced closed-won",
+        publicContext: "closed-won revenue phrased without the private source value",
         claimId: "CJL-CLAIM-004",
         posture: "internal-only",
         publicUse: "soften",
         sourceNote:
-          "$8.5M closed-won remains internal-only until source confirmed. Body uses softened phrasing.",
+          "Closed-won source value remains internal-only until source confirmed. Body uses softened phrasing.",
       },
     ],
   },
@@ -175,20 +241,26 @@ export const impactLedger: ProofGroup[] = [
         publicUse: "show",
       },
       {
-        value: "$2.5M+",
-        label: "first-90-day pipeline from signal BDR",
+        value: "Multi-million",
+        label: "first-90-day signal pipeline",
         context: "signal-based prospecting pod, 2-hour follow-up SLA",
         claimId: "CJL-CLAIM-013",
         posture: "approved-exact-with-context",
-        publicUse: "show",
+        publicValue: "Multi-million",
+        publicLabel: "first-90-day signal pipeline",
+        publicContext: "signal-based prospecting pod with a documented high-priority SLA",
+        publicUse: "soften",
       },
       {
-        value: "40%",
-        label: "meeting-to-SQL conversion",
+        value: "Directional",
+        label: "meeting-to-SQL conversion signal",
         context: "post-discovery qualification rate from BDR-set meetings",
         claimId: "CJL-CLAIM-014",
         posture: "directional",
-        publicUse: "show",
+        publicValue: "Directional",
+        publicLabel: "meeting-to-SQL conversion signal",
+        publicContext: "qualification trend held without the private exact rate",
+        publicUse: "soften",
       },
     ],
   },

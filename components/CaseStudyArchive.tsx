@@ -4,6 +4,7 @@ import { useCallback, useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { AudienceTag, CaseStudy } from "@/content/case-studies";
+import { renderableProofMetrics } from "@/content/proof-metrics";
 
 type Props = {
   studies: CaseStudy[];
@@ -167,7 +168,7 @@ export function CaseStudyArchive({ studies, audienceTags }: Props) {
                   </div>
                 </dl>
                 <ul className="mt-1 flex flex-wrap gap-2 pt-3 border-t border-rule/60">
-                  {study.proofMetrics.slice(0, 3).map((m) => (
+                  {renderableProofMetrics(study.proofMetrics).slice(0, 3).map((m) => (
                     <li
                       key={`${study.slug}-${m.label}`}
                       className="font-mono text-[10px] tracking-[0.12em] text-accent border border-rule/80 px-2.5 py-1 rounded-full"

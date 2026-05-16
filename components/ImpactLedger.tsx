@@ -3,7 +3,7 @@
 import { animate, inView, stagger } from "motion";
 import { useEffect, useRef } from "react";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
-import { impactLedger } from "@/content/proof-metrics";
+import { impactLedger, renderableProofMetrics } from "@/content/proof-metrics";
 import { EASE, STAGGER } from "@/lib/motion";
 
 /**
@@ -53,7 +53,7 @@ export function ImpactLedger() {
   return (
     <div ref={ref} className="divide-y divide-rule">
       {impactLedger.map((group) => {
-        const [anchor, ...supporting] = group.metrics;
+        const [anchor, ...supporting] = renderableProofMetrics(group.metrics);
         return (
           <div
             key={group.id}

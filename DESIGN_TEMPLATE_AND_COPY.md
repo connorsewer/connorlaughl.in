@@ -252,7 +252,7 @@ Source: `content/case-studies.ts`
 - **Deck:** Acquisition system focused on high-intent capture over volume.
 - **Outcome:** 25% MQL growth; established SLAs improving conversion by 15%.
 - **System:** Signal-to-touch architecture with lead scoring and handoff SLAs.
-- **Stack:** Pardot • Salesforce • ZoomInfo • LinkedIn
+- **Stack:** Marketing automation • CRM • account-intent signals • LinkedIn
 - **Governance:** Lead scoring thresholds • Disqualification codes • SLA audits
 
 ### (REV OPS) RFP & Pipeline Governance
