@@ -68,6 +68,7 @@ const reading = [
 ];
 
 const films = [
+  "The Nice Guys (2016)",
   "Sorcerer (1975)",
   "Thief (1981)",
   "Barry Lyndon (1975)",
