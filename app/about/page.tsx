@@ -55,6 +55,7 @@ const rooms = [
 ];
 
 const reading = [
+  { title: "The Bright Sword", author: "Lev Grossman" },
   { title: "The Devil's Chessboard", author: "David Talbot" },
   {
     title: "The Art of Doing Science and Engineering",
