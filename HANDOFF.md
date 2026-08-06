@@ -1,3 +1,34 @@
+# ADDENDUM 2026-08-06 (evening): elevation + wow session
+
+Ten commits, `2d2247f0..411c0ac4`, on `redesign/manual`. Connor's standing
+directive this session (recorded in session memory as `wow-mandate`): repo
+design conservatism is negotiable; the claim gate and voiceDNA are not.
+
+**Shipped.** Engine fixes (true 1.25px strokes, coherent draw-on, no stranded
+labels, layout-effect parks, transform-only checker); a working terminal under
+the cover FAQ (help/ls/open/theme/whoami, one earned easter egg); chrome
+elevation (theme wipe via View Transition, Lenis anchor glide, rebuilt
+scroll-spy, live TOC rows, scrimmed mobile contents sheet, one-line wordmark at
+390); dark surfaces (luminous sheet rim, cyanotype teal, visible paper grid,
+ratios recorded); markdown renderer fixes and a formatted planner; page
+recomposition (three cover figure registers, OUTCOME above the fold, foot nav
+on every route, index and resume proof blocks, /edge in three acts, errata
+404); living figures (signal packets after draw-on, hover lift, drafting
+crosshair); x-ray mode (self-annotating page, all values measured live);
+micro-delights (wordmark scramble, scrubbable ruler, Konami operator mode,
+404 pencil test).
+
+**Verification.** Prod build green, voice scan 0/24 against prod, proof:guard
+5 renderers over floor 4, security headers intact, console clean, adversarial
+review verdict FIX-THEN-SHIP with all three P1s fixed and re-verified,
+impeccable detector empty, reduced-motion outcome parity confirmed on every
+new surface.
+
+**Still open from the original list.** Everything in section 4A (Connor's
+gating calls) is untouched. The plate-program hold stands. Longform foot nav
+was deliberately skipped (renderer-count coupling); TOC section-2/4/5 kind
+tokens shipped instead of counts.
+
 # HANDOFF: connorlaughl.in, consolidated 2026-08-06
 
 **For:** Connor, and any session that picks the repo up after him.
