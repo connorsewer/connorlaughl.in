@@ -98,7 +98,7 @@ export const tocSections: CoverTocSection[] = [
         title: "Signal-based demand engine",
         href: "/case-studies/bdr-pod-signal-to-meeting",
         countKey: "case-studies/bdr-pod-signal-to-meeting",
-        dek: "Buying signals routed to a tiered response model, with a two-hour rule on the highest-priority ones.",
+        dek: "Buying signals routed to a tiered response model, with a defined window on the highest-priority ones.",
       },
       {
         num: "05",

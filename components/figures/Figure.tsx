@@ -19,6 +19,10 @@ import { drawOn } from "@/lib/motion-manual";
  * URLs into language models and screen-reader users get the same claim as
  * everyone else, so the claim never lives only in the picture.
  *
+ * The rotated rails carry the figure id and its subject and are furniture;
+ * they collapse below `lg`, where the caption under the plate says the same
+ * thing in reading order.
+ *
  * This is a client component so the plate can draw itself in on viewport
  * enter. SVG children passed in from a server page stay server-rendered.
  * Reduced motion: `drawOn` returns without touching a single stroke.
@@ -67,7 +71,7 @@ export function Figure({
       <div className="figure-plate flex items-stretch gap-2 p-4">
         <span
           aria-hidden="true"
-          className="shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] rotate-180"
+          className="hidden shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] rotate-180 lg:block"
         >
           FIG_{id}
         </span>
@@ -88,7 +92,7 @@ export function Figure({
 
         <span
           aria-hidden="true"
-          className="shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl]"
+          className="hidden shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] lg:block"
         >
           [ {title} ]
         </span>

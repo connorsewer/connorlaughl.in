@@ -149,7 +149,8 @@ export function SidebarTOC({ sections, activeHref, anchors }: SidebarTOCProps) {
                     aria-current={isActive ? "page" : undefined}
                     className={`${LINK_BASE} ${isActive ? LINK_ACTIVE : LINK_IDLE}`}
                   >
-                    {entry.title}
+                    {/* Reference sets every sidebar entry as a sentence. */}
+                    {entry.title.replace(/\.$/, "")}.
                   </Link>
                 </li>
               );

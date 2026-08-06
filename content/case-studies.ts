@@ -157,7 +157,7 @@ export const caseStudies: CaseStudy[] = [
     longformHref: "/longform/revenue-operating-system-from-zero",
 
     deck: "The operating layer behind a $159.4M influenced pipeline: definitions, KPIs, attribution, cadence.",
-    outcome: "Built the GTM infrastructure behind a nine-figure influenced pipeline.",
+    outcome: "Built the GTM infrastructure behind a {P6}.",
     scope:
       "Lifecycle definitions → attribution → 35+ KPI framework → reverse-funnel math → close-date movement → executive reporting cadence.",
     stack: "CRM (Zoho/Salesforce concepts) • Dashboards • GA4 • Reporting",
@@ -184,7 +184,7 @@ export const caseStudies: CaseStudy[] = [
     signature: true,
     signatureOrder: 2,
     businessProblem:
-      "A small team had to support content, demand generation, proposals, sales enablement, reporting, and brand work across 5 regulated verticals.",
+      "A small team had to support content, demand generation, proposals, sales enablement, reporting, and brand work across {V5}.",
     whatIBuilt:
       "I self-taught Python, TypeScript, prompt engineering, and agentic workflow design to build a governed AI operating layer for GTM work: research, campaign briefing, content adaptation, RFP and RFX support, competitive intelligence, and executive reporting.",
     whatChanged:
@@ -346,7 +346,7 @@ export const caseStudies: CaseStudy[] = [
     sourceCrossrefs: ["candidate-profile-master-v3.md:379-409"],
 
     deck: "Weekly ghost-pipeline inspection so forecast calls stop relying on optimism.",
-    outcome: "Designed a 35+ KPI funnel architecture from awareness through revenue and unit economics. Built the GTM infrastructure behind a nine-figure influenced pipeline.",
+    outcome: "Designed a 35+ KPI funnel architecture from awareness through revenue and unit economics, the inspection layer inside the GTM infrastructure behind a {P6}.",
     scope: "Close-date movement → stage aging → activity ratios → rep accountability → executive package.",
     stack: "CRM • Dashboards • SQL • BI",
     governance: "Versioned KPI definitions • weekly review cadence • access controls",
@@ -363,9 +363,9 @@ export const caseStudies: CaseStudy[] = [
     figureSlug: "fig-011",
     label: "SIGNAL DEMAND ENGINE",
     title: "Signal-based demand engine",
-    hook: "Buying signals routed to a tiered response model, with a two-hour rule on the highest-priority ones.",
+    hook: "Buying signals routed to a tiered response model, with a defined window on the highest-priority ones.",
     chapterIntro: [
-      "Most outbound treats every account the same way. I built a tiering model that reads buying signals, routes each tier to the right motion, and holds the team to a response window. The highest-priority signals get a two-hour rule. Every other tier gets a defined window and a named owner.",
+      "Most outbound treats every account the same way. I built a tiering model that reads buying signals, routes each tier to the right motion, and holds the team to a response window. The highest-priority signals carry a {P2}. Every other tier gets a defined window and a named owner.",
     ],
     audienceFit: ["Demand generation", "RevOps and pipeline accountability"],
     signature: true,
@@ -442,7 +442,7 @@ export const caseStudies: CaseStudy[] = [
     sourceCrossrefs: ["candidate-profile-master-v3.md:283-311"],
 
     deck: "Signal-driven BDR pod with SLA discipline and pipeline accountability.",
-    outcome: "Built tiered signal-to-touch SLAs, including a two-hour high-priority response rule. Built the GTM infrastructure behind a nine-figure influenced pipeline.",
+    outcome: "Built tiered signal-to-touch SLAs, including a {P2}, inside the GTM infrastructure behind a {P6}.",
     scope: "Signal capture → ICP score → enrichment → routing → SLA → review.",
     stack: "Account-intent signals • CRM • sequences • enrichment",
     governance: "Enforced SLA • documented workflow • weekly operating review",
@@ -554,7 +554,7 @@ export const caseStudies: CaseStudy[] = [
     governance:
       "Claims register with verified / directional / projected status • versioned messaging • voice and style rules",
     bullets: [
-      "System: Authored a 774-line messaging architecture across 5 regulated business lines.",
+      "System: Authored a 774-line messaging architecture across {V5}.",
       "System: 10,900-word master GTM brief with ICP intelligence and proof governance.",
       "System: 5-pillar positioning framework shared across sales, marketing, and RFP.",
       "Governance: Claims register tracking verified, directional, and projected status to prevent unverified external claims.",

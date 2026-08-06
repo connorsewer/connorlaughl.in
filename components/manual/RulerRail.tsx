@@ -14,7 +14,8 @@ import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
  *
  * Takes no props: it measures document scroll itself. Hidden below `lg`,
  * where there is no gutter to put it in, and hidden from assistive tech
- * (the same information is in the page structure).
+ * (the same information is in the page structure). It starts below the
+ * masthead so the readout and the masthead nav never share a y band.
  *
  * Reduced motion: the ticks render, the readout and the moving indicator do
  * not, and no scroll listener is attached.
@@ -60,7 +61,7 @@ export function RulerRail() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed right-0 top-0 z-30 hidden h-screen w-16 select-none lg:block"
+      className="pointer-events-none fixed right-0 top-[4.5rem] z-30 hidden h-[calc(100vh-4.5rem)] w-16 select-none lg:block"
     >
       <div className="relative h-full pr-4">
         {/* Ticks as a repeating rule: fixed pitch at any viewport height, and

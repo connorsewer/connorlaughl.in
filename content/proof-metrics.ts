@@ -123,8 +123,14 @@ const regulatedVerticals: ProofMetric = {
  * Spine row P5. Amber with standing approval, cover route only.
  *
  * One object, referenced by both the legacy hero strip and the manual cover's
- * proof lede, so the two surfaces can never drift. Per the copy deck it
+ * proof lede, so the two surfaces can never drift. The exact-numeral scoping
+ * in the copy deck applies to THIS usage, the cover lede: the figure itself
  * travels to no other page, no OG image, and no metadata string.
+ *
+ * The softened order-of-magnitude form (P6, below) is a separate object and
+ * does travel, to the three chapters the deck places it on. Chapter proof
+ * blocks additionally render module-posture metrics; whether that scoping
+ * should tighten is Connor's Task 21 review, recorded in the overnight log.
  */
 const influencedPipeline: ProofMetric = {
   value: "$159.4M",
@@ -223,8 +229,45 @@ export const coverStats: ProofMetric[] = [
 ];
 
 /**
- * Magnitude numerals that ship as prose on `/`, `/about`, and `/resume` rather
- * than as stats rows. They are claims, so they resolve through the same gate.
+ * Spine row P6. The approved softened form of the pipeline row: order of
+ * magnitude, no figure. A separate object from `influencedPipeline` so the
+ * exact numeral has exactly one home and cannot ride along here. The copy deck
+ * places this form on three chapters as the outcome line.
+ */
+const influencedPipelineSoftened: ProofMetric = {
+  value: "nine-figure influenced pipeline",
+  label: "marketing-influenced pipeline, order of magnitude",
+  context: "GTM infrastructure built from zero",
+  publicValue: "nine-figure influenced pipeline",
+  publicLabel: "marketing-influenced pipeline, order of magnitude",
+  publicContext: "GTM infrastructure built from zero",
+  claimId: "CJL-CLAIM-001",
+  posture: "approved-exact-with-context",
+  publicUse: "soften",
+  sourceNote:
+    "Spine P6, the softened form of CJL-CLAIM-001. Copy deck section 3 places it on 3.1, 3.3 and 3.4 as the chapter outcome line. The exact figure stays on the cover lede only.",
+};
+
+/**
+ * Spine row P2. Green, the response rule on the highest-priority signal tier.
+ * The deck places the phrase on chapter 3.4.
+ */
+const highPriorityResponseRule: ProofMetric = {
+  value: "two-hour high-priority response rule",
+  label: "response window on the top signal tier",
+  context:
+    "Every other tier carries its own defined window and a named owner",
+  claimId: "CJL-CLAIM-026",
+  posture: "verified",
+  publicUse: "show",
+  sourceNote:
+    "Spine P2, Green, CJL-CLAIM-026. Copy deck section 3.4 uses the phrase in the chapter outcome line.",
+};
+
+/**
+ * Magnitude numerals that ship as prose on `/`, `/about`, `/resume` and the
+ * case-study chapters rather than as stats rows. They are claims, so they
+ * resolve through the same gate.
  */
 export const proseProofClaims: ProofMetric[] = [
   /* S6. SCOPE-004, BUILDER 2026-05-13 overlay. Kept as one entry: splitting it
@@ -262,7 +305,24 @@ export const proseProofClaims: ProofMetric[] = [
     sourceNote:
       "candidate-profile-master-v3.md, Professional Summary and Key Differentiators. Counts the initial digital-marketing title; the 4 titles in the chronology are 3 step-ups, so do not present the count as arithmetic from the table.",
   },
+  /* P6. Softened pipeline magnitude, chapter outcome lines. */
+  influencedPipelineSoftened,
+  /* P2. Response rule on the top signal tier, chapter outcome line. */
+  highPriorityResponseRule,
 ];
+
+/**
+ * Prose tokens. A route writes `{S6}` or `{P6}` in copy and resolves it
+ * through this map, so no magnitude is ever typed as a literal in a content
+ * module. Every entry here is also in `proseProofClaims`, which is what the
+ * guard scans.
+ */
+export const proseClaimTokens: Record<string, ProofMetric> = {
+  S6: proseProofClaims[0],
+  V5: regulatedVerticals,
+  P6: influencedPipelineSoftened,
+  P2: highPriorityResponseRule,
+};
 
 export type ProofGroup = {
   id: string;

@@ -25,7 +25,9 @@ const CONTACT_HREF = personSchema.email;
 
 type NavLink = { href: string; label: string };
 
-const NAV: NavLink[] = [
+/** The manual's three standing links. Exported so the chapter shell can fold
+    them into its contents disclosure at widths where the masthead nav hides. */
+export const MANUAL_NAV: NavLink[] = [
   { href: "/#contents", label: "Contents" },
   { href: "/resume", label: "Resume" },
   { href: CONTACT_HREF, label: "Contact" },
@@ -69,11 +71,11 @@ function Nav({ compact }: { compact: boolean }) {
   return (
     <nav
       aria-label="Manual navigation"
-      className={`flex items-center gap-4 font-mono uppercase tracking-[0.2em] text-body-ink/70 ${
-        compact ? "text-[9px]" : "text-[10px]"
+      className={`items-center gap-4 font-mono uppercase tracking-[0.2em] text-body-ink/70 ${
+        compact ? "hidden text-[9px] lg:flex" : "flex text-[10px]"
       }`}
     >
-      {NAV.map(({ href, label }) =>
+      {MANUAL_NAV.map(({ href, label }) =>
         href.startsWith("mailto:") ? (
           <a key={href} href={href} className="transition-colors hover:text-blueprint">
             {label}

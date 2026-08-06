@@ -1,9 +1,10 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { Breadcrumb } from "@/components/manual/Breadcrumb";
 import { ChapterMeta } from "@/components/manual/ChapterMeta";
 import { ColophonFooter } from "@/components/manual/ColophonFooter";
-import { Masthead } from "@/components/manual/Masthead";
+import { MANUAL_NAV, Masthead } from "@/components/manual/Masthead";
 import { RulerRail } from "@/components/manual/RulerRail";
 import { Sheet } from "@/components/manual/Sheet";
 import { SidebarTOC, type TocSection } from "@/components/manual/SidebarTOC";
@@ -83,7 +84,7 @@ export function ChapterLayout({
     <div className="manual-root min-h-screen bg-ground-grid">
       <Masthead compact />
 
-      <div className="mx-auto flex w-full max-w-[84rem] gap-0 px-0 pb-16 md:px-6 lg:px-10 xl:gap-10">
+      <div className="mx-auto flex w-full max-w-[84rem] gap-0 px-0 pb-16 md:px-6 lg:px-10 xl:gap-2">
         {toc ? (
           <aside
             aria-label="Manual contents"
@@ -94,24 +95,46 @@ export function ChapterLayout({
         ) : null}
 
         <div className="min-w-0 flex-1">
-          <div className="mx-auto w-full max-w-[44rem]">
-            {toc ? (
-              <details className="border-b border-grid-line px-4 md:px-0 xl:hidden">
-                <summary className="cursor-pointer list-none py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/70 transition-colors hover:text-blueprint">
-                  Contents
-                </summary>
-                <div className="pb-5 pt-2">{toc}</div>
-              </details>
-            ) : null}
+          <div className="mx-auto w-full max-w-[53rem] xl:mx-0">
+            {/* One chrome band below xl: the contents disclosure and the
+                breadcrumb share a row, and the standing nav links ride inside
+                the disclosure since the compact masthead drops them there. */}
+            <div className="flex items-center gap-4 px-4 py-3 md:px-0 md:py-4 xl:block">
+              {toc ? (
+                <details className="group relative shrink-0 xl:hidden">
+                  <summary className="cursor-pointer list-none font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/70 transition-colors hover:text-blueprint">
+                    Contents
+                  </summary>
+                  <div className="absolute left-0 right-0 top-full z-20 mt-3 w-[min(22rem,80vw)] border border-grid-line bg-sheet p-4 shadow-sm">
+                    {toc}
+                    <ul className="mt-5 flex flex-wrap gap-4 border-t border-grid-line pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/70">
+                      {MANUAL_NAV.map(({ href, label }) => (
+                        <li key={href}>
+                          {href.startsWith("mailto:") ? (
+                            <a href={href} className="transition-colors hover:text-blueprint">
+                              {label}
+                            </a>
+                          ) : (
+                            <Link href={href} className="transition-colors hover:text-blueprint">
+                              {label}
+                            </Link>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </details>
+              ) : null}
 
-            <div className="px-4 py-3 md:px-0 md:py-4">
-              <Breadcrumb
-                section={section}
-                chapter={chapter}
-                sectionHref={sectionHref}
-                prev={prev}
-                next={next}
-              />
+              <div className="min-w-0 flex-1">
+                <Breadcrumb
+                  section={section}
+                  chapter={chapter}
+                  sectionHref={sectionHref}
+                  prev={prev}
+                  next={next}
+                />
+              </div>
             </div>
 
             {/* The skip target is the sheet's own landmark wrapper: focus lands

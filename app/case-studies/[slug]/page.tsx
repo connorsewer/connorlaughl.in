@@ -29,7 +29,12 @@ import {
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
 import { cta } from "@/content/cover";
 import { tocSections } from "@/content/cover";
-import { proseProofClaims, renderableProofMetrics } from "@/content/proof-metrics";
+import {
+  proseClaimTokens,
+  renderableProofMetric,
+  renderableProofMetrics,
+  type RenderableProofMetric,
+} from "@/content/proof-metrics";
 import { caseStudyWords } from "@/lib/word-counts";
 
 /**
@@ -62,6 +67,50 @@ const chapterFigures: Record<string, React.ComponentType> = {
   "fig-017": Fig017TwoFunctionModel,
   "fig-018": Fig018SchemaToPage,
 };
+
+/**
+ * Prose claim tokens.
+ *
+ * Copy in `content/case-studies.ts` never types a magnitude. It writes a token
+ * and the route resolves it through the claim gate, so a claim that loses its
+ * approval disappears from the page instead of going stale in a string. Each
+ * entry says how that claim reads in a sentence.
+ */
+const TOKEN_TEXT: Record<string, (metric: RenderableProofMetric) => string> = {
+  S6: (m) => `${m.value} ${m.label}. ${m.context}.`,
+  V5: (m) => `${m.value} ${m.label}`,
+  P6: (m) => m.value,
+  P2: (m) => m.value,
+};
+
+const TOKEN_PATTERN = /\{([A-Z][0-9]+)\}/g;
+
+/**
+ * Resolves claim tokens in a copy string. A sentence carrying a token that no
+ * longer resolves is dropped whole, because a half-sentence is worse than a
+ * missing one.
+ */
+function resolveClaims(text: string): string {
+  return text
+    .split(/(?<=\.)\s+/)
+    .map((sentence) => {
+      let dropped = false;
+      const resolved = sentence.replace(TOKEN_PATTERN, (_match, token: string) => {
+        const metric = proseClaimTokens[token];
+        const renderable = metric ? renderableProofMetric(metric) : null;
+        const render = TOKEN_TEXT[token];
+        if (!renderable || !render) {
+          dropped = true;
+          return "";
+        }
+        return render(renderable);
+      });
+      return dropped ? "" : resolved;
+    })
+    .filter(Boolean)
+    .join(" ")
+    .trim();
+}
 
 const SECTION_TITLE = "Revenue systems";
 const STRATEGY_MEMO = {
@@ -135,11 +184,6 @@ export default async function CaseStudyPage({
   const href = `/case-studies/${slug}`;
   const { prev, next } = chapterNeighbours(href);
   const proofMetrics = renderableProofMetrics(cs.proofMetrics);
-  /* S6. Rendered as its whole progression sentence pair, never split. */
-  const [progression] = renderableProofMetrics(proseProofClaims);
-  const s6 = progression
-    ? `${progression.value} ${progression.label}. ${progression.context}.`
-    : "";
 
   const statRows: StatRow[] = proofMetrics.map((metric) => ({
     label: metric.label,
@@ -147,14 +191,18 @@ export default async function CaseStudyPage({
     srText: `${metric.value}. ${metric.label}. ${metric.context}.`,
   }));
 
+  /* Drop the eyebrow when it only repeats the chapter title. */
+  const eyebrow =
+    cs.label.trim().toLowerCase() === cs.title.trim().toLowerCase() ? undefined : cs.label;
+
   const ChapterFigure = cs.figureSlug ? chapterFigures[cs.figureSlug] : undefined;
 
   const caseLogic = [
-    ["01", "The problem", cs.businessProblem],
-    ["02", "What I built", cs.whatIBuilt],
-    ["03", "What changed", cs.whatChanged],
-    ["04", "Why it mattered", cs.whyItMattered],
-    ["05", "What it proves", cs.whatItProves],
+    ["01", "The problem", resolveClaims(cs.businessProblem)],
+    ["02", "What I built", resolveClaims(cs.whatIBuilt)],
+    ["03", "What changed", resolveClaims(cs.whatChanged)],
+    ["04", "Why it mattered", resolveClaims(cs.whyItMattered)],
+    ["05", "What it proves", resolveClaims(cs.whatItProves)],
   ] as const;
 
   return (
@@ -177,19 +225,34 @@ export default async function CaseStudyPage({
         sections={manualSections}
         activeHref={href}
       >
-        <header className="max-w-[68ch]">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
-            {cs.label}
-          </p>
+        <header className="mx-auto max-w-[68ch] text-center">
+          {/* The eyebrow is a second reading of the title. It renders only when
+              it says something the title does not, and never to a screen
+              reader, which would otherwise hear the chapter name twice. */}
+          {eyebrow ? (
+            <p
+              aria-hidden="true"
+              className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint"
+            >
+              {eyebrow}
+            </p>
+          ) : null}
           <h1
-            className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]"
+            className={`font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem] ${eyebrow ? "mt-4" : ""}`}
             style={{ viewTransitionName: `case-title-${slug}` }}
           >
             {cs.title}
           </h1>
-          <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
+          <p className="mx-auto mt-5 max-w-[54ch] font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
             {cs.hook}
           </p>
+          {/* Dinkus. The reference sets one under every chapter dek. */}
+          <span
+            aria-hidden="true"
+            className="mt-7 block font-mono text-[11px] tracking-[0.5em] text-body-ink/40"
+          >
+            -----
+          </span>
         </header>
 
         {/* The chapter plate runs ahead of the body, as on the reference
@@ -208,12 +271,12 @@ export default async function CaseStudyPage({
                 index === 0 ? "manual-body manual-dropcap" : "manual-body mt-5"
               }
             >
-              {paragraph === "{S6}" ? s6 : paragraph}
+              {resolveClaims(paragraph)}
             </p>
           ))}
         </section>
 
-        {cs.outcome ? (
+        {resolveClaims(cs.outcome) ? (
           <section
             aria-label="Outcome"
             className="mt-10 max-w-[68ch] border-l-2 border-blueprint pl-5"
@@ -222,7 +285,7 @@ export default async function CaseStudyPage({
               Outcome
             </p>
             <p className="mt-2 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink">
-              {cs.outcome}
+              {resolveClaims(cs.outcome)}
             </p>
           </section>
         ) : null}
@@ -282,7 +345,7 @@ export default async function CaseStudyPage({
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="manual-body max-w-[64ch]">{item}</span>
+                <span className="manual-body max-w-[64ch]">{resolveClaims(item)}</span>
               </li>
             ))}
           </ol>
