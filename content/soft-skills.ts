@@ -26,7 +26,7 @@ export type Act = {
   number: string;
   /** Title rendered on the act divider. */
   title: string;
-  /** Single-line subtitle on the divider. */
+  /** Act framing paragraph. Approved copy deck, section 5, verbatim. */
   subtitle: string;
 };
 
@@ -34,17 +34,20 @@ export const ACTS: Record<ActSlug, Act> = {
   move: {
     number: "I",
     title: "How I move",
-    subtitle: "Judgment ahead of speed.",
+    subtitle:
+      "Speed and taste usually trade against each other. These are the habits that keep both: reading a problem fast, writing the spec before the work starts, and deciding well while the picture is still incomplete.",
   },
   "make-sense": {
     number: "II",
     title: "How I make ambiguity legible",
-    subtitle: "Narrative, evidence, and trust as one stack.",
+    subtitle:
+      "Most of the executive job is turning fog into something a team can act on. That takes a narrative that holds up under questioning, plus enough fluency in other functions' frames to argue in their language.",
   },
   "build-systems": {
     number: "III",
     title: "How I scale judgment",
-    subtitle: "Delegation, governance, and the systems people actually use.",
+    subtitle:
+      "Judgment stops scaling the moment it only lives in your head. I taught myself to code, then built governed AI workflows with human approval gates and audit trails. Material productivity lift from a governed AI operating layer. The rest is delegation to people and to agents, governance that doesn't drag, skepticism about my own instrumentation, and designing for whoever runs the thing after me.",
   },
 };
 
@@ -94,12 +97,11 @@ export type SoftSkill = {
 };
 
 /**
- * Hero copy and the closing pull-quote.
- *
- * `display`  is the H1 weight-ladder source string (split client-side).
- * `portfolio` lands the lede paragraph after the H1.
- * `stake`    is the single-line stake block before the chapters.
- * `moat`     is the closing one-line moat between two walnut rules.
+ * Historical. The hero, stake, and closing blocks this fed were replaced in
+ * Task 15 by the approved deck's page intro, so nothing renders these fields
+ * and `scripts/word-counts.mjs` no longer counts them. Retained for one
+ * release so the wording is recoverable without git archaeology; the legacy
+ * sweep may delete it.
  */
 export const HERO_THESIS = {
   display: "Taste applied at velocity.",
@@ -125,9 +127,9 @@ export const softSkills: SoftSkill[] = [
     proof: [
       {
         internalName: "22-Agent Marketing OS",
-        categoricalPhrase: "22-agent governed AI GTM operating system",
+        categoricalPhrase: "a governed AI GTM operating layer",
         posture: "directional",
-        publicUse: "show",
+        publicUse: "soften",
         caseStudySlug: "ai-native-gtm",
         claimId: "CJL-CLAIM-021",
         sourceNote:
@@ -173,7 +175,7 @@ export const softSkills: SoftSkill[] = [
     whyNow:
       "Weak briefs create expensive ambiguity for humans and over-compliant slop from LLMs. Modern leaders need to specify goals, constraints, inputs, outputs, review gates, and non-goals.",
     connorRead:
-      "Most of my work is turning messy GTM intent into schemas, intake forms, routing logic, briefs, proof standards, and review loops. The thing I write most often is the spec the AI agent or junior teammate can actually execute against.",
+      "Most of my work is turning messy GTM intent into schemas, intake forms, routing logic, briefs, proof standards, and review loops. The thing I write most often is the spec the AI agent or junior teammate can execute against.",
     proof: [
       {
         internalName: "Governed RFP/RFX AI Answer Library",
@@ -210,7 +212,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "I am strongest where strategy has to become an operating spec: who owns what, which inputs matter, what the output must prove, and where human judgment stays in the loop.",
       signature:
-        "Briefs, schemas, workflows, SLAs, and review gates that translate ambiguous priorities into work an executive, a vendor, or an AI agent can actually execute.",
+        "Briefs, schemas, workflows, SLAs, and review gates that translate ambiguous priorities into work an executive, a vendor, or an AI agent can execute.",
     },
   },
 
@@ -291,7 +293,7 @@ export const softSkills: SoftSkill[] = [
         internalName: "DebtNext SaaS Repositioning and Cross-Sell Engine",
         categoricalPhrase: "post-acquisition SaaS repositioning and cross-sell engine",
         posture: "verified",
-        publicUse: "show",
+        publicUse: "soften",
         caseStudySlug: "debtnext-integration",
       },
       {
@@ -371,9 +373,9 @@ export const softSkills: SoftSkill[] = [
     proof: [
       {
         internalName: "35+ KPI Revenue Funnel Architecture",
-        categoricalPhrase: "35+ KPI revenue funnel architecture",
+        categoricalPhrase: "the revenue funnel KPI architecture",
         posture: "verified",
-        publicUse: "show",
+        publicUse: "soften",
         claimId: "CJL-CLAIM-025",
       },
       {
@@ -392,7 +394,7 @@ export const softSkills: SoftSkill[] = [
         internalName: "DebtNext M&A GTM Integration",
         categoricalPhrase: "post-acquisition M&A GTM integration",
         posture: "verified",
-        publicUse: "show",
+        publicUse: "soften",
         caseStudySlug: "debtnext-integration",
       },
       {
@@ -424,9 +426,9 @@ export const softSkills: SoftSkill[] = [
     proof: [
       {
         internalName: "22-Agent Governed AI Marketing OS",
-        categoricalPhrase: "22-agent governed AI marketing operating system",
+        categoricalPhrase: "a governed AI marketing operating layer",
         posture: "directional",
-        publicUse: "show",
+        publicUse: "soften",
         caseStudySlug: "ai-native-gtm",
         claimId: "CJL-CLAIM-021",
       },
@@ -480,9 +482,9 @@ export const softSkills: SoftSkill[] = [
     proof: [
       {
         internalName: "22-Agent Marketing OS",
-        categoricalPhrase: "22-agent governed AI GTM operating system",
+        categoricalPhrase: "a governed AI GTM operating layer",
         posture: "directional",
-        publicUse: "show",
+        publicUse: "soften",
         caseStudySlug: "ai-native-gtm",
         claimId: "CJL-CLAIM-021",
       },
@@ -614,7 +616,7 @@ export const softSkills: SoftSkill[] = [
     name: "Operator empathy and adoption design",
     act: "build-systems",
     definition:
-      "Designing systems people will actually use: clear ownership, low-friction handoffs, feedback loops, and enough training to make the new behavior stick.",
+      "Designing systems people keep using: clear ownership, low-friction handoffs, feedback loops, and enough training to make the new behavior stick.",
     whyNow:
       "The best GTM architecture fails if sales, marketing, proposal, finance, or executives do not adopt it. AI workflows make adoption more important because the process is new and psychologically unfamiliar.",
     connorRead:

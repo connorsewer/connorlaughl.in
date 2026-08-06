@@ -26,8 +26,10 @@
  *    values, which carry their own posture model).
  *
  * 3. `/edge`: the rendered text of `content/soft-skills.ts`:
- *      HERO_THESIS.display, .portfolio, .stake, .moat
  *      ACTS[*].title, .subtitle
+ *      (HERO_THESIS is no longer counted: Task 15 replaced the hero, stake,
+ *       and closing blocks with the approved deck's page intro, so those
+ *       fields render nowhere and counting them would over-report.)
  *      softSkills[*].name, .definition, .whyNow, .connorRead,
  *                    .language.principle, .language.signature
  *      softSkills[*].proof[*] through `renderProofAnchor`, which drops
@@ -109,13 +111,8 @@ export function caseStudyWordCount(cs, proseTokens = {}) {
 }
 
 /** Rendered text of the /edge essay. */
-export function edgeWordCount({ heroThesis, acts, softSkills, renderProofAnchor }) {
-  let total = countFields([
-    heroThesis.display,
-    heroThesis.portfolio,
-    heroThesis.stake,
-    heroThesis.moat,
-  ]);
+export function edgeWordCount({ acts, softSkills, renderProofAnchor }) {
+  let total = 0;
 
   for (const act of Object.values(acts)) {
     total += countFields([act.title, act.subtitle]);
@@ -210,7 +207,6 @@ async function loadContent() {
     caseStudies: caseStudiesModule.caseStudies,
     longformSources,
     edge: {
-      heroThesis: softSkillsModule.HERO_THESIS,
       acts: softSkillsModule.ACTS,
       softSkills: softSkillsModule.softSkills,
       renderProofAnchor: softSkillsModule.renderProofAnchor,

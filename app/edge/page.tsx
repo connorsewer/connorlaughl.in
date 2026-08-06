@@ -1,53 +1,59 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/Header";
-import { EdgeHero } from "@/components/edge/EdgeHero";
-import { EdgeStakeBlock } from "@/components/edge/EdgeStakeBlock";
+
+import { ChapterLayout } from "@/components/manual";
 import { EdgeChapters } from "@/components/edge/EdgeChapters";
-import { EdgeClosing } from "@/components/edge/EdgeClosing";
-import { EdgeMobileChip } from "@/components/edge/EdgeMobileChip";
-import { EdgeReadingProgress } from "@/components/edge/EdgeReadingProgress";
-import { HireSignal } from "@/components/HireSignal";
+import { softSkills } from "@/content/soft-skills";
+import { edgeWords } from "@/lib/word-counts";
+
+/**
+ * The operator (spec §3: Section 2, one scroll document).
+ *
+ * Single page by design, so it stands alone on a direct link. Chapter chrome
+ * runs in-page: `ChapterLayout` takes the eleven chapter ids `ChapterSection`
+ * already renders and drives its sidebar scroll-spy from them, so there is one
+ * contents rail, one meta line, and one ruler on the route.
+ *
+ * Copy is the approved deck's section 5: this page intro, plus the three act
+ * framings carried on `ACTS[*].subtitle`. Acts and skills keep their existing
+ * names and bodies.
+ */
 
 export const metadata: Metadata = {
-  title:
-    "Edge — Taste applied at velocity | Connor J. Laughlin",
+  title: "The operator | Connor J. Laughlin",
   description:
-    "Eleven operating-edge skills reframed as AI-native advantages, around the umbrella thesis: taste applied at velocity.",
+    "How I work when the problem isn't defined yet. Eleven operating chapters in three acts.",
 };
 
 export const revalidate = 60;
 
-/**
- * /edge — the canonical positioning route.
- *
- * Published as a single editorial essay. Hero thesis, stake block,
- * eleven numbered chapters grouped into three acts (rendered in a
- * later commit), closing pull-quote, and the standard hire-signal
- * carry. Sticky chapter index attaches in the chapter commit.
- */
+/** Anchors are the existing `NN-slug` section ids, in reading order. */
+const anchors = softSkills.map((skill) => ({
+  id: `${skill.number}-${skill.slug}`,
+  label: skill.name,
+}));
+
 export default function EdgePage() {
   return (
-    <div className="selection:bg-accent selection:text-ink">
-      <Header />
-      <EdgeMobileChip />
-      <EdgeReadingProgress />
+    <ChapterLayout
+      section="Section 2"
+      sectionHref="/#contents"
+      chapter="The operator"
+      words={edgeWords()}
+      anchors={anchors}
+    >
+      <header className="max-w-[68ch]">
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+          Section 2 / The operator
+        </p>
+        <h1 className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]">
+          The operator
+        </h1>
+        <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
+          How I work when the problem isn&apos;t defined yet.
+        </p>
+      </header>
 
-      <main id="main-content">
-        <EdgeHero />
-        <EdgeStakeBlock />
-        <EdgeChapters />
-        <EdgeClosing />
-
-        <HireSignal />
-      </main>
-
-      <footer className="py-12 border-t border-rule px-6">
-        <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4 opacity-60 font-mono text-[9px] tracking-[0.3em] uppercase">
-          <span>© 2026 Connor J. Laughlin</span>
-          <span>Chicago</span>
-          <span>Built in 2026</span>
-        </div>
-      </footer>
-    </div>
+      <EdgeChapters />
+    </ChapterLayout>
   );
 }

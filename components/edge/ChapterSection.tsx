@@ -1,7 +1,4 @@
-import { FigureReveal } from "@/components/FigureReveal";
-import { ChapterPlate } from "./ChapterPlate";
 import { ProofBlock } from "./ProofBlock";
-import { LanguageAside } from "./LanguageAside";
 import type { SoftSkill } from "@/content/soft-skills";
 
 type Props = {
@@ -9,56 +6,59 @@ type Props = {
 };
 
 /**
- * One chapter. Renders a five-component editorial unit: the chapter
- * plate (giant number + name), a lead paragraph weaving definition
- * and why-it-matters, the Connor-specific read, the proof block, and
- * the fig-captioned language aside (principle + signature).
+ * One operator chapter.
  *
- * Layout: 9-column inner grid (sits inside the 9-of-12 chapters
- * lane). Plate hangs in cols 1-3, body in cols 4-9. Stacks at <lg.
+ * The anchor id is unchanged (`NN-slug`), because the cover contents and the
+ * in-page sidebar both link to it. Manual treatment: mono chapter number,
+ * display name, serif body, proof list, then the principle and signature pair
+ * as a bordered aside. Skill copy is the content module's, unchanged.
  */
 export function ChapterSection({ skill }: Props) {
   const headingId = `heading-${skill.slug}`;
-  const figNum = `Fig. 40.${skill.number}`;
   const sectionId = `${skill.number}-${skill.slug}`;
-  const cursorLabel = `read-chapter-${skill.number}`;
+
+  const language = [
+    { label: "Principle", text: skill.language.principle },
+    { label: "Signature", text: skill.language.signature },
+  ];
 
   return (
-    <section
-      id={sectionId}
-      aria-labelledby={headingId}
-      data-cursor={cursorLabel}
-      className="scroll-mt-24"
-    >
-      <div className="grid lg:grid-cols-9 gap-8 lg:gap-10">
-        <div className="lg:col-span-3">
-          <ChapterPlate
-            number={skill.number}
-            name={skill.name}
-            headingId={headingId}
-          />
-        </div>
+    <section id={sectionId} aria-labelledby={headingId} className="scroll-mt-24">
+      <p
+        aria-hidden="true"
+        className="font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/45"
+      >
+        Chapter {skill.number}
+      </p>
+      <h3
+        id={headingId}
+        className="mt-2 font-display text-[1.375rem] leading-snug text-body-ink sm:text-[1.5rem]"
+      >
+        <span className="sr-only">Chapter {skill.number}. </span>
+        {skill.name}
+      </h3>
 
-        <div className="lg:col-span-6 flex flex-col gap-9 md:gap-11">
-          <p className="font-display text-lg md:text-xl leading-[1.55] text-paper/85 max-w-[68ch]">
-            {skill.definition} {skill.whyNow}
-          </p>
+      <p className="manual-body mt-5 max-w-[68ch]">
+        {skill.definition} {skill.whyNow}
+      </p>
+      <p className="manual-body mt-4 max-w-[68ch]">{skill.connorRead}</p>
 
-          <p className="font-display text-base md:text-lg leading-[1.55] text-paper/70 max-w-[68ch]">
-            {skill.connorRead}
-          </p>
+      <ProofBlock proof={skill.proof} />
 
-          <ProofBlock proof={skill.proof} />
-
-          <FigureReveal>
-            <LanguageAside
-              fig={figNum}
-              principle={skill.language.principle}
-              signature={skill.language.signature}
-            />
-          </FigureReveal>
-        </div>
-      </div>
+      <aside className="mt-6 border border-grid-line bg-ground px-5 py-4">
+        <dl className="flex flex-col gap-3">
+          {language.map((row) => (
+            <div key={row.label} className="grid gap-1 sm:grid-cols-[6rem_1fr] sm:gap-4">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-blueprint">
+                {row.label}
+              </dt>
+              <dd className="font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/85">
+                {row.text}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
     </section>
   );
 }
