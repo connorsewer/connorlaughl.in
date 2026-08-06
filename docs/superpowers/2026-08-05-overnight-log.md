@@ -32,6 +32,11 @@ Rule reminder: no gated value or private vendor/system name may appear in this f
 - `app/sitemap.ts` gained `/edge` and the strategy memo, which were both live but unlisted.
 - `content/proof-metrics.ts` gained the stats rows the spine cleared: two new cover-stat entries plus the existing regulated-scope entry, which was extracted to a shared constant so the legacy hero strip and the new cover stats reference one object. Its register id was dropped (that register row does not carry a vertical count) and its source note now cites the approval the spine names. Three further entries cover the magnitude numerals that ship as prose rather than as stats rows. Tier references sit in comments above each row. The two build-computed rows have no entry by design.
 - Verified: lint, build, proof guard, `npm run words -- --json`, and two consecutive `npm run voice:scan` runs (baseline write, then a clean pass).
+- **Task 7 (sample page):** `app/dev-sample/page.tsx` is a temporary specimen sheet that mounts every Task 6 primitive at once inside `.manual-root`, so the ground, the sheet, the type roles, the checker band, the ruler, the stat table, and the figure grammar can be read against the reference in one screenshot. It is `noindex, nofollow` and absent from the sitemap; Task 19 deletes it.
+- Specimen copy is placeholder and states no outcome, so nothing on the page needs to resolve through the claims module. The only numerals present are the figure's registry number and the layer order. The stat rows carry type and surface names rather than results.
+- The demo plate is drawn from this repository itself: an exploded stack of the four build layers, a lattice standing for the route files the build writes out, and one leader label on the lattice. It is registered as FIG_000 so it cannot collide with the cover figure numbers, which start at 001.
+- Two page-local corrections after the first render: the fixed ruler rail was overlapping the masthead nav at desktop, so the specimen masthead carries extra right padding at that breakpoint (a note for chapter chrome in Task 11, which will need the same clearance), and the plate's viewBox was tightened after it rendered with a wide dead margin.
+- Screenshots captured at 1440 and 390 for the fidelity reviewer; verified lint, build, and proof guard green with the page present.
 
 ## Decisions made overnight
 
