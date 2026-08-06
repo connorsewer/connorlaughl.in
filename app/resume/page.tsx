@@ -38,10 +38,10 @@ const LANES = [
  * Deck 6, "SELECTED PROOF". The final row is the `{S6}` token and resolves at
  * render, so it is not in this array.
  */
-const PROOF = [
-  "Built the GTM infrastructure behind a nine-figure influenced pipeline.",
+const proofRows = (pipelineSoftened: string, responseRule: string) => [
+  `Built the GTM infrastructure behind a ${pipelineSoftened}.`,
   "Designed a 35+ KPI funnel architecture from awareness through revenue and unit economics.",
-  "Built tiered signal-to-touch SLAs, including a two-hour high-priority response rule.",
+  `Built tiered signal-to-touch SLAs, including a ${responseRule}.`,
   "Built a multi-business-unit messaging architecture with proof governance and outcome-first positioning.",
   "Led marketing integration across multiple acquisitions, acquired brands, web properties, and Canadian regulatory jurisdictions.",
   "Material organic growth from SEO and content infrastructure.",
@@ -86,8 +86,10 @@ const HEADING_CLASS =
 export default function ResumePage() {
   /* S1, S2 in deck order. S3 is not used on this route. */
   const [years, verticals] = renderableProofMetrics(coverStats);
-  /* S6, S7, S8 in deck order. */
-  const [progression, architecture, promotions] = renderableProofMetrics(proseProofClaims);
+  /* S6, S7, S8 in deck order; P6 + P2 appended by the phase 4 claim registration. */
+  const [progression, architecture, promotions, pipelineSoftened, responseRule] =
+    renderableProofMetrics(proseProofClaims);
+  const PROOF = proofRows(pipelineSoftened.value, responseRule.value);
 
   return (
     <div className="manual-root min-h-screen bg-ground-grid">
