@@ -8,6 +8,19 @@
   --color-rule: var(--rule);
   --color-terminal-green: var(--terminal-green);
 
+  /* Manual system (additive — see docs/superpowers/specs/…-design.md §2).
+     Legacy tokens above stay untouched until their last consumer is
+     converted; they are deleted in Task 19. */
+  --color-ground: var(--ground);
+  --color-sheet: var(--sheet);
+  --color-body-ink: var(--body-ink);
+  --color-blueprint: var(--blueprint);
+  --color-blueprint-bright: var(--blueprint-bright);
+  --color-grid-line: var(--grid-line);
+  --color-fig-blue: var(--fig-blue);
+  --color-fig-lavender: var(--fig-lavender);
+  --color-fig-teal: var(--fig-teal);
+
   --font-display: var(--font-display);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -37,6 +50,24 @@ html.light {
   --rule: rgba(7, 7, 7, 0.12);
   --paper-muted: rgba(7, 7, 7, 0.70);
   --dither-shadow: rgba(7, 7, 7, 0.20);
+}
+
+/* Manual system tokens. Light-first by design: these values are the light
+   theme and they sit on :root unconditionally, so they resolve the same way
+   under the transition's forced light and under the cyanotype dark theme
+   that Task 18 layers on top via html.dark. */
+:root {
+  --ground: #F7F7F5;
+  --sheet: #FFFFFF;
+  --body-ink: #171715;
+  --blueprint: #2E47F1;
+  /* Lightened blueprint for dark surfaces; in light it is plain blueprint.
+     Task 18 sets the dark value with a measured contrast ratio. */
+  --blueprint-bright: var(--blueprint);
+  --fig-blue: #D8E0FA;
+  --fig-lavender: #DCD6F7;
+  --fig-teal: #CBEDE4;
+  --grid-line: color-mix(in srgb, var(--blueprint) 7%, transparent);
 }
 
 html {
@@ -129,6 +160,20 @@ html.light body::after {
       transparent 65%
     );
   mix-blend-mode: normal;
+}
+
+/* Manual-page opt-out of the legacy body texture. Converted pages wrap in
+   `<div className="manual-root">`; that suppresses the grain and vignette
+   layers above and repaints the page (and the overscroll gutter, which is
+   painted by html, not body) in the manual ground. */
+html:has(.manual-root),
+body:has(.manual-root) {
+  background-color: var(--ground);
+}
+
+body:has(.manual-root)::before,
+body:has(.manual-root)::after {
+  display: none;
 }
 
 /* Selection */
@@ -381,7 +426,7 @@ html.light .dither-frame {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  font-family: var(--font-geist-pixel-grid), var(--font-geist-mono), monospace;
+  font-family: var(--font-geist-pixel-square), var(--font-geist-mono), monospace;
   color: var(--paper);
   opacity: 0.06;
   white-space: pre;

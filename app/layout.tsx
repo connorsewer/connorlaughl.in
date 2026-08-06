@@ -46,9 +46,11 @@ const SITE_DESCRIPTION =
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  // Forced light for the redesign transition, so both entries report the
+  // manual ground. Task 18 restores a real pair with the cyanotype dark value.
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#070707" },
-    { media: "(prefers-color-scheme: light)", color: "#F6F1E7" },
+    { media: "(prefers-color-scheme: dark)", color: "#F7F7F5" },
+    { media: "(prefers-color-scheme: light)", color: "#F7F7F5" },
   ],
 };
 

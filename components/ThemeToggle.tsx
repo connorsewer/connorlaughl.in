@@ -1,37 +1,12 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { useClientMounted } from "@/hooks/useClientMounted";
-
+/**
+ * Hidden for the manual redesign transition: `ThemeProvider` sets
+ * `forcedTheme="light"`, so a toggle would be a control that does nothing.
+ * Callers keep the mount point; only the render is suppressed.
+ *
+ * Restored in Task 18, re-skinned mono, alongside the cyanotype dark theme.
+ */
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const mounted = useClientMounted();
-
-  // Avoid hydration mismatch
-  if (!mounted) {
-    return (
-      <button
-        aria-label="Toggle theme"
-        className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/40 inline-flex items-center gap-2"
-      >
-        <span aria-hidden="true">◐</span>
-        Theme
-      </button>
-    );
-  }
-
-  const current = theme === "system" ? resolvedTheme : theme;
-  const next = current === "dark" ? "light" : "dark";
-  const glyph = current === "dark" ? "○" : "●";
-
-  return (
-    <button
-      aria-label={`Switch to ${next} theme`}
-      onClick={() => setTheme(next)}
-      className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/65 hover:text-accent transition-colors inline-flex items-center gap-2"
-    >
-      <span aria-hidden="true" className="text-accent">{glyph}</span>
-      {next}
-    </button>
-  );
+  return null;
 }
