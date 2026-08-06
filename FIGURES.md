@@ -45,22 +45,35 @@ a new figure always takes the next free number.
 
 | FIG_020 | Portrait | `/about` | The desk in Chicago where the work in this manual was built | Photographic plate rather than a drawing. The desk illustration re-screened as a blueprint-on-paper halftone duotone so it sits in the same ink as the figures. |
 
-| FIG_021 | Binder | Chapter, revenue operating system | The written form the operating layers took: a document somebody could open and follow | Halftone plate rather than a drawing. A ring binder open flat on a desk under a lamp, screened as a blueprint-on-paper duotone. Pairs with FIG_008 and never replaces it. |
-| FIG_022 | Checklist | Chapter, governed AI operating layer | The human approval step every run passed, and the record each one left | Halftone plate rather than a drawing. A printed checklist on a desk with a rubber stamp and an ink pad beside it, screened as a blueprint-on-paper duotone. Pairs with FIG_009 and never replaces it. |
+| FIG_021 | Layer stack | Chapter, revenue operating system | The operating layers as an assembly: each one defined and stacked in order, none of them free-standing | Rendered plate rather than a hand-drawn figure. Six flat plates exploded along one vertical axis on four guide posts, blueprint line work on paper. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_008 and never replaces it. Renders as authored in both themes, with no duotone. |
+| FIG_022 | Gate | Chapter, governed AI operating layer | The human approval step every run passed, and the record each one left | Rendered plate rather than a hand-drawn figure. An intake tray, three sorting plates, a hinged gate block with a lever arm, and a release chute exploded above one long tray, blueprint line work on paper. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_009 and never replaces it. Renders as authored in both themes, with no duotone. |
 
 ## Generation log
 
-Every generation attempt on a halftone plate, accepted or rejected, with its
-reason. Rejection criteria are fixed: any legible text, any legible numeral,
+Every generation attempt on a plate, accepted or rejected, with its reason.
+Rejection criteria are fixed: any lettering or numeral, any pseudo-label,
+leader line, arrow or dimension mark, any light source or cast shadow,
 off-palette color, or subject drift from the subject table. A rejected
 generation is regenerated, never retouched into compliance.
 
-| Figure | Attempt | Verdict | Reason |
-|---|---|---|---|
-| FIG_021 | 1 | Rejected | Off-palette. The plate was rendered as a print lying on a brown wooden surface, which puts a third color across the frame. Subject drift as well: it read as a stack of filed folders rather than a binder open flat. |
-| FIG_021 | 2 | Accepted | Two inks only, coarse dot screen intact, binder open flat under a lamp, no legible mark anywhere at full resolution. |
-| FIG_021 | 2b | No output | Second variant of the same request failed in the service before returning an image. Nothing to judge. |
-| FIG_022 | 1 | Accepted | Two inks only, coarse dot screen intact, subject as written, checklist rules and stamp die abstract with nothing readable at full resolution. |
+Attempts are numbered per art direction. The v1 rows below ran under the
+superseded halftone-photograph direction; they stand as history and are not
+edited. Connor reviewed those two plates at the pilot gate on 2026-08-06 and
+redirected the program to label-free exploded blueprint renderings with real
+type applied over them, so both files were superseded and regenerated. The
+plate a supersession replaces is deleted from `public/`; its log rows are not.
+
+| Figure | Direction | Attempt | Verdict | Reason |
+|---|---|---|---|---|
+| FIG_021 | v1 halftone | 1 | Rejected | Off-palette. The plate was rendered as a print lying on a brown wooden surface, which puts a third color across the frame. Subject drift as well: it read as a stack of filed folders rather than a binder open flat. |
+| FIG_021 | v1 halftone | 2 | Accepted | Two inks only, coarse dot screen intact, binder open flat under a lamp, no legible mark anywhere at full resolution. |
+| FIG_021 | v1 halftone | 2b | No output | Second variant of the same request failed in the service before returning an image. Nothing to judge. |
+| FIG_022 | v1 halftone | 1 | Accepted | Two inks only, coarse dot screen intact, subject as written, checklist rules and stamp die abstract with nothing readable at full resolution. |
+| FIG_021 | v1 halftone | n/a | Superseded | Art direction changed at the pilot gate. The accepted halftone binder was withdrawn and its file deleted. |
+| FIG_022 | v1 halftone | n/a | Superseded | Art direction changed at the pilot gate. The accepted halftone checklist was withdrawn and its file deleted. |
+| FIG_021 | v2 blueprint | 1 | Accepted | Line work only, two inks on flat paper, six plates exploded on one axis with the guide posts as written. Checked at 1:1: no glyph, no callout tick, no leader line, no arrow, no dimension mark, no light source, no cast shadow. |
+| FIG_022 | v2 blueprint | 1 | Rejected | Register drift. The parts came back as solid flood-filled silhouettes on aged cream stock, which does not sit beside the line-work plate accepted for FIG_021 and puts a third tone on the ground. Subject and type were clean; the drawing register was not. |
+| FIG_022 | v2 blueprint | 2 | Accepted | Line work only, matching FIG_021's register, on the specified off-white. Intake tray, three sorting plates, hinged gate block with its lever arm, chute, and the long tray beneath, all as written. Checked at 1:1: no glyph, no annotation mark, no light source, no cast shadow. |
 
 ## Reserved
 

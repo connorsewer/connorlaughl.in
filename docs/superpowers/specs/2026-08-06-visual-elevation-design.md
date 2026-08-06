@@ -205,10 +205,13 @@ and figure labels are the same type at the same weight in the same ink.
   `{ x, y, dx, dy, text }` where `x`/`y` are percent of image width and height
   and `dx`/`dy` are the percent offset from the label to the part it names.
   Percentages survive re-encoding and re-cropping; pixel anchors do not.
-- **The overlay's own coordinate space is the figure space.** `PlateLabels`
-  emits `viewBox="0 0 640 ${640 / aspect}"` and converts percentages into it,
-  so `LeaderLabel`'s authored defaults — 11-unit mono, 10-unit gap, 7-unit
-  arrowhead — read at the same scale they do on a hand-authored figure.
+- **The overlay's coordinate space is one unit per rendered pixel.**
+  `LeaderLabel`'s authored constants are absolute: 11-unit mono, a 10-unit gap,
+  a 7-unit arrowhead. They read correctly only at roughly one unit per CSS
+  pixel, so `PlateLabels` emits `viewBox="0 0 416 ${416 / aspect}"` against the
+  `max-w-[26rem]` plate rather than the ~640-unit space the full-column figures
+  use. Borrowing the figure viewBox shrinks plate labels to about seven pixels,
+  which is how the first wiring pass got it wrong.
 - **Two to four labels, never more.** A plate is not a diagram. If a chapter
   needs five callouts, the line diagram is already carrying them.
 - **Label text comes from that chapter's approved copy only**, in
@@ -216,6 +219,11 @@ and figure labels are the same type at the same weight in the same ink.
   claim-gated body blocks. Never vault content, never a metric, never a
   numeral, never a vendor or client name. Labels are uppercased by
   `LeaderLabel` and stay one or two words.
+- **The overlay's ink is fixed, not themed.** `LeaderLabel` draws from
+  `var(--blueprint)`, which flips with the theme; the plate's paper no longer
+  does. `PlateLabels` overrides `--blueprint` to the generation ink on its own
+  root, scoping the fix to the overlay so the primitive needs no special case.
+  A themed ink over a fixed cream ground loses contrast in dark mode.
 - **The overlay is `aria-hidden` and `pointer-events-none`.** It repeats
   nothing the caption does not already say, and it is never the sole carrier
   of information: a reader with images off still gets `alt` plus the
