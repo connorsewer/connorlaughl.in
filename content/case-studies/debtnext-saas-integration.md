@@ -1,287 +1,272 @@
-# Case Study: DebtNext SaaS Integration
-## Bridging Product-Led Growth and Enterprise Services Sales
+# Case study: integrating an acquired SaaS platform
+## Bridging product-led growth and enterprise services sales
 
-**Role:** VP Marketing / GTM Integration Lead  
-**Timeline:** 2024–2025  
-**Context:** TSI (services) acquired DebtNext (SaaS platform + dPlat software)  
-**Challenge:** Integrate two fundamentally different GTM motions without destroying either
+**Role:** VP Marketing / GTM integration lead  
+**Timeline:** 2024 to 2025  
+**Context:** A PE-backed enterprise services business acquired a SaaS platform  
+**Challenge:** Integrate two fundamentally different go-to-market motions without destroying either
 
 ---
 
-## The Situation
+## The situation
 
-**TSI (Acquirer)**
-- $10B+ annual receivables under management
-- 12,000+ employees across 3 continents
-- Traditional enterprise services sales: 9-12 month cycles, relationship-driven, high CAC
-- No SaaS experience, no subscription revenue model
+**The acquirer**
+- An enterprise with receivables under management at national scale
+- A workforce in the thousands, across three continents
+- Traditional enterprise services sales: nine to twelve month cycles, relationship-driven, expensive to acquire a customer
+- No SaaS experience and no subscription revenue model
 
-**DebtNext (Acquired)**
-- Recovery management SaaS platform with dPlat software
+**The acquired SaaS platform**
+- A recovery management platform with its own software layer
 - Self-serve trials, product-led onboarding, usage-based tiers
-- $500-$2K/month subscription pricing
-- PQL-driven sales motion, 30-60 day average sales cycle
+- Subscription pricing at a monthly price point a department could approve
+- A PQL-driven sales motion with a cycle measured in weeks rather than quarters
 
-**The Integration Challenge:**
-TSI leadership wanted to "leverage the DebtNext platform" to drive services growth—but the two organizations spoke different languages. Services reps didn't understand subscription economics. SaaS reps couldn't navigate enterprise procurement. The risk was destroying DebtNext's efficient PLG motion while failing to generate meaningful services cross-sell.
+**The integration challenge:**
+Leadership wanted to use the platform to drive services growth, and the two organizations spoke different languages. Services reps did not understand subscription economics. SaaS reps could not navigate enterprise procurement. The risk was breaking the platform's efficient product-led motion while failing to generate meaningful services cross-sell.
 
 ---
 
-## The Strategy
+## The strategy
 
 I designed and executed a **three-tier hybrid GTM architecture**:
 
-1. **Preserve the PLG motion** (don't fix what isn't broken)
-2. **Build a sales-assisted bridge** (dedicated function, distinct skills)
-3. **Services as expansion** (product usage → services opportunity)
+1. **Preserve the product-led motion.** Do not fix what isn't broken.
+2. **Build a sales-assisted bridge.** A dedicated function with distinct skills.
+3. **Treat services as expansion.** Product usage becomes a services opportunity.
 
 ---
 
-## What I Built
+## What I built
 
-### 1. The PQL Scoring System
+### 1. The PQL scoring system
 
-**Problem:** DebtNext had product data but no systematic way to identify expansion-ready accounts.
+**Problem:** the platform had product data but no systematic way to identify expansion-ready accounts.
 
-**Solution:** I built a weighted PQL (Product Qualified Lead) scoring model:
+**Solution:** I built a weighted product-qualified lead scoring model:
 
-| Signal | Weight | Threshold |
-|--------|--------|-----------|
-| Team expansion (3+ users) | 20 | Score >70 = |
-| Integration depth (2+ data sources) | 25 | Sales-assist touch |
-| Campaign activity (5+ created) | 20 | |
-| Premium feature interest | 15 | |
-| Volume milestones (1000+ accounts) | 20 | |
+| Signal | Weight | What it triggered |
+|--------|--------|-------------------|
+| Team expansion beyond a single user | High | Accounts above the score threshold |
+| Integration depth across data sources | Highest | got a sales-assist touch |
+| Campaign activity in the product | High | |
+| Premium feature interest | Moderate | |
+| Volume milestones | High | |
 
-**Impact:** Sales-assist reps could prioritize 40 accounts/week instead of blind outreach to 400.
+**Impact:** sales-assist reps worked a short, ranked list every week instead of blind outreach across the whole book.
 
-### 2. The Sales-Assisted Function
+### 2. The sales-assisted function
 
-**Problem:** Traditional TSI reps were too heavy-handed for SaaS prospects; DebtNext team couldn't navigate enterprise complexity.
+**Problem:** the acquirer's reps were too heavy-handed for SaaS prospects, and the platform team could not navigate enterprise complexity.
 
-**Solution:** Created a dedicated "SaaS Success" team—4 specialists trained in:
+**Solution:** I created a dedicated SaaS Success team, a small group of specialists trained in:
 - Product analytics interpretation
-- Consultative expansion (not feature dumping)
-- Multi-threading (end-user + economic buyer)
-- SaaS metrics language (activation, NRR, LTV/CAC)
+- Consultative expansion rather than feature dumping
+- Multi-threading across the end user and the economic buyer
+- SaaS metrics language: activation, NRR, LTV/CAC
 
-**Key Design Decisions:**
-- Comp: 50% base + 50% variable tied to NRR (not just bookings)
-- Quota: 110% NRR target, not just new logo count
-- Tools: Product analytics dashboard (Mixpanel), CRM (Salesforce), health scoring
+**Key design decisions:**
+- Comp split evenly between base and variable, with the variable tied to net revenue retention rather than bookings alone
+- Quota set on a net revenue retention target rather than new logo count
+- Tools: a product analytics dashboard, the CRM, and health scoring on top of both
 
-### 3. The Cross-Sell Playbook
+### 3. The cross-sell playbook
 
-**Problem:** TSI ARM reps didn't know how to identify opportunities in DebtNext accounts.
+**Problem:** the collections reps did not know how to identify opportunities inside platform accounts.
 
-**Solution:** Built explicit plays with automated triggers:
+**Solution:** I built explicit plays with automated triggers.
 
-**Play 1: The Yield Gap Analysis**
-- Trigger: DebtNext client with >3 vendors and >15% performance variance
-- Action: SaaS Success Manager presents native benchmark report
-- Pitch: "You see the gap—let us prove we can close it"
-- Offer: 90-day pilot, 20% contingency only
+**Play 1: the yield gap analysis**
+- Trigger: a platform client running several vendors with wide performance variance between them
+- Action: the SaaS Success Manager presents the native benchmark report
+- Pitch: "You see the gap. Let us prove we can close it."
+- Offer: a 90-day pilot on contingency
 
-**Play 2: The Multi-Location Expansion**
-- Trigger: Single location active, company has 3+ locations
-- Action: Expansion conversation (not upsell positioning)
-- Pitch: "Your team here is seeing results—let's roll out regionally"
+**Play 2: the multi-location expansion**
+- Trigger: a single location active at a company with several locations
+- Action: an expansion conversation rather than upsell positioning
+- Pitch: "Your team here is seeing results. Let's roll out regionally."
 
-**Play 3: The Digital-First Upgrade**
-- Trigger: High-volume Essential tier client approaching limits
-- Action: Sales-assist call positioning Nexie AI + Professional tier
-- Pitch: "You're growing into the features your competitors use"
+**Play 3: the digital-first upgrade**
+- Trigger: a high-volume entry-tier client approaching its limits
+- Action: a sales-assist call positioning the AI module and the professional tier
+- Pitch: "You're growing into the features your competitors use."
 
-### 4. The Health Score Framework
+### 4. The health score framework
 
-**Problem:** No unified view of customer health across product and services.
+**Problem:** there was no unified view of customer health across product and services.
 
-**Solution:** Built a composite health score:
+**Solution:** I built a composite health score.
 
 | Factor | Weight | Source |
 |--------|--------|--------|
-| Product engagement | 30% | DebtNext analytics |
-| Feature adoption | 20% | Nexie AI, DME usage |
-| Support trend | 15% | Zendesk |
-| Satisfaction | 15% | NPS/CSAT |
-| Services performance | 10% | Recovery rates (if TSI ARM) |
-| Expansion pipeline | 10% | Salesforce |
+| Product engagement | Heaviest | Platform analytics |
+| Feature adoption | Heavy | AI and data module usage |
+| Support trend | Moderate | The support desk |
+| Satisfaction | Moderate | NPS/CSAT |
+| Services performance | Light | Recovery rates, where services were engaged |
+| Expansion pipeline | Light | The CRM |
 
-**Health Score Actions:**
-- 80-100 (Green): Expansion opportunity → AE alert
-- 60-79 (Yellow): Intervention → SSM playbook
-- <60 (Red): Churn risk → Executive escalation
+Accounts in the top band were flagged to the AE as an expansion opportunity. Accounts in the middle band went to the SSM playbook for intervention. Accounts in the bottom band were treated as churn risk and escalated to an executive.
 
-### 5. The Rep Retraining Program
+### 5. The rep retraining program
 
-**Problem:** Services reps thought in deals and quarters; SaaS requires cohorts and retention.
+**Problem:** services reps thought in deals and quarters, and SaaS requires cohorts and retention.
 
-**Solution:** 6-week retraining curriculum:
+**Solution:** a six-week retraining curriculum.
 
-**Weeks 1-2: SaaS Economics**
-- CAC, LTV, NRR, churn deep-dives
-- Case study: Why 110% NRR = 2x valuation multiple
-- Homework: Calculate DebtNext unit economics from real data
+**Weeks 1-2: SaaS economics**
+- CAC, LTV, NRR, and churn deep-dives
+- Case study: why expansion revenue moves the valuation multiple
+- Homework: calculate the platform's unit economics from real data
 
-**Weeks 3-4: Product-Led Sales**
+**Weeks 3-4: product-led sales**
 - PQL interpretation and timing
-- Sales-assist vs. traditional sales (roleplay)
+- Sales-assist versus traditional sales, by roleplay
 - Using product data in discovery
 
-**Weeks 5-6: Cross-Sell Orchestration**
-- DebtNext → TSI ARM positioning
+**Weeks 5-6: cross-sell orchestration**
+- Positioning the platform into the collections business
 - Commission structure and collaboration
 - Pipeline management across motions
 
 ---
 
-## The Results
+## The results
 
-### Sales Efficiency
+### Sales efficiency
 
-| Metric | Before Integration | After 12 Months | Change |
-|--------|-------------------|-----------------|--------|
-| Average CAC | $45K (pure services) | $12K (hybrid) | **-73%** |
-| Sales cycle (new logo) | 9-12 months | 30 days (land) | **-90%** |
-| Sales cycle (expansion) | N/A | 6-9 months | New capability |
-| Product-qualified leads/month | 0 | 120+ | New capability |
+| Metric | Before integration | After the first year |
+|--------|--------------------|----------------------|
+| Customer acquisition cost | Pure services economics | A material reduction under the hybrid motion |
+| Sales cycle, new logo | Nine to twelve months | Weeks to land |
+| Sales cycle, expansion | No motion existed | Two to three quarters, a new capability |
+| Product-qualified leads | None | A steady monthly flow, a new capability |
 
-### Revenue Metrics
+### Revenue metrics
 
-| Metric | Target | Actual |
-|--------|--------|--------|
-| Net Revenue Retention (NRR) | 110% | **112%** |
-| Gross Revenue Retention | 95% | **96%** |
-| Cross-sell pilot conversion | 30% | **42%** |
-| Sales-assist ACV | $75K | **$82K** |
+| Metric | Result against target |
+|--------|-----------------------|
+| Net revenue retention | Landed above the target, with expansion outrunning churn |
+| Gross revenue retention | Landed above target |
+| Cross-sell pilot conversion | Beat the target conversion rate |
+| Sales-assist ACV | Came in above the target deal size |
 
-### Cross-Sell Success
+### Cross-sell success
 
-- **DebtNext → TSI ARM:** 18 pilots in first year, 42% conversion to contracted services
-- **Average services expansion:** $180K ARR per converted pilot
-- **Services CAC via product:** $8K (vs. $45K cold outbound)
+The platform fed a real pilot pipeline into the collections business in the first year, and a healthy share of those pilots converted to contracted services. Each converted pilot carried meaningful recurring services revenue, and acquiring those clients through the product cost a fraction of what cold outbound cost.
 
-### Team Metrics
+### Team metrics
 
-- **Sales-Assist team ramp time:** 6 weeks (vs. 6 months for enterprise reps)
-- **Rep productivity:** 12 qualified expansion opps/month (vs. 3 for traditional reps)
-- **Collaboration score:** 85% of SaaS deals included services conversation (vs. 15% pre-integration)
+The sales-assist team ramped in weeks where enterprise reps took months. Rep productivity on qualified expansion opportunities ran several times what a traditional rep produced. Most SaaS deals came to include a services conversation, against almost none before the integration.
 
 ---
 
-## Key Artifacts
+## Key artifacts
 
-### 1. The Integration Architecture Diagram
+### 1. The integration architecture diagram
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    HYBRID GTM ARCHITECTURE                       │
+│                    HYBRID GTM ARCHITECTURE                      │
 ├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│   LAND                    ADOPT                    EXPAND        │
+│                                                                 │
+│   LAND                    ADOPT                    EXPAND       │
 │  ┌──────────┐           ┌──────────┐            ┌──────────┐    │
-│  │ PLG      │──────────▶│ Sales-   │────────────│ Services │    │
-│  │ Self-    │  PQL      │ Assisted │  Health    │ (TSI     │    │
-│  │ Serve    │  Score    │ Success  │  Score     │ ARM)     │    │
-│  └──────────┘  >70      └──────────┘  >80       └──────────┘    │
+│  │ PLG      │──────────▶│ Sales-   │───────────▶│ Services │    │
+│  │ Self-    │  PQL      │ Assisted │  Health    │ (the     │    │
+│  │ Serve    │  Score    │ Success  │  Score     │ company) │    │
+│  └──────────┘           └──────────┘            └──────────┘    │
 │       │                      │                      │           │
-│   $500-$2K              $50K-$200K              $200K+          │
-│   Subscription          Subscription            Services        │
-│                                                                  │
-│  ─────────────────────────────────────────────────────────────   │
-│  Unified Health Score • Shared NRR Target • Split Comp           │
+│  Subscription           Subscription            Services        │
+│  entry tier             expansion tier          engagement      │
+│                                                                 │
+│  ────────────────────────────────────────────────────────────   │
+│  Unified health score • Shared NRR target • Split comp          │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 2. The PQL Dashboard
+### 2. The PQL dashboard
 
-Built real-time PQL dashboard showing:
-- Daily PQL score changes by account
-- Historical conversion rates by score band
-- Recommended next action per account
-- SSM assignment and activity tracking
+I built a real-time PQL dashboard showing daily score changes by account, historical conversion rates by score band, the recommended next action per account, and SSM assignment and activity tracking.
 
-### 3. The Cross-Sell Trigger Matrix
+### 3. The cross-sell trigger matrix
 
-Automated alert system mapping product signals to services plays:
+An automated alert system mapping product signals to services plays:
 
-| Product Signal | Alert Recipient | Suggested Action | SLA |
+| Product signal | Alert recipient | Suggested action | SLA |
 |----------------|-----------------|------------------|-----|
-| Vendor yield <benchmark | AE + SSM | Schedule yield review | 48 hrs |
-| Response time >72 hrs | AE | Managed services pitch | 1 week |
-| Legal accounts >500 | Legal services | Email campaign | 24 hrs |
+| Vendor yield below benchmark | AE + SSM | Schedule yield review | 48 hrs |
+| Response time above threshold | AE | Managed services pitch | 1 week |
+| Legal account volume spike | Legal services | Email campaign | 24 hrs |
 | Multi-location detected | Account team | Expansion plan | 2 weeks |
 
-### 4. The Rep Training Certification
+### 4. The rep training certification
 
-Created "SaaS Success Certification" requiring:
-- Completion of 6-week curriculum
-- Passing score on SaaS metrics exam
-- 3 shadowed sales-assist calls
-- 2 successful PQL conversions
+I created a SaaS Success certification requiring completion of the six-week curriculum, a passing score on the SaaS metrics exam, shadowed sales-assist calls, and documented PQL conversions.
 
 ---
 
-## Governance & Operating Cadence
+## Governance and operating cadence
 
-### Weekly: PQL Review
-- Review new PQLs scored >70
+### Weekly: PQL review
+- Review new PQLs above the score threshold
 - Assign SSMs and set touch SLAs
-- Review previous week conversion rates
+- Review the previous week's conversion rates
 
-### Bi-Weekly: Health Score Review
+### Bi-weekly: health score review
 - Review accounts with health score changes
-- Align on green/yellow/red actions
+- Align on green, yellow, and red actions
 - Escalate at-risk accounts
 
-### Monthly: Cross-Sell Pipeline
-- Review expansion pipeline by account
+### Monthly: cross-sell pipeline
+- Review the expansion pipeline by account
 - Assess cross-sell play effectiveness
 - Adjust triggers and messaging
 
-### Quarterly: NRR Review
-- Deep-dive on NRR by cohort
+### Quarterly: NRR review
+- Deep-dive on net revenue retention by cohort
 - Analyze churn reasons and expansion patterns
 - Adjust compensation and targeting
 
 ---
 
-## What I Learned
+## What I learned
 
-### Success Factors
+### Success factors
 
-1. **Specialization beats generalization.** Trying to train all TSI reps on SaaS failed; dedicated SaaS Success team won.
+1. **Specialization beats generalization.** Training every services rep on SaaS failed. The dedicated SaaS Success team worked.
 
-2. **Product data is the best lead source.** DebtNext usage signals generated higher-quality services leads than any marketing campaign.
+2. **Product data is the best lead source.** Platform usage signals generated higher-quality services leads than any marketing campaign.
 
-3. **Comp alignment is everything.** Until we tied SaaS and services comp to shared NRR, teams competed instead of collaborated.
+3. **Comp alignment is everything.** Until we tied SaaS and services comp to a shared net revenue retention number, the teams competed instead of collaborating.
 
-4. **Health scoring enables proactive success.** Moving from reactive support to proactive intervention improved retention 8 points.
+4. **Health scoring enables proactive success.** Moving from reactive support to proactive intervention improved retention measurably.
 
-### Challenges Overcome
+### Challenges overcome
 
-1. **Cultural resistance.** Services reps initially dismissed "small" SaaS deals. Seeing NRR compound changed minds.
+1. **Cultural resistance.** Services reps initially dismissed small SaaS deals. Watching retention compound changed their minds.
 
-2. **Tool integration.** DebtNext analytics didn't natively integrate with Salesforce. Built custom middleware to sync PQL scores.
+2. **Tool integration.** The platform's analytics had no native path into the CRM, so we built custom middleware to sync PQL scores.
 
-3. **Pricing confusion.** Early bundling created margin erosion. Moved to clear tiering with explicit cross-sell modules.
-
----
-
-## The Interview Line
-
-> "When TSI acquired DebtNext, I led the GTM integration—merging a product-led SaaS platform with enterprise services sales. I built a three-tier hybrid architecture: PLG for land, sales-assisted for adoption, and services for expansion. Results: 73% CAC reduction, 112% NRR, and 18 services pilots with 42% conversion. The key was treating the integration as architecture, not just training—dedicated teams, explicit handoffs, and unified metrics."
+3. **Pricing confusion.** Early bundling eroded margin. We moved to clear tiering with explicit cross-sell modules.
 
 ---
 
-## Artifacts for Deep Dive
+## The interview line
 
-1. PQL Scoring Model & Weighting Framework
-2. Sales-Assist Playbook (call scripts, objection handling)
-3. Cross-Sell Trigger Matrix
-4. Customer Health Score Dashboard
-5. Rep Retraining Curriculum (6-week program)
-6. Compensation Plan (SaaS + Services alignment)
-7. Weekly Operating Cadence Templates
+> "When the company acquired the SaaS platform, I led the go-to-market integration, merging a product-led platform with enterprise services sales. I built a three-tier hybrid architecture: product-led for land, sales-assisted for adoption, services for expansion. Acquisition cost came down materially, retention landed above target, and the cross-sell pilots converted at a rate that beat the plan. The key was treating the integration as architecture: dedicated teams, explicit handoffs, unified metrics."
 
-**Tags:** #SaaSIntegration #DebtNext #PLG #GTMStrategy #CrossSell #SalesAssisted #NRR
+---
+
+## Artifacts for deep dive
+
+1. PQL scoring model and weighting framework
+2. Sales-assist playbook (call scripts, objection handling)
+3. Cross-sell trigger matrix
+4. Customer health score dashboard
+5. Rep retraining curriculum (six-week program)
+6. Compensation plan (SaaS and services alignment)
+7. Weekly operating cadence templates
+
+**Tags:** #SaaSIntegration #PLG #GTMStrategy #CrossSell #SalesAssisted #NRR

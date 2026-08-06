@@ -1,101 +1,98 @@
-# Case Study: TSI Digital Transformation
-## The "One TSI" Revenue Infrastructure
+# Case study: digital transformation at a PE-backed enterprise
+## Building one revenue infrastructure across the acquired brands
 
 **Role:** VP of Marketing (acting CMO)
 **Timeline:** 2024-2025
-**Challenge:** 8 acquired brands operating independently, fragmented tech stack, no attribution, declining organic visibility
+**Challenge:** Acquired brands operating independently, a fragmented tech stack, no attribution, declining organic visibility
 
 ---
 
-## The Full-Stack Approach
+## The full-stack approach
 
-### 1. Systems Architecture (What I Built)
-**Website Revenue Engine**
-- Led two complete tsico.com rebuilds with conversion-optimized architecture
-- Implemented Core Web Vitals optimization (PageSpeed: LCP 2.5s, CLS 0.01, INP 86ms)
-- **Result:** 65% YOY organic lead gen increase, 30%+ conversion rate improvement
+### 1. Systems architecture (what I built)
 
-**Salesforce CRM Overhaul**
-- Designed data model and governance framework
-- Implemented Einstein Analytics for AI-powered lead scoring
-- Built automated sales workflows and pipeline visibility
-- **Result:** 100% duplicate elimination, ~400% data completeness increase
+**Website revenue engine**
 
-**GA4 Attribution Infrastructure**
-- Architected enterprise-grade measurement framework
-- Implemented UTM discipline and campaign tracking
-- Created PBI dashboards for real-time pipeline attribution
-- **Result:** Full-funnel visibility from visitor to won deal
+I led two complete rebuilds of the corporate site on a conversion-optimized architecture, then ran a Core Web Vitals program until load time, layout stability, and interaction latency all cleared the good thresholds. Organic lead generation grew year over year and the conversion rate improved with it.
 
-### 2. Go-to-Market Strategy (What I Designed)
-**"One TSI" Brand Architecture**
-- Unified 8 acquired brands into cohesive branded house strategy
-- Developed vertical-specific positioning (Healthcare RCM, ARM, Fintech, Utilities)
-- Created 2026 GTM Roadmap: "Agentic Dominance"
+**CRM overhaul**
 
-**Content Velocity System**
-- Built 7-month rolling content calendar with AI-assisted production
-- Established 7-day brief-to-ship SLA
-- **Result:** 200+ annual posts, 26 product/press releases
+I designed the data model and the governance framework that sat on top of it, turned on the CRM's native AI lead scoring, and built automated sales workflows so pipeline was visible without someone pulling a report. Duplicate records were eliminated and field completeness went from patchy to reliable.
 
-**RFP & Sales Enablement**
-- Developed L2/L3 proposal templates and competitive battlecards
-- Created outcome-first messaging framework
-- **Result:** ~10% payment lift, 20%+ cost reduction for clients
+**Attribution infrastructure**
 
-### 3. AI Operating System (What I Innovated)
-**Marketing AI Assistant (GPT Builder)**
-- Designed multi-agent system for Content, SEO, Sales Enablement, RFP Support
-- **Time savings:** 24.5 hours/week across GTM team
+I architected an enterprise measurement framework in the analytics stack, put UTM discipline and campaign tracking behind it, and built executive dashboards for real-time pipeline attribution. For the first time the business could follow a visitor through to a won deal.
 
-**AISO/LLMO Strategy**
-- Branded Web Mentions strategy targeting HFMA, InsideARM, TechCrunch
-- Schema.org implementation for AI-driven B2B procurement readiness
-- Knowledge Graph entity optimization
+### 2. Go-to-market strategy (what I designed)
 
-**BDR Pod with AI Signal-to-Touch**
-- Built AI-led BDR pod framework with 2-hour SLA
-- **Result:** 40-60 meetings/month, 12-20 SQLs in first 90 days
+**One brand architecture**
+
+I unified the acquired brands into a single branded house and developed vertical-specific positioning for healthcare revenue cycle, collections, fintech, and utilities. That fed a 2026 go-to-market roadmap built around agentic operations.
+
+**Content velocity system**
+
+I built a rolling seven-month content calendar with AI-assisted production and set a 7-day brief-to-ship SLA against it. Publishing moved from sporadic to a steady weekly cadence of posts, product notes, and press releases.
+
+**RFP and sales enablement**
+
+I developed L2/L3 proposal templates and competitive battlecards, and wrote the outcome-first messaging framework that sat underneath them. The pitch stopped describing the service and started describing what the client was buying. The target was a lift in payment rates and a lower cost to collect.
+
+### 3. AI operating system (what I innovated)
+
+**Marketing AI assistant**
+
+I designed a multi-agent system covering content, SEO, sales enablement, and RFP support. It gave the go-to-market team back a meaningful block of hours every week, and the hours came back in the parts of the job people were worst at protecting.
+
+**AI search and LLM optimization strategy**
+
+I ran a branded web mentions strategy aimed at industry trade publications and the technology press, implemented structured data markup so the company was legible to AI-driven B2B procurement research, and optimized entity coverage in the knowledge graph.
+
+**BDR pod with AI signal-to-touch**
+
+I built an AI-led BDR pod framework with a two-hour response window on the highest-intent accounts. It produced first meetings and qualified opportunities inside the first 90 days, from a standing start.
 
 ---
 
-## Business Impact
+## Business impact
 
-### Pipeline Metrics (Salesforce Lifecycle Report)
-| Metric | Before | After | Change |
-|--------|--------|-------|--------|
-| Net New Prospects | 1,100 | 32,165 | **+2,821%** |
-| MQLs | Baseline | +1,073% | **+1,073%** |
-| SQLs | Baseline | +757% | **+757%** |
-| Won Opportunities | 181 | 524 | **+189.5%** |
-| Deal Velocity | Baseline | Improved | **+122.7%** |
+### Pipeline (CRM lifecycle report)
 
-### Revenue Impact
-**$52.5MM net new revenue** (2024-2025)
+| Metric | What changed |
+|--------|--------------|
+| Net new prospects | A step change in volume once the funnel was instrumented and routing worked |
+| MQLs | Rose sharply as scoring and routing came online |
+| SQLs | Rose with MQLs, with quality held by the scoring model rather than diluted by volume |
+| Won opportunities | Materially more closed-won deals than the prior period |
+| Deal velocity | Deals moved through the funnel materially faster |
 
-### Web Performance
-- **Organic Search:** 498K impressions (+23.2%), 20K clicks (+28.1%)
-- **Total Visitors:** 32K (+4.9% sustained growth)
-- **New Visitors:** 30K (+4.3%)
+### Revenue impact
+
+A material amount of net new revenue across 2024 and 2025, traced through the CRM lifecycle report rather than asserted after the fact.
+
+### Web performance
+
+Organic impressions and clicks were both up year over year. Total visitors grew steadily, and new visitors grew as a share of the total, which is the part that matters when the goal is reach rather than repeat traffic.
 
 ---
 
-## What Made This Work
+## What made this work
 
-**Attribution Framework:**
-- ✅ **Connor's Work:** Architecture, governance, strategy, AI systems, process design
-- ✅ **Team Execution:** Content production, sales development, campaign deployment
-- ✅ **Client Results:** TSI's service delivery (debt recovery, RCM) — marketed but not built by Connor
+**Attribution framework:**
 
-**Key Insight:** This wasn't just "marketing" — it was building revenue infrastructure that made TSI's services discoverable, measurable, and scalable.
+- ✅ My work was the architecture, the governance, the strategy, the AI systems, and the process design.
+- ✅ The team executed: content production, sales development, and campaign deployment.
+- ✅ The client results came from the company's recovery and revenue cycle services, marketed by me and delivered by the operating business.
+
+The marketing work was revenue infrastructure. The company's services became easier to find, easier to measure, and easier to sell.
 
 ---
 
 ## Artifacts
-- Salesforce Lifecycle Dashboard screenshots
-- GA4 Search Console performance data
-- PageSpeed/Core Web Vitals optimization proof
+
+- CRM lifecycle dashboard screenshots
+- Search console and analytics performance data
+- Core Web Vitals optimization evidence
 - Content calendar and process documentation
-- AI Assistant architecture diagrams
+- AI assistant architecture diagrams
 
 **Tag:** #SystemsArchitect #GTMSystems #RevenueInfrastructure #AIEnablement
