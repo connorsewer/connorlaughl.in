@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
-import { drawOn } from "@/lib/motion-manual";
+import { DURATION } from "@/lib/motion";
+import { drawOn, drawOnProgress, drawOnProgressSpec, labelSettle } from "@/lib/motion-manual";
 
 /**
  * Figure plate: the frame every diagram on the site sits in.
@@ -23,9 +24,18 @@ import { drawOn } from "@/lib/motion-manual";
  * they collapse below `lg`, where the caption under the plate says the same
  * thing in reading order.
  *
- * This is a client component so the plate can draw itself in on viewport
- * enter. SVG children passed in from a server page stay server-rendered.
- * Reduced motion: `drawOn` returns without touching a single stroke.
+ * This is a client component so the plate can draw itself in. SVG children
+ * passed in from a server page stay server-rendered.
+ *
+ * Which draw it gets is decided at mount, not authored per plate. A plate
+ * that starts below the fold binds its strokes to scroll and settles its
+ * leader labels when that draw is nearly done; a plate the reader is already
+ * looking at has no scroll distance to draw across, so it takes the one-shot
+ * draw and settles its labels on viewport enter. Strokes are the only thing
+ * bound to scroll anywhere on the site, and nothing un-animates on scroll-up.
+ *
+ * Reduced motion: neither runner registers anything, the strokes stand as
+ * authored, and the labels are written to their final state.
  */
 
 export type FigureProps = {
@@ -61,7 +71,33 @@ export function Figure({
   const titleId = `fig-${id}-title`;
   const descId = `fig-${id}-desc`;
 
-  useEffect(() => drawOn(svgRef.current), []);
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+
+    let release: (() => void) | null = null;
+    const draw = drawOnProgress(svg, {
+      onProgress: (progress) => {
+        if (progress >= drawOnProgressSpec.labelsAt) release?.();
+      },
+    });
+
+    if (draw.bound) {
+      const labels = labelSettle(svg, { trigger: "manual" });
+      release = labels.release;
+      return () => {
+        draw();
+        labels();
+      };
+    }
+
+    const stopDraw = drawOn(svg);
+    const labels = labelSettle(svg, { trigger: "inView", delay: DURATION.short });
+    return () => {
+      stopDraw();
+      labels();
+    };
+  }, []);
 
   return (
     <figure className={`w-full ${className ?? ""}`}>

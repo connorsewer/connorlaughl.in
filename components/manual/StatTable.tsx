@@ -10,7 +10,11 @@
  * claim gate follows the caller, not this file.
  *
  * Rows are marked `data-stat-row` so `statFill()` from lib/motion-manual.ts
- * can stagger them without needing a selector from the caller.
+ * can stagger them, and each visible value is marked `data-stat-value` so
+ * `statTick()` can count it up, both without needing a selector from the
+ * caller. Neither attribute has a visual effect, and neither runner is wired
+ * from here: `StatTableMotion` is the client wrapper that runs them, and this
+ * component stays server-rendered inside it.
  */
 
 export type StatRow = {
@@ -46,14 +50,14 @@ export function StatTable({ rows, caption, className }: StatTableProps) {
           >
             <dt className="text-label-muted">{row.label}:</dt>
             <dd className="m-0 text-right text-body-ink">
-              {row.srText ? (
-                <>
-                  <span aria-hidden="true">{row.value}</span>
-                  <span className="sr-only">{row.srText}</span>
-                </>
-              ) : (
-                row.value
-              )}
+              <span
+                data-stat-value
+                aria-hidden={row.srText ? "true" : undefined}
+                className="inline-block"
+              >
+                {row.value}
+              </span>
+              {row.srText ? <span className="sr-only">{row.srText}</span> : null}
             </dd>
           </div>
         ))}

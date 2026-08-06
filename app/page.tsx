@@ -9,7 +9,9 @@ import {
   Masthead,
   Sheet,
   StatTable,
+  StatTableMotion,
   TerminalFAQ,
+  WordmarkMotion,
   type CoverTocGroup,
   type StatRow,
 } from "@/components/manual";
@@ -119,21 +121,23 @@ export default function Cover() {
     <div className="manual-root min-h-screen bg-ground-grid">
       <JsonLd data={personSchema} />
 
-      <Masthead
-        tagline={
-          <>
-            <span className="block font-display text-[1.15rem] leading-snug text-body-ink">
-              {masthead.tagline}
-            </span>
-            <span className="mt-1.5 block font-serif-body text-[0.9375rem] leading-snug text-body-ink/75">
-              {masthead.identity}
-            </span>
-            <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60">
-              {masthead.role}
-            </span>
-          </>
-        }
-      />
+      <WordmarkMotion>
+        <Masthead
+          tagline={
+            <>
+              <span className="block font-display text-[1.15rem] leading-snug text-body-ink">
+                {masthead.tagline}
+              </span>
+              <span className="mt-1.5 block font-serif-body text-[0.9375rem] leading-snug text-body-ink/75">
+                {masthead.identity}
+              </span>
+              <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60">
+                {masthead.role}
+              </span>
+            </>
+          }
+        />
+      </WordmarkMotion>
 
       <CheckerBand />
 
@@ -204,7 +208,9 @@ export default function Cover() {
             {statsPreamble}
           </p>
           <div className="mt-8 max-w-[26rem]">
-            <StatTable rows={statRows} caption={statsCaption} />
+            <StatTableMotion>
+              <StatTable rows={statRows} caption={statsCaption} />
+            </StatTableMotion>
           </div>
         </Sheet>
 

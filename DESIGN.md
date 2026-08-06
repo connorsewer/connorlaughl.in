@@ -233,15 +233,25 @@ the catalog components animate from.
 
 | Primitive | Behavior |
 |---|---|
-| `drawOn()` | SVG stroke draw-on when a figure enters the viewport. |
-| `sheetReveal()` | Sheets rise into place. |
+| `drawOn()` | SVG stroke draw-on when a figure enters the viewport. One-shot. |
+| `drawOnProgress()` | The same draw bound to scroll, for below-fold plates. Measures at mount and hands back to `drawOn` for anything in the first viewport. |
 | `statFill()` | Stat rows fill. |
+| `statTick()` | Numeric readouts count up to the string already in the DOM, then restore it verbatim. |
+| `labelSettle()` | A plate's leader labels settle in as a group. |
+| `rulerBreathe()` | Ambient opacity oscillation on the ruler readout. |
 | `wordmarkReveal()` | Pixel reveal on the masthead wordmark. |
 | `prefersReducedMotion()` | The branch every one of them takes. |
 
 Each has a `*Spec` object beside it so the values are inspectable without
 reading the implementation. Add a primitive here rather than hand-rolling an
 `animate()` call in a component.
+
+Strokes are the only thing bound to scroll anywhere on the site, and only on
+below-fold plates. Everything else is one-shot and latched, so nothing
+un-animates on scroll-up. Transform and opacity only, plus `stroke-dashoffset`
+for draw-on: no width, height, top, left or margin is animated. Scroll binding
+goes through motion's `scroll()` driver, never a hand-rolled `rAF` loop, and
+nothing reads geometry inside a scroll callback.
 
 Cross-document navigation uses the View Transitions API with a root fade pair,
 200ms out and 360ms in, disabled under reduced motion.

@@ -10,6 +10,8 @@ export { Sheet, type SheetProps } from "@/components/manual/Sheet";
 export { CheckerBand, type CheckerBandProps } from "@/components/manual/CheckerBand";
 export { RulerRail } from "@/components/manual/RulerRail";
 export { StatTable, type StatRow, type StatTableProps } from "@/components/manual/StatTable";
+export { StatTableMotion } from "@/components/manual/StatTableMotion";
+export { WordmarkMotion } from "@/components/manual/WordmarkMotion";
 export {
   ColophonFooter,
   type ColophonFooterProps,

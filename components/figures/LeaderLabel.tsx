@@ -52,7 +52,9 @@ export function LeaderLabel({
   const angle = (Math.atan2(targetY - y, targetX - startX) * 180) / Math.PI;
 
   return (
-    <g className={className}>
+    /* `data-leader-group` is the selector `labelSettle()` in
+       lib/motion-manual.ts settles the plate's labels by. No visual effect. */
+    <g data-leader-group className={className}>
       <text
         x={x}
         y={y}

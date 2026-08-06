@@ -6,6 +6,7 @@ import {
   ChapterHeader,
   ChapterLayout,
   StatTable,
+  StatTableMotion,
   type StatRow,
   type TocSection,
 } from "@/components/manual";
@@ -311,7 +312,9 @@ export default async function CaseStudyPage({
                 Proof
               </h2>
               <div className="mt-6">
-                <StatTable rows={statRows} caption="Chapter figures" />
+                <StatTableMotion>
+                  <StatTable rows={statRows} caption="Chapter figures" />
+                </StatTableMotion>
               </div>
             </section>
           </>
