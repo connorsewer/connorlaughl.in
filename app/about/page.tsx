@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { JsonLd, personSchema } from "@/components/JsonLd";
-import { ChapterLayout, type TocSection } from "@/components/manual";
+import { ChapterHeader, ChapterLayout, type TocSection } from "@/components/manual";
 import { tocSections } from "@/content/cover";
 import { coverStats, proseProofClaims, renderableProofMetrics } from "@/content/proof-metrics";
 
@@ -57,16 +57,9 @@ export default function AboutPage() {
         sections={manualSections}
         activeHref="/about"
       >
-        <header className="max-w-[68ch]">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
-            Appendix
-          </p>
-          <h1 className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]">
-            About
-          </h1>
-        </header>
+        <ChapterHeader eyebrow="Appendix" title="About" />
 
-        <section aria-label="Opening" className="mt-8 max-w-[68ch]">
+        <section aria-label="Opening" className="mt-2 max-w-[68ch]">
           <p className="manual-body manual-dropcap">
             I started as a writer. High-volume consumer editorial, testing
             headlines against traffic, learning that a sentence either earns

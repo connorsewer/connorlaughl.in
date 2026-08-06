@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { ChapterLayout, type TocSection } from "@/components/manual";
+import { ChapterHeader, ChapterLayout, type TocSection } from "@/components/manual";
 import { RevOpsPlanner } from "@/components/RevOpsPlanner";
 import { tocSections } from "@/content/cover";
 
@@ -38,24 +38,19 @@ export default function RevOpsPlannerPage() {
       sections={manualSections}
       activeHref="/tools/revops-capacity-planner"
     >
-      <header className="max-w-[68ch]">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
-          Appendix
-        </p>
-        <h1 className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]">
-          RevOps capacity planner
-        </h1>
-        <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
-          Reverse-funnel math, in the open.
-        </p>
-        <p className="manual-body mt-6">
-          Put in a revenue target and your real conversion rates. It works
-          backward to the deal, opportunity, SQL, MQL, and lead volume you&apos;d
-          need to hit it, plus the pipeline coverage that implies. The defaults
-          are round numbers picked to be legible, not anybody&apos;s operating
-          figures.
-        </p>
-      </header>
+      <ChapterHeader
+        eyebrow="Appendix"
+        title="RevOps capacity planner"
+        dek="Reverse-funnel math, in the open."
+      />
+
+      <p className="manual-body mx-auto mt-8 max-w-[68ch]">
+        Put in a revenue target and your real conversion rates. It works
+        backward to the deal, opportunity, SQL, MQL, and lead volume you&rsquo;d
+        need to hit it, plus the pipeline coverage that implies. The defaults
+        are round numbers picked to be legible, not anybody&rsquo;s operating
+        figures.
+      </p>
 
       <div className="mt-10 border-t border-grid-line pt-8">
         <RevOpsPlanner />

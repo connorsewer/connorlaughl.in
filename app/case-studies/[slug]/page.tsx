@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 import {
+  ChapterHeader,
   ChapterLayout,
   StatTable,
   type StatRow,
@@ -225,35 +226,12 @@ export default async function CaseStudyPage({
         sections={manualSections}
         activeHref={href}
       >
-        <header className="mx-auto max-w-[68ch] text-center">
-          {/* The eyebrow is a second reading of the title. It renders only when
-              it says something the title does not, and never to a screen
-              reader, which would otherwise hear the chapter name twice. */}
-          {eyebrow ? (
-            <p
-              aria-hidden="true"
-              className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint"
-            >
-              {eyebrow}
-            </p>
-          ) : null}
-          <h1
-            className={`font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem] ${eyebrow ? "mt-4" : ""}`}
-            style={{ viewTransitionName: `case-title-${slug}` }}
-          >
-            {cs.title}
-          </h1>
-          <p className="mx-auto mt-5 max-w-[54ch] font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
-            {cs.hook}
-          </p>
-          {/* Dinkus. The reference sets one under every chapter dek. */}
-          <span
-            aria-hidden="true"
-            className="mt-7 block font-mono text-[11px] tracking-[0.5em] text-body-ink/40"
-          >
-            -----
-          </span>
-        </header>
+        <ChapterHeader
+          eyebrow={eyebrow}
+          title={cs.title}
+          dek={cs.hook}
+          titleStyle={{ viewTransitionName: `case-title-${slug}` }}
+        />
 
         {/* The chapter plate runs ahead of the body, as on the reference
             chapter: the reader sees the system before the prose about it. */}

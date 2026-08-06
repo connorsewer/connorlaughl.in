@@ -15,8 +15,11 @@ type Props = {
  * chapter. Manual treatment: thin blueprint rule, mono label, serif list.
  */
 export function ProofBlock({ proof }: Props) {
+  /* Keys are the public categorical phrase, never the internal name. React
+     keys serialize into the streamed payload, so an internal identifier used
+     as a key would ship in page source even though it never renders. */
   const items = proof
-    .map((p) => ({ key: p.internalName, rendered: renderProofAnchor(p) }))
+    .map((p) => ({ key: p.categoricalPhrase, rendered: renderProofAnchor(p) }))
     .filter(
       (p): p is { key: string; rendered: NonNullable<ReturnType<typeof renderProofAnchor>> } =>
         p.rendered !== null,

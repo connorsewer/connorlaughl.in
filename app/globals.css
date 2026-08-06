@@ -641,32 +641,10 @@ a:focus-visible,
   border-radius: 2px;
 }
 
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--accent);
-  color: var(--ink);
-  padding: 8px 16px;
-  z-index: 1000;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+/* The legacy unlayered `.skip-link` and `.sr-only` blocks were removed: an
+   unlayered `.sr-only` outranks Tailwind's layered `focus:not-sr-only`, which
+   pinned every manual route's skip link at 1x1px on focus. Tailwind's own
+   `sr-only` utility covers the remaining consumers. */
 
 @media (prefers-reduced-motion: reduce) {
   *,

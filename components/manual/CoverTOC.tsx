@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withPeriod } from "@/components/manual/ChapterHeader";
 
 /**
  * Cover table of contents.
@@ -32,19 +33,26 @@ export type CoverTocGroup = {
 export type CoverTOCProps = {
   sections: CoverTocGroup[];
   className?: string;
+  /**
+   * Section headers are the cover's own furniture. A single-section index that
+   * already names the section in its page header passes `false` so the label
+   * does not print twice.
+   */
+  showSectionHeaders?: boolean;
 };
 
-/** Titles are set with a trailing period, the way the manual sets them. */
-function withPeriod(title: string): string {
-  return /[.?!]$/.test(title) ? title : `${title}.`;
-}
 
-export function CoverTOC({ sections, className }: CoverTOCProps) {
+export function CoverTOC({
+  sections,
+  className,
+  showSectionHeaders = true,
+}: CoverTOCProps) {
   return (
     <nav aria-label="Contents" className={`w-full ${className ?? ""}`}>
       <ol className="m-0 flex list-none flex-col gap-14 p-0">
         {sections.map((section) => (
           <li key={section.num}>
+            {showSectionHeaders ? (
             <h3
               style={{
                 fontFamily:
@@ -58,6 +66,7 @@ export function CoverTOC({ sections, className }: CoverTOCProps) {
               </span>
               <span>{section.title}</span>
             </h3>
+            ) : null}
 
             <ol className="m-0 flex list-none flex-col p-0">
               {section.entries.map((entry) => (

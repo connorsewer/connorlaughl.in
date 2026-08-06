@@ -3,7 +3,12 @@ import type { Metadata } from "next";
 import { JsonLd, personSchema } from "@/components/JsonLd";
 import { Masthead, Sheet, ColophonFooter } from "@/components/manual";
 import { PrintButton } from "@/components/PrintButton";
-import { coverStats, proseProofClaims, renderableProofMetrics } from "@/content/proof-metrics";
+import {
+  coverStats,
+  heroProofStrip,
+  proseProofClaims,
+  renderableProofMetrics,
+} from "@/content/proof-metrics";
 
 /**
  * Resume (spec §3: Section 4, not appendix).
@@ -38,9 +43,13 @@ const LANES = [
  * Deck 6, "SELECTED PROOF". The final row is the `{S6}` token and resolves at
  * render, so it is not in this array.
  */
-const proofRows = (pipelineSoftened: string, responseRule: string) => [
+const proofRows = (
+  pipelineSoftened: string,
+  responseRule: string,
+  kpiFramework: string,
+) => [
   `Built the GTM infrastructure behind a ${pipelineSoftened}.`,
-  "Designed a 35+ KPI funnel architecture from awareness through revenue and unit economics.",
+  `Designed a ${kpiFramework} funnel architecture from awareness through revenue and unit economics.`,
   `Built tiered signal-to-touch SLAs, including a ${responseRule}.`,
   "Built a multi-business-unit messaging architecture with proof governance and outcome-first positioning.",
   "Led marketing integration across multiple acquisitions, acquired brands, web properties, and Canadian regulatory jurisdictions.",
@@ -89,7 +98,16 @@ export default function ResumePage() {
   /* S6, S7, S8 in deck order; P6 + P2 appended by the phase 4 claim registration. */
   const [progression, architecture, promotions, pipelineSoftened, responseRule] =
     renderableProofMetrics(proseProofClaims);
-  const PROOF = proofRows(pipelineSoftened.value, responseRule.value);
+  /* The funnel KPI framework, resolved by label rather than by position so a
+     reordered registry cannot silently swap the value. */
+  const [kpiFramework] = renderableProofMetrics(
+    heroProofStrip.filter((metric) => metric.label === "RevOps reporting framework"),
+  );
+  const PROOF = proofRows(
+    pipelineSoftened.value,
+    responseRule.value,
+    kpiFramework.value,
+  );
 
   return (
     <div className="manual-root min-h-screen bg-ground-grid">

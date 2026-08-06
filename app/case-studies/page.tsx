@@ -7,6 +7,7 @@ import {
   Masthead,
   Sheet,
   type CoverTocGroup,
+  withPeriod,
 } from "@/components/manual";
 import { tocSections } from "@/content/cover";
 import { chapterWords } from "@/lib/word-counts";
@@ -57,11 +58,14 @@ export default function CaseStudiesIndex() {
           className="px-5 py-10 sm:px-10 lg:px-16 lg:py-14"
         >
           <header className="max-w-[68ch]">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+            <p
+              aria-hidden="true"
+              className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint"
+            >
               Section 1 / Revenue systems
             </p>
             <h1 className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]">
-              Revenue systems
+              {withPeriod("Revenue systems")}
             </h1>
             <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
               One chapter per system. Each one starts with the problem, then
@@ -70,7 +74,7 @@ export default function CaseStudiesIndex() {
           </header>
 
           <div className="mt-10">
-            <CoverTOC sections={sections} />
+            <CoverTOC sections={sections} showSectionHeaders={false} />
           </div>
         </Sheet>
       </main>

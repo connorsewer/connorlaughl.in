@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-import { ChapterLayout, type TocSection } from "@/components/manual";
+import { ChapterHeader, ChapterLayout, type TocSection } from "@/components/manual";
 import { tocSections } from "@/content/cover";
 import { longformSlugs, readLongform } from "@/content/longform-map";
 import { renderMarkdown } from "@/lib/markdown";
@@ -38,6 +38,15 @@ const manualSections: TocSection[] = tocSections.map((section) => ({
     dek: entry.dek,
   })),
 }));
+
+/**
+ * The chapter title is set by the layout, so the body's own leading `# ...`
+ * would render as a second, larger h1 underneath it. Stripped at render time
+ * rather than in the source files, which stay portable documents.
+ */
+function stripLeadingH1(md: string): string {
+  return md.replace(/^\s*#\s+.*(\r?\n)+/, "");
+}
 
 function chapterAt(slug: string) {
   const index = chapterOrder.findIndex((entry) => entry.slug === slug);
@@ -90,21 +99,13 @@ export default async function LongformPage({
       sections={manualSections}
       activeHref={entry.href}
     >
-      <header className="max-w-[68ch]">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
-          Section 3 / Writing
-        </p>
-        <h1 className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]">
-          {entry.title}
-        </h1>
-        {entry.dek ? (
-          <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
-            {entry.dek}
-          </p>
-        ) : null}
-      </header>
+      <ChapterHeader
+        eyebrow="Section 3 / Writing"
+        title={entry.title}
+        dek={entry.dek}
+      />
 
-      <div className="mt-10">{renderMarkdown(md)}</div>
+      <div className="mt-2">{renderMarkdown(stripLeadingH1(md))}</div>
     </ChapterLayout>
   );
 }

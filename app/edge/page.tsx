@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { ChapterLayout } from "@/components/manual";
+import { ChapterHeader, ChapterLayout } from "@/components/manual";
 import { EdgeChapters } from "@/components/edge/EdgeChapters";
 import { softSkills } from "@/content/soft-skills";
 import { edgeWords } from "@/lib/word-counts";
@@ -41,17 +41,11 @@ export default function EdgePage() {
       words={edgeWords()}
       anchors={anchors}
     >
-      <header className="max-w-[68ch]">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
-          Section 2 / The operator
-        </p>
-        <h1 className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]">
-          The operator
-        </h1>
-        <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
-          How I work when the problem isn&apos;t defined yet.
-        </p>
-      </header>
+      <ChapterHeader
+        eyebrow="Section 2 / The operator"
+        title="The operator"
+        dek="How I work when the problem isn&rsquo;t defined yet."
+      />
 
       <EdgeChapters />
     </ChapterLayout>

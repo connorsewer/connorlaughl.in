@@ -38,3 +38,8 @@ export {
   type TocSection,
 } from "@/components/manual/SidebarTOC";
 export { ChapterMeta, type ChapterMetaProps } from "@/components/manual/ChapterMeta";
+export {
+  ChapterHeader,
+  withPeriod,
+  type ChapterHeaderProps,
+} from "@/components/manual/ChapterHeader";
