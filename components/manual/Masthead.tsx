@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { personSchema } from "@/components/JsonLd";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { XRayToggle } from "@/components/manual/XRayMode";
 
 /**
  * Manual masthead.
@@ -47,6 +48,7 @@ function Wordmark({ compact }: { compact: boolean }) {
     <span
       aria-hidden="true"
       data-wordmark
+      data-xray="wordmark"
       className={
         compact
           ? "font-pixel whitespace-nowrap text-[0.95rem] leading-none tracking-[0.14em] text-blueprint"
@@ -123,6 +125,7 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
           <div className="flex items-center gap-5">
             <Nav compact />
             <ThemeToggle />
+            <XRayToggle />
           </div>
         </div>
       ) : (
@@ -141,6 +144,7 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
             <div className="flex items-center gap-5">
               <Nav compact={false} />
               <ThemeToggle />
+              <XRayToggle />
             </div>
           </div>
         </div>

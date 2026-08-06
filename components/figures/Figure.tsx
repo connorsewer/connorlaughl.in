@@ -251,7 +251,7 @@ export function Figure({
       {/* The drawing sits on a gridded white plate; the page ground stays
           plain paper. See the reference cover, where every figure is drafted
           on graph paper inside the sheet. */}
-      <div ref={plateRef} className="figure-plate flex items-stretch gap-2 p-4">
+      <div ref={plateRef} data-xray="plate" className="figure-plate flex items-stretch gap-2 p-4">
         <span
           aria-hidden="true"
           className="hidden shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] rotate-180 lg:block"

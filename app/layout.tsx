@@ -7,6 +7,7 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { XRayOverlay } from "@/components/manual/XRayMode";
 
 /**
  * GT Sectra Fine, the editorial display face. Five weights plus italics,
@@ -113,6 +114,9 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          {/* X-ray mode. Renders nothing until a reader turns it on, so it is
+              never in the served HTML; see components/manual/XRayMode.tsx. */}
+          <XRayOverlay />
         </ThemeProvider>
       </body>
     </html>

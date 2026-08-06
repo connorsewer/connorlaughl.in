@@ -976,6 +976,123 @@ export function labelSettle(
   );
 }
 
+/* ──────────────────────────────── x-ray ───────────────────────────── */
+
+/**
+ * x-ray — the page drawing its own construction over itself.
+ *
+ * The annotations are a technical drawing, so they arrive the way a plate
+ * does: stroke first, readout after. The cascade is deliberately ordered by
+ * the caller (viewport marks, then dimensions, then leaders, then the status
+ * chip), so a reader watches the drawing get set up rather than watching
+ * everything appear at once.
+ *
+ * The overlay carries no viewBox: its coordinates are viewport pixels, so a
+ * dash length read from `getTotalLength()` is already in the space the UA
+ * resolves the dash in and needs no `plateScale()` correction.
+ */
+export const xrayDrawSpec = {
+  /** Stroke draw time per annotation group. */
+  duration: DURATION.medium,
+  ease: EASE.outQuart,
+  /** Gap between annotation groups. */
+  perItem: STAGGER.short,
+  /** How far a group's mono readout trails its own stroke. */
+  inkDelay: DURATION.quick,
+  /** Ink fade in and the whole overlay's fade out. */
+  exit: DURATION.quick,
+} as const;
+
+/**
+ * Draws an x-ray overlay in, group by group.
+ *
+ * Groups are matched by `[data-xray-anno]` and may be SVG or HTML: the strokes
+ * inside a group dash-draw, and anything marked `[data-xray-ink]` fades in
+ * behind them. A group with no drawable shape (the status chip) is ink only.
+ *
+ * Reduced motion: nothing is parked and nothing is registered. The overlay
+ * renders complete, which is the same finished drawing minus the plotting.
+ */
+export function xrayDraw(target: MotionTarget): MotionCleanup {
+  const el = resolve(target);
+  if (!el || typeof window === "undefined") return NOOP;
+  if (prefersReducedMotion()) return NOOP;
+
+  const groups = Array.from(el.querySelectorAll("[data-xray-anno]"));
+  if (groups.length === 0) return NOOP;
+
+  const { duration, ease, perItem, inkDelay, exit } = xrayDrawSpec;
+  const running: Array<{ stop: () => void }> = [];
+
+  groups.forEach((group, i) => {
+    const delay = i * perItem;
+
+    const shapes = Array.from(group.querySelectorAll<SVGGeometryElement>(DRAWABLE)).filter(
+      (shape) =>
+        !shape.hasAttribute("data-no-draw") && typeof shape.getTotalLength === "function",
+    );
+
+    shapes.forEach((shape) => {
+      let length = 0;
+      try {
+        length = shape.getTotalLength();
+      } catch {
+        length = 0;
+      }
+      if (length <= 0) return;
+      park(shape, length);
+      const controls = animate(
+        shape,
+        { strokeDashoffset: [length, 0] },
+        { duration, ease, delay },
+      );
+      running.push(controls);
+      controls.finished.then(
+        () => unpark(shape),
+        () => unpark(shape),
+      );
+    });
+
+    const ink = Array.from(group.querySelectorAll("[data-xray-ink]"));
+    ink.forEach((node) => {
+      animate(node, { opacity: 0 }, { duration: 0 });
+      running.push(
+        animate(node, { opacity: 1 }, { duration: exit, ease: EASE.standard, delay: delay + inkDelay }),
+      );
+    });
+  });
+
+  return () => {
+    running.forEach((controls) => controls.stop());
+    groups.forEach((group) => {
+      group.querySelectorAll<SVGGeometryElement>(DRAWABLE).forEach(unpark);
+      group.querySelectorAll("[data-xray-ink]").forEach((node) => {
+        (node as HTMLElement).style.opacity = "";
+      });
+    });
+  };
+}
+
+/**
+ * Fades a finished x-ray overlay out and reports when it may be unmounted.
+ *
+ * Reduced motion, and any missing target: `done()` fires at once and nothing
+ * is registered, so the overlay simply stops being there.
+ */
+export function xrayFadeOut(target: MotionTarget, done: () => void): MotionCleanup {
+  const el = resolve(target);
+  if (!el || typeof window === "undefined" || prefersReducedMotion()) {
+    done();
+    return NOOP;
+  }
+  const controls = animate(el, { opacity: [1, 0] }, {
+    duration: xrayDrawSpec.exit,
+    ease: EASE.standard,
+  });
+  controls.finished.then(done, done);
+  return () => controls.stop();
+}
+
 /* ───────────────────────────── value pulse ─────────────────────────── */
 
 /**

@@ -29,6 +29,7 @@ export {
   type TerminalFAQEntry,
 } from "@/components/manual/TerminalFAQ";
 export { Terminal, type TerminalProps } from "@/components/manual/Terminal";
+export { XRayToggle, XRayOverlay } from "@/components/manual/XRayMode";
 
 /* Chapter chrome. */
 export {

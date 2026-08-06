@@ -699,3 +699,27 @@ a:focus-visible,
     color: var(--blueprint);
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   X-RAY MODE
+   ══════════════════════════════════════════════════════════════════════
+   The annotations themselves are drawn by components/manual/XRayMode.tsx,
+   client-side and only while the mode is on. The stylesheet owns exactly one
+   thing: the ground grid steps one interval toward blueprint, so the 8px
+   drafting grid the whole layout is set on becomes visible as the thing the
+   dimension lines are measuring against.
+
+   A colour token and nothing else. No geometry changes, so turning the mode on
+   costs no layout and moves no text. */
+
+html.xray {
+  --grid-paper-line: color-mix(in srgb, var(--blueprint) 8%, var(--ground));
+}
+
+/* The cyanotype ground already carries its grid as a blueprint mix, so the
+   step there is on the mix rather than on the ground. */
+html.xray.dark {
+  --grid-paper-line: color-mix(in srgb, var(--blueprint) 16%, transparent);
+}
+
+/* x-ray token block ends the manual stylesheet. */

@@ -22,6 +22,7 @@ export function CheckerBand({ label, className }: CheckerBandProps) {
     return (
       <div
         aria-hidden="true"
+        data-xray="checker"
         className={`manual-checker w-full ${className ?? ""}`}
       />
     );
@@ -29,7 +30,7 @@ export function CheckerBand({ label, className }: CheckerBandProps) {
 
   return (
     <div className={`flex w-full items-center gap-4 ${className ?? ""}`}>
-      <span aria-hidden="true" className="manual-checker min-w-6 flex-1" />
+      <span aria-hidden="true" data-xray="checker" className="manual-checker min-w-6 flex-1" />
       <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/60">
         {label}
       </span>

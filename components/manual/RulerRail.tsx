@@ -87,6 +87,7 @@ export function RulerRail() {
   return (
     <div
       aria-hidden="true"
+      data-xray="ruler"
       className="pointer-events-none fixed right-0 top-[4.5rem] z-30 hidden h-[calc(100vh-4.5rem)] w-16 select-none lg:block"
     >
       <div ref={railRef} className="relative h-full pr-4">

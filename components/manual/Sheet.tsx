@@ -24,6 +24,8 @@ export function Sheet({ children, as, className, id }: SheetProps) {
   return (
     <Tag
       id={id}
+      // X-ray mode dimensions the first sheet on screen off this box.
+      data-xray="sheet"
       // Full bleed below 768px: no border, no shadow, no ground showing at the
       // edges. A phone screen is the sheet.
       className={`bg-sheet max-md:border-0 max-md:shadow-none md:border md:border-grid-line md:shadow-[var(--sheet-shadow)] ${
