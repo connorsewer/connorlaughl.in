@@ -6,8 +6,8 @@ type Props = {
 };
 
 export function PrintButton({
-  label = "Print or save PDF",
-  className = "font-mono text-[11px] tracking-[0.2em] uppercase border border-paper/30 px-5 py-2.5 rounded-full hover:border-accent hover:text-accent transition-colors",
+  label = "Print this page",
+  className = "border border-body-ink/30 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink transition-colors hover:border-blueprint hover:text-blueprint",
 }: Props) {
   return (
     <button

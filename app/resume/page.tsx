@@ -1,371 +1,235 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { Header } from "@/components/Header";
+
 import { JsonLd, personSchema } from "@/components/JsonLd";
+import { Masthead, Sheet, ColophonFooter } from "@/components/manual";
 import { PrintButton } from "@/components/PrintButton";
+import { coverStats, proseProofClaims, renderableProofMetrics } from "@/content/proof-metrics";
+
+/**
+ * Resume (spec §3: Section 4, not appendix).
+ *
+ * Chrome-light by spec: compact masthead and a single sheet, no site-wide
+ * sidebar and no word-count meta. Direct-link entry is the primary case, so
+ * the header block is short enough that at 1440x900 the name, title, current
+ * state, contact, and lane summary all sit above the fold.
+ *
+ * Copy is the approved deck's section 6, verbatim. Claim discipline: every
+ * gated numeral resolves through `renderableProofMetrics()`; the cover's exact
+ * pipeline figure does not travel here, only the softened magnitude word the
+ * deck cleared for this route.
+ */
 
 export const metadata: Metadata = {
   title: "Resume | Connor J. Laughlin",
   description:
-    "Resume of Connor J. Laughlin, VP of Marketing & GTM (acting CMO) and GTM Engineer.",
+    "Resume of Connor J. Laughlin, VP of Marketing and GTM (acting CMO) and GTM systems engineer.",
 };
 
-const ROLES = [
+const CONTACT_EMAIL = "connor.laughlin@gmail.com";
+
+/** Deck 6, "WHAT I RUN". */
+const LANES = [
+  "Revenue operations and GTM systems. Funnel definitions, lifecycle stages, routing, attribution, SLA logic, and the pipeline inspection layer leaders run the business from.",
+  "Marketing leadership. Positioning, demand, proof governance, org design, and the quarterly reporting a PE sponsor reads.",
+  "GTM engineering. Self-taught coding, then governed AI workflows with human approval gates and audit trails.",
+];
+
+/**
+ * Deck 6, "SELECTED PROOF". The final row is the `{S6}` token and resolves at
+ * render, so it is not in this array.
+ */
+const PROOF = [
+  "Built the GTM infrastructure behind a nine-figure influenced pipeline.",
+  "Designed a 35+ KPI funnel architecture from awareness through revenue and unit economics.",
+  "Built tiered signal-to-touch SLAs, including a two-hour high-priority response rule.",
+  "Built a multi-business-unit messaging architecture with proof governance and outcome-first positioning.",
+  "Led marketing integration across multiple acquisitions, acquired brands, web properties, and Canadian regulatory jurisdictions.",
+  "Material organic growth from SEO and content infrastructure.",
+];
+
+/** Deck 6, "EXPERIENCE". `{S2}` in the first row resolves at render. */
+const EXPERIENCE: { period: string; title: string; detail?: string }[] = [
   {
-    company: "TSI (PE-backed enterprise, roughly $460M)",
-    title: "VP, Marketing & GTM (acting CMO)",
-    period: "2024 to present",
-    points: [
-      "Built revenue infrastructure behind $159.4M in marketing-influenced pipeline and $52.5M net-new revenue contribution.",
-      "Designed a 22-agent AI GTM operating system with governed workflows, audit logs, and approval gates.",
-      "Authored the 35+ KPI revenue funnel framework, board-ready reporting cadence, and ghost-pipeline inspection.",
-      "Led the marketing function from near-$0 budget and 2 offshore resources to a 4-direct-report core team and 16-person international model.",
-      "Managed GTM through 7 acquisitions, 8 acquired brands, 3 web properties, 5 regulated verticals, and a Canadian business unit across 13 provincial jurisdictions.",
-    ],
+    period: "Feb 2022 to present",
+    title: "VP of Marketing & GTM (acting CMO)",
   },
   {
-    company: "TSI",
-    title: "Director of Marketing, then Senior Director",
-    period: "2018 to 2024",
-    points: [
-      "Built signal-based BDR pod from existing resources. Multi-million first-90-day signal pipeline, high-priority signal-to-touch SLA.",
-      "Authored 774-line messaging architecture across 5 regulated business lines plus a 10,900-word master GTM brief.",
-      "Rebuilt tsico.com twice for enterprise conversion. Clean B2B routing, GA4 and GTM instrumentation, +28% organic clicks.",
-      "Designed the post-acquisition GTM bridge, identified $254M cross-sell whitespace from 2,676 clients, supported 73% CAC reduction and 112% NRR at the company level.",
-    ],
+    period: "Aug 2017 to Jan 2022",
+    title: "Director of Marketing",
+    detail:
+      "Built the first structured inbound demand program and led marketing integration for the first wave of acquisitions.",
   },
+  { period: "Jun 2017 to Aug 2017", title: "Senior Marketing Manager" },
   {
-    company: "TSI",
-    title: "Marketing Manager, then Digital Marketing Manager",
-    period: "2015 to 2018",
-    points: [
-      "First digital marketing hire. Built web, analytics, content, demand, attribution, CRM, and sales-enablement layers from scratch.",
-      "Stood up the marketing data foundation that later carried the RevOps and AI layers.",
-    ],
+    period: "May 2015 to Jun 2017",
+    title: "Digital Marketing Manager",
+    detail:
+      "The company's first dedicated digital marketing hire. No analytics, SEO, paid, email, or attribution existed before this.",
   },
+  { period: "2013 to 2015", title: "Writer and content creator, consumer deals platform" },
+  { period: "2012 to 2013", title: "Executive search associate, retained search firm" },
   {
-    company: "Brad's Deals",
-    title: "Content Creator",
-    period: "2013 to 2015",
-    points: [
-      "Wrote and produced content for a consumer site running 10 million monthly visitors.",
-    ],
-  },
-  {
-    company: "Reilly Partners",
-    title: "Executive Search Associate",
-    period: "2012 to 2014",
-    points: [
-      "Researched, sourced, and assessed executive candidates across enterprise software and services.",
-    ],
-  },
-  {
-    company: "Vatican Museums",
-    title: "BD & Marketing",
     period: "2009 to 2012",
-    points: [
-      "Business development and marketing roles starting from a college internship in Rome.",
-    ],
+    title: "Business development and marketing intern, arts patrons nonprofit",
   },
 ];
 
-const SKILLS = [
-  {
-    title: "Executive marketing leadership",
-    items: [
-      "Budget cases and board-ready reporting",
-      "Team design and operating cadence",
-      "Agency and vendor leadership",
-    ],
-  },
-  {
-    title: "Revenue operations",
-    items: [
-      "Lifecycle definitions and attribution",
-      "Funnel KPI framework, unit economics, ghost-pipeline inspection",
-      "CRM architecture and data governance",
-    ],
-  },
-  {
-    title: "AI GTM systems",
-    items: [
-      "Agentic workflow design, RAG, n8n, MCP-style tooling",
-      "Governance: approval gates, audit logs, regression checks",
-      "Python, TypeScript, prompt engineering",
-    ],
-  },
-  {
-    title: "Narrative and proof architecture",
-    items: [
-      "ICP, positioning, competitive intelligence",
-      "Claims governance and proof libraries",
-      "Sales enablement and executive POV",
-    ],
-  },
-  {
-    title: "Digital growth systems",
-    items: [
-      "Programmatic SEO and GEO, schema",
-      "Analytics instrumentation",
-      "Conversion paths and technical web governance",
-    ],
-  },
+/** Deck 6, "EDUCATION". Never write any school other than these two. */
+const EDUCATION = [
+  "Santa Clara University, Leavey School of Business. B.S. Finance, 2006 to 2009.",
+  "Northwestern University, journalism coursework.",
 ];
+
+const HEADING_CLASS =
+  "font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint";
 
 export default function ResumePage() {
+  /* S1, S2 in deck order. S3 is not used on this route. */
+  const [years, verticals] = renderableProofMetrics(coverStats);
+  /* S6, S7, S8 in deck order. */
+  const [progression, architecture, promotions] = renderableProofMetrics(proseProofClaims);
+
   return (
-    <div className="selection:bg-accent selection:text-ink">
+    <div className="manual-root min-h-screen bg-ground-grid">
       <JsonLd data={personSchema} />
-      <Header />
 
-      <main
-        id="main-content"
-        className="min-h-screen pt-32 pb-24 px-6 print:pt-8 print:pb-8"
-      >
-        <div className="mx-auto max-w-3xl">
-          <div className="flex items-start justify-between flex-wrap gap-4 print:gap-2">
-            <div>
-              <span className="font-mono text-[10px] tracking-[0.4em] uppercase text-accent">
-                Resume
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl leading-tight mt-3 text-balance">
-                Connor J. Laughlin
-              </h1>
-              <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-paper/70 mt-3">
-                VP of Marketing & GTM (acting CMO), GTM Engineer · Chicago
-              </p>
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/55 mt-2">
-                <a
-                  className="hover:text-accent transition-colors"
-                  href="mailto:connor.laughlin@gmail.com"
-                >
-                  connor.laughlin@gmail.com
-                </a>
-                <span aria-hidden="true"> · </span>
-                <a
-                  className="hover:text-accent transition-colors"
-                  href="https://linkedin.com/in/connorlaughlin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  linkedin.com/in/connorlaughlin
-                </a>
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 print:hidden">
-              <PrintButton />
-              <Link
-                href="/case-studies"
-                className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/65 hover:text-accent transition-colors text-right"
-              >
-                Case studies <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
+      <div className="print:hidden">
+        <Masthead compact />
+      </div>
 
-          <div className="rule mt-8" role="separator" />
-
-          <section
-            aria-labelledby="summary-heading"
-            className="mt-8 grid md:grid-cols-[10rem_1fr] gap-4 md:gap-8"
-          >
-            <h2
-              id="summary-heading"
-              className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent self-start"
-            >
-              Summary
-            </h2>
-            <p className="text-paper/85 text-base leading-relaxed">
-              VP of Marketing & GTM (acting CMO) and GTM Engineer. Built the
-              revenue infrastructure behind $159.4M in marketing-influenced
-              pipeline at a roughly $460M PE-backed enterprise. Designed a
-              governed 22-agent AI GTM operating system, a 35+ KPI RevOps
-              framework, and the cadence that made marketing legible to the
-              board. Senior judgment plus enough technical depth to build the
-              operating layer myself.
+      <main className="mx-auto w-full max-w-[56rem] px-0 pb-16 md:px-6 lg:px-10">
+        <Sheet
+          id="main-content"
+          as="article"
+          className="px-5 py-8 sm:px-10 lg:px-14 lg:py-10 print:px-0 print:py-0"
+        >
+          <header>
+            <h1 className="font-display text-[2.25rem] leading-[1.05] text-body-ink sm:text-[2.75rem]">
+              Connor J. Laughlin
+            </h1>
+            <p className="mt-3 font-mono text-[11px] tracking-[0.1em] text-body-ink/75">
+              VP of Marketing &amp; GTM (acting CMO). Chicago, IL.
             </p>
-          </section>
+            <p className="mt-1.5 font-serif-body text-[0.9375rem] leading-snug text-body-ink/80">
+              Marketing executive. GTM systems engineer.
+            </p>
 
-          <div className="rule mt-8" role="separator" />
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="font-mono text-[11px] tracking-[0.12em] text-blueprint underline underline-offset-4 transition-opacity hover:opacity-70"
+              >
+                {CONTACT_EMAIL}
+              </a>
+              <PrintButton
+                label="Print this page"
+                className="border border-body-ink/30 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink transition-colors hover:border-blueprint hover:text-blueprint print:hidden"
+              />
+            </div>
 
-          <section
-            aria-labelledby="impact-heading"
-            className="mt-8 grid md:grid-cols-[10rem_1fr] gap-4 md:gap-8"
-          >
-            <h2
-              id="impact-heading"
-              className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent self-start"
-            >
-              Headline impact
+            <p className="manual-body mt-6 max-w-[68ch]">
+              I build the revenue systems that make GTM strategy real. First
+              digital marketing hire to VP across {years.value} years and{" "}
+              {promotions.value} promotions at a PE-backed enterprise, running
+              marketing and GTM across {verticals.value} regulated verticals,{" "}
+              {architecture.value}.
+            </p>
+          </header>
+
+          <section aria-labelledby="what-i-run" className="mt-10 max-w-[68ch]">
+            <h2 id="what-i-run" className={HEADING_CLASS}>
+              What I run
             </h2>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-rule">
-              {[
-                { v: "$159.4M", l: "influenced pipeline" },
-                { v: "$52.5M", l: "net-new revenue" },
-                { v: "22-agent", l: "AI GTM OS" },
-                { v: "35+", l: "RevOps KPIs" },
-                { v: "7", l: "acquisitions" },
-                { v: "near $0", l: "to board-backed" },
-              ].map((s) => (
-                <li key={s.l} className="bg-ink p-3">
-                  <div className="font-display text-lg leading-tight">
-                    {s.v}
-                  </div>
-                  <div className="font-mono text-[9px] tracking-[0.15em] uppercase text-paper/55 mt-1">
-                    {s.l}
-                  </div>
+            <ul className="mt-4 space-y-3">
+              {LANES.map((lane) => (
+                <li
+                  key={lane}
+                  className="border-l-2 border-grid-line pl-4 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/85"
+                >
+                  {lane}
                 </li>
               ))}
             </ul>
           </section>
 
-          <div className="rule mt-10" role="separator" />
+          <section aria-labelledby="selected-proof" className="mt-10 max-w-[68ch]">
+            <h2 id="selected-proof" className={HEADING_CLASS}>
+              Selected proof
+            </h2>
+            <ul className="mt-4 space-y-2.5">
+              {PROOF.map((row) => (
+                <li
+                  key={row}
+                  className="flex gap-3 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/85"
+                >
+                  <span aria-hidden="true" className="mt-[0.55em] h-px w-3 shrink-0 bg-blueprint" />
+                  <span>{row}</span>
+                </li>
+              ))}
+              <li className="flex gap-3 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/85">
+                <span aria-hidden="true" className="mt-[0.55em] h-px w-3 shrink-0 bg-blueprint" />
+                <span>
+                  {progression.value} {progression.label}. {progression.context}.
+                </span>
+              </li>
+            </ul>
+          </section>
 
-          <section
-            aria-labelledby="experience-heading"
-            className="mt-8 grid md:grid-cols-[10rem_1fr] gap-4 md:gap-8"
-          >
-            <h2
-              id="experience-heading"
-              className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent self-start"
-            >
+          <section aria-labelledby="experience" className="mt-10">
+            <h2 id="experience" className={HEADING_CLASS}>
               Experience
             </h2>
-            <div className="space-y-8">
-              {ROLES.map((r) => (
-                <div key={`${r.company}-${r.title}`}>
-                  <div className="flex items-baseline justify-between flex-wrap gap-1">
-                    <h3 className="font-display text-xl leading-snug">
-                      {r.title}
-                    </h3>
-                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/55">
-                      {r.period}
-                    </span>
+            <ol className="mt-4 divide-y divide-grid-line">
+              {EXPERIENCE.map((role) => (
+                <li
+                  key={role.period}
+                  className="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6"
+                >
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-body-ink/55">
+                    {role.period}
+                  </span>
+                  <div className="max-w-[62ch]">
+                    <p className="font-serif-body text-[0.9375rem] font-semibold leading-snug text-body-ink">
+                      {role.title}
+                    </p>
+                    {role.period === "Feb 2022 to present" ? (
+                      <p className="mt-1 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
+                        Full marketing and GTM ownership across {verticals.value}{" "}
+                        regulated verticals at a PE-backed enterprise.
+                      </p>
+                    ) : null}
+                    {role.detail ? (
+                      <p className="mt-1 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
+                        {role.detail}
+                      </p>
+                    ) : null}
                   </div>
-                  <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-paper/70 mt-1">
-                    {r.company}
-                  </p>
-                  <ul className="mt-3 space-y-2">
-                    {r.points.map((p, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-3 text-paper/80 text-sm md:text-base leading-relaxed"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="text-accent shrink-0 mt-1"
-                        >
-                          ·
-                        </span>
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </section>
 
-          <div className="rule mt-10" role="separator" />
-
-          <section
-            aria-labelledby="skills-heading"
-            className="mt-8 grid md:grid-cols-[10rem_1fr] gap-4 md:gap-8"
-          >
-            <h2
-              id="skills-heading"
-              className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent self-start"
-            >
-              Capabilities
+          <section aria-labelledby="education" className="mt-10 max-w-[68ch]">
+            <h2 id="education" className={HEADING_CLASS}>
+              Education
             </h2>
-            <ul className="grid md:grid-cols-2 gap-px bg-rule">
-              {SKILLS.map((s) => (
-                <li key={s.title} className="bg-ink p-5">
-                  <h3 className="font-display text-base leading-snug">
-                    {s.title}
-                  </h3>
-                  <ul className="mt-2 space-y-1.5 text-paper/70 text-sm leading-relaxed">
-                    {s.items.map((i) => (
-                      <li key={i} className="flex gap-2">
-                        <span
-                          aria-hidden="true"
-                          className="text-accent shrink-0"
-                        >
-                          ·
-                        </span>
-                        <span>{i}</span>
-                      </li>
-                    ))}
-                  </ul>
+            <ul className="mt-4 space-y-2">
+              {EDUCATION.map((row) => (
+                <li
+                  key={row}
+                  className="font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/85"
+                >
+                  {row}
                 </li>
               ))}
             </ul>
           </section>
-
-          <div className="rule mt-10" role="separator" />
-
-          <section
-            aria-labelledby="how-i-work-heading"
-            className="mt-8 grid md:grid-cols-[10rem_1fr] gap-4 md:gap-8"
-          >
-            <h2
-              id="how-i-work-heading"
-              className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent self-start"
-            >
-              How I work
-            </h2>
-            <div className="space-y-3">
-              <p className="text-paper/85 text-base leading-relaxed">
-                The soft-skill edge a resume can&apos;t carry: taste applied at
-                velocity, specification clarity, trust calibration, and the
-                operating discipline that comes from delegating real work to
-                AI agents.
-              </p>
-              <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-accent">
-                <Link
-                  href="/edge"
-                  className="link-editorial hover:text-paper transition-colors"
-                >
-                  Operating edge <span aria-hidden="true">→</span>
-                </Link>
-              </p>
-            </div>
-          </section>
-
-          <div className="rule mt-10" role="separator" />
-
-          <section
-            aria-labelledby="education-heading"
-            className="mt-8 grid md:grid-cols-[10rem_1fr] gap-4 md:gap-8"
-          >
-            <h2
-              id="education-heading"
-              className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent self-start"
-            >
-              Education
-            </h2>
-            <ul className="space-y-3">
-              <li>
-                <p className="font-display text-base">Santa Clara University</p>
-                <p className="text-paper/70 text-sm">
-                  B.S., Finance · Leavey School of Business
-                </p>
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/50">
-                  2006 to 2009
-                </p>
-              </li>
-              <li>
-                <p className="font-display text-base">
-                  Northwestern University
-                </p>
-                <p className="text-paper/70 text-sm">
-                  Medill School of Journalism, coursework
-                </p>
-              </li>
-            </ul>
-          </section>
-        </div>
+        </Sheet>
       </main>
+
+      <div className="print:hidden">
+        <ColophonFooter />
+      </div>
     </div>
   );
 }
