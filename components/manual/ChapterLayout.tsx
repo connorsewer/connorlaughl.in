@@ -1,10 +1,10 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { Breadcrumb } from "@/components/manual/Breadcrumb";
 import { ChapterMeta } from "@/components/manual/ChapterMeta";
 import { ColophonFooter } from "@/components/manual/ColophonFooter";
-import { MANUAL_NAV, Masthead } from "@/components/manual/Masthead";
+import { ContentsDisclosure } from "@/components/manual/ContentsDisclosure";
+import { MANUAL_NAV, ManualNavLink, Masthead } from "@/components/manual/Masthead";
 import { RulerRail } from "@/components/manual/RulerRail";
 import { Sheet } from "@/components/manual/Sheet";
 import { SidebarTOC, type TocSection } from "@/components/manual/SidebarTOC";
@@ -26,8 +26,9 @@ export type { TocEntry, TocSection, SidebarTOCProps } from "@/components/manual/
  * Responsive behaviour (binding fidelity notes):
  *   - below 768px the sheet is full bleed; the column adds no horizontal
  *     padding until `md`, and `Sheet` itself drops its border and shadow.
- *   - below xl the sidebar collapses into a `<details>` disclosure that sits
- *     above the breadcrumb, keyboard-native and closed by default.
+ *   - below xl the sidebar collapses into `ContentsDisclosure`, a `<details>`
+ *     that sits above the breadcrumb, keyboard-native and closed by default:
+ *     an anchored panel from sm up, a scrimmed bottom sheet below it.
  *   - the breadcrumb is its own rail and never folds into the masthead nav,
  *     so it stays a single line at 390.
  *
@@ -101,29 +102,16 @@ export function ChapterLayout({
                 the disclosure since the compact masthead drops them there. */}
             <div className="flex items-center gap-4 px-4 py-3 md:px-0 md:py-4 xl:block">
               {toc ? (
-                <details className="group relative shrink-0 xl:hidden">
-                  <summary className="cursor-pointer list-none font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/70 transition-colors hover:text-blueprint">
-                    Contents
-                  </summary>
-                  <div className="absolute left-0 right-0 top-full z-20 mt-3 w-[min(22rem,80vw)] border border-grid-line bg-sheet p-4 shadow-sm">
-                    {toc}
-                    <ul className="mt-5 flex flex-wrap gap-4 border-t border-grid-line pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/70">
-                      {MANUAL_NAV.map(({ href, label }) => (
-                        <li key={href}>
-                          {href.startsWith("mailto:") ? (
-                            <a href={href} className="transition-colors hover:text-blueprint">
-                              {label}
-                            </a>
-                          ) : (
-                            <Link href={href} className="transition-colors hover:text-blueprint">
-                              {label}
-                            </Link>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </details>
+                <ContentsDisclosure>
+                  {toc}
+                  <ul className="mt-5 flex flex-wrap gap-4 border-t border-grid-line pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/70">
+                    {MANUAL_NAV.map((link) => (
+                      <li key={link.href}>
+                        <ManualNavLink {...link} />
+                      </li>
+                    ))}
+                  </ul>
+                </ContentsDisclosure>
               ) : null}
 
               <div className="min-w-0 flex-1">

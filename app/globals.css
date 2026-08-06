@@ -16,6 +16,19 @@
   --color-fig-lavender: var(--fig-lavender);
   --color-fig-teal: var(--fig-teal);
 
+  /* Motion scales, surfaced to CSS. lib/motion.ts governs the JS runners; a
+     bare `transition-colors` used to resolve to Tailwind's own 150ms
+     cubic-bezier(0.4,0,0.2,1), which is in neither `DURATION` nor `EASE`.
+     Overriding the two defaults moves every utility transition in the tree
+     onto the scale at once, so the chrome and the runners share one clock. */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --default-transition-duration: 250ms;
+  --default-transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  /* Named durations for hand-written CSS. DURATION.quick / DURATION.short. */
+  --dur-quick: 250ms;
+  --dur-short: 450ms;
+
   --font-display: var(--font-display);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -69,6 +82,19 @@
      --blueprint #9BB4FF on --ground #0B1020 =  9.35:1   (AAA)
      --blueprint #9BB4FF on --sheet  #101833 =  8.63:1   (AAA)
      --label-muted #A3B1CE on --sheet #101833 = 8.11:1   (AAA)
+
+   Surfaces, measured the same way (ratio against the surface they sit on):
+     --fig-teal  #12333A on --sheet  #101833 =  1.30:1   (was #173430, 1.31:1
+                 — separation held, hue pulled from 171° to 190° so the fill
+                 stays inside the cyanotype instead of reading as forest green)
+     --fig-blue  #1B2748 on --sheet  #101833 =  1.19:1
+     --fig-lavender #241F45 on --sheet #101833 = 1.13:1
+     --grid-paper-line composite #171D32 on --ground #0B1020 = 1.13:1
+                 (was #121A2E, 1.09:1 — the 8px paper rule now tracks the ink
+                 rather than the ground, and stays a step under --plate-grid)
+   Fills are surface texture, not text, so the AA floor does not apply to them;
+   what they have to do is separate from --sheet and stay in the blue family.
+
    Headroom is deliberate: the manual sets label and caption text at 55–75%
    opacity, and the composite still has to clear 4.5:1. Worst case in the
    tree is `text-blueprint/70` on --sheet at 4.87:1, which passes.
@@ -89,18 +115,26 @@ html.dark {
      a filled face still separates from --sheet without glowing. */
   --fig-blue: #1B2748;
   --fig-lavender: #241F45;
-  --fig-teal: #173430;
+  --fig-teal: #12333A;
   /* Hairlines need more of the blue on a dark ground than on white to land at
      the same apparent weight. */
   --grid-line: color-mix(in srgb, var(--blueprint) 20%, transparent);
   --plate-grid: color-mix(in srgb, var(--blueprint) 9%, transparent);
-  --grid-paper-line: #121A2E;
+  /* The paper rule is mixed from the ink, not stepped off the ground: a flat
+     navy four steps off #0B1020 disappears at reading distance and the 8px
+     drafting grid — one of the three signature surfaces — goes with it. 8%
+     keeps it under --plate-grid's 9%, which is the intended order. */
+  --grid-paper-line: color-mix(in srgb, var(--blueprint) 8%, transparent);
   --checker-ink: #2C3A5E;
   --rule-hair: #2A3554;
   --label-muted: #A3B1CE;
-  /* A cast shadow on a blue-black ground has to go darker than the ground to
-     register at all, so the dark pair is heavier than the light one. */
-  --sheet-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 12px 32px -24px rgba(0, 0, 0, 0.85);
+  /* A black shadow on a #0B1020 ground is a no-op: there is nothing darker for
+     it to reach, so the sheet lands flat and the sheet-on-paper metaphor stops
+     existing in dark. The negative of a cast shadow is a lit edge, so dark
+     gets a luminous blueprint rim above and a blue cast below instead. */
+  --sheet-shadow:
+    0 -1px 0 color-mix(in srgb, var(--blueprint) 14%, transparent),
+    0 18px 40px -28px color-mix(in srgb, var(--blueprint) 22%, transparent);
 }
 
 html {
@@ -151,6 +185,11 @@ body {
   font-kerning: normal;
 }
 .font-mono { font-family: var(--font-geist-mono), ui-monospace, monospace; }
+/* The stack is spelled out to the end so the bitmap face can never silently
+   fall through to a proportional default if the font variable is ever
+   unregistered: mono first, then the UA's mono. This is the only declaration
+   of it — the wordmark and the contents headers used to inline the same list
+   and one of them lost the tracking below by doing so. */
 .font-pixel { font-family: var(--font-geist-pixel-square), var(--font-geist-mono), ui-monospace, monospace; letter-spacing: 0.05em; }
 
 .text-balance { text-wrap: balance; }
@@ -199,6 +238,15 @@ body {
        engine supports it, and changes nothing where it does not. */
     -webkit-hanging-punctuation: allow-end;
     hanging-punctuation: allow-end;
+    /* Unbounded hyphenation split `ar-/gued`, `some-/body` and `func-/tion`
+       five or six times a screen. A seven-character minimum word with three
+       either side is the trade setting for a book measure, and capping the
+       run at two consecutive lines stops the ladder of hyphens down a
+       justified edge. */
+    -webkit-hyphenate-limit-chars: 7 3 3;
+    hyphenate-limit-chars: 7 3 3;
+    -webkit-hyphenate-limit-lines: 2;
+    hyphenate-limit-lines: 2;
   }
 }
 
@@ -325,6 +373,86 @@ html.dark .plate-duotone {
   }
   to {
     transform: translateX(0);
+  }
+}
+
+/* ── Manual link rule ──────────────────────────────────────────────────
+   The chrome links used to fade to 70% opacity on hover, which is a web
+   idiom. A manual rules a line. The rule is a 1px child scaled from zero on
+   the transform axis, so it is composited and it costs no layout; the
+   underline sits far enough below the baseline to clear a descender.
+
+   Reduced motion: the global collapse takes the duration to 0.01ms, so the
+   rule is still there on hover, it simply arrives at once. Same end state,
+   which is the parity rule. */
+.manual-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.manual-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.28em;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-quick) var(--ease-standard);
+}
+
+.manual-link:hover::after,
+.manual-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Pressed state. A bordered or ruled control on paper travels; nothing in the
+   tree had an :active state at all before. One device pixel, transform only. */
+.manual-link:active,
+.manual-press:active {
+  transform: translateY(1px);
+}
+
+/* ── Terminal FAQ rows ─────────────────────────────────────────────────
+   The `IN:`/`OUT:` rows sit above the shell on the cover and have to read as
+   the same machine. The open/closed mark is CSS-swapped off the `open`
+   attribute so the server render carries no state of its own. */
+.faq-mark::after {
+  content: "[ − ]";
+}
+
+details:not([open]) .faq-mark::after {
+  content: "[ + ]";
+}
+
+/* ── Theme swap ────────────────────────────────────────────────────────
+   `ThemeProvider` sets `disableTransitionOnChange`, which is correct: without
+   it every transition in the tree staggers independently and the swap reads
+   as a rendering fault. A View Transition snapshots the whole document
+   instead, so light ↔ cyanotype crosses as one pull rather than a repaint.
+
+   Scoped to the swap flag so it never touches the navigation pair above, and
+   the new snapshot wipes down from the top edge — a sheet being drawn off a
+   light table, not a dissolve. `themeCross()` in lib/motion-manual.ts sets
+   and clears the flag, and skips the whole path under reduced motion. */
+html[data-theme-swap]::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html[data-theme-swap]::view-transition-new(root) {
+  animation: 600ms cubic-bezier(0.25, 1, 0.5, 1) both theme-pull;
+  mix-blend-mode: normal;
+}
+
+@keyframes theme-pull {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
   }
 }
 

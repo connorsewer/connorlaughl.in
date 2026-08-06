@@ -47,16 +47,17 @@ function Wordmark({ compact }: { compact: boolean }) {
     <span
       aria-hidden="true"
       data-wordmark
-      // Explicit stack so the bitmap face can never silently fall through to
-      // mono if the font variable is ever unregistered.
-      style={{
-        fontFamily:
-          "var(--font-geist-pixel-square), var(--font-geist-mono), ui-monospace, monospace",
-      }}
       className={
         compact
-          ? "font-pixel text-[0.95rem] leading-none tracking-[0.14em] text-blueprint"
-          : "font-pixel text-[8vw] leading-[0.9] tracking-[0.1em] text-blueprint sm:text-[3rem] lg:text-[3.5rem]"
+          ? "font-pixel whitespace-nowrap text-[0.95rem] leading-none tracking-[0.14em] text-blueprint"
+          : /* The name is one word to a reader and it has to stay one line.
+               At 8vw the eighteenth glyph fell off a 390 viewport and the
+               wordmark broke as `CONNOR J. LAUGHLI / N`, which is the first
+               thing a phone visitor saw. The pixel face advances 0.6em plus
+               0.1em of tracking, so eighteen glyphs need 12.6em: 6.6vw keeps
+               that inside a 390 column and the ceiling is the size the cover
+               already set at lg. */
+            "font-pixel whitespace-nowrap text-[clamp(1.4rem,6.6vw,3.5rem)] leading-[0.9] tracking-[0.1em] text-blueprint"
       }
     >
       {Array.from(WORDMARK).map((glyph, i) => (
@@ -68,6 +69,27 @@ function Wordmark({ compact }: { compact: boolean }) {
   );
 }
 
+/**
+ * One standing-nav link. `mailto:` cannot go through the router, and both the
+ * masthead and the chapter shell's contents disclosure need the same branch,
+ * so it lives here beside `MANUAL_NAV` rather than twice.
+ *
+ * `-my-1.5 py-1.5` takes a 10px mono line to a ≥24px pointer target without
+ * changing where anything prints.
+ */
+export function ManualNavLink({ href, label, className }: NavLink & { className?: string }) {
+  const cls = `manual-link -my-1.5 inline-block py-1.5 transition-colors hover:text-blueprint ${className ?? ""}`;
+  return href.startsWith("mailto:") ? (
+    <a href={href} className={cls}>
+      {label}
+    </a>
+  ) : (
+    <Link href={href} className={cls}>
+      {label}
+    </Link>
+  );
+}
+
 function Nav({ compact }: { compact: boolean }) {
   return (
     <nav
@@ -76,17 +98,9 @@ function Nav({ compact }: { compact: boolean }) {
         compact ? "hidden text-[9px] lg:flex" : "flex text-[10px]"
       }`}
     >
-      {MANUAL_NAV.map(({ href, label }) =>
-        href.startsWith("mailto:") ? (
-          <a key={href} href={href} className="transition-colors hover:text-blueprint">
-            {label}
-          </a>
-        ) : (
-          <Link key={href} href={href} className="transition-colors hover:text-blueprint">
-            {label}
-          </Link>
-        ),
-      )}
+      {MANUAL_NAV.map((link) => (
+        <ManualNavLink key={link.href} {...link} />
+      ))}
     </nav>
   );
 }
@@ -118,7 +132,9 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
           </Link>
           <div className="flex flex-col items-start gap-3 lg:items-end">
             {tagline ? (
-              <div className="font-serif-body text-[0.95rem] leading-snug text-body-ink lg:max-w-[38ch] lg:text-right">
+              /* Balanced so the role line stops leaving `CHICAGO.` alone on a
+                 line of its own at both 390 and 1440. */
+              <div className="text-balance font-serif-body text-[0.95rem] leading-snug text-body-ink lg:max-w-[38ch] lg:text-right">
                 {tagline}
               </div>
             ) : null}

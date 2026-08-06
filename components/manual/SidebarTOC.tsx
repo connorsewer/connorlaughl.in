@@ -20,9 +20,9 @@ import { useEffect, useState } from "react";
  *     which is one long document rather than a set of routes. Consumers in
  *     pure anchor mode pass `sections={[]}`.
  *
- * The scroll-spy carries over the retired `CaseStudyTOC` observer: one
- * IntersectionObserver per id with a `-30% 0px -60% 0px` rootMargin, so a
- * heading lights up once it reaches the upper third of the viewport.
+ * The scroll-spy watches every anchor with one observer and answers from
+ * measured position rather than from event order, so it resolves at the top of
+ * the page, on the way back up, and inside a section taller than the band.
  *
  * Layout is the caller's job. `ChapterLayout` mounts this twice: once in a
  * sticky left column at xl+, once inside a `<details>` disclosure below xl.
@@ -52,17 +52,31 @@ export type SidebarTOCProps = {
 const SECTION_HEADER =
   "font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/80";
 
+/* `py-1 -my-1` buys a ≥24px pointer target off a 13px line without opening
+   the rail up: the box grows, the printed density does not. */
 const LINK_BASE =
-  "block font-serif-body text-[0.8125rem] leading-snug transition-colors";
+  "block -my-1 py-1 font-serif-body text-[0.8125rem] leading-snug transition-colors";
 
-const LINK_IDLE = "text-body-ink/75 hover:text-blueprint";
+const LINK_IDLE = "text-body-ink/75 group-hover:text-blueprint";
 
 const LINK_ACTIVE = "text-blueprint";
 
+/** The reading line, as a fraction of viewport height. */
+const READING_LINE = 0.3;
+
 /**
- * Scroll-spy over in-page ids. Returns the id nearest the reading position, or
- * the first id before any observer has fired. No-op when `ids` is empty, so the
- * route-mode sidebar pays nothing for it.
+ * Scroll-spy over in-page ids.
+ *
+ * One observer over every anchor, and the answer comes from measured position
+ * rather than from which observer fired last. Event order is the wrong
+ * authority: with a band this narrow two headings can sit inside it at once,
+ * and scrolling up the later one wins, so the rail flickers between
+ * neighbours. Reading rects instead makes the resolution monotone — the active
+ * entry is the last heading above the reading line, and the first entry when
+ * none is — which is also what fixes a section taller than the band and the
+ * stale highlight at `scrollY = 0`.
+ *
+ * No-op when `ids` is empty, so the route-mode sidebar pays nothing for it.
  */
 function useScrollSpy(ids: string[]): string | undefined {
   const [active, setActive] = useState<string | undefined>(ids[0]);
@@ -72,33 +86,68 @@ function useScrollSpy(ids: string[]): string | undefined {
     const list = key ? key.split("|") : [];
     if (list.length === 0) return;
 
-    const observers: IntersectionObserver[] = [];
+    const resolve = () => {
+      const line = window.innerHeight * READING_LINE;
+      let current = list[0];
+      for (const id of list) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= line) current = id;
+      }
+      setActive(current);
+    };
+
+    /* The observer is a change signal, not the answer: it fires as a heading
+       crosses either edge of the reading band, which brackets the line the
+       resolver measures against. Rect reads happen only on those crossings,
+       never on a scroll frame. */
+    const observer = new IntersectionObserver(resolve, {
+      rootMargin: "-30% 0px -60% 0px",
+      threshold: [0, 1],
+    });
     for (const id of list) {
       const el = document.getElementById(id);
-      if (!el) continue;
-      const observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) setActive(id);
-          }
-        },
-        { rootMargin: "-30% 0px -60% 0px" },
-      );
-      observer.observe(el);
-      observers.push(observer);
+      if (el) observer.observe(el);
     }
-    return () => observers.forEach((o) => o.disconnect());
+
+    /* A scroll can also come to rest without crossing anything — a glide to an
+       anchor lands the target above the band and generates no further event,
+       which used to leave the rail one entry behind. Debounced rather than
+       per-frame, so the rect reads still happen off the scroll path. */
+    let settle = 0;
+    const onScroll = () => {
+      window.clearTimeout(settle);
+      settle = window.setTimeout(resolve, 120);
+    };
+
+    /* A deep link lands before any crossing has happened. */
+    const raf = window.requestAnimationFrame(resolve);
+    window.addEventListener("resize", resolve);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.cancelAnimationFrame(raf);
+      window.clearTimeout(settle);
+      window.removeEventListener("resize", resolve);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [key]);
 
   return active;
 }
 
+/**
+ * Position marker. A ruler rail marks a position with a tick, not with a dot,
+ * so the idle state is a quarter-length stub that extends when it goes live.
+ * `scaleX` on a fixed 12px bar, so nothing in the row reflows.
+ */
 function Marker({ active }: { active: boolean }) {
   return (
     <span
       aria-hidden="true"
-      className={`mt-[0.5em] block h-[3px] w-[3px] shrink-0 rounded-full transition-colors ${
-        active ? "bg-blueprint" : "bg-body-ink/35"
+      className={`mt-[0.85em] block h-px w-3 shrink-0 origin-left transition-[transform,background-color] ${
+        active ? "scale-x-100 bg-blueprint" : "scale-x-[0.25] bg-body-ink/35 group-hover:scale-x-50"
       }`}
     />
   );
@@ -117,7 +166,7 @@ export function SidebarTOC({ sections, activeHref, anchors }: SidebarTOCProps) {
             {anchors.map(({ id, label }) => {
               const isActive = activeAnchor === id;
               return (
-                <li key={id} className="flex items-start gap-2">
+                <li key={id} className="group flex items-start gap-2">
                   <Marker active={isActive} />
                   <a
                     href={`#${id}`}
@@ -142,7 +191,7 @@ export function SidebarTOC({ sections, activeHref, anchors }: SidebarTOCProps) {
             {section.entries.map((entry) => {
               const isActive = entry.href === activeHref;
               return (
-                <li key={entry.href} className="flex items-start gap-2">
+                <li key={entry.href} className="group flex items-start gap-2">
                   <Marker active={isActive} />
                   <Link
                     href={entry.href}

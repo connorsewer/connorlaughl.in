@@ -8,6 +8,7 @@ export { Masthead, type MastheadProps } from "@/components/manual/Masthead";
 export { Breadcrumb, type BreadcrumbProps } from "@/components/manual/Breadcrumb";
 export { Sheet, type SheetProps } from "@/components/manual/Sheet";
 export { CheckerBand, type CheckerBandProps } from "@/components/manual/CheckerBand";
+export { ContentsDisclosure } from "@/components/manual/ContentsDisclosure";
 export { RulerRail } from "@/components/manual/RulerRail";
 export { StatTable, type StatRow, type StatTableProps } from "@/components/manual/StatTable";
 export { StatTableMotion } from "@/components/manual/StatTableMotion";

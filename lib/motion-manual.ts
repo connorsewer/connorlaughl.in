@@ -166,7 +166,60 @@ export const rulerBreatheSpec = {
   ease: "easeInOut" as const,
 } as const;
 
+/**
+ * theme-cross — light ↔ cyanotype as one printed pull.
+ *
+ * The duration is carried in the stylesheet (`@keyframes theme-pull`), because
+ * a View Transition animates pseudo-elements the document cannot reach from
+ * script. It is stated here so the two never drift: `DURATION.medium` at
+ * `EASE.outQuart`.
+ */
+export const themeCrossSpec = {
+  duration: DURATION.medium,
+  ease: EASE.outQuart,
+  /** Attribute the stylesheet scopes the transition to. */
+  flag: "data-theme-swap",
+} as const;
+
 /* ─────────────────────────────── runners ───────────────────────────── */
+
+/**
+ * Runs a theme swap inside a View Transition.
+ *
+ * `disableTransitionOnChange` on the provider stops every `transition-colors`
+ * in the tree from staggering independently, which is right, but it leaves the
+ * swap as an instantaneous repaint. A View Transition snapshots the whole
+ * document, so it crosses the two grounds as one image and sidesteps the
+ * per-property transitions entirely.
+ *
+ * Reduced motion, and any engine without the API: `swap()` runs on its own and
+ * the theme changes at once. Same end state, nothing registered.
+ */
+export function themeCross(swap: () => void): void {
+  if (typeof document === "undefined") {
+    swap();
+    return;
+  }
+
+  const doc = document as Document & {
+    startViewTransition?: (cb: () => void) => { finished: Promise<unknown> };
+  };
+
+  if (prefersReducedMotion() || typeof doc.startViewTransition !== "function") {
+    swap();
+    return;
+  }
+
+  const root = doc.documentElement;
+  root.setAttribute(themeCrossSpec.flag, "");
+  const transition = doc.startViewTransition(swap);
+  /* The flag scopes the stylesheet rule to this swap so a cross-document
+     navigation keeps its own fade. Cleared whether the transition finishes or
+     is skipped, so a second click never inherits a stale flag. */
+  void Promise.resolve(transition.finished)
+    .catch(() => undefined)
+    .then(() => root.removeAttribute(themeCrossSpec.flag));
+}
 
 /** Shapes whose stroke can be dash-drawn. */
 const DRAWABLE = "path, line, polyline, polygon, circle, ellipse, rect";
@@ -705,6 +758,25 @@ export function statTick(
 /** A cleanup that can also be asked to let its labels through. */
 export type LabelSettleHandle = MotionCleanup & { release: () => void };
 
+const LABEL_SETTLE_EASE = `cubic-bezier(${labelSettleSpec.options.ease.join(", ")})`;
+
+/**
+ * Writes a leader group's travel leg as a CSS transform.
+ *
+ * `delay: null` parks: the value lands with no transition, which is what a
+ * mount-time park has to do. A number arms the transition off
+ * `labelSettleSpec.options` and staggers it, so the travel and the opacity leg
+ * run on the same curve and land together.
+ */
+function settleTransform(label: Element, transform: string, delay: number | null): void {
+  const { style } = label as SVGElement;
+  style.transition =
+    delay === null
+      ? "none"
+      : `transform ${labelSettleSpec.options.duration}s ${LABEL_SETTLE_EASE} ${delay}s`;
+  style.transform = transform;
+}
+
 /**
  * Settles a plate's leader labels in as a group.
  *
@@ -735,26 +807,42 @@ export function labelSettle(
 
   if (prefersReducedMotion()) {
     const final = reducedMotionFallback(labelSettleSpec);
-    labels.forEach((label) => animate(label, final.to, final.options));
+    labels.forEach((label) => {
+      settleTransform(label, labelSettleSpec.to.transform, null);
+      animate(label, { opacity: final.to.opacity }, final.options);
+    });
     return Object.assign(NOOP as MotionCleanup, { release: NOOP });
   }
 
   const gap = options.stagger ?? labelSettleSpec.perItem;
-  /* Parked through motion rather than by writing the style directly. Motion
-     has to own the opacity value or its commit on finish loses to the inline
-     one and the labels stay at zero. */
-  labels.forEach((label) => animate(label, labelSettleSpec.from, { duration: 0 }));
+  /* Opacity is parked through motion rather than by writing the style
+     directly: motion has to own that value or its commit on finish loses to
+     the inline one and the labels stay at zero.
+
+     The travel leg is deliberately NOT handed to motion. A leader group is an
+     SVG `<g>`, and motion routes a transform on an SVG element through the
+     `transform` presentation attribute, which cannot carry a CSS length — it
+     writes the string `null` and the parser rejects it once per label, 33
+     times on the cover. CSS `transform` on an SVG element is the correct
+     surface anyway: it is composited, and it reads in screen px rather than
+     in the plate's user units, so a 4px settle is 4px in every viewBox. */
+  labels.forEach((label) => {
+    settleTransform(label, labelSettleSpec.from.transform, null);
+    animate(label, { opacity: labelSettleSpec.from.opacity }, { duration: 0 });
+  });
 
   let settled = false;
   const release = () => {
     if (settled) return;
     settled = true;
-    labels.forEach((label, i) =>
-      animate(label, labelSettleSpec.to, {
+    labels.forEach((label, i) => {
+      const delay = (options.delay ?? 0) + i * gap;
+      settleTransform(label, labelSettleSpec.to.transform, delay);
+      animate(label, { opacity: labelSettleSpec.to.opacity }, {
         ...labelSettleSpec.options,
-        delay: (options.delay ?? 0) + i * gap,
-      }),
-    );
+        delay,
+      });
+    });
   };
 
   /* Manual mode carries no timer of its own: the scroll-linked caller owns
