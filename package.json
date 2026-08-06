@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "proof:guard": "node scripts/check-public-proof-metrics.mjs"
+    "proof:guard": "node scripts/check-public-proof-metrics.mjs",
+    "words": "node scripts/word-counts.mjs",
+    "voice:scan": "node scripts/voice-scan.mjs"
   },
   "dependencies": {
     "geist": "^1.7.0",

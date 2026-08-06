@@ -5,16 +5,68 @@ import { execFileSync } from "node:child_process";
 
 const root = process.cwd();
 const read = (rel) => fs.readFileSync(path.join(root, rel), "utf8");
+const exists = (rel) => fs.existsSync(path.join(root, rel));
 
-const rendererFiles = [
-  "app/page.tsx",
-  "app/case-studies/[slug]/page.tsx",
-  "app/case-studies/[slug]/opengraph-image.tsx",
-  "components/CaseStudyArchive.tsx",
-  "components/ImpactLedger.tsx",
-];
+/**
+ * Minimum number of proof-metric renderers the tree must still contain.
+ *
+ * Measured 2026-08-05 against the pre-redesign tree (5 files):
+ *   app/page.tsx
+ *   app/case-studies/[slug]/page.tsx
+ *   app/case-studies/[slug]/opengraph-image.tsx
+ *   components/CaseStudyArchive.tsx
+ *   components/ImpactLedger.tsx
+ *
+ * A later task may change this number ONLY with a one-line justification in
+ * docs/superpowers/2026-08-05-overnight-log.md (renderers are deleted, retired,
+ * or added by the redesign). Never lower it silently.
+ */
+const PROOF_RENDERER_FLOOR = 5;
+
+/** Directories searched for renderers. */
+const RENDERER_SCAN_ROOTS = ["app", "components"];
+const RENDERER_EXTENSIONS = new Set([".ts", ".tsx"]);
+
+/**
+ * A file is a proof-metric renderer if its code (comments removed) either calls
+ * the sanctioned projection or imports the claims module at all.
+ */
+const RENDERER_DISCOVERY = /renderableProofMetrics|from\s+["']@?\/?content\/proof-metrics/;
+
+/**
+ * Comments are documentation, not rendering. Stripping them keeps purely
+ * presentational components that merely *describe* the rule (for example
+ * components/manual/StatTable.tsx) out of the renderer set.
+ */
+function stripComments(source) {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, " ")
+    .replace(/(^|[^:\\])\/\/.*$/gm, "$1");
+}
+
+function walkSourceFiles(relDir) {
+  const abs = path.join(root, relDir);
+  if (!fs.existsSync(abs)) return [];
+  const found = [];
+  const stack = [abs];
+  while (stack.length > 0) {
+    const current = stack.pop();
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const full = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name === "node_modules" || entry.name.startsWith(".")) continue;
+        stack.push(full);
+        continue;
+      }
+      if (!RENDERER_EXTENSIONS.has(path.extname(entry.name))) continue;
+      found.push(path.relative(root, full));
+    }
+  }
+  return found;
+}
 
 const failures = [];
+const notes = [];
 
 const proofSource = read("content/proof-metrics.ts");
 for (const expected of [
@@ -29,11 +81,26 @@ for (const expected of [
   }
 }
 
-for (const rel of rendererFiles) {
-  const source = read(rel);
-  if (!source.includes("renderableProofMetrics")) {
-    failures.push(`${rel} must render ProofMetric data through renderableProofMetrics()`);
+const rendererFiles = [];
+for (const relDir of RENDERER_SCAN_ROOTS) {
+  for (const rel of walkSourceFiles(relDir)) {
+    const code = stripComments(read(rel));
+    if (!RENDERER_DISCOVERY.test(code)) continue;
+    rendererFiles.push(rel);
+    if (!code.includes("renderableProofMetrics")) {
+      failures.push(
+        `${rel} reads content/proof-metrics but must resolve gated values through renderableProofMetrics()`,
+      );
+    }
   }
+}
+rendererFiles.sort();
+
+if (rendererFiles.length < PROOF_RENDERER_FLOOR) {
+  failures.push(
+    `only ${rendererFiles.length} proof-metric renderer(s) found; floor is ${PROOF_RENDERER_FLOOR}. ` +
+      "If a task legitimately retired a renderer, change PROOF_RENDERER_FLOOR and log a one-line justification in the overnight log.",
+  );
 }
 
 const forbiddenDirectAccess = [
@@ -46,6 +113,12 @@ const forbiddenDirectAccess = [
 ];
 
 for (const [rel, needle] of forbiddenDirectAccess) {
+  // Skip-if-missing: the redesign deletes renderers, and a deleted file is a
+  // satisfied check, not an ENOENT crash.
+  if (!exists(rel)) {
+    notes.push(`skipped direct-access check for ${rel} (file no longer exists)`);
+    continue;
+  }
   if (read(rel).includes(needle)) {
     failures.push(`${rel} still directly renders raw ProofMetric collection via ${needle}`);
   }
@@ -119,10 +192,15 @@ for (const dir of builtDirs) {
   }
 }
 
+for (const note of notes) console.log(`note: ${note}`);
+
 if (failures.length > 0) {
   console.error("Public proof metric guardrail failed:");
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log("Public proof metric guardrail passed.");
+console.log(
+  `Public proof metric guardrail passed. ${rendererFiles.length} renderer(s) (floor ${PROOF_RENDERER_FLOOR}):`,
+);
+for (const rel of rendererFiles) console.log(`  ${rel}`);

@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified: now, changeFrequency: "monthly", priority: 1.0 },
     { url: `${SITE}/case-studies`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE}/edge`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE}/case-studies/strategy-memo`, lastModified: now, changeFrequency: "monthly", priority: 0.65 },
     { url: `${SITE}/resume`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE}/tools/revops-capacity-planner`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];

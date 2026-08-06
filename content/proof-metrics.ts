@@ -95,6 +95,23 @@ export function renderableProofMetrics(metrics: ProofMetric[]): RenderableProofM
   });
 }
 
+/**
+ * Stats row S2, shared by the legacy hero strip and the manual cover stats.
+ *
+ * Tier: Amber with standing approval (P19). One object, two references, so the
+ * two surfaces can never drift.
+ */
+const regulatedVerticals: ProofMetric = {
+  value: "5 verticals",
+  label: "regulated GTM operating scope",
+  context:
+    "Regulated business lines run as one GTM operating system, with an international footprint",
+  posture: "approved-exact-with-context",
+  publicUse: "show",
+  sourceNote:
+    "BUILDER 2026-05-13 initiative-facts approval; ground truth candidate-profile-master-v3.md Company Context.",
+};
+
 /** Six hero proof statistics rendered above the fold. */
 export const heroProofStrip: ProofMetric[] = [
   {
@@ -148,16 +165,83 @@ export const heroProofStrip: ProofMetric[] = [
     sourceNote:
       "Resume FY24 BDR-pod result; verified per signal-based demand engine case study.",
   },
+  regulatedVerticals,
+];
+
+/**
+ * Stats rows for the manual cover (spine section "Stats block decision").
+ *
+ * S4 (chapters published) and S5 (words published) are build-computed from the
+ * rendered public projection via `lib/word-counts.ts` and carry no entry here:
+ * they are structural counts, not claims.
+ */
+export const coverStats: ProofMetric[] = [
+  /* S1. Green, biographical (STANDING biographical-accuracy rule). */
   {
-    value: "5 verticals",
-    label: "regulated GTM operating scope",
+    value: "11",
+    label: "years building GTM systems",
     context:
-      "7 acquisitions, 8 acquired brands, 3 web properties, international footprint",
+      "First digital marketing hire in 2015 through VP of Marketing and GTM, 2026",
+    posture: "verified",
+    publicUse: "show",
+    sourceNote:
+      "Employer tenure from candidate-profile-master-v3.md Professional Experience (May 2015 start). Referent is tenure building these systems, not total career length; the profile's separate '13+ years progressive experience' line counts from an earlier start and is deliberately not used here.",
+  },
+  /* S2. Amber with standing approval (P19). Same object as the hero strip. */
+  regulatedVerticals,
+  /* S3. Amber with standing approval (P15, P18). Context is the approval condition. */
+  {
+    value: "7",
+    label: "acquisitions integrated",
+    context:
+      "Marketing integration across 7 acquisitions, including a regulated Canadian business unit whose compliance requirements Connor learned and operationalized",
     claimId: "CJL-CLAIM-050",
     posture: "approved-exact-with-context",
     publicUse: "show",
     sourceNote:
-      "candidate-profile-master-v3.md:212-228; approved corrected scope. Restructured around 5 regulated verticals.",
+      "BUILDER corrected and approved the count at 7 on 2026-05-12; SCOPE-006 overlay 2026-05-13 approved the exact count with the learning-and-operationalizing framing. Never phrase as practicing law.",
+  },
+];
+
+/**
+ * Magnitude numerals that ship as prose on `/`, `/about`, and `/resume` rather
+ * than as stats rows. They are claims, so they resolve through the same gate.
+ */
+export const proseProofClaims: ProofMetric[] = [
+  /* S6. SCOPE-004, BUILDER 2026-05-13 overlay. Kept as one entry: splitting it
+     would strip the progression context the approval requires. */
+  {
+    value: "Near-$0 to board-backed",
+    label: "marketing function built from scratch",
+    context:
+      "2 offshore contributors at the start, 4 direct reports inside a 16-person international model across the U.S., Canada, Guatemala, India, and the Philippines at the end",
+    posture: "approved-exact-with-context",
+    publicUse: "show",
+    sourceNote:
+      "SCOPE-004, BUILDER 2026-05-13 overlay, approved with rewrite. The progression framing is the approval condition. Never render a naked headcount.",
+  },
+  /* S7. SUBSET Amber row, approved 2026-05-12. */
+  {
+    value: "8 brands, 3 properties",
+    label: "unified brand and web architecture",
+    context:
+      "Eight acquired brands consolidated under one architecture across three web properties",
+    claimId: "CJL-CLAIM-050",
+    posture: "approved-exact-with-context",
+    publicUse: "show",
+    sourceNote:
+      "SUBSET Amber row, approved by Connor 2026-05-12 with the acquisition count corrected to 7.",
+  },
+  /* S8. Green, biographical. */
+  {
+    value: "4",
+    label: "promotions",
+    context:
+      "First digital marketing hire to VP of Marketing and GTM, counting the initial title",
+    posture: "verified",
+    publicUse: "show",
+    sourceNote:
+      "candidate-profile-master-v3.md, Professional Summary and Key Differentiators. Counts the initial digital-marketing title; the 4 titles in the chronology are 3 step-ups, so do not present the count as arithmetic from the table.",
   },
 ];
 
