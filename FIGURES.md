@@ -45,8 +45,8 @@ a new figure always takes the next free number.
 
 | FIG_020 | Portrait | `/about` | The desk in Chicago where the work in this manual was built | Photographic plate rather than a drawing. The desk illustration re-screened as a blueprint-on-paper halftone duotone so it sits in the same ink as the figures. |
 
-| FIG_021 | Layer stack | Chapter, revenue operating system | The operating layers as an assembly: each one defined and stacked in order, none of them free-standing | Rendered plate rather than a hand-drawn figure. Six flat plates exploded along one vertical axis on four guide posts, blueprint line work on paper. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_008 and never replaces it. Renders as authored in both themes, with no duotone. |
-| FIG_022 | Gate | Chapter, governed AI operating layer | The human approval step every run passed, and the record each one left | Rendered plate rather than a hand-drawn figure. An intake tray, three sorting plates, a hinged gate block with a lever arm, and a release chute exploded above one long tray, blueprint line work on paper. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_009 and never replaces it. Renders as authored in both themes, with no duotone. |
+| FIG_021 | Layer stack | Chapter, revenue operating system | The operating layers as an assembly: each one defined and stacked in order, none of them free-standing | Rendered plate rather than a hand-drawn figure. Six flat plates exploded along one vertical axis on four guide posts, blueprint line work on flat paper, remapped to the site ink. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_008 and never replaces it. Renders as authored in both themes, with no duotone. |
+| FIG_022 | Gate | Chapter, governed AI operating layer | The human approval step every run passed, and the record each one left | Rendered plate rather than a hand-drawn figure. An intake tray, three sorting plates, a hinged gate block with a lever arm, and a release chute exploded above one long tray, blueprint line work on flat paper, remapped to the site ink. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_009 and never replaces it. Renders as authored in both themes, with no duotone. |
 
 ## Generation log
 
@@ -71,9 +71,33 @@ plate a supersession replaces is deleted from `public/`; its log rows are not.
 | FIG_022 | v1 halftone | 1 | Accepted | Two inks only, coarse dot screen intact, subject as written, checklist rules and stamp die abstract with nothing readable at full resolution. |
 | FIG_021 | v1 halftone | n/a | Superseded | Art direction changed at the pilot gate. The accepted halftone binder was withdrawn and its file deleted. |
 | FIG_022 | v1 halftone | n/a | Superseded | Art direction changed at the pilot gate. The accepted halftone checklist was withdrawn and its file deleted. |
-| FIG_021 | v2 blueprint | 1 | Accepted | Line work only, two inks on flat paper, six plates exploded on one axis with the guide posts as written. Checked at 1:1: no glyph, no callout tick, no leader line, no arrow, no dimension mark, no light source, no cast shadow. |
+| FIG_021 | v2 blueprint | 1 | Accepted, later overturned | Judged by eye as line work on flat paper. Zero-type held. The colour and light claims did not survive measurement (see the correction below) and the plate was superseded. |
 | FIG_022 | v2 blueprint | 1 | Rejected | Register drift. The parts came back as solid flood-filled silhouettes on aged cream stock, which does not sit beside the line-work plate accepted for FIG_021 and puts a third tone on the ground. Subject and type were clean; the drawing register was not. |
-| FIG_022 | v2 blueprint | 2 | Accepted | Line work only, matching FIG_021's register, on the specified off-white. Intake tray, three sorting plates, hinged gate block with its lever arm, chute, and the long tray beneath, all as written. Checked at 1:1: no glyph, no annotation mark, no light source, no cast shadow. |
+| FIG_022 | v2 blueprint | 2 | Accepted, later overturned | Judged by eye as matching FIG_021's register. Zero-type held. The register claim did not survive measurement (see the correction below) and the plate was superseded. |
+
+**Correction, round 2.** An independent review measured both v2 plates and
+overturned two of the accept reasons above. The notes recorded impressions as
+findings. What the pixels said, reproduced with `scripts/plate-measure.py`:
+
+| Claim made | Measured |
+|---|---|
+| "two inks on flat paper" (FIG_021) | Ground varied 26.4% across the frame with a 21.3% directional falloff into one corner, a flat-light violation. The bottom-right corner sat at L73 against L93 top-left. |
+| "no light source" (FIG_021) | Consistent with the falloff above: sourceless light was asserted, not verified. |
+| "matching FIG_021's register" (FIG_022) | Stroke medians were 4.0px and 2.0px and ink coverage 2.46% and 1.80%, with object widths 44.1% and 79.6% of frame. The two plates did not read as one program. |
+| ink "two inks" on both | Ink chroma measured 21.3 and 16.6 against the site ink's 100.5. Both were desaturated slate, not blueprint blue. |
+
+The lesson is procedural, not cosmetic: an accept note that describes an image
+is not evidence. Accept notes from here carry measured values.
+
+| FIG_021 | v3 blueprint | 1 | Accepted | Ink hue 297.5° (ref 300.5°), chroma 86.2 after the remap with the darkest pixel exactly `#2E47F1`. Ground chroma 1.5, flatness 0.7%, corner falloff 0.0% across all four blocks. Stroke median 3.0px, coverage 2.17%, object 60.9% of frame width on symmetric margins. Checked at 1:1 on the raw generation before the remap: no glyph, no callout tick, no leader line, no arrow, no dimension mark, no light source, no cast shadow. |
+| FIG_022 | v3 blueprint | 1 | Rejected | Ground and type were clean, but the register missed the pair: stroke median 5.0px against FIG_021's 3.0px and object width 73.6% against 60.9%. Held to the same subject line and re-rolled for scale and line weight. |
+| FIG_022 | v3 blueprint | 2 | Accepted | Ink hue 296.7°, chroma 82.4 after the remap with the darkest pixel exactly `#2E47F1`. Ground chroma 1.5, flatness 1.0%, corner falloff 0.0%. Stroke median 3.0px, identical to FIG_021; coverage 1.95% against 2.17%; object 58.3% of frame width against 60.9%, margins symmetric. The pair locks on every axis. Checked at 1:1 on the raw generation: no glyph, no annotation mark, no light source, no cast shadow. The subject reads as intake tray, three sorting plates, hinged gate block with lever arm, chute, and the long tray beneath; a fourth plate-like form is the gate block's leading face rather than a fourth sorting plate. |
+
+Both v3 plates went through the two-ink remap in `scripts/plate-recolor.py`
+before encoding. It is a deterministic colour step and is recorded here because
+it is part of how these files were made: it moves the two endpoints and cannot
+add, remove, or reshape a mark. Zero-type, flat light, and subject were all
+judged on the raw generation, before the remap ran.
 
 ## Reserved
 

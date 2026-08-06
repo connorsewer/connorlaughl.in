@@ -194,6 +194,57 @@ Any light source, glow, highlight, specular edge, or cast shadow in the frame
 rejects the generation. Light is even and sourceless or the plate does not
 ship.
 
+### The two-ink remap, a fixed pipeline step
+
+Generation gets the geometry right and the colour wrong. Across two rounds the
+model returned ink at chroma 17 to 78 against the site ink's 100.5, drifting
+between plates in the same batch, so a pair generated together still did not
+match each other. Prompt pinning moved the number and never landed it.
+
+So colour is not a generation outcome. Every plate passes through
+`scripts/plate-recolor.py` before it is encoded:
+
+    t   = (Lmax - L) / (Lmax - Lmin)      # 0 at paper, 1 at the darkest ink
+    out = #FBFBFB * (1 - t) + #2E47F1 * t
+
+This is a fixed function of the input. Same file in, same file out, no model in
+the loop, no hand-painting, no content change. Line structure and antialiasing
+survive because `t` is preserved per pixel; only the two endpoints move. A flat
+ground is a consequence rather than a second operation, since every paper pixel
+lands on `#FBFBFB` by construction.
+
+It is a **colour** step and nothing else. It cannot add, remove, or reshape a
+mark, so it can never launder a generation that failed the zero-type boundary,
+the flat-light boundary, or subject drift. Those are judged on the raw
+generation, before the remap, and a plate that fails them is regenerated.
+
+**Measured gates, checked on every plate before it ships.** Impressions are not
+evidence; the round-2 review overturned two accept notes that read "flat paper"
+and "matching register" against pixels that said otherwise.
+
+| Gate | Threshold |
+|---|---|
+| Ink hue | within 10° of the reference 300.5° |
+| Ink chroma | ≥ 80 after the remap; the darkest pixel is exactly `#2E47F1` |
+| Ground chroma | < 6, i.e. neutral, no warmth |
+| Ground flatness | < 10% variation across an 8×8 tile grid |
+| Corner falloff | < 10% across the four corner blocks |
+| Stroke median | within 1.5× of the other plates in the program |
+| Ink coverage | within 1.5× of the other plates |
+| Object bbox | 55–65% of frame width, margins symmetric within 3 points |
+
+Flatness and falloff are measured over **every non-ink pixel**. Sampling only
+the brightest quartile hides exactly the falloff being tested: on the round-2
+FIG_021 that bias reported 2.4% where the honest measurement was 26.4%.
+
+The three tools live beside the other repo scripts and need `pillow` and
+`numpy`, which is why they are standalone Python rather than part of the Node
+build. None of them runs in CI; they gate a plate at authoring time.
+
+    python3 scripts/plate-measure.py <img>...        # the table above
+    python3 scripts/plate-recolor.py <src> <dst>     # the remap
+    python3 scripts/plate-anchors.py <img> '<json>'  # arrow-tip-to-ink
+
 ### `PlateLabels` — real type over the plate
 
 All lettering on a plate is DOM text. `components/figures/PlateLabels.tsx` is a
@@ -214,6 +265,13 @@ and figure labels are the same type at the same weight in the same ink.
   which is how the first wiring pass got it wrong.
 - **Two to four labels, never more.** A plate is not a diagram. If a chapter
   needs five callouts, the line diagram is already carrying them.
+- **Every arrow tip must land on ink, measured.** An anchor is verified against
+  the plate's pixels, not placed by eye: the distance from the tip to the
+  nearest ink pixel, expressed in the 416px render space, must be ≤ 6px. A tip
+  in open paper is a label pointing at nothing, and it is invisible in review
+  because the arrowhead still draws. The round-2 `Audit trail` anchor sat 64px
+  from any ink and shipped. Anchors are re-verified whenever a plate is
+  regenerated, because the geometry moves underneath them.
 - **Label text comes from that chapter's approved copy only**, in
   `content/case-studies.ts` — `chapterIntro`, `hook`, `systemsBuilt`, or the
   claim-gated body blocks. Never vault content, never a metric, never a
