@@ -59,15 +59,15 @@ function Wordmark({ compact }: { compact: boolean }) {
       data-xray="wordmark"
       className={
         compact
-          ? "font-pixel whitespace-nowrap text-[0.95rem] leading-none tracking-[0.14em] text-blueprint"
+          ? "font-pixel whitespace-nowrap text-[0.95rem] leading-none tracking-[0.1em] text-blueprint"
           : /* The name is one word to a reader and it has to stay one line.
                At 8vw the eighteenth glyph fell off a 390 viewport and the
                wordmark broke as `CONNOR J. LAUGHLI / N`, which is the first
                thing a phone visitor saw. The pixel face advances 0.6em plus
-               0.1em of tracking, so eighteen glyphs need 12.6em: 6.6vw keeps
-               that inside a 390 column and the ceiling is the size the cover
-               already set at lg. */
-            "font-pixel whitespace-nowrap text-[clamp(1.4rem,6.6vw,3.5rem)] leading-[0.9] tracking-[0.1em] text-blueprint"
+               tracking, so eighteen glyphs at 0.05em need 11.7em: 6.6vw held
+               that inside a 390 column at the old 0.1em and holds more slack
+               now; the ceiling is the size the cover already set at lg. */
+            "font-pixel whitespace-nowrap text-[clamp(1.4rem,6.6vw,3.5rem)] leading-[0.9] tracking-[0.05em] text-blueprint"
       }
     >
       {Array.from(WORDMARK).map((glyph, i) => (

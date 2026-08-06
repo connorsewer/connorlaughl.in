@@ -37,7 +37,10 @@ export type TerminalLine =
 export type TerminalEffect =
   | { type: "navigate"; href: string }
   | { type: "theme"; value: "light" | "dark" }
-  | { type: "clear" };
+  | { type: "clear" }
+  /* Undocumented. The second door into operator mode, for readers whose
+     focus lives in this input, where the keyboard sequence can never fire. */
+  | { type: "operator" };
 
 export type CommandResult = {
   lines: TerminalLine[];
@@ -390,6 +393,11 @@ export function runCommand(raw: string, ctx: TerminalContext): CommandResult {
 
     case "history":
       return historyResult(ctx.history);
+
+    /* Not listed by help. The chip in the masthead names the state; the
+       shell prints the state line itself once the toggle has run. */
+    case "operator":
+      return { lines: [], effect: { type: "operator" } };
 
     case "fig":
     case "figure":

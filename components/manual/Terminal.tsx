@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 
 import { useClientMounted } from "@/hooks/useClientMounted";
+import { toggleOperatorMode } from "@/components/manual/OperatorMode";
 import {
   TERMINAL_PROMPT,
   runCommand,
@@ -98,6 +99,20 @@ export function Terminal({ className }: TerminalProps) {
 
     if (result.effect?.type === "clear") {
       setLines([]);
+      return;
+    }
+
+    if (result.effect?.type === "operator") {
+      const on = toggleOperatorMode();
+      print([
+        { kind: "in", text: trimmed },
+        {
+          kind: "out",
+          text: on
+            ? "operator mode on. the ambient loops run at double rate. same document."
+            : "operator mode off. back to press speed.",
+        },
+      ]);
       return;
     }
 

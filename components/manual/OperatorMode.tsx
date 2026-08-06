@@ -54,6 +54,24 @@ function setOperator(on: boolean): void {
   window.dispatchEvent(new CustomEvent(operatorModeSpec.event));
 }
 
+/**
+ * Toggle the mode and report the new state. The shell's `operator` command
+ * goes through here so the keyboard sequence and the typed path cannot
+ * disagree about what the flag or the stored state is. The sequence itself
+ * never fires while the shell input has focus, which is exactly when a
+ * reader most needs a second door in.
+ */
+export function toggleOperatorMode(): boolean {
+  const next = !document.documentElement.hasAttribute(operatorModeSpec.flag);
+  setOperator(next);
+  try {
+    window.sessionStorage.setItem(operatorModeSpec.storageKey, next ? "on" : "off");
+  } catch {
+    /* Denied storage costs the mode its persistence and nothing else. */
+  }
+  return next;
+}
+
 export function OperatorMode() {
   useEffect(() => {
     let stored: string | null = null;
@@ -92,13 +110,7 @@ export function OperatorMode() {
       if (matched < SEQUENCE.length) return;
       matched = 0;
 
-      const next = !document.documentElement.hasAttribute(operatorModeSpec.flag);
-      setOperator(next);
-      try {
-        window.sessionStorage.setItem(operatorModeSpec.storageKey, next ? "on" : "off");
-      } catch {
-        /* Denied storage costs the mode its persistence and nothing else. */
-      }
+      toggleOperatorMode();
     };
 
     window.addEventListener("keydown", onKey);
