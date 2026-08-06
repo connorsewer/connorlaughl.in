@@ -133,6 +133,143 @@ for (const [rel, needle] of forbiddenDirectAccess) {
   }
 }
 
+/**
+ * Register rows that may never render an exact value on a public route.
+ *
+ * Sourced from `Portfolio Claims Register - 2026-05-11.md` (REG) and the
+ * "Deliberately excluded" section of `Portfolio Story Spine - 2026-08-05.md`:
+ *
+ *  - every REG row with an `internal-only` classification,
+ *  - every REG `target` and `projected` row (the spine drops them entirely),
+ *  - the `do-not-use-as-connor-achievement` row,
+ *  - CJL-CLAIM-035, which the spine excludes by name because it is directional
+ *    in REG and appears in no SUBSET table.
+ *
+ * CJL-CLAIM-050 is deliberately absent: REG classifies it company-level, but
+ * BUILDER corrected and approved the count and SCOPE-006 approved the exact
+ * value with the required context (spine P15/P18). Approval overlays beat the
+ * REG default, which is why this is an explicit list rather than a derivation.
+ */
+const EXCLUDED_REGISTER_ROWS = new Map([
+  ["CJL-CLAIM-003", "internal-only in REG (marketing-sourced closed-won)"],
+  ["CJL-CLAIM-017", "internal-only in REG, Red in SUBSET (cross-sell economics)"],
+  ["CJL-CLAIM-027", "target row in REG (90-day meeting and SQL targets)"],
+  ["CJL-CLAIM-028", "internal-only in REG (first-90-day pipeline)"],
+  ["CJL-CLAIM-031", "internal-only in REG (conference meeting counts)"],
+  ["CJL-CLAIM-034", "internal-only in REG (artifact line and word counts)"],
+  ["CJL-CLAIM-035", "spine excluded set (stakeholder interview and gate counts)"],
+  ["CJL-CLAIM-036", "do-not-use-as-connor-achievement in REG"],
+  ["CJL-CLAIM-039", "projected row in REG (page-count programme)"],
+  ["CJL-CLAIM-042", "target row in REG (brief-to-ship SLA and output floor)"],
+  ["CJL-CLAIM-047", "projected row in REG (go/no-go framework costs)"],
+  ["CJL-CLAIM-049", "target row in REG (SME ARR target)"],
+  ["CJL-CLAIM-052", "internal-only in REG (deck production figures)"],
+  ["CJL-CLAIM-055", "internal-only in REG (April 2026 demand report)"],
+  ["CJL-CLAIM-056", "internal-only in REG (visitor identification counts)"],
+  ["CJL-CLAIM-057", "internal-only in REG (routing architecture detail)"],
+]);
+
+/**
+ * Postures that describe a claim the public routes may never render as-is.
+ * `target` and `projected` have their own sanctioned render (`label-as-target`),
+ * so `show` is the only forbidden pairing for them too.
+ */
+const NON_SHOWABLE_POSTURES = new Map([
+  ["internal-only", "internal-only claims are not softenable; they do not render"],
+  ["company-level", "company-level outcomes are not personal achievement claims"],
+  [
+    "do-not-use-as-personal-achievement",
+    "the row is marked not-a-personal-achievement",
+  ],
+  ["target", "targets render only through publicUse 'label-as-target'"],
+  ["projected", "projections render only through publicUse 'label-as-target'"],
+]);
+
+/** sourceNote wording that marks a row as held back from public routes. */
+const INTERNAL_SOURCE_NOTE =
+  /internal[- ]only|red in subset|red tier|private packet|withheld from public|held from public|not for public/i;
+
+/**
+ * Extracts every `ProofMetric` object literal from a claims module.
+ *
+ * Anchors on `posture:` because the type makes it required, then walks braces
+ * outward to recover the whole literal. Regex over the file would mis-pair
+ * fields across adjacent metrics.
+ */
+function extractProofMetricLiterals(source, rel) {
+  const literals = [];
+  const postureRe = /\bposture:\s*"([a-z-]+)"/g;
+  let match;
+  while ((match = postureRe.exec(source)) !== null) {
+    let start = source.lastIndexOf("{", match.index);
+    let depth = 0;
+    let end = -1;
+    for (let i = start; i < source.length; i += 1) {
+      if (source[i] === "{") depth += 1;
+      else if (source[i] === "}") {
+        depth -= 1;
+        if (depth === 0) {
+          end = i;
+          break;
+        }
+      }
+    }
+    if (end === -1) continue;
+    const body = source.slice(start, end + 1);
+    const line = source.slice(0, match.index).split("\n").length;
+    literals.push({
+      rel,
+      line,
+      posture: match[1],
+      publicUse: body.match(/\bpublicUse:\s*"([a-z-]+)"/)?.[1] ?? "",
+      claimId: body.match(/\bclaimId:\s*"([^"]+)"/)?.[1] ?? "",
+      sourceNote: body.match(/\bsourceNote:\s*\n?\s*"((?:[^"\\]|\\.)*)"/)?.[1] ?? "",
+      label: body.match(/\blabel:\s*\n?\s*"((?:[^"\\]|\\.)*)"/)?.[1] ?? "",
+    });
+  }
+  return literals;
+}
+
+/**
+ * The failure mode this encodes, recorded 2026-08-06: a chapter proof block
+ * shipped `CJL-CLAIM-017` (Red, internal-only) on `publicUse: "show"` with a
+ * drifted claim ID and an `approved-exact-with-context` posture, and every
+ * existing check passed it. Posture, claim ID, and sourceNote are each enough
+ * on their own to fail a `show` now.
+ */
+const CLAIM_MODULES = ["content/proof-metrics.ts", "content/case-studies.ts"];
+
+for (const rel of CLAIM_MODULES) {
+  if (!exists(rel)) {
+    notes.push(`skipped claim-scope check for ${rel} (file no longer exists)`);
+    continue;
+  }
+  for (const metric of extractProofMetricLiterals(read(rel), rel)) {
+    if (metric.publicUse !== "show") continue;
+    const where = `${metric.rel}:${metric.line} (${metric.label || "unlabelled metric"})`;
+
+    const postureReason = NON_SHOWABLE_POSTURES.get(metric.posture);
+    if (postureReason) {
+      failures.push(
+        `${where} renders on publicUse "show" with posture "${metric.posture}": ${postureReason}`,
+      );
+    }
+
+    const registerReason = EXCLUDED_REGISTER_ROWS.get(metric.claimId);
+    if (registerReason) {
+      failures.push(
+        `${where} renders on publicUse "show" but ${metric.claimId} is ${registerReason}`,
+      );
+    }
+
+    if (INTERNAL_SOURCE_NOTE.test(metric.sourceNote)) {
+      failures.push(
+        `${where} renders on publicUse "show" but its sourceNote marks it as held back from public routes`,
+      );
+    }
+  }
+}
+
 const forbiddenPrivateTokens = [
   "$2.5M",
   "$8.5M",

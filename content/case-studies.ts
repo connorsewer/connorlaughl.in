@@ -87,31 +87,14 @@ export const caseStudies: CaseStudy[] = [
       "Marketing earned credibility as revenue infrastructure because the work could be measured, challenged, and improved.",
     whatItProves:
       "I can operate at VP of Marketing & GTM and acting-CMO altitude while building the RevOps mechanics underneath the strategy.",
+    /* Claim-scope pass 2026-08-06. The exact pipeline figure (P5,
+       CJL-CLAIM-001) is scoped to the cover route by DECISIONS Gate 1, so it
+       is gone from here; the softened form (P6) already carries the chapter in
+       `outcome`. Net-new revenue (CJL-CLAIM-002), margin contribution
+       (CJL-CLAIM-004) and CRM completeness (CJL-CLAIM-016) map to no cleared
+       proof point in the spine and have no approved softened form, so they are
+       dropped rather than softened. */
     proofMetrics: [
-      {
-        value: "$159.4M",
-        label: "marketing-influenced pipeline",
-        context: "GTM infrastructure built from zero",
-        claimId: "CJL-CLAIM-001",
-        posture: "approved-exact-with-context",
-        publicUse: "show",
-      },
-      {
-        value: "$52.5M",
-        label: "net-new revenue contribution",
-        context: "GTM strategy, demand generation, sales enablement",
-        claimId: "CJL-CLAIM-002",
-        posture: "approved-exact-with-context",
-        publicUse: "show",
-      },
-      {
-        value: "$25M+",
-        label: "margin contribution",
-        context: "revenue infrastructure ROI with attribution discipline",
-        claimId: "CJL-CLAIM-003",
-        posture: "company-level",
-        publicUse: "show",
-      },
       {
         value: "35+",
         label: "KPI revenue funnel framework",
@@ -119,14 +102,7 @@ export const caseStudies: CaseStudy[] = [
         claimId: "CJL-CLAIM-025",
         posture: "verified",
         publicUse: "show",
-      },
-      {
-        value: "+400%",
-        label: "CRM data completeness",
-        context: "data governance program",
-        claimId: "CJL-CLAIM-026",
-        posture: "directional",
-        publicUse: "show",
+        sourceNote: "Spine P1, Green, CJL-CLAIM-025 verified in REG.",
       },
     ],
     systemsBuilt: [
@@ -156,7 +132,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     longformHref: "/longform/revenue-operating-system-from-zero",
 
-    deck: "The operating layer behind a $159.4M influenced pipeline: definitions, KPIs, attribution, cadence.",
+    deck: "The operating layer behind a nine-figure influenced pipeline: definitions, KPIs, attribution, cadence.",
     outcome: "Built the GTM infrastructure behind a {P6}.",
     scope:
       "Lifecycle definitions → attribution → 35+ KPI framework → reverse-funnel math → close-date movement → executive reporting cadence.",
@@ -164,7 +140,7 @@ export const caseStudies: CaseStudy[] = [
     governance:
       "Lifecycle definitions • disposition codes • change control • weekly operating review",
     bullets: [
-      "Outcome: $159.4M marketing-influenced pipeline built from zero at a roughly $460M PE-backed enterprise.",
+      "Outcome: nine-figure marketing-influenced pipeline built from zero at a PE-backed enterprise.",
       "System: 35+ KPI revenue funnel framework covering awareness through revenue plus unit economics.",
       "System: Reverse-funnel capacity planner that translates quota into required leads, meetings, and capacity.",
       "Governance: Lifecycle definitions, disposition codes, and SLA enforcement keep CRM data trustworthy for forecasting.",
@@ -174,7 +150,9 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "ai-native-gtm",
     figureSlug: "fig-009",
-    label: "22-AGENT AI GTM OS",
+    /* Spine P10 gates the agent count. The eyebrow is the largest type on the
+       chapter, so the count comes out of display first. */
+    label: "GOVERNED AI OPERATING LAYER",
     title: "Governed AI operating layer",
     hook: "A multi-agent layer that stages GTM work behind human approval gates and audit trails.",
     chapterIntro: [
@@ -193,46 +171,54 @@ export const caseStudies: CaseStudy[] = [
       "AI became an operating system with quality control, not a shortcut around judgment.",
     whatItProves:
       "I can lead the function and build the technical layer myself.",
+    /* Claim-scope pass 2026-08-06. Claim IDs corrected against REG: the agent
+       count is CJL-CLAIM-021, the productivity multiple CJL-CLAIM-014, the
+       proposal-workflow compression CJL-CLAIM-046. All three render in their
+       spine-approved softened form (P10, P8, P14/P9). Hours recaptured
+       (CJL-CLAIM-023) and the 60-day deliverable count (CJL-CLAIM-020) map to
+       no cleared proof point and have no approved softened form, so they go. */
     proofMetrics: [
       {
-        value: "22-agent",
-        label: "AI marketing operating system",
-        context: "research, content, RFP, intel, executive reporting",
+        value: "Multi-agent",
+        label: "governed AI operating layer",
+        context:
+          "research, content, proposals, competitive intelligence, executive reporting",
+        publicValue: "Multi-agent",
+        publicLabel: "governed AI operating layer",
+        publicContext:
+          "Agents stage GTM work behind human approval gates and audit trails. The agent count is gated.",
         claimId: "CJL-CLAIM-021",
         posture: "directional",
-        publicUse: "show",
+        publicUse: "soften",
+        sourceNote:
+          "Spine P10, Amber+. Agent count gated; the exact count is withheld from source as well as from render.",
       },
       {
-        value: "400%",
-        label: "productivity uplift",
-        context: "output measured against pre-system baseline",
-        claimId: "CJL-CLAIM-022",
+        value: "Material lift",
+        label: "productivity from the governed AI layer",
+        context: "team output against the pre-system baseline",
+        publicValue: "Material lift",
+        publicLabel: "productivity from the governed AI layer",
+        publicContext:
+          "Team output against the pre-system baseline. The exact multiple is gated.",
+        claimId: "CJL-CLAIM-014",
         posture: "directional",
-        publicUse: "show",
+        publicUse: "soften",
+        sourceNote: "Spine P8, Amber+ softened form of CJL-CLAIM-014.",
       },
       {
-        value: "96%",
-        label: "RFP response-time reduction",
-        context: "governed RFP workflow with human approval",
-        claimId: "CJL-CLAIM-023",
-        posture: "approved-exact-with-context",
-        publicUse: "show",
-      },
-      {
-        value: "24.5 hrs/wk",
-        label: "team time recaptured",
-        context: "weekly hours redirected from manual work to strategy",
-        claimId: "CJL-CLAIM-024",
+        value: "Days to minutes",
+        label: "proposal triage and response",
+        context: "governed proposal workflow with human approval",
+        publicValue: "Days to minutes",
+        publicLabel: "proposal triage and response",
+        publicContext:
+          "Triage compressed from a day-scale workflow to a minutes-scale workflow. Percentages stay gated.",
+        claimId: "CJL-CLAIM-046",
         posture: "directional",
-        publicUse: "show",
-      },
-      {
-        value: "115+",
-        label: "strategic deliverables in 60 days",
-        context: "content, RFP, intel, enablement",
-        claimId: "CJL-CLAIM-020",
-        posture: "verified",
-        publicUse: "show",
+        publicUse: "soften",
+        sourceNote:
+          "Spine P14 (shape claim) with P9 phrasing preference. CJL-CLAIM-046 in REG.",
       },
     ],
     systemsBuilt: [
@@ -243,7 +229,7 @@ export const caseStudies: CaseStudy[] = [
       "MCP-style tool integrations and n8n orchestration",
     ],
     artifactIdeas: [
-      "Workflow map across 22 agents",
+      "Workflow map across the agent set",
       "RAG knowledge base index (KB-INDEX)",
       "AI workflow audit log (Fig. 22)",
       "Governed RFP approval gate (Fig. 20)",
@@ -266,11 +252,11 @@ export const caseStudies: CaseStudy[] = [
     stack: "Python • TypeScript • RAG • n8n • LLMs • MCP-style tools",
     governance: "Human approval gates • audit logs • drift and regression reviews",
     bullets: [
-      "Outcome: 22-agent AI GTM operating system with governed workflows across research, content, RFP, intel, and reporting.",
-      "Outcome: 96% reduction in RFP response time on the governed workflow.",
+      "Outcome: multi-agent governed AI GTM operating layer across research, content, RFP, intel, and reporting.",
+      "Outcome: proposal triage compressed from a day-scale workflow to a minutes-scale workflow.",
       "System: RAG-backed knowledge base for proposal and outbound drafting.",
       "Governance: Every AI artifact gated by human approval with audit logs and drift reviews.",
-      "Outcome: 115+ strategic deliverables produced in a 60-day sprint.",
+      "Outcome: material productivity lift from the governed AI operating layer.",
     ],
   },
   {
@@ -311,17 +297,10 @@ export const caseStudies: CaseStudy[] = [
         value: "Board-ready",
         label: "executive reporting cadence",
         context: "CEO, CRO, and PE sponsor reporting",
-        claimId: "CJL-CLAIM-027",
         posture: "verified",
         publicUse: "show",
-      },
-      {
-        value: "+400%",
-        label: "CRM data completeness",
-        context: "data governance program",
-        claimId: "CJL-CLAIM-026",
-        posture: "directional",
-        publicUse: "show",
+        sourceNote:
+          "Categorical, no magnitude asserted. The former CJL-CLAIM-027 reference was a mis-map: REG 027 is a meetings/SQL target row and nothing here claims it.",
       },
     ],
     systemsBuilt: [
@@ -355,7 +334,7 @@ export const caseStudies: CaseStudy[] = [
       "Outcome: Board-ready executive reporting cadence for CEO, CRO, and PE sponsor context.",
       "System: Activity-to-opportunity ratios and rep accountability views.",
       "Governance: Versioned KPI definitions and access controls keep the system honest.",
-      "Outcome: +400% CRM data completeness improvement after data governance program.",
+      "Governance: CRM data-governance program that made lead source and completeness inspectable.",
     ],
   },
   {
@@ -380,42 +359,29 @@ export const caseStudies: CaseStudy[] = [
       "Demand generation became a managed operating motion tied to pipeline, not a pile of leads.",
     whatItProves:
       "I can build pipeline motion without waiting for perfect budget or headcount.",
+    /* Claim-scope pass 2026-08-06. Claim IDs corrected against REG. The
+       first-90-day pipeline row is CJL-CLAIM-028, internal-only and on the
+       spine's excluded list, so it is gone rather than softened; the chapter's
+       pipeline claim is carried by P6 in `outcome`. The held-meeting-to-SQL row
+       is CJL-CLAIM-029, and the spine holds meeting and SQL counts out of this
+       chapter entirely. The two-hour rule (P2, CJL-CLAIM-026) is the one
+       cleared figure here. */
     proofMetrics: [
-      {
-        value: "Multi-million",
-        label: "first-90-day signal pipeline",
-        context: "signal-based BDR pod from existing resources",
-        claimId: "CJL-CLAIM-013",
-        posture: "approved-exact-with-context",
-        publicValue: "Multi-million",
-        publicLabel: "first-90-day signal pipeline",
-        publicContext: "signal-based BDR pod from existing resources",
-        publicUse: "soften",
-      },
-      {
-        value: "Directional",
-        label: "held-meeting-to-SQL conversion signal",
-        context: "post-discovery qualification rate from BDR-set meetings",
-        claimId: "CJL-CLAIM-014",
-        posture: "directional",
-        publicValue: "Directional",
-        publicLabel: "held-meeting-to-SQL conversion signal",
-        publicContext: "post-discovery qualification trend held without the private exact rate",
-        publicUse: "soften",
-      },
       {
         value: "2 hours",
         label: "high-priority signal-to-touch SLA",
         context: "every signal timestamped",
-        claimId: "CJL-CLAIM-015",
+        claimId: "CJL-CLAIM-026",
         posture: "verified",
         publicUse: "show",
+        sourceNote:
+          "Spine P2, Green. DECISIONS Gate 2 approved the concept-safe two-hour SLA language.",
       },
       {
         value: "Hidden",
         label: "monthly company visitor volume",
         context: "private visitor count held from public route",
-        claimId: "CJL-CLAIM-016",
+        claimId: "CJL-CLAIM-030",
         posture: "directional",
         publicUse: "hide",
       },
@@ -448,11 +414,11 @@ export const caseStudies: CaseStudy[] = [
     governance: "Enforced SLA • documented workflow • weekly operating review",
     longformHref: "/longform/signal-based-demand-engine",
     bullets: [
-      "Outcome: multi-million first-90-day signal pipeline from a BDR pod built from existing resources.",
+      "Outcome: a working outbound pipeline motion from a BDR pod built out of existing resources.",
       "Outcome: high-priority signal-to-touch SLA, timestamped per signal.",
       "System: Signal ingest, ICP score, enrichment, and tiered routing into the rep queue.",
       "Governance: Weekly signal review, coaching cadence, and process fixes for SLA misses.",
-      "Outcome: held-meeting-to-SQL conversion tracked as a directional indicator pending CRM source.",
+      "Governance: Meeting, SQL, and visitor counts stay private; only the operating motion is public.",
     ],
   },
   {
@@ -480,46 +446,38 @@ export const caseStudies: CaseStudy[] = [
       "In a regulated enterprise GTM motion, narrative without proof creates risk. Proof without narrative does not move buyers.",
     whatItProves:
       "I can make a messy multi-line business commercially legible.",
+    /* Claim-scope pass 2026-08-06. Claim IDs corrected against REG. The
+       artifact line and word counts are CJL-CLAIM-034, internal-only, so both
+       rows are gone and the exact sizes are withheld from source too. The
+       interview and gate counts are CJL-CLAIM-035, which the spine excludes by
+       name while allowing the governance to be described qualitatively, so that
+       row renders count-free. The proposal-turnaround percentage
+       (CJL-CLAIM-037) belongs to the AI chapter, where it renders as a shape
+       claim; it has no cleared form here. */
     proofMetrics: [
       {
-        value: "774-line",
-        label: "messaging architecture",
-        context: "regulated business lines",
-        claimId: "CJL-CLAIM-030",
-        posture: "internal-only",
-        publicUse: "show",
-      },
-      {
-        value: "10,900 words",
-        label: "master GTM brief",
-        context: "ICP, positioning, stakeholder interviews",
-        claimId: "CJL-CLAIM-031",
-        posture: "internal-only",
-        publicUse: "show",
-      },
-      {
-        value: "20+",
-        label: "stakeholder interviews",
-        context: "8 alignment gates",
-        claimId: "CJL-CLAIM-032",
+        value: "Governed intake",
+        label: "stakeholder interviews and alignment gates",
+        context: "executive sign-off before deployment",
+        publicValue: "Governed intake",
+        publicLabel: "stakeholder interviews and alignment gates",
+        publicContext:
+          "Interviews, alignment gates, and executive sign-off before deployment. Counts are withheld.",
+        claimId: "CJL-CLAIM-035",
         posture: "directional",
-        publicUse: "show",
-      },
-      {
-        value: "75%",
-        label: "faster RFP turnaround",
-        context: "governed AI proposal workflow with source-backed answer library",
-        claimId: "CJL-CLAIM-033",
-        posture: "directional",
-        publicUse: "show",
+        publicUse: "soften",
+        sourceNote:
+          "Spine excluded set: CJL-CLAIM-035 is directional in REG and appears in no SUBSET table, so the counts are out. Qualitative description is explicitly permitted.",
       },
       {
         value: "5-pillar",
         label: "positioning framework",
         context: "shared across sales, marketing, and RFP",
-        claimId: "CJL-CLAIM-034",
+        claimId: "CJL-CLAIM-033",
         posture: "verified",
         publicUse: "show",
+        sourceNote:
+          "Spine P3, Green, CJL-CLAIM-033 verified in REG. Pillar names stay withheld.",
       },
     ],
     systemsBuilt: [
@@ -536,7 +494,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     governanceNotes: [
       "Product or solution outcome metrics are not used as personal achievement claims",
-      "Artifact word and line counts are reported as system scale, not raw artifact disclosure",
+      "Artifact word and line counts stay internal; only the system narrative is public",
       "Claims register tracks each public claim with source, status, and approver",
     ],
     interviewLine:
@@ -554,11 +512,11 @@ export const caseStudies: CaseStudy[] = [
     governance:
       "Claims register with verified / directional / projected status • versioned messaging • voice and style rules",
     bullets: [
-      "System: Authored a 774-line messaging architecture across {V5}.",
-      "System: 10,900-word master GTM brief with ICP intelligence and proof governance.",
+      "System: Authored the messaging architecture across {V5}.",
+      "System: Master GTM brief with ICP intelligence and proof governance.",
       "System: 5-pillar positioning framework shared across sales, marketing, and RFP.",
       "Governance: Claims register tracking verified, directional, and projected status to prevent unverified external claims.",
-      "Outcome: 75% faster RFP turnaround as a directional indicator pending source review.",
+      "Governance: Artifact sizes and interview counts stay internal.",
     ],
   },
   {
@@ -587,30 +545,29 @@ export const caseStudies: CaseStudy[] = [
       "Post-acquisition value depends on turning deal logic into GTM execution.",
     whatItProves:
       "I can translate M&A complexity into product marketing, revenue architecture, and sales enablement.",
+    /* Claim-scope pass 2026-08-06. This block carried the worst leak on the
+       site: the cross-sell economics row is CJL-CLAIM-017, Red and
+       internal-only, mis-labelled here as CJL-CLAIM-040 and approved-exact.
+       Internal-only is not softenable, so the whitespace figure, the client
+       count and the penetration rate are withheld from source as well as from
+       render, and the row now carries the register's safe default only. CAC
+       (CJL-CLAIM-012) and NRR (CJL-CLAIM-013) are company-level rows the spine
+       excludes by name; they are dropped, which also settles the contradiction
+       with this chapter's own governance note. */
     proofMetrics: [
       {
-        value: "$254M",
-        label: "cross-sell whitespace",
-        context: "identified across 2,676 clients in 8 acquired brands",
-        claimId: "CJL-CLAIM-040",
-        posture: "approved-exact-with-context",
-        publicUse: "show",
-      },
-      {
-        value: "73%",
-        label: "CAC reduction",
-        context: "post-acquisition CAC reduction at the enterprise",
-        claimId: "CJL-CLAIM-041",
-        posture: "company-level",
-        publicUse: "show",
-      },
-      {
-        value: "112%",
-        label: "NRR",
-        context: "net revenue retention at the enterprise",
-        claimId: "CJL-CLAIM-042",
-        posture: "company-level",
-        publicUse: "show",
+        value: "Installed-base analysis",
+        label: "cross-sell opportunity and expansion motion",
+        context: "targeted expansion motion built from the installed base",
+        publicValue: "Installed-base analysis",
+        publicLabel: "cross-sell opportunity and expansion motion",
+        publicContext:
+          "Analyzed the installed base to uncover a large cross-sell opportunity and build a targeted expansion motion. Economics, client counts, and penetration stay private.",
+        claimId: "CJL-CLAIM-017",
+        posture: "internal-only",
+        publicUse: "soften",
+        sourceNote:
+          "CJL-CLAIM-017 is internal-only in REG and Red in SUBSET. BUILDER approves the exact form for private packets only; the register safe default is the sole public form.",
       },
       {
         value: "7 acquisitions",
@@ -619,6 +576,8 @@ export const caseStudies: CaseStudy[] = [
         claimId: "CJL-CLAIM-050",
         posture: "approved-exact-with-context",
         publicUse: "show",
+        sourceNote:
+          "Spine P15/P18. BUILDER corrected and approved the count at 7 on 2026-05-12; SCOPE-006 overlay approved the exact count with the learning-and-operationalizing framing.",
       },
     ],
     systemsBuilt: [
@@ -634,9 +593,9 @@ export const caseStudies: CaseStudy[] = [
       "CRM lifecycle map (LC-13-DFN)",
     ],
     governanceNotes: [
-      "Whitespace figure approved with redaction discipline; no named accounts in public artifacts",
-      "Company-level outcomes labeled as company-level, not personal achievement claims",
-      "Cross-sell logic shared as architecture only",
+      "Cross-sell economics, client counts, and penetration rates stay in private packets",
+      "Company-level outcomes such as retention and acquisition cost are not published as personal achievement claims",
+      "Cross-sell logic shared as architecture only, with no named accounts in public artifacts",
     ],
     interviewLine:
       "I built the GTM bridge that turned acquired software into a cross-sell motion across the platform.",
@@ -649,10 +608,10 @@ export const caseStudies: CaseStudy[] = [
     stack: "CRM • Product analytics • Customer-health logic • Enablement",
     governance: "Named-account redaction • company-level claim labels • change control",
     bullets: [
-      "Outcome: $254M cross-sell whitespace identified from 2,676 client accounts analyzed.",
+      "Outcome: installed-base analysis that uncovered a large cross-sell opportunity and a targeted expansion motion.",
       "System: Hybrid PLG, sales-assist, and enterprise-services expansion architecture.",
       "System: PQL scoring, customer-health logic, and cross-sell triggers tied to the platform story.",
-      "Governance: 73% CAC reduction and 112% NRR shown as company-level outcomes with attribution care.",
+      "Governance: Cross-sell economics and company-level retention figures stay in private packets.",
       "Outcome: 7 acquisitions integrated across the marketing function.",
     ],
   },
@@ -670,27 +629,44 @@ export const caseStudies: CaseStudy[] = [
     businessProblem:
       "Reporting was polluted by mixed consumer and B2B traffic. UTM and GCLID capture was inconsistent. Attribution numbers led to bad decisions.",
     whatIBuilt:
-      "I rebuilt measurement from first principles: B2B audience segmentation, content groupings across 7 verticals, conversion event taxonomy, UTM and GCLID governance, hidden-field capture, and cross-domain tracking requirements.",
+      "I rebuilt measurement from first principles: B2B audience segmentation, content groupings by solution line, conversion event taxonomy, UTM and GCLID governance, hidden-field capture, and cross-domain tracking requirements.",
     whatChanged:
       "Analytics became reliable enough to run RevOps off it. Lead source integrity held up to scrutiny.",
     whyItMattered:
       "If attribution is wrong, every decision is wrong. The platform became trustworthy infrastructure.",
     whatItProves:
       "I treat analytics as revenue infrastructure, not a downstream report.",
+    /* Claim-scope pass 2026-08-06. The vertical count here (7) contradicted the
+       operating-scope count the rest of the site publishes (P19, 5 regulated
+       verticals) with no explanation of the different denominators, and it maps
+       to no register row, so the grouping renders count-free. The capture rate
+       maps to no register row either and renders as the process claim it is. */
     proofMetrics: [
       {
-        value: "7 verticals",
+        value: "By solution line",
         label: "B2B content groupings",
-        context: "attribution by solution line",
+        context: "attribution grouped by solution line rather than by page",
+        publicValue: "By solution line",
+        publicLabel: "B2B content groupings",
+        publicContext:
+          "Attribution grouped by solution line rather than by page. Grouping counts are not published.",
         posture: "verified",
-        publicUse: "show",
+        publicUse: "soften",
+        sourceNote:
+          "No register row. Count removed in the per-value pass because it read against P19's 5 regulated verticals.",
       },
       {
-        value: "100%",
+        value: "Enforced",
         label: "UTM and GCLID capture in CRM",
-        context: "hidden-field requirements enforced at form layer",
+        context: "hidden-field requirements enforced at the form layer",
+        publicValue: "Enforced",
+        publicLabel: "UTM and GCLID capture in CRM",
+        publicContext:
+          "Hidden-field requirements enforced at the form layer. A process rule, not a measured rate.",
         posture: "verified",
-        publicUse: "show",
+        publicUse: "soften",
+        sourceNote:
+          "No register row. The capture rate is dropped; the enforced requirement is a process claim.",
       },
     ],
     systemsBuilt: [
@@ -721,7 +697,7 @@ export const caseStudies: CaseStudy[] = [
       "Event and naming standards • hidden-field requirements • QA checklist • change control",
     bullets: [
       "System: GA4 audiences separated B2B prospects from consumer visitors so reporting stopped lying.",
-      "System: Line-of-business content grouping across 7 verticals for attribution by solution line.",
+      "System: Line-of-business content grouping for attribution by solution line.",
       "System: Conversion event taxonomy prioritized around generate_lead, file_download, click_to_call, click_to_email.",
       "Governance: CRM capture requirements: UTM and GCLID stored in hidden fields, enforced for lead-source integrity.",
       "Governance: Cross-domain and subdomain tracking requirements specified for form flows, measurement QA built into release steps.",
@@ -809,7 +785,7 @@ export const caseStudies: CaseStudy[] = [
     businessProblem:
       "Decks led with service language. Sales had nothing quantified to anchor a conversation.",
     whatIBuilt:
-      "I mapped features to quantified outcomes across 6 business units, built sales talk tracks, a do and don't language guide, and a versioned messaging system.",
+      "I mapped features to quantified outcomes across the business units, built sales talk tracks, a do and don't language guide, and a versioned messaging system.",
     whatChanged:
       "Sales started leading with outcomes. Buyer conversations got tighter and shorter.",
     whyItMattered:
@@ -817,12 +793,20 @@ export const caseStudies: CaseStudy[] = [
     whatItProves:
       "I can rebuild a narrative around proof without losing the integrity of the claim.",
     proofMetrics: [
+      /* The business-unit count is CJL-CLAIM-032, directional in REG and
+         cleared nowhere. P11 carries the same idea without a count. */
       {
-        value: "6 BUs",
+        value: "Multi-unit",
         label: "outcome-anchored talk tracks",
-        context: "feature-to-outcome mapping",
-        posture: "verified",
-        publicUse: "show",
+        context: "feature-to-outcome mapping across the business lines",
+        publicValue: "Multi-unit",
+        publicLabel: "outcome-anchored talk tracks",
+        publicContext:
+          "Feature-to-outcome mapping across the business lines. The unit count is not published.",
+        claimId: "CJL-CLAIM-032",
+        posture: "directional",
+        publicUse: "soften",
+        sourceNote: "Spine P11 phrasing, count removed in the per-value pass.",
       },
       {
         value: "Versioned",
@@ -856,7 +840,7 @@ export const caseStudies: CaseStudy[] = [
     stack: "Outcome mapping • Sales enablement • Brand governance",
     governance: "Language rules • claim owners • versioned messaging system",
     bullets: [
-      "Outcome: Outcome-anchored sales talk tracks across 6 business units.",
+      "Outcome: Outcome-anchored sales talk tracks across the business units.",
       "System: Feature-to-outcome mapping spread out across each business line.",
       "Governance: Mandatory do and don't language guide for claim consistency.",
       "Governance: Versioned messaging system with claim owners and change control.",
@@ -884,22 +868,13 @@ export const caseStudies: CaseStudy[] = [
       "An operating model is what turns a team into a function leadership can trust.",
     whatItProves:
       "I can rebuild marketing into a product-team operating model with enforced cadence.",
-    proofMetrics: [
-      {
-        value: "7-day",
-        label: "brief-to-ship SLA",
-        context: "enforced across content and sales assets",
-        posture: "verified",
-        publicUse: "show",
-      },
-      {
-        value: "200+",
-        label: "content assets per year",
-        context: "output floor, including 26 press releases",
-        posture: "verified",
-        publicUse: "show",
-      },
-    ],
+    /* Claim-scope pass 2026-08-06. Both rows are CJL-CLAIM-042, a `target` row
+       in REG: the SLA and the output floor are targets, and the spine's rule
+       for this chapter is to describe the operating model rather than the
+       floors. Targets rendered as results are on the must-not-say list, and
+       neither has an approved softened form, so the proof block is empty and
+       the operating model carries the chapter. */
+    proofMetrics: [],
     systemsBuilt: [
       "Two-function org structure",
       "Centralized intake-to-archive workflow",
@@ -916,7 +891,7 @@ export const caseStudies: CaseStudy[] = [
       "GA4 audience definitions versioned",
     ],
     interviewLine:
-      "I rebuilt marketing into two functions with a 7-day ship SLA. It runs like a product team.",
+      "I rebuilt marketing into two functions with one shared review gate. It runs like a product team.",
     longformHref: "/longform/revenue-operating-system-from-zero",
 
     deck: "Marketing split into demand generation and enablement with enforced SLAs.",
@@ -925,8 +900,8 @@ export const caseStudies: CaseStudy[] = [
     stack: "Beautiful.ai • GA4 • SharePoint • Marketing Hub",
     governance: "7-day SLA • output minimums • version control • cadence reviews",
     bullets: [
-      "Outcome: 7-day brief-to-ship SLA enforced across all content and sales assets.",
-      "Outcome: 200+ per year content output floor, including 26 press releases per year.",
+      "System: Brief-to-ship SLA enforced across content and sales assets, with the day count held as an internal target.",
+      "System: Annual content output floor set and reviewed in cadence, held as an internal target.",
       "System: Two accountable lanes: demand generation for pipeline, enablement for the asset factory.",
       "Governance: Centralized intake-to-archive workflow and Beautiful.ai version control.",
       "Governance: GA4 audience segregation. B2B reporting stayed isolated from consumer noise.",
@@ -953,27 +928,23 @@ export const caseStudies: CaseStudy[] = [
       "An enterprise site is a sales asset. It should be designed and measured like one.",
     whatItProves:
       "I can rebuild a digital presence so it routes the right traffic and measures the right conversions.",
+    /* Claim-scope pass 2026-08-06. All three rows are CJL-CLAIM-045,
+       directional in REG, and the spine excludes traffic multiples from this
+       chapter by name. P7 is the cleared form of the growth claim, so the three
+       exact rows collapse into one softened row and the multiple is gone. */
     proofMetrics: [
       {
-        value: "6x",
-        label: "qualified traffic increase",
-        context: "audience-segmented organic and paid",
+        value: "Material growth",
+        label: "organic performance after the rebuild",
+        context: "growth from SEO and content infrastructure",
+        publicValue: "Material growth",
+        publicLabel: "organic performance after the rebuild",
+        publicContext:
+          "Material organic growth from SEO and content infrastructure. Multiples and percentages stay gated.",
+        claimId: "CJL-CLAIM-045",
         posture: "directional",
-        publicUse: "show",
-      },
-      {
-        value: "+28%",
-        label: "organic clicks",
-        context: "post-rebuild",
-        posture: "directional",
-        publicUse: "show",
-      },
-      {
-        value: "+19%",
-        label: "enterprise lead engagement",
-        context: "post-rebuild",
-        posture: "directional",
-        publicUse: "show",
+        publicUse: "soften",
+        sourceNote: "Spine P7, Amber+, the approved softened form of the growth claim.",
       },
     ],
     systemsBuilt: [
@@ -999,7 +970,7 @@ export const caseStudies: CaseStudy[] = [
     stack: "WordPress • Elementor • GA4 • GTM",
     governance: "Conversion IA standards • strict B2B routing • measurement QA",
     bullets: [
-      "Outcome: 6x increase in qualified traffic (directional) alongside +28% organic clicks and +19% enterprise lead engagement.",
+      "Outcome: material organic growth in qualified traffic and enterprise engagement after the rebuild.",
       "System: Conversion-first IA built for enterprise buyers, not consumer traffic.",
       "System: GA4 and GTM instrumentation for high-intent events and event taxonomy.",
       "Governance: Strict B2B routing to eliminate consumer leakage into enterprise funnels.",
