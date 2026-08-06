@@ -1,18 +1,44 @@
-# Wave C — visual elevation (v2, post-review)
+# Wave C — visual elevation (v3, post-pilot-gate)
 
-Status: spec, revised after adversarial review. Authority:
-[DESIGN.md](../../../DESIGN.md) and the code win over this file.
-[FIGURES.md](../../../FIGURES.md) is append-only.
+Status: spec, revised after adversarial review and again after Connor's pilot
+gate. Authority: [DESIGN.md](../../../DESIGN.md) and the code win over this
+file. [FIGURES.md](../../../FIGURES.md) is append-only.
 
 Two locked decisions from Connor (2026-08-06), not reopenable. **Motion
 ceiling is "living document":** constant but quiet, figures draw themselves on
 scroll, stats tick on entry, leader labels settle, the ruler breathes, nothing
 blocks reading. Reduced motion is **outcome-parity**: a reduced-motion visitor
 sees the same finished page, reaches the same information, and loses only the
-transition into it. **Plates everywhere, plus motion:** one halftone plate per
-case-study chapter depicting a real artifact of that system, paired with the
-line diagram and never replacing it, plus one ambient loop on the cover under
-the same ceiling.
+transition into it. **Plates everywhere, plus motion:** one plate per
+case-study chapter depicting that chapter's system as an object, paired with
+the line diagram and never replacing it, plus one ambient loop on the cover
+under the same ceiling.
+
+## Plate art direction, pivoted at the pilot gate (2026-08-06, locked)
+
+Phase 3 shipped two halftone-photograph pilots, FIG_021 and FIG_022. Connor
+reviewed them and redirected the program. The v2 art direction is superseded.
+Three rulings, all locked:
+
+1. **Plates are technical renderings, not photographs.** Each plate is a clean,
+   label-free exploded-view blueprint rendering of the chapter's
+   system-as-object, in the illustration genre of makingsoftware.com — an
+   exploded floppy disk, drawn as parts on a common axis. Not a photographic
+   scene, not a halftone screen of a desk.
+2. **Real type only.** No lettering is ever generated into an image. Labels
+   arrive as a `PlateLabels` SVG overlay of real DOM text in Geist Mono,
+   positioned over the plate and reusing `LeaderLabel`. §2 specifies it.
+3. **No dark-mode inversion for plates.** `plate-duotone` comes off the chapter
+   plates. A blueprint-on-paper rendering is already the site's ink on the
+   site's paper, and inverting it produced a cyanotype negative that read as a
+   different image in each theme. Chapter plates render as authored in both
+   themes. The `/about` portrait, FIG_020, is a photograph and **keeps**
+   `plate-duotone`; that rule in `app/globals.css` stays, it simply stops
+   having chapter-plate callers.
+
+Everything the superseded direction settled that is not about pixels — the
+placement, the frame, the caption grammar, the claim guardrails, the file
+naming, the size budget, the append-only registry — carries forward unchanged.
 
 ---
 
@@ -94,29 +120,36 @@ scroll-linked plate, labels fade in at progress > 0.85 and latch there.
 
 ## 2. Plate program
 
-One photographic halftone plate per case-study chapter, in the treatment
-proven by FIG_020 on `/about`.
+One blueprint plate per case-study chapter: a clean, label-free exploded-view
+technical rendering of that chapter's system drawn as a physical object, with
+its labels applied afterward in real type by the `PlateLabels` overlay.
 
-### Subjects — the real artifact of each chapter
+### Subjects — the chapter's system as an object
 
-**Provenance.** Each subject was derived by reading that chapter's
-`systemsBuilt` and `artifactIdeas` in `content/case-studies.ts`, then
-generalizing to a physical object. Subjects are not quotations of those fields
-and assert nothing about magnitude or outcome.
+**Provenance.** Each subject is the structure of that chapter's paired line
+diagram, restated as an assembly of parts. The diagram already encodes the
+system honestly and is already public-safe, so deriving the plate from the
+diagram keeps the plate inside the same boundary. Subjects name geometry and
+nothing else: no vendor, employer, client, or gated value reaches a subject
+line, and no subject asserts a magnitude or an outcome.
 
-| Chapter (slug) | Paired diagram | Plate subject |
-|---|---|---|
-| `revenue-operations-signal-to-revenue` | FIG_008 | A thick tabbed binder open flat on a desk under a lamp. |
-| `ai-native-gtm` | FIG_009 | A printed checklist on a desk with a rubber stamp and an ink pad resting beside it. |
-| `revenue-operations-pipeline-truth` | FIG_010 | A stack of printouts on a desk, top sheet marked up in red pen. |
-| `bdr-pod-signal-to-meeting` | FIG_011 | A closed logbook held shut by an elastic band, beside a phone handset. |
-| `gtm-strategy-positioning` | FIG_012 | Five index cards pinned in a row on a corkboard, string running to a second row below. |
-| `debtnext-integration` | FIG_013 | Two ring binders side by side, one worn and one new, a single tab bridging them. |
-| `marketing-analytics-architecture` | FIG_014 | A graph-paper worksheet with two columns joined by hand-ruled lines, pencil and straightedge beside it. |
-| `leadership-team-development` | FIG_015 | A stack of one-page agenda sheets lying face-down beside a pen. |
-| `outcome-first-repositioning` | FIG_016 | A galley proof on a light table, one column struck through and rewritten in the margin. |
-| `marketing-org-design-governance` | FIG_017 | Index cards in two vertical lanes on a magnetic board, one card mid-move. |
-| `enterprise-site-overhaul` | FIG_018 | Paper rectangles taped out on a wall with arrows drawn between them in marker. |
+Subjects are deliberately **abstract mechanisms**, not literal depictions of
+software. An exploded stack of plates is the honest object for a layered
+system; a screenshot of a tool would be a leak and a lie about the medium.
+
+| Chapter (slug) | Paired diagram | FIG | Plate subject |
+|---|---|---|---|
+| `revenue-operations-signal-to-revenue` | FIG_008 | FIG_021 | An exploded stack of six flat rectangular plates held apart on one vertical axis, widest at the bottom and smallest at the top, four slim guide posts running through every plate. |
+| `ai-native-gtm` | FIG_009 | FIG_022 | An exploded gate mechanism on one horizontal axis: an intake tray, three sorting plates, a hinged gate block with a lever arm, a release chute, and one long flat tray running beneath the whole assembly. |
+| `revenue-operations-pipeline-truth` | FIG_010 | FIG_023 | Three round dial faces lifted clear of a single flat backing panel, three short spindles floating between them, one common mounting bracket below. |
+| `bdr-pod-signal-to-meeting` | FIG_011 | FIG_024 | An exploded sorting device: a funnel at the top, a slotted selector disc beneath it, three parallel chutes below that, and a toothed escapement wheel at the base. |
+| `gtm-strategy-positioning` | FIG_012 | FIG_025 | An exploded card rack: five upright divider plates lifted off a slotted base rail, a backing panel behind them, a clamp bar floating above. |
+| `debtnext-integration` | FIG_013 | FIG_026 | Two rectangular housings of different sizes exploded apart side by side, with a coupling plate, four bolts, and a latch block floating in the gap between them. |
+| `marketing-analytics-architecture` | FIG_014 | FIG_027 | Two parallel rails exploded above one cylindrical drum, two junction blocks and a joining yoke lifted clear in the space between rails and drum. |
+| `leadership-team-development` | FIG_015 | FIG_028 | An exploded escapement: three toothed wheels of decreasing size on one spindle at three different spacings, a pallet fork and a base plate beneath. |
+| `outcome-first-repositioning` | FIG_016 | FIG_029 | An exploded hand press on a vertical axis: a flat bed plate, a single sheet, a raised die block, a pressure plate, and a lever arm. |
+| `marketing-org-design-governance` | FIG_017 | FIG_030 | Two exploded assemblies of three plates each, drawn side by side, both converging on one shared square gate block with a doubled outline at the base. |
+| `enterprise-site-overhaul` | FIG_018 | FIG_031 | An exploded stack of five thin rectangular panels on one axis, each smaller than the one below, a slotted frame at the base and one flat sheet on top. |
 
 Eleven subjects, one per chapter. Where a subject cannot be made honest at
 generation time, that chapter ships diagram-only and its FIG number gets a
@@ -125,25 +158,72 @@ dishonest plate is not.
 
 ### Generation prompt template
 
-Style-locked to FIG_020. Fill the bracket with the subject line verbatim from
-the table; change nothing else.
+Fill the bracket with the subject line verbatim from the table; change nothing
+else.
 
-> Editorial halftone plate. `[SUBJECT]`. Coarse halftone dot screen, dots
-> clearly visible at print scale. Two colors only: blueprint ink `#2E47F1` on
-> flat off-white paper `#FBFBFB`. No gradients, no third color, no gloss.
-> Straight-on or slight three-quarter framing, even light, no dramatic
-> shadow. Objects only. No legible text, no legible numerals, no logos, no
-> screens, no user interface, no faces. Generous paper margin. Shot as
-> documentation, not as an advertisement.
+> Blueprint technical rendering. `[SUBJECT]`. Isometric exploded view: the
+> parts are separated along one axis with clear air between them, drawn as a
+> precise three-dimensional parts diagram. Two colors only: blueprint ink
+> `#2E47F1` on flat off-white paper `#FBFBFB`. Clean line work and flat fills.
+> Even ambient light across the entire frame, identical on every surface. No
+> light source anywhere in the scene: no lamp, no bulb, no window, no glow, no
+> highlight, no cast shadow, no gradient, no gloss. Objects only, floating on
+> plain paper ground. Completely unlabeled: no text, no lettering, no
+> numerals, no callouts, no leader lines, no arrows, no dimension marks, no
+> annotation of any kind anywhere in the frame. No logos, no screens, no user
+> interface, no faces, no hands. Generous paper margin. Drawn as an
+> engineering parts diagram, not as an advertisement.
 
-Negative list: `legible text, readable lettering, numbers, logos, watermark,
-UI, screenshot, monitor, phone screen, clock face, calendar, gradient, neon,
-3d render, stock photo lighting`.
+Negative list: `text, lettering, handwriting, numbers, labels, callouts,
+leader lines, annotation, arrows, dimension lines, logos, watermark, UI,
+screenshot, monitor, phone screen, gradient, neon, dramatic lighting, lamp,
+bulb, glow, highlight, cast shadow, stock photo lighting, photograph, wood,
+desk, third color`.
 
-**The legibility boundary.** Marks on paper may exist; a page with writing on
-it reads as a used artifact. They must be **illegible at full resolution**. If
-any word, numeral or logo can be read at 1:1, the generation is rejected and
-regenerated, never retouched into compliance.
+**The zero-type boundary.** Under v2 a plate could carry illegible marks,
+because a used page reads as an artifact. That allowance is withdrawn. A
+technical rendering that carries marks reads as an *annotated* drawing, and
+every mark competes with the real type the overlay puts on top of it. The
+boundary is now absolute: **any mark in the frame that reads as lettering, a
+numeral, a callout, a leader line, an arrow, or a dimension tick rejects the
+generation.** Rejected generations are regenerated, never retouched into
+compliance.
+
+**The flat-light boundary.** Models reach for a hero light on a 3D render.
+Any light source, glow, highlight, specular edge, or cast shadow in the frame
+rejects the generation. Light is even and sourceless or the plate does not
+ship.
+
+### `PlateLabels` — real type over the plate
+
+All lettering on a plate is DOM text. `components/figures/PlateLabels.tsx` is a
+server component that renders one absolutely-positioned SVG over the image and
+draws each label through the existing `LeaderLabel` primitive, so plate labels
+and figure labels are the same type at the same weight in the same ink.
+
+- **Coordinates are percentages of the image box.** Each label carries
+  `{ x, y, dx, dy, text }` where `x`/`y` are percent of image width and height
+  and `dx`/`dy` are the percent offset from the label to the part it names.
+  Percentages survive re-encoding and re-cropping; pixel anchors do not.
+- **The overlay's own coordinate space is the figure space.** `PlateLabels`
+  emits `viewBox="0 0 640 ${640 / aspect}"` and converts percentages into it,
+  so `LeaderLabel`'s authored defaults — 11-unit mono, 10-unit gap, 7-unit
+  arrowhead — read at the same scale they do on a hand-authored figure.
+- **Two to four labels, never more.** A plate is not a diagram. If a chapter
+  needs five callouts, the line diagram is already carrying them.
+- **Label text comes from that chapter's approved copy only**, in
+  `content/case-studies.ts` — `chapterIntro`, `hook`, `systemsBuilt`, or the
+  claim-gated body blocks. Never vault content, never a metric, never a
+  numeral, never a vendor or client name. Labels are uppercased by
+  `LeaderLabel` and stay one or two words.
+- **The overlay is `aria-hidden` and `pointer-events-none`.** It repeats
+  nothing the caption does not already say, and it is never the sole carrier
+  of information: a reader with images off still gets `alt` plus the
+  `<figcaption>`.
+- Labels live in the `chapterPlates` entry beside `alt` and `caption`, so the
+  claim gate reviews them with the rest of the rendered copy.
+- Motion: the overlay's `<g data-leader-group>` groups are what `labelSettle()`
+  already selects. No new primitive.
 
 ### Placement, wiring, files
 
@@ -152,19 +232,25 @@ regenerated, never retouched into compliance.
   would sit near the fold on mobile. The line diagram keeps its position:
   diagram states the mechanism, plate shows what it was made of.
 - `max-w-[26rem]` inside a single `border border-blueprint/40 p-2` frame
-  around the `next/image` — the FIG_020 pattern verbatim, one border element,
-  no nested frames. Caption follows the `Figure.tsx` `<figcaption>` layout:
-  mono `FIG_0NN [ SUBJECT ]`, then the serif claim sentence.
-- Class `plate-duotone` is required. Dark mode inverts it into the cyanotype
-  negative through the rule in `app/globals.css`; without it the plate lights
-  up as a white rectangle on the dark ground.
+  around the `next/image` — one border element, no nested frames. The frame is
+  `relative` so the `PlateLabels` overlay can sit on `absolute inset-2` and
+  land exactly on the image box rather than on the padding. Caption follows the
+  `Figure.tsx` `<figcaption>` layout: mono `FIG_0NN [ SUBJECT ]`, then the
+  serif claim sentence.
+- **No `plate-duotone` on a chapter plate.** Locked by Connor at the pilot
+  gate. A blueprint rendering is authored in the site's ink on the site's
+  paper and needs no theme treatment; inverting it made the dark theme show a
+  different picture than the light one. The class and its `app/globals.css`
+  rule stay in the codebase for the `/about` portrait, FIG_020, which is a
+  photograph and keeps the duotone. Do not generalize either way.
 - `next/image`, explicit `width`/`height`, `sizes="(min-width: 768px) 26rem,
   100vw"`, lazy. No `priority`.
 - **No new `CaseStudy` fields.** A `chapterPlates` lookup lives in
   `app/case-studies/[slug]/page.tsx` beside `chapterFigures`, keyed by slug:
-  `{ fig, src, width, height, alt, caption }`. A slug absent from the table
-  renders diagram-only, which stays legal. The claim gate reviews this table
-  the way it reviews any rendered copy.
+  `{ fig, src, width, height, subject, alt, caption, labels }`. A slug absent
+  from the table renders diagram-only, which stays legal. The claim gate
+  reviews this table — `labels` included — the way it reviews any rendered
+  copy.
 - Files are named **by figure number, never by slug**:
   `public/case-studies/plate-fig-021.webp`. A slug-named file would put a
   client name in a public path.
@@ -175,8 +261,9 @@ regenerated, never retouched into compliance.
 
 ### Encoding and size
 
-- Near-lossless or paletted WebP. The dot screen is what has to survive, and
-  lossy quality ladders smear it before they save much. Longest edge 1280px;
+- Near-lossless or paletted WebP. Hard line work against flat ground is what
+  has to survive, and lossy quality ladders ring the edges before they save
+  much. A two-ink rendering palettizes extremely well. Longest edge 1280px;
   if a plate still misses budget, drop it to 1080 before cutting quality
   further.
 - **Target under 300KB, hard ceiling 400KB per plate.** Over ceiling means
@@ -188,9 +275,9 @@ regenerated, never retouched into compliance.
 
 ### Accessibility contract
 
-- `alt` describes the object and its state in one sentence, e.g. "Halftone
-  plate of a tabbed binder lying open on a desk." It never repeats the caption
-  and never asserts a claim.
+- `alt` describes the object and its arrangement in one sentence, e.g.
+  "Blueprint rendering of six flat plates exploded along a vertical axis." It
+  never repeats the caption and never asserts a claim.
 - The visible `<figcaption>` states the plate's claim in words. No claim
   numeral on or in a plate; numbers reach the page only through
   `renderableProofMetrics()`.
@@ -233,8 +320,17 @@ merge gate, because the API is not available in every engine.
 
 ## 4. Claim, IP, and prompt guardrails
 
-- **No legible text in any image.** See the legibility boundary in §2. A
-  generation with readable text is rejected, not retouched.
+- **No type of any kind in any image.** See the zero-type boundary in §2. All
+  lettering on a plate is DOM text placed by `PlateLabels`.
+- **Reject any generation containing pseudo-labels, leader lines, or
+  annotation-like marks.** This is its own gate, not a restatement of the one
+  above. An image model asked for a technical drawing will annotate it: it
+  adds callout ticks, dimension arrows, tiny illegible captions, and
+  scale bars because that is what technical drawings look like in its training
+  data. Anything that reads as annotation rejects the generation even when no
+  glyph is resolvable — a leader line with nothing on the end of it is still a
+  fake label, and it will collide with the real one.
+- **No light source, no cast shadow.** See the flat-light boundary in §2.
 - **No claim numerals.** A magnitude never appears in a plate, caption, or
   `alt`. Numbers resolve through `content/proof-metrics.ts`.
 - **No vendor UI, and no names in paths.** No screenshots, monitors showing an
@@ -250,8 +346,11 @@ merge gate, because the API is not available in every engine.
   chapter content into an image model is a leak path.
 - **Every attempt is logged.** FIGURES.md notes record each generation as
   accepted or rejected with a one-line reason. Rejection criteria are fixed:
-  any legible text, any legible numeral, off-palette color, or subject drift
+  any lettering or numeral, any pseudo-label, leader line, arrow, or dimension
+  mark, any light source or cast shadow, off-palette color, or subject drift
   from the table. A skipped plate leaves a Reserved note carrying its number.
+  Superseding an accepted plate does not erase its log rows; the supersession
+  is a new row and the old rows stand.
 - `npm run proof:guard` and `npm run voice:scan` still gate the merge.
 
 ---
@@ -278,6 +377,11 @@ and `/case-studies/ai-native-gtm`.
 3. **Two pilot plates**, `revenue-operations-signal-to-revenue` and
    `ai-native-gtm` only. *Gate: Connor reviews both in light and dark, desktop
    and phone, and gives an explicit go before any further generation.*
+   **Run once under the v2 halftone direction and returned: the pilot gate is
+   what produced the v3 art direction above.** Phase 3 re-runs on the new
+   template with `PlateLabels` wired and no duotone, and the same gate applies
+   to the re-roll. The superseded pilot files are deleted; their generation-log
+   rows stay.
 4. **Remaining plates.** The other nine, same template and placement,
    FIGURES.md appended in one commit at the end. *Gate: a fresh reviewer
    agent with no part in generating them judges every plate at full resolution
@@ -304,9 +408,12 @@ Out of scope. Proposing any of these is a scope change, not a refinement.
   View Transitions root fade pair. No page-curl, wipe, or per-chapter custom
   transition.
 - **No line diagrams from an image model.** Figures stay hand-authored SVG
-  from `components/figures/`. An image model produces photographic plates and
-  nothing else; a generated "diagram" is the AI-slop failure mode DESIGN.md §6
-  bans.
+  from `components/figures/`, and every label on the site is DOM text. The
+  pivot narrows this rather than relaxing it: an image model may render a
+  three-dimensional object, unlabeled, and nothing else. It never produces a
+  flat schematic, never a labeled drawing, never a single glyph. A generated
+  figure that names its own parts is the AI-slop failure mode DESIGN.md §6
+  bans, and it is now excluded at the prompt as well as at review.
 - **No second ambient loop**, and **no new color token** for this wave.
 
 ## Appendix: build-phase notes from the round-2 review (GO, 8/10)
