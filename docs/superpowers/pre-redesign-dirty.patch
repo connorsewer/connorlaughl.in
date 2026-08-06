@@ -1,0 +1,427 @@
+diff --git a/HANDOFF.md b/HANDOFF.md
+index 1022b3a8..ed8350d6 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -1,231 +1,177 @@
+-# HANDOFF — connorlaughl.in soft-skills incorporation, queued 2026-05-14
++# HANDOFF — connorlaughl.in /edge route, refreshed 2026-06-16
+ 
+-**For:** the next Claude Code session, picking up after the design overhaul shipped.
+-**Working directory:** `/Users/connorlaughlin/clawd/career/portfolio-v2` (root worktree on `main`) or any fresh worktree off `main`.
+-**Branch:** `main` is current; the redesign work merged in via fast-forward.
+-**Status:** **shipped**. The redesign is live on `connorlaughl.in`. Merge point at `19818b66` (CSP fix), doc alignment at `a182c175`. The next session works on top of `main`.
+-**Tip:** 30 commits since the checkpoint at `b915b4fb`.
++**For:** the next implementation session that picks up the portfolio repo after the /edge soft-skills work.
++**Working directory:** `/Users/connorlaughlin/clawd/career/portfolio-v2`.
++**Branch/state at refresh:** `main`, with local branch `ahead 1, behind 5` versus `origin/main` at the time of this handoff refresh.
++**Public/deploy posture:** do not push, deploy, open PRs, merge, or publish without Connor explicitly asking. This handoff refresh is local/private documentation only.
++**Current status:** `/edge` is implemented and locally present. The stale “next session should build soft skills” framing has been replaced with current state, verification commands, and the remaining narrative/QA queue.
+ 
+ ---
+ 
+-## 1. What was just shipped
+-
+-The session ran two big arcs:
+-
+-**Arc one — premium foundation (Block A through D from the prior GOAL.md).**
+-GT Sectra Fine wired (5 weights + italics, woff2-subset 2.9MB → 414KB).
+-Motion stack swapped: motion.dev + lenis + ogl in, framer-motion out.
+-`lib/motion.ts` with 11 named primitives. `<SplitText>`, `<SmoothScrollProvider>`, `<FigureReveal>` (hardened no-JS-safe).
+-WebGL hero with mouse-driven dither swell shader.
+-Impact ledger restructured as a typeset table.
+-Header redesigned (availability pill + Resume + Tools).
+-Case-study sticky TOC.
+-Long-form markdown table support + 68ch body cap + emoji→glyph swaps.
+-Planner output spring + CountUp on input.
+-
+-**Arc two — premium polish (this session's net new).**
+-3-plate WebGL rolodex shader → simplified to single-plate when the desk portrait landed.
+-Figure-number marquee under the hero.
+-`<Magnetic>` cursor magnetism on hero CTAs.
+-View-transition named pairs (signature-system card title ↔ case-detail title).
+-`<CustomCursor>` with `data-cursor` label swap ("Read Fig. 04", "Talk", "Open").
+-GT Sectra weight ladder on the hero H1 (Black + Medium italic).
+-Eyebrow cleaned (no wordmark duplication).
+-Marquee rebalanced (numbers-first cadence, no personal refs).
+-`<SectionDivider>` plates wired at three homepage breaks (control panel between ledger and systems, grid between systems and about, blueprint as the index divider on /case-studies).
+-12 Midjourney WebP plates dropped in across hero, case studies, dividers, OG.
+-**Hero is now the desk portrait of Connor + Henry, framed in walnut, with the mouse-driven WebGL displacement still applied.**
+-
+-Lint clean, build clean (41 routes), voice scan clean (0 banned phrases across all 8 priority routes).
++## 1. What is now in the codebase
+ 
+----
++The soft-skills compendium has been transformed into a public-safe positioning route at `/edge`.
++
++Observed files and integrations:
+ 
+-## 2. What's next, in priority order
+-
+-### 2.1 Incorporate the Executive Soft Skills Compendium
+-
+-**Source file:** `/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Career/Resume & Positioning/Executive Soft Skills Compendium - GTM Engineer - 2026-05-13.md` (514 lines).
+-
+-**What it is:** an 11-skill taxonomy reframing Connor's soft skills as AI-native operating advantages. Each skill has a working definition, proof anchors, resume language, recruiter language, interview prompts, portfolio angle, and "avoid reducing this to" warnings. The umbrella thesis is *"taste applied at velocity."*
+-
+-**Recommended approach (for the next session to debate before building):**
+-
+-A small map of options, hardest first:
+-
+-1. **New canonical route at `/positioning` or `/soft-skills`.** Holds the full 11-skill framework with the taxonomy laid out as editorial sections. Probably the right home because the content is too rich to scatter, and a single URL gives recruiters a place to link.
+-2. **Cross-link from /resume.** Add a "What I bring beyond the work" sidebar on the resume that links to the new canonical route. One block of teaser copy, three skill names visible.
+-3. **Cross-link from homepage.** A new section between "Signature systems" and the About teaser titled something like "Taste applied at velocity" with the portfolio version paragraph as the lede and the top 3-4 skills as cards.
+-4. **Echo into case-study detail pages.** Each case study could carry a single skill tag underneath the "what it proves" block, sourced from the proof-anchors map in the compendium. Lower priority; do only if it doesn't bloat the page.
+-
+-**Constraints to preserve:**
+-- Voice rules. The compendium uses some words this site has banned in body copy (e.g. `pivotal`, `delve`, `tapestry`) — the file is a *drafting source*. Run the route-copy scan after every section ports across.
+-- Claim posture. The compendium calls out: *"External-use rule: this note is a drafting source, not a blanket approval. Public portfolio copy, exact metrics, employer-specific detail, route-reachable screenshots, and named internal systems still need claim-governance review."* Treat every named system / metric the same way the existing `content/proof-metrics.ts` model does.
+-- Editorial register. Don't ship the compendium as raw markdown. Render through the design system: GT Sectra display, mono labels, fig captions where artifacts appear.
+-- 11 skills × 6 fields per skill = 66 cells of content. Don't render all of it at once. Use a `<DensityToggle>` or progressive disclosure pattern. The case-study density-toggle idea from the prior critique is finally relevant.
+-
+-**Skill-level fields in the source:**
+-- Working definition
+-- Why it matters now
+-- Connor-specific read
+-- Proof anchors
+-- Resume / CV language
+-- Cover letter / recruiter language
+-- Interview prompt this answers
+-- Portfolio angle
+-- Avoid reducing this to
+-
+-**The 11 skills in order:**
+-1. Taste applied at velocity
+-2. Specification clarity
+-3. Decision quality under uncertainty
+-4. Narrative construction / sensemaking
+-5. Epistemic humility with conviction
+-6. Cross-functional frame fluency
+-7. Trust calibration
+-8. Delegation to non-humans
+-9. Governance without drag
+-10. Signal detection / instrumentation skepticism
+-11. Operator empathy / adoption design
+-
+-**Suggested rough build order:**
+-1. Read the source file in full.
+-2. Brainstorm placement with `brainstorming` skill — get Connor's call on the route name (`/soft-skills` vs `/positioning` vs `/edge`) and the integration shape (canonical page + homepage echo, or single homepage section).
+-3. Add a new `content/soft-skills.ts` with the 11 entries typed as a `SoftSkill` interface, mirroring the structure of `content/proof-metrics.ts`. Preserve the public-use posture on each skill where the compendium is cagey.
+-4. Build the new route `app/<route>/page.tsx`. Long-form layout: hero block ("taste applied at velocity"), then 11 skill cards or sections with progressive disclosure for the resume/recruiter language.
+-5. Echo into homepage as a single section. Link to the canonical route.
+-6. Add link from header nav (now 6 destinations: About, Case studies, Resume, Tools, Soft skills, Contact). Consider whether the header still scans at 6 links or needs a dropdown.
+-7. Voice scan, lint, build, screenshot diff.
+-
+-### 2.2 Open questions to surface to Connor
+-
+-1. Canonical route name. `/positioning`, `/soft-skills`, `/edge`, `/operating-system`, something else?
+-2. Should the new section also appear on the **resume route** as a sidebar, or only link out from there?
+-3. Header nav budget. 6 destinations is the upper end of what the current line-up holds without wrapping at 1024px. Drop "Contact" (it's already a CTA on every page) to make room?
+-4. Some of the "proof anchors" reference systems Connor hasn't shipped publicly as case studies yet (e.g. `Governed RFP/RFX AI Answer Library`, `Leadership + Team Development Operating System`). Should these become new case-study slugs, or stay as named anchors without click-through links?
+-5. The compendium's `### Phrases to avoid` block at line 475 is itself a writing-discipline artifact. Worth surfacing on the public route, or strictly internal?
+-
+-### 2.3 Other small follow-ups already queued
+-
+-These are not blockers for the soft-skills work; they can ship in parallel or be deferred:
+-
+-- **Density toggle on case-study detail pages.** Sticky TOC landed; the actual "TLDR / 5-min / 15-min" density toggle is still scrolling-to-anchor rather than swapping content. Refactor of the 699-line detail page deferred.
+-- **WebGL card hover** on signature-system cards (dither distortion under the cursor on each card). Deferred.
+-- **Redaction shader** (replace the CSS RedactionReveal with a shader pixelation pass). Deferred.
+-- **Strategy memo copy refresh** (`/case-studies/strategy-memo`). The frame is fine; copy still uses the prior voice. Light pass needed.
+-- **Explicit axe + Lighthouse runs.** Inline-verified by inspection, no formal numeric scores recorded.
+-- **The Fig. 02 OG image** (`/public/og/og.webp`) is now the typographic poster from Midjourney; the root `/opengraph-image.tsx` still points at `/og/og.jpg` (legacy). Swap the layout.tsx metadata image to `/og/og.webp` once verified.
++- `content/soft-skills.ts` contains the typed 11-skill public projection, grouped into three acts, with proof-anchor posture and public-use controls.
++- `app/edge/page.tsx` renders the canonical route: header, hero, stake block, chapters, closing pull-quote, reading progress, mobile chip, and `HireSignal` carry.
++- `app/edge/opengraph-image.tsx` exists for route-specific OG output.
++- `components/edge/*` contains the route system, including `EdgeHero`, `EdgeStakeBlock`, `EdgeChapters`, `EdgeStickyTOC`, `EdgeEcho`, `EdgeClosing`, `EdgeReadingProgress`, `EdgeMobileChip`, and supporting visual components.
++- `components/Header.tsx` includes `Edge` in the nav.
++- `app/page.tsx` includes the homepage `EdgeEcho` section.
++- `app/resume/page.tsx` includes a “How I work” block linking to `/edge`.
++- `docs/superpowers/specs/2026-05-14-edge-route-design.md` is present as the route design/spec note.
++
++The old recommended build sequence for creating `content/soft-skills.ts`, choosing a route name, adding header/homepage/resume links, and building the route is complete in local files.
+ 
+ ---
+ 
+-## 3. Constraints and guardrails
++## 2. Important local repo state at this refresh
+ 
+-- **Do not push, deploy, open PRs, merge, or modify anything in `origin/main`.** Still a worktree.
+-- **Voice rules are strict.** `voiceDNA.md` is at the project root. No em dashes in body copy except inside `[Fig. N]` labels. No banned phrases. Route-copy scan after every batch of content edits.
+-- **Claim posture is sacred.** Numbers carry a `posture` field in `content/proof-metrics.ts`. Don't drop the field. Don't surface internal-only artifact sizes as personal achievements. The soft-skills source explicitly says external-use is approval-required for parts of it.
+-- **Reduced-motion is first-class.** Every animation has a `prefers-reduced-motion: reduce` fallback. Don't ship motion that breaks the reduced-motion path.
+-- **Light mode is a real mode.** Test both.
+-- **WCAG 2.1 AA floor.** Focus rings 2px accent outline with offset. Skip-to-content link.
+-- **Lint must stay clean** across the whole codebase.
+-- **Build must stay green.** All 41 routes SSG.
++`git status --short --branch` returned:
++
++```text
++## main...origin/main [ahead 1, behind 5]
++ M app/edge/opengraph-image.tsx
++ M app/edge/page.tsx
++ M components/edge/EdgeMobileChip.tsx
++ M content/case-studies/one-tsi-revenue-infrastructure.md
++```
++
++Recent commits visible locally:
++
++```text
++c3715337 [verified] add public proof metric guardrail
++3fcdbb9e Edge route + responsiveness, hero polish, and copy cleanup (#17)
++ba827489 docs: correct two stale refs in DESIGN.md and HANDOFF.md
++a182c175 docs: align README, CLAUDE.md, GOAL.md, MIDJOURNEY with shipped state
++19818b66 fix(csp): drop nonce + strict-dynamic so Next.js prerendered scripts load
++42e44c4b docs: handoff for next session, soft-skills compendium incorporation
++```
++
++Treat the four pre-existing modified files as Connor/workstream-owned until verified. This handoff refresh intentionally does not change public copy or code.
+ 
+ ---
+ 
+-## 4. State of the codebase
++## 3. Current product shape
+ 
+ ### Stack
+-- Next.js 16.1.6 (Turbopack), React 19.2.3
+-- Tailwind v4 (CSS variables via `@theme inline`)
++
++- Next.js 16.1.6, React 19.2.3
++- Tailwind v4 via CSS variables and `@theme inline`
+ - `next-themes` for dark/light
+-- `motion` (motion.dev), `lenis`, `ogl`
+-- `geist` + GT Sectra Fine (self-hosted from `public/fonts/gt-sectra-fine/`)
+-- No CMS. Everything is local content.
+-
+-### Routes (41 prerendered)
+-- `/`, `/about`, `/resume`, `/proof` (redirect)
+-- `/case-studies`, `/case-studies/[slug]` (11), `/case-studies/strategy-memo`
+-- `/case-studies/[slug]/opengraph-image` (11), `/opengraph-image`
+-- `/longform/[slug]` (4)
++- `motion`, `lenis`, `ogl`
++- Geist + self-hosted GT Sectra Fine
++- Local content only; no CMS
++
++### Routes to keep in mind
++
++- `/`
++- `/about`
++- `/resume`
++- `/edge`
++- `/case-studies`
++- `/case-studies/[slug]`
++- `/case-studies/strategy-memo`
++- `/longform/[slug]`
+ - `/tools/revops-capacity-planner`
+-- `/sitemap.xml`, `/robots.txt`
+-
+-### Key files for next session
+-- `lib/motion.ts` — motion primitive specs
+-- `components/SplitText.tsx`, `Magnetic.tsx`, `CustomCursor.tsx`, `FigureMarquee.tsx`, `SectionDivider.tsx`, `HeroSignature.tsx`, `ImpactLedger.tsx`, `PulseOnChange.tsx`
+-- `components/webgl/WebGLHero.tsx` — the OGL shader
+-- `app/page.tsx` — homepage, ~520 lines now
+-- `app/case-studies/[slug]/page.tsx` — case detail, 699+ lines (refactor target if density toggle gets built)
+-- `lib/markdown.tsx` — long-form renderer with table + 68ch + emoji-swap support
+-- `content/proof-metrics.ts` — claim-posture model; pattern to follow for `content/soft-skills.ts`
+-- `content/case-studies.ts` — 11 cases with 5-part structure
+-- `GOAL.md`, `DESIGN.md`, `MIDJOURNEY_PROMPTS.md`, `voiceDNA.md` — source of truth for design + voice
+-
+-### Skills to invoke in the new session
+-Use the Skill tool. Highest leverage:
+-
+-- `using-superpowers` — first thing in the session.
+-- `brainstorming` — before placing the soft-skills content. Surface Connor's intent.
+-- `impeccable` — design review + critique driver.
+-- `frontend-design` — production frontend work.
+-- `make-interfaces-feel-better` — polish principles.
+-- `web-design-guidelines` — final guideline-compliance check.
+-- `redesign-existing-projects` — framing if the next session pivots to broader rework.
++- `/sitemap.xml`
++- `/robots.txt`
++
++### Core source files
++
++- `app/edge/page.tsx`
++- `content/soft-skills.ts`
++- `components/edge/*`
++- `app/page.tsx`
++- `app/resume/page.tsx`
++- `components/Header.tsx`
++- `content/proof-metrics.ts`
++- `content/case-studies.ts`
++- `voiceDNA.md`
++- `DESIGN.md`
++- `GOAL.md`
++- `README.md`
++
++---
++
++## 4. Guardrails
++
++- Do not push, deploy, open PRs, merge, reset, or mutate `origin/main` unless Connor explicitly asks.
++- Do not change public-facing copy from this handoff alone. Any public copy work must pass `voiceDNA.md`, claim posture, and humanizer/voice review.
++- Preserve the external-use posture from the original soft-skills compendium. The vault compendium is a drafting source, not blanket approval to publish every proof anchor, metric, employer-specific detail, or internal system name.
++- Keep the `content/proof-metrics.ts` posture model intact; do not remove posture/public-use metadata for convenience.
++- Reduced motion, light mode, keyboard/focus states, and WCAG 2.1 AA remain hard requirements.
++- The portfolio repo has pre-existing local modifications. Verify live git state before editing anything beyond documentation.
+ 
+ ---
+ 
+-## 5. Recommended kickoff sequence
+-
+-1. Spawn into the worktree path above.
+-2. `git status` and `git log --oneline -15` to confirm state.
+-3. Read this HANDOFF.md.
+-4. Read `GOAL.md`, `DESIGN.md`, `voiceDNA.md`.
+-5. Invoke `using-superpowers`.
+-6. Read the soft-skills source file in full (`/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Career/Resume & Positioning/Executive Soft Skills Compendium - GTM Engineer - 2026-05-13.md`).
+-7. Invoke `brainstorming` to align with Connor on route name + integration shape.
+-8. `npm install`, `npm run lint`, `npm run build` to confirm baseline.
+-9. Start `npm run dev` (port 3000) and open the Playwright MCP.
+-10. Build the new content/soft-skills.ts. Type it. Preserve postures.
+-11. Build the route. Voice-scan + lint + build after each section.
+-12. Echo into homepage. Link from header (consider drop if 6 nav items wraps).
+-13. Commit atomically per logical unit.
++## 5. Remaining work / recommended next steps
++
++The highest-value next session is no longer “build /edge from scratch.” It is a verification and narrative-polish pass:
++
++1. Reconcile local branch drift: inspect why `main` is ahead 1 / behind 5 before any pull, merge, or rebase. Do not mutate without Connor approval.
++2. Inspect the four pre-existing modified files and decide whether they are intended local polish or need preservation in a patch/handoff.
++3. Run `npm run lint` and `npm run build` after confirming dependencies are installed.
++4. Run `npm run proof:guard` to validate public-proof posture.
++5. Start local dev and smoke `/edge`, `/`, `/resume`, and the touched case-study route.
++6. Voice-scan rendered pages, especially `/edge`, `/resume`, and homepage echo copy.
++7. Check `/edge` responsive behavior, sticky TOC/reading progress, mobile chip, light mode, reduced motion, and keyboard navigation.
++8. If code/copy changes are needed, keep them atomic and local until Connor approves commit/push/deploy.
++
++Small open follow-ups from the prior handoff that may still matter:
++
++- Case-study density toggle remains deferred unless built elsewhere.
++- Signature-system WebGL card hover remains deferred.
++- Redaction shader remains deferred.
++- Strategy memo copy may still need a light voice pass.
++- Root OG metadata should be checked against the current `/public/og/*` state before changing.
+ 
+ ---
+ 
+ ## 6. Validation commands
+ 
+ ```bash
+-# Lint + build
++cd /Users/connorlaughlin/clawd/career/portfolio-v2
++
++git status --short --branch
++git log --oneline -8
++
+ npm run lint
+ npm run build
++npm run proof:guard
++```
++
++Rendered voice scan after starting `npm run dev`:
+ 
+-# Voice scan against rendered HTML (dev server must be up)
+-ROUTES=(/ /about /case-studies /case-studies/revenue-operations-signal-to-revenue /case-studies/strategy-memo /resume /tools/revops-capacity-planner /longform/revenue-operating-system-from-zero)
++```bash
++ROUTES=(/ /about /edge /case-studies /case-studies/revenue-operations-signal-to-revenue /case-studies/strategy-memo /resume /tools/revops-capacity-planner /longform/revenue-operating-system-from-zero)
+ for r in "${ROUTES[@]}"; do
+   body=$(curl -s --max-time 5 "http://localhost:3000${r}")
+-  txt=$(echo "$body" | sed -E 's/<[^>]*>//g')
+-  hits=$(echo "$txt" | grep -ioE "leverage|robust|dossier|outperform|pivotal|tapestry|delve|harness|elevate|unleash|supercharge|revolutionize|future-proof|testament|foster|intricate|meticulous|nestled|bustling|beacon|enduring|interplay|embark|multifaceted|elucidating|culminating|swiftly|architecture of trust|game-changer|cutting-edge|furthermore|notably|consequently|not just|not only" | sort -u)
+-  [ -n "$hits" ] && echo "  ${r}: $hits"
++  txt=$(printf '%s' "$body" | perl -0777 -pe 's/<[^>]*>/ /g')
++  hits=$(printf '%s' "$txt" | grep -ioE "leverage|robust|dossier|outperform|pivotal|tapestry|delve|harness|elevate|unleash|supercharge|revolutionize|future-proof|testament|foster|intricate|meticulous|nestled|bustling|beacon|enduring|interplay|embark|multifaceted|elucidating|culminating|swiftly|architecture of trust|game-changer|cutting-edge|furthermore|notably|consequently|not just|not only" | sort -u || true)
++  [ -n "$hits" ] && printf '%s: %s\n' "$r" "$hits"
+ done
+-
+-# Font subset (only when changing the Unicode range)
+-./scripts/subset-fonts.sh
+ ```
+ 
+ ---
+ 
+-## 7. Acceptance for next session
++## 7. Exact next-session prompt
++
++```text
++Continue portfolio verification from this handoff file:
+ 
+-The soft-skills incorporation is done when:
++/Users/connorlaughlin/clawd/career/portfolio-v2/HANDOFF.md
+ 
+-- A canonical route at the chosen URL renders all 11 skills with the editorial register intact.
+-- Voice scan returns zero banned phrases on the new route.
+-- Public-use posture is preserved on every skill that the source flagged as approval-required.
+-- Lint clean, build green.
+-- Homepage carries a single linkable echo block.
+-- Header nav still scans on lg / xl without wrapping (or shifts to a sensible dropdown if 6 items doesn't hold).
+-- Reduced motion + light mode both verified on the new route.
+-- The route is reachable from at least: header nav, homepage echo block, and resume sidebar (per Connor's call).
+-- The voice rules from voiceDNA.md hold across every line.
++First:
++1. Load relevant portfolio/frontend/handoff skills.
++2. Read HANDOFF.md, voiceDNA.md, content/soft-skills.ts, app/edge/page.tsx, and components/edge/*.
++3. Confirm live git state before editing; the last handoff saw main ahead 1 / behind 5 and four pre-existing modified files.
++4. Do not push, deploy, open PRs, merge, reset, or change public copy unless Connor explicitly asks.
++5. Verify /edge, homepage echo, resume link, proof guard, lint/build, voice scan, reduced motion, light mode, and mobile behavior.
++```
+ 
+ ---
+ 
+-**End of handoff. The site is in great shape. The soft-skills work is the next high-leverage move. Don't be afraid to push back on the route name or the integration shape if Connor's first answer doesn't feel right.**
++**End of handoff. Current truth: /edge exists; next work is verification, branch-state reconciliation, and any Connor-approved polish — not first-pass route creation.**
+diff --git a/app/edge/opengraph-image.tsx b/app/edge/opengraph-image.tsx
+index 00dfe211..4a5b7372 100644
+--- a/app/edge/opengraph-image.tsx
++++ b/app/edge/opengraph-image.tsx
+@@ -1,7 +1,7 @@
+ import { ImageResponse } from "next/og";
+ 
+ export const alt =
+-  "Edge — Taste applied at velocity. Eleven operating-edge skills by Connor J. Laughlin.";
++  "Edge: Taste applied at velocity. Eleven operating-edge skills by Connor J. Laughlin.";
+ export const size = { width: 1200, height: 630 };
+ export const contentType = "image/png";
+ 
+diff --git a/app/edge/page.tsx b/app/edge/page.tsx
+index 5624b6c5..572878ed 100644
+--- a/app/edge/page.tsx
++++ b/app/edge/page.tsx
+@@ -10,7 +10,7 @@ import { HireSignal } from "@/components/HireSignal";
+ 
+ export const metadata: Metadata = {
+   title:
+-    "Edge — Taste applied at velocity | Connor J. Laughlin",
++    "Edge: Taste applied at velocity | Connor J. Laughlin",
+   description:
+     "Eleven operating-edge skills reframed as AI-native advantages, around the umbrella thesis: taste applied at velocity.",
+ };
+diff --git a/components/edge/EdgeMobileChip.tsx b/components/edge/EdgeMobileChip.tsx
+index f99ddbdc..e8eee92f 100644
+--- a/components/edge/EdgeMobileChip.tsx
++++ b/components/edge/EdgeMobileChip.tsx
+@@ -89,7 +89,7 @@ export function EdgeMobileChip() {
+         <div className="flex flex-col h-full">
+           <header className="flex items-center justify-between px-6 py-4 border-b border-rule">
+             <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-accent">
+-              Edge — chapters
++              Edge: chapters
+             </span>
+             <button
+               type="button"
+diff --git a/content/case-studies/one-tsi-revenue-infrastructure.md b/content/case-studies/one-tsi-revenue-infrastructure.md
+index b364d6e0..279daa2b 100644
+--- a/content/case-studies/one-tsi-revenue-infrastructure.md
++++ b/content/case-studies/one-tsi-revenue-infrastructure.md
+@@ -85,9 +85,9 @@
+ **Attribution Framework:**
+ - ✅ **Connor's Work:** Architecture, governance, strategy, AI systems, process design
+ - ✅ **Team Execution:** Content production, sales development, campaign deployment
+-- ✅ **Client Results:** TSI's service delivery (debt recovery, RCM) — marketed but not built by Connor
++- ✅ **Client Results:** TSI's debt recovery and RCM services, marketed by Connor and delivered by the operating business
+ 
+-**Key Insight:** This wasn't just "marketing" — it was building revenue infrastructure that made TSI's services discoverable, measurable, and scalable.
++**Key Insight:** The marketing work was revenue infrastructure: TSI's services became easier to find, measure, and sell.
+ 
+ ---
+ 
