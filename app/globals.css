@@ -249,6 +249,20 @@ body {
     repeating-linear-gradient(to bottom, var(--plate-grid) 0 1px, transparent 1px 8px);
 }
 
+/* Halftone photographic plate (FIG_020). The image is a two-colour screen,
+   blueprint ink on paper, so in light it already matches the drawings. Dark
+   prints it as a negative: inverting flips paper to ground and sends the ink
+   to its complement, and the 180deg rotation brings that complement back
+   round to blue, which is how the drawn figures read in cyanotype. Without
+   this the plate would sit on the dark page as a lit white rectangle. */
+.plate-duotone {
+  filter: none;
+}
+
+html.dark .plate-duotone {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 /* Dither checker band. A hard-edged checker on a 7px pitch in neutral gray
    over the ground: a printed halftone rule, not a fade. The drift is one tile
    over 14s, below the threshold of perceived motion. */

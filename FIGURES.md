@@ -43,7 +43,9 @@ a new figure always takes the next free number.
 | FIG_017 | Two function model | Chapter, marketing operating model | The two functions, the inputs each owns, the outputs each ships, and the review gate they share | Two runs merging on a held step. Demand inputs and outputs on one run, narrative inputs and outputs on the other, both tied into the shared gate drawn with the double outline. |
 | FIG_018 | Schema to page | Chapter, structured content system | The structured content pipeline from schema to published page | Sequence with a gate. Schema, content record, template, a QA check drawn as a held step, published page. |
 
+| FIG_020 | Portrait | `/about` | The desk in Chicago where the work in this manual was built | Photographic plate rather than a drawing. The desk illustration re-screened as a blueprint-on-paper halftone duotone so it sits in the same ink as the figures. |
+
 ## Reserved
 
-`FIG_019` and `FIG_020` are reserved for the remaining plates listed in the
-copy deck's figure index. Do not reuse these numbers for anything else.
+`FIG_019` is reserved for the remaining plate listed in the copy deck's figure
+index. Do not reuse this number for anything else.

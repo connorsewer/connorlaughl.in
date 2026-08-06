@@ -13,9 +13,9 @@ import { coverStats, proseProofClaims, renderableProofMetrics } from "@/content/
  * §3 excludes from the count. Copy is the approved deck's section 7, verbatim
  * apart from one word noted in the overnight log.
  *
- * The portrait is a placeholder: the existing photograph in a plain
- * `next/image` inside a blueprint border. Task 20 replaces it with the
- * halftone plate.
+ * The portrait is the halftone plate: the desk illustration re-screened as a
+ * blueprint-on-paper duotone so it belongs to the same drawing system as the
+ * figures, in a plain `next/image` inside a blueprint border.
  */
 
 export const metadata: Metadata = {
@@ -36,10 +36,10 @@ const manualSections: TocSection[] = tocSections.map((section) => ({
 }));
 
 const PORTRAIT = {
-  src: "/hero/desk-portrait.webp",
-  width: 1024,
-  height: 1539,
-  alt: "Connor J. Laughlin at his desk in Chicago, working at a laptop with his dog beside him.",
+  src: "/about/portrait-plate.webp",
+  width: 848,
+  height: 1264,
+  alt: "Halftone plate of Connor J. Laughlin standing at his desk in Chicago, screens and notepad in front of him and his dog on the rug beside him.",
 };
 
 export default function AboutPage() {
@@ -109,7 +109,7 @@ export default function AboutPage() {
               height={PORTRAIT.height}
               sizes="(min-width: 768px) 26rem, 100vw"
               priority
-              className="block h-auto w-full"
+              className="plate-duotone block h-auto w-full"
             />
           </div>
           <figcaption className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
