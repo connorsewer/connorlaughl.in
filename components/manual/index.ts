@@ -14,3 +14,16 @@ export {
   ColophonFooter,
   type ColophonFooterProps,
 } from "@/components/manual/ColophonFooter";
+
+/* Chapter chrome. */
+export {
+  ChapterLayout,
+  type ChapterLayoutProps,
+} from "@/components/manual/ChapterLayout";
+export {
+  SidebarTOC,
+  type SidebarTOCProps,
+  type TocEntry,
+  type TocSection,
+} from "@/components/manual/SidebarTOC";
+export { ChapterMeta, type ChapterMetaProps } from "@/components/manual/ChapterMeta";
