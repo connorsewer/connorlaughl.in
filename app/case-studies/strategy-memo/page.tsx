@@ -1,180 +1,101 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Header } from "@/components/Header";
 import type { Metadata } from "next";
 
+import { ChapterLayout, type TocSection } from "@/components/manual";
+import { caseStudies } from "@/content/case-studies";
+import { cta, tocSections } from "@/content/cover";
+
+/**
+ * Strategy memo (deck section 4). Last chapter of Section 1.
+ *
+ * Text-only by design: spec §5 permits a chapter with no figure where no
+ * honest one exists, and the method behind this page has no diagram that is
+ * true rather than decorative. No claims are asserted here, so the page reads
+ * nothing from `content/proof-metrics.ts`.
+ */
+
+const CHAPTER_TITLE = "Strategy memo: how I think before I build";
+const DEK = "The questions I answer before writing a line of a plan.";
+
+const INTRO = [
+  "Before I build anything I write the memo. Who the buyer is. What they already believe. Which claim we can defend if someone pushes on it. What has to be true for the plan to work, and what we'd do if it isn't.",
+  "If those answers don't survive one page, the system built on top of them won't survive contact with a real quarter.",
+];
+
+/** Chapter order, straight from `content/case-studies.ts`. The memo runs last. */
+const lastCaseStudy = caseStudies[caseStudies.length - 1];
+
+const manualSections: TocSection[] = tocSections.map((section) => ({
+  num: section.num,
+  title: section.title,
+  entries: section.entries.map((entry) => ({
+    num: entry.num,
+    title: entry.title,
+    href: entry.href,
+    dek: entry.dek,
+  })),
+}));
+
 export const metadata: Metadata = {
-  title: "Strategy memo | Connor J. Laughlin",
-  description:
-    "A short memo on how modern GTM gets built. Governance, instrumentation, narrative discipline.",
+  title: `${CHAPTER_TITLE} | Connor J. Laughlin`,
+  description: DEK,
 };
 
 export default function StrategyMemo() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main id="main-content" className="mx-auto max-w-4xl px-6 pt-10 md:pt-14 pb-20">
-        <article className="rounded-3xl border border-rule bg-ink/35 px-6 md:px-10 py-10 md:py-12">
-          <div className="flex items-center justify-between gap-6 flex-wrap">
-            <Link
-              className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/70 hover:text-paper transition-colors"
-              href="/"
-            >
-              <span aria-hidden="true">←</span> Home
-            </Link>
-            <span className="status-pill pixel-flicker">Memo · 2024</span>
-          </div>
+    <ChapterLayout
+      section="Revenue systems"
+      sectionHref="/case-studies"
+      chapter={CHAPTER_TITLE}
+      prev={{
+        title: lastCaseStudy.title,
+        href: `/case-studies/${lastCaseStudy.slug}`,
+      }}
+      sections={manualSections}
+      activeHref="/case-studies/strategy-memo"
+    >
+      <header className="max-w-[68ch]">
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+          Memo
+        </p>
+        <h1 className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]">
+          {CHAPTER_TITLE}
+        </h1>
+        <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
+          {DEK}
+        </p>
+      </header>
 
-          <figure className="mt-8 flex flex-col gap-3">
-            <div className="dither-frame w-full">
-              <div className="frame-well relative w-full">
-                <Image
-                  src="/strategy-memo/cover.webp"
-                  alt="Flat-lay of printed worksheets, a black notebook, a pen, paperclips, and a glass of water on a desk."
-                  width={1600}
-                  height={901}
-                  sizes="(min-width: 1024px) 56rem, 100vw"
-                  priority
-                  className="block w-full h-auto"
-                />
-              </div>
-            </div>
-            <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[10px] tracking-[0.2em] uppercase text-paper/55">
-              <span className="fig-num">Fig. 50</span>
-              <span aria-hidden="true">·</span>
-              <span className="normal-case tracking-wide text-paper/65">
-                The desk · KPI dictionary, claims register, audit log
-              </span>
-            </figcaption>
-          </figure>
+      <section aria-label="Opening" className="mt-10 max-w-[68ch]">
+        {INTRO.map((paragraph, index) => (
+          <p
+            key={index}
+            className={index === 0 ? "manual-body manual-dropcap" : "manual-body mt-5"}
+          >
+            {paragraph}
+          </p>
+        ))}
+      </section>
 
-          <div className="mt-10">
-            <span className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">
-              Short memo
-            </span>
-            <h1 className="mt-4 font-display text-4xl md:text-5xl leading-tight text-balance">
-              How I think about GTM right now.
-            </h1>
-            <p className="mt-4 text-lg text-paper-muted leading-relaxed max-w-2xl">
-              Governance. Instrumentation. Narrative discipline. The dashboard is not the system. The system is the system.
-            </p>
-          </div>
+      <hr className="mt-12 border-grid-line" />
 
-          <div className="rule mt-8" />
-
-          <div className="mt-8 grid md:grid-cols-3 gap-4">
-            {[
-              ["THESIS", "Trust runs as infrastructure, not a brand campaign."],
-              ["METHOD", "Define KPIs. Build routing. Add automation. Enforce governance."],
-              ["PROMISE", "Speed without trust debt."],
-            ].map(([k, v]) => (
-              <div key={k} className="rounded-2xl border border-rule bg-ink/55 p-5">
-                <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60 uppercase">{k}</div>
-                <div className="mt-2 text-sm text-paper/80 leading-relaxed">{v}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="rule mt-10" />
-
-          <div className="mt-8 space-y-10 text-paper/80 leading-relaxed text-lg">
-            <section>
-              <div className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">01. The problem</div>
-              <p className="mt-4 drop-cap">
-                Most GTM teams do not have a performance problem. They have a trust problem. Definitions drift. Attribution becomes politics. The reporting layer turns into theater. When numbers cannot be believed, decisions cannot be made.
-              </p>
-            </section>
-
-            <section>
-              <div className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">02. The category trap</div>
-              <p className="mt-4">
-                Legacy industries inherit language they did not write. One word can sink a whole cycle: risk, compliance, collections, outsourcing. If the narrative is wrong, even excellent execution stays invisible.
-              </p>
-            </section>
-
-            <section>
-              <div className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">03. The pivot</div>
-              <p className="mt-4">
-                Treat compliance and customer experience as product features. Do not market around risk. Operationalize the reduction of it, then make the operational truth legible to the buyer.
-              </p>
-            </section>
-
-            <section>
-              <div className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">04. The engine</div>
-              <p className="mt-4">
-                AI scales output. Only governance scales trust. Every automation needs an owner, a log, a threshold for human review, and an escalation path.
-              </p>
-              <div className="mt-5 rounded-2xl border border-rule bg-ink/55 p-6">
-                <div className="font-mono text-[11px] tracking-[0.32em] text-paper/60 uppercase">Governance checklist</div>
-                <ul className="mt-4 space-y-3 text-sm" role="list">
-                  {[
-                    "What data does it touch. Who approved that access.",
-                    "Where does it write. Who owns the side effects.",
-                    "What gets logged. What's auditable.",
-                    "When does it stop and ask for a human.",
-                  ].map((item, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="font-pixel text-[10px] tracking-[0.2em] text-accent shrink-0 mt-1" aria-hidden="true">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-
-            <section>
-              <div className="font-mono text-[11px] tracking-[0.32em] text-accent uppercase">05. The operating system</div>
-              <p className="mt-4">
-                Instrumentation before dashboards. Routing before automation. Governance before scale. The goal is an org that ships faster over time and forecasts with confidence.
-              </p>
-              <figure className="mt-8 flex flex-col gap-3">
-                <div className="dither-frame w-full">
-                  <div className="frame-well relative w-full">
-                    <Image
-                      src="/strategy-memo/operating-review.webp"
-                      alt="Open three-ring binder showing a Weekly Operating Review packet next to a coffee cup and pen."
-                      width={1600}
-                      height={979}
-                      sizes="(min-width: 1024px) 56rem, 100vw"
-                      className="block w-full h-auto"
-                    />
-                  </div>
-                </div>
-                <figcaption className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[10px] tracking-[0.2em] uppercase text-paper/55">
-                  <span className="fig-num">Fig. 51</span>
-                  <span aria-hidden="true">·</span>
-                  <span className="normal-case tracking-wide text-paper/65">
-                    Weekly operating review · current quarter
-                  </span>
-                </figcaption>
-              </figure>
-            </section>
-          </div>
-
-          <div className="rule mt-10" />
-
-          <div className="mt-8 text-sm text-paper/65">
-            In a walkthrough I can share redacted artifacts and the operating blueprint underneath this memo.
-          </div>
-
-          <div className="mt-6 flex flex-wrap gap-4">
-            <Link
-              className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent hover:text-paper transition-colors"
-              href="/case-studies"
-            >
-              Open the index <span aria-hidden="true">→</span>
-            </Link>
-            <Link
-              className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/65 hover:text-paper transition-colors"
-              href="/#contact"
-            >
-              Email me <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </article>
-      </main>
-    </div>
+      <section aria-label="Contact" className="mt-10 flex flex-col items-start gap-5">
+        <a
+          href={cta.href}
+          className="inline-flex items-center border border-body-ink px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-body-ink transition-colors hover:bg-body-ink hover:text-sheet"
+        >
+          {cta.label}
+        </a>
+        <p className="max-w-[62ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/75">
+          {cta.secondary}
+        </p>
+        <Link
+          href="/case-studies"
+          className="font-mono text-[10px] uppercase tracking-[0.2em] text-blueprint underline underline-offset-4 transition-opacity hover:opacity-70"
+        >
+          Back to Section 1
+        </Link>
+      </section>
+    </ChapterLayout>
   );
 }

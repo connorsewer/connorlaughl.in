@@ -36,6 +36,8 @@ export type CaseStudy = {
   whatChanged: string;
   whyItMattered: string;
   whatItProves: string;
+  /** Chapter intro paragraphs, deck-verbatim. `{S6}` resolves through proof-metrics. */
+  chapterIntro: string[];
   proofMetrics: ProofMetric[];
   systemsBuilt: string[];
   artifactIdeas: string[];
@@ -57,8 +59,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "revenue-operations-signal-to-revenue",
     label: "REVENUE OPERATING SYSTEM",
-    title: "Revenue Operating System from Zero",
-    hook: "The GTM infrastructure behind $159.4M in influenced pipeline.",
+    title: "Revenue operating system from zero",
+    hook: "The funnel definitions, lifecycle stages, routing, and reporting that turned scattered activity into one system.",
+    chapterIntro: [
+      "There was no revenue system here before this. No agreed funnel, no lifecycle stages, no routing rules, and no reporting anyone trusted enough to argue with. I wrote the definitions first, built the plumbing under them, then put a weekly cadence on top so leaders had one place to look.",
+    ],
     audienceFit: [
       "Executive marketing leadership",
       "RevOps and pipeline accountability",
@@ -145,8 +150,7 @@ export const caseStudies: CaseStudy[] = [
     longformHref: "/longform/revenue-operating-system-from-zero",
 
     deck: "The operating layer behind a $159.4M influenced pipeline: definitions, KPIs, attribution, cadence.",
-    outcome:
-      "$159.4M marketing-influenced pipeline. $52.5M net-new revenue contribution. 35+ KPI framework. +400% CRM data completeness.",
+    outcome: "Built the GTM infrastructure behind a nine-figure influenced pipeline.",
     scope:
       "Lifecycle definitions → attribution → 35+ KPI framework → reverse-funnel math → close-date movement → executive reporting cadence.",
     stack: "CRM (Zoho/Salesforce concepts) • Dashboards • GA4 • Reporting",
@@ -163,8 +167,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "ai-native-gtm",
     label: "22-AGENT AI GTM OS",
-    title: "22-Agent AI GTM Operating System",
-    hook: "A 4-person team needed the operating capacity of a much larger department.",
+    title: "Governed AI operating layer",
+    hook: "A multi-agent layer that stages GTM work behind human approval gates and audit trails.",
+    chapterIntro: [
+      "I taught myself to code, then built the automation I kept asking someone else for. Proposal triage, research, competitive intelligence, content, and executive reporting all run through agents that stage the work. Humans approve it. Every run leaves a trail somebody can audit.",
+    ],
     audienceFit: ["AI GTM systems", "Executive marketing leadership"],
     signature: true,
     signatureOrder: 2,
@@ -246,8 +253,7 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     deck: "Governed agentic AI workflows for content, RFP, intel, and reporting, with human approval and audit logs.",
-    outcome:
-      "22-agent AI marketing operating system. 400% productivity uplift. 96% RFP response-time reduction. 115+ deliverables in 60 days.",
+    outcome: "Compressed RFP/RFX triage from a day-scale workflow to a minutes-scale workflow. Material productivity lift from a governed AI operating layer.",
     scope: "Research → brief → draft → approve → publish → audit.",
     stack: "Python • TypeScript • RAG • n8n • LLMs • MCP-style tools",
     governance: "Human approval gates • audit logs • drift and regression reviews",
@@ -262,8 +268,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "revenue-operations-pipeline-truth",
     label: "GHOST PIPELINE DETECTOR",
-    title: "Ghost Pipeline Detector",
-    hook: "Pipeline truth beats pipeline theater.",
+    title: "Ghost pipeline detector",
+    hook: "Instrumenting close-date drift, stage aging, and dead activity so pipeline reviews stop rewarding optimism.",
+    chapterIntro: [
+      "Three screens sit under the weekly pipeline review: deals whose close date keeps moving, deals aging past their stage definition, and deals with activity that never advanced anything. I built all three, plus the cadence that makes someone answer for what is on them.",
+    ],
     audienceFit: [
       "RevOps and pipeline accountability",
       "Executive marketing leadership",
@@ -328,8 +337,7 @@ export const caseStudies: CaseStudy[] = [
     sourceCrossrefs: ["candidate-profile-master-v3.md:379-409"],
 
     deck: "Weekly ghost-pipeline inspection so forecast calls stop relying on optimism.",
-    outcome:
-      "35+ KPI RevOps framework. Board-ready cadence. +400% CRM data completeness improvement.",
+    outcome: "Designed a 35+ KPI funnel architecture from awareness through revenue and unit economics. Built the GTM infrastructure behind a nine-figure influenced pipeline.",
     scope: "Close-date movement → stage aging → activity ratios → rep accountability → executive package.",
     stack: "CRM • Dashboards • SQL • BI",
     governance: "Versioned KPI definitions • weekly review cadence • access controls",
@@ -344,8 +352,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "bdr-pod-signal-to-meeting",
     label: "SIGNAL DEMAND ENGINE",
-    title: "Signal-Based Demand Engine",
-    hook: "I turned website and account intent into a sales-action workflow.",
+    title: "Signal-based demand engine",
+    hook: "Buying signals routed to a tiered response model, with a two-hour rule on the highest-priority ones.",
+    chapterIntro: [
+      "Most outbound treats every account the same way. I built a tiering model that reads buying signals, routes each tier to the right motion, and holds the team to a response window. The highest-priority signals get a two-hour rule. Every other tier gets a defined window and a named owner.",
+    ],
     audienceFit: ["Demand generation", "RevOps and pipeline accountability"],
     signature: true,
     signatureOrder: 4,
@@ -421,8 +432,7 @@ export const caseStudies: CaseStudy[] = [
     sourceCrossrefs: ["candidate-profile-master-v3.md:283-311"],
 
     deck: "Signal-driven BDR pod with SLA discipline and pipeline accountability.",
-    outcome:
-      "Multi-million first-90-day signal pipeline. Directional held-meeting-to-SQL conversion. High-priority SLA discipline.",
+    outcome: "Built tiered signal-to-touch SLAs, including a two-hour high-priority response rule. Built the GTM infrastructure behind a nine-figure influenced pipeline.",
     scope: "Signal capture → ICP score → enrichment → routing → SLA → review.",
     stack: "Account-intent signals • CRM • sequences • enrichment",
     governance: "Enforced SLA • documented workflow • weekly operating review",
@@ -438,8 +448,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "gtm-strategy-positioning",
     label: "PLATFORM NARRATIVE + ICP",
-    title: "Platform Narrative and ICP Intelligence System",
-    hook: "Five regulated business lines needed one market story with proof behind it.",
+    title: "Platform narrative and ICP intelligence",
+    hook: "A five-pillar positioning framework tied to proof, and the ICP work underneath it.",
+    chapterIntro: [
+      "Positioning falls over when nobody can prove it. I built a five-pillar framework where each pillar carries a buyer outcome and the evidence behind it, then wired it into the ICP definitions sales works from. The pillars stay unnamed on this page on purpose.",
+    ],
     audienceFit: [
       "Product marketing and narrative",
       "Executive marketing leadership",
@@ -523,8 +536,7 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     deck: "One master GTM narrative across five regulated business lines, with proof governance.",
-    outcome:
-      "774-line messaging architecture. 10,900-word master GTM brief. 20+ stakeholder interviews. 5-pillar positioning framework. 75% faster RFP turnaround (directional).",
+    outcome: "Built a five-pillar positioning framework tied to proof and buyer outcomes.",
     scope:
       "Stakeholder interviews → ICP intelligence → positioning architecture → claims register → enablement.",
     stack: "Messaging system • Proof library • Claims register • Enablement",
@@ -541,8 +553,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "debtnext-integration",
     label: "POST-ACQUISITION SAAS",
-    title: "Post-Acquisition SaaS GTM Bridge",
-    hook: "Acquired software needed a market story, cross-sell path, and sales motion.",
+    title: "Post-acquisition GTM bridge",
+    hook: "Marketing integration across acquired brands, web properties, and a regulated Canadian business unit.",
+    chapterIntro: [
+      "Acquisitions arrive with their own brand, their own pipeline, and their own idea of how selling works. I ran the marketing half of the merge: one architecture, one set of definitions, and a bridge that put the acquired software product into the motion that already existed. For the Canadian unit I learned the compliance and market requirements first, then operationalized them.",
+    ],
     audienceFit: [
       "Post-acquisition GTM",
       "Product marketing and narrative",
@@ -617,8 +632,7 @@ export const caseStudies: CaseStudy[] = [
     longformHref: "/longform/post-acquisition-saas-bridge",
 
     deck: "Hybrid post-acquisition GTM with PLG, sales-assist, and enterprise-services expansion.",
-    outcome:
-      "$254M cross-sell whitespace identified from 2,676 clients. 73% CAC reduction (company-level). 112% NRR (company-level). 7 acquisitions integrated.",
+    outcome: "Led marketing integration across multiple acquisitions, acquired brands, web properties, and Canadian regulatory jurisdictions.",
     scope: "PLG → sales-assist → enterprise services → PQL scoring → customer-health → cross-sell.",
     stack: "CRM • Product analytics • Customer-health logic • Enablement",
     governance: "Named-account redaction • company-level claim labels • change control",
@@ -633,8 +647,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "marketing-analytics-architecture",
     label: "ANALYTICS ARCHITECTURE",
-    title: "Marketing Analytics Architecture (GA4 + CRM)",
-    hook: "Measurement rebuilt so attribution stopped lying.",
+    title: "Marketing analytics architecture",
+    hook: "Web analytics and CRM joined into one performance ledger that reconciles itself.",
+    chapterIntro: [
+      "Two systems, two versions of the truth, and a monthly argument about which one to believe. I joined web analytics to the CRM record so spend, source, and outcome land in one ledger row. The reconciliation that used to eat days now runs on its own.",
+    ],
     audienceFit: ["RevOps and pipeline accountability"],
     signature: false,
     businessProblem:
@@ -683,8 +700,7 @@ export const caseStudies: CaseStudy[] = [
 
     deck:
       "Measurement rebuilt from first principles: clean segmentation, event taxonomy, CRM capture.",
-    outcome:
-      "Clean B2B attribution segmented from consumer noise. Conversion events standardized. Analytics reliable enough to run RevOps off it.",
+    outcome: "Reduced manual reconciliation through an automated performance ledger.",
     scope:
       "Audience segmentation → content groupings → event taxonomy → UTM/GCLID governance → cross-domain tracking requirements.",
     stack: "GA4 • GTM • WordPress • CRM (Zoho/Salesforce concepts)",
@@ -701,8 +717,12 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "leadership-team-development",
     label: "LEADERSHIP OS",
-    title: "Leadership and Team Operating System",
-    hook: "Clear lanes, enforced SLAs, repeatable templates.",
+    title: "Leadership and team operating system",
+    hook: "How a near-zero-budget function became a board-backed team with an international model.",
+    chapterIntro: [
+      "{S6}",
+      "None of that scaled on charisma. Scope, review gates, escalation rules, and a cadence people could plan around all got written down, which is the only reason the team could grow without me in every room.",
+    ],
     audienceFit: ["Executive marketing leadership"],
     signature: false,
     businessProblem:
@@ -749,8 +769,7 @@ export const caseStudies: CaseStudy[] = [
       "I lead by building systems: clear lanes, measurable SLAs, review loops.",
 
     deck: "Clear lanes, enforced SLAs, repeatable templates.",
-    outcome:
-      "Marketing execution speed increased under SLA. Teams shipped with less thrash. Governance reduced rework.",
+    outcome: "",
     scope: "Org design → intake and prioritization → QA and governance → templates → cadence → coaching.",
     stack: "Operating cadence • Intake • Templates • Analytics",
     governance: "RACI • SLAs • weekly reviews • version control • escalation paths",
@@ -765,8 +784,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "outcome-first-repositioning",
     label: "OUTCOME-FIRST",
-    title: "Outcome-First Narrative Architecture",
-    hook: "Messaging rebuilt to lead with quantified outcomes over service language.",
+    title: "Outcome-first narrative architecture",
+    hook: "A messaging architecture where every claim carries its proof and its approval state.",
+    chapterIntro: [
+      "The acquired brands were each saying something different, and some of it couldn't be defended if a buyer pushed. I built a messaging architecture that leads with buyer outcomes, attaches evidence to every claim, and records who approved it. Sales says things the company can stand behind.",
+    ],
     audienceFit: ["Product marketing and narrative"],
     signature: false,
     businessProblem:
@@ -814,8 +836,7 @@ export const caseStudies: CaseStudy[] = [
     longformHref: "/longform/outcome-first-narrative-architecture",
 
     deck: "Messaging rebuilt to lead with quantified outcomes over service language.",
-    outcome:
-      "Outcome-anchored talk tracks across 6 BUs. Versioned messaging system with claim governance.",
+    outcome: "Built a multi-business-unit messaging architecture with proof governance and outcome-first positioning.",
     scope: "Feature mapping → talk tracks → language rules → enablement.",
     stack: "Outcome mapping • Sales enablement • Brand governance",
     governance: "Language rules • claim owners • versioned messaging system",
@@ -830,8 +851,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "marketing-org-design-governance",
     label: "MARKETING OPERATING MODEL",
-    title: "Two-Function Marketing Operating Model",
-    hook: "Marketing split into demand generation and enablement with enforced SLAs.",
+    title: "Two-function marketing operating model",
+    hook: "Splitting marketing into a demand function and a narrative function, with governance thin enough to ship through.",
+    chapterIntro: [
+      "The model is a one-page document: two functions, the inputs each one owns, the outputs each one ships, and the single review gate they share. Demand capture and platform narrative had been competing for the same people and losing to each other, so I gave them separate inputs and separate outputs.",
+    ],
     audienceFit: ["Executive marketing leadership"],
     signature: false,
     businessProblem:
@@ -880,8 +904,7 @@ export const caseStudies: CaseStudy[] = [
     longformHref: "/longform/revenue-operating-system-from-zero",
 
     deck: "Marketing split into demand generation and enablement with enforced SLAs.",
-    outcome:
-      "7-day brief-to-ship SLA. 200+ per year content output floor including 26 press releases per year.",
+    outcome: "Marketing under this model ran on written scope, review gates, and escalation rules rather than on my availability.",
     scope: "Org design → intake workflow → deck governance → GA4 segregation.",
     stack: "Beautiful.ai • GA4 • SharePoint • Marketing Hub",
     governance: "7-day SLA • output minimums • version control • cadence reviews",
@@ -896,8 +919,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "enterprise-site-overhaul",
     label: "ENTERPRISE WEB OPS",
-    title: "Enterprise Digital Presence Rebuild",
-    hook: "tsico.com rebuilt for enterprise conversion and clean measurement.",
+    title: "Enterprise digital presence rebuild",
+    hook: "A web rebuild, a structured content system underneath it, and accessibility fixed in the templates.",
+    chapterIntro: [
+      "The sites were slow, inconsistent between brands, and failing accessibility in ways that were easy to prove. We rebuilt on one architecture, then put a structured content system underneath so pages generate from schemas instead of briefs. Accessibility got fixed in the templates, which is where it stops coming back.",
+    ],
     audienceFit: ["SEO/GEO and content systems", "RevOps and pipeline accountability"],
     signature: false,
     businessProblem:
@@ -951,8 +977,7 @@ export const caseStudies: CaseStudy[] = [
       "I rebuilt tsico.com for enterprise conversion. Clean routing, clean measurement, measurable growth.",
 
     deck: "tsico.com rebuilt around enterprise conversion and clean measurement.",
-    outcome:
-      "6x qualified traffic increase (directional). +28% organic clicks. +19% enterprise lead engagement.",
+    outcome: "Designed a large-scale structured SEO/GEO content system across regulated verticals. Material organic growth from SEO and content infrastructure. Drove WCAG 2.1 AA remediation across web properties, including image, heading, statement, and contrast fixes.",
     scope: "UX audit → information architecture → B2B routing → GA4/GTM wiring.",
     stack: "WordPress • Elementor • GA4 • GTM",
     governance: "Conversion IA standards • strict B2B routing • measurement QA",

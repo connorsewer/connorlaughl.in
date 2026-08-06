@@ -14,9 +14,12 @@
  *    markers and HTML comments do not.
  *
  * 2. Case-study chapters: the prose fields that `app/case-studies/[slug]/page.tsx`
- *    actually renders as narrative. Enumerated from that file on 2026-08-05:
- *      title, hook, businessProblem, whatIBuilt, whatChanged, whyItMattered,
- *      whatItProves, systemsBuilt[], interviewLine
+ *    actually renders as narrative. Enumerated from that file on 2026-08-05,
+ *    re-enumerated after the manual chapter conversion:
+ *      title, hook, chapterIntro[], outcome, businessProblem, whatIBuilt,
+ *      whatChanged, whyItMattered, whatItProves, systemsBuilt[], interviewLine
+ *    `chapterIntro` may carry a `{S6}` placeholder the page resolves through
+ *    `content/proof-metrics.ts`; `proseTokens` expands it for counting.
  *    Deliberately NOT counted, though some are rendered: label, scope, stack,
  *    governance, audienceFit (metadata chrome, not prose), governanceNotes and
  *    sourceCrossrefs (internal governance record), proofMetrics (gated claim
@@ -76,11 +79,25 @@ export function longformWordCount(markdown) {
   return countWords(plain);
 }
 
-/** Rendered narrative fields of one case study. */
-export function caseStudyWordCount(cs) {
+/**
+ * Rendered narrative fields of one case study.
+ *
+ * `proseTokens` expands `{TOKEN}` placeholders that the page resolves through
+ * `content/proof-metrics.ts` at render time, so the count matches the rendered
+ * HTML rather than the 1-word placeholder. Callers that cannot resolve them
+ * (the CLI) pass nothing and undercount those chapters by the token's length.
+ */
+export function caseStudyWordCount(cs, proseTokens = {}) {
+  const expand = (value) =>
+    typeof value === "string"
+      ? value.replace(/\{([A-Z][A-Z0-9]*)\}/g, (match, key) => proseTokens[key] ?? match)
+      : value;
+
   return countFields([
     cs.title,
     cs.hook,
+    ...(cs.chapterIntro ?? []).map(expand),
+    cs.outcome,
     cs.businessProblem,
     cs.whatIBuilt,
     cs.whatChanged,
@@ -129,16 +146,17 @@ export function edgeWordCount({ heroThesis, acts, softSkills, renderProofAnchor 
  *   caseStudies: any[],
  *   longformSources: Record<string, string>,
  *   edge: Parameters<typeof edgeWordCount>[0],
+ *   proseTokens?: Record<string, string>,
  * }} data
  */
-export function wordCounts({ caseStudies, longformSources, edge }) {
+export function wordCounts({ caseStudies, longformSources, edge, proseTokens }) {
   /** @type {Record<string, number>} */
   const counts = {};
 
   let caseStudyTotalWords = 0;
   let caseStudyChapters = 0;
   for (const cs of caseStudies) {
-    const words = caseStudyWordCount(cs);
+    const words = caseStudyWordCount(cs, proseTokens);
     counts[`case-studies/${cs.slug}`] = words;
     caseStudyTotalWords += words;
     caseStudyChapters += 1;

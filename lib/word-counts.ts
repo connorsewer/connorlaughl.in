@@ -18,7 +18,18 @@ import {
   renderProofAnchor,
   softSkills,
 } from "@/content/soft-skills";
+import { proseProofClaims, renderableProofMetrics } from "@/content/proof-metrics";
 import { wordCounts, type WordCountResult } from "@/scripts/word-counts.mjs";
+
+/**
+ * `{S6}` in a chapter intro renders as the whole progression sentence pair.
+ * Resolved here so the counted projection matches the rendered HTML.
+ */
+function proseTokens(): Record<string, string> {
+  const [progression] = renderableProofMetrics(proseProofClaims);
+  if (!progression) return {};
+  return { S6: `${progression.value} ${progression.label}. ${progression.context}.` };
+}
 
 let cached: WordCountResult | null = null;
 
@@ -38,6 +49,7 @@ function compute(): WordCountResult {
       softSkills,
       renderProofAnchor,
     },
+    proseTokens: proseTokens(),
   } as Parameters<typeof wordCounts>[0]);
 }
 

@@ -234,7 +234,7 @@ function renderInline(src: string, key: string): ReactNode[] {
     if (t.type === "text") return <Fragment key={k}>{t.v}</Fragment>;
     if (t.type === "bold")
       return (
-        <strong key={k} className="font-semibold text-paper">
+        <strong key={k} className="font-semibold text-body-ink">
           {t.v}
         </strong>
       );
@@ -248,7 +248,7 @@ function renderInline(src: string, key: string): ReactNode[] {
       return (
         <code
           key={k}
-          className="font-mono text-[0.85em] px-1.5 py-0.5 rounded bg-paper/[0.05] text-paper/90"
+          className="font-mono text-[0.85em] px-1.5 py-0.5 bg-ground border border-grid-line text-body-ink"
         >
           {t.v}
         </code>
@@ -259,7 +259,7 @@ function renderInline(src: string, key: string): ReactNode[] {
         href={t.href}
         target={t.href.startsWith("http") ? "_blank" : undefined}
         rel={t.href.startsWith("http") ? "noopener noreferrer" : undefined}
-        className="text-accent link-editorial"
+        className="text-blueprint underline underline-offset-4 hover:opacity-70"
       >
         {t.v}
       </a>
@@ -270,16 +270,16 @@ function renderInline(src: string, key: string): ReactNode[] {
 export function renderMarkdown(md: string): ReactNode {
   const blocks = tokenize(md);
   return (
-    <div className="space-y-6 text-paper/85 leading-relaxed max-w-[68ch]">
+    <div className="space-y-6 max-w-[68ch] text-body-ink">
       {blocks.map((b, idx) => {
         const k = `b-${idx}`;
         if (b.type === "hr")
-          return <hr key={k} className="my-10 border-t border-rule" />;
+          return <hr key={k} className="my-10 border-t border-grid-line" />;
         if (b.type === "h1")
           return (
             <h1
               key={k}
-              className="font-display text-4xl md:text-5xl leading-tight text-balance mt-12 first:mt-0"
+              className="font-display text-body-ink text-4xl md:text-5xl leading-tight text-balance mt-12 first:mt-0"
             >
               {renderInline(b.text, k)}
             </h1>
@@ -288,7 +288,7 @@ export function renderMarkdown(md: string): ReactNode {
           return (
             <h2
               key={k}
-              className="font-display text-3xl md:text-4xl leading-snug text-balance mt-12"
+              className="font-display text-body-ink text-3xl md:text-4xl leading-snug text-balance mt-12"
             >
               {renderInline(b.text, k)}
             </h2>
@@ -297,7 +297,7 @@ export function renderMarkdown(md: string): ReactNode {
           return (
             <h3
               key={k}
-              className="font-display text-2xl leading-snug text-balance mt-10"
+              className="font-display text-body-ink text-2xl leading-snug text-balance mt-10"
             >
               {renderInline(b.text, k)}
             </h3>
@@ -306,14 +306,14 @@ export function renderMarkdown(md: string): ReactNode {
           return (
             <h4
               key={k}
-              className="font-mono text-[11px] tracking-[0.3em] uppercase text-accent mt-8"
+              className="font-mono text-[11px] tracking-[0.3em] uppercase text-blueprint mt-8"
             >
               {renderInline(b.text, k)}
             </h4>
           );
         if (b.type === "p")
           return (
-            <p key={k} className="text-base md:text-lg">
+            <p key={k} className="manual-body mt-5">
               {renderInline(b.text, k)}
             </p>
           );
@@ -321,14 +321,11 @@ export function renderMarkdown(md: string): ReactNode {
           return (
             <ul key={k} className="space-y-2 pl-4">
               {b.items.map((item, j) => (
-                <li
-                  key={`${k}-${j}`}
-                  className="flex gap-3 text-base md:text-lg"
-                >
-                  <span aria-hidden="true" className="text-accent shrink-0 mt-1">
+                <li key={`${k}-${j}`} className="flex gap-3">
+                  <span aria-hidden="true" className="text-blueprint shrink-0 mt-1">
                     ·
                   </span>
-                  <span>{renderInline(item, `${k}-${j}`)}</span>
+                  <span className="manual-body">{renderInline(item, `${k}-${j}`)}</span>
                 </li>
               ))}
             </ul>
@@ -339,7 +336,7 @@ export function renderMarkdown(md: string): ReactNode {
               {b.items.map((item, j) => (
                 <li
                   key={`${k}-${j}`}
-                  className="text-base md:text-lg marker:text-accent marker:font-mono marker:text-sm"
+                  className="manual-body marker:text-blueprint marker:font-mono marker:text-sm"
                 >
                   {renderInline(item, `${k}-${j}`)}
                 </li>
@@ -350,7 +347,7 @@ export function renderMarkdown(md: string): ReactNode {
           return (
             <blockquote
               key={k}
-              className="border-l-2 border-accent pl-5 py-1 italic text-paper/75 leading-relaxed text-base md:text-lg"
+              className="border-l-2 border-blueprint pl-5 py-1 font-serif-body italic text-body-ink/80 leading-relaxed text-base md:text-lg"
             >
               {renderInline(b.text, k)}
             </blockquote>
@@ -359,7 +356,7 @@ export function renderMarkdown(md: string): ReactNode {
           return (
             <pre
               key={k}
-              className="bg-paper/[0.04] border border-rule rounded-lg p-4 overflow-x-auto font-mono text-[12px] text-paper/80"
+              className="bg-ground border border-grid-line p-4 overflow-x-auto font-mono text-[12px] text-body-ink"
             >
               <code
                 dangerouslySetInnerHTML={{ __html: escape(b.text) }}
@@ -375,12 +372,12 @@ export function renderMarkdown(md: string): ReactNode {
           >
             <table className="w-full text-sm border-collapse">
               <thead>
-                <tr className="border-b border-rule">
+                <tr className="border-b border-blueprint/40">
                   {b.headers.map((h, j) => (
                     <th
                       key={`${k}-th-${j}`}
                       scope="col"
-                      className="font-mono text-[10px] tracking-[0.2em] uppercase text-paper/65 text-left px-3 py-2.5"
+                      className="font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/70 text-left px-3 py-2.5"
                     >
                       {renderInline(h, `${k}-th-${j}`)}
                     </th>
@@ -391,12 +388,12 @@ export function renderMarkdown(md: string): ReactNode {
                 {b.rows.map((row, ri) => (
                   <tr
                     key={`${k}-tr-${ri}`}
-                    className="border-b border-rule/70 last:border-b-0"
+                    className="border-b border-grid-line last:border-b-0"
                   >
                     {row.map((cell, ci) => (
                       <td
                         key={`${k}-td-${ri}-${ci}`}
-                        className="px-3 py-2.5 align-top text-paper/85 tabular-nums"
+                        className="px-3 py-2.5 align-top text-body-ink tabular-nums"
                       >
                         {renderInline(cell, `${k}-td-${ri}-${ci}`)}
                       </td>
