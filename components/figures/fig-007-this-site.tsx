@@ -27,7 +27,6 @@ export function Fig007ThisSite() {
       groundTruth="The portfolio's own build: typed content modules at the base, the proof-metrics gate above them, React components, the Tailwind token layer, Next.js App Router routes, and the prerendered HTML the build writes out."
       caption="The manual you are reading, drawn as its own exploded stack."
       viewBox="-333 -32 483 642"
-      className="mx-auto max-w-[34rem]"
     >
       <ExplodedStack layers={LAYERS} gap={92} labelSide="left" />
     </Figure>

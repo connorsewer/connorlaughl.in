@@ -7,7 +7,6 @@ import {
   ColophonFooter,
   CoverTOC,
   Masthead,
-  RulerRail,
   Sheet,
   StatTable,
   TerminalFAQ,
@@ -71,6 +70,15 @@ export default function Cover() {
   /* S6. Rendered as its whole progression sentence pair, never split. */
   const [progression] = renderableProofMetrics(proseProofClaims);
 
+  /* The stats row has to survive a reader counting the contents by hand, so
+     it reports the chapters the contents actually lists (sections 1 and 3).
+     One of them is set in code rather than markdown and so carries no word
+     count; the screen-reader text says so. */
+  const listedChapters = tocSections
+    .filter((section) => section.num === 1 || section.num === 3)
+    .reduce((total, section) => total + section.entries.length, 0);
+  const uncountedChapters = listedChapters - chaptersPublished();
+
   const statRows: StatRow[] = [
     {
       label: statsLabels.years,
@@ -87,7 +95,11 @@ export default function Cover() {
       value: acquisitions.value,
       srText: `${acquisitions.value}. ${acquisitions.context}.`,
     },
-    { label: statsLabels.chapters, value: String(chaptersPublished()) },
+    {
+      label: statsLabels.chapters,
+      value: String(listedChapters),
+      srText: `${listedChapters}. ${uncountedChapters} of them is set in code rather than markdown and carries no word count.`,
+    },
     { label: statsLabels.words, value: siteWordsPublished().toLocaleString("en-US") },
   ];
 
@@ -107,9 +119,7 @@ export default function Cover() {
     <div className="manual-root min-h-screen bg-ground-grid">
       <JsonLd data={personSchema} />
 
-      {/* Right padding clears the fixed RulerRail, which overlaps the nav at lg. */}
       <Masthead
-        className="lg:pr-14"
         tagline={
           <>
             <span className="block font-display text-[1.15rem] leading-snug text-body-ink">
@@ -127,10 +137,8 @@ export default function Cover() {
 
       <CheckerBand />
 
-      <RulerRail />
-
       <main className="mx-auto w-full max-w-[68rem] py-10 sm:px-6 lg:px-10 lg:py-16">
-        <Sheet id="main-content" as="article" className="px-5 py-10 sm:px-10 lg:px-16 lg:py-16">
+        <Sheet id="main-content" as="article" className="px-5 py-10 sm:px-10 lg:px-16 lg:py-12">
           {/* Intro (anatomy slot 3). Proof first, then chronology, then scope. */}
           <section aria-label="Opening" className="max-w-[68ch]">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-blueprint">
@@ -142,27 +150,16 @@ export default function Cover() {
             <p className="manual-body mt-5">
               {introChronology(years.value, verticals.value)}
             </p>
-          </section>
 
-          <div className="mt-12">
-            <Fig001RevenueOperatingLayers />
-          </div>
-
-          <section aria-label="Scope" className="mt-12 max-w-[68ch]">
-            <p className="manual-body">
+            <p className="manual-body mt-5">
               {progression.value} {progression.label}. {progression.context}.
             </p>
           </section>
 
-          {/* Cover figures (anatomy slot 4). */}
-          <section aria-label="Plates" className="mt-16 flex flex-col gap-16">
+          <div className="mt-10 max-w-[40rem]">
             <Fig002SignalToTouch />
-            <Fig003LifecycleStages />
-            <Fig004AttributionJoin />
-            <Fig005ApprovalGatePath />
-            <Fig006ClaimToPublish />
-            <Fig007ThisSite />
-          </section>
+          </div>
+
         </Sheet>
 
         {/* Contents (anatomy slot 5). */}
@@ -175,7 +172,7 @@ export default function Cover() {
           as="section"
           className="mt-8 scroll-mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-16"
         >
-          <h2 className="font-display text-[2rem] leading-tight text-body-ink sm:text-[2.5rem]">
+          <h2 className="border-b border-[color:#D8D8D6] pb-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.5rem]">
             Contents.
           </h2>
           <div className="mt-10">
@@ -183,13 +180,30 @@ export default function Cover() {
           </div>
         </Sheet>
 
+        {/* Cover figures (anatomy slot 4). Plates run at one width. */}
+        <Sheet as="section" className="mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-14">
+          <h2 className="font-serif-body text-[1.0625rem] font-semibold leading-snug text-body-ink">
+            The systems, drawn.
+          </h2>
+          <div className="mt-10 flex max-w-[40rem] flex-col gap-16">
+            <Fig001RevenueOperatingLayers />
+            <Fig003LifecycleStages />
+            <Fig004AttributionJoin />
+            <Fig005ApprovalGatePath />
+            <Fig006ClaimToPublish />
+            <Fig007ThisSite />
+          </div>
+        </Sheet>
+
         {/* Stats (anatomy slot 6). */}
         <Sheet as="section" className="mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-14">
-          <h2 className="sr-only">Site figures</h2>
-          <p className="max-w-[60ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
+          <h2 className="font-serif-body text-[1.0625rem] font-semibold leading-snug text-body-ink">
+            Site figures.
+          </h2>
+          <p className="mt-4 max-w-[60ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
             {statsPreamble}
           </p>
-          <div className="mt-8 max-w-[46rem]">
+          <div className="mt-8 max-w-[26rem]">
             <StatTable rows={statRows} caption={statsCaption} />
           </div>
         </Sheet>

@@ -60,7 +60,7 @@ html.light {
    under the transition's forced light and under the cyanotype dark theme
    that Task 18 layers on top via html.dark. */
 :root {
-  --ground: #F7F7F5;
+  --ground: #FBFBFB;
   --sheet: #FFFFFF;
   --body-ink: #171715;
   --blueprint: #2E47F1;
@@ -232,7 +232,7 @@ body:has(.manual-root)::after {
 /* Justified setting needs a measure wide enough to absorb the word spacing it
    creates. Below this the column opens rivers, so it stays ragged right and
    unhyphenated. */
-@media (min-width: 68rem) {
+@media (min-width: 60rem) {
   .manual-body {
     text-align: justify;
     text-justify: inter-word;
@@ -272,24 +272,15 @@ body:has(.manual-root)::after {
    the ground reads as engineering paper under the white content sheets,
    and a fine checker rule separates the major cover sections. */
 
-/* Graph-grid ground. Minor rule every 8px, major every 64px, both drawn from
-   the blueprint ink at very low alpha. Measured against the reference cover:
-   at full `--grid-line` strength the 8px rule reads as a visible grid rather
-   than as paper, so the minor rule runs at roughly half the token and the
-   major rule carries what little structure shows. */
+/* Graph-grid ground. One layer only: an 8px rule at a four-step delta off the
+   ground (#F3F3F1 on #FBFBFB). There is no major layer. Measured against the
+   reference cover, anything stronger reads as a visible grid rather than as
+   paper, and a second pitch reads as graph paper for a different trade. */
 .bg-ground-grid {
   background-color: var(--ground);
   background-image:
-    repeating-linear-gradient(
-      to right,
-      color-mix(in srgb, var(--grid-line) 55%, transparent) 0 1px,
-      transparent 1px 8px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--grid-line) 55%, transparent) 0 1px,
-      transparent 1px 8px
-    );
+    repeating-linear-gradient(to right, #F3F3F1 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(to bottom, #F3F3F1 0 1px, transparent 1px 8px);
 }
 
 /* Figure plate: white paper with the same 8px rule. In the reference the
@@ -302,18 +293,17 @@ body:has(.manual-root)::after {
     repeating-linear-gradient(to bottom, var(--grid-line) 0 1px, transparent 1px 8px);
 }
 
-/* Dither checker band. A 3px checker on a 6px tile, blueprint at low alpha
-   over the ground, so the band reads as a halftone rule rather than a solid
-   line. The drift is 6px over 14s: below the threshold of perceived motion,
-   enough to keep the dither from looking printed on. */
+/* Dither checker band. A hard-edged checker on a 7px pitch in neutral gray
+   over the ground: a printed halftone rule, not a fade. The drift is one tile
+   over 14s, below the threshold of perceived motion. */
 .manual-checker {
   height: 8px;
   background-color: var(--ground);
   background-image: repeating-conic-gradient(
-    color-mix(in srgb, var(--blueprint) 9%, transparent) 0% 25%,
+    #C6C6C2 0% 25%,
     transparent 0% 50%
   );
-  background-size: 6px 6px;
+  background-size: 7px 7px;
   background-position: 0 0;
 }
 
@@ -328,7 +318,7 @@ body:has(.manual-root)::after {
     background-position: 0 0;
   }
   to {
-    background-position: 6px 0;
+    background-position: 7px 0;
   }
 }
 

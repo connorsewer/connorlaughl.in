@@ -27,7 +27,6 @@ export function Fig001RevenueOperatingLayers() {
       groundTruth="The layer stack of the revenue operating system built from zero: funnel definitions at the base, then lifecycle stages, routing rules, response windows, pipeline inspection, and the executive cadence that sits on top."
       caption="The stack, bottom up. Each layer was a blank page first."
       viewBox="-318 -32 467 642"
-      className="mx-auto max-w-[34rem]"
     >
       <ExplodedStack layers={LAYERS} gap={92} labelSide="left" />
     </Figure>

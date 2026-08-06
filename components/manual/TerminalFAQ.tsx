@@ -2,14 +2,15 @@
  * FAQ, set as a terminal exchange.
  *
  * Reference crop: `docs/superpowers/reference/cover-1440.png`, the questions
- * block — mono `IN:` and `OUT:` prefixes down a hairline gutter, each answer
- * folded away until asked for. The chrome is the only thing borrowed: the
- * questions come from real hiring screens and the answers are written, not
- * generated (spec §3.7, §4).
+ * block — a bordered box, each exchange a header row and a body row split by
+ * a hairline, `IN:` and `OUT:` sitting in a neutral gutter down the left. The
+ * chrome is the only thing borrowed: the questions come from real hiring
+ * screens and the answers are written, not generated (spec §3.7, §4).
  *
- * Built on `<details>`/`<summary>` so keyboard and screen-reader behaviour is
- * the platform's, not ours. No JavaScript, so it works before hydration and
- * with scripting off.
+ * Answers render open. A `<details open>` still collapses on click for
+ * readers who want the list, but nothing is hidden from a static reader, a
+ * printer, or a page fetched without JavaScript. No chevrons: the `IN:` and
+ * `OUT:` rows are the affordance.
  */
 
 export type TerminalFAQEntry = {
@@ -22,42 +23,32 @@ export type TerminalFAQProps = {
   className?: string;
 };
 
+const GUTTER =
+  "w-11 shrink-0 select-none font-mono text-[10px] uppercase tracking-[0.16em] text-[color:#6B6B66]";
+
 export function TerminalFAQ({ entries, className }: TerminalFAQProps) {
   return (
-    <div className={`w-full ${className ?? ""}`}>
-      {entries.map((entry) => (
+    <div className={`w-full border border-body-ink ${className ?? ""}`}>
+      {entries.map((entry, i) => (
         <details
           key={entry.question}
-          className="group border-b border-grid-line last:border-b-0"
+          open
+          className={i > 0 ? "border-t border-body-ink" : undefined}
         >
-          <summary className="flex cursor-pointer list-none items-baseline gap-3 py-4 marker:hidden [&::-webkit-details-marker]:hidden">
-            <span
-              aria-hidden="true"
-              className="shrink-0 font-mono text-[10px] uppercase tracking-[0.2em] text-blueprint"
-            >
+          <summary className="flex cursor-pointer list-none items-baseline gap-3 px-4 py-3 marker:hidden [&::-webkit-details-marker]:hidden">
+            <span aria-hidden="true" className={GUTTER}>
               In:
             </span>
-
-            <span className="flex-1 font-serif-body text-[1rem] leading-snug text-body-ink transition-colors group-hover:text-blueprint">
+            <span className="flex-1 font-mono text-[11px] uppercase leading-relaxed tracking-[0.1em] text-body-ink">
               {entry.question}
-            </span>
-
-            <span
-              aria-hidden="true"
-              className="shrink-0 font-mono text-[11px] leading-none text-body-ink/40 transition-transform group-open:rotate-90"
-            >
-              &rsaquo;
             </span>
           </summary>
 
-          <div className="flex items-start gap-3 pb-5 pl-0">
-            <span
-              aria-hidden="true"
-              className="shrink-0 font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/45"
-            >
+          <div className="flex items-start gap-3 border-t border-grid-line px-4 py-4">
+            <span aria-hidden="true" className={GUTTER}>
               Out:
             </span>
-            <p className="max-w-[68ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
+            <p className="max-w-[68ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/85">
               {entry.answer}
             </p>
           </div>

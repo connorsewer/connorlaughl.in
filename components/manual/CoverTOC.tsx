@@ -45,19 +45,25 @@ export function CoverTOC({ sections, className }: CoverTOCProps) {
       <ol className="m-0 flex list-none flex-col gap-14 p-0">
         {sections.map((section) => (
           <li key={section.num}>
-            <h3 className="flex items-baseline gap-3 border-b border-grid-line pb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+            <h3
+              style={{
+                fontFamily:
+                  "var(--font-geist-pixel-square), var(--font-geist-mono), ui-monospace, monospace",
+              }}
+              className="flex items-baseline gap-3 border-b border-[color:#D8D8D6] pb-2 text-[0.8125rem] uppercase tracking-[0.1em] text-body-ink"
+            >
               <span>Section {section.num}</span>
-              <span aria-hidden="true" className="text-body-ink/25">
+              <span aria-hidden="true" className="text-body-ink/30">
                 /
               </span>
-              <span className="text-body-ink/70">{section.title}</span>
+              <span>{section.title}</span>
             </h3>
 
             <ol className="m-0 flex list-none flex-col p-0">
               {section.entries.map((entry) => (
                 <li
                   key={entry.href}
-                  className="border-b border-grid-line/70 py-4 last:border-b-0"
+                  className="py-3.5"
                 >
                   <div className="flex items-baseline gap-4">
                     <span
@@ -76,7 +82,7 @@ export function CoverTOC({ sections, className }: CoverTOCProps) {
 
                     <span
                       aria-hidden="true"
-                      className="mx-2 hidden h-px flex-1 self-center bg-grid-line sm:block"
+                      className="mx-2 hidden h-px flex-1 self-center border-b border-dotted border-[color:#D8D8D6] sm:block"
                     />
 
                     {typeof entry.words === "number" ? (
