@@ -308,3 +308,11 @@ Out of scope. Proposing any of these is a scope change, not a refinement.
   nothing else; a generated "diagram" is the AI-slop failure mode DESIGN.md §6
   bans.
 - **No second ambient loop**, and **no new color token** for this wave.
+
+## Appendix: build-phase notes from the round-2 review (GO, 8/10)
+
+1. Phase 2: do not delete `statFill` — wire the `StatTable` client wrapper through it (or strip its doc comment + `data-stat-row` attrs in the same commit). One of the two, never a dangling half.
+2. Phase 2: B1 re-measure rule — on resize, if a scroll-bound plate is now above-fold, drop the binding and force full draw.
+3. Phase 2: RulerRail reduced-motion branch renders no readout today; the `scroll()` rewrite must not register a binding in that branch.
+4. Phase 2: the `["start 0.9","start 0.3"]` offsets are deliberate (both bounds on the start edge so tall plates finish while partially below fold). Do not "correct" them.
+5. Phase 5: FIG_032 covers four assets (2 videos, 2 posters); decide the FIGURES.md row grammar before appending.
