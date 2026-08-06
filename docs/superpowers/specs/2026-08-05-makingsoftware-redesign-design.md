@@ -1,6 +1,6 @@
-# Spec: connorlaughl.in as a reference manual (Making Software redesign) — v2
+# Spec: connorlaughl.in as a reference manual (Making Software redesign) — v3
 
-- **Date:** 2026-08-05 (v2, after two adversarial reviews; v1 scored 5/10 by both reviewers)
+- **Date:** 2026-08-05 (v3. v1 scored 5/10 + 5/10 by two adversarial reviewers; v2 scored 7/10 "go with amendments" by a verification reviewer; v3 applies those amendments)
 - **Status:** Approved direction by Connor. Execution authorized overnight, local-only.
 - **Supersedes:** the dark editorial system in DESIGN.md / GOAL.md / MIDJOURNEY_PROMPTS.md (docs rewritten in Phase 6).
 - **Companion artifacts:** reference screenshots in `docs/superpowers/reference/` (Phase 0 output), overnight log at `docs/superpowers/2026-08-05-overnight-log.md`.
@@ -53,8 +53,8 @@ Patterns observed live on 2026-08-05 (cover + `/chapters/touch-screens`). Phase 
 Current code is dark-first with inverted usage (`body { background: var(--ink); color: var(--paper) }`, 230 `text-paper` / 36 `bg-ink` uses). Do NOT change the meaning of existing tokens mid-flight. Instead:
 
 - Phase 2 introduces a NEW token set, additive: `--ground: #F7F7F5`, `--sheet: #FFFFFF`, `--body-ink: #171715`, `--blueprint: #2E47F1`, `--fig-blue: #D8E0FA`, `--fig-lavender: #DCD6F7`, `--fig-teal: #CBEDE4`, plus utilities (`bg-ground`, `text-body-ink`, `text-blueprint`, `border-blueprint`, …). Values tuned against reference screenshots during Phase 2.
-- Converted routes use only new tokens. Legacy tokens/utilities stay untouched until the last consumer is converted, then are deleted in Phase 6.
-- Theme default flips to light in Phase 2 (`ThemeProvider defaultTheme="light"`, `viewport.themeColor` updated). Legacy `:root` dark values get a light-mode fallback so unconverted routes stay legible (not pretty) during the transition; all routes are converted by end of Phase 5 anyway.
+- Converted routes use only new tokens. Legacy tokens/utilities stay untouched until the last consumer is converted, then are deleted in Phase 6 (gate: `grep -r "text-paper\|bg-ink\|border-rule\|text-accent" app components lib` empty first — Tailwind v4 fails *silently* when a theme variable disappears).
+- **Theme architecture (Phase 2, not 6):** current CSS is dark-on-`:root` + `html.light` overrides, `ThemeProvider` is `attribute="class" defaultTheme="dark" enableSystem` — so a stored `theme=dark` or a dark-OS `system` visitor would render converted light pages on a black legacy body. Phase 2 therefore: (i) inverts the CSS — light values move to `:root`, dark under `html.dark` (all 13 `html.light` blocks restructured); (ii) sets `ThemeProvider forcedTheme="light"` and hides `ThemeToggle` for the duration of the transition (restored in Phase 6 with the cyanotype theme); (iii) updates `viewport.themeColor`. `enableSystem` returns in Phase 6.
 - **Dark mode = cyanotype negative** (Phase 6): ground flips to blue-black (`#0B1020` family), body text to off-white, and blueprint gets a dedicated lightened token `--blueprint-bright` with measured contrast ≥ 4.5:1 for text/links (raw `#2E47F1` on `#0B1020` is ~3.1:1 — fails AA; never reuse it for dark text).
 - Graph-grid texture: CSS repeating-linear-gradients, ~8px minor grid, very low opacity, `--ground` surfaces only.
 - Dither/checker band: a pure-CSS primitive (repeating-conic-gradient checker in blueprint-on-ground), built in Phase 2. The existing raster divider plates and `.dither-frame` walnut CSS retire (do not reuse).
@@ -64,7 +64,7 @@ Current code is dark-first with inverted usage (`body { background: var(--ink); 
 
 - **Geist Pixel** — wordmark, TOC section headers, stat labels (uppercase).
 - **GT Sectra Fine** — display only: chapter titles, deks, drop-cap glyphs.
-- **Newsreader** (add in Phase 2: OFL license, self-host woff2 via `scripts/subset-fonts.sh` pipeline) — justified body text, TOC chapter links.
+- **Newsreader** (add in Phase 2: OFL license, download TTFs from Google Fonts, pin static instances — 400/500/600 + italics — with fonttools `instancer` before subsetting; `scripts/subset-fonts.py` must be parameterized first, its `SRC` is hard-coded to the GT Sectra directory). Fallback chain if acquisition fails offline: try `npm`-packaged `@fontsource` files; else ship `Georgia, 'Times New Roman', serif` stack and log a TODO — body work proceeds regardless. `proxy.ts` CSP already allows self-hosted fonts.
 - **Geist Mono** — labels, breadcrumbs, captions, stats, buttons, FAQ chrome.
 - Geist Sans retires from body duty (retained for form controls in the planner tool if needed).
 - Justified body: `hyphens: auto`, applied at measures ≥ 60ch only; narrower breakpoints go ragged-right. voiceDNA's short-paragraph rule (1–3 sentences) holds — the source's paragraphs are short too.
@@ -80,6 +80,15 @@ Current code is dark-first with inverted usage (`body { background: var(--ink); 
 | `SectionDivider` | re-skinned → CSS checker band |
 | `FigureMarquee` | delete unless cover design earns it back in blueprint style |
 | `SplitText`, `Magnetic` | delete with their consumers (Phase 3–5); `lib/motion.ts` stays additive until last consumer gone |
+| `HireSignal` | keep concept, re-skin as mono status label |
+| `NowFeed` | keep, re-skin (data module `content/now-feed.ts` kept) |
+| `ReadingPathJump` | delete (TOC replaces it) |
+| `ThemeToggle` | hidden in Phase 2 (forcedTheme), restored in Phase 6 with cyanotype |
+| `PrintButton` | keep on `/resume`, re-skin |
+| `components/webgl/` (directory) | delete with `WebGLHero` |
+| `content/homepage-copy.ts` | replaced by new cover content module |
+| `content/visual-asset-inventory.md`, `content/work-page-layout.md` | mark historical (top-of-file note), do not delete |
+| `content/blog-drafts/`, `content/case-studies/stubs/` | untouched (drafts; excluded from word counts) |
 | `FigureReveal`, `RedactionReveal`, `DitheredImage`, `ResponsiveImage` | replaced by figure primitives + plain `next/image` for the few remaining photos |
 | `CaseStudyTOC` | evolves into the chapter sidebar TOC (scroll-spy logic reused) |
 | `PulseOnChange`, planner tool internals | keep, re-theme (tool function must survive) |
@@ -150,7 +159,8 @@ Approval state — the authoritative standing-approval set is exactly: `Portfoli
 ### Rules
 
 - Green-tier claims only, or Amber with a standing approval from the named set. When in doubt, leave it out.
-- **No numeral may appear in a figure, leader label, stat row, caption, FAQ answer, or OG image unless it resolves from `content/proof-metrics.ts`** (which carries posture metadata). Claims now live in pictures, not just prose — the gate follows them.
+- **No *claim numeral* may appear in a figure, leader label, stat row, caption, FAQ answer, or OG image unless it resolves from `content/proof-metrics.ts`** (which carries posture metadata). A claim numeral is anything asserting a business outcome, magnitude, or performance ($X, N%, pipeline counts, headcounts). Exempt: structural numbering (`FIG_00N`, step ordinals, section numbers) and build-computed word/chapter counts, which must derive from the rendered public projection via `scripts/word-counts.mjs`. Claims live in pictures now, not just prose — the gate follows them.
+- **Repo-side docs are scanned too:** `FIGURES.md` and the overnight log are repo markdown and pass through proof:guard's repo-wide token scan. They must use only public-safe names — describe gated ground truths generically ("intent-data vendor", "the held metric") and never quote a gated value, even to record its exclusion. Gated specifics belong in the vault deliverables only.
 - voiceDNA.md governs all copy. Manual-page addendum: justified setting and drop caps are layout, not license — paragraph length and banned-phrase rules unchanged.
 - Cover intro ≤150 words. No throat-clearing. Proof before narrative.
 - Every copy batch passes adversarial review by a non-author agent: rendered-HTML banned-phrase scan + humanizer pass + claim-tier check against the spine.
@@ -177,16 +187,16 @@ Conventional commits; each phase ends **buildable, committed, and logged** in `d
 - **Phase 0 — Reconcile + reference capture.**
   (a) Record live git state (`git status -sb`, `git log`) in the log — do not trust HANDOFF's stale "ahead 1/behind 5"; observed today: ahead 1/behind 8 with **5** dirty files (`HANDOFF.md`, `app/edge/opengraph-image.tsx`, `app/edge/page.tsx`, `components/edge/EdgeMobileChip.tsx`, `content/case-studies/one-tsi-revenue-infrastructure.md`).
   (b) **Back up Connor's dirty work:** `git diff > docs/superpowers/pre-redesign-dirty.patch`, commit the patch file. The redesign may later rewrite those files; the patch preserves his versions. `HANDOFF.md` is protected until Phase 6 (which rewrites it; patch retains the old).
-  (c) Capture reference screenshots (cover + chapter, 1440w and 390w, full scroll) into `docs/superpowers/reference/`, commit. Correct §1a against them.
+  (c) Capture reference screenshots (cover + chapter, 1440w and 390w, full scroll) into `docs/superpowers/reference/` and **add that directory to `.gitignore`** — they are third-party copyrighted pages and stay local-only scaffolding, never committed (repo may be pushed publicly). Correct §1a against them.
   (d) No pull/merge/rebase against origin — drift reconciliation is Connor's morning decision.
 - **Phase 1a — Spine + IA lock.** Vault mining → story spine; final TOC entries + outcome deks; stats rows; FAQ question list (from real screens); tagline/CTA wording candidates. Gate: claim-tier self-audit of the spine against the approval set.
-- **Phase 2 — Foundation.** New tokens/utilities + theme default flip with legacy fallback; Newsreader acquisition + subset; type roles; graph texture; checker band; masthead/footer; figure primitives; ruler rail; `scripts/word-counts.mjs`; `scripts/voice-scan.sh` (routes read from `app/sitemap.ts`, not hard-coded); **proof:guard rewrite** — `rendererFiles`/`forbiddenDirectAccess` re-pointed at the new number-bearing components (stats block, figures, FAQ, OG) so posture *data* survives the file renames; fix `--font-geist-pixel-grid` bug. Gate: `npm run lint && npm run build && npm run proof:guard` green; sample page styled and screenshot-reviewed against reference checklist §1a.
+- **Phase 2 — Foundation.** New tokens/utilities + theme inversion per §2 (light on `:root`, dark under `html.dark`, `forcedTheme="light"`, toggle hidden); Newsreader acquisition per §2 (with fallback chain); type roles; graph texture; checker band; masthead/footer; figure primitives; ruler rail; `scripts/word-counts.mjs` (counts post-projection rendered text only — never stubs, drafts, or `publicUse:"hide"` fields); voice-scan script (a `.mjs`, not `.sh` — it must resolve routes from TS: scans sitemap routes ∪ explicit extras `{/edge, /case-studies/strategy-memo, /proof, one known-404 path}`); sitemap gains `/edge` and `/case-studies/strategy-memo` NOW, not Phase 6; **proof:guard rewrite to a phase-independent shape** — dynamic discovery (glob `app/**` + `components/**` for references to `proofMetrics`/gated data and assert each resolves through `renderableProofMetrics`) plus a floor assertion (≥3 files must call `renderableProofMetrics`) so file renames can neither crash it (bare `readFileSync` ENOENT today) nor silently zero its coverage; fix `--font-geist-pixel-grid` bug. Gate: `npm run lint && npm run build && npm run proof:guard` green; sample page styled (spine fragments as placeholder copy — 1b lands next) and screenshot-reviewed against reference checklist §1a.
 - **Phase 1b — Copy deck.** Full page-by-page copy from spine (needs Phase 1a decisions; runs after/alongside Phase 2). Gate: adversarial copy review (claims, voice, slop) by non-author agent.
 - **Phase 3 — Cover.** `/` per §3 anatomy. Gate: fidelity checklist vs reference; rendered voice scan; build green.
 - **Phase 4 — Chapter chrome + case studies.** Sidebar TOC, sheet, breadcrumb, meta, ruler; 11 case-study chapters + strategy memo converted with figures per §5. Gate: fidelity + voice + proof:guard + word counts correct.
-- **Phase 5 — Remaining routes.** `/edge` (in-page chrome), `/resume` (chrome-light standalone), `/about`, `/longform`, `/tools`, `/case-studies` index, 404 page. Gate: same as 4 + resume 30-second scan test (all key facts above the fold at 1440×900).
-- **Phase 6 — Hardening.** A11y sweep (keyboard, focus, contrast incl. dark tokens, reduced motion, SVG titles/descs); cyanotype dark mode; prod-mode CSP check (`npm run build && npm run start`, then smoke + voice scan against :3000); legacy token/utility deletion; repo docs rewritten (CLAUDE.md, DESIGN.md, FIGURES.md; MIDJOURNEY_PROMPTS.md marked historical; HANDOFF.md refreshed).
-- **Phase 6a — Metadata surface** (explicit list): `app/opengraph-image.tsx`, `app/case-studies/[slug]/opengraph-image.tsx`, `app/edge/opengraph-image.tsx` re-cut with real fonts loaded as ArrayBuffers (GT Sectra + Geist Pixel/Mono); static `public/og/*`; `app/icon.png`/`apple-icon.png`/`favicon.ico` re-cut to blueprint system; `JsonLd` contents; `sitemap.ts` (+`/edge`); robots unchanged. Gate: **literal-string review of every OG surface for claim tier and voice** (the curl scan can't see rasterized text).
+- **Phase 5 — Remaining routes.** `/edge` (in-page chrome; its chapter sections need `id=` anchors added — `EdgeChapters` has none today, and the sidebar scroll-spy reuses `CaseStudyTOC` logic which assumes anchors), `/resume` (chrome-light standalone), `/about`, `/longform/[slug]` (no index route exists or is added), `/tools`, `/case-studies` index, 404 page. Gate: same as 4 + resume 30-second scan test (all key facts above the fold at 1440×900).
+- **Phase 6a — Metadata surface** (runs BEFORE the final QA checklist): `app/opengraph-image.tsx`, `app/case-studies/[slug]/opengraph-image.tsx`, `app/edge/opengraph-image.tsx` re-cut with real fonts loaded as ArrayBuffers (GT Sectra + Geist Pixel/Mono); static `public/og/*`; `app/icon.png`/`apple-icon.png`/`favicon.ico` re-cut to blueprint system; `JsonLd` contents; robots unchanged. Gate: **literal-string review of every OG surface for claim tier and voice** (the curl scan can't see rasterized text).
+- **Phase 6 — Hardening (last).** A11y sweep (keyboard, focus, contrast incl. dark tokens, reduced motion, SVG titles/descs); cyanotype dark mode + `ThemeToggle`/`enableSystem` restored; legacy token/utility deletion (grep gate first, per §2); repo docs rewritten (CLAUDE.md, DESIGN.md, FIGURES.md; MIDJOURNEY_PROMPTS.md marked historical; HANDOFF.md refreshed). The **final QA checklist runs after everything above, including 6a**, with prod-mode CSP check (`npm run build && npm run start`, smoke + voice scan against :3000).
 
 ### Final QA checklist (Phase 6 exit)
 
