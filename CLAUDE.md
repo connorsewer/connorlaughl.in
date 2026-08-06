@@ -41,8 +41,9 @@ sheets floating on it, isometric blueprint line drawings with pastel fills,
 pixel section headers, mono captions, a checker band between movements. Light by
 default. Dark is a cyanotype negative of the same manual, not a dimmed copy.
 
-The design language follows Dan Hollick's Making Software. The colophon footer
-carries that credit by name and it is not optional.
+The colophon footer carries the byline, the type set, and the stack. It carries
+no design-language credit: the spec required one, and it was removed by Connor's
+decision 2026-08-06.
 
 ### Anti-references
 

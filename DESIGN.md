@@ -3,9 +3,10 @@
 This documents what is in the repo today, not an intent. If the code and this
 file disagree, the code is right and this file is stale. Fix it.
 
-The design language follows Dan Hollick's Making Software. The colophon footer
-carries that credit by name, linked, and it is a shipping requirement rather
-than a courtesy.
+The colophon footer carries the byline, the type set, and the stack. The spec
+made a named design-language credit a shipping requirement; it was removed by
+Connor's decision 2026-08-06, and the spec section it came from no longer
+applies.
 
 Companion documents: [CLAUDE.md](CLAUDE.md) for working rules,
 [FIGURES.md](FIGURES.md) for the figure registry, [voiceDNA.md](voiceDNA.md) for

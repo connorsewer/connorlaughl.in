@@ -4,8 +4,7 @@ Connor J. Laughlin's portfolio, built as a reference manual. VP of Marketing and
 GTM (acting CMO), GTM engineer. Every page is a chapter of one document: paper
 ground, white sheets, isometric blueprint figures, running word counts.
 
-The design language follows Dan Hollick's Making Software. The colophon footer
-credits it by name.
+The colophon footer carries the byline, the type set, and the stack.
 
 ## Stack
 

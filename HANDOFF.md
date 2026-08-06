@@ -66,7 +66,7 @@ labels, GT Sectra retired from body use. The stylesheet went from 971 lines to
 
 **Cover.** Masthead lockup, checker band, drop-cap intro, seven drawn plates,
 five-section table of contents with build-computed word counts, stats block,
-terminal-style FAQ, contact, colophon with the design credit line.
+terminal-style FAQ, contact, colophon.
 
 **Chapters.** Eleven case studies plus a strategy memo, four long-form pieces,
 the operator page, the resume, the about appendix, the capacity planner, the
