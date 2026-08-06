@@ -114,6 +114,16 @@ and the readings that hold.
 The procedural lesson, added to the spec: acceptance gates run on the file that
 ships. A pre-encode measurement describes an artifact no reader receives.
 
+**Program held, 2026-08-06.** Connor stopped the plate program at the pilot
+gate: the plates were missing the mark, reading as nonsense against the chapter
+copy rather than as a picture of it, and adding nothing. The nine remaining
+plates were never generated. `FIG_021` and `FIG_022` stay on disk in
+`public/case-studies/` and are unwired from `app/case-studies/[slug]/page.tsx`,
+so neither renders. The rows above are kept as history of what was made and how
+it was judged, not as a description of what ships. Connor's full verdict is
+recorded at the top of §2 in
+`docs/superpowers/specs/2026-08-06-visual-elevation-design.md`.
+
 ## Reserved
 
 `FIG_019` is reserved for the remaining plate listed in the copy deck's figure

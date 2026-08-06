@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -28,7 +27,6 @@ import {
   Fig016ClaimToApproval,
   Fig017TwoFunctionModel,
   Fig018SchemaToPage,
-  PlateLabels,
   type PlateLabel,
 } from "@/components/figures";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
@@ -74,25 +72,11 @@ const chapterFigures: Record<string, React.ComponentType> = {
 };
 
 /**
- * Chapter plates (Wave C §2, v3 art direction). Keyed by slug, beside
- * `chapterFigures` and deliberately not a `CaseStudy` field: a plate is a
- * property of the route, not of the content module. A slug absent from this
- * table renders diagram-only, which stays legal.
- *
- * A plate is a label-free exploded rendering of the chapter's system as an
- * object. Every word on it is DOM text placed by `PlateLabels`, so the type is
- * real, selectable, and in the same mono as the figures. Label copy comes from
- * that chapter's approved prose and never carries a numeral.
- *
- * Files are named by figure number rather than by slug, so no client or
- * employer name can reach a public path. The plate never carries a claim: `alt`
- * describes the object, the caption states the claim in words, and no numeral
- * appears in either.
- *
- * No `plate-duotone` here. Connor locked that at the pilot gate: a blueprint
- * rendering is already the site's ink on the site's paper, so it renders as
- * authored in both themes. The duotone rule stays for the `/about` portrait,
- * which is a photograph.
+ * Chapter plates. Held: see the PROGRAM HOLD note at the top of §2 in
+ * `docs/superpowers/specs/2026-08-06-visual-elevation-design.md`. The table is
+ * empty on purpose, so no chapter renders a plate. The two pilot files stay in
+ * `public/case-studies/` and `PlateLabels` stays in `components/figures`, ready
+ * for the day Connor lifts the hold.
  */
 type ChapterPlate = {
   fig: string;
@@ -105,40 +89,8 @@ type ChapterPlate = {
   labels: PlateLabel[];
 };
 
-const chapterPlates: Record<string, ChapterPlate> = {
-  "revenue-operations-signal-to-revenue": {
-    fig: "FIG_021",
-    src: "/case-studies/plate-fig-021.webp",
-    width: 1200,
-    height: 896,
-    subject: "LAYER STACK",
-    alt: "Blueprint rendering of seven flat plates exploded along a vertical axis on four guide posts above a wider base panel.",
-    caption: "Every layer of the operating system existed as something written down.",
-    /* Label copy: the chapter intro names the definitions, the routing rules,
-       and the cadence put on top, in that order from the base up. */
-    labels: [
-      { x: 16, y: 9, dx: 29, dy: 0, text: "Cadence" },
-      { x: 82, y: 43, dx: -14, dy: 0, text: "Routing" },
-      { x: 76, y: 86, dx: -4, dy: -8, text: "Definitions" },
-    ],
-  },
-  "ai-native-gtm": {
-    fig: "FIG_022",
-    src: "/case-studies/plate-fig-022.webp",
-    width: 1200,
-    height: 896,
-    subject: "GATE",
-    alt: "Blueprint rendering of a gate mechanism exploded along one axis above a long flat tray.",
-    caption: "Nothing released until a person approved it, and every run left a record.",
-    /* Label copy: the chapter intro says agents stage the work, humans approve
-       it, and every run leaves a trail somebody can audit. */
-    labels: [
-      { x: 40, y: 18, dx: 8, dy: 18, text: "Staged work" },
-      { x: 62, y: 14, dx: 6, dy: 14, text: "Approval" },
-      { x: 24, y: 80, dx: 16, dy: -3, text: "Audit trail" },
-    ],
-  },
-};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- read by nothing while the hold stands.
+const chapterPlates: Record<string, ChapterPlate> = {};
 
 /**
  * Prose claim tokens.
@@ -268,7 +220,6 @@ export default async function CaseStudyPage({
     cs.label.trim().toLowerCase() === cs.title.trim().toLowerCase() ? undefined : cs.label;
 
   const ChapterFigure = cs.figureSlug ? chapterFigures[cs.figureSlug] : undefined;
-  const plate = chapterPlates[slug];
 
   /* `Why it mattered` is optional. Six chapters drop it because the slot
      restated an earlier block; the numbering closes up behind it rather than
@@ -334,40 +285,6 @@ export default async function CaseStudyPage({
             </p>
           ))}
         </section>
-
-        {/* The plate follows the opening prose rather than the header, where it
-            would sit near the fold on a phone. The diagram states the
-            mechanism; the plate shows what the mechanism was made of. */}
-        {plate ? (
-          <figure className="mt-10 max-w-[26rem]">
-            {/* `relative` so the label overlay can sit on `inset-2` and land on
-                the image box rather than on the frame's padding. */}
-            <div className="relative border border-blueprint/40 p-2">
-              <Image
-                src={plate.src}
-                alt={plate.alt}
-                width={plate.width}
-                height={plate.height}
-                sizes="(min-width: 768px) 26rem, 100vw"
-                loading="lazy"
-                className="block h-auto w-full"
-              />
-              <PlateLabels
-                labels={plate.labels}
-                width={plate.width}
-                height={plate.height}
-              />
-            </div>
-            <figcaption className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
-                {plate.fig} [ {plate.subject} ]
-              </span>
-              <span className="font-serif-body text-[0.875rem] leading-snug text-body-ink/70">
-                {plate.caption}
-              </span>
-            </figcaption>
-          </figure>
-        ) : null}
 
         {resolveClaims(cs.outcome) ? (
           <section

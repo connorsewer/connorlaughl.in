@@ -120,6 +120,29 @@ scroll-linked plate, labels fade in at progress > 0.85 and latch there.
 
 ## 2. Plate program
 
+> **PROGRAM HOLD — 2026-08-06.** Connor stopped the plate program at the pilot
+> gate. His verdict, verbatim:
+>
+> > "I think the plates are missing the mark. They're nonsensical and don't
+> > actually represent the narrative content and copy visually. they add
+> > nothing. let's put a hold on the plate images for now."
+>
+> What this means, concretely:
+>
+> - The remaining nine plates do **not** run. No generation, no remap, no
+>   encode, no wiring.
+> - The two pilot files (`plate-fig-021.webp`, `plate-fig-022.webp`) stay on
+>   disk in `public/case-studies/` but are unwired. `chapterPlates` in
+>   `app/case-studies/[slug]/page.tsx` is an empty table and the `PlateLabels`
+>   mounts are gone, so no chapter renders a plate.
+> - `PlateLabels` stays in `components/figures`. The hold is reversible: refill
+>   the table and remount to bring the pilots back.
+> - **§3, the cover ambient loop, is held too.** It is the same
+>   generated-imagery program and waits on the same call from Connor.
+>
+> Everything below stays as written. It is the record of what was specified, not
+> a live instruction.
+
 One blueprint plate per case-study chapter: a clean, label-free exploded-view
 technical rendering of that chapter's system drawn as a physical object, with
 its labels applied afterward in real type by the `PlateLabels` overlay.
