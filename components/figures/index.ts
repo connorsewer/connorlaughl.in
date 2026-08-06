@@ -43,6 +43,15 @@ export {
   type IsoChainProps,
   type ChainNode,
 } from "@/components/figures/IsoChain";
+export {
+  SignalPacket,
+  type SignalPacketProps,
+} from "@/components/figures/SignalPacket";
+export {
+  PlateCrosshair,
+  type PlateCrosshairProps,
+} from "@/components/figures/PlateCrosshair";
+export { PLATE_DRAWN_ATTR, PLATE_DRAWN_EVENT } from "@/components/figures/plate-signal";
 
 /* Numbered plates. Registry: FIGURES.md. Never renumber. */
 export { Fig001RevenueOperatingLayers } from "@/components/figures/fig-001-revenue-operating-layers";

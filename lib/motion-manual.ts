@@ -4,7 +4,8 @@
  * Additive to `lib/motion.ts`: that catalog stays untouched until its last
  * legacy consumer is converted. Everything here is new work for the manual
  * pages: SVG stroke draw-on (one-shot and scroll-linked), stat fill, stat
- * tick, leader-label settle, ruler breathe, wordmark pixel reveal.
+ * tick, leader-label settle, ruler breathe, wordmark pixel reveal, and the
+ * living-figure set: signal packet, node lift, plate crosshair.
  *
  * Motion ceiling (Wave C): constant but quiet. Figures draw themselves on
  * scroll, stats tick on entry, leader labels settle, the ruler breathes,
@@ -167,6 +168,87 @@ export const rulerBreatheSpec = {
 } as const;
 
 /**
+ * signal-packet — a drawn mark travelling a chain, node to node, on a loop.
+ *
+ * The plates depict systems that run, and a static plate depicts one that has
+ * stopped. One packet per chain, one hop at a time, linear: a signal moving
+ * through a machine holds its speed, and an eased hop reads as a thrown
+ * object. It dwells at each node because that is where the work happens.
+ *
+ * Amplitude is the whole argument. The mark is ~3.5 CSS px, it carries no
+ * fill, and at reading distance it is a tick that moves rather than a thing
+ * that draws attention. It starts only once its plate has finished drawing, so
+ * it never competes with the draw-on, and it never runs under reduced motion.
+ *
+ * The phase offset is what stops a page of chains from beating in unison,
+ * which would read as choreography rather than as several machines running.
+ */
+export const signalPacketSpec = {
+  /** Time for one hop, node centre to node centre. */
+  travel: DURATION.hero,
+  /** Hold at a node before the next hop. */
+  dwell: DURATION.short,
+  /** Fade in at the head of the run and out at its tail, so the loop wrap is
+      never a teleport. */
+  fade: DURATION.quick,
+  /** Ink opacity at full travel. Under the plate's own strokes. */
+  opacity: 0.85,
+  /** Mark size, CSS px, resolved into plate units by the caller. */
+  sizePx: 3.5,
+  /** Per-plate start offset, seconds, multiplied by the plate's index. */
+  phase: DURATION.medium,
+  /** Number of distinct phases before the offsets repeat. */
+  phaseCount: 4,
+} as const;
+
+/**
+ * node-lift — an iso node rising under the pointer while its peers step back.
+ *
+ * Values are carried here and applied by the stylesheet (LIVING FIGURES block
+ * in app/globals.css), for the same reason `themeCrossSpec` is: the effect is
+ * a hover state, which script has no business owning, but the numbers still
+ * belong to one catalog so the two cannot drift.
+ *
+ * The lift is 2px of screen travel along the iso up-axis and nothing else. The
+ * illumination is subtractive: every label already sits at full blueprint, so
+ * hovering one node dims the rest rather than brightening the one, which means
+ * a reader who never hovers is missing nothing. That is also why the effect is
+ * pointer-only and adds no tab stops: there is no information behind it.
+ */
+export const nodeLiftSpec = {
+  /** Screen-space rise, px. Up the iso z axis, which is straight up. */
+  lift: 2,
+  /** What the peers drop to while a node is held. */
+  peerOpacity: 0.55,
+  duration: DURATION.quick,
+  ease: EASE.outQuart,
+} as const;
+
+/**
+ * plate-crosshair — the drafting cursor a plate wears under a fine pointer.
+ *
+ * Two hairlines across the plate and a mono chip reading the pointer's
+ * position in the plate's own unit space. It follows input rather than running
+ * on a clock, so it is exempt from the reduced-motion cut: suppressing it
+ * would remove a cursor, not an animation. It is cut on coarse pointers, where
+ * there is no cursor to draft with, and on plates narrow enough to have
+ * dropped their callouts.
+ *
+ * No easing and no duration: every frame is the pointer's own position, and
+ * interpolating it would make the readout lie.
+ */
+export const plateCrosshairSpec = {
+  /** Hairline ink, as a share of blueprint. */
+  hairOpacity: 0.3,
+  /** Readout type size, CSS px. Matches the plate's other mono chrome. */
+  chipPx: 10,
+  /** Chip inset from the pointer, CSS px. */
+  chipGap: 8,
+  /** Media query the whole effect is gated on. */
+  pointerQuery: "(hover: hover) and (pointer: fine)",
+} as const;
+
+/**
  * theme-cross — light ↔ cyanotype as one printed pull.
  *
  * The duration is carried in the stylesheet (`@keyframes theme-pull`), because
@@ -294,6 +376,11 @@ type DrawOnOptions = {
    * only thing standing between a reader and the drawing.
    */
   failsafeMs?: number;
+  /**
+   * Called once the plate is fully drawn, by animation or by failsafe.
+   * Anything that must not run over the draw-on waits for this.
+   */
+  onDrawn?: () => void;
 };
 
 /**
@@ -340,10 +427,21 @@ export function drawOn(target: MotionTarget, options: DrawOnOptions = {}): Motio
   };
   window.addEventListener("resize", onResize, { passive: true });
 
+  /* One-shot, whichever path gets there first: the last stroke landing, or
+     the failsafe. A consumer waiting on the drawing must be released exactly
+     once and must never be stranded by a stroke that failed to animate. */
+  let announced = false;
+  const announce = () => {
+    if (announced) return;
+    announced = true;
+    options.onDrawn?.();
+  };
+
   const failsafe = window.setTimeout(() => {
     if (drawn) return;
     drawn = true;
     shapes.forEach(clear);
+    announce();
   }, options.failsafeMs ?? 2500);
 
   const stop = inView(
@@ -353,9 +451,15 @@ export function drawOn(target: MotionTarget, options: DrawOnOptions = {}): Motio
       drawn = true;
       window.clearTimeout(failsafe);
       window.removeEventListener("resize", onResize);
+      let pending = shapes.length;
+      const settle = (shape: SVGGeometryElement) => {
+        clear(shape);
+        pending -= 1;
+        if (pending === 0) announce();
+      };
       shapes.forEach((shape, i) => {
         if (lengths[i] <= 0) {
-          clear(shape);
+          settle(shape);
           return;
         }
         animate(
@@ -363,8 +467,8 @@ export function drawOn(target: MotionTarget, options: DrawOnOptions = {}): Motio
           { strokeDashoffset: [lengths[i], 0] },
           { duration, ease: drawOnSpec.ease, delay: i * gap },
         ).finished.then(
-          () => clear(shape),
-          () => clear(shape),
+          () => settle(shape),
+          () => settle(shape),
         );
       });
     },
@@ -926,6 +1030,100 @@ export function rulerBreathe(target: MotionTarget): MotionCleanup {
   return () => {
     controls.stop();
     if (el instanceof HTMLElement) el.style.opacity = "";
+  };
+}
+
+/* ──────────────────────────── signal packet ───────────────────────── */
+
+/** A node centre in plate user units. */
+export type PacketPoint = readonly [number, number];
+
+/**
+ * Runs one packet along a chain of node centres, forever, on a linear driver.
+ *
+ * The runner writes the `transform` and `opacity` ATTRIBUTES rather than the
+ * CSS properties, which is the one place this file departs from its own
+ * transform-and-opacity-via-style habit, and it is deliberate. A packet has to
+ * travel in the plate's user units so that a 150-unit hop is a 150-unit hop in
+ * every viewBox on the site; CSS `transform` on an SVG element resolves its
+ * lengths in the host space instead, which would make the same chain travel a
+ * different distance on a wide plate than on a narrow one. The attribute is
+ * the only surface that speaks user units. It is still a transform: no layout
+ * property is touched, and one element per plate is written per frame.
+ *
+ * The driver is a single `animate()` over the cycle length with the whole
+ * schedule resolved in `onUpdate`, so a chain of any length costs one
+ * animation rather than one per hop.
+ *
+ * Reduced motion: nothing starts and the packet is left at opacity 0, which is
+ * where it renders. The plate is a complete static drawing with no stray mark.
+ */
+export function signalPacket(
+  target: MotionTarget,
+  points: readonly PacketPoint[],
+  options: { phase?: number } = {},
+): MotionCleanup {
+  const el = resolve(target);
+  if (!el || typeof window === "undefined") return NOOP;
+  if (prefersReducedMotion()) return NOOP;
+  if (points.length < 2) return NOOP;
+
+  const { travel, dwell, fade, opacity } = signalPacketSpec;
+  const hops = points.length - 1;
+  const cycle = 2 * fade + hops * (travel + dwell);
+
+  const place = (x: number, y: number, alpha: number) => {
+    el.setAttribute("transform", `translate(${x.toFixed(2)} ${y.toFixed(2)})`);
+    el.setAttribute("opacity", alpha.toFixed(3));
+  };
+
+  const head = points[0];
+  const tail = points[points.length - 1];
+
+  /* The whole schedule, resolved from one clock. Walks the cycle rather than
+     indexing into it so the fades, the hops and the dwells stay in one place
+     and cannot disagree about where the packet is. */
+  const apply = (elapsed: number) => {
+    let t = elapsed;
+
+    if (t < fade) {
+      place(head[0], head[1], (t / fade) * opacity);
+      return;
+    }
+    t -= fade;
+
+    for (let i = 0; i < hops; i += 1) {
+      const from = points[i];
+      const to = points[i + 1];
+      if (t < travel) {
+        const k = t / travel;
+        place(from[0] + (to[0] - from[0]) * k, from[1] + (to[1] - from[1]) * k, opacity);
+        return;
+      }
+      t -= travel;
+      if (t < dwell) {
+        place(to[0], to[1], opacity);
+        return;
+      }
+      t -= dwell;
+    }
+
+    place(tail[0], tail[1], (1 - clamp01(t / fade)) * opacity);
+  };
+
+  apply(0);
+
+  const controls = animate(0, cycle, {
+    duration: cycle,
+    ease: "linear",
+    repeat: Number.POSITIVE_INFINITY,
+    delay: options.phase ?? 0,
+    onUpdate: apply,
+  });
+
+  return () => {
+    controls.stop();
+    el.setAttribute("opacity", "0");
   };
 }
 

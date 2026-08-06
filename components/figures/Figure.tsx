@@ -7,6 +7,8 @@ import {
   FigureScaleContext,
   type FigureScale,
 } from "@/components/figures/FigureScale";
+import { PlateCrosshair } from "@/components/figures/PlateCrosshair";
+import { PLATE_DRAWN_ATTR, PLATE_DRAWN_EVENT } from "@/components/figures/plate-signal";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { DURATION } from "@/lib/motion";
 import { drawOn, drawOnProgress, drawOnProgressSpec, labelSettle } from "@/lib/motion-manual";
@@ -121,6 +123,7 @@ export function Figure({
   className,
 }: FigureProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const plateRef = useRef<HTMLDivElement | null>(null);
   const capRef = useRef<number | null>(null);
   const [scale, setScale] = useState<FigureScale | null>(null);
   const [fittedBox, setFittedBox] = useState<string | null>(null);
@@ -206,10 +209,23 @@ export function Figure({
     const svg = svgRef.current;
     if (!svg || !scale) return;
 
+    /* The plate announces that it is finished so anything that must not run
+       over the draw-on — the signal packets, today — can start. Stamped on the
+       `<svg>` for a consumer that mounted late, and fired as an event for one
+       that is already listening. Never reached under reduced motion, because
+       neither draw runner registers there, which is what keeps a
+       reduced-motion plate a complete drawing with nothing moving on it. */
+    const markDrawn = () => {
+      if (svg.hasAttribute(PLATE_DRAWN_ATTR)) return;
+      svg.setAttribute(PLATE_DRAWN_ATTR, "");
+      svg.dispatchEvent(new CustomEvent(PLATE_DRAWN_EVENT));
+    };
+
     let release: (() => void) | null = null;
     const draw = drawOnProgress(svg, {
       onProgress: (progress) => {
         if (progress >= drawOnProgressSpec.labelsAt) release?.();
+        if (progress >= 1) markDrawn();
       },
     });
 
@@ -222,7 +238,7 @@ export function Figure({
       };
     }
 
-    const stopDraw = drawOn(svg);
+    const stopDraw = drawOn(svg, { onDrawn: markDrawn });
     const labels = labelSettle(svg, { trigger: "inView", delay: DURATION.short });
     return () => {
       stopDraw();
@@ -235,7 +251,7 @@ export function Figure({
       {/* The drawing sits on a gridded white plate; the page ground stays
           plain paper. See the reference cover, where every figure is drafted
           on graph paper inside the sheet. */}
-      <div className="figure-plate flex items-stretch gap-2 p-4">
+      <div ref={plateRef} className="figure-plate flex items-stretch gap-2 p-4">
         <span
           aria-hidden="true"
           className="hidden shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] rotate-180 lg:block"
@@ -257,6 +273,10 @@ export function Figure({
           <FigureScaleContext.Provider value={scale ?? AUTHORED_SCALE}>
             {children}
           </FigureScaleContext.Provider>
+          {/* Last child, so the hairlines read over the drawing rather than
+              under it. Carries `pointer-events: none`, so hovering a node
+              still reaches the node. */}
+          <PlateCrosshair plateRef={plateRef} svgRef={svgRef} scale={scale} />
         </svg>
 
         <span

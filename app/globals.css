@@ -643,3 +643,59 @@ a:focus-visible,
     opacity: 0;
   }
 }
+
+/* ─────────────────────────── LIVING FIGURES ──────────────────────────
+   Hover and cursor states for the figure plates. Appended block, owned by
+   the living-figures work; nothing above this line is touched by it.
+
+   Every number here is stated in `nodeLiftSpec` / `plateCrosshairSpec` in
+   lib/motion-manual.ts and repeated here only because a hover state belongs
+   to the stylesheet, not to script. Change them together.
+   ────────────────────────────────────────────────────────────────────── */
+
+/* The plate is a drafting surface, so the pointer over it is a drafting
+   cursor. Coarse pointers get nothing: there is no cursor to draft with. */
+@media (hover: hover) and (pointer: fine) {
+  .figure-plate {
+    cursor: crosshair;
+  }
+
+  /* A node is mostly unfilled, and an unfilled shape is hit-tested on its
+     stroke alone — a 1.25px outline the pointer can hardly catch. `all` makes
+     the shape's own geometry the target, so the slab faces are what the reader
+     hovers. `pointer-events` inherits in SVG, so the group can set it for
+     everything it holds. No extra hit rectangles, nothing added to the
+     drawing. */
+  .figure-plate svg [data-fig-node] {
+    pointer-events: all;
+  }
+
+  /* Holding one node steps its peers back rather than brightening it. Every
+     label already sits at full blueprint, so the effect is subtractive and a
+     reader who never hovers is missing nothing — which is also why the nodes
+     carry no tabindex and add no tab stops. */
+  .figure-plate svg:has([data-fig-node]:hover) [data-fig-node]:not(:hover) {
+    opacity: 0.55;
+  }
+
+  /* The lift is up the iso z axis, which projects to straight up, and it is
+     2px of screen travel: the node rises off the plate the way a part lifts
+     out of an exploded drawing. */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-fig-node] {
+      transition:
+        opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .figure-plate svg [data-fig-node]:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* The plate's own number answers the pointer, so the rail reads as part of
+     the drawing rather than as a caption printed beside it. */
+  .figure-plate:hover > span[aria-hidden="true"] {
+    color: var(--blueprint);
+  }
+}

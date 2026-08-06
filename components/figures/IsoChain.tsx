@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 import {
   FIG_STROKE,
   IsoBox,
@@ -7,6 +5,7 @@ import {
   type FigFill,
 } from "@/components/figures/IsoBox";
 import { LeaderLabel } from "@/components/figures/LeaderLabel";
+import { SignalPacket } from "@/components/figures/SignalPacket";
 
 /**
  * Sequence primitive: slabs marching along the isometric x axis, tied by
@@ -43,6 +42,13 @@ export type IsoChainProps = {
   y?: number;
   /** Screen-space distance from a slab's origin out to its label. */
   labelRun?: number;
+  /**
+   * Set false on a chain that depicts a structure rather than a flow, where a
+   * travelling packet would claim movement the system does not have.
+   */
+  signal?: boolean;
+  /** Phase index for the packet, so plates on one page do not beat together. */
+  phase?: number;
   className?: string;
 };
 
@@ -55,12 +61,22 @@ export function IsoChain({
   x = 0,
   y = 0,
   labelRun = 128,
+  signal = true,
+  phase = 0,
   className,
 }: IsoChainProps) {
   const [sx, sy] = isoPoint(step, 0);
   const [cx, cy] = isoPoint(w / 2, d / 2, h);
 
   const origin = (i: number): [number, number] => [i * sx, i * sy];
+
+  /* The run the packet travels: slab centres, in order. Same points the ties
+     are struck between, so the mark rides the drawn line rather than a
+     parallel one of its own. */
+  const centres = nodes.map((_, i): [number, number] => {
+    const [ox, oy] = origin(i);
+    return [ox + cx, oy + cy];
+  });
 
   return (
     <g transform={`translate(${x} ${y})`} className={className}>
@@ -88,7 +104,13 @@ export function IsoChain({
       {nodes.map((node, i) => {
         const [ox, oy] = origin(i);
         return (
-          <Fragment key={node.label}>
+          /* `data-fig-node` is the hover unit: the slab, its gate outline and
+             its callout are one part of the machine, so they light and lift
+             together. Styled in the LIVING FIGURES block of app/globals.css
+             off `nodeLiftSpec`. Pointer-only and it adds no tab stop — the
+             effect only dims the peers, so the default state already carries
+             everything a reader could learn by hovering. */
+          <g data-fig-node key={node.label}>
             <IsoBox w={w} d={d} h={h} fill={node.fill ?? "none"} x={ox} y={oy} />
 
             {node.gate ? (
@@ -102,9 +124,12 @@ export function IsoChain({
               dy={cy - 62}
               text={node.label}
             />
-          </Fragment>
+          </g>
         );
       })}
+
+      {/* Last, so the mark stays on top as it crosses a slab. */}
+      {signal ? <SignalPacket points={centres} phase={phase} /> : null}
     </g>
   );
 }
