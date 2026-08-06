@@ -13,6 +13,19 @@ import {
   breadcrumbSchema,
   caseStudyArticleSchema,
 } from "@/components/JsonLd";
+import {
+  Fig008RevenueOperatingLayers,
+  Fig009ApprovalGatePath,
+  Fig010PipelineDecaySignals,
+  Fig011SignalToTouch,
+  Fig012PillarToProof,
+  Fig013IntegrationSequence,
+  Fig014PerformanceLedgerJoin,
+  Fig015OperatingCadence,
+  Fig016ClaimToApproval,
+  Fig017TwoFunctionModel,
+  Fig018SchemaToPage,
+} from "@/components/figures";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
 import { cta } from "@/content/cover";
 import { tocSections } from "@/content/cover";
@@ -30,6 +43,25 @@ import { caseStudyWords } from "@/lib/word-counts";
  * `renderableProofMetrics()`. The `{S6}` token in a chapter intro resolves the
  * same way; nothing on this page is typed as a literal claim.
  */
+
+/**
+ * Chapter plates. Keyed by the `figureSlug` on the case study, so the content
+ * module names a figure without importing a component. A chapter with no entry
+ * here renders text-only, which spec §5 allows where no honest figure exists.
+ */
+const chapterFigures: Record<string, React.ComponentType> = {
+  "fig-008": Fig008RevenueOperatingLayers,
+  "fig-009": Fig009ApprovalGatePath,
+  "fig-010": Fig010PipelineDecaySignals,
+  "fig-011": Fig011SignalToTouch,
+  "fig-012": Fig012PillarToProof,
+  "fig-013": Fig013IntegrationSequence,
+  "fig-014": Fig014PerformanceLedgerJoin,
+  "fig-015": Fig015OperatingCadence,
+  "fig-016": Fig016ClaimToApproval,
+  "fig-017": Fig017TwoFunctionModel,
+  "fig-018": Fig018SchemaToPage,
+};
 
 const SECTION_TITLE = "Revenue systems";
 const STRATEGY_MEMO = {
@@ -115,6 +147,8 @@ export default async function CaseStudyPage({
     srText: `${metric.value}. ${metric.label}. ${metric.context}.`,
   }));
 
+  const ChapterFigure = cs.figureSlug ? chapterFigures[cs.figureSlug] : undefined;
+
   const caseLogic = [
     ["01", "The problem", cs.businessProblem],
     ["02", "What I built", cs.whatIBuilt],
@@ -157,6 +191,14 @@ export default async function CaseStudyPage({
             {cs.hook}
           </p>
         </header>
+
+        {/* The chapter plate runs ahead of the body, as on the reference
+            chapter: the reader sees the system before the prose about it. */}
+        {ChapterFigure ? (
+          <div className="mt-10">
+            <ChapterFigure />
+          </div>
+        ) : null}
 
         <section aria-label="Opening" className="mt-10 max-w-[68ch]">
           {cs.chapterIntro.map((paragraph, index) => (

@@ -23,6 +23,12 @@ export type AudienceTag =
 
 export type CaseStudy = {
   slug: string;
+  /**
+   * Chapter plate key. Resolves through the figure registry in
+   * `app/case-studies/[slug]/page.tsx`. Omitted where no honest figure exists:
+   * a text-only chapter is the sanctioned fallback (spec §5).
+   */
+  figureSlug?: string;
   label: string;
   title: string;
   hook: string;
@@ -58,6 +64,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "revenue-operations-signal-to-revenue",
+    figureSlug: "fig-008",
     label: "REVENUE OPERATING SYSTEM",
     title: "Revenue operating system from zero",
     hook: "The funnel definitions, lifecycle stages, routing, and reporting that turned scattered activity into one system.",
@@ -166,6 +173,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "ai-native-gtm",
+    figureSlug: "fig-009",
     label: "22-AGENT AI GTM OS",
     title: "Governed AI operating layer",
     hook: "A multi-agent layer that stages GTM work behind human approval gates and audit trails.",
@@ -267,6 +275,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "revenue-operations-pipeline-truth",
+    figureSlug: "fig-010",
     label: "GHOST PIPELINE DETECTOR",
     title: "Ghost pipeline detector",
     hook: "Instrumenting close-date drift, stage aging, and dead activity so pipeline reviews stop rewarding optimism.",
@@ -351,6 +360,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "bdr-pod-signal-to-meeting",
+    figureSlug: "fig-011",
     label: "SIGNAL DEMAND ENGINE",
     title: "Signal-based demand engine",
     hook: "Buying signals routed to a tiered response model, with a two-hour rule on the highest-priority ones.",
@@ -447,6 +457,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "gtm-strategy-positioning",
+    figureSlug: "fig-012",
     label: "PLATFORM NARRATIVE + ICP",
     title: "Platform narrative and ICP intelligence",
     hook: "A five-pillar positioning framework tied to proof, and the ICP work underneath it.",
@@ -552,6 +563,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "debtnext-integration",
+    figureSlug: "fig-013",
     label: "POST-ACQUISITION SAAS",
     title: "Post-acquisition GTM bridge",
     hook: "Marketing integration across acquired brands, web properties, and a regulated Canadian business unit.",
@@ -646,6 +658,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "marketing-analytics-architecture",
+    figureSlug: "fig-014",
     label: "ANALYTICS ARCHITECTURE",
     title: "Marketing analytics architecture",
     hook: "Web analytics and CRM joined into one performance ledger that reconciles itself.",
@@ -716,6 +729,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "leadership-team-development",
+    figureSlug: "fig-015",
     label: "LEADERSHIP OS",
     title: "Leadership and team operating system",
     hook: "How a near-zero-budget function became a board-backed team with an international model.",
@@ -783,6 +797,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "outcome-first-repositioning",
+    figureSlug: "fig-016",
     label: "OUTCOME-FIRST",
     title: "Outcome-first narrative architecture",
     hook: "A messaging architecture where every claim carries its proof and its approval state.",
@@ -850,6 +865,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "marketing-org-design-governance",
+    figureSlug: "fig-017",
     label: "MARKETING OPERATING MODEL",
     title: "Two-function marketing operating model",
     hook: "Splitting marketing into a demand function and a narrative function, with governance thin enough to ship through.",
@@ -918,6 +934,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "enterprise-site-overhaul",
+    figureSlug: "fig-018",
     label: "ENTERPRISE WEB OPS",
     title: "Enterprise digital presence rebuild",
     hook: "A web rebuild, a structured content system underneath it, and accessibility fixed in the templates.",

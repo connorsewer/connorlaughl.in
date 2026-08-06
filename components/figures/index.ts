@@ -42,3 +42,14 @@ export { Fig004AttributionJoin } from "@/components/figures/fig-004-attribution-
 export { Fig005ApprovalGatePath } from "@/components/figures/fig-005-approval-gate-path";
 export { Fig006ClaimToPublish } from "@/components/figures/fig-006-claim-to-publish";
 export { Fig007ThisSite } from "@/components/figures/fig-007-this-site";
+export { Fig008RevenueOperatingLayers } from "@/components/figures/fig-008-revenue-operating-layers";
+export { Fig009ApprovalGatePath } from "@/components/figures/fig-009-approval-gate-path";
+export { Fig010PipelineDecaySignals } from "@/components/figures/fig-010-pipeline-decay-signals";
+export { Fig011SignalToTouch } from "@/components/figures/fig-011-signal-to-touch";
+export { Fig012PillarToProof } from "@/components/figures/fig-012-pillar-to-proof";
+export { Fig013IntegrationSequence } from "@/components/figures/fig-013-integration-sequence";
+export { Fig014PerformanceLedgerJoin } from "@/components/figures/fig-014-performance-ledger-join";
+export { Fig015OperatingCadence } from "@/components/figures/fig-015-operating-cadence";
+export { Fig016ClaimToApproval } from "@/components/figures/fig-016-claim-to-approval";
+export { Fig017TwoFunctionModel } from "@/components/figures/fig-017-two-function-model";
+export { Fig018SchemaToPage } from "@/components/figures/fig-018-schema-to-page";
