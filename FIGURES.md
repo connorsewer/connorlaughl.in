@@ -106,7 +106,7 @@ and the readings that hold.
 
 | Note as written | Shipped file |
 |---|---|
-| FIG_021 "chroma 86.2, darkest pixel exactly `#2E47F1`" | True of the pre-encode PNG. The file first shipped was a lossy WebP at `-q 88`, a `VP8 ` chunk, and it measured a darkest pixel of `#4049C8` at chroma 72.8 — under the gate of 80. Re-encoded with `cwebp -lossless -m 6`: the shipped `VP8L` file now measures ink hue 297.5°, chroma 86.2, darkest pixel exactly `#2E47F1`, lightest exactly `#FBFBFB`, ground `#F7F8FB` at chroma 1.5, flatness 0.7%, corner falloff 0.0%, stroke median 3.0px, coverage 2.17%, object 60.9% of frame width. 113,758 bytes. |
+| FIG_021 "chroma 86.2, darkest pixel exactly `#2E47F1`" | True of the pre-encode PNG. The file first shipped was a lossy WebP at `-q 88`, a `VP8 ` chunk, and it measured a darkest pixel of `#4049C8` at chroma 72.8, under the gate of 80. Re-encoded with `cwebp -lossless -m 6`: the shipped `VP8L` file now measures ink hue 297.5°, chroma 86.2, darkest pixel exactly `#2E47F1`, lightest exactly `#FBFBFB`, ground `#F7F8FB` at chroma 1.5, flatness 0.7%, corner falloff 0.0%, stroke median 3.0px, coverage 2.17%, object 60.9% of frame width. 113,758 bytes. |
 | FIG_022 "chroma 82.4, darkest pixel exactly `#2E47F1`" | Same failure, same fix. The lossy file measured `#3F49CC` at chroma 70.7. The shipped `VP8L` file measures ink hue 296.7°, chroma 82.4, darkest pixel exactly `#2E47F1`, lightest exactly `#FBFBFB`, ground `#F8F8FB` at chroma 1.5, flatness 1.0%, corner falloff 0.0%, stroke median 3.0px, coverage 1.95%, object 58.3% of frame width. 236,648 bytes. |
 | FIG_021 "six flat plates … widest at the bottom, smallest at the top" | The image carries seven uniform plates on four guide posts above a wider base panel, eight slabs in all, and there is no taper: every stacked plate is the same size. The registry row above is corrected to match. The subject line as written was not what the model returned, and the plate was accepted on the drawing rather than on the count. |
 | FIG_022 "a fourth plate-like form is the gate block's leading face" | It is the intake tray's raised back wall. The tray at the left of the frame has a tall panel standing up from its back edge, and that panel is what reads as a fourth sorting plate. The gate block sits further along the axis and its faces are part of the housing. Three sorting plates is still the correct count. |
@@ -127,4 +127,14 @@ recorded at the top of §2 in
 ## Reserved
 
 `FIG_019` is reserved for the remaining plate listed in the copy deck's figure
-index. Do not reuse this number for anything else.
+index. It was never drawn, and the numbering ran past it to `FIG_020` and then
+to the plate program. Do not reuse this number for anything else.
+
+`FIG_023` through `FIG_031` were allotted to the nine chapter plates and
+`FIG_032` to the cover ambient loop. Both are held as of 2026-08-06, so none of
+those numbers was used and none is available for reuse while the hold stands.
+`FIG_021` and `FIG_022` are spent: their plates exist on disk and are unwired.
+
+Whether `FIG_019` is released or stays reserved is settled together with the
+plate program, not before it. See the hold note above and open decisions 6 and
+12 in [HANDOFF.md](HANDOFF.md).
