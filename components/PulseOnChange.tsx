@@ -30,11 +30,14 @@ export function PulseOnChange({ value, children, className }: Props) {
     if (reducedMotion) return;
     const el = ref.current;
     if (!el) return;
+    /* Manual system: the value flashes blueprint and settles back to body
+       ink, so a changed output reads as a recalculation rather than a blink. */
     animate(
       el,
       {
         opacity: [0.55, 1],
         transform: ["scale(0.985)", "scale(1)"],
+        color: ["var(--blueprint)", "var(--body-ink)"],
       },
       { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
     );

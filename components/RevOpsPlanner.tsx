@@ -129,20 +129,23 @@ export function RevOpsPlanner() {
   }, [v]);
 
   return (
-    <div className="grid lg:grid-cols-2 gap-10">
+    <div className="flex flex-col gap-10">
       <form
         className="space-y-5"
         onSubmit={(e) => e.preventDefault()}
-        aria-label="Reverse funnel capacity inputs"
+        aria-label="Inputs"
       >
+        <h2 className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+          Inputs
+        </h2>
         {FIELDS.map((f) => (
           <label key={f.key} className="block">
-            <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-paper/70 block mb-1.5">
+            <span className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.22em] text-body-ink/65">
               {f.label}
             </span>
-            <div className="flex items-baseline gap-2 border-b border-rule hover:border-accent transition-colors py-1.5">
+            <div className="flex items-baseline gap-2 border-b border-grid-line py-1.5 transition-colors hover:border-blueprint">
               {f.prefix ? (
-                <span className="font-display text-2xl text-paper/55">
+                <span className="font-display text-2xl text-body-ink/50">
                   {f.prefix}
                 </span>
               ) : null}
@@ -158,15 +161,15 @@ export function RevOpsPlanner() {
                     [f.key]: Number(e.target.value),
                   }))
                 }
-                className="flex-1 bg-transparent font-display text-2xl text-paper focus:outline-none"
+                className="flex-1 bg-transparent font-display text-2xl text-body-ink focus:outline-none"
               />
               {f.suffix ? (
-                <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-paper/55">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-body-ink/50">
                   {f.suffix}
                 </span>
               ) : null}
             </div>
-            <span className="text-paper/55 text-xs leading-relaxed block mt-1">
+            <span className="mt-1 block font-serif-body text-xs leading-relaxed text-body-ink/60">
               {f.help}
             </span>
           </label>
@@ -175,47 +178,52 @@ export function RevOpsPlanner() {
         <button
           type="button"
           onClick={() => setV(DEFAULTS)}
-          className="font-mono text-[10px] tracking-[0.22em] uppercase text-paper/65 hover:text-accent transition-colors"
+          className="font-mono text-[10px] uppercase tracking-[0.22em] text-body-ink/65 transition-colors hover:text-blueprint"
         >
           Reset to demo inputs <span aria-hidden="true">↺</span>
         </button>
       </form>
 
       <output
-        className="space-y-6"
+        className="block"
         aria-live="polite"
-        aria-label="Required volumes and capacity"
+        aria-label="Required volumes"
       >
+        <h2 className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+          Required volumes
+        </h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <ResultCard
-          eyebrow="Deals required"
+          eyebrow="Deals to hit target"
           value={fmtNumber(result.dealsToHit)}
           context={`To hit ${fmtCurrency(v.quotaAnnual)} at ${fmtCurrency(v.avgDealSize)} ACV.`}
         />
         <ResultCard
-          eyebrow="Qualified opportunities required"
+          eyebrow="Opportunities needed"
           value={fmtNumber(result.oppsNeeded)}
           context={`Yields ~${fmtNumber(result.oppsPerMonth)} per month with a ${v.winRate}% win rate.`}
         />
         <ResultCard
-          eyebrow="SQLs required"
+          eyebrow="SQLs needed"
           value={fmtNumber(result.sqlsNeeded)}
           context={`At ${v.sqlToOpp}% SQL to opp conversion.`}
         />
         <ResultCard
-          eyebrow="MQLs required"
+          eyebrow="MQLs needed"
           value={fmtNumber(result.mqlsNeeded)}
           context={`At ${v.mqlToSql}% MQL to SQL conversion.`}
         />
         <ResultCard
-          eyebrow="Leads required"
+          eyebrow="Leads needed"
           value={fmtNumber(result.leadsNeeded)}
           context={`~${fmtNumber(result.leadsPerMonth)} per month at ${v.leadToMql}% lead to MQL.`}
         />
         <ResultCard
-          eyebrow="Implied pipeline coverage"
+          eyebrow="Pipeline coverage required"
           value={fmtCurrency(result.pipelineCoverage)}
           context="Top-of-pipeline dollar value needed at current win rate to cover the target."
         />
+        </div>
       </output>
     </div>
   );
@@ -231,14 +239,14 @@ function ResultCard({
   context: string;
 }) {
   return (
-    <div className="border border-rule rounded-2xl p-5 bg-ink/55">
-      <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-accent">
+    <div className="border border-grid-line bg-ground px-5 py-4">
+      <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-blueprint">
         {eyebrow}
       </div>
-      <div className="font-display text-3xl md:text-4xl leading-tight mt-2 tabular-nums">
+      <div className="mt-2 font-display text-3xl leading-tight tabular-nums text-body-ink md:text-4xl">
         <PulseOnChange value={value}>{value}</PulseOnChange>
       </div>
-      <p className="text-paper/65 text-sm leading-relaxed mt-2">{context}</p>
+      <p className="mt-2 font-serif-body text-sm leading-relaxed text-body-ink/70">{context}</p>
     </div>
   );
 }
