@@ -1,8 +1,8 @@
 "use client";
 
-import { animate } from "motion";
 import { useEffect, useRef, type ReactNode } from "react";
-import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
+
+import { valuePulse } from "@/lib/motion-manual";
 
 type Props = {
   /** Trigger value: any change re-fires the pulse. */
@@ -17,34 +17,24 @@ type Props = {
  * registers visually even when the output number tweens are too short to
  * read.
  *
+ * `inline-block` is load-bearing, not spacing: `transform` does not apply to a
+ * non-replaced inline box, so on a bare `<span>` the scale leg of the pulse
+ * silently did nothing and only the opacity ran.
+ *
  * Reduced motion: no animation, no opacity dip, no scale.
  */
 export function PulseOnChange({ value, children, className }: Props) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const lastRef = useRef<string | number>(value);
-  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     if (lastRef.current === value) return;
     lastRef.current = value;
-    if (reducedMotion) return;
-    const el = ref.current;
-    if (!el) return;
-    /* Manual system: the value flashes blueprint and settles back to body
-       ink, so a changed output reads as a recalculation rather than a blink. */
-    animate(
-      el,
-      {
-        opacity: [0.55, 1],
-        transform: ["scale(0.985)", "scale(1)"],
-        color: ["var(--blueprint)", "var(--body-ink)"],
-      },
-      { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
-    );
-  }, [value, reducedMotion]);
+    return valuePulse(ref.current);
+  }, [value]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`inline-block ${className ?? ""}`}>
       {children}
     </span>
   );

@@ -7,6 +7,11 @@
  */
 
 export { Figure, type FigureProps } from "@/components/figures/Figure";
+export {
+  useFigureScale,
+  AUTHORED_SCALE,
+  type FigureScale,
+} from "@/components/figures/FigureScale";
 export { LeaderLabel, type LeaderLabelProps } from "@/components/figures/LeaderLabel";
 export {
   PlateLabels,

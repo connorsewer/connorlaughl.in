@@ -75,12 +75,16 @@ export function GridPlane({
   }
 
   return (
+    /* `vector-effect` is not inherited and does nothing on a group; the
+       plate-wide rule in app/globals.css sets it per shape. The lattice runs
+       at the same 1.25 weight as the outline and is held back by opacity
+       alone, which is deliberate: a second stroke weight inside one plate
+       reads as a second drawing convention. */
     <g
       transform={`translate(${x} ${y})`}
       className={className}
       stroke="var(--blueprint)"
       strokeWidth={FIG_STROKE}
-      vectorEffect="non-scaling-stroke"
     >
       <polygon points={outline} fill={figFill(fill)} fillOpacity={fill === "none" ? 0 : 0.5} />
 

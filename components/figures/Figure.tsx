@@ -1,7 +1,13 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 
+import {
+  AUTHORED_SCALE,
+  FigureScaleContext,
+  type FigureScale,
+} from "@/components/figures/FigureScale";
+import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { DURATION } from "@/lib/motion";
 import { drawOn, drawOnProgress, drawOnProgressSpec, labelSettle } from "@/lib/motion-manual";
 
@@ -57,6 +63,54 @@ function figId(num: number | string): string {
   return typeof num === "number" ? String(num).padStart(3, "0") : num;
 }
 
+/**
+ * Rendered plate width under which the callouts come off.
+ *
+ * Below this the wide plates cannot hold their labels at a readable size —
+ * FIG_004's ran at 3.5 CSS px on a 390px phone, which is texture rather than
+ * type. The `<figcaption>` states the claim in words at every width, so the
+ * drawing loses its annotation and the reader loses nothing.
+ */
+const LABEL_MIN_PLATE_PX = 420;
+
+/** Slack held back from the viewBox edge when sizing a label, CSS px. */
+const LABEL_EDGE_PAD = 2;
+
+/**
+ * How far the plate's labels may grow before one of them clips.
+ *
+ * Read once, from the authored geometry, so the result is a ratio in plate
+ * units and holds at any viewport. A label anchored `end` grows leftward and
+ * one anchored `start` grows rightward; either way the arrow target stays
+ * put, so the only thing that can run out of room is the text itself.
+ */
+function measureLabelCap(svg: SVGSVGElement): number {
+  const plate = svg.getBoundingClientRect();
+  if (plate.width <= 0) return 1;
+
+  let cap = Number.POSITIVE_INFINITY;
+  svg.querySelectorAll<SVGTextElement>("[data-leader-group] text").forEach((label) => {
+    const box = label.getBoundingClientRect();
+    if (box.width <= 0) return;
+
+    const left = box.left - plate.left;
+    const right = plate.right - box.right;
+    const anchor = label.getAttribute("text-anchor");
+    const room =
+      anchor === "end" ? left : anchor === "start" ? right : 2 * Math.min(left, right);
+    let allowed = 1 + Math.max(0, room - LABEL_EDGE_PAD) / box.width;
+
+    if (box.height > 0) {
+      const vertical = 2 * Math.min(box.top - plate.top, plate.bottom - box.bottom);
+      allowed = Math.min(allowed, 1 + Math.max(0, vertical - LABEL_EDGE_PAD) / box.height);
+    }
+
+    cap = Math.min(cap, allowed);
+  });
+
+  return Number.isFinite(cap) ? Math.max(1, cap) : 1;
+}
+
 export function Figure({
   num,
   title,
@@ -67,13 +121,90 @@ export function Figure({
   className,
 }: FigureProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const capRef = useRef<number | null>(null);
+  const [scale, setScale] = useState<FigureScale | null>(null);
+  const [fittedBox, setFittedBox] = useState<string | null>(null);
+  const labelsOff = scale !== null && !scale.labelsVisible;
   const id = figId(num);
   const titleId = `fig-${id}-title`;
   const descId = `fig-${id}-desc`;
 
-  useEffect(() => {
+  /* Measured before paint, so the reader never sees the authored size first.
+     The cap is read on the first pass only, while the labels are still at
+     their authored scale; it is a property of the drawing, not of the
+     viewport, so it never needs re-reading. */
+  useIsomorphicLayoutEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
+
+    const read = () => {
+      const box = svg.viewBox?.baseVal;
+      const rect = svg.getBoundingClientRect();
+      if (capRef.current === null) capRef.current = measureLabelCap(svg);
+
+      const unitsPerCssPx =
+        box && box.width > 0 && box.height > 0 && rect.width > 0 && rect.height > 0
+          ? Math.max(box.width / rect.width, box.height / rect.height)
+          : 1;
+
+      setScale((current) => {
+        const next: FigureScale = {
+          unitsPerCssPx,
+          labelScaleCap: capRef.current ?? 1,
+          labelsVisible: rect.width === 0 || rect.width >= LABEL_MIN_PLATE_PX,
+        };
+        if (
+          current &&
+          current.unitsPerCssPx === next.unitsPerCssPx &&
+          current.labelScaleCap === next.labelScaleCap &&
+          current.labelsVisible === next.labelsVisible
+        ) {
+          return current;
+        }
+        return next;
+      });
+    };
+
+    read();
+    const observer = new ResizeObserver(read);
+    observer.observe(svg);
+    return () => observer.disconnect();
+  }, []);
+
+  /* A plate's viewBox is drawn around its callouts, so taking them off leaves
+     the drawing pushed into one corner against a third of a plate of empty
+     paper. Refitting to what is still drawn recentres it and hands the phone a
+     larger drawing than the desktop column gets, which is the right trade when
+     the annotation has gone. Measured with the callouts already removed. */
+  useIsomorphicLayoutEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    if (!labelsOff) {
+      setFittedBox(null);
+      return;
+    }
+    let box: DOMRect;
+    try {
+      box = svg.getBBox();
+    } catch {
+      return;
+    }
+    if (box.width <= 0 || box.height <= 0) return;
+    const pad = Math.max(box.width, box.height) * 0.03;
+    setFittedBox(
+      [box.x - pad, box.y - pad, box.width + pad * 2, box.height + pad * 2]
+        .map((n) => n.toFixed(2))
+        .join(" "),
+    );
+  }, [labelsOff]);
+
+  /* Held until the label pass has committed: the runners collect the plate's
+     shapes once, and at a width where the callouts come off they are not part
+     of the drawing. Re-keyed on that decision so a resize across the
+     threshold re-collects rather than parking shapes that no longer exist. */
+  useIsomorphicLayoutEffect(() => {
+    const svg = svgRef.current;
+    if (!svg || !scale) return;
 
     let release: (() => void) | null = null;
     const draw = drawOnProgress(svg, {
@@ -97,7 +228,7 @@ export function Figure({
       stopDraw();
       labels();
     };
-  }, []);
+  }, [scale !== null, scale?.labelsVisible, fittedBox]);
 
   return (
     <figure className={`w-full ${className ?? ""}`}>
@@ -117,13 +248,15 @@ export function Figure({
           role="img"
           aria-labelledby={titleId}
           aria-describedby={descId}
-          viewBox={viewBox}
+          viewBox={fittedBox ?? viewBox}
           preserveAspectRatio="xMidYMid meet"
           className="h-auto w-full flex-1"
         >
           <title id={titleId}>{title}</title>
           <desc id={descId}>{groundTruth}</desc>
-          {children}
+          <FigureScaleContext.Provider value={scale ?? AUTHORED_SCALE}>
+            {children}
+          </FigureScaleContext.Provider>
         </svg>
 
         <span

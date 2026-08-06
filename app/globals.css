@@ -111,6 +111,11 @@ html {
        smooth easing, which is the correct reduced-motion behavior. */
   /* html paints the overscroll gutter, so it carries the ground too. */
   background-color: var(--ground);
+  /* The scroll container motion's `scroll()` driver measures against. A static
+     container makes the offset-parent walk terminate at body instead of at the
+     container, so a plate's position in the document is measured against the
+     wrong box. */
+  position: relative;
   /* Prevent horizontal scrollbars from any full-bleed -mx tricks or
      transient layout overshoots while resizing. `clip` is the modern
      replacement for `hidden` that allows position:sticky to work. */
@@ -249,6 +254,22 @@ body {
     repeating-linear-gradient(to bottom, var(--plate-grid) 0 1px, transparent 1px 8px);
 }
 
+/* One blueprint stroke weight across the whole figure system (spec §5).
+   Every primitive authors 1.25, but each plate picks its own viewBox and they
+   run from 467 to 1092 units into the same rendered column, so without this
+   the same 1.25 renders anywhere from 0.64px to 1.50px and FIG_001 draws at
+   more than twice the ink of FIG_010. `vector-effect` is not an inherited
+   property, so it has to land on the shapes, never on the group that carries
+   the stroke. Set here rather than per element so a plate added later cannot
+   miss it.
+
+   Paired with `plateScale()` in lib/motion-manual.ts: once a stroke is
+   non-scaling the UA reads its dash in the host space, and the draw-on has to
+   write its lengths there too. */
+.figure-plate svg :is(path, line, polyline, polygon, circle, ellipse, rect) {
+  vector-effect: non-scaling-stroke;
+}
+
 /* Halftone photographic plate (FIG_020). The image is a two-colour screen,
    blueprint ink on paper, so in light it already matches the drawings. Dark
    prints it as a negative: inverting flips paper to ground and sends the ink
@@ -265,30 +286,45 @@ html.dark .plate-duotone {
 
 /* Dither checker band. A hard-edged checker on a 7px pitch in neutral gray
    over the ground: a printed halftone rule, not a fade. The drift is one tile
-   over 14s, below the threshold of perceived motion. */
+   over 14s, below the threshold of perceived motion.
+
+   The tile layer is a child rather than the band's own background, and it
+   travels on `transform`. Drifting `background-position` repainted the strip
+   every frame on every route for as long as the tab was open, which is the
+   one property this system does not animate (DESIGN.md §7). Overhanging one
+   tile to the right gives the translate somewhere to come from, so the band
+   never shows a gap at either end. */
 .manual-checker {
+  display: block;
+  position: relative;
   height: 8px;
+  overflow: hidden;
   background-color: var(--ground);
+}
+
+.manual-checker::before {
+  content: "";
+  position: absolute;
+  inset: 0 -7px 0 0;
   background-image: repeating-conic-gradient(
     var(--checker-ink) 0% 25%,
     transparent 0% 50%
   );
   background-size: 7px 7px;
-  background-position: 0 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .manual-checker {
+  .manual-checker::before {
     animation: checker-drift 14s linear infinite;
   }
 }
 
 @keyframes checker-drift {
   from {
-    background-position: 0 0;
+    transform: translateX(-7px);
   }
   to {
-    background-position: 7px 0;
+    transform: translateX(0);
   }
 }
 
@@ -334,6 +370,14 @@ a:focus-visible,
   .motion-essential,
   [data-motion="essential"] {
     transition-duration: 0.15s !important;
+  }
+
+  /* The ruler promises that nothing is registered at all under reduced
+     motion. The readout is server-rendered and removed on hydration, so
+     without this a reduced-motion reader gets one frame of a scroll indicator
+     that is about to stop existing. */
+  [data-ruler-readout] {
+    display: none;
   }
 }
 
@@ -401,5 +445,73 @@ a:focus-visible,
   body {
     background: white;
     color: black;
+  }
+}
+
+/* ============================================
+   COVER SHELL (components/manual/Terminal.tsx)
+   ============================================ */
+
+/* The prompt field auto-sizes to what has been typed so the block caret can
+   sit flush against the last character. A hidden mirror span carries the same
+   text and sets the grid track; the input is laid over it and contributes no
+   intrinsic width of its own (min-width: 0 is what stops it). */
+.manual-shell-field {
+  display: inline-grid;
+}
+
+.manual-shell-field > * {
+  grid-area: 1 / 1;
+}
+
+.manual-shell-mirror {
+  visibility: hidden;
+  white-space: pre;
+  min-width: 0.6ch;
+}
+
+.manual-shell-input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Focus lands on the whole prompt row, not on a field that is one character
+   wide when the shell is at rest. The ring is the same 2px blueprint the rest
+   of the manual uses; only what it wraps changes. */
+.manual-shell-input:focus-visible {
+  outline: none;
+}
+
+.manual-shell-row:has(.manual-shell-input:focus-visible) {
+  outline: 2px solid var(--blueprint);
+  outline-offset: -2px;
+}
+
+/* Block caret. Steady by default, so a reduced-motion reader and a reader
+   whose animation is stripped by the global reduce rule both get a solid
+   cursor rather than one frozen mid-blink. The blink is added back only when
+   motion is welcome. */
+.manual-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  flex: none;
+  transform: translateY(0.15em);
+  background: var(--blueprint);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .manual-caret {
+    animation: manual-caret-blink 1.06s step-end infinite;
+  }
+}
+
+@keyframes manual-caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }

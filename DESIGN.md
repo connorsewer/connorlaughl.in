@@ -196,6 +196,21 @@ Every primitive strokes in `var(--blueprint)` at 1.25 and fills only from the
 `--fig-*` tokens. Labels are mono, uppercase and horizontal, never rotated to
 follow an edge.
 
+That 1.25 is a **rendered** weight. Plate viewBoxes run from 467 to 1092 units
+into the same column, so `app/globals.css` sets `vector-effect:
+non-scaling-stroke` on every shape inside `.figure-plate`; it is not an
+inherited property and does nothing on the group that carries the stroke.
+`plateScale()` in `lib/motion-manual.ts` is the other half of that: once a
+stroke is non-scaling the UA reads its dash in the host space, so the draw-on
+writes its lengths there too.
+
+Leader labels are normalised the same way. `Figure` measures units per CSS
+pixel and publishes it through `FigureScale`, and `LeaderLabel` sizes its type,
+gap and arrowhead in the reader's space, targeting 11px. It may only grow as
+far as the plate's own margins allow, so a plate drawn tight around its longest
+label stays under the target. Below a 420px plate the callouts come off
+entirely and the visible caption carries the claim.
+
 ### Numbering and the registry
 
 Numbered plates live at `components/figures/fig-0NN-*.tsx` and are registered in
@@ -238,6 +253,7 @@ the catalog components animate from.
 | `statFill()` | Stat rows fill. |
 | `statTick()` | Numeric readouts count up to the string already in the DOM, then restore it verbatim. |
 | `labelSettle()` | A plate's leader labels settle in as a group. |
+| `valuePulse()` | A recomputed readout re-inking itself. Opacity and scale only. |
 | `rulerBreathe()` | Ambient opacity oscillation on the ruler readout. |
 | `wordmarkReveal()` | Pixel reveal on the masthead wordmark. |
 | `prefersReducedMotion()` | The branch every one of them takes. |

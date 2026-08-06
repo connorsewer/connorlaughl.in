@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 
+import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { wordmarkReveal } from "@/lib/motion-manual";
 
 /**
@@ -19,7 +20,10 @@ import { wordmarkReveal } from "@/lib/motion-manual";
 export function WordmarkMotion({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => wordmarkReveal(ref.current?.querySelector("[data-wordmark]")), []);
+  useIsomorphicLayoutEffect(
+    () => wordmarkReveal(ref.current?.querySelector("[data-wordmark]")),
+    [],
+  );
 
   return <div ref={ref}>{children}</div>;
 }

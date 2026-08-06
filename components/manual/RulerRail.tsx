@@ -1,8 +1,9 @@
 "use client";
 
 import { scroll } from "motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
+import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 import { prefersReducedMotion, rulerBreathe } from "@/lib/motion-manual";
 
@@ -45,7 +46,7 @@ export function RulerRail() {
   const readoutRef = useRef<HTMLDivElement | null>(null);
   const valueRef = useRef<HTMLSpanElement | null>(null);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     /* Both checks, deliberately. The hook can still be reporting its server
        fallback on the first client pass, and one pass is enough to register a
        binding that this branch is not allowed to have. The imperative check
@@ -101,11 +102,15 @@ export function RulerRail() {
         {!reduced ? (
           <div
             ref={readoutRef}
+            data-ruler-readout
             // Held inside the rail so the readout never clips off the top or
             // bottom edge at the ends of the scroll. The 2% inset is CSS, so
             // the resting position is right before a single frame runs.
             className="absolute right-4 top-[2%] flex items-center gap-2"
-            style={{ transform: "translateY(-50%)" }}
+            // `will-change` on the one fixed element that takes a transform
+            // write every scroll frame; without it the rail re-rasterises
+            // against the page behind it.
+            style={{ transform: "translateY(-50%)", willChange: "transform" }}
           >
             <span
               ref={valueRef}

@@ -66,7 +66,6 @@ export type IsoBoxProps = {
 
 export function IsoBox({ w, h, d, fill = "none", x = 0, y = 0, className }: IsoBoxProps) {
   const paint = figFill(fill);
-  const shaded = paint === "none" ? "none" : paint;
 
   // Visible faces from this viewpoint: the top, the y = d face, the x = w face.
   const top = isoPolygon([
@@ -89,17 +88,20 @@ export function IsoBox({ w, h, d, fill = "none", x = 0, y = 0, className }: IsoB
   ]);
 
   return (
+    /* `vector-effect` is not inherited, so it cannot be set here: on a group
+       it applies to the group and to nothing inside it. The plate-wide rule in
+       app/globals.css sets it on the shapes themselves, which is the only
+       place it has any effect. */
     <g
       transform={`translate(${x} ${y})`}
       className={className}
       stroke="var(--blueprint)"
       strokeWidth={FIG_STROKE}
       strokeLinejoin="round"
-      vectorEffect="non-scaling-stroke"
     >
-      <polygon points={front} fill={shaded} fillOpacity={paint === "none" ? 0 : 0.55} />
-      <polygon points={side} fill={shaded} fillOpacity={paint === "none" ? 0 : 0.35} />
-      <polygon points={top} fill={shaded} fillOpacity={paint === "none" ? 0 : 1} />
+      <polygon points={front} fill={paint} fillOpacity={paint === "none" ? 0 : 0.55} />
+      <polygon points={side} fill={paint} fillOpacity={paint === "none" ? 0 : 0.35} />
+      <polygon points={top} fill={paint} fillOpacity={paint === "none" ? 0 : 1} />
     </g>
   );
 }

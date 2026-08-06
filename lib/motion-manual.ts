@@ -139,6 +139,20 @@ export const labelSettleSpec = {
 } as const;
 
 /**
+ * value-pulse — a recomputed readout re-inking itself.
+ *
+ * The planner's outputs change faster than a tween can be read, so the pulse
+ * is the only signal that a keystroke landed. Opacity and transform only: the
+ * earlier hand-rolled version also tweened `color`, which sits outside the
+ * property budget this file holds to.
+ */
+export const valuePulseSpec = {
+  from: { opacity: 0.55, transform: "scale(0.985)" },
+  to: { opacity: 1, transform: "scale(1)" },
+  options: { duration: DURATION.short, ease: EASE.outQuint },
+} as const;
+
+/**
  * ruler-breathe — ambient opacity oscillation on the ruler readout.
  *
  * Amplitude 0.06, which is under the threshold at which a reader notices a
@@ -158,9 +172,9 @@ export const rulerBreatheSpec = {
 const DRAWABLE = "path, line, polyline, polygon, circle, ellipse, rect";
 
 /**
- * Every shape in a plate that is allowed to draw, with its path length.
- * `data-no-draw` opts a shape out (fills, and the grid planes that should
- * already be on the page when the drawing starts).
+ * Every shape in a plate that is allowed to draw, with its path length in
+ * plate user units. `data-no-draw` opts a shape out (fills, and the grid
+ * planes that should already be on the page when the drawing starts).
  */
 function collectStrokes(el: Element): { shapes: SVGGeometryElement[]; lengths: number[] } {
   const shapes = Array.from(el.querySelectorAll<SVGGeometryElement>(DRAWABLE)).filter(
@@ -174,6 +188,32 @@ function collectStrokes(el: Element): { shapes: SVGGeometryElement[]; lengths: n
     }
   });
   return { shapes, lengths };
+}
+
+/**
+ * CSS pixels a plate draws per user unit.
+ *
+ * Every stroke in a plate carries `non-scaling-stroke`, so the UA resolves
+ * `stroke-dasharray` and `stroke-dashoffset` in the host coordinate space
+ * while `getTotalLength()` still reports user units. The two disagree by
+ * exactly this factor, and a dash written in the wrong space parks a leader
+ * as a visible dashed line (scale > 1) or finishes its draw early (scale < 1).
+ *
+ * Measured at mount and on resize, never inside a scroll callback.
+ */
+function plateScale(el: Element): number {
+  const svg = el instanceof SVGSVGElement ? el : el.closest("svg");
+  const box = svg?.viewBox?.baseVal;
+  if (!svg || !box || box.width <= 0 || box.height <= 0) return 1;
+  const rect = svg.getBoundingClientRect();
+  if (rect.width <= 0 || rect.height <= 0) return 1;
+  /* Plates are `xMidYMid meet`, so the uniform scale is the smaller ratio. */
+  return Math.min(rect.width / box.width, rect.height / box.height);
+}
+
+/** Path lengths in the space the UA will read the dash in. */
+function dashLengths(lengths: number[], scale: number): number[] {
+  return lengths.map((length) => length * scale);
 }
 
 /** Parks a shape at "not yet drawn". */
@@ -221,17 +261,32 @@ export function drawOn(target: MotionTarget, options: DrawOnOptions = {}): Motio
   const duration = options.duration ?? drawOnSpec.duration;
   const gap = options.stagger ?? drawOnSpec.perItem;
 
-  const { shapes, lengths } = collectStrokes(el);
+  const { shapes, lengths: userLengths } = collectStrokes(el);
   if (shapes.length === 0) return NOOP;
 
+  let lengths = dashLengths(userLengths, plateScale(el));
+
   // Park every shape at "not yet drawn" before the observer fires.
-  shapes.forEach((shape, i) => {
-    if (lengths[i] > 0) park(shape, lengths[i]);
-  });
+  const parkAll = () => {
+    shapes.forEach((shape, i) => {
+      if (lengths[i] > 0) park(shape, lengths[i]);
+    });
+  };
+  parkAll();
 
   const clear = unpark;
 
   let drawn = false;
+
+  /* A plate that is resized before it is reached changes the space its dash
+     is read in, so the park is re-measured rather than left stale. */
+  const onResize = () => {
+    if (drawn) return;
+    lengths = dashLengths(userLengths, plateScale(el));
+    parkAll();
+  };
+  window.addEventListener("resize", onResize, { passive: true });
+
   const failsafe = window.setTimeout(() => {
     if (drawn) return;
     drawn = true;
@@ -244,6 +299,7 @@ export function drawOn(target: MotionTarget, options: DrawOnOptions = {}): Motio
       if (drawn) return;
       drawn = true;
       window.clearTimeout(failsafe);
+      window.removeEventListener("resize", onResize);
       shapes.forEach((shape, i) => {
         if (lengths[i] <= 0) {
           clear(shape);
@@ -264,6 +320,7 @@ export function drawOn(target: MotionTarget, options: DrawOnOptions = {}): Motio
 
   return () => {
     window.clearTimeout(failsafe);
+    window.removeEventListener("resize", onResize);
     stop();
     shapes.forEach(clear);
   };
@@ -288,6 +345,20 @@ function drawHandle(fn: MotionCleanup, bound: boolean): ScrollDrawHandle {
  */
 function isAboveFold(el: Element): boolean {
   return el.getBoundingClientRect().top + window.scrollY < window.innerHeight;
+}
+
+/**
+ * The box the scroll driver measures a plate by.
+ *
+ * `scroll()` places its target by walking `offsetTop`/`offsetLeft` up the
+ * offset-parent chain, and those are `HTMLElement` properties: an `<svg>`
+ * reports `undefined` for both, so the target offset comes out `NaN` and every
+ * tick writes an invalid dash that the UA discards. The plate wrapper is the
+ * nearest real box and is also the visual unit the reader sees, so it is what
+ * gets measured. The strokes still come from the `<svg>` itself.
+ */
+function scrollBox(el: Element): Element {
+  return el instanceof SVGElement ? (el.parentElement ?? el) : el;
 }
 
 export type DrawOnProgressOptions = {
@@ -322,12 +393,10 @@ export function drawOnProgress(
   if (prefersReducedMotion()) return drawHandle(NOOP, false);
   if (isAboveFold(el)) return drawHandle(NOOP, false);
 
-  const { shapes, lengths } = collectStrokes(el);
+  const { shapes, lengths: userLengths } = collectStrokes(el);
   if (shapes.length === 0) return drawHandle(NOOP, false);
 
-  shapes.forEach((shape, i) => {
-    if (lengths[i] > 0) park(shape, lengths[i]);
-  });
+  let lengths = dashLengths(userLengths, plateScale(el));
 
   const { lead } = drawOnProgressSpec;
   const span = 1 - lead;
@@ -335,6 +404,7 @@ export function drawOnProgress(
 
   let ticked = false;
   let released = false;
+  let progressAt = 0;
 
   /** Content is never left invisible because a driver did not fire. */
   const release = () => {
@@ -344,22 +414,38 @@ export function drawOnProgress(
     options.onProgress?.(1);
   };
 
-  const apply = (progress: number) => {
-    ticked = true;
-    if (released) return;
-    const p = clamp01(progress);
+  /** Writes the dash for a given progress. No geometry is read here. */
+  const write = (p: number) => {
     for (let i = 0; i < shapes.length; i += 1) {
       const length = lengths[i];
       if (length <= 0) continue;
       const start = (i / last) * lead;
       const local = clamp01((p - start) / span);
+      shapes[i].style.strokeDasharray = `${length}`;
       shapes[i].style.strokeDashoffset = `${length * (1 - local)}`;
     }
+  };
+
+  // Parked at "not yet drawn" before the driver's first tick.
+  write(0);
+
+  const apply = (progress: number) => {
+    ticked = true;
+    if (released) return;
+    const p = clamp01(progress);
+    progressAt = p;
+    /* A finished draw returns to the authored dash rather than holding an
+       inline offset of zero, so nothing dashed is left overridden. */
+    if (p >= 1) {
+      release();
+      return;
+    }
+    write(p);
     options.onProgress?.(p);
   };
 
   const stopScroll = scroll(apply, {
-    target: el,
+    target: scrollBox(el),
     offset: [...drawOnProgressSpec.offset],
   });
 
@@ -369,17 +455,53 @@ export function drawOnProgress(
     release();
   }, options.failsafeMs ?? 2500);
 
+  /**
+   * Second rescue, independent of the driver.
+   *
+   * The scroll window runs from `start 0.9` to `start 0.3`, so a plate needs
+   * roughly 0.6 viewports of scroll past it to finish. A plate near the end of
+   * a short document never gets that distance, and the driver's own failsafe
+   * only covers the case where it never ticked at all. Without this, a
+   * scroll-linked plate can hold its strokes part-drawn and its leader labels
+   * at opacity 0 for as long as the reader sits there.
+   *
+   * `amount: "all"` is the conservative trigger: the reader has the whole
+   * plate on screen and has had a beat to look at it. A plate taller than the
+   * viewport never satisfies it, which is correct — its own height is the
+   * scroll headroom the driver needs.
+   */
+  const stopSeen = inView(
+    el,
+    () => {
+      const timer = window.setTimeout(() => {
+        stopScroll();
+        release();
+      }, 1200);
+      return () => window.clearTimeout(timer);
+    },
+    { amount: "all" },
+  );
+
   const onResize = () => {
-    if (released || !isAboveFold(el)) return;
-    stopScroll();
-    window.removeEventListener("resize", onResize);
-    release();
+    if (released) return;
+    if (isAboveFold(el)) {
+      stopScroll();
+      stopSeen();
+      window.removeEventListener("resize", onResize);
+      release();
+      return;
+    }
+    /* Still below the fold: the plate changed size, so the dash space did
+       too. Re-measure and re-write at the progress already reached. */
+    lengths = dashLengths(userLengths, plateScale(el));
+    write(progressAt);
   };
   window.addEventListener("resize", onResize, { passive: true });
 
   return drawHandle(() => {
     window.clearTimeout(failsafe);
     window.removeEventListener("resize", onResize);
+    stopSeen();
     stopScroll();
     shapes.forEach(unpark);
   }, true);
@@ -411,6 +533,12 @@ export function statFill(
 
   const gap = options.stagger ?? statFillSpec.perItem;
 
+  /* Parked before the observer, matching every other runner. `inView` at
+     `amount: 0.2` fires with the table already a fifth on screen, so parking
+     inside the callback showed the reader the finished rows, snapped them to
+     empty, and faded them back. */
+  rows.forEach((row) => animate(row, statFillSpec.from, { duration: 0 }));
+
   let filled = false;
   const stop = inView(
     el,
@@ -418,7 +546,6 @@ export function statFill(
       if (filled) return;
       filled = true;
       rows.forEach((row, i) => {
-        animate(row, statFillSpec.from, { duration: 0 });
         animate(row, statFillSpec.to, { ...statFillSpec.options, delay: i * gap });
       });
     },
@@ -655,6 +782,34 @@ export function labelSettle(
     }) as MotionCleanup,
     { release },
   );
+}
+
+/* ───────────────────────────── value pulse ─────────────────────────── */
+
+/**
+ * Pulses a readout that has just been recomputed.
+ *
+ * The target has to generate a box for the scale leg to apply: `transform`
+ * does nothing on a non-replaced inline box, which is what a bare `<span>` is.
+ * Callers wrap the value in an `inline-block`.
+ *
+ * Reduced motion: nothing runs, and the value simply changes.
+ */
+export function valuePulse(target: MotionTarget): MotionCleanup {
+  const el = resolve(target);
+  if (!el || typeof window === "undefined") return NOOP;
+  if (prefersReducedMotion()) return NOOP;
+
+  const controls = animate(
+    el,
+    {
+      opacity: [valuePulseSpec.from.opacity, valuePulseSpec.to.opacity],
+      transform: [valuePulseSpec.from.transform, valuePulseSpec.to.transform],
+    },
+    { ...valuePulseSpec.options },
+  );
+
+  return () => controls.stop();
 }
 
 /* ──────────────────────────── ruler breathe ────────────────────────── */

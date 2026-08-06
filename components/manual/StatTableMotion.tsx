@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 
+import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { statFill, statTick } from "@/lib/motion-manual";
 
 /**
@@ -24,7 +25,7 @@ import { statFill, statTick } from "@/lib/motion-manual";
 export function StatTableMotion({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const stopFill = statFill(ref.current);
     const stopTick = statTick(ref.current);
     return () => {

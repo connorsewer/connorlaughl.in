@@ -1,3 +1,6 @@
+"use client";
+
+import { useFigureScale } from "@/components/figures/FigureScale";
 import { FIG_STROKE } from "@/components/figures/IsoBox";
 
 /**
@@ -11,6 +14,12 @@ import { FIG_STROKE } from "@/components/figures/IsoBox";
  *
  * `x`/`y` place the label text. `dx`/`dy` are the offset from there to the
  * point being named, so the label reads first and the eye follows the line.
+ *
+ * Sizes are authored in plate units and resolved into the reader's units by
+ * `FigureScale`: `size`, `GAP` and `HEAD` are one lockup and scale together,
+ * so the gap the leader holds off the text stays proportional to the type
+ * rather than collapsing into it. The arrow target never moves, so the label
+ * grows away from the part it names and not over it.
  */
 
 export type LeaderLabelProps = {
@@ -25,7 +34,7 @@ export type LeaderLabelProps = {
   dashed?: boolean;
   /** Set false for a plain tie with no arrowhead. */
   arrow?: boolean;
-  /** Type size in plate units. */
+  /** Type size in plate units, before the plate's scale is applied. */
   size?: number;
   className?: string;
 };
@@ -33,6 +42,15 @@ export type LeaderLabelProps = {
 /** Distance held between the end of the text and the start of the leader. */
 const GAP = 10;
 const HEAD = 7;
+
+/**
+ * Rendered label size, CSS pixels.
+ *
+ * Mono uppercase at 11px with 0.1em tracking is the size the manual sets
+ * every other caption and rail at, so a callout that matches it reads as the
+ * same voice rather than as a different one shrunk to fit.
+ */
+const TARGET_PX = 11;
 
 export function LeaderLabel({
   x,
@@ -45,11 +63,28 @@ export function LeaderLabel({
   size = 11,
   className,
 }: LeaderLabelProps) {
+  const { unitsPerCssPx, labelScaleCap, labelsVisible } = useFigureScale();
+
+  if (!labelsVisible) return null;
+
+  /* Growing is what clips; shrinking never can, so the cap only binds one
+     way. A plate whose cap holds it under the target is a plate with no room
+     left, which is a composition fact and not something to force. */
+  const wanted = (TARGET_PX * unitsPerCssPx) / size;
+  const scale = wanted <= 1 ? wanted : Math.min(wanted, labelScaleCap);
+
+  const type = size * scale;
+  const gap = GAP * scale;
+  const head = HEAD * scale;
+
   const toRight = dx >= 0;
-  const startX = x + (toRight ? GAP : -GAP);
+  const startX = x + (toRight ? gap : -gap);
   const targetX = x + dx;
   const targetY = y + dy;
-  const angle = (Math.atan2(targetY - y, targetX - startX) * 180) / Math.PI;
+  /* Rounded because it is computed on both sides of hydration and `atan2` is
+     only specified to the last ulp, so Node and the browser disagree in the
+     fifteenth decimal and React reports the attribute as a mismatch. */
+  const angle = ((Math.atan2(targetY - y, targetX - startX) * 180) / Math.PI).toFixed(4);
 
   return (
     /* `data-leader-group` is the selector `labelSettle()` in
@@ -62,7 +97,7 @@ export function LeaderLabel({
         dominantBaseline="middle"
         fill="var(--blueprint)"
         fontFamily="var(--font-geist-mono), ui-monospace, monospace"
-        fontSize={size}
+        fontSize={type}
         letterSpacing="0.1em"
       >
         {text.toUpperCase()}
@@ -81,7 +116,7 @@ export function LeaderLabel({
 
       {arrow ? (
         <path
-          d={`M ${-HEAD} ${-HEAD * 0.55} L 0 0 L ${-HEAD} ${HEAD * 0.55}`}
+          d={`M ${-head} ${-head * 0.55} L 0 0 L ${-head} ${head * 0.55}`}
           fill="none"
           stroke="var(--blueprint)"
           strokeWidth={FIG_STROKE}
