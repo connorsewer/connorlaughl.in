@@ -64,7 +64,7 @@ Current code is dark-first with inverted usage (`body { background: var(--ink); 
 
 - **Geist Pixel** — wordmark, TOC section headers, stat labels (uppercase).
 - **GT Sectra Fine** — display only: chapter titles, deks, drop-cap glyphs.
-- **Newsreader** (add in Phase 2: OFL license, download TTFs from Google Fonts, pin static instances — 400/500/600 + italics — with fonttools `instancer` before subsetting; `scripts/subset-fonts.py` must be parameterized first, its `SRC` is hard-coded to the GT Sectra directory). Fallback chain if acquisition fails offline: try `npm`-packaged `@fontsource` files; else ship `Georgia, 'Times New Roman', serif` stack and log a TODO — body work proceeds regardless. `proxy.ts` CSP already allows self-hosted fonts.
+- **Newsreader** (add in Phase 2: OFL license, download TTFs from Google Fonts, pin static instances — 400/500/600 + italics — with fonttools `instancer` before subsetting; `scripts/subset-fonts.py` must be parameterized first, its `SRC` is hard-coded to the GT Sectra directory). Fallback chain if acquisition fails: try `npm`-packaged `@fontsource` files (also network-dependent — the only true offline path is the system stack); else ship `Georgia, 'Times New Roman', serif` and log a TODO — body work proceeds regardless. `proxy.ts` CSP already allows self-hosted fonts.
 - **Geist Mono** — labels, breadcrumbs, captions, stats, buttons, FAQ chrome.
 - Geist Sans retires from body duty (retained for form controls in the planner tool if needed).
 - Justified body: `hyphens: auto`, applied at measures ≥ 60ch only; narrower breakpoints go ragged-right. voiceDNA's short-paragraph rule (1–3 sentences) holds — the source's paragraphs are short too.
@@ -115,7 +115,7 @@ Current code is dark-first with inverted usage (`body { background: var(--ink); 
 | `/tools/revops-capacity-planner` | Appendix chapter; tool interactivity preserved |
 | `/proof` | Existing redirect → `/case-studies` (kept; still valid) |
 | `not-found.tsx` | NEW: manual-styled 404 ("page not in this manual"), Phase 5 |
-| `/sitemap.xml`, `/robots.txt` | Kept; sitemap updated in Phase 6 (add `/edge` — currently missing) |
+| `/sitemap.xml`, `/robots.txt` | Kept; sitemap gains `/edge` + `/case-studies/strategy-memo` in Phase 2 |
 | OG image routes | See §7 Phase 6a |
 
 ### Cover anatomy (top to bottom)
@@ -125,7 +125,7 @@ Current code is dark-first with inverted usage (`body { background: var(--ink); 
 3. Proof-first opening: ≤150-word drop-cap intro interleaved with the first figures; TOC reachable within ~1.5 viewports.
 4. Cover figures: 6–8 total (FIG_001–FIG_00N), each grounded in a real system (§5).
 5. Table of Contents: sections below, word counts computed at build time, one-line outcome dek per chapter.
-6. Stats block: mono table, real referents only. Candidate rows (final call in Phase 1a, all Green-tier or standing-approved): years operating, revenue systems shipped (count), chapters published (count, no denominator), longform words published (computed from rendered content). NO progress bar, NO estimated totals, NO invented denominators.
+6. Stats block: mono table, real referents only. Candidate rows (final call in Phase 1a, all Green-tier or standing-approved): years operating, revenue systems shipped (count), chapters published (count, no denominator), longform words published (computed from rendered content). Any non-computed row must be added to `content/proof-metrics.ts` in Phase 1a so it resolves through the gate; rows that can't be are dropped. NO progress bar, NO estimated totals, NO invented denominators.
 7. FAQ: 4–8 real questions sourced from actual recruiter/hiring screens in the vault (story bank, application packets). `IN:/OUT:` visual chrome; answers in Connor's human voice; the question list itself is claim-gated.
 8. Contact CTA: bordered mono button (primary: email) + secondary text line; exact copy from Phase 1a.
 9. Colophon footer: **named credit — "Design language after Dan Hollick's Making Software"** (linked) + type/stack colophon. Mandatory, Phase 6 exit requirement.
@@ -190,7 +190,7 @@ Conventional commits; each phase ends **buildable, committed, and logged** in `d
   (c) Capture reference screenshots (cover + chapter, 1440w and 390w, full scroll) into `docs/superpowers/reference/` and **add that directory to `.gitignore`** — they are third-party copyrighted pages and stay local-only scaffolding, never committed (repo may be pushed publicly). Correct §1a against them.
   (d) No pull/merge/rebase against origin — drift reconciliation is Connor's morning decision.
 - **Phase 1a — Spine + IA lock.** Vault mining → story spine; final TOC entries + outcome deks; stats rows; FAQ question list (from real screens); tagline/CTA wording candidates. Gate: claim-tier self-audit of the spine against the approval set.
-- **Phase 2 — Foundation.** New tokens/utilities + theme inversion per §2 (light on `:root`, dark under `html.dark`, `forcedTheme="light"`, toggle hidden); Newsreader acquisition per §2 (with fallback chain); type roles; graph texture; checker band; masthead/footer; figure primitives; ruler rail; `scripts/word-counts.mjs` (counts post-projection rendered text only — never stubs, drafts, or `publicUse:"hide"` fields); voice-scan script (a `.mjs`, not `.sh` — it must resolve routes from TS: scans sitemap routes ∪ explicit extras `{/edge, /case-studies/strategy-memo, /proof, one known-404 path}`); sitemap gains `/edge` and `/case-studies/strategy-memo` NOW, not Phase 6; **proof:guard rewrite to a phase-independent shape** — dynamic discovery (glob `app/**` + `components/**` for references to `proofMetrics`/gated data and assert each resolves through `renderableProofMetrics`) plus a floor assertion (≥3 files must call `renderableProofMetrics`) so file renames can neither crash it (bare `readFileSync` ENOENT today) nor silently zero its coverage; fix `--font-geist-pixel-grid` bug. Gate: `npm run lint && npm run build && npm run proof:guard` green; sample page styled (spine fragments as placeholder copy — 1b lands next) and screenshot-reviewed against reference checklist §1a.
+- **Phase 2 — Foundation.** New tokens/utilities + theme inversion per §2 (light on `:root`, dark under `html.dark`, `forcedTheme="light"`, toggle hidden); Newsreader acquisition per §2 (with fallback chain); type roles; graph texture; checker band; masthead/footer; figure primitives; ruler rail; `scripts/word-counts.mjs` (counts post-projection rendered text only — never stubs, drafts, or `publicUse:"hide"` fields); voice-scan script (a `.mjs`, not `.sh` — it must resolve routes from TS: scans sitemap routes ∪ explicit extras `{/edge, /case-studies/strategy-memo, /proof, one known-404 path}`); sitemap gains `/edge` and `/case-studies/strategy-memo` NOW, not Phase 6; **proof:guard rewrite to a phase-independent shape** — dynamic discovery (glob `app/**` + `components/**` for references to `proofMetrics`/gated data and assert each resolves through `renderableProofMetrics`) plus a floor assertion set from the measured post-conversion count at each phase (not a decorative literal) so file renames can neither crash it (bare `readFileSync` ENOENT today) nor silently zero its coverage; fix `--font-geist-pixel-grid` bug. Gate: `npm run lint && npm run build && npm run proof:guard` green; sample page styled (spine fragments as placeholder copy — 1b lands next) and screenshot-reviewed against reference checklist §1a.
 - **Phase 1b — Copy deck.** Full page-by-page copy from spine (needs Phase 1a decisions; runs after/alongside Phase 2). Gate: adversarial copy review (claims, voice, slop) by non-author agent.
 - **Phase 3 — Cover.** `/` per §3 anatomy. Gate: fidelity checklist vs reference; rendered voice scan; build green.
 - **Phase 4 — Chapter chrome + case studies.** Sidebar TOC, sheet, breadcrumb, meta, ruler; 11 case-study chapters + strategy memo converted with figures per §5. Gate: fidelity + voice + proof:guard + word counts correct.
@@ -201,7 +201,7 @@ Conventional commits; each phase ends **buildable, committed, and logged** in `d
 ### Final QA checklist (Phase 6 exit)
 
 - lint, build, proof:guard green; prod-mode smoke of every route in the §3 map; CSP clean.
-- `scripts/voice-scan.sh` empty on all routes (dev AND prod runs).
+- `scripts/voice-scan.mjs` empty on all routes (dev AND prod runs).
 - Reduced-motion + keyboard pass on cover, one chapter, resume.
 - Contrast: blueprint-on-ground AND dark cyanotype tokens at used sizes.
 - TOC word counts match rendered content; no gated numeral outside `proof-metrics.ts` resolution; colophon credit present.
