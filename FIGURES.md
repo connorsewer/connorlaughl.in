@@ -45,6 +45,23 @@ a new figure always takes the next free number.
 
 | FIG_020 | Portrait | `/about` | The desk in Chicago where the work in this manual was built | Photographic plate rather than a drawing. The desk illustration re-screened as a blueprint-on-paper halftone duotone so it sits in the same ink as the figures. |
 
+| FIG_021 | Binder | Chapter, revenue operating system | The written form the operating layers took: a document somebody could open and follow | Halftone plate rather than a drawing. A ring binder open flat on a desk under a lamp, screened as a blueprint-on-paper duotone. Pairs with FIG_008 and never replaces it. |
+| FIG_022 | Checklist | Chapter, governed AI operating layer | The human approval step every run passed, and the record each one left | Halftone plate rather than a drawing. A printed checklist on a desk with a rubber stamp and an ink pad beside it, screened as a blueprint-on-paper duotone. Pairs with FIG_009 and never replaces it. |
+
+## Generation log
+
+Every generation attempt on a halftone plate, accepted or rejected, with its
+reason. Rejection criteria are fixed: any legible text, any legible numeral,
+off-palette color, or subject drift from the subject table. A rejected
+generation is regenerated, never retouched into compliance.
+
+| Figure | Attempt | Verdict | Reason |
+|---|---|---|---|
+| FIG_021 | 1 | Rejected | Off-palette. The plate was rendered as a print lying on a brown wooden surface, which puts a third color across the frame. Subject drift as well: it read as a stack of filed folders rather than a binder open flat. |
+| FIG_021 | 2 | Accepted | Two inks only, coarse dot screen intact, binder open flat under a lamp, no legible mark anywhere at full resolution. |
+| FIG_021 | 2b | No output | Second variant of the same request failed in the service before returning an image. Nothing to judge. |
+| FIG_022 | 1 | Accepted | Two inks only, coarse dot screen intact, subject as written, checklist rules and stamp die abstract with nothing readable at full resolution. |
+
 ## Reserved
 
 `FIG_019` is reserved for the remaining plate listed in the copy deck's figure

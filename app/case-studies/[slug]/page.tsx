@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -68,6 +69,48 @@ const chapterFigures: Record<string, React.ComponentType> = {
   "fig-016": Fig016ClaimToApproval,
   "fig-017": Fig017TwoFunctionModel,
   "fig-018": Fig018SchemaToPage,
+};
+
+/**
+ * Chapter halftone plates (Wave C §2). Keyed by slug, beside `chapterFigures`
+ * and deliberately not a `CaseStudy` field: a plate is a property of the route,
+ * not of the content module. A slug absent from this table renders
+ * diagram-only, which stays legal.
+ *
+ * Files are named by figure number rather than by slug, so no client or
+ * employer name can reach a public path. The plate never carries a claim: `alt`
+ * describes the object, the caption states the claim in words, and no numeral
+ * appears in either.
+ */
+type ChapterPlate = {
+  fig: string;
+  src: string;
+  width: number;
+  height: number;
+  subject: string;
+  alt: string;
+  caption: string;
+};
+
+const chapterPlates: Record<string, ChapterPlate> = {
+  "revenue-operations-signal-to-revenue": {
+    fig: "FIG_021",
+    src: "/case-studies/plate-fig-021.webp",
+    width: 1200,
+    height: 896,
+    subject: "BINDER",
+    alt: "Halftone plate of a ring binder lying open flat on a desk beneath a lamp.",
+    caption: "Every layer of the operating system existed as something written down.",
+  },
+  "ai-native-gtm": {
+    fig: "FIG_022",
+    src: "/case-studies/plate-fig-022.webp",
+    width: 1200,
+    height: 896,
+    subject: "CHECKLIST",
+    alt: "Halftone plate of a printed checklist on a desk with a rubber stamp and an ink pad beside it.",
+    caption: "Nothing released until a person approved it, and every run left a record.",
+  },
 };
 
 /**
@@ -198,6 +241,7 @@ export default async function CaseStudyPage({
     cs.label.trim().toLowerCase() === cs.title.trim().toLowerCase() ? undefined : cs.label;
 
   const ChapterFigure = cs.figureSlug ? chapterFigures[cs.figureSlug] : undefined;
+  const plate = chapterPlates[slug];
 
   /* `Why it mattered` is optional. Six chapters drop it because the slot
      restated an earlier block; the numbering closes up behind it rather than
@@ -263,6 +307,33 @@ export default async function CaseStudyPage({
             </p>
           ))}
         </section>
+
+        {/* The plate follows the opening prose rather than the header, where it
+            would sit near the fold on a phone. The diagram states the
+            mechanism; the plate shows what the mechanism was made of. */}
+        {plate ? (
+          <figure className="mt-10 max-w-[26rem]">
+            <div className="border border-blueprint/40 p-2">
+              <Image
+                src={plate.src}
+                alt={plate.alt}
+                width={plate.width}
+                height={plate.height}
+                sizes="(min-width: 768px) 26rem, 100vw"
+                loading="lazy"
+                className="plate-duotone block h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+                {plate.fig} [ {plate.subject} ]
+              </span>
+              <span className="font-serif-body text-[0.875rem] leading-snug text-body-ink/70">
+                {plate.caption}
+              </span>
+            </figcaption>
+          </figure>
+        ) : null}
 
         {resolveClaims(cs.outcome) ? (
           <section
