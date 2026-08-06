@@ -83,6 +83,9 @@ at the root of `public/` (`file.svg`, `globe.svg`, `next.svg`, `vercel.svg`,
 - [x] Phase 6a metadata surface (a698c7d1; OG string review clean, zero claim numerals; edge OG dirty-file rewrite logged)
 - [x] Phase 6 hardening (dark mode 4c2d3a05, legacy deletion 4a323263, docs rewrite 3389d531)
 - [x] Phase 6 exit final QA (full spec §7 checklist run, every item recorded below; portrait plate shipped)
+- [x] Task 21 alignment audit written to the vault (recommendations only, nothing applied)
+- [x] `HANDOFF.md` refreshed to current truth, with the consolidated morning-decision list
+- [x] Log finalized and closed (summary block at the foot of this file)
 
 ## Morning decisions (running)
 
@@ -205,3 +208,70 @@ at the root of `public/` (`file.svg`, `globe.svg`, `next.svg`, `vercel.svg`,
 - **The focus ring follows the text colour on some controls rather than always being blueprint.** The contract asks for a blueprint ring everywhere. In practice contents links and a couple of buttons ring in body ink, which is well clear of the visibility threshold and looks deliberate, so it was recorded rather than changed at this hour. Worth one decision: tighten the contract to match the build, or make the ring one colour.
 - **One lint warning survives**, an unused parameter in the header module. It pre-dates this work and touching that file means touching the security-header path, which did not seem worth doing at the end of a QA run.
 - **The original grayscale desk image is now unreferenced** and left in place. Delete it whenever the plate is settled.
+
+## Task 21 — alignment audit + morning handoff
+
+- **The alignment audit is written to the vault and applied to nothing.** It
+  covers the two NO SEND resume variants, the resume and cover-letter operating
+  system, and the GTM engineer one-page narrative, each measured against the
+  spine's positioning lines, canonical phrasing block, cleared proof table and
+  chronology corrections. Every recommendation cites the spine row it derives
+  from. It also carries the discrepancies the copy deck recorded as costs of the
+  gate, so the resume system inherits the same list the site did.
+- **One finding was verified rather than inferred, and it is the audit's own
+  section.** The spine states that one exact value appears anywhere on the site,
+  on one route. Measured against the production build output, that holds for the
+  cover and does not hold for the chapters: seven case-study routes render exact
+  outcome values in their proof blocks, one of them the same value the spine
+  scopes to the cover only. This is not a guard failure and not a leak past the
+  gate. Every one of those values resolves correctly through
+  `renderableProofMetrics()`. The postures that mark them publicly showable live
+  in the case-study content module, predate the standing decision that holds
+  exact values for public routes, and were never revisited. The guard enforces
+  that gated values travel through the gate; it cannot enforce that the gate's
+  postures agree with a clearance decision made later. Three options and a
+  recommendation are written out in the audit. Both the spine's self-audit and
+  the claims module's own comment predicted this and deferred it here, which is
+  why it was recorded rather than resolved overnight.
+- **`HANDOFF.md` rewritten**, which is the one sanctioned touch of that dirty
+  file and the last of the five to be consumed. Connor's in-progress version is
+  preserved in the pre-redesign patch and the new file says so in its own first
+  block. It carries the branch and commit state, the commit ranges by phase,
+  what shipped, the gate results, the verification commands, the deploy sequence
+  as an unexecuted plan, and 23 morning decisions grouped by what they block.
+- **Morning decisions consolidated at 23**, gathered from every entry in this
+  log plus the spine and copy-deck self-audits: 7 gating items (origin drift,
+  deploy go/no-go, employer naming, the exact-metric scope question, the
+  acquired-product URL slug, the dead narrative bullets field, the build-volume
+  unlock), 4 content restoration and placement calls, 8 design and polish calls,
+  and 4 housekeeping items. Nothing on the list stops the site working.
+
+## Closing summary
+
+Twenty-one tasks, seven phases, 37 commits on `redesign/manual` from
+`c3715337`. Nothing pushed, merged, or deployed. Local `main` is still ahead 1
+and behind 8 against its remote, untouched by design.
+
+The site is a reference manual now: light-first blueprint system, cover page
+with a five-section contents, chapter chrome across every route, 21 registered
+drawn figures, a cyanotype dark theme, and manual-system share cards. The old
+system is gone rather than layered over, and the stylesheet lost roughly six
+hundred lines in the sweep.
+
+All copy on the site came from a story spine and a copy deck written first and
+reviewed adversarially, in that order, and applied verbatim. Every gated value
+resolves through the claim gate; prose magnitudes resolve through a token
+registry instead of being typed. The voice scan is clean across 24 routes with
+an empty baseline in both dev and production, which is also the em-dash and
+banned-phrase check.
+
+Every phase gate passed inside the two-round cap. The gates earned their keep
+three times: internal identifiers reaching the production payload through React
+keys, a legacy stylesheet rule that had been crushing the skip link on focus
+site-wide, and two prose magnitudes typed as literals instead of resolved.
+
+What is left is judgment, not work. The 23 morning decisions in `HANDOFF.md` are
+the whole queue, and the four gating ones are worth answering before the branch
+moves anywhere. The largest of them is the exact-metric scope question above:
+the site and its own spine currently describe different claim postures, and only
+Connor can say which one is right.
