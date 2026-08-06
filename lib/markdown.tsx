@@ -142,6 +142,59 @@ function deEmoji(src: string): string {
     .replace(/⚠️?/g, "⚠"); // warning -> bare warning glyph
 }
 
+/**
+ * Source markdown carries its own item glyph on some lists (a literal `✅`,
+ * which `deEmoji` turns into `▪`). The renderer injects the manual's own `·`
+ * marker, so a source glyph would print a second bullet. Stripped at render
+ * rather than in the source files, matching the `stripLeadingH1` pattern: the
+ * markdown stays a portable document, the page carries one marker.
+ */
+function stripLeadingMarker(item: string): string {
+  return item.replace(/^\s*[▪•‣]\s*/, "");
+}
+
+/** `**Role:** …` — the leading metadata paragraph on a longform chapter. */
+const META_LEAD = /^\*\*(?:Role|Timeline|Challenge)\s*:\*\*/;
+/** `**Tag:** #One #Two` — the closing hashtag paragraph. */
+const KEYWORDS_LEAD = /^\*\*Tags?\s*:\*\*/;
+
+type Definition = { label: string; value: string };
+
+/**
+ * Splits `**Role:** a **Timeline:** b **Challenge:** c` into label/value
+ * pairs. Returns null unless the run actually opens with one of the metadata
+ * labels, so ordinary bold-led prose is untouched.
+ */
+function parseDefinitions(text: string): Definition[] | null {
+  if (!META_LEAD.test(text)) return null;
+  const re = /\*\*([^*:]+):\*\*\s*/g;
+  const out: Definition[] = [];
+  let open: { label: string; from: number } | null = null;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    if (open) out.push({ label: open.label, value: text.slice(open.from, m.index).trim() });
+    open = { label: m[1].trim(), from: re.lastIndex };
+  }
+  if (open) out.push({ label: open.label, value: text.slice(open.from).trim() });
+  return out.length > 0 ? out : null;
+}
+
+/**
+ * Keyword tokens from the closing `**Tag:**` paragraph. The `#` glyphs are
+ * dropped at render — raw hashtags read as a social-post signature at the foot
+ * of a printed page — while every word survives, which is what the build-time
+ * word count is computed against.
+ */
+function parseKeywords(text: string): string[] | null {
+  if (!KEYWORDS_LEAD.test(text)) return null;
+  const words = text
+    .replace(KEYWORDS_LEAD, "")
+    .split(/\s+/)
+    .map((w) => w.replace(/^#+/, "").trim())
+    .filter((w) => w.length > 0);
+  return words.length > 0 ? words : null;
+}
+
 function escape(s: string): string {
   return s.replace(/[&<>]/g, (c) => {
     if (c === "&") return "&amp;";
@@ -269,6 +322,27 @@ function renderInline(src: string, key: string): ReactNode[] {
 
 export function renderMarkdown(md: string): ReactNode {
   const blocks = tokenize(md);
+
+  /**
+   * The leading `h2` on a longform chapter is the article's subtitle, not a
+   * section head, so it sets in the dek register instead of one step under the
+   * title. Style only: it is still an `h2` in the outline.
+   */
+  const firstH2 = blocks.findIndex((b) => b.type === "h2");
+
+  /**
+   * The drop cap goes on the first paragraph of running prose. That is not the
+   * metadata run, not the keyword row, and not a wholly bold line, all three of
+   * which are labels rather than body copy.
+   */
+  const firstProse = blocks.findIndex(
+    (b) =>
+      b.type === "p" &&
+      !/^\*\*[^*]+\*\*[.:]?$/.test(b.text.trim()) &&
+      parseDefinitions(b.text) === null &&
+      parseKeywords(b.text) === null,
+  );
+
   return (
     <div className="space-y-6 max-w-[68ch] text-body-ink">
       {blocks.map((b, idx) => {
@@ -285,10 +359,17 @@ export function renderMarkdown(md: string): ReactNode {
             </h1>
           );
         if (b.type === "h2")
-          return (
+          return idx === firstH2 ? (
             <h2
               key={k}
-              className="font-display text-body-ink text-3xl md:text-4xl leading-snug text-balance mt-12"
+              className="font-serif-body text-body-ink/75 text-[1.0625rem] md:text-[1.125rem] leading-relaxed text-balance mt-4 max-w-[54ch]"
+            >
+              {renderInline(b.text, k)}
+            </h2>
+          ) : (
+            <h2
+              key={k}
+              className="font-display text-body-ink text-[1.5rem] md:text-[1.75rem] leading-snug text-balance mt-12"
             >
               {renderInline(b.text, k)}
             </h2>
@@ -297,7 +378,7 @@ export function renderMarkdown(md: string): ReactNode {
           return (
             <h3
               key={k}
-              className="font-display text-body-ink text-2xl leading-snug text-balance mt-10"
+              className="font-display text-body-ink text-xl leading-snug text-balance mt-10"
             >
               {renderInline(b.text, k)}
             </h3>
@@ -311,34 +392,86 @@ export function renderMarkdown(md: string): ReactNode {
               {renderInline(b.text, k)}
             </h4>
           );
-        if (b.type === "p")
+        if (b.type === "p") {
+          const definitions = parseDefinitions(b.text);
+          if (definitions)
+            return (
+              <dl
+                key={k}
+                className="mt-6 grid grid-cols-1 gap-x-6 gap-y-3 border-y border-grid-line py-5 sm:grid-cols-[8rem_minmax(0,1fr)]"
+              >
+                {definitions.map((d, j) => (
+                  <Fragment key={`${k}-d-${j}`}>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-label-muted sm:pt-[0.35em]">
+                      {d.label}
+                    </dt>
+                    <dd className="font-serif-body text-[1rem] leading-relaxed text-body-ink">
+                      {renderInline(d.value, `${k}-dd-${j}`)}
+                    </dd>
+                  </Fragment>
+                ))}
+              </dl>
+            );
+
+          const keywords = parseKeywords(b.text);
+          if (keywords)
+            return (
+              <p
+                key={k}
+                className="mt-12 flex flex-wrap items-baseline gap-x-4 gap-y-2 border-t border-rule-hair pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-label-muted"
+              >
+                <span className="text-blueprint">Keywords</span>
+                {/* The space is a whitespace-only flex text node: it is not
+                    laid out, but it keeps the row readable to copy-paste and
+                    to a screen reader. */}
+                {keywords.map((w, j) => (
+                  <Fragment key={`${k}-kw-${j}`}>
+                    {" "}
+                    <span>{w}</span>
+                  </Fragment>
+                ))}
+              </p>
+            );
+
           return (
-            <p key={k} className="manual-body mt-5">
+            <p
+              key={k}
+              className={`manual-body mt-5${idx === firstProse ? " manual-dropcap" : ""}`}
+            >
               {renderInline(b.text, k)}
             </p>
           );
+        }
         if (b.type === "ul")
           return (
             <ul key={k} className="space-y-2 pl-4">
               {b.items.map((item, j) => (
                 <li key={`${k}-${j}`} className="flex gap-3">
-                  <span aria-hidden="true" className="text-blueprint shrink-0 mt-1">
+                  <span
+                    aria-hidden="true"
+                    className="text-blueprint shrink-0 mt-[0.45em] leading-none"
+                  >
                     ·
                   </span>
-                  <span className="manual-body">{renderInline(item, `${k}-${j}`)}</span>
+                  <span className="manual-body">
+                    {renderInline(stripLeadingMarker(deEmoji(item)), `${k}-${j}`)}
+                  </span>
                 </li>
               ))}
             </ul>
           );
         if (b.type === "ol")
           return (
-            <ol key={k} className="space-y-2 pl-4 list-decimal list-inside">
+            <ol key={k} className="space-y-2 pl-4">
               {b.items.map((item, j) => (
-                <li
-                  key={`${k}-${j}`}
-                  className="manual-body marker:text-blueprint marker:font-mono marker:text-sm"
-                >
-                  {renderInline(item, `${k}-${j}`)}
+                <li key={`${k}-${j}`} className="flex gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 mt-[0.45em] font-mono text-[11px] leading-none tabular-nums text-blueprint"
+                  >
+                    {j + 1}.
+                  </span>
+                  <span className="manual-body">{renderInline(item, `${k}-${j}`)}</span>
                 </li>
               ))}
             </ol>
@@ -393,7 +526,7 @@ export function renderMarkdown(md: string): ReactNode {
                     {row.map((cell, ci) => (
                       <td
                         key={`${k}-td-${ri}-${ci}`}
-                        className="px-3 py-2.5 align-top text-body-ink tabular-nums"
+                        className="px-3 py-2.5 align-top font-serif-body text-[0.9375rem] leading-relaxed text-body-ink [font-variant-numeric:lining-nums_tabular-nums]"
                       >
                         {renderInline(cell, `${k}-td-${ri}-${ci}`)}
                       </td>

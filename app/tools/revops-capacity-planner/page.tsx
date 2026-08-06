@@ -44,7 +44,7 @@ export default function RevOpsPlannerPage() {
         dek="Reverse-funnel math, in the open."
       />
 
-      <p className="manual-body mx-auto mt-8 max-w-[68ch]">
+      <p className="manual-body mt-8 max-w-[68ch]">
         Put in a revenue target and your real conversion rates. It works
         backward to the deal, opportunity, SQL, MQL, and lead volume you&rsquo;d
         need to hit it, plus the pipeline coverage that implies. The defaults
