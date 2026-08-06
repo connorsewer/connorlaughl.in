@@ -38,6 +38,30 @@ const display = localFont({
   fallback: ["Georgia", "serif"],
 });
 
+/**
+ * Newsreader, the manual body serif (spec §2 type roles). Google Fonts OFL;
+ * license copy ships at public/fonts/newsreader/OFL.txt. Static instances
+ * pinned from the variable source at opsz 18 (the family default, tuned for
+ * body sizes) and subset to the Latin-plus range — see scripts/subset-fonts.py
+ * for the reproduction commands.
+ *
+ * Weight mapping (Tailwind utility -> source file):
+ *   400 (font-normal)   Regular + Italic
+ *   500 (font-medium)   Medium
+ *   600 (font-semibold) SemiBold
+ */
+const serifBody = localFont({
+  src: [
+    { path: "../public/fonts/newsreader/Newsreader-Regular.woff2",  weight: "400", style: "normal" },
+    { path: "../public/fonts/newsreader/Newsreader-Italic.woff2",   weight: "400", style: "italic" },
+    { path: "../public/fonts/newsreader/Newsreader-Medium.woff2",   weight: "500", style: "normal" },
+    { path: "../public/fonts/newsreader/Newsreader-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
+  variable: "--font-serif-body",
+  display: "swap",
+  fallback: ["Georgia", "Times New Roman", "serif"],
+});
+
 const SITE_TITLE =
   "Connor J. Laughlin | VP of Marketing & GTM (acting CMO), GTM Engineer";
 const SITE_DESCRIPTION =
@@ -89,7 +113,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${display.variable} antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${display.variable} ${serifBody.variable} antialiased`}
       >
         <ThemeProvider>
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
