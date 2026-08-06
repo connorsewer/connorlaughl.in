@@ -365,6 +365,22 @@ html.dark .plate-duotone {
   .manual-checker::before {
     animation: checker-drift 14s linear infinite;
   }
+
+  /* OPERATOR MODE. The band is the page's only continuously running rule, so
+     it is where a doubled rate is legible without anything else changing. The
+     rule sits inside this query on purpose: a reader who asked for less motion
+     gets the state and none of the speed. Rate lives here rather than in
+     lib/motion-manual.ts because the drift is a CSS animation the document
+     cannot reach from script; `operatorModeSpec.rate` states the same 2. */
+  html[data-operator] .manual-checker::before {
+    animation-duration: 7s;
+  }
+}
+
+/* The chip is the only thing operator mode prints. Revealed by attribute
+   rather than by script so the masthead stays a server component. */
+html[data-operator] [data-operator-chip] {
+  display: inline;
 }
 
 @keyframes checker-drift {

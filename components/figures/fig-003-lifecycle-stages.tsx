@@ -1,4 +1,4 @@
-import { Figure } from "@/components/figures/Figure";
+import { Figure, type PlateProps } from "@/components/figures/Figure";
 import { GridPlane, type GridCell } from "@/components/figures/GridPlane";
 import { LeaderLabel } from "@/components/figures/LeaderLabel";
 
@@ -28,7 +28,7 @@ function bandCentre(row: number): [number, number] {
   return [(x - y) * Math.cos(Math.PI / 6), (x + y) * 0.5];
 }
 
-export function Fig003LifecycleStages() {
+export function Fig003LifecycleStages({ showSubjectRail }: PlateProps = {}) {
   const bands: Array<{ text: string; row: number }> = [
     { text: "Entry definition", row: 0 },
     { text: "Stage owner", row: 1 },
@@ -37,6 +37,7 @@ export function Fig003LifecycleStages() {
 
   return (
     <Figure
+      showSubjectRail={showSubjectRail}
       num={3}
       title="Lifecycle stages"
       groundTruth="The CRM lifecycle model as built. Columns are the stage set; the three bands are what every stage in it carries: an entry definition, a named owner, and an exit definition."

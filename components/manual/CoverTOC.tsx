@@ -10,6 +10,14 @@ import { withPeriod } from "@/components/manual/ChapterHeader";
  * on the right, and a one-line serif dek underneath. Rows that are not
  * markdown-backed carry no count (spec §3, "Word counts").
  *
+ * A row with no count still terminates its leader: it prints a mono kind token
+ * instead, so the dotted rule always runs to something. The token is chrome
+ * describing how the page is made, never a claim.
+ *
+ * Counted rows carry a hairline bar sized against the longest chapter in their
+ * own section, which turns a column of numbers into a column the eye can read
+ * as a scale without doing arithmetic.
+ *
  * Presentational only. Counts arrive already resolved from
  * `lib/word-counts.ts` and claim values never reach this component.
  */
@@ -42,6 +50,29 @@ export type CoverTOCProps = {
 };
 
 
+/**
+ * What an uncounted row is, in one mono word.
+ *
+ * A count answers "how long"; these rows have no prose to measure, so they
+ * answer "what kind" instead. Read off the href because that is where the
+ * answer already lives: an in-page or in-chapter anchor is an index entry, a
+ * page under /tools is a working tool, and everything else is a page set in
+ * TSX rather than in markdown.
+ */
+function kindToken(href: string): string {
+  if (href.includes("#")) return "index";
+  if (href.startsWith("/tools/")) return "tool";
+  return "tsx";
+}
+
+/** Longest counted chapter in a section, or 0 when the section has none. */
+function sectionPeak(entries: CoverTocLink[]): number {
+  return entries.reduce(
+    (peak, entry) => (typeof entry.words === "number" ? Math.max(peak, entry.words) : peak),
+    0,
+  );
+}
+
 export function CoverTOC({
   sections,
   className,
@@ -50,7 +81,9 @@ export function CoverTOC({
   return (
     <nav aria-label="Contents" className={`w-full ${className ?? ""}`}>
       <ol className="m-0 flex list-none flex-col gap-14 p-0">
-        {sections.map((section) => (
+        {sections.map((section) => {
+          const peak = sectionPeak(section.entries);
+          return (
           <li key={section.num}>
             {showSectionHeaders ? (
             /* `.font-pixel` carries the same stack and the tracking with it;
@@ -93,10 +126,37 @@ export function CoverTOC({
                     />
 
                     {typeof entry.words === "number" ? (
-                      <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-body-ink/60 transition-colors group-hover:text-blueprint/80 group-focus-within:text-blueprint/80">
-                        {entry.words.toLocaleString("en-US")} words
+                      <span className="flex shrink-0 items-center gap-2">
+                        {/* The scale, not a second readout: no ticks, no
+                            endpoints, and it is hidden from assistive tech
+                            because the count beside it already says the
+                            number. Width is written once at render and is
+                            never animated. */}
+                        <span
+                          aria-hidden="true"
+                          className="hidden h-[3px] w-12 bg-rule-hair sm:block"
+                        >
+                          <span
+                            className="block h-full bg-blueprint/50 transition-colors group-hover:bg-blueprint"
+                            style={{
+                              width: `${Math.round(
+                                (entry.words / Math.max(peak, entry.words)) * 100,
+                              )}%`,
+                            }}
+                          />
+                        </span>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-body-ink/60 transition-colors group-hover:text-blueprint/80 group-focus-within:text-blueprint/80">
+                          {entry.words.toLocaleString("en-US")} words
+                        </span>
                       </span>
-                    ) : null}
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-body-ink/40 transition-colors group-hover:text-blueprint/70 group-focus-within:text-blueprint/70"
+                      >
+                        [ {kindToken(entry.href)} ]
+                      </span>
+                    )}
                   </div>
 
                   <p className="mt-1.5 max-w-[62ch] pl-0 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/70 transition-colors group-hover:text-body-ink sm:pl-11">
@@ -106,7 +166,8 @@ export function CoverTOC({
               ))}
             </ol>
           </li>
-        ))}
+          );
+        })}
       </ol>
     </nav>
   );

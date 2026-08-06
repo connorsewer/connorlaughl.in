@@ -476,7 +476,11 @@ export default async function CaseStudyPage({
               </p>
               <Link
                 href={cs.longformHref}
-                className="mt-4 inline-block font-mono text-[10px] uppercase tracking-[0.2em] text-blueprint underline underline-offset-4 transition-opacity hover:opacity-70"
+                /* `py-1.5 -my-1.5` buys the 24px target WCAG 2.2 asks for
+                   without moving the baseline: the top margin is reduced by
+                   exactly the padding it gains, and the bottom padding is
+                   given back to the flow. */
+                className="mt-2.5 -mb-1.5 inline-block py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-blueprint underline underline-offset-4 transition-opacity hover:opacity-70"
               >
                 Read it <span aria-hidden="true">→</span>
               </Link>

@@ -7,6 +7,7 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { OperatorMode } from "@/components/manual/OperatorMode";
 import { XRayOverlay } from "@/components/manual/XRayMode";
 
 /**
@@ -117,6 +118,9 @@ export default function RootLayout({
           {/* X-ray mode. Renders nothing until a reader turns it on, so it is
               never in the served HTML; see components/manual/XRayMode.tsx. */}
           <XRayOverlay />
+          {/* Renders nothing. Owns the Konami listener and the operator flag
+              on `<html>`; see components/manual/OperatorMode.tsx. */}
+          <OperatorMode />
         </ThemeProvider>
       </body>
     </html>

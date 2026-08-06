@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 
-import { ChapterFootNav, ColophonFooter, Masthead, Sheet } from "@/components/manual";
+import {
+  ChapterFootNav,
+  ColophonFooter,
+  Masthead,
+  PencilTest,
+  Sheet,
+} from "@/components/manual";
 import { cta } from "@/content/cover";
 
 /**
@@ -13,6 +19,10 @@ import { cta } from "@/content/cover";
  * and the exits as mono rows, centred in the viewport.
  *
  * The errata row is the page's joke, told straight. Nothing on it is a claim.
+ *
+ * Under it is the pencil test: the empty plate the missing drawing would have
+ * sat on, left for the reader to mark up. It is decoration and is hidden from
+ * assistive tech; see components/manual/PencilTest.tsx.
  */
 
 export const metadata: Metadata = {
@@ -63,6 +73,8 @@ export default function NotFound() {
               </div>
             </dl>
           </section>
+
+          <PencilTest />
 
           <ChapterFootNav
             className="mt-10"

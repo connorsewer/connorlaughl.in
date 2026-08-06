@@ -107,6 +107,29 @@ function Nav({ compact }: { compact: boolean }) {
   );
 }
 
+/**
+ * The operator chip.
+ *
+ * Static markup with no script behind it: it is hidden by default and revealed
+ * by `html[data-operator]` in app/globals.css, which is the same flag the
+ * ambient loops read. That keeps the masthead a server component and keeps the
+ * chip from being a second opinion about whether the mode is on.
+ *
+ * Hidden from assistive tech. It reports a state that changes no content, and
+ * a reader who reached it by typing the code already knows it landed.
+ */
+function OperatorChip() {
+  return (
+    <span
+      aria-hidden="true"
+      data-operator-chip
+      className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-blueprint"
+    >
+      [ operator ]
+    </span>
+  );
+}
+
 export function Masthead({ compact = false, tagline, className }: MastheadProps) {
   return (
     <header className={`w-full ${className ?? ""}`}>
@@ -126,6 +149,7 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
             <Nav compact />
             <ThemeToggle />
             <XRayToggle />
+            <OperatorChip />
           </div>
         </div>
       ) : (
@@ -145,6 +169,7 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
               <Nav compact={false} />
               <ThemeToggle />
               <XRayToggle />
+              <OperatorChip />
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLenis } from "lenis/react";
 import { scroll } from "motion";
 import { useRef } from "react";
 
@@ -25,9 +26,21 @@ import { prefersReducedMotion, rulerBreathe } from "@/lib/motion-manual";
  * measured by a `ResizeObserver`, so nothing reads geometry inside the scroll
  * callback. There is no hand-rolled `rAF` loop and no `top` write per frame.
  *
+ * The rail is also a scrub. A ruler that reports a position and cannot be used
+ * to set one is a gauge; press anywhere on it and the document goes to that
+ * position, drag and it tracks the pointer. The scrub writes scroll position
+ * only, so the readout keeps being driven by the same `scroll()` binding and
+ * there is no second source of truth for where the reader is.
+ *
+ * No keyboard path, deliberately. The rail is `aria-hidden` because the same
+ * information is in the page structure, and a focusable control inside a
+ * hidden subtree is worse than no control: it takes a tab stop and announces
+ * nothing. Keyboard readers scroll the document, which is the same action.
+ *
  * Reduced motion: the ticks render, the readout and the moving indicator do
  * not, and nothing is registered at all — no scroll binding, no observer, no
- * breathe.
+ * breathe. The scrub stays, because it follows input rather than running on a
+ * clock, and it lands in one jump either way.
  */
 
 /** Tick pitch in px. Fine enough to read as a rule rather than as a list. */
@@ -42,9 +55,11 @@ const TRAVEL = 0.96;
 
 export function RulerRail() {
   const reduced = usePrefersReducedMotion();
+  const lenis = useLenis();
   const railRef = useRef<HTMLDivElement | null>(null);
   const readoutRef = useRef<HTMLDivElement | null>(null);
   const valueRef = useRef<HTMLSpanElement | null>(null);
+  const scrubRef = useRef<HTMLDivElement | null>(null);
 
   useIsomorphicLayoutEffect(() => {
     /* Both checks, deliberately. The hook can still be reporting its server
@@ -84,6 +99,63 @@ export function RulerRail() {
     };
   }, [reduced]);
 
+  /* The scrub. Separate from the readout binding above because it is input,
+     not animation: it survives the reduced-motion branch, and it must not be
+     re-bound when the readout is. */
+  useIsomorphicLayoutEffect(() => {
+    const rail = railRef.current;
+    const surface = scrubRef.current;
+    if (!rail || !surface) return;
+
+    /* Geometry is read on press and on each move, which is pointer input and
+       not a scroll callback: the rail's own box is the only thing measured,
+       and the browser has already laid it out by then. */
+    const seek = (clientY: number) => {
+      const box = rail.getBoundingClientRect();
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (box.height <= 0 || max <= 0) return;
+      const raw = (clientY - box.top) / box.height;
+      const to = (raw < 0 ? 0 : raw > 1 ? 1 : raw) * max;
+      /* Immediate, always. A scrub that eases lags the pointer that is
+         setting it, and the ruler would stop reading the position the reader
+         is holding. Lenis owns scroll wherever it is mounted, so going
+         through it is what keeps its internal position from fighting this
+         one; without it, a plain write is already the instant jump reduced
+         motion asks for. */
+      if (lenis) lenis.scrollTo(to, { immediate: true });
+      else window.scrollTo({ top: to, behavior: "auto" });
+    };
+
+    const onMove = (event: PointerEvent) => seek(event.clientY);
+
+    const onDown = (event: PointerEvent) => {
+      /* Primary button only: a right-press on the rail belongs to the UA. */
+      if (event.button !== 0) return;
+      event.preventDefault();
+      surface.setPointerCapture(event.pointerId);
+      surface.addEventListener("pointermove", onMove);
+      seek(event.clientY);
+    };
+
+    const onUp = (event: PointerEvent) => {
+      surface.removeEventListener("pointermove", onMove);
+      if (surface.hasPointerCapture(event.pointerId)) {
+        surface.releasePointerCapture(event.pointerId);
+      }
+    };
+
+    surface.addEventListener("pointerdown", onDown);
+    surface.addEventListener("pointerup", onUp);
+    surface.addEventListener("pointercancel", onUp);
+
+    return () => {
+      surface.removeEventListener("pointerdown", onDown);
+      surface.removeEventListener("pointerup", onUp);
+      surface.removeEventListener("pointercancel", onUp);
+      surface.removeEventListener("pointermove", onMove);
+    };
+  }, [lenis]);
+
   return (
     <div
       aria-hidden="true"
@@ -98,6 +170,18 @@ export function RulerRail() {
           style={{
             backgroundImage: `repeating-linear-gradient(to bottom, ${TICK} 0 1px, transparent 1px ${PITCH}px)`,
           }}
+        />
+
+        {/* The grip. Wider than the ticks it covers, so the rail can be taken
+            hold of without aiming at a 2.5px column, and `touch-action: none`
+            so a drag on it scrubs instead of scrolling the page under it.
+            Sits under the readout in paint order and carries no ink of its
+            own: the affordance is the cursor. */}
+        <div
+          ref={scrubRef}
+          data-ruler-scrub
+          className="pointer-events-auto absolute right-2 top-0 h-full w-8 cursor-ns-resize"
+          style={{ touchAction: "none" }}
         />
 
         {!reduced ? (

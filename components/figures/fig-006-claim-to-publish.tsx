@@ -1,4 +1,4 @@
-import { Figure } from "@/components/figures/Figure";
+import { Figure, type PlateProps } from "@/components/figures/Figure";
 import { IsoChain, type ChainNode } from "@/components/figures/IsoChain";
 
 /**
@@ -16,9 +16,10 @@ const STAGES: ChainNode[] = [
   { label: "Publish surface", fill: "none" },
 ];
 
-export function Fig006ClaimToPublish() {
+export function Fig006ClaimToPublish({ showSubjectRail }: PlateProps = {}) {
   return (
     <Figure
+      showSubjectRail={showSubjectRail}
       num={6}
       title="Claim to publish"
       groundTruth="The claim register lifecycle used on this site: a claim is written down, evidence is attached, a tier is assigned, an approval reference is recorded, and only then does the claim reach a publish surface."

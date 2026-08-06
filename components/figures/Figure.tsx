@@ -57,9 +57,25 @@ export type FigureProps = {
   caption: string;
   /** SVG user space. Primitives draw around the origin, so plates usually pan. */
   viewBox?: string;
+  /**
+   * The rotated right `[ SUBJECT ]` rail. Off where the same words already sit
+   * within a glance of the plate (a mount that repeats the subject in its own
+   * heading) or where the plate is too narrow to spend a column on furniture.
+   * The left `FIG_0NN` rail is not affected: it carries the only id the plate
+   * has in its own margin.
+   */
+  showSubjectRail?: boolean;
   children: ReactNode;
   className?: string;
 };
+
+/**
+ * What a numbered plate component accepts from its mount site.
+ *
+ * A plate owns its own drawing, subject and caption, so the only thing a page
+ * gets to decide is how much margin furniture the plate wears there.
+ */
+export type PlateProps = Pick<FigureProps, "showSubjectRail">;
 
 function figId(num: number | string): string {
   return typeof num === "number" ? String(num).padStart(3, "0") : num;
@@ -77,6 +93,15 @@ const LABEL_MIN_PLATE_PX = 420;
 
 /** Slack held back from the viewBox edge when sizing a label, CSS px. */
 const LABEL_EDGE_PAD = 2;
+
+/**
+ * Rendered plate width under which the `[ SUBJECT ]` rail comes off.
+ *
+ * The rail is furniture that repeats the `<figcaption>`, and on a plate this
+ * narrow the column it costs is drawing width. The id rail stays: it is the
+ * only place the plate names its own number in the margin.
+ */
+const SUBJECT_RAIL_MIN_PLATE_PX = 480;
 
 /**
  * How far the plate's labels may grow before one of them clips.
@@ -119,6 +144,7 @@ export function Figure({
   groundTruth,
   caption,
   viewBox = "0 0 800 600",
+  showSubjectRail = true,
   children,
   className,
 }: FigureProps) {
@@ -127,7 +153,9 @@ export function Figure({
   const capRef = useRef<number | null>(null);
   const [scale, setScale] = useState<FigureScale | null>(null);
   const [fittedBox, setFittedBox] = useState<string | null>(null);
+  const [narrowPlate, setNarrowPlate] = useState(false);
   const labelsOff = scale !== null && !scale.labelsVisible;
+  const subjectRail = showSubjectRail && !narrowPlate;
   const id = figId(num);
   const titleId = `fig-${id}-title`;
   const descId = `fig-${id}-desc`;
@@ -144,6 +172,7 @@ export function Figure({
       const box = svg.viewBox?.baseVal;
       const rect = svg.getBoundingClientRect();
       if (capRef.current === null) capRef.current = measureLabelCap(svg);
+      setNarrowPlate(rect.width > 0 && rect.width < SUBJECT_RAIL_MIN_PLATE_PX);
 
       const unitsPerCssPx =
         box && box.width > 0 && box.height > 0 && rect.width > 0 && rect.height > 0
@@ -279,12 +308,14 @@ export function Figure({
           <PlateCrosshair plateRef={plateRef} svgRef={svgRef} scale={scale} />
         </svg>
 
-        <span
-          aria-hidden="true"
-          className="hidden shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] lg:block"
-        >
-          [ {title} ]
-        </span>
+        {subjectRail ? (
+          <span
+            aria-hidden="true"
+            className="hidden shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] lg:block"
+          >
+            [ {title} ]
+          </span>
+        ) : null}
       </div>
 
       <figcaption className="mt-4 flex flex-col gap-1.5">

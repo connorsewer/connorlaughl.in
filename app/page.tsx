@@ -205,17 +205,20 @@ export default function Cover() {
             The systems, drawn.
           </h2>
           <div className="mt-10 flex flex-col gap-16">
-            {/* Section opener, full sheet measure. */}
-            <Fig001RevenueOperatingLayers />
+            {/* Section opener, full sheet measure. The subject rail is off
+                across this section: each plate's `<figcaption>` names the same
+                subject a line below the drawing, so the rotated copy is a
+                second reading of a word the reader already has. */}
+            <Fig001RevenueOperatingLayers showSubjectRail={false} />
 
             {/* The pair: a stage grid and a gated sequence, read side by side. */}
             <div className="grid gap-x-10 gap-y-16 lg:grid-cols-2">
-              <Fig003LifecycleStages />
-              <Fig006ClaimToPublish />
+              <Fig003LifecycleStages showSubjectRail={false} />
+              <Fig006ClaimToPublish showSubjectRail={false} />
             </div>
 
             <div className="max-w-[40rem]">
-              <Fig007ThisSite />
+              <Fig007ThisSite showSubjectRail={false} />
             </div>
           </div>
         </Sheet>

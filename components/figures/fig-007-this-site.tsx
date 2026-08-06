@@ -1,5 +1,5 @@
 import { ExplodedStack, type StackLayer } from "@/components/figures/ExplodedStack";
-import { Figure } from "@/components/figures/Figure";
+import { Figure, type PlateProps } from "@/components/figures/Figure";
 
 /**
  * FIG_007 [ THIS SITE ]
@@ -19,9 +19,10 @@ const LAYERS: StackLayer[] = [
   { label: "Typed content modules", fill: "none", h: 18 },
 ];
 
-export function Fig007ThisSite() {
+export function Fig007ThisSite({ showSubjectRail }: PlateProps = {}) {
   return (
     <Figure
+      showSubjectRail={showSubjectRail}
       num={7}
       title="This site"
       groundTruth="The portfolio's own build: typed content modules at the base, the proof-metrics gate above them, React components, the Tailwind token layer, Next.js App Router routes, and the prerendered HTML the build writes out."

@@ -89,6 +89,31 @@ export const wordmarkRevealSpec = {
 } as const;
 
 /**
+ * wordmark-scramble — the wordmark re-typesetting itself under the pointer.
+ *
+ * A pixel face is a set of stamps, so the wordmark is allowed to behave like
+ * one: hold the pointer on it and the glyphs cycle through the wordmark's own
+ * letters and resettle left to right. Nothing is revealed and nothing is
+ * claimed; it is the masthead admitting it is set in a face with a fixed
+ * alphabet.
+ *
+ * Noise is drawn from the wordmark's own characters rather than from a symbol
+ * pool, so the face is never asked for a glyph it was not cut with.
+ *
+ * The whole run is one `DURATION.short`, which is short enough that a reader
+ * crossing the masthead on the way to a link sees it finish rather than sees
+ * it start. Pointer-only, one run per hover enter, and never under reduced
+ * motion: there is no information behind it.
+ */
+export const wordmarkScrambleSpec = {
+  duration: DURATION.short,
+  /** Noise frames across the run. More reads as static, fewer as a stutter. */
+  steps: 9,
+  /** Devices with a cursor to hold still. Coarse pointers bind nothing. */
+  pointerQuery: "(hover: hover) and (pointer: fine)",
+} as const;
+
+/**
  * draw-on — SVG stroke dash travelling from empty to drawn.
  * Figures are line diagrams; drawing them in reads as the plate being
  * plotted. Timing is per-shape with a short cascade.
@@ -247,6 +272,43 @@ export const plateCrosshairSpec = {
   /** Media query the whole effect is gated on. */
   pointerQuery: "(hover: hover) and (pointer: fine)",
 } as const;
+
+/**
+ * operator-mode — the manual run at bench speed.
+ *
+ * A session-scoped state the reader can find but is never told about. It
+ * changes no content and no layout: the ambient loops that depict a running
+ * system run at double rate, and the masthead prints a mono chip so the state
+ * is legible rather than mysterious. Nothing is unlocked, so a reader who
+ * never finds it is missing nothing.
+ *
+ * The flag lives on `<html>` so the stylesheet and the runners read the same
+ * one, and the event is what lets a loop already in flight pick up the change
+ * without being restarted. Session storage rather than local: the mode is a
+ * thing you did to this reading, not a preference.
+ *
+ * Reduced motion: the chip prints and the rate is left at 1. There are no
+ * ambient loops running to speed up, and speeding up a page for a reader who
+ * asked for less motion is the wrong reading of the request.
+ */
+export const operatorModeSpec = {
+  /** Attribute on `<html>`, read by app/globals.css and by the runners. */
+  flag: "data-operator",
+  /** Fired on `window` whenever the flag changes. */
+  event: "operatormodechange",
+  /** Multiplier applied to ambient loops while the mode is on. */
+  rate: 2,
+  /** Session storage key. A new tab starts in the ordinary manual. */
+  storageKey: "operator-mode",
+} as const;
+
+/** Playback rate ambient loops should be running at, right now. */
+export function operatorRate(): number {
+  if (typeof document === "undefined" || prefersReducedMotion()) return 1;
+  return document.documentElement.hasAttribute(operatorModeSpec.flag)
+    ? operatorModeSpec.rate
+    : 1;
+}
 
 /**
  * theme-cross — light ↔ cyanotype as one printed pull.
@@ -1238,7 +1300,17 @@ export function signalPacket(
     onUpdate: apply,
   });
 
+  /* Operator mode changes the rate of a loop already in flight rather than
+     restarting it, so the packets keep their phase offsets and the page still
+     reads as several machines running rather than as one that just rebooted. */
+  const rate = () => {
+    controls.speed = operatorRate();
+  };
+  rate();
+  window.addEventListener(operatorModeSpec.event, rate);
+
   return () => {
+    window.removeEventListener(operatorModeSpec.event, rate);
     controls.stop();
     el.setAttribute("opacity", "0");
   };
@@ -1277,4 +1349,87 @@ export function wordmarkReveal(
   });
 
   return NOOP;
+}
+
+/**
+ * Binds the hover scramble to a wordmark that is already split into
+ * `[data-glyph]` spans.
+ *
+ * The run is driven by a single clock with the whole schedule resolved in
+ * `onUpdate`, the same shape `signalPacket` uses: one animation for the word
+ * rather than one per letter. Text content is the only thing written, and it
+ * always ends on the authored string, so the resting wordmark is byte-
+ * identical to what the server sent.
+ *
+ * Reduced motion, coarse pointers, and a wordmark that was never split: no
+ * listener is registered and the masthead is exactly as it is today.
+ */
+export function wordmarkScramble(target: MotionTarget): MotionCleanup {
+  const el = resolve(target);
+  if (!el || typeof window === "undefined") return NOOP;
+  if (prefersReducedMotion()) return NOOP;
+  if (!window.matchMedia(wordmarkScrambleSpec.pointerQuery).matches) return NOOP;
+
+  const glyphs = Array.from(el.querySelectorAll<HTMLElement>("[data-glyph]"));
+  if (glyphs.length < 2) return NOOP;
+
+  const settled = glyphs.map((glyph) => glyph.textContent ?? "");
+  const pool = settled.filter((char) => char.trim().length > 0);
+  if (pool.length < 2) return NOOP;
+
+  let stop: (() => void) | null = null;
+
+  const restore = () => {
+    glyphs.forEach((glyph, i) => {
+      glyph.textContent = settled[i];
+      glyph.style.width = "";
+      glyph.style.display = "";
+    });
+  };
+
+  const run = () => {
+    if (stop) return;
+
+    /* Every glyph holds the width it settles at before the first noise frame,
+       so a substituted letter of a different width cannot shift the wordmark
+       under the pointer that asked for it. One write, never animated. */
+    glyphs.forEach((glyph) => {
+      const { width } = glyph.getBoundingClientRect();
+      glyph.style.display = "inline-block";
+      glyph.style.width = `${width}px`;
+    });
+
+    const { duration, steps } = wordmarkScrambleSpec;
+    const controls = animate(0, 1, {
+      duration,
+      ease: "linear",
+      onUpdate: (progress) => {
+        const frame = Math.floor(progress * steps);
+        glyphs.forEach((glyph, i) => {
+          /* Latched: once a glyph has resettled it stays settled, so the word
+             resolves left to right rather than flickering back into noise. */
+          if (progress >= (i + 1) / glyphs.length || settled[i].trim().length === 0) {
+            glyph.textContent = settled[i];
+            return;
+          }
+          glyph.textContent = pool[(frame + i) % pool.length];
+        });
+      },
+    });
+
+    stop = () => controls.stop();
+    const done = () => {
+      stop = null;
+      restore();
+    };
+    controls.finished.then(done, done);
+  };
+
+  el.addEventListener("pointerenter", run);
+
+  return () => {
+    el.removeEventListener("pointerenter", run);
+    stop?.();
+    restore();
+  };
 }

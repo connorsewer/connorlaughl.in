@@ -1,5 +1,5 @@
 import { ExplodedStack, type StackLayer } from "@/components/figures/ExplodedStack";
-import { Figure } from "@/components/figures/Figure";
+import { Figure, type PlateProps } from "@/components/figures/Figure";
 
 /**
  * FIG_001 [ REVENUE OPERATING LAYERS ]
@@ -19,9 +19,10 @@ const LAYERS: StackLayer[] = [
   { label: "Funnel definitions", fill: "blue", h: 18 },
 ];
 
-export function Fig001RevenueOperatingLayers() {
+export function Fig001RevenueOperatingLayers({ showSubjectRail }: PlateProps = {}) {
   return (
     <Figure
+      showSubjectRail={showSubjectRail}
       num={1}
       title="Revenue operating layers"
       groundTruth="The layer stack of the revenue operating system built from zero: funnel definitions at the base, then lifecycle stages, routing rules, response windows, pipeline inspection, and the executive cadence that sits on top."
