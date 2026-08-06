@@ -20,6 +20,10 @@
 - **Dirty files are Connor's** (`HANDOFF.md`, `app/edge/opengraph-image.tsx`, `app/edge/page.tsx`, `components/edge/EdgeMobileChip.tsx`, `content/case-studies/one-tsi-revenue-infrastructure.md`; backup patch committed as `docs/superpowers/pre-redesign-dirty.patch`). Rewrite only where the spec requires; note every such rewrite in the overnight log.
 - **Every task ends buildable and committed** (conventional commits, `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`). Verification: `npm run lint && npm run build && npm run proof:guard` (dev server checks where stated).
 - **Machine:** 8GB RAM. Max 2 concurrent agents; builds/dev servers as background shell tasks; kill dev servers when done.
+- **Git hygiene:** commit with explicit pathspecs only (`git add <paths>`); NEVER `git add -A`/`-a`/`.`. The 5 dirty files stay unstaged unless your task's Files list names them.
+- **Screenshots:** use the session's Playwright MCP tools (`mcp__plugin_playwright_playwright__browser_navigate/resize/take_screenshot`) — they are installed and working. Do NOT `npm i` playwright or run `npx playwright install` (disk is near full). If MCP screenshots fail, log a TODO and skip the screenshot; do not block.
+- **Gate loops are capped at 2 fix rounds.** On round 3, log remaining findings in the overnight log as morning decisions and proceed. A logged font fallback (Georgia stack) or a logged skipped screenshot is a permitted divergence — gate reviewers must not file it as a BLOCKER.
+- **Vault artifact paths (read these, don't guess):** spine = `VAULT/Resume & Positioning/Portfolio Story Spine - 2026-08-05.md`; copy deck = `VAULT/Resume & Positioning/Portfolio Copy Deck - 2026-08-05.md`.
 - Vault path prefix `VAULT` = `/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Career`. Vault is read-only except the three named deliverables.
 - Log every decision + orphaned asset in `docs/superpowers/2026-08-05-overnight-log.md` (public-safe wording only).
 
@@ -62,14 +66,15 @@
 
 **Interfaces:**
 - Produces (Tailwind utilities every later task uses): `bg-ground`, `bg-sheet`, `text-body-ink`, `text-blueprint`, `bg-blueprint`, `border-blueprint`, `border-grid-line`, plus CSS vars `--ground:#F7F7F5`, `--sheet:#FFFFFF`, `--body-ink:#171715`, `--blueprint:#2E47F1`, `--blueprint-bright` (dark-mode text-safe, set in Task 18), `--fig-blue:#D8E0FA`, `--fig-lavender:#DCD6F7`, `--fig-teal:#CBEDE4`, `--grid-line: color-mix(in srgb, var(--blueprint) 7%, transparent)`.
-- Legacy tokens (`--ink`, `--paper`, `--accent`, `--rule`, …) keep TODAY'S dark values on `:root` untouched-in-meaning: move the current `:root` dark block under `html.dark` AND keep a duplicate on `:root` *for legacy tokens only* so unconverted pages still render dark-styled while converted pages use the new light tokens. (Forced light theme means `html.dark` never applies during transition; unconverted pages keep their current look via the duplicated legacy values.)
+- **Transition mechanism (important — how this actually works):** with `forcedTheme="light"`, next-themes puts `class="light"` on `<html>` immediately (pre-hydration script), so the EXISTING `html.light` blocks activate and unconverted pages render in the current, tested cream **light** theme during the transition (NOT dark — expect this). The structural inversion (light → `:root`, cyanotype → `html.dark`, delete `html.light` blocks) lands in Task 18, when dark mode is rebuilt. This is a deliberate, logged deviation from spec §2's "invert in Phase 2" — same end state, mechanism that `next-themes` actually supports.
+- **Manual-page opt-out of legacy body texture:** `app/globals.css` has unconditional `body::before` (fixed, z-100, grain, multiply blend) and `body::after` (z-85, warm vignette) plus `body { background: var(--ink) }`. Converted pages mark themselves with a root `<div className="manual-root">`; add CSS: `body:has(.manual-root) { background: var(--ground); } body:has(.manual-root)::before, body:has(.manual-root)::after { display: none; }`. Every converted page in Tasks 7/9/12/15 MUST wrap in `.manual-root` or it renders under the legacy grain/vignette and fails its fidelity gate.
 
-- [ ] **Step 1:** In `app/globals.css` `@theme inline`, add the new tokens/utilities above. Do not touch legacy definitions or the 13 `html.light` blocks yet (they're inert under forced light; deleted in Task 19).
-- [ ] **Step 2:** `components/ThemeProvider.tsx`: add `forcedTheme="light"`, keep other props (note: with forced theme, `defaultTheme`/`enableSystem` are inert; leave them for Task 18 to restore). `ThemeToggle.tsx`: return `null`.
+- [ ] **Step 1:** In `app/globals.css` `@theme inline`, add the new tokens/utilities above, plus the `body:has(.manual-root)` overrides. Do not touch legacy definitions or the `html.light` blocks (active under forced light; restructured in Task 18, deleted in Task 19).
+- [ ] **Step 2:** `components/ThemeProvider.tsx`: add `forcedTheme="light"`, keep other props (inert under forced theme; Task 18 restores). `ThemeToggle.tsx`: return `null` with `// restored in Task 18` note.
 - [ ] **Step 3:** `app/layout.tsx`: set both `viewport.themeColor` entries to `#F7F7F5` for now.
 - [ ] **Step 4:** Fix the pixel-font bug: `globals.css` references `var(--font-geist-pixel-grid)` (line ~384) — change to `var(--font-geist-pixel-square)`.
-- [ ] **Step 5:** Verify: `npm run lint && npm run build`. Start dev in background, curl `/` and `/resume`, confirm 200s and current dark look intact (legacy values on `:root`).
-- [ ] **Step 6:** Commit `feat(theme): light-first token foundation, forced light transition mode`.
+- [ ] **Step 5:** Verify: `npm run lint && npm run build`. Start dev in background, curl `/` and `/resume`, confirm 200s. Expected visual state: **legacy pages render in the legacy cream LIGHT theme** (html.light active). That is correct; do not "fix" it.
+- [ ] **Step 6:** Commit (pathspecs only) `feat(theme): light-first token foundation, forced light transition mode`.
 
 ### Task 4: Newsreader body font (Phase 2)
 
@@ -80,7 +85,7 @@
 - [ ] **Step 1:** Acquire Newsreader TTFs (Google Fonts download via curl of the official repo release, or `npm i @fontsource-variable/newsreader` and take the files). If network fails: set `--font-serif-body: Georgia, 'Times New Roman', serif`, log TODO, skip to Step 4.
 - [ ] **Step 2:** Pin static instances with fonttools (`uv run --with fonttools fonttools varLib.instancer ...`) at wght 400/500/600, roman + italic, then subset via the parameterized `subset-fonts.py` (latin + punctuation + arrows).
 - [ ] **Step 3:** Wire `@font-face` (font-display: swap) + `--font-serif-body` and a `.font-serif-body` utility via `@theme inline`.
-- [ ] **Step 4:** Type roles in `globals.css`: `.manual-body` class = serif body, justified with `hyphens:auto` at `min-width` where measure ≥60ch, ragged below; drop-cap utility `.manual-dropcap::first-letter` (Sectra Fine, ~3.2 lines, `initial-letter` with float fallback).
+- [ ] **Step 4:** Type roles in `globals.css`: `.manual-body` class = serif body, justified with `hyphens:auto` at `min-width` where measure ≥60ch, ragged below; drop-cap utility `.manual-dropcap::first-letter` — float-based fallback by default, wrapped upgrade via `@supports (initial-letter: 3) { ... }` so Chrome/Safari don't double-apply.
 - [ ] **Step 5:** Verify: build green; dev-render a test paragraph on any page temporarily is NOT needed — Task 7's sample page covers visual check. Commit `feat(type): Newsreader body serif + manual type roles`.
 
 ### Task 5: Guard + measurement scripts (Phase 2)
@@ -93,13 +98,13 @@
 
 **Interfaces:**
 - Produces: `wordCounts()` export from `scripts/word-counts.mjs` — `node scripts/word-counts.mjs --json` prints `{ "case-studies/<slug>": n, "longform/<slug>": n, edgeTotal: n, longformTotalWords: n }`, computed ONLY from the public rendered projection (markdown bodies via the same source `lib/markdown.tsx` consumes; typed content modules' rendered-text fields; excludes `content/case-studies/stubs/`, `content/blog-drafts/`, any `publicUse:"hide"` field). Consumed by TOC (Task 9) and chapter meta (Task 11) via a small `lib/word-counts.ts` that imports the same counting function at build time.
-- `voice-scan.mjs`: takes `--base http://localhost:3000`, reads routes from `app/sitemap.ts` route list ∪ `['/edge','/case-studies/strategy-memo','/proof','/this-page-does-not-exist']`, strips tags, greps the banned-phrase set from CLAUDE.md §voice + `—` outside `[Fig` context; exits nonzero with findings.
-- proof:guard new shape: keeps existing `forbiddenPrivateTokens` + repo-wide scan exactly as-is; replaces the hard-coded `rendererFiles` with dynamic discovery — glob `app/**/*.{ts,tsx}` + `components/**/*.{ts,tsx}` for files matching `/proofMetrics|heroProofStrip|impactLedger|statsBlock/`, assert each imports/calls `renderableProofMetrics`, wrap reads in try/catch (missing file = clean failure with message, not ENOENT throw), assert floor: count of files calling `renderableProofMetrics` ≥ the count recorded in a `PROOF_RENDERER_FLOOR` const (set now to the measured current value; Tasks 9/11/17 bump it as they add renderers).
+- `voice-scan.mjs`: takes `--base http://localhost:3000`. Route discovery: **fetch `${base}/sitemap.xml` and regex-parse `<loc>` values** (a .mjs cannot import `app/sitemap.ts` — it's TS with path aliases), then union `['/edge','/case-studies/strategy-memo','/proof','/this-page-does-not-exist']`. Strips tags, greps the banned-phrase set from CLAUDE.md §voice + `—` outside `[Fig` context; exits nonzero with findings. **Baseline handling:** the CURRENT site is NOT clean (measured: ~87 em-dashes, ~17 banned-word hits incl. "not just", "leverage"). Write findings on first run to `scripts/voice-scan-baseline.json` keyed by `route + exact string` (banned words are generic — public-safe). A finding fails the scan only if not in the baseline. **Each route-conversion task (12, 15) must delete its route's baseline entries as part of its gate** — final QA requires an empty baseline file.
+- proof:guard new shape: keeps existing `forbiddenPrivateTokens` + repo-wide scan as-is. Replaces BOTH hard-coded path lists: (a) `rendererFiles` → dynamic discovery (glob `app/**/*.{ts,tsx}` + `components/**/*.{ts,tsx}` for files whose source matches `renderableProofMetrics|from ["']@?/?content/proof-metrics`), assert each resolves gated values only through `renderableProofMetrics`; (b) `forbiddenDirectAccess` (lines ~41-48) → same checks but **skip-if-missing** (deleted file = skipped with a log line, never a bare `readFileSync` ENOENT throw). Floor: `PROOF_RENDERER_FLOOR` const set to the measured current count (expected 5: `app/page.tsx`, `app/case-studies/[slug]/page.tsx` + its OG, `CaseStudyArchive`, `ImpactLedger`). **The floor may be changed by later tasks ONLY with a one-line justification in the overnight log** (Task 9 deletes ImpactLedger → recount and adjust; Task 15 retires CaseStudyArchive → recount; Task 17 adds OG renderers → recount). Never lower it silently.
 
 - [ ] **Step 1:** Rewrite proof:guard per interface. Run `npm run proof:guard` — must pass against the *current* codebase (floor = measured now).
-- [ ] **Step 2:** Write `word-counts.mjs` + `lib/word-counts.ts`. Run `--json`; sanity-check one known count manually (pick the shortest longform, count words in its markdown body ±5%).
-- [ ] **Step 3:** Write `voice-scan.mjs`. Start dev server in background; run scan; expect zero findings on current site (baseline is claimed clean); if findings exist on current copy, log them (pre-existing) and exclude those exact matches from failure until the page is converted.
-- [ ] **Step 4:** Update `app/sitemap.ts` + `content/proof-metrics.ts` (stats rows from Task 1 with same posture shape as existing entries; tier refs in comments).
+- [ ] **Step 2:** Write `word-counts.mjs` + `lib/word-counts.ts`. Counted fields, exactly: longform = markdown body files from `content/longform-map.ts`; case studies = the prose fields actually rendered by `app/case-studies/[slug]/page.tsx` (read that file and enumerate them in a comment at the top of `word-counts.mjs` — rendered narrative/section text only, not `sourceCrossrefs`/`governanceNotes`/internal metadata); edge = the rendered text fields of `content/soft-skills.ts` excluding any `publicUse:"hide"` values. Run `--json`; sanity-check the shortest longform manually (±5%).
+- [ ] **Step 3:** Write `voice-scan.mjs` per interface (sitemap.xml fetch + baseline file). Start dev server in background; first run generates `scripts/voice-scan-baseline.json`; second run must exit 0.
+- [ ] **Step 4:** Update `app/sitemap.ts` + `content/proof-metrics.ts` (stats rows from Task 1 — read the spine at the path in Global Constraints — same posture shape as existing entries; tier refs in comments).
 - [ ] **Step 5:** `npm run lint && npm run build && npm run proof:guard` green. Commit `feat(scripts): phase-independent proof guard, word counts, voice scan`.
 
 ### Task 6: Global chrome + figure primitives (Phase 2)
@@ -109,14 +114,14 @@
 - Modify: `app/globals.css` (graph-grid texture on `.bg-ground-grid`, checker band keyframes), `lib/motion.ts` (untouched exports; add nothing here — new primitives live in `lib/motion-manual.ts` to keep legacy additive)
 
 **Interfaces (consumed by every page task):**
-- `<Masthead wordmark title?>`: pixel wordmark `CONNOR LAUGHLIN` top-left (blueprint), right slot for serif tagline; nav renders as mono uppercase links (Contents, Resume, Contact → `/#contents`, `/resume`, `mailto` from existing contact source).
+- `<Masthead compact?: boolean>`: pixel wordmark `CONNOR LAUGHLIN` top-left (blueprint), right slot for serif tagline (full mode) or breadcrumb slot (compact mode, used by ChapterLayout); nav renders as mono uppercase links (Contents, Resume, Contact → `/#contents`, `/resume`, `mailto` from existing contact source).
 - `<Sheet>{children}</Sheet>`: white content card (`bg-sheet`, 1px `border-grid-line`, subtle shadow) on `bg-ground-grid`.
 - `<CheckerBand />`: full-width CSS checker divider (repeating-conic-gradient, blueprint at low alpha on ground), height ~14px.
-- `<RulerRail progress>`: fixed right-edge tick ruler with mono numeric scroll readout; hidden < lg; `aria-hidden`; reduced-motion → static ticks, no live number.
-- `<StatTable rows={{label, value, srText}[]}>`: mono table; values must arrive via `renderableProofMetrics()` or the word-count lib (enforced by proof:guard discovery — component references `proofMetrics`).
+- `<RulerRail />`: fixed right-edge tick ruler with mono numeric scroll readout; **computes its own scroll progress internally** (client component, no props); hidden < lg; `aria-hidden`; reduced-motion → static ticks, no live number.
+- `<StatTable rows={{label: string, value: string, srText?: string}[]}>`: purely presentational mono table. It does NOT import proof-metrics; the enforcement burden is on the CALLER (`app/page.tsx` resolves rows via `renderableProofMetrics()` / `lib/word-counts.ts` before passing). Task 5's discovery finds the caller, not this component.
 - `<Figure num title groundTruth caption children>`: renders rotated side caption `FIG_00N` + `[ TITLE ]`, `role="img"`, `<title>/<desc>` from props, visible caption below stating the claim in words. Registers nothing at runtime; FIGURES.md is the registry.
 - `<LeaderLabel x y dx dy text>`: mono uppercase label + leader line with arrowhead; `<IsoBox w h d fill>`: isometric box path helper; `<ExplodedStack layers gap>`: vertically exploded iso layers with dashed connectors; `<GridPlane>`: iso grid plane. All SVG, stroke `--blueprint`, 1.25px stroke, fills from `--fig-*` only.
-- `lib/motion-manual.ts`: `drawOn(ref)` (SVG stroke-dash draw on viewport enter), `sheetReveal`, `statFill`, each with reduced-motion no-op guard reusing the existing `prefersReducedMotion` helper pattern from `lib/motion.ts`.
+- `lib/motion-manual.ts`: `drawOn(ref)` (SVG stroke-dash draw on viewport enter), `sheetReveal`, `statFill`, `wordmarkReveal` (subtle pixel-type reveal, spec §6), each with a reduced-motion no-op guard. The real existing symbols are `reducedMotionFallback` in `lib/motion.ts:207` and the media-query hook in `hooks/useMediaQuery.ts` — reuse those, do not invent `prefersReducedMotion`.
 
 - [ ] **Step 1:** Build CSS pieces (`.bg-ground-grid` graph texture per spec §2, checker band). Verify visually via a scratch route later (Task 7); build must stay green now.
 - [ ] **Step 2:** Build the six manual components with the exact props above. JSDoc each with its reference-screenshot crop (e.g., "see cover-1440.png masthead").
@@ -149,6 +154,7 @@
 ### Task 9: Cover page (Phase 3)
 
 **Files:**
+- Read: `VAULT/Resume & Positioning/Portfolio Copy Deck - 2026-08-05.md` (all cover copy comes from here verbatim)
 - Create: `content/cover.ts` (typed cover content from the deck: tagline, intro paragraphs, TOC structure, FAQ entries, CTA strings), `components/manual/CoverTOC.tsx`, `components/manual/TerminalFAQ.tsx`, `components/figures/fig-001-*.tsx` … (cover figures)
 - Modify: `app/page.tsx` (full rewrite), `FIGURES.md` (create; register cover figures), `scripts/check-public-proof-metrics.mjs` (`PROOF_RENDERER_FLOOR` bump if stats block adds a renderer)
 - Delete: `components/HeroSignature.tsx`, `components/webgl/` (dir), `components/HeroAsciiVideo.tsx`, `components/FigureMarquee.tsx`, `components/ImpactLedger.tsx`, `components/CustomCursor.tsx` (+ its layout.tsx mount), `content/homepage-copy.ts`; remove `ogl` from `package.json`
@@ -161,8 +167,8 @@
 
 - [ ] **Step 1:** Write `content/cover.ts` from the deck verbatim. Build `CoverTOC`, `TerminalFAQ`.
 - [ ] **Step 2:** Build cover figures (Figure + primitives). Register each in `FIGURES.md` (public-safe ground-truth wording).
-- [ ] **Step 3:** Rewrite `app/page.tsx` per spec §3 cover anatomy order (masthead → checker → intro w/ drop cap → figures → TOC (`id="contents"`) → stats → FAQ → CTA → colophon footer w/ credit line).
-- [ ] **Step 4:** Grep-check then delete retired components + `ogl`; `npm i` to prune lockfile.
+- [ ] **Step 3:** Rewrite `app/page.tsx` per spec §3 cover anatomy order (masthead → checker → intro w/ drop cap → figures → TOC (`id="contents"`) → stats → FAQ → CTA → colophon footer w/ credit line), wrapped in `.manual-root`. `CustomCursor` is mounted in `app/layout.tsx` — remove that mount here.
+- [ ] **Step 4:** Grep-check then delete retired components + `ogl`; `npm i` to prune lockfile. Recount proof-guard renderers (ImpactLedger gone; rewritten `app/page.tsx` must still resolve stats via `renderableProofMetrics`), adjust `PROOF_RENDERER_FLOOR` with a one-line log justification.
 - [ ] **Step 5:** Verify: lint/build/proof:guard green; dev screenshot 1440+390.
 - [ ] **Step 6:** Commit `feat(cover): manual cover page, retire hero/webgl/ledger`.
 
@@ -179,9 +185,23 @@
 - Create: `components/manual/ChapterLayout.tsx`, `components/manual/SidebarTOC.tsx`, `components/manual/Breadcrumb.tsx`, `components/manual/ChapterMeta.tsx`
 - Modify: `components/CaseStudyTOC.tsx` (scroll-spy logic extracted/reused into SidebarTOC)
 
-**Interfaces:**
-- `<ChapterLayout section chapter prev next words?>`: composes Masthead (compact), SidebarTOC (left, xl+; collapses to top disclosure below), Sheet (main), Breadcrumb (`SECTION / CHAPTER` + prev/next chevron links), ChapterMeta (`N WORDS | CONNOR LAUGHLIN`, omitted when `words` undefined), RulerRail. Consumed by Tasks 12, 15.
-- `<SidebarTOC sections activeHref>`: full-site TOC (same data as CoverTOC), numbered mono headers, serif links, blueprint active state, scroll-spy for in-page anchors when `anchors` prop given.
+**Interfaces (literal types — consumers in Tasks 12/15 must match exactly):**
+```ts
+type TocEntry = { num: string; title: string; href: string; dek?: string; words?: number };
+type TocSection = { num: number; title: string; entries: TocEntry[] };
+type ChapterLayoutProps = {
+  section: string;                 // e.g. "REVENUE SYSTEMS"
+  chapter: string;                 // e.g. "Signal to revenue"
+  prev?: { title: string; href: string };
+  next?: { title: string; href: string };
+  words?: number;                  // omit => no ChapterMeta line
+  anchors?: { id: string; label: string }[]; // in-page scroll-spy mode (/edge)
+  children: React.ReactNode;
+};
+type SidebarTOCProps = { sections: TocSection[]; activeHref: string; anchors?: { id: string; label: string }[] };
+```
+- `<ChapterLayout>` composes `Masthead compact`, `SidebarTOC` (left, xl+; collapses to a `<details>` disclosure below xl), `Sheet` (main, wraps `children`), `Breadcrumb` (`SECTION / CHAPTER` + prev/next chevron links), `ChapterMeta` (`N WORDS | CONNOR LAUGHLIN`), `RulerRail`. It renders inside a `.manual-root` wrapper (Task 3 body-texture opt-out).
+- `<SidebarTOC>`: numbered mono headers, serif links, blueprint active state; when `anchors` present, scroll-spy over in-page ids instead of route matching.
 
 - [ ] **Step 1:** Build the four components; wire keyboard nav (breadcrumb links focusable, sidebar links in tab order, skip link lands on sheet).
 - [ ] **Step 2:** Lint/build green. Commit `feat(manual): chapter chrome`.
@@ -192,17 +212,19 @@
 - Modify: `app/case-studies/[slug]/page.tsx` (wrap in ChapterLayout, restyle body via `lib/markdown.tsx` class updates), `lib/markdown.tsx` (map elements to manual classes: `.manual-body`, mono tables, blueprint rules; keep 68ch cap inside Sheet), `app/case-studies/strategy-memo/page.tsx` (same chrome), `content/case-studies.ts` (only if dek/outcome lines need adding from deck — copy verbatim; claims untouched)
 - Note: `content/case-studies/one-tsi-revenue-infrastructure.md` is a dirty file — if the deck rewrites its copy, log it (patch backup exists).
 
-- [ ] **Step 1:** Convert `[slug]` route to ChapterLayout with prev/next from the case-study order in `content/case-studies.ts`; words from `lib/word-counts.ts`.
-- [ ] **Step 2:** Restyle `lib/markdown.tsx` output for the manual system (body serif justified, mono table headers, blueprint links, figure-caption styling).
-- [ ] **Step 3:** Apply deck copy where the deck changes chapter intros/deks.
-- [ ] **Step 4:** Verify all 11 slugs + strategy-memo render (curl loop over slugs from content module); lint/build/proof:guard green.
-- [ ] **Step 5:** Commit `feat(chapters): case studies in manual chrome`.
+**Scope reality check:** `lib/markdown.tsx` renders ONLY the 4 longform routes. Case studies are 706 lines of bespoke TSX in `app/case-studies/[slug]/page.tsx` — the real work here is re-classing that file. Deck source: `VAULT/Resume & Positioning/Portfolio Copy Deck - 2026-08-05.md`.
+
+- [ ] **Step 1:** Convert `app/case-studies/[slug]/page.tsx` to ChapterLayout (`.manual-root`) with prev/next from the case-study order in `content/case-studies.ts`; words from `lib/word-counts.ts`. **Mechanical token sweep is part of this step:** `grep -c "text-paper\|bg-ink\|border-rule\|text-accent\|dither-frame\|frame-well" app/case-studies/[slug]/page.tsx` must be 0 when done.
+- [ ] **Step 2:** Restyle `lib/markdown.tsx` output classes for the manual system (body serif justified, mono table headers, blueprint links, figure-caption styling) — this serves the LONGFORM routes (Task 15) and any markdown-rendered case-study bodies.
+- [ ] **Step 3:** Apply deck copy where the deck changes chapter intros/deks; delete this route's entries from `scripts/voice-scan-baseline.json`.
+- [ ] **Step 4:** Verify all 11 slugs + strategy-memo render (curl loop over slugs from content module); lint/build/proof:guard green; voice-scan those routes clean without baseline.
+- [ ] **Step 5:** Commit (pathspecs) `feat(chapters): case studies in manual chrome`.
 
 ### Task 13: Case-study figures (Phase 4)
 
 **Files:**
 - Create: `components/figures/fig-0XX-*.tsx` per chapter (≥1 per case study where an honest figure exists; text-only fallback allowed, log which)
-- Modify: chapter rendering to place figures (markdown extension: `[fig:NNN]` token handled by `lib/markdown.tsx` → renders registered figure component), `FIGURES.md`
+- Modify: `content/case-studies.ts` (add optional `figureSlug?: string` field), `app/case-studies/[slug]/page.tsx` (a figure-registry map `Record<string, ComponentType>` renders the figure in a TSX slot — case studies are NOT markdown, see Task 12), `lib/markdown.tsx` (add an OPTIONAL `figures?: Record<string, ComponentType>` parameter to `renderMarkdown` and a `[fig:NNN]` token handler — this path is for LONGFORM routes only), `FIGURES.md`
 
 - [ ] **Step 1:** For each of the 11 case studies: derive the figure from the chapter's actual system (ground-truth rule; public-safe labels). Build; register in FIGURES.md.
 - [ ] **Step 2:** First figure gets a dedicated review round (quality bar), then remaining follow its template.
@@ -211,7 +233,7 @@
 ### Task 14: Phase 4 gates
 
 - [ ] **Step 1:** Fidelity review vs `chapter-*.png` on 2 representative chapters (1440+390).
-- [ ] **Step 2:** voice-scan all case-study routes; claim-trace review of every figure label/numeral; word counts in meta match `word-counts.mjs` output.
+- [ ] **Step 2:** voice-scan all case-study routes (baseline entries for them now deleted); claim-trace review of every figure label/numeral; word-count spot check: reviewer counts words in ONE chapter's rendered HTML by hand (curl + strip tags + `wc -w`) and compares to the meta line ±10% (the meta and `word-counts.mjs` share code, so checking them against each other proves nothing).
 - [ ] **Step 3:** Keyboard + reduced-motion spot check on one chapter. Fix loop; commit `fix(chapters): phase 4 gate fixes`.
 
 ### Task 15: Remaining routes (Phase 5)
@@ -219,8 +241,9 @@
 **Files:**
 - Modify: `app/edge/page.tsx` (dirty file — log rewrite; in-page chapter chrome: SidebarTOC with `anchors`, single ChapterMeta, ruler; add `id=` anchors to `components/edge/EdgeChapters.tsx` sections), `app/resume/page.tsx` (chrome-light per spec: Masthead + Sheet, NO sidebar, no word meta, PrintButton kept re-skinned), `app/about/page.tsx` (chapter chrome; portrait plate: existing photo re-treated later by Task 20 — placeholder is current photo in plain `next/image` with blueprint border), `app/longform/[slug]/page.tsx` (ChapterLayout), `app/tools/revops-capacity-planner/page.tsx` (chapter chrome; PulseOnChange re-themed; tool function untouched), `app/case-studies/page.tsx` (renders Section 1 TOC in manual chrome)
 - Create: `app/not-found.tsx` (manual-styled 404: mono `PAGE NOT IN THIS MANUAL`, link to `/#contents`)
-- Modify/Delete: `components/Header.tsx` + `components/Footer.tsx` replaced by Masthead/ColophonFooter mounts (check layout.tsx), `components/edge/*` re-skinned (EdgeMobileChip is a dirty file — log if touched), `ReadingPathJump` deleted after grep, `HireSignal`/`NowFeed` re-skinned mono
-- Each route conversion applies its deck copy block verbatim.
+- Modify/Delete: `components/Header.tsx` is NOT mounted in layout.tsx — it is imported individually by ~9 route files (grep `from "@/components/Header"` for the list); replace each import with `Masthead` as its route converts, then delete `Header.tsx` after the grep is clean. There is NO `components/Footer.tsx` — footers are inline `<footer>` markup in `app/page.tsx`, `app/case-studies/page.tsx`, `app/about/page.tsx`, `app/edge/page.tsx`; replace those inline blocks with `<ColophonFooter />` and ADD it to the routes that have no footer today (`/resume`, `/longform/[slug]`, `/tools/...`, `strategy-memo`). `components/edge/*` re-skinned (EdgeMobileChip is a dirty file — log if touched), `ReadingPathJump` deleted after grep, `HireSignal`/`NowFeed` re-skinned mono.
+- **/edge anchors already exist** — `components/edge/ChapterSection.tsx` renders `id={sectionId}` and `EdgeStickyTOC.tsx` already runs IntersectionObserver scroll-spy. Do NOT add duplicate anchors; reuse those ids, re-skin `EdgeStickyTOC` into (or replace with) `SidebarTOC anchors` mode.
+- Each route conversion: applies its deck copy block verbatim (deck path in Global Constraints), wraps in `.manual-root`, runs its mechanical token sweep (grep count 0 for legacy utilities in its own files), and deletes its routes' entries from `scripts/voice-scan-baseline.json`.
 
 - [ ] **Step 1:** Convert routes in order: `/resume` (highest stakes) → `/edge` → `/about` → `/longform/[slug]` → `/tools` → `/case-studies` index → 404.
 - [ ] **Step 2:** After each route: lint/build, curl the route, screenshot, log.
@@ -240,8 +263,9 @@
 - Replace: `public/og/og.jpg`/`og.webp` (render via a script hitting the OG route in dev, or `satori`-consistent static export), `app/icon.png`, `app/apple-icon.png`, `favicon.ico` (blueprint pixel monogram `CL`).
 - Modify: `components/JsonLd.tsx` contents (title/description per deck), `app/layout.tsx` metadata (title template, description from deck).
 
-- [ ] **Step 1:** Rebuild the three OG routes; verify with `curl -o /tmp/og.png localhost:3000/opengraph-image` and view.
-- [ ] **Step 2:** Re-cut icons (script with sharp via `npx` or write SVG → png via Playwright screenshot at exact sizes).
+- [ ] **Step 0:** **Font prep — Satori cannot read woff2, and `node_modules/geist/dist/fonts/geist-pixel/` ships woff2 ONLY.** Convert `GeistPixel-Square.woff2` → ttf into `public/fonts/geist-pixel/` via `uv run --with fonttools python -c "from fontTools.ttLib.woff2 import decompress; decompress('node_modules/geist/dist/fonts/geist-pixel/GeistPixel-Square.woff2','public/fonts/geist-pixel/GeistPixel-Square.ttf')"`. GT Sectra: use the source TTFs already on disk (see `scripts/subset-fonts.py` SRC dir). Fallback if conversion fails: draw the wordmark as SVG rects (pixel-glyph boxes) in the OG JSX; log it.
+- [ ] **Step 1:** Rebuild the three OG routes; verify with `curl -o <scratchpad>/og.png localhost:3000/opengraph-image` and Read the image.
+- [ ] **Step 2:** Re-cut icons via Playwright MCP screenshot of an SVG scratch page at exact sizes (32/180/512) — `sharp` has no CLI here and installing tools is banned (disk).
 - [ ] **Step 3:** OG literal-string review: reviewer lists every string in all OG surfaces, checks claim tier + voice.
 - [ ] **Step 4:** Lint/build/proof:guard; commit `feat(meta): manual-system OG images, icons, jsonld`.
 
@@ -262,7 +286,7 @@
 
 - [ ] **Step 1:** Gate FIRST: `grep -rn "text-paper\|bg-ink\|border-rule\|text-accent\|dither-frame\|gilt-frame" app components lib` → must be empty (fix stragglers before deleting definitions).
 - [ ] **Step 2:** Delete legacy CSS + dead files; `npm run build` green.
-- [ ] **Step 3:** Rewrite docs (public-safe; DESIGN.md documents tokens/type/figure system/motion catalog as built).
+- [ ] **Step 3:** Rewrite docs (public-safe; DESIGN.md documents tokens/type/figure system/motion catalog as built). Add "historical — superseded by the manual system" top notes to `content/visual-asset-inventory.md` and `content/work-page-layout.md` (spec §2 disposition).
 - [ ] **Step 4:** Commit `chore: remove legacy design system` + `docs: rewrite design docs for manual system`.
 
 ### Task 20: Final QA + portrait plate (Phase 6 exit)

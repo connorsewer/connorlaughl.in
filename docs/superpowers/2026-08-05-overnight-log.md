@@ -1,6 +1,6 @@
 # Overnight log — Making Software redesign (2026-08-05)
 
-Spec: `docs/superpowers/specs/2026-08-05-makingsoftware-redesign-design.md` (v3, `5da815c1`).
+Spec: `docs/superpowers/specs/2026-08-05-makingsoftware-redesign-design.md` (v3.1, `6ee4c1b7`). Plan: `docs/superpowers/plans/2026-08-05-makingsoftware-redesign.md`.
 Rule reminder: no gated value or private vendor/system name may appear in this file. Generic descriptors only.
 
 ## Phase 0 — Reconcile + reference capture
@@ -20,7 +20,7 @@ Rule reminder: no gated value or private vendor/system name may appear in this f
 ## Phase status
 
 - [x] Phase 0 (a) git state recorded, (b) dirty patch committed
-- [ ] Phase 0 (c) reference captures
+- [x] Phase 0 (c) reference captures (cover-1440/390, chapter-1440/390 in docs/superpowers/reference/, local-only)
 - [ ] Phase 1a spine + IA lock
 - [ ] Phase 2 foundation
 - [ ] Phase 1b copy deck
