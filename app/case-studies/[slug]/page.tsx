@@ -117,9 +117,9 @@ const chapterPlates: Record<string, ChapterPlate> = {
     /* Label copy: the chapter intro names the definitions, the routing rules,
        and the cadence put on top, in that order from the base up. */
     labels: [
-      { x: 20, y: 14, dx: 22, dy: 5, text: "Cadence" },
-      { x: 80, y: 44, dx: -22, dy: 8, text: "Routing" },
-      { x: 24, y: 84, dx: 14, dy: -2, text: "Definitions" },
+      { x: 16, y: 9, dx: 29, dy: 0, text: "Cadence" },
+      { x: 82, y: 43, dx: -14, dy: 0, text: "Routing" },
+      { x: 76, y: 86, dx: -4, dy: -8, text: "Definitions" },
     ],
   },
   "ai-native-gtm": {
@@ -133,9 +133,9 @@ const chapterPlates: Record<string, ChapterPlate> = {
     /* Label copy: the chapter intro says agents stage the work, humans approve
        it, and every run leaves a trail somebody can audit. */
     labels: [
-      { x: 44, y: 10, dx: -2, dy: 22, text: "Staged work" },
-      { x: 76, y: 24, dx: -8, dy: 18, text: "Approval" },
-      { x: 26, y: 88, dx: 14, dy: -2, text: "Audit trail" },
+      { x: 40, y: 18, dx: 8, dy: 18, text: "Staged work" },
+      { x: 62, y: 14, dx: 6, dy: 14, text: "Approval" },
+      { x: 24, y: 80, dx: 16, dy: -3, text: "Audit trail" },
     ],
   },
 };
