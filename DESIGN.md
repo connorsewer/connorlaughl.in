@@ -1,360 +1,333 @@
-# DESIGN.md — connorlaughl.in
+# DESIGN.md — the manual system, as built
 
-A reference manual. The site is a small museum of governed systems, set in the visual register of an old technical document, rebuilt for the web. Swiss grid, GT Sectra editorial display, retro-futurist accents, schematic-honest imagery, motion-rich. Every screen reads like a page from a 1970s reference binder that someone updated last week.
+This documents what is in the repo today, not an intent. If the code and this
+file disagree, the code is right and this file is stale. Fix it.
 
-If you're an agent making changes here, this is the contract. Cross-check every commit against it.
+The design language follows Dan Hollick's Making Software. The colophon footer
+carries that credit by name, linked, and it is a shipping requirement rather
+than a courtesy.
 
-For overall scope and sequencing, see [GOAL.md](GOAL.md). For voice rules, see [voiceDNA.md](voiceDNA.md). For image prompts, see [MIDJOURNEY_PROMPTS.md](MIDJOURNEY_PROMPTS.md).
+Companion documents: [CLAUDE.md](CLAUDE.md) for working rules,
+[FIGURES.md](FIGURES.md) for the figure registry, [voiceDNA.md](voiceDNA.md) for
+voice.
 
 ---
 
-## 1. Voice
+## 1. The idea
 
-Source of truth: [voiceDNA.md](voiceDNA.md). Read it before writing any user-facing copy.
+The site is a printed reference manual for the revenue systems Connor has built.
+One document, chapters instead of pages, a table of contents that knows how long
+each chapter is, a ruler that tracks where you are in it, and drawings that
+document real machinery.
 
-### Core posture
+Three consequences worth internalizing:
 
-The page is the byline. Don't sell. Don't announce. Don't reflect. Report.
+1. **Chrome is running furniture.** The masthead, breadcrumb, meta line, sidebar and colophon appear on every chapter because a manual has running heads and feet. They are not navigation garnish.
+2. **The sheet is the unit of layout.** Body copy lives on a white sheet resting on paper. Full bleed is the exception.
+3. **A drawing must document something.** Figures are technical illustration, not decoration. See §6.
 
-A reader should be able to find a number, a verb, and a year inside the first ten words of any block. If they can't, the block is too soft.
+---
 
-### Sentence rhythm
+## 2. Color and tokens
 
-- Vary length. One short, one longer, one short. Never three of the same.
-- Contractions on. Period.
-- Mono captions name the thing, optionally with a year and a state. `[Fig. 04, BDR Pod, 2024, shipped]`. No adjectives.
-- Display copy speaks like a person who knows. Sans body explains. Mono labels file.
+All tokens are CSS custom properties in `app/globals.css`, surfaced to Tailwind
+through `@theme inline`. Utilities resolve through the property, so every one of
+them flips with `html.dark` without a second class.
 
-### Hard bans (anywhere user-facing)
+### Light (`:root`, unconditional)
 
-| Banned | Why |
+| Token | Value | Role |
+|---|---|---|
+| `--ground` | `#FBFBFB` | Page ground. The paper. |
+| `--sheet` | `#FFFFFF` | Sheet and figure-plate surface. |
+| `--body-ink` | `#171715` | Body text, inherited default. |
+| `--blueprint` | `#2E47F1` | Structural blue: strokes, rules, links, focus. |
+| `--blueprint-bright` | = `--blueprint` | Text-safe blue by name. |
+| `--fig-blue` | `#D8E0FA` | Figure fill. |
+| `--fig-lavender` | `#DCD6F7` | Figure fill. |
+| `--fig-teal` | `#CBEDE4` | Figure fill. |
+| `--grid-line` | blueprint at 7% | Structural hairline: sheet edges, dividers, table rules. |
+| `--plate-grid` | blueprint at 7% | The 8px drafting grid printed on a figure plate. |
+| `--grid-paper-line` | `#F3F3F1` | The 8px rule on the page ground. |
+| `--checker-ink` | `#C6C6C2` | Checker band tile. |
+| `--rule-hair` | `#D8D8D6` | Section hairline under a heading, dotted TOC leaders. |
+| `--label-muted` | `#6B6B66` | Mono label and caption gray. |
+| `--sheet-shadow` | two-layer | Sheet lift off the ground, md and up. |
+
+Three grid weights exist on purpose and are not interchangeable.
+`--grid-line` is a line of the drawing, `--plate-grid` is the surface a drawing
+is drafted on, `--grid-paper-line` is the paper itself.
+
+### Dark: cyanotype negative (`html.dark`)
+
+Dark mode is the negative of the manual, not the manual with the lamp turned
+down. Blue-black ground, off-white body, lifted blueprint, so the drawings read
+as cyanotype prints.
+
+| Token | Value |
 |---|---|
-| Em-dash (—) in body copy | The single most notorious AI tell. Use a comma, period, colon, semicolon, or parenthesis. Em-dashes appear only inside `[Fig. N]` labels and figure caption dividers, because mono typography frames them as a symbol rather than punctuation. |
-| "Actually" | Hedging. Defensive. Drop it. |
-| "Operating proof" | Internal jargon. Say "the work" or just show it. |
-| "Outperform" | Promotional. Use a number. |
-| "Leverage", "harness", "utilize", "unlock", "unleash", "elevate", "supercharge" | All radioactive. Use plain verbs. |
-| "Tapestry", "intricate", "vibrant", "robust", "meticulous", "nestled", "bustling" | Ornamental. Cut. |
-| "Delve", "dive into", "unpack" | AI tells. Just describe the thing. |
-| "Game-changer", "cutting-edge", "future-proof" | Banned outright. |
-| "Dossier" | The site is one already. Say "file" or "brief". |
-| "Architecture of trust", "rich", "deeply rooted" | Puffery. |
-| "Furthermore", "additionally", "moreover" | Mechanical transitions. |
-| "Not X. It's Y." / "Not just X, it's Y" | The fatal one. Negative parallelism creates fake drama. State the positive. |
+| `--ground` | `#0B1020` |
+| `--sheet` | `#101833` |
+| `--body-ink` | `#E8ECF6` |
+| `--blueprint` | `#9BB4FF` |
+| `--fig-blue` / `--fig-lavender` / `--fig-teal` | `#1B2748` / `#241F45` / `#173430` |
+| `--grid-line` | blueprint at 20% |
+| `--plate-grid` | blueprint at 9% |
+| `--grid-paper-line` | `#121A2E` |
+| `--checker-ink` | `#2C3A5E` |
+| `--rule-hair` | `#2A3554` |
+| `--label-muted` | `#A3B1CE` |
 
-### Self-check before merge
+Measured contrast is recorded in a comment above the `html.dark` block. Body
+text lands at 16.01:1 on ground and 14.79:1 on sheet; blueprint at 9.35:1 and
+8.63:1. The headroom is deliberate, because the manual sets labels and captions
+at 55 to 75 percent opacity and the composite still has to clear 4.5:1. The
+worst case in the tree is `text-blueprint/70` on sheet at 4.87:1.
 
-Walk the rendered HTML for each route. For each section:
+**The raw light blueprint `#2E47F1` measures 2.96:1 on the cyanotype ground and
+fails AA.** It is overridden in `html.dark` so no utility can resolve to it.
+When a component needs blue text by name, use `--blueprint-bright`. Any new dark
+value gets measured and its ratio recorded in that comment.
 
-1. Did this sentence inflate importance? Cut.
-2. Did I use "serves as" or "stands as" where "is" works? Replace.
-3. Are all my lists exactly 3 items? Break the pattern.
-4. Did I summarize what I just said? Delete.
-5. Did I write "not X, it's Y"? Delete the negation, state the claim.
-6. Does any sentence sound like a tourism brochure? Rewrite.
-7. Did I attribute a claim to nobody specific ("widely regarded")? Name or cut.
-8. Are all paragraphs the same length? Vary.
-9. Em-dash in body? Replace with comma, colon, period, or parenthesis.
-10. Would a real person say this out loud? If not, rewrite.
-
----
-
-## 2. Tokens
-
-CSS custom properties live in [app/globals.css](app/globals.css). Never inline a hex. Reference the token.
-
-```
---ink:           #070707     /* near-black, primary background dark */
---paper:         #F6F1E7     /* cream, primary text on dark; primary background light */
---accent:        #B7AA7A     /* warm khaki, sparingly */
---accent-light:  #7D744D     /* deeper khaki, used in light mode */
---rule:          rgba(246, 241, 231, 0.12) dark / rgba(7, 7, 7, 0.12) light
---paper-muted:   rgba(246, 241, 231, 0.72) dark / rgba(7, 7, 7, 0.70) light
---dither-shadow: rgba(0, 0, 0, 0.4)
---terminal-green:#B5C7B0                   /* status pills only, once per screen max */
---redaction:     #1A1A1A                   /* redaction bars on the dark theme */
---signal:        #C75F3D                   /* dithered red, used for redaction reveals and warnings, never as decoration */
-```
-
-Color rules:
-- Two-tone is the default. Cream on ink, or ink on cream. Accent is a guest.
-- Never use accent for body text.
-- Never combine terminal-green and accent in the same component.
-- The `--signal` ochre-red is reserved for warning states, redaction reveals, and the WebGL displacement amplitude indicator. Never decorative.
-- No gradients on text. No drop shadows on text.
-- Light mode keeps every contrast ratio ≥ 4.5:1 on body, ≥ 3:1 on large display.
+`prefers-contrast: more` steps up `--grid-line`, `--rule-hair` and
+`--label-muted` on both surfaces and widens the focus ring to 3px.
 
 ---
 
 ## 3. Type
 
-Four families. Each has one job. Don't cross the streams.
+Four families, one job each. Loading is `next/font`: GT Sectra Fine and
+Newsreader self-hosted from `public/fonts/` via `localFont`, Geist from the
+`geist` package.
 
-| Family | Role | Typical use | CSS var |
-|---|---|---|---|
-| GT Sectra Fine | Display, "human voice" | Page titles, hero headline, pull quotes, drop caps, section displays | `--font-display` |
-| Geist Sans | Body, paragraph copy | Reading text, captions of >1 line, UI text | `--font-sans` |
-| Geist Mono | "System voice" | Metadata labels, figure numbers, nav items, status, code | `--font-mono` |
-| Geist Pixel (Square) | Retro-futurist accent | Status pills, ASCII overlay, hover labels, badges | `--font-pixel` |
-
-Geist Pixel is reserved. Use it once or twice per screen, never for body or display.
-
-### GT Sectra Fine weights
-
-Self-hosted from [public/fonts/gt-sectra-fine/](public/fonts/gt-sectra-fine/). 5 weights plus italics, all wired via `@font-face`.
-
-| Weight | CSS | Used for |
+| Family | Class | Job |
 |---|---|---|
-| 350 Book | `font-weight: 350` | Long-form prose, secondary captions in display register |
-| 400 Regular | `font-weight: 400` | Section displays, subhead, paragraph display |
-| 500 Medium | `font-weight: 500` | Page titles, signature-systems card titles |
-| 700 Bold | `font-weight: 700` | Hero headline secondary line, pull quotes |
-| 900 Black | `font-weight: 900` | Hero headline primary line, impact-ledger anchor metrics |
+| Geist Pixel | `.font-pixel` | Wordmark, TOC section headers, stat labels. Uppercase, 0.05em tracking. |
+| GT Sectra Fine | `.font-display` | Display only: chapter titles, deks, drop-cap glyphs. `-0.015em` tracking. |
+| Newsreader | `.manual-body`, `.font-serif-body` | Body copy. |
+| Geist Mono | `.font-mono` | Labels, breadcrumbs, captions, stats, buttons, FAQ chrome. |
 
-Italic equivalents exist for each weight. Use sparingly. One italic per screen, max.
+Geist Sans is the inherited body default and serves form controls only. Nothing
+else should depend on it.
 
-### Hierarchy (clamp pairs)
+GT Sectra never sets body copy: its hairlines break at body sizes. That is why
+Newsreader exists in the stack at all. Weights pinned are 400 regular and
+italic, 500, and 600, instanced from the variable source at opsz 18 and subset
+to Latin-plus. `scripts/subset-fonts.py` carries the reproduction commands and
+the OFL copy ships at `public/fonts/newsreader/OFL.txt`.
 
-```
-hero-display      clamp(3.5rem, 10vw, 8rem)     leading 0.85   tracking -0.02em  weight 900
-page-display      clamp(2.5rem, 6vw, 5rem)      leading 0.92   tracking -0.015em weight 500
-section-display   clamp(1.875rem, 4vw, 3.25rem) leading 1.0    tracking -0.01em  weight 500
-subsection        clamp(1.25rem, 2vw, 1.5rem)   leading 1.2    weight 400
-body-large        1.125rem (18px)               leading 1.65   weight 400 (sans)
-body              1rem      (16px)              leading 1.6    weight 400 (sans)
-caption           0.875rem  (14px)              leading 1.5    weight 400 (sans)
-mono-meta         0.625rem  (10px)              tracking 0.3em uppercase
-mono-fig          0.6875rem (11px)              tracking 0.2em
-pixel-pill        0.6875rem (11px)              tracking 0.15em
-display-stat      clamp(3rem, 5vw, 4.5rem)      leading 0.9    weight 900 (impact-ledger anchors)
-```
+### Body setting
 
-### Type rules
+`.manual-body` is 17px on 1.65, capped at a 68ch measure, ragged right and
+unhyphenated by default. At `min-width: 60rem` it switches to justified with
+`hyphens: auto`, `text-justify: inter-word` and `hanging-punctuation:
+allow-end`. Below that width the column cannot absorb the word spacing
+justification creates and opens rivers, so it stays ragged.
 
-- Display copy is text-balance.
-- Body copy is left-aligned, ragged right. Never justified.
-- All-caps only on mono labels and pixel pills. Never on display or sans body.
-- Mix weights within a single display line for emphasis (e.g. Black for the noun, Regular for the verb). The weight ladder is the system.
-- A drop cap appears on the first paragraph of each long-form section. GT Sectra Fine Black, 4.5em, drops 3 lines, 0.5rem right margin.
-- Body copy caps at 68ch on long-form pages.
+`.manual-dropcap::first-letter` sets the opening capital, one per page. The
+float version is the baseline; browsers that support `initial-letter: 3` get the
+properly sunk three-line cap and the float is reset inside the `@supports`
+block so the two never apply at once.
+
+Paragraphs run one to three sentences per voiceDNA. The source manual's
+paragraphs are short too, so this is not a compromise.
 
 ---
 
-## 4. Grid
+## 4. Surfaces
 
-12-column Swiss grid, max width `64rem` (1024px) or `80rem` (1280px) on long-form pages. Outer gutter `1.5rem` mobile, `6rem` desktop.
+Three surfaces, all pure CSS. No raster plates, no SVG assets.
 
-- Hero: 12-col split, content cols 1–6, hero plate cols 7–12.
-- Selected work index: 12-col, list cols 1–4, preview cols 5–12.
-- Case study body: 8-col centered prose (cols 3–10), marginalia in col 1 (mono notes) and cols 11–12 (figure callouts).
-- Footer: 12-col, three balanced thirds in mono.
+- **`.bg-ground-grid`**: the paper. An 8px rule in both directions at a four-step delta off the ground. One layer only, no major grid. Anything stronger reads as a visible grid instead of as paper, and a second pitch reads as graph paper for a different trade.
+- **`.figure-plate`**: white sheet carrying the same 8px rule. Drawings sit on gridded plates while the page ground stays plain, so the grid reads as the surface a figure was drafted on.
+- **`.manual-checker`**: the divider band between movements. A hard-edged checker on a 7px pitch, 8px tall, a printed halftone rule rather than a fade. It drifts one tile over 14s, below the threshold of perceived motion, and the drift is gated behind `prefers-reduced-motion: no-preference`.
 
-Baseline: every block snaps to a 0.5rem rhythm (8px). Mono captions snap to a 1rem (16px) baseline so they line up across columns.
-
-A dev-only grid overlay activates with `?grid` in the URL. Use it before claiming alignment is right.
-
----
-
-## 5. Motion
-
-Maximum, not minimum. Motion announces, surprises, and rewards interaction. Every animation has a `prefers-reduced-motion: reduce` fallback. The reduced fallback is always instant or near-instant.
-
-### Stack
-
-| Layer | Library | Role |
-|---|---|---|
-| Smooth scroll | Lenis | Global inertia scrolling, scroll progress hooks |
-| Motion primitives | Motion One (motion.dev) | `animate()`, `inView`, `useScroll`, springs |
-| Text kinetics | Custom `<SplitText>` component | Word/char split for stagger reveals on display copy |
-| 3D and shaders | OGL | Hero WebGL plate, case-card distortion, redaction shader |
-| View transitions | CSS View Transitions API | Named pairs across route changes |
-
-Framer Motion gets removed. GSAP is not in the stack.
-
-### Motion primitives (declared once, used everywhere)
-
-| Name | Where | Spec |
-|---|---|---|
-| `enter-up` | Default below-fold sections | 0.6s ease-out-quart, y 24→0, opacity 0→1 |
-| `stagger-up` | Lists, ledger rows, card grids | 0.5s per item, 40ms stagger, ease-out-quart |
-| `redact-in` | Confidential reveals | 0.9s, 1px horizontal sweep, ink→signal→paper |
-| `print-stamp` | Status pills, fig labels | 0.25s, scale 1.08→1, opacity 0→1 |
-| `magnetic` | CTAs, signature card titles | Cursor proximity in a 120px radius, max translate 6px |
-| `marquee` | Figure-number ticker, stat rolls | Infinite horizontal, 30s loop, pauses on hover |
-| `splittext-words` | Display H1/H2 on enter | 0.8s, 30ms per word, y 18→0, opacity 0→1 |
-| `splittext-chars` | Hero only | 1.2s, 12ms per char, y 24→0, opacity 0→1 |
-| `count-up` | Every stat across the site | 1.4s ease-out-expo, debounced when input-driven |
-| `pulse-grain` | Paper texture overlay | 4s loop, opacity 0.06→0.10→0.06 |
-| `walk-glyph` | Section divider rules | 1.2s on viewport-enter, glyph translates left→right across the rule |
-
-### Scroll-driven (Lenis + Motion One useScroll)
-
-- Hero plate parallax: subtle z-translate on scroll until past 60vh.
-- Impact-ledger rows: stagger-up on enter, then sticky-pinned for one full row of scroll.
-- Signature-systems grid: card-by-card reveal with shutter open transform.
-- Case study TOC: scroll-spy active state.
-- Section dividers: rule draws across on enter.
-- Cursor magnetism: heightened inside hero, dampened in body.
-
-### View Transitions API
-
-- Same-document anchor jumps animate via View Transitions.
-- Named pairs:
-  - `hero-portrait` → `case-detail-hero` (signature-systems card → case detail)
-  - `case-title` → `case-detail-title`
-  - `fig-label-NN` → matching fig label on the destination page
-- Reduced motion swaps named transitions to instant.
-
-### WebGL moments
-
-Each is lazy-loaded as a separate chunk, suspended with a static plate fallback. See §11 for guardrails.
-
-1. Hero plate. OGL canvas. Static dithered portrait or schematic as base art, displaced by a low-frequency noise field whose amplitude is mouse-x/y. Subtle. Reduced-motion shows the static plate.
-2. Signature-systems card hover. OGL canvas per card, fragment shader that distorts the dither pattern on the back of the card on hover. Edge-only effect, never the whole card.
-3. Redaction reveal. Shader that pixelates the redacted text in place, then pixelates back. Replaces the current CSS-based RedactionReveal.
-
-### Never
-
-- Never bounce. Never elastic. Easing is out-quart, out-quint, out-expo only.
-- Never animate color directly (animate opacity over a color stack instead).
-- Never animate CSS layout properties (left, top, width, height) — only transform and opacity.
-- Never park a WebGL canvas above the fold without a static fallback poster.
-- Never spring on display copy.
+`<Sheet>` is the white content surface. Full bleed below 768px (no border, no
+shadow, no ground at the edges: a phone screen is the sheet), bordered in
+`--grid-line` with `--sheet-shadow` from md up. The sheet carries no measure cap
+of its own; `.manual-body` and the page column do that.
 
 ---
 
-## 6. Imagery
+## 5. Layout
 
-Three-layer image system. Order matters: schematic first, photo second, decorative texture third.
+`ChapterLayout` is the chapter shell and defines the geometry:
 
-### Layer 1: hand-built SVG schematics (preferred)
+- Outer container `max-w-[84rem]`, padding stepping `px-0` / `md:px-6` / `lg:px-10`.
+- Sidebar TOC is a `13rem` sticky column, `xl` and up only.
+- Content column `max-w-[53rem]`, centered below xl and left-aligned at xl so the sidebar sits in the gutter beside it rather than pushing the sheet right.
+- Below xl the sidebar collapses into a `Contents` disclosure that shares a row with the breadcrumb, and the standing nav links fold inside it so nothing is lost at phone width.
+- `RulerRail` is fixed and needs gutter clearance from the masthead at desktop. This bit off once already.
 
-Used for: signature systems, case-study hero figures, impact-ledger schematic, system diagrams, control panels, network topologies, gates and signal logic.
-
-- Built as inline SVG, not raster. Scale infinitely. No dithering.
-- Style: thin ink lines on cream paper. 1.5px stroke for primary lines, 0.75px for ornament. Mono labels under each node. Dimension marks where they help reading.
-- Reference symbol library: [github.com/sjgallagher2/SchematicSymbolsSVG](https://github.com/sjgallagher2/SchematicSymbolsSVG) (MIT). Pull symbols into `public/symbols/` as named components when used.
-- Each schematic carries a fig number and caption in mono, exactly like a dithered plate.
-- Ghost Pipeline Detector is the bar. Every signature system gets one.
-
-### Layer 2: Midjourney-rendered raster plates
-
-Used for: portraits (Connor, family), atmospheric subjects (mainframe, control panel, magnetic media), artifact photography (KPI dictionary as a printed page, BDR logbook as a notebook).
-
-- 1-bit Atkinson dithering, fine halftone, or stylistically-similar reduced-tone monochrome on cream paper. Color is allowed when it serves the work and only as a single warm spot.
-- Higher contrast than the previous round. The subject must be legible at thumbnail size. If you can't tell what the artifact is, the prompt is too soft.
-- 1px ink rule around every image (provided by `.dither-frame`). Mono caption underneath: `[Fig. NN, subject, year, state]`.
-- Figure numbering increments site-wide. Add new figures at the bottom of the registry in [MIDJOURNEY_PROMPTS.md](MIDJOURNEY_PROMPTS.md).
-- The `.dither-frame` CSS gets fixed in Block A so the underlying image content is not crushed by the walnut texture.
-
-### Layer 3: programmatic textures
-
-Used for: paper grain, ASCII grid overlays, scanline indicators, fig-number marquees.
-
-- Generated at runtime via CSS noise, Canvas 2D, or shader. Never shipped as a webp.
-- Paper grain animates subtly via `pulse-grain`. Other textures stay static.
-
-### Captions
-
-A good caption names the thing in under 12 words. Year and state are useful but optional. Adjectives are usually unnecessary. The em-dash inside a fig caption is allowed because mono typography frames it as a symbol.
-
-### Placeholders
-
-When an image isn't yet generated, render the `<DitheredImage placeholder />` state: a terminal block reading `[FIG. NN, IMAGE PENDING]` with the same border, caption position, and aspect ratio. The page never shows a broken image.
-
-### Hero plate
-
-Shipped state: the homepage hero is a single static plate of Connor at his standing desk with Henry the dog, looking out at Lincoln Park. Hand-drawn ink illustration. The plate lives at [public/hero/desk-portrait.webp](public/hero/desk-portrait.webp), aspect 2:3. The OGL canvas runs a mouse-driven Gaussian swell + ambient sin-wave + hash-dither + corner-vignette shader over the plate. Reduced-motion + no-WebGL users see the plate as a plain `<img>`; the OGL chunk never loads. The legacy ASCII portrait video at `public/hero/ascii.mp4` is no longer referenced but the file remains in the repo as a fallback asset.
+Everything is wrapped in `.manual-root`, which is the hook for manual-scoped
+selectors. Since the whole site is manual, `html` and `body` paint the ground
+directly.
 
 ---
 
-## 7. Component checklist
+## 6. Figures
 
-Every new section or page passes this list before merge.
+The rule that governs the whole system: **every figure depicts a real, named
+artifact, and every labeled part is a real component of it.** A figure that
+cannot name its ground truth gets cut. Decorative isometrics are the AI-slop
+failure mode and are banned outright.
 
-- [ ] Sits inside the 12-col Swiss grid (verify with `?grid`).
-- [ ] Carries one mono label (`section/eyebrow`) above the headline.
-- [ ] Headline is GT Sectra Fine. Body is Geist Sans.
-- [ ] Display weights mixed deliberately (Black for the noun, Regular for the verb, etc.).
-- [ ] If imagery: schematic if possible, dithered raster if photographic. Captioned. Figure-numbered.
-- [ ] Mono caption ≤ 12 words.
-- [ ] No banned phrase from voiceDNA.
-- [ ] No em-dash in body copy (only inside fig labels).
-- [ ] Light mode tested; contrast holds.
-- [ ] Reduced-motion variant exists.
-- [ ] Pixel font appears at most once.
-- [ ] Status pills follow the format `▌ STATE ▌ YEAR ▌`.
-- [ ] Motion primitives drawn from §5 catalog. Custom one-offs documented in the PR.
+### Primitives
 
----
+`components/figures/`, re-exported from its `index.ts`:
 
-## 8. Naming
+| Primitive | What it draws |
+|---|---|
+| `Figure` | The plate wrapper: `role="img"`, `<title>`, `<desc>`, visible caption. |
+| `IsoBox` | Isometric box, with `isoPoint` / `isoPolygon` / `figFill` helpers and the `ISO_COS` and `FIG_STROKE` constants. |
+| `ExplodedStack` | Layer stack pulled apart along the iso axis. |
+| `GridPlane` | Gridded plane for matrix-shaped subjects. |
+| `IsoChain` | Sequence of nodes with connectors. |
+| `LeaderLabel` | Mono uppercase label on a leader line. |
 
-- Routes: kebab-case, no trailing slash.
-- Section labels: noun phrases, sentence-case in the source, mono-uppercased in CSS.
-- Figures: `Fig. 01`, `Fig. 02` (period, sentence case in label, all-caps when set in mono).
-- Status pills: `SHIPPED`, `RUNNING`, `RETIRED`, `IN-FLIGHT`. No verbs ending in -ing except IN-FLIGHT.
-- Components: PascalCase TSX. Props that toggle visual state use a `mode` enum, not booleans (e.g. `<DitheredImage mode="placeholder" />`).
-- Schematic SVG files: kebab-case at `public/schematics/<system>.svg`. Each carries an inline `<title>` and `<desc>` for accessibility.
+Every primitive strokes in `var(--blueprint)` at 1.25 and fills only from the
+`--fig-*` tokens. Labels are mono, uppercase and horizontal, never rotated to
+follow an edge.
 
----
+### Numbering and the registry
 
-## 9. Out of scope (this round)
+Numbered plates live at `components/figures/fig-0NN-*.tsx` and are registered in
+[FIGURES.md](FIGURES.md). The registry is **append-only**. A new plate takes the
+next free number; a retired one keeps its number and gains a note. Never
+renumber.
 
-- Sanity CMS comes back.
-- Calendly, Plausible, Vercel Analytics, newsletter capture.
-- Bespoke 404.
-- Print stylesheet beyond what already exists in [app/globals.css](app/globals.css).
-- /uses, /talks routes.
+Caption grammar is `FIG_00N` followed by `[ SUBJECT ]`. No year marks.
 
-These return in a follow-up branch.
+### Rules that are easy to break
 
----
+- No claim numeral on a plate. Figure numbers and step ordinals are structural and exempt; anything asserting an outcome or magnitude is not, and does not belong in a drawing anyway.
+- The registry is public repo markdown and is scanned. Ground truths are described generically: no vendor names, no employer names, no client names, no gated values.
+- The visible caption must state the figure's claim in words. A screen-reader user and a language model both get the claim from text, never from the drawing.
 
-## 10. Accessibility
-
-WCAG 2.1 AA floor. Specifically:
-
-- `prefers-reduced-motion: reduce` honored on every motion primitive in §5.
-- `prefers-contrast: more` boosts the rule color and removes paper-grain.
-- Focus rings: 2px solid `--accent` outline with 2px offset on dark, `--accent-light` on light. Tested on every framed element so the ring sits outside the frame.
-- Skip-to-content link in the header.
-- All non-decorative imagery carries an `alt` attribute that describes the subject, not the figure number.
-- The hero WebGL plate has a static-image fallback hidden behind reduced-motion, with the same alt text.
-- Color contrast verified per token combination on both themes.
-- Tab order matches visual order on every route.
+Minimums: the cover carries 6 to 8 figures, each case-study chapter carries at
+least one. A text-only chapter is an acceptable outcome where no honest figure
+exists. Inventing one is not.
 
 ---
 
-## 11. WebGL guardrails
+## 7. Motion
 
-Bold WebGL is in. Sloppy WebGL is out.
+Two files. `lib/motion.ts` holds only the scales; `lib/motion-manual.ts` holds
+the catalog components animate from.
 
-- Use OGL (~16KB gzipped) not three.js. We don't need a scene graph; we need shaders.
-- Every WebGL canvas is lazy-loaded as a dynamic import behind a static-plate placeholder. Time-to-first-paint must not regress.
-- WebGL chunks together must not add more than 90KB gzipped to the initial bundle.
-- Shaders live at [components/webgl/](components/webgl/) with the GLSL inlined as a tagged-template string. No separate `.glsl` files in this round.
-- Each shader has three explicit states: `loading` (static plate), `idle` (shader paused at frame 0), `active` (animating).
-- On `prefers-reduced-motion`, the shader never reaches `active`. It stays at `idle` showing the static base art.
-- Canvases are paused via IntersectionObserver when off-screen and resumed on enter.
-- Mouse-driven uniforms are throttled to 60fps via `requestAnimationFrame`. Touch devices map a slow auto-walk instead of cursor.
-- A11y: the canvas carries `role="img"` with an `aria-label` that describes the underlying base art. Reduced-motion users see the same art via the static `<img>` fallback.
+### Scales (`lib/motion.ts`)
+
+- `EASE`: `outQuart`, `outQuint`, `outExpo`, `standard`. Out-only. No bounce, no elastic.
+- `DURATION` in seconds: `instant` 0.001, `quick` 0.25, `short` 0.45, `medium` 0.6, `long` 0.9, `hero` 1.2. Pick from the list; do not invent.
+- `STAGGER` in seconds: `tight` 0.012, `short` 0.03, `med` 0.05, `wide` 0.08.
+- `reducedMotionFallback(spec)` collapses any `{ from, to }` spec to an instant jump to its end state.
+
+### Catalog (`lib/motion-manual.ts`)
+
+| Primitive | Behavior |
+|---|---|
+| `drawOn()` | SVG stroke draw-on when a figure enters the viewport. |
+| `sheetReveal()` | Sheets rise into place. |
+| `statFill()` | Stat rows fill. |
+| `wordmarkReveal()` | Pixel reveal on the masthead wordmark. |
+| `prefersReducedMotion()` | The branch every one of them takes. |
+
+Each has a `*Spec` object beside it so the values are inspectable without
+reading the implementation. Add a primitive here rather than hand-rolling an
+`animate()` call in a component.
+
+Cross-document navigation uses the View Transitions API with a root fade pair,
+200ms out and 360ms in, disabled under reduced motion.
+
+### Reduced motion
+
+First-class, not a fallback. Figures render complete, nothing draws on, Lenis is
+bypassed so native scroll runs, the ruler is static, the checker band stops
+drifting, and the global reduce block collapses every remaining animation and
+transition. `.motion-essential` and `[data-motion="essential"]` opt back in at
+0.15s for anything where movement carries meaning.
+
+Smooth scroll is Lenis via `<SmoothScrollProvider>`, bypassed entirely under
+reduced motion.
 
 ---
 
-## 12. For Midjourney visual context
+## 8. Theme architecture
 
-When generating images, paste this block into a Midjourney prompt as system context. It captures the design's visual language so the renders feel like siblings, not strangers.
+Light values sit on `:root` unconditionally and `html.dark` names only what
+changes, so light is the default state of the document rather than an override
+of a dark base.
 
-```
-SYSTEM CONTEXT (do not render this as image content, use as styling guidance only)
+`ThemeProvider` is `attribute="class" defaultTheme="light" enableSystem
+disableTransitionOnChange`. A visitor with no stored choice and no OS preference
+gets paper; a dark-OS visitor lands straight in the cyanotype negative;
+`ThemeToggle` overrides either way. `attribute="class"` is what `html.dark` keys
+off. `viewport.themeColor` in `app/layout.tsx` carries both grounds and tracks
+`--ground`.
 
-Aesthetic register: 1970s technical reference manual, updated for the web.
-Visual language: Swiss grid, editorial display serif (GT Sectra Fine, sharp wedge terminals), mono labels (Geist Mono), retro-futurist accents.
-Treatment: 1-bit Atkinson dithered halftone or fine print halftone on cream paper #F6F1E7 with ink #070707 marks. Single warm spot color allowed (#B7AA7A khaki accent, or #C75F3D dithered red for redaction/warning).
-Composition: high contrast, fine grain, archival print quality, asymmetric Swiss grid, generous negative space, mono captions in the lower margin.
-Subject latitude: schematics, exploded views, blueprints, control panels, mainframes, magnetic media, library catalogs, ledger pages, calendar grids, typographic posters, dithered photography of people / places / objects.
-Anti-aesthetic: glossy 3D SaaS renders, flat vector UI illustration, stock-photo "happy team" compositions, smooth photographic gradients with no print texture, neon, Stripe-clone gradients, isometric icon packs.
+---
+
+## 9. Accessibility
+
+WCAG 2.1 AA is the floor.
+
+- **Focus**: one global rule, 2px `--blueprint` outline at 2px offset, 3px offset on buttons and links. Set once, not per component.
+- **Contrast**: measured for both themes at the sizes and opacities actually used. See §2.
+- **Reduced motion**: see §7.
+- **`prefers-contrast: more`**: hairlines, muted labels and focus width all step up.
+- **Figures**: `role="img"` plus `<title>` and `<desc>`, plus a visible caption stating the claim in words.
+- **Skip link**: in the masthead. Use Tailwind's own `sr-only` utility for it. An unlayered `.sr-only` rule outranks Tailwind's layered `focus:not-sr-only` and will pin the link at 1x1px on focus. That bug shipped once; do not reintroduce an unlayered version.
+- **One `h1` per page.** Longform markdown bodies carry their own leading title, which is stripped at render time rather than edited out of the source so the markdown stays a portable document.
+
+---
+
+## 10. Claim gating
+
+Documented in full in [CLAUDE.md](CLAUDE.md). The short version, because it
+constrains design as much as copy:
+
+No claim numeral reaches a page unless it resolves through
+`content/proof-metrics.ts` via `renderableProofMetrics()`. That applies to a
+stat table, a figure label, a caption, an OG card and a sentence equally.
+`proseProofClaims` and `proseClaimTokens` cover claims that live inside prose.
+`npm run proof:guard` enforces it and holds a floor on the renderer count that
+is never lowered.
+
+Design consequence: a stats block cannot invent a denominator, a progress bar
+cannot imply a total, and a figure cannot label a magnitude. If a number is not
+in the registry, the design has to work without it.
+
+React keys count as rendered output. They are serialized into the streamed
+payload, so a row keyed on an internal identifier leaks that identifier into
+page source even when it never appears on screen. Key on public values.
+
+---
+
+## 11. Word counts
+
+`scripts/word-counts.mjs` plus `lib/word-counts.ts` compute counts at build time
+from the same source that renders. Markdown bodies go through `lib/markdown`,
+typed content modules through their rendered-text fields. Drafts, stubs and
+`publicUse: "hide"` fields are excluded by construction, which is a leak guard
+as much as an accuracy one.
+
+The chapter meta line is `N WORDS | CONNOR LAUGHLIN` on case-study and longform
+chapters only. Bespoke TSX pages (resume, about, the planner) carry no
+word-count meta, because there is no single rendered source to count.
+
+---
+
+## 12. Verification
+
+```bash
+npm run lint
+npm run build
+npm run proof:guard
+npm run words
+npm run build && npm run start   # then npm run voice:scan against :3000
 ```
 
-Append this to the per-figure prompt in [MIDJOURNEY_PROMPTS.md](MIDJOURNEY_PROMPTS.md).
+`npm run voice:scan` scans rendered routes and must come back empty in dev and
+in prod. Some copy only appears after prerender, so a dev-only pass is not a
+pass. CSP is only emitted outside dev, so prod-mode local is the only real check
+for anything touching `proxy.ts`.

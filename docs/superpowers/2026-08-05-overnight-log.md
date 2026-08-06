@@ -44,7 +44,31 @@ Rule reminder: no gated value or private vendor/system name may appear in this f
 
 ## Orphaned assets for Connor's cleanup call
 
-(running list — nothing deleted overnight beyond what the spec's disposition table mandates)
+Measured at the end of Task 19 against a fresh reference sweep of `app/`,
+`components/`, `content/` and `lib/`. **Nothing in this section was deleted.**
+Every file below is still in the repo and every one of them is unreferenced by
+any route, component or content module. They are here so the cleanup is
+Connor's call, not an overnight agent's.
+
+Of everything under the raster asset directories, exactly one file is still
+rendered: the desk portrait, used on the about page. The other 50 are orphaned:
+
+| Directory | Orphaned files | What they were |
+|---|---|---|
+| `public/case-studies/` | 24 | Chapter plates, replaced by drawn figures |
+| `public/about/` | 13 | Personal photo set from the previous about page |
+| `public/hero/` | 6 | Old hero stills and the two ASCII video encodes; the desk portrait in this directory is still in use and must stay |
+| `public/dividers/` | 5 | Raster divider bands, replaced by the CSS checker |
+| `public/strategy-memo/` | 2 | Memo plates, replaced by drawn figures |
+
+Two notes before deleting anything:
+
+- The about-page photo set is the only warm, human imagery the site ever had. The redesign does not use it, but a future appendix chapter might, so this is a taste decision rather than a hygiene one.
+- `public/hero/desk-portrait.webp` is live. Do not sweep the hero directory wholesale.
+
+Also unreferenced, outside the raster directories: the four Next.js starter SVGs
+at the root of `public/` (`file.svg`, `globe.svg`, `next.svg`, `vercel.svg`,
+`window.svg`). Pure scaffolding leftovers, safe to remove.
 
 ## Phase status
 
@@ -56,7 +80,7 @@ Rule reminder: no gated value or private vendor/system name may appear in this f
 - [x] Phase 3 cover (gate PASSED round 2 + justification condition closed with evidence: measurement artifact, not a bug; commits 1e83198f e796d8bf 52aee5f7)
 - [x] Phase 4 chapter chrome + case studies (gate PASSED round 2; commits 4c065c98 1131a468 aae3278d c82d484c 533ec90b)
 - [x] Phase 5 remaining routes (gate PASSED round 2, independently verified prod leak grep 0; commits da14986a..f37068e7 + 5e1372ca 533ec90b)
-- [ ] Phase 6a metadata surface
+- [x] Phase 6a metadata surface (a698c7d1; OG string review clean, zero claim numerals; edge OG dirty-file rewrite logged)
 - [ ] Phase 6 hardening + final QA
 
 ## Morning decisions (running)
@@ -142,3 +166,21 @@ Rule reminder: no gated value or private vendor/system name may appear in this f
 - **Static social images replaced too.** The two files under `public/og/` held the old dark card. Both are re-cut from the new cover render; the compressed one had to go through a browser canvas because no local tool on this machine encodes that format. They are no longer referenced by anything now that each route supplies its own card, so they are candidates for the legacy sweep.
 - **Deviations, both noted for the reviewer:** the shared OG module and the icon script are two new files the task's file list did not name, added because the alternative was triplicated font loading and a set of unreproducible binaries. Icons were not cut via browser screenshot as the plan suggested, for the reason above.
 - **Proof-renderer count, recounted not lowered.** Retiring the metric row from the case-study card took the renderer count from five to four. The floor was already four and stays four; the guard's own header records the recount and the reason. Nothing was silently relaxed.
+
+- **Task 18 (cyanotype dark mode) done: dark theme built, theme switch back on the masthead.** Dark is the negative of the manual rather than a dimmed copy of it: blue-black ground, a slightly lifted sheet, off-white body, and a lightened blueprint for every rule, label and link. Figure plates invert with it, so a drawing reads as a cyanotype print instead of a bright pastel diagram floating on a dark page.
+- **The polarity of the stylesheet flipped, which is the piece Phase 2 deferred.** Light values now sit on the document root and the dark theme is the override, so there is one story about what the default state of the page is. All thirteen of the old light-override blocks are gone; the handful of retiring components that still read the old palette were converted in place rather than left half-inverted.
+- **Contrast was measured, not eyeballed.** The lightened blueprint clears the AA threshold with roughly double the headroom it needs on both the ground and the sheet, and the ratios are written into the stylesheet next to the values so the next person does not have to recompute them. The raw light blueprint fails on a dark ground, so it is overridden outright and can no longer be reached by any dark text.
+- **Audited every visible text node on the cover, one chapter and the resume in dark:** 385 nodes checked across the three, zero below threshold, worst case comfortably clear. Three groups of small mono meta were failing before the audit, in both themes, and were raised; that is a small darkening of some captions and date columns in light as well, and it is an accessibility fix rather than a taste change.
+- **Colours that had been written literally are now theme tokens.** Section hairlines, dotted contents leaders, muted stat labels, the paper grid, the checker band and the sheet shadow all had fixed values that would have been invisible or glaring in dark; each is now a named token with a value per theme.
+- **Switch is a printed setting, not a lamp icon.** Both words are always set, the live one lit, so the control states what the document is currently printed on and the markup does not change between server and browser. It reports its state to assistive tech as a pressed control, and a visitor whose system is dark now lands in dark.
+- **Deviations:** several components outside the task's file list were touched, all for the same reason (a hard-coded colour or a too-faint opacity that dark would have broken); two decorative separators and the rotated figure rails sit above the decorative threshold but below the text threshold in light only, left as a note for final QA rather than changed here.
+
+- **Task 19 (legacy deletion + docs rewrite) done.** The grep gate ran before anything was deleted, per the spec's warning that Tailwind v4 fails silently when a theme variable disappears. It came back clean: the only live hits were a new token whose name happens to contain an old one, plus the definitions themselves and the retiring modules. No converted route was still reading the old palette.
+- **Deleted: one temporary route, six components, two content modules, two static images.** The components were the specimen page's leftovers and the six with zero importers left after the route conversions: a count-up tween, a dithered image wrapper, a cursor-magnetism wrapper, a responsive image wrapper, a split-text reveal and an ASCII grid overlay. The two content modules were orphaned when their components retired in an earlier task. The two static share images had been re-cut in Task 17 but nothing references them any more, because every route now supplies its own card.
+- **The stylesheet dropped from 971 lines to 391.** Out went the legacy token pair and its dark override, the paper-grain and vignette body layers together with the opt-out machinery converted pages needed to escape them, the walnut and gilt picture frames, the old site header, editorial link underline, drop cap, status pill, figure-number badge, terminal grid, CRT scan and flicker rules, the fade/slide/marquee/delay utilities, the custom-cursor and dev grid overlays, and the figure-reveal sweep.
+- **Two consolidations fell out of the deletion rather than being sought.** The body now paints the manual ground directly instead of painting the old ink and then opting back out of it on every page, which removes a whole class of ordering bug. And the focus ring is one blueprint rule for the document; previously buttons and links on manual pages were still picking up the old khaki ring, because the legacy rule sat later in the file than the manual override. That was a live spec violation on every route.
+- **The motion module was pruned, not deleted.** It keeps the scales the manual catalog is built from (easings, durations, staggers, the reduced-motion collapse) and loses the eleven primitives whose consumers are gone. The manual catalog is untouched.
+- **Proof-renderer count went from five to four and the floor was not lowered.** The fifth renderer was the temporary specimen route, which this task deletes by design. The floor was already four and stays four.
+- **Docs rewritten to describe what is actually in the repo.** The project guidance file and the design document were both written for the previous system and were wrong in almost every particular; both now document the manual as built, including the claim gate and the prose-claim path, the figure registry and its ground-truth rule, the motion catalog, the theme architecture, and the verification scripts. The README's route table, stack list and license note were equally stale and were corrected. Historical top-notes were added to the generated-image prompt file and to the two superseded content sketches, per the spec's disposition table.
+- **Deviation, deliberate:** the plan's file list for this task includes a full refresh of the handoff document. It was left untouched. It is one of Connor's five dirty files and the final task owns it; rewriting it here would have destroyed uncommitted work.
+- **Verification:** lint, typecheck, build and the proof guard green; a production build served locally returned 200 on the cover, the contents page, a memo chapter, the operator page, the resume, the about chapter and the planner, plus a real 404 on an unknown path; security headers present on the production response; the rendered voice scan came back clean across 24 routes with nothing sitting on the baseline; the colophon credit is present in the served cover. Server killed.

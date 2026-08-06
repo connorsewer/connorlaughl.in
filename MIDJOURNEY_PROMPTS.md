@@ -1,5 +1,18 @@
 # MIDJOURNEY_PROMPTS.md
 
+> **Historical. Superseded by the manual system.**
+>
+> The generated-image treatment documented below was retired with the previous
+> design. The site now draws its own figures: SVG line drawings built from the
+> primitives in `components/figures/`, registered in [FIGURES.md](FIGURES.md),
+> each depicting a real named system. The `[Fig. NN]` registry in this file is
+> kept for provenance and does not share a numbering space with `FIG_00N`.
+> Nothing here should be used to generate new site imagery.
+>
+> The one surviving generated-image lane is the portrait plate treatment, which
+> is documented where it is used, not here.
+
+
 The image system for connorlaughl.in. One locked treatment formula, one Midjourney system-context block, a complete figure registry, and per-image prompts for every plate the site needs.
 
 Read [DESIGN.md](DESIGN.md) §6 (Imagery) and §12 (Midjourney visual context) before generating anything. Read [voiceDNA.md](voiceDNA.md) before writing captions.

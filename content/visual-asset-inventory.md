@@ -1,5 +1,13 @@
 # Visual Asset Inventory
 
+> **Historical. Superseded by the manual system.**
+>
+> This inventory catalogs raster screenshots for a proof page that the redesign
+> replaced with drawn figures. Kept as a record of what was captured and where
+> it came from. The current figure system is documented in
+> [FIGURES.md](../FIGURES.md) and [DESIGN.md](../DESIGN.md) section 6.
+
+
 **Project:** Portfolio v2 — TSI Metrics & Proof Assets  
 **Source:** `/Users/connorlaughlin/clawd/career/portfolio-assets/tsi-metrics/Screenshots/`  
 **Generated:** 2026-02-02  

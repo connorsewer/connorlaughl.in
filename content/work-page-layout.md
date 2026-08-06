@@ -1,5 +1,13 @@
 # /work Page Layout Sketch
 
+> **Historical. Superseded by the manual system.**
+>
+> A layout sketch for a `/work` route that was never built as described. The
+> proof it planned to show now lives in the case-study chapters under
+> `/case-studies`. Kept as a record of the thinking. Current layout geometry is
+> in [DESIGN.md](../DESIGN.md) section 5.
+
+
 **Purpose:** Convert TSI metrics screenshots into a compelling, scannable proof page  
 **Primary Asset:** Salesforce 32K prospects (hero)  
 **Secondary Assets:** 4 supporting dashboards in carousel/grid  
