@@ -538,7 +538,7 @@ export const caseStudies: CaseStudy[] = [
     whatChanged:
       "The acquired capability became easier to position, sell, and connect to the broader platform story.",
     whyItMattered:
-      "The deal thesis assumed cross-sell. Cross-sell needs a scoring model and a rep who knows what to do when it fires.",
+      "The deal thesis assumed cross-sell, so the work was the PQL scoring model, the cross-sell triggers, and retraining the reps on what to do when one fires.",
     whatItProves:
       "Deal logic turned into positioning a rep can use and a scoring model that fires on real product usage.",
     /* Claim-scope pass 2026-08-06. This block carried the worst leak on the

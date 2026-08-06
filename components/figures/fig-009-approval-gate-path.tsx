@@ -44,7 +44,7 @@ export function Fig009ApprovalGatePath() {
       num={9}
       title="Approval gate path"
       groundTruth="The proposal triage workflow: intake, classification, retrieval, drafting, a human review gate that holds the work, and release. Every stage writes a row to the audit log drawn beneath the path."
-      caption="Proposal triage end to end, with the audit trail each stage writes as it hands off."
+      caption="Every stage of proposal triage writes to the audit trail before it hands off."
       viewBox="-247 -30 863 718"
     >
       {/* Each stage writes down into the log. Ties first. */}

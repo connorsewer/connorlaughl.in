@@ -39,7 +39,7 @@ export function Fig015OperatingCadence() {
       num={15}
       title="Operating cadence"
       groundTruth="The standing cadence as run: a weekly pipeline review, a monthly performance ledger review, and quarterly sponsor reporting, spaced by how often each one happens, each with a named owner."
-      caption="What gets reviewed weekly, what gets reviewed monthly, and the owner attached to each."
+      caption="The cadence artifacts, drawn on their review periods, with an owner named on each."
       viewBox="-357 -31 1087 344"
     >
       {ARTIFACTS.slice(0, -1).map((artifact, i) => {

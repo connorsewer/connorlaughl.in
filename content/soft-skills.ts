@@ -274,7 +274,7 @@ export const softSkills: SoftSkill[] = [
     whyNow:
       "Executive work is mostly creating the shared mental model that lets teams coordinate in uncertainty.",
     connorRead:
-      "The messaging work starts with what the buyer is actually purchasing, then the proof that survives a compliance read, then the words a rep can say out loud. I write it down so the story stops drifting by business unit.",
+      "The messaging work starts with what the buyer is purchasing, then the proof that survives a compliance read, then the words a rep can say out loud. I write it down so the story stops drifting by business unit.",
     proof: [
       {
         internalName: "Platform Narrative and ICP Intelligence System",
@@ -464,7 +464,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "The productivity gain from AI only matters if people can trust what ships. I design the review loops and source discipline that make that possible.",
       signature:
-        "Proposal triage moved from a day-scale workflow to a minutes-scale one, and a person still releases every answer that leaves the building.",
+        "Proposal triage moved from a day-scale workflow to a minutes-scale one, and a person still releases the answers that leave the building.",
     },
   },
 
@@ -653,7 +653,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "I care less about whether a system looks impressive and more about whether the people closest to the work can use it every week.",
       signature:
-        "The weekly operating review kept running after I stopped chairing it. That is the whole adoption test.",
+        "Playbooks, intake forms, and training all sat under the weekly operating review I built and chaired.",
     },
   },
 ];

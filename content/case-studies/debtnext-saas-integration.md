@@ -29,11 +29,9 @@ Leadership wanted to use the platform to drive services growth, and the two orga
 
 ## The strategy
 
-I designed and executed a **three-tier hybrid GTM architecture**:
+I designed and executed a hybrid GTM architecture in three tiers.
 
-1. **Preserve the product-led motion.** It was working, so I left it alone.
-2. **Build a sales-assisted bridge.** A dedicated function with distinct skills.
-3. **Treat services as expansion.** Product usage becomes a services opportunity.
+The product-led motion was working, so I left it alone. On top of it I built a sales-assisted bridge, staffed as its own function because the skills it needed were not the skills the services reps had. Services then became the expansion tier, entered off product usage rather than off a cold conversation.
 
 ---
 

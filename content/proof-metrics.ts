@@ -133,13 +133,17 @@ const regulatedVerticals: ProofMetric = {
  * should tighten is Connor's Task 21 review, recorded in the overnight log.
  */
 const influencedPipeline: ProofMetric = {
-  value: "$159.4M",
+  value: "$159M+",
   label: "marketing-influenced pipeline FY25",
   context: "GTM infrastructure built from zero",
   claimId: "CJL-CLAIM-001",
   posture: "approved-exact-with-context",
   publicUse: "show",
-  sourceNote: "candidate-profile-master-v3.md:96-103; approved with context.",
+  sourceNote:
+    "candidate-profile-master-v3.md:96-103; approved with context. Rendered as " +
+    "the spine's P5 phrasing, '$159M+'. DECISIONS Gate 1 clears that exact " +
+    "string, not the $159.4M source value; round-1 review flagged the drift " +
+    "on 2026-08-06 and the render now conforms to the approved form.",
 };
 
 /** P5, exported for the cover proof lede. Cover route only. */
