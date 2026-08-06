@@ -1,187 +1,218 @@
-# Spec: connorlaughl.in as a reference manual (Making Software redesign)
+# Spec: connorlaughl.in as a reference manual (Making Software redesign) — v2
 
-- **Date:** 2026-08-05
-- **Status:** Approved by Connor (design conversation, 2026-08-05). Execution authorized overnight, local-only.
-- **Supersedes:** the dark editorial system described in DESIGN.md / GOAL.md / MIDJOURNEY_PROMPTS.md (docs rewritten in Phase 6).
+- **Date:** 2026-08-05 (v2, after two adversarial reviews; v1 scored 5/10 by both reviewers)
+- **Status:** Approved direction by Connor. Execution authorized overnight, local-only.
+- **Supersedes:** the dark editorial system in DESIGN.md / GOAL.md / MIDJOURNEY_PROMPTS.md (docs rewritten in Phase 6).
+- **Companion artifacts:** reference screenshots in `docs/superpowers/reference/` (Phase 0 output), overnight log at `docs/superpowers/2026-08-05-overnight-log.md`.
 
-## 0. Decisions (locked)
+## 0. Decisions (locked by Connor)
 
-1. **Fidelity:** full 1:1 replication of makingsoftware.com look and feel.
-2. **IA:** manual metaphor all the way down — cover page with TOC, chapters, stats, FAQ.
-3. **Content:** site rewrite from a new canonical story spine saved to the vault; resume/cover-letter changes ship later as an audit deliverable, not in this build.
-4. **Assets:** figures are hand-built SVG in code; Higgsfield only for the photographic layer (portrait plate, optional motion).
-5. **Execution:** in-place rebuild on branch `redesign/manual` in portfolio-v2.
-6. **Ship gate:** no push, PR, merge, or deploy without Connor's explicit go. Everything overnight stays local.
+1. **Fidelity:** full replication of makingsoftware.com's look and feel, expressed as the *adopted-structures checklist* in §1a plus the *permitted divergences* in §1b. "1:1" means a reader recognizes the same visual system; it does not mean copied code or assets (see §8 IP guardrails).
+2. **IA:** manual metaphor all the way down — cover with TOC, chapters, stats, FAQ.
+3. **Content:** site rewrite from a canonical story spine saved to the vault; resume/CL changes ship later as an audit deliverable.
+4. **Assets:** figures are hand-built SVG in code; Higgsfield only for the photographic layer.
+5. **Execution:** in-place rebuild on branch `redesign/manual` (already created; spec committed as `26e5be6e`).
+6. **Ship gate:** no push, PR, merge, or deploy without Connor's explicit go. Overnight work is local commits only.
 
-## 1. Reference pattern catalog (observed 2026-08-05)
+Reviewer findings that argued against decision 1 (recognition/derivative risk) were surfaced to Connor before the decision and he chose 1:1 anyway; the mitigations in §8 (IP guardrails, colophon credit) are mandatory, the decision itself is not reopened.
 
-Source: https://www.makingsoftware.com/ (cover) and /chapters/touch-screens (interior).
+## 1. Reference (verify during Phase 0 capture)
 
-**Cover page:**
-- Off-white paper ground with faint graph-grid texture.
-- Pixel/bitmap display wordmark, top-left, blueprint blue.
-- Right-aligned serif tagline + author line ("Written and illustrated by …").
-- Dithered checker divider bands between major sections.
-- Justified serif body with drop caps on section openers.
-- Exploded isometric technical line diagrams, blueprint blue, mono uppercase leader-line labels (`HD NOTCH →`), dashed construction lines, rotated sideways captions (`FIG_001`, `[ 3.5" FLOPPY DISK ]`, `© 1986`).
-- Table of Contents: numbered mono section headers (`1. PIXELS AND COLOR`), serif chapter titles ending in periods, per-chapter word counts in mono (`3.6K WORDS`).
-- Stats block: ASCII progress bar (`█████▒░░░`), mono label/value pairs (FINISHED CHAPTERS 21/32, CURRENT WORD COUNT 74.1K).
-- Terminal-style FAQ: list of questions, `IN:` / `OUT:` mono exchange display.
-- Primary CTA as bordered mono button (`GET EARLY ACCESS ($99)`).
+Patterns observed live on 2026-08-05 (cover + `/chapters/touch-screens`). Phase 0 captures dated screenshots (cover full-scroll, chapter full-scroll, both at desktop 1440 and mobile 390) to `docs/superpowers/reference/` and re-verifies this catalog against them; the catalog as corrected then becomes the fidelity checklist.
 
-**Interior (chapter) page:**
-- Left sidebar TOC: numbered mono section headers, serif chapter links, active state in blue.
-- Content on a white "sheet" card floating on the graph-paper ground.
-- Mono uppercase breadcrumb with prev/next chevrons (`PIXELS AND COLOR / TOUCH SCREENS`).
-- Meta line: `1384 WORDS | DAN HOLLICK` in mono.
-- Large centered serif chapter title ending in a period + centered serif dek.
-- Figures inside the sheet use soft pastel fills (light blue, lavender, teal) over blue line work.
-- Right-edge ruler: tick marks + numeric scroll progress (`0.00`).
-- Persistent CTA bottom of sidebar.
+### 1a. Adopted structures (the fidelity checklist)
+
+- Off-white paper ground, faint graph-grid texture; content sheets in white.
+- Single blueprint-blue working ink for labels/diagrams/links/rules; near-black body text; pastel fills (light blue, lavender, teal) inside figures only.
+- Pixel/bitmap display face for wordmark + section headers (we use **Geist Pixel**, already licensed and wired).
+- Serif body: justified, hyphenated, drop cap on chapter/section openers only (one per page); serif chapter titles, large, sentence case, trailing period; centered serif deks.
+- Mono uppercase for: labels, breadcrumbs, figure captions, leader-line callouts, stats, buttons.
+- Exploded/isometric SVG line diagrams with mono leader labels, dashed construction lines, rotated side captions (`FIG_00N`, `[ SUBJECT ]`).
+- Dithered checker divider bands (pure CSS, see §2).
+- Cover TOC: numbered mono section headers, serif chapter links with trailing periods, mono per-chapter word counts.
+- Stats block: mono label/value table (see §3 for which rows; the source's `PROGRESS ⋅ WORDS` toggle is adopted only if we have two honest modes — otherwise single mode).
+- FAQ rendered as terminal-style `IN:`/`OUT:` exchange (visual chrome only; the words are human, see §4).
+- Chapter chrome: left sidebar TOC (numbered mono headers, serif links, blue active state), white sheet, mono breadcrumb with prev/next chevrons, `N WORDS | CONNOR LAUGHLIN` meta on chapters (not on resume), right-edge ruler with numeric scroll progress.
+- Bordered mono CTA button; a secondary text CTA line may accompany it.
+
+### 1b. Permitted divergences (fidelity reviews may not flag these)
+
+- Fonts: Geist Pixel ≠ the source's custom bitmap face; body serif is **Newsreader** (OFL, self-host + subset), GT Sectra Fine demoted to display-size use only (titles, deks, drop caps — never body text; its hairlines break at body sizes). Geist Mono for mono roles.
+- No `© year` marks on figures (fabricated patina — banned).
+- No version-stamp heading (`V1.0`) on the TOC.
+- No progress bar or completion ratio with an invented denominator; stats rows must have real external referents (§3).
+- TOC entries may carry a one-line serif outcome/dek in addition to word counts.
+- Tagline/author-line wording must NOT mirror the source's constructions ("A reference manual for…", "Written and illustrated by…"). Written fresh from the spine in Connor's voice.
+- Dark mode exists (cyanotype negative, §2) — the source has none.
+- Cover leads with proof, not curiosity hooks: intro ≤150 words before the reader can see proof/TOC (the source's reader-contract — selling a book to browsers — does not transfer to a hiring exec with 30 seconds).
 
 ## 2. Visual system
 
-### Tokens (starting values; tune against reference screenshots during Phase 2)
+### Tokens and migration strategy
 
-- `--paper: #F7F7F5` (ground), `--sheet: #FFFFFF` (content card)
-- `--ink: #171715` (body text)
-- `--blueprint: #2E47F1` (single working ink: links, labels, diagrams, rules, wordmark)
-- Pastel figure fills: `--fig-blue: #D8E0FA`, `--fig-lavender: #DCD6F7`, `--fig-teal: #CBEDE4`, used only inside figures.
-- Graph-grid texture: CSS background (repeating linear-gradients), ~8px minor grid at very low opacity, on `--paper` surfaces only.
-- Dither/checker band: existing dither assets re-colored to blueprint-on-paper.
-- **Dark mode = cyanotype negative** (secondary priority, Phase 6): `--paper` becomes blue-black (`#0B1020`-family), line work and text go white/light-blue, same `--blueprint` accent. Implemented via the existing `next-themes` + CSS-variable flip. Light is default.
+Current code is dark-first with inverted usage (`body { background: var(--ink); color: var(--paper) }`, 230 `text-paper` / 36 `bg-ink` uses). Do NOT change the meaning of existing tokens mid-flight. Instead:
+
+- Phase 2 introduces a NEW token set, additive: `--ground: #F7F7F5`, `--sheet: #FFFFFF`, `--body-ink: #171715`, `--blueprint: #2E47F1`, `--fig-blue: #D8E0FA`, `--fig-lavender: #DCD6F7`, `--fig-teal: #CBEDE4`, plus utilities (`bg-ground`, `text-body-ink`, `text-blueprint`, `border-blueprint`, …). Values tuned against reference screenshots during Phase 2.
+- Converted routes use only new tokens. Legacy tokens/utilities stay untouched until the last consumer is converted, then are deleted in Phase 6.
+- Theme default flips to light in Phase 2 (`ThemeProvider defaultTheme="light"`, `viewport.themeColor` updated). Legacy `:root` dark values get a light-mode fallback so unconverted routes stay legible (not pretty) during the transition; all routes are converted by end of Phase 5 anyway.
+- **Dark mode = cyanotype negative** (Phase 6): ground flips to blue-black (`#0B1020` family), body text to off-white, and blueprint gets a dedicated lightened token `--blueprint-bright` with measured contrast ≥ 4.5:1 for text/links (raw `#2E47F1` on `#0B1020` is ~3.1:1 — fails AA; never reuse it for dark text).
+- Graph-grid texture: CSS repeating-linear-gradients, ~8px minor grid, very low opacity, `--ground` surfaces only.
+- Dither/checker band: a pure-CSS primitive (repeating-conic-gradient checker in blueprint-on-ground), built in Phase 2. The existing raster divider plates and `.dither-frame` walnut CSS retire (do not reuse).
+- Known bug to fix in Phase 2: `globals.css` references `var(--font-geist-pixel-grid)` which is never registered (only `--font-geist-pixel-square` is) — silently falls back to mono.
 
 ### Type roles
 
-- **Geist Pixel** — display: wordmark, TOC section headers, stat labels wherever the reference uses its bitmap face. Uppercase.
-- **GT Sectra Fine** — body serif: justified paragraphs, drop caps (CSS `::first-letter`) on section openers, chapter titles (large, sentence case, trailing period), deks, TOC chapter links.
-- **Geist Mono** — labels, breadcrumbs, figure captions, leader-line callouts, stats, buttons, FAQ exchange. Uppercase for labels/captions.
-- Geist Sans retires from body duty (may remain for form controls if needed).
+- **Geist Pixel** — wordmark, TOC section headers, stat labels (uppercase).
+- **GT Sectra Fine** — display only: chapter titles, deks, drop-cap glyphs.
+- **Newsreader** (add in Phase 2: OFL license, self-host woff2 via `scripts/subset-fonts.sh` pipeline) — justified body text, TOC chapter links.
+- **Geist Mono** — labels, breadcrumbs, captions, stats, buttons, FAQ chrome.
+- Geist Sans retires from body duty (retained for form controls in the planner tool if needed).
+- Justified body: `hyphens: auto`, applied at measures ≥ 60ch only; narrower breakpoints go ragged-right. voiceDNA's short-paragraph rule (1–3 sentences) holds — the source's paragraphs are short too.
 
-### Retired
+### Component disposition table
 
-Walnut `.dither-frame`/`.gilt-frame` mat frames, WebGL hero (`ogl` dependency removed if nothing else uses it), `<CustomCursor>`, photographic plates as primary imagery, dark-first cream-on-ink palette.
+| Component | Fate |
+|---|---|
+| `HeroSignature`, `WebGLHero`, `HeroAsciiVideo` | delete (Phase 3); remove `ogl` dep (sole consumer) |
+| `CustomCursor` | delete (Phase 2) |
+| `ImpactLedger` | replaced by cover stats block (data source `proof-metrics.ts` survives) |
+| `CaseStudyArchive` | replaced by TOC section rendering on `/case-studies` |
+| `SectionDivider` | re-skinned → CSS checker band |
+| `FigureMarquee` | delete unless cover design earns it back in blueprint style |
+| `SplitText`, `Magnetic` | delete with their consumers (Phase 3–5); `lib/motion.ts` stays additive until last consumer gone |
+| `FigureReveal`, `RedactionReveal`, `DitheredImage`, `ResponsiveImage` | replaced by figure primitives + plain `next/image` for the few remaining photos |
+| `CaseStudyTOC` | evolves into the chapter sidebar TOC (scroll-spy logic reused) |
+| `PulseOnChange`, planner tool internals | keep, re-theme (tool function must survive) |
+| `CountUp`, `TerminalGrid` | keep only if the stats block uses them; else delete |
+| `Header`/`Footer` | rebuilt as manual masthead / colophon footer |
+| `JsonLd` | keep, update contents |
+| Edge components (`components/edge/*`) | re-skinned in Phase 5 (chrome swap, structure kept) |
+| `public/case-studies/*.webp` (24), `public/dividers/*.webp` (5), hero assets | orphaned by redesign; NOT deleted overnight — listed in the log for Connor's cleanup call |
 
 ## 3. Information architecture
 
-Working title on the cover: pixel wordmark `CONNOR LAUGHLIN` + serif tagline — final wording comes from the story spine (Phase 1). Candidate direction: "A field manual for revenue systems." + "Written and operated by Connor Laughlin."
+### Route map (complete; no other routes exist after Phase 5)
 
-### Routes (all survive; content restructured)
-
-| Route | Becomes |
+| Route | Treatment |
 |---|---|
-| `/` | Manual cover: wordmark, tagline, drop-cap narrative intro interleaved with 3–5 SVG figures, TOC with word counts, stats block, IN/OUT FAQ, contact CTA |
-| `/case-studies` | Section landing folded into cover TOC; route redirects or renders the TOC section |
-| `/case-studies/[slug]` | Chapters, section 1 (chapter chrome) |
-| `/edge` | Section 2 landing + its chapters (keeps URL; must stand alone for direct links) |
-| `/resume` | Appendix chapter; keeps URL and scannability |
-| `/about` | Appendix chapter (human anchor: portrait plate lives here and on cover colophon) |
+| `/` | Cover (see anatomy below) |
+| `/case-studies` | Kept as a route; renders Section 1 TOC in manual chrome (no redirect; sitemap/nav links keep working) |
+| `/case-studies/[slug]` | Chapters with full chapter chrome (11 existing slugs; none added or removed) |
+| `/case-studies/strategy-memo` | Chapter, Section 1 |
+| `/edge` | **Single page** (no `/edge/[slug]`): Section 2 rendered as one scroll document with in-page chapter chrome — sidebar scroll-spy TOC over its acts/skills, one meta line, one ruler. Must stand alone for direct links |
+| `/resume` | **Section 4, not appendix.** Chrome-light standalone: manual styling, NO whole-site sidebar TOC, no word-count meta; scannable in 30 seconds; direct-link entry is the primary case |
+| `/about` | Appendix chapter (portrait plate lives here + cover colophon) |
 | `/longform/[slug]` | Section 3 chapters |
-| `/tools/revops-capacity-planner` | Appendix chapter (tool keeps function, gets manual chrome) |
-| `/case-studies/strategy-memo` | Chapter in section 1 |
+| `/tools/revops-capacity-planner` | Appendix chapter; tool interactivity preserved |
+| `/proof` | Existing redirect → `/case-studies` (kept; still valid) |
+| `not-found.tsx` | NEW: manual-styled 404 ("page not in this manual"), Phase 5 |
+| `/sitemap.xml`, `/robots.txt` | Kept; sitemap updated in Phase 6 (add `/edge` — currently missing) |
+| OG image routes | See §7 Phase 6a |
+
+### Cover anatomy (top to bottom)
+
+1. Masthead: Geist Pixel wordmark `CONNOR LAUGHLIN` top-left in blueprint; right-aligned serif tagline + role line (fresh wording from spine; not the source's constructions).
+2. Dither band.
+3. Proof-first opening: ≤150-word drop-cap intro interleaved with the first figures; TOC reachable within ~1.5 viewports.
+4. Cover figures: 6–8 total (FIG_001–FIG_00N), each grounded in a real system (§5).
+5. Table of Contents: sections below, word counts computed at build time, one-line outcome dek per chapter.
+6. Stats block: mono table, real referents only. Candidate rows (final call in Phase 1a, all Green-tier or standing-approved): years operating, revenue systems shipped (count), chapters published (count, no denominator), longform words published (computed from rendered content). NO progress bar, NO estimated totals, NO invented denominators.
+7. FAQ: 4–8 real questions sourced from actual recruiter/hiring screens in the vault (story bank, application packets). `IN:/OUT:` visual chrome; answers in Connor's human voice; the question list itself is claim-gated.
+8. Contact CTA: bordered mono button (primary: email) + secondary text line; exact copy from Phase 1a.
+9. Colophon footer: **named credit — "Design language after Dan Hollick's Making Software"** (linked) + type/stack colophon. Mandatory, Phase 6 exit requirement.
 
 ### TOC sections
 
-1. **REVENUE SYSTEMS** — case studies (sourced from vault proof clusters; existing case studies re-mapped, new ones only if the spine supports them).
-2. **THE OPERATOR** — /edge soft-skills content re-cut as chapters.
-3. **WRITING** — longform pieces.
-4. **APPENDIX** — resume, about, capacity planner, colophon.
+1. **REVENUE SYSTEMS** — case studies (11 existing, mapped to vault proof clusters).
+2. **THE OPERATOR** — `/edge` acts as chapters (in-page anchors).
+3. **WRITING** — longform.
+4. **RESUME** — its own top-level section, one entry.
+5. **APPENDIX** — about, capacity planner, colophon.
 
-Word counts in the TOC are computed at build time from content files (no hand-maintained numbers).
+### Word counts
 
-### Stats block (cover)
-
-Real, claim-gated values only (Green tier or standing-approved): e.g., years operating, systems shipped, site word count (computed), chapters finished. NO revenue/pipeline metrics unless Green in the Public-Safety Claim Subset. Exact rows decided in Phase 1 with the spine.
-
-### FAQ (IN/OUT block)
-
-5–8 questions a hiring exec actually asks (availability, role targets, how he uses AI, remote/location, what he's built). Answers written from the spine, claim-gated.
+- Built by NEW `scripts/word-counts.mjs` (Phase 2): counts words from the same source that renders (markdown bodies via `lib/markdown`, typed content modules' rendered-text fields). Pages authored as bespoke TSX (resume, about, tool) get NO word-count meta. Counts must reflect only published text — never draft/stripped/conditionally-hidden passages (leak vector).
+- Chapter meta line `N WORDS | CONNOR LAUGHLIN` on case-study and longform chapters only.
 
 ## 4. Content pipeline
 
-### Sources (vault, read-only except deliverables)
+### Sources (vault, read-only except the two deliverables)
 
-- `…/Career/Resume & Positioning/candidate-profile-master-v3.md` (canonical profile; v1/v2 superseded)
-- `…/Career/Resume & Positioning/Public-Safety Claim Subset - 2026-05-12.md` (the public gate; Green/Amber/Red)
-- `…/Career/Resume & Positioning/Proof Library.md`
-- `…/Career/Resume & Positioning/Career Story Bank and Armory Proof Blocks.md`
-- `…/Career/Resume & Positioning/Source-Mined Resume Bullet Bank - 2026-05-12.md`
-- `…/Career/Resume & Positioning/AI-Native Build Evidence - 2026-08-04.md`
-- `…/Career/Resume & Positioning/Portfolio Narrative Message Map - 2026-05-05.md`
-- `…/Career/Resume & Positioning/Portfolio Website Career Alignment Spec v2 - Aggressive Proof-Led - 2026-05-13.md`
-- `…/Career/Career Experience Source Map.md` (cluster → case-study router)
-- Approval state: `Portfolio Claims Register - 2026-05-11.md`, `Portfolio Proof Publishing Approval Queue - CJLA-74 - 2026-05-12.md`, `Career Builder Permanent Claim Approvals - 2026-05-12.md`
-
-(`…` = `/Users/connorlaughlin/Documents/CJL Vault/04 Domains/Career`)
+As v1 (§4 list preserved): `candidate-profile-master-v3.md`, `Public-Safety Claim Subset - 2026-05-12.md`, `Proof Library.md`, `Career Story Bank and Armory Proof Blocks.md`, `Source-Mined Resume Bullet Bank - 2026-05-12.md`, `AI-Native Build Evidence - 2026-08-04.md`, `Portfolio Narrative Message Map - 2026-05-05.md`, `Portfolio Website Career Alignment Spec v2 - 2026-05-13.md`, `Career Experience Source Map.md`.
+Approval state — the authoritative standing-approval set is exactly: `Portfolio Claims Register - 2026-05-11.md`, `Portfolio Proof Publishing Approval Queue - CJLA-74 - 2026-05-12.md`, `Career Builder Permanent Claim Approvals - 2026-05-12.md`, `Career/Standing Authorizations - 2026-08-05.md`, `Career/Approval Decisions - 2026-08-04.md`. Nothing else grants approval.
 
 ### Deliverables
 
-1. **Story spine** → `…/Career/Resume & Positioning/Portfolio Story Spine - 2026-08-05.md`: positioning statement per lane, career chronology, the proof points cleared for public use (with tier annotations), canonical phrasing for recurring claims, page-by-page message map for the new IA. This is the single source every site page is written from.
-2. **Full site copy deck** → `docs/superpowers/copy/2026-08-05-copy-deck.md` in the repo: every page's copy, written from the spine only, with word budgets (cover intro ≤ ~400 words; chapters sized to substance; no padding).
-3. **Resume/CL alignment audit** → `…/Career/Resume & Positioning/Portfolio-Resume Alignment Audit - 2026-08-05.md`: file-specific recommended edits to the resume/CL system against the spine. Not applied in this build.
+1. **Story spine** → vault `Resume & Positioning/Portfolio Story Spine - 2026-08-05.md` (positioning, chronology, cleared proof points with tier annotations, canonical phrasing, page-by-page message map).
+2. **Copy deck** → vault `Resume & Positioning/Portfolio Copy Deck - 2026-08-05.md`. **In the vault, not the repo** — the repo-wide proof:guard scan would fail on any gated token the deck mentions even as an exclusion note.
+3. **Resume/CL alignment audit** → vault `Resume & Positioning/Portfolio-Resume Alignment Audit - 2026-08-05.md` (fast-follow, not applied in this build).
 
 ### Rules
 
-- Every claim on the site must be Green-tier, or Amber with an existing standing approval. When in doubt, leave it out. `proof:guard` posture metadata (`content/proof-metrics.ts`) stays intact and extends to new content.
-- voiceDNA.md governs: no em-dashes in body copy, no banned words, no negative parallelism, sentence-case headings, no bold-term bullets.
-- Every copy batch passes an adversarial review by an agent that did not write it: banned-phrase scan on rendered HTML + humanizer/no-ai-slop pass + claim-tier check against the spine.
-- Nothing on the site may contradict the resume variants; discrepancies found during writing go into the audit deliverable, and the spine wins.
+- Green-tier claims only, or Amber with a standing approval from the named set. When in doubt, leave it out.
+- **No numeral may appear in a figure, leader label, stat row, caption, FAQ answer, or OG image unless it resolves from `content/proof-metrics.ts`** (which carries posture metadata). Claims now live in pictures, not just prose — the gate follows them.
+- voiceDNA.md governs all copy. Manual-page addendum: justified setting and drop caps are layout, not license — paragraph length and banned-phrase rules unchanged.
+- Cover intro ≤150 words. No throat-clearing. Proof before narrative.
+- Every copy batch passes adversarial review by a non-author agent: rendered-HTML banned-phrase scan + humanizer pass + claim-tier check against the spine.
+- Discrepancies with resume variants go into the audit deliverable; the spine wins.
 
 ## 5. Figure system
 
-- New SVG component library under `components/figures/`: primitives for isometric boxes/planes, exploded stacks, leader-line labels (mono, uppercase, horizontal), dashed construction lines, pastel fills, grid planes, rotated side captions.
-- Case-study systems become the illustrations (ghost pipeline detector → exploded funnel stack; attribution → signal-flow schematic; CRM lifecycle → isometric plumbing; RFP AI → governed pipeline diagram; etc.).
-- Figure numbering restarts as `FIG_001…` in a new append-only registry `FIGURES.md` (id, title, page, description). Old Midjourney registry retires with the old skin. Numbers are stable; never renumber.
-- Mono caption format follows the reference: rotated `FIG_00N` + `[ SUBJECT ]` + year mark where it earns its place.
-- **Higgsfield lane (only):** portrait plate (Connor + Henry) re-treated as halftone/dither to sit in the blueprint world; optional cover motion later. Never line diagrams, never figures with embedded text.
+- Library in `components/figures/`: primitives for iso boxes/planes, exploded stacks, leader labels (mono, uppercase, horizontal), dashed construction lines, pastel fills, grid planes, rotated side captions.
+- **Ground-truth rule:** every figure depicts a real, named artifact or system, and every labeled part is a real component of it (e.g., the actual stages of the Zoho lifecycle build; the actual signal sources in the attribution system). A figure that can't name its ground truth is cut. Decorative isometrics are the AI-slop failure mode — banned.
+- Numbering `FIG_001…` in new append-only `FIGURES.md` (id, title, page, ground-truth artifact, description). Old Midjourney registry marked historical. Never renumber.
+- Caption grammar: `FIG_00N` + `[ SUBJECT ]`. No `© year`.
+- **Accessibility:** every figure has `role="img"` + `<title>`/`<desc>`, and a visible caption that states the figure's claim in words. Machine-readability matters: recruiters paste URLs into LLMs; screen-reader users get the full claim.
+- Minimums: cover 6–8 figures; each case-study chapter ≥1 figure, with "text-only chapter" an acceptable fallback where no honest figure exists; other pages as earned.
+- **Higgsfield lane (only):** portrait plate re-treated as halftone/dither; optional cover motion later. Never line diagrams, never text-bearing figures.
 
 ## 6. Motion
 
-- Keep `motion` + lenis. Remove ogl if the WebGL hero is the only consumer.
-- New primitive catalog in `lib/motion.ts`: SVG stroke draw-on for figures on viewport enter; sheet-reveal for chapter cards; ruler progress (live scroll number); ASCII progress-bar fill animation; subtle pixel-type reveal on wordmark.
-- `prefers-reduced-motion`: figures render complete (no draw-on), no smooth-scroll (lenis bypass stays), progress elements static. First-class, tested.
-- WCAG 2.1 AA floor unchanged: contrast (blueprint blue on paper must pass for text sizes used), focus states (2px outline, blueprint), skip link, keyboard nav.
+As v1, plus: the new primitive catalog in `lib/motion.ts` is **additive** — existing exports remain until their last consumer is converted (build breaks otherwise). New: SVG stroke draw-on (viewport enter), sheet-reveal, live ruler progress, stat-fill, subtle wordmark pixel reveal. `prefers-reduced-motion`: complete figures, no draw-on, lenis bypass, static progress. WCAG 2.1 AA: blueprint-on-ground contrast verified at used sizes (§2 dark-mode token rule), 2px focus outlines, skip link, keyboard nav.
 
 ## 7. Execution phases and gates
 
-Branch: `redesign/manual` off current local `main`. Conventional commits. Existing tests/lint run before and after each phase.
+Conventional commits; each phase ends **buildable, committed, and logged** in `docs/superpowers/2026-08-05-overnight-log.md` (running status + decisions + orphaned-asset list). If time runs out mid-phase: finish the current atomic step, commit, write status. **Minimum viable overnight state: Phases 0–4** (foundation + cover + chapter chrome + case studies). There are NO existing automated tests (package.json: dev/build/start/lint/proof:guard only); the verification commands below are the harness.
 
-- **Phase 0 — Reconcile.** Inspect ahead-1/behind-5 vs origin/main and the 4 pre-existing dirty files (`HANDOFF.md`, `app/edge/opengraph-image.tsx`, `app/edge/page.tsx`, `components/edge/EdgeMobileChip.tsx`, `content/case-studies/one-tsi-revenue-infrastructure.md`). Report findings in the overnight log. Do not discard or commit Connor's dirty work; stash-free approach — branch carries the working tree as-is, redesign commits never `git add` those paths unless the redesign itself rewrites that file, in which case note it in the log.
-- **Phase 1 — Story spine + copy deck.** Vault mining → spine → copy deck for all pages. Gate: adversarial copy review (claims, voice, slop) passes.
-- **Phase 2 — Foundation.** Tokens, type roles, graph texture, dither bands, global chrome (header/footer → manual masthead), figure primitives, ruler rail. Gate: reference-fidelity screenshot review of a styled sample page; lint/build green.
-- **Phase 3 — Cover.** `/` rebuilt per §3. Gate: fidelity review vs cover screenshots; voice scan of rendered HTML; build green.
-- **Phase 4 — Chapter chrome + case studies.** Sidebar TOC, sheet, breadcrumb, meta, ruler; case-study chapters converted with their figures. Gate: fidelity + voice + proof:guard.
-- **Phase 5 — Remaining routes.** /edge, /resume, /about, /longform, /tools converted. Gate: same as 4.
-- **Phase 6 — Hardening.** A11y sweep (keyboard, focus, contrast, reduced motion), prod-mode CSP check (`npm run build && npm run start`), OG images re-cut in the new system, dark cyanotype variant, repo docs rewritten (CLAUDE.md, DESIGN.md, FIGURES.md; MIDJOURNEY_PROMPTS.md marked historical), HANDOFF.md refreshed. Gate: full QA checklist below.
+- **Phase 0 — Reconcile + reference capture.**
+  (a) Record live git state (`git status -sb`, `git log`) in the log — do not trust HANDOFF's stale "ahead 1/behind 5"; observed today: ahead 1/behind 8 with **5** dirty files (`HANDOFF.md`, `app/edge/opengraph-image.tsx`, `app/edge/page.tsx`, `components/edge/EdgeMobileChip.tsx`, `content/case-studies/one-tsi-revenue-infrastructure.md`).
+  (b) **Back up Connor's dirty work:** `git diff > docs/superpowers/pre-redesign-dirty.patch`, commit the patch file. The redesign may later rewrite those files; the patch preserves his versions. `HANDOFF.md` is protected until Phase 6 (which rewrites it; patch retains the old).
+  (c) Capture reference screenshots (cover + chapter, 1440w and 390w, full scroll) into `docs/superpowers/reference/`, commit. Correct §1a against them.
+  (d) No pull/merge/rebase against origin — drift reconciliation is Connor's morning decision.
+- **Phase 1a — Spine + IA lock.** Vault mining → story spine; final TOC entries + outcome deks; stats rows; FAQ question list (from real screens); tagline/CTA wording candidates. Gate: claim-tier self-audit of the spine against the approval set.
+- **Phase 2 — Foundation.** New tokens/utilities + theme default flip with legacy fallback; Newsreader acquisition + subset; type roles; graph texture; checker band; masthead/footer; figure primitives; ruler rail; `scripts/word-counts.mjs`; `scripts/voice-scan.sh` (routes read from `app/sitemap.ts`, not hard-coded); **proof:guard rewrite** — `rendererFiles`/`forbiddenDirectAccess` re-pointed at the new number-bearing components (stats block, figures, FAQ, OG) so posture *data* survives the file renames; fix `--font-geist-pixel-grid` bug. Gate: `npm run lint && npm run build && npm run proof:guard` green; sample page styled and screenshot-reviewed against reference checklist §1a.
+- **Phase 1b — Copy deck.** Full page-by-page copy from spine (needs Phase 1a decisions; runs after/alongside Phase 2). Gate: adversarial copy review (claims, voice, slop) by non-author agent.
+- **Phase 3 — Cover.** `/` per §3 anatomy. Gate: fidelity checklist vs reference; rendered voice scan; build green.
+- **Phase 4 — Chapter chrome + case studies.** Sidebar TOC, sheet, breadcrumb, meta, ruler; 11 case-study chapters + strategy memo converted with figures per §5. Gate: fidelity + voice + proof:guard + word counts correct.
+- **Phase 5 — Remaining routes.** `/edge` (in-page chrome), `/resume` (chrome-light standalone), `/about`, `/longform`, `/tools`, `/case-studies` index, 404 page. Gate: same as 4 + resume 30-second scan test (all key facts above the fold at 1440×900).
+- **Phase 6 — Hardening.** A11y sweep (keyboard, focus, contrast incl. dark tokens, reduced motion, SVG titles/descs); cyanotype dark mode; prod-mode CSP check (`npm run build && npm run start`, then smoke + voice scan against :3000); legacy token/utility deletion; repo docs rewritten (CLAUDE.md, DESIGN.md, FIGURES.md; MIDJOURNEY_PROMPTS.md marked historical; HANDOFF.md refreshed).
+- **Phase 6a — Metadata surface** (explicit list): `app/opengraph-image.tsx`, `app/case-studies/[slug]/opengraph-image.tsx`, `app/edge/opengraph-image.tsx` re-cut with real fonts loaded as ArrayBuffers (GT Sectra + Geist Pixel/Mono); static `public/og/*`; `app/icon.png`/`apple-icon.png`/`favicon.ico` re-cut to blueprint system; `JsonLd` contents; `sitemap.ts` (+`/edge`); robots unchanged. Gate: **literal-string review of every OG surface for claim tier and voice** (the curl scan can't see rasterized text).
 
-### QA checklist (Phase 6 exit)
+### Final QA checklist (Phase 6 exit)
 
-- `npm run lint`, `npm run build`, `npm run proof:guard` green.
-- Voice scan (HANDOFF §6 script) empty across all routes.
-- Prod-mode smoke of every route; CSP clean.
-- Reduced-motion and keyboard pass on cover + one chapter + resume.
-- Contrast checks for blueprint-on-paper text.
-- Word counts in TOC match content.
-- No banned em-dashes/phrases in rendered copy.
+- lint, build, proof:guard green; prod-mode smoke of every route in the §3 map; CSP clean.
+- `scripts/voice-scan.sh` empty on all routes (dev AND prod runs).
+- Reduced-motion + keyboard pass on cover, one chapter, resume.
+- Contrast: blueprint-on-ground AND dark cyanotype tokens at used sizes.
+- TOC word counts match rendered content; no gated numeral outside `proof-metrics.ts` resolution; colophon credit present.
+- No em-dashes in body copy; banned-phrase scan empty.
 
 ### Delegation
 
-- Opus subagents: well-specified page/component implementation; adversarial reviews.
-- Sonnet subagents: recon, mechanical conversions, test writing, voice scans.
-- Orchestrator (this session): spec ownership, sequencing, git, final review. Light parallelism (8GB machine): max ~2 concurrent agents, prefer sequential.
+Opus: page/component implementation, adversarial reviews. Sonnet: recon, mechanical conversion, scripts, voice scans. Orchestrator: spec ownership, sequencing, git, final review. Max 2 concurrent agents (8GB machine), prefer sequential; long builds via background shell tasks, not agents.
 
 ## 8. Guardrails
 
-- **No push, PR, merge, or deploy without Connor's explicit instruction.** Overnight work is local commits on `redesign/manual` only.
-- Vault is read-only except the two named deliverables (spine, audit) + nothing else.
-- Claim gating per §4 always wins over "it would read better with the number in."
-- The 4 dirty files are Connor's; preserve as described in Phase 0.
-- Accessibility and reduced motion are hard requirements, not polish.
+- **No push, PR, merge, or deploy without Connor's explicit instruction.**
+- **IP guardrails (mandatory):** never copy, trace, or transcribe the source site's CSS, DOM structure, SVG paths, or assets; reimplement from screenshots and this spec only. No use or imitation of the source's custom typeface beyond the already-licensed Geist Pixel. No verbatim or near-verbatim phrasings from the source. Colophon credit required (§3).
+- Vault read-only except the three named deliverables.
+- Claim gating (§4) always wins; numerals rule applies to figures/stats/OG, not just prose.
+- The 5 dirty files are Connor's: patch backup before any redesign commit; rewrites of those files are allowed only where this spec requires them and must be noted in the log.
+- Accessibility and reduced motion are hard requirements.
 
-## 9. Risks / open items
+## 9. Risks (accepted, watched)
 
-- GT Sectra justified body + drop caps needs typographic care (hyphenation, rag) to not look broken at narrow widths.
-- Blueprint blue link/text contrast on paper: verify AA at body sizes; darken token if needed.
-- Case-study figure design is the highest-skill work in the build; budget review cycles for the first one, then template it.
-- `/tools/revops-capacity-planner` interactivity must survive re-skin (PulseOnChange etc. re-themed, not removed).
-- View Transitions pairs (card title ↔ chapter H1) should be preserved if the new TOC → chapter flow supports them.
+- Recognition risk of the 1:1 direction — accepted by Connor with credit + IP mitigations.
+- Justified serif + drop caps at narrow widths — ragged fallback below 60ch.
+- First case-study figure sets the quality bar — budget review cycles there, then template.
+- Overnight scope is large; the phase order front-loads the highest-value surface (cover + case studies). Partial completion leaves a buildable branch and an honest log.
