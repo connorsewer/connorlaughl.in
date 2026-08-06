@@ -39,3 +39,31 @@ All three named commits verified as ancestors of `HEAD`:
 
 ---
 
+## Phase 1 — baseline
+
+Method, fixed for every later gate: prod-mode local build, Lighthouse 12.8.2
+mobile preset (`--form-factor=mobile --screenEmulation.mobile
+--throttling-method=simulate`), headless Chrome, median of 3 runs per route.
+Tolerance for later phases is −2 points against these numbers.
+
+Captured against the build at `HEAD` before any Wave C source change.
+
+| Route | Perf | A11y | Best practices | SEO | LCP (ms) | TBT (ms) | CLS | Bytes (KB) |
+|---|---|---|---|---|---|---|---|---|
+| `/` | 71 | 100 | 100 | 100 | 7292 | 239 | 0.000 | 1024 |
+| `/case-studies/revenue-operations-signal-to-revenue` | 70 | 100 | 100 | 100 | 7374 | 261 | 0.000 | 1012 |
+| `/case-studies/ai-native-gtm` | 68 | 96 | 100 | 100 | 7385 | 222 | 0.000 | 1038 |
+
+Notes on the baseline, recorded rather than acted on:
+
+- Performance sits in the high sixties to low seventies on all three routes,
+  driven by simulated-mobile LCP around 7.3s. That is the number the plate
+  program in phases 3 to 5 has to stay inside, and it is why the per-route
+  plate budget is one plate.
+- `/case-studies/ai-native-gtm` scores 96 on accessibility where the other two
+  score 100. Pre-existing, unrelated to Wave C, not in scope for this wave.
+- CLS is 0.000 everywhere. Anything in this wave that reflows on entry would
+  show up here, which is why the stat tick reserves its width.
+
+---
+
