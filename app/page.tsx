@@ -128,7 +128,7 @@ export default function Cover() {
             <span className="mt-1.5 block font-serif-body text-[0.9375rem] leading-snug text-body-ink/75">
               {masthead.identity}
             </span>
-            <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/55">
+            <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60">
               {masthead.role}
             </span>
           </>
@@ -172,7 +172,7 @@ export default function Cover() {
           as="section"
           className="mt-8 scroll-mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-16"
         >
-          <h2 className="border-b border-[color:#D8D8D6] pb-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.5rem]">
+          <h2 className="border-b border-rule-hair pb-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.5rem]">
             Contents.
           </h2>
           <div className="mt-10">

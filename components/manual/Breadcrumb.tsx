@@ -29,7 +29,7 @@ export type BreadcrumbProps = {
 };
 
 const CHEVRON_BASE =
-  "font-mono text-[12px] leading-none text-body-ink/45 transition-colors hover:text-blueprint";
+  "font-mono text-[12px] leading-none text-body-ink/60 transition-colors hover:text-blueprint";
 
 export function Breadcrumb({
   section,
@@ -68,7 +68,7 @@ export function Breadcrumb({
       </span>
 
       <span className="flex min-w-0 items-center gap-2">
-        <span className="min-w-0 truncate text-body-ink/45">
+        <span className="min-w-0 truncate text-body-ink/60">
           {sectionHref ? (
             <Link href={sectionHref} className="transition-colors hover:text-blueprint">
               {section}
@@ -77,7 +77,7 @@ export function Breadcrumb({
             section
           )}
         </span>
-        <span aria-hidden="true" className="shrink-0 text-body-ink/30">
+        <span aria-hidden="true" className="shrink-0 text-body-ink/50">
           /
         </span>
         <span className="shrink-0 text-body-ink" aria-current="page">

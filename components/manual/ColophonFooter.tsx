@@ -26,7 +26,7 @@ export function ColophonFooter({ className }: ColophonFooterProps) {
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/70">
           Connor Laughlin · Chicago
         </p>
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/55">
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60">
           Design language after{" "}
           <a
             href={MAKING_SOFTWARE}
@@ -37,10 +37,10 @@ export function ColophonFooter({ className }: ColophonFooterProps) {
             Dan Hollick&rsquo;s Making Software
           </a>
         </p>
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/55">
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60">
           Set in Geist Pixel, Geist Mono, GT Sectra Fine, and Newsreader
         </p>
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/55">
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60">
           Built with Next.js and Tailwind
         </p>
       </div>

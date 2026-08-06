@@ -74,11 +74,11 @@ const SITE_DESCRIPTION =
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  // Forced light for the redesign transition, so both entries report the
-  // manual ground. Task 18 restores a real pair with the cyanotype dark value.
+  // The two grounds: manual paper and the cyanotype negative. Values track
+  // `--ground` in globals.css.
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#F7F7F5" },
-    { media: "(prefers-color-scheme: light)", color: "#F7F7F5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B1020" },
+    { media: "(prefers-color-scheme: light)", color: "#FBFBFB" },
   ],
 };
 

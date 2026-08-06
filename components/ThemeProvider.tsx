@@ -2,6 +2,13 @@
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
+/**
+ * Theme root. The manual is light by default: a reader with no stored choice
+ * and no OS preference gets paper. `enableSystem` lets a dark-OS visitor land
+ * straight in the cyanotype negative, and `ThemeToggle` overrides either way.
+ *
+ * `attribute="class"` is what `html.dark` in globals.css keys off.
+ */
 export function ThemeProvider({
   children,
 }: {
@@ -10,13 +17,9 @@ export function ThemeProvider({
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="dark"
+      defaultTheme="light"
       enableSystem
       disableTransitionOnChange
-      // Transition mode: pins <html class="light"> pre-hydration so no visitor
-      // lands on a converted light page over a legacy dark body. The other
-      // props are inert while this is set; Task 18 removes it.
-      forcedTheme="light"
     >
       {children}
     </NextThemesProvider>

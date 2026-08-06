@@ -58,10 +58,10 @@ export function CoverTOC({
                 fontFamily:
                   "var(--font-geist-pixel-square), var(--font-geist-mono), ui-monospace, monospace",
               }}
-              className="flex items-baseline gap-3 border-b border-[color:#D8D8D6] pb-2 text-[0.8125rem] uppercase tracking-[0.1em] text-body-ink"
+              className="flex items-baseline gap-3 border-b border-rule-hair pb-2 text-[0.8125rem] uppercase tracking-[0.1em] text-body-ink"
             >
               <span>Section {section.num}</span>
-              <span aria-hidden="true" className="text-body-ink/30">
+              <span aria-hidden="true" className="text-body-ink/50">
                 /
               </span>
               <span>{section.title}</span>
@@ -77,7 +77,7 @@ export function CoverTOC({
                   <div className="flex items-baseline gap-4">
                     <span
                       aria-hidden="true"
-                      className="w-7 shrink-0 font-mono text-[10px] tracking-[0.18em] text-body-ink/35"
+                      className="w-7 shrink-0 font-mono text-[10px] tracking-[0.18em] text-body-ink/60"
                     >
                       {entry.num}
                     </span>
@@ -91,11 +91,11 @@ export function CoverTOC({
 
                     <span
                       aria-hidden="true"
-                      className="mx-2 hidden h-px flex-1 self-center border-b border-dotted border-[color:#D8D8D6] sm:block"
+                      className="mx-2 hidden h-px flex-1 self-center border-b border-dotted border-rule-hair sm:block"
                     />
 
                     {typeof entry.words === "number" ? (
-                      <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-body-ink/45">
+                      <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-body-ink/60">
                         {entry.words.toLocaleString("en-US")} words
                       </span>
                     ) : null}

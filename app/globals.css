@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Reference theme-aware CSS vars so utilities flip with html.light */
+  /* Reference theme-aware CSS vars so utilities flip with html.dark */
   --color-ink: var(--ink);
   --color-paper: var(--paper);
   --color-accent: var(--accent);
@@ -17,6 +17,8 @@
   --color-blueprint: var(--blueprint);
   --color-blueprint-bright: var(--blueprint-bright);
   --color-grid-line: var(--grid-line);
+  --color-rule-hair: var(--rule-hair);
+  --color-label-muted: var(--label-muted);
   --color-fig-blue: var(--fig-blue);
   --color-fig-lavender: var(--fig-lavender);
   --color-fig-teal: var(--fig-teal);
@@ -33,19 +35,11 @@
   --shadow-dither: 0 8px 24px var(--dither-shadow);
 }
 
+/* Legacy tokens (pre-redesign design system). Inverted here to light-on-:root
+   so the whole sheet has one polarity story: light is the default state of the
+   document and `html.dark` is the override. Only the retiring components still
+   read these; Task 19 deletes the set. */
 :root {
-  /* Default: dark-first */
-  --ink: #070707;
-  --paper: #F6F1E7;
-  --accent: #B7AA7A;
-  --terminal-green: #B5C7B0;
-  --rule: rgba(246, 241, 231, 0.12);
-  --paper-muted: rgba(246, 241, 231, 0.72);
-  --dither-shadow: rgba(0, 0, 0, 0.4);
-}
-
-/* Light theme (applied via next-themes: class="light" on <html>) */
-html.light {
   --ink: #F6F1E7;
   --paper: #070707;
   --accent: #7D744D;
@@ -55,22 +49,92 @@ html.light {
   --dither-shadow: rgba(7, 7, 7, 0.20);
 }
 
+html.dark {
+  --ink: #070707;
+  --paper: #F6F1E7;
+  --accent: #B7AA7A;
+  --terminal-green: #B5C7B0;
+  --rule: rgba(246, 241, 231, 0.12);
+  --paper-muted: rgba(246, 241, 231, 0.72);
+  --dither-shadow: rgba(0, 0, 0, 0.4);
+}
+
 /* Manual system tokens. Light-first by design: these values are the light
-   theme and they sit on :root unconditionally, so they resolve the same way
-   under the transition's forced light and under the cyanotype dark theme
-   that Task 18 layers on top via html.dark. */
+   theme and they sit on :root unconditionally, so the cyanotype dark theme
+   below only has to name what actually changes. */
 :root {
+  color-scheme: light;
+
   --ground: #FBFBFB;
   --sheet: #FFFFFF;
   --body-ink: #171715;
   --blueprint: #2E47F1;
-  /* Lightened blueprint for dark surfaces; in light it is plain blueprint.
-     Task 18 sets the dark value with a measured contrast ratio. */
+  /* Text-safe blueprint. In light the raw blueprint already clears AA on both
+     surfaces (6.39:1 on --sheet), so the two are the same value here. */
   --blueprint-bright: var(--blueprint);
   --fig-blue: #D8E0FA;
   --fig-lavender: #DCD6F7;
   --fig-teal: #CBEDE4;
+  /* Structural hairline: sheet edges, dividers, table rules. */
   --grid-line: color-mix(in srgb, var(--blueprint) 7%, transparent);
+  /* The 8px drafting grid printed on a figure plate. Deliberately weaker than
+     --grid-line: it is surface texture, not a line of the drawing. */
+  --plate-grid: color-mix(in srgb, var(--blueprint) 7%, transparent);
+  /* The 8px rule on the page ground. Four steps off --ground in light. */
+  --grid-paper-line: #F3F3F1;
+  /* Checker band tile. */
+  --checker-ink: #C6C6C2;
+  /* Section hairline under a heading and the dotted TOC leaders. */
+  --rule-hair: #D8D8D6;
+  /* Muted mono label (stat keys, FAQ gutter). */
+  --label-muted: #6B6B66;
+  /* Sheet lift off the ground, from md up. */
+  --sheet-shadow: 0 1px 2px rgba(23, 23, 21, 0.04), 0 12px 32px -24px rgba(23, 23, 21, 0.35);
+}
+
+/* ── Cyanotype dark theme (spec §2) ────────────────────────────────────
+   Dark mode is the negative of the manual: blue-black ground, off-white
+   body, and a lifted blueprint, so the drawings read as cyanotype prints
+   rather than as a light page with the lamp turned down.
+
+   Measured contrast (WCAG 2.1 relative luminance, sRGB):
+     --body-ink  #E8ECF6 on --ground #0B1020 = 16.01:1   (AAA)
+     --body-ink  #E8ECF6 on --sheet  #101833 = 14.79:1   (AAA)
+     --blueprint #9BB4FF on --ground #0B1020 =  9.35:1   (AAA)
+     --blueprint #9BB4FF on --sheet  #101833 =  8.63:1   (AAA)
+     --label-muted #A3B1CE on --sheet #101833 = 8.11:1   (AAA)
+   Headroom is deliberate: the manual sets label and caption text at 55–75%
+   opacity, and the composite still has to clear 4.5:1. Worst case in the
+   tree is `text-blueprint/70` on --sheet at 4.87:1, which passes.
+
+   The raw light blueprint #2E47F1 measures 2.96:1 on this ground and must
+   never reach dark text: --blueprint is overridden here so no utility can
+   resolve to it, and --blueprint-bright stays the token to reach for when a
+   component needs the text-safe blue by name. */
+html.dark {
+  color-scheme: dark;
+
+  --ground: #0B1020;
+  --sheet: #101833;
+  --body-ink: #E8ECF6;
+  --blueprint: #9BB4FF;
+  --blueprint-bright: var(--blueprint);
+  /* Figure fills invert with the plate: deep tints of the same three hues, so
+     a filled face still separates from --sheet without glowing. */
+  --fig-blue: #1B2748;
+  --fig-lavender: #241F45;
+  --fig-teal: #173430;
+  /* Hairlines need more of the blue on a dark ground than on white to land at
+     the same apparent weight. */
+  --grid-line: color-mix(in srgb, var(--blueprint) 20%, transparent);
+  --plate-grid: color-mix(in srgb, var(--blueprint) 9%, transparent);
+  --grid-paper-line: #121A2E;
+  --checker-ink: #2C3A5E;
+  --rule-hair: #2A3554;
+  --label-muted: #A3B1CE;
+  /* A cast shadow on a blue-black ground has to go darker than the ground to
+     register at all, so the dark pair is heavier than the light one. */
+  --sheet-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 12px 32px -24px rgba(0, 0, 0, 0.85);
 }
 
 html {
@@ -113,16 +177,16 @@ body::before {
   inset: 0;
   z-index: 100;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.13  0 0 0 0 0.10  0 0 0 0 0.07  0 0 0 0.7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
-  background-size: 220px 220px;
-  opacity: 0.10;
-  mix-blend-mode: overlay;
-}
-
-html.light body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.04  0 0 0 0 0.02  0 0 0 0.95 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
   opacity: 0.14;
   mix-blend-mode: multiply;
+}
+
+html.dark body::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.13  0 0 0 0 0.10  0 0 0 0 0.07  0 0 0 0.7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
+  opacity: 0.10;
+  mix-blend-mode: overlay;
 }
 
 /* Layer 2: warm radial wash + corner vignette. Reads as "page under
@@ -138,22 +202,6 @@ body::after {
     radial-gradient(
       ellipse 130% 110% at 50% 28%,
       transparent 0%,
-      transparent 50%,
-      rgba(0, 0, 0, 0.42) 100%
-    ),
-    radial-gradient(
-      ellipse 75% 55% at 50% 32%,
-      rgba(183, 170, 122, 0.10) 0%,
-      transparent 65%
-    );
-  mix-blend-mode: multiply;
-}
-
-html.light body::after {
-  background:
-    radial-gradient(
-      ellipse 130% 110% at 50% 28%,
-      transparent 0%,
       transparent 55%,
       rgba(60, 40, 20, 0.13) 100%
     ),
@@ -165,6 +213,22 @@ html.light body::after {
   mix-blend-mode: normal;
 }
 
+html.dark body::after {
+  background:
+    radial-gradient(
+      ellipse 130% 110% at 50% 28%,
+      transparent 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.42) 100%
+    ),
+    radial-gradient(
+      ellipse 75% 55% at 50% 32%,
+      rgba(183, 170, 122, 0.10) 0%,
+      transparent 65%
+    );
+  mix-blend-mode: multiply;
+}
+
 /* Manual-page opt-out of the legacy body texture. Converted pages wrap in
    `<div className="manual-root">`; that suppresses the grain and vignette
    layers above and repaints the page (and the overscroll gutter, which is
@@ -172,6 +236,12 @@ html.light body::after {
 html:has(.manual-root),
 body:has(.manual-root) {
   background-color: var(--ground);
+}
+
+/* The inherited default has to be a manual token too, or anything that does
+   not name its own colour falls back to the legacy body text. */
+body:has(.manual-root) {
+  color: var(--body-ink);
 }
 
 body:has(.manual-root)::before,
@@ -183,6 +253,11 @@ body:has(.manual-root)::after {
 ::selection {
   background-color: var(--accent);
   color: var(--ink);
+}
+
+.manual-root ::selection {
+  background-color: var(--blueprint);
+  color: var(--sheet);
 }
 
 .font-display {
@@ -285,8 +360,8 @@ body:has(.manual-root)::after {
 .bg-ground-grid {
   background-color: var(--ground);
   background-image:
-    repeating-linear-gradient(to right, #F3F3F1 0 1px, transparent 1px 8px),
-    repeating-linear-gradient(to bottom, #F3F3F1 0 1px, transparent 1px 8px);
+    repeating-linear-gradient(to right, var(--grid-paper-line) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(to bottom, var(--grid-paper-line) 0 1px, transparent 1px 8px);
 }
 
 /* Figure plate: white paper with the same 8px rule. In the reference the
@@ -295,8 +370,8 @@ body:has(.manual-root)::after {
 .figure-plate {
   background-color: var(--sheet);
   background-image:
-    repeating-linear-gradient(to right, var(--grid-line) 0 1px, transparent 1px 8px),
-    repeating-linear-gradient(to bottom, var(--grid-line) 0 1px, transparent 1px 8px);
+    repeating-linear-gradient(to right, var(--plate-grid) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(to bottom, var(--plate-grid) 0 1px, transparent 1px 8px);
 }
 
 /* Dither checker band. A hard-edged checker on a 7px pitch in neutral gray
@@ -306,7 +381,7 @@ body:has(.manual-root)::after {
   height: 8px;
   background-color: var(--ground);
   background-image: repeating-conic-gradient(
-    #C6C6C2 0% 25%,
+    var(--checker-ink) 0% 25%,
     transparent 0% 50%
   );
   background-size: 7px 7px;
@@ -338,7 +413,7 @@ body:has(.manual-root)::after {
 /* Site header — fixed, frosted, content-aware separator */
 .site-header {
   background-color: color-mix(in oklab, var(--ink) 92%, transparent);
-  border-bottom: 1px solid color-mix(in oklab, var(--paper) 18%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--paper) 22%, transparent);
 }
 
 @supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
@@ -349,8 +424,8 @@ body:has(.manual-root)::after {
   }
 }
 
-html.light .site-header {
-  border-bottom-color: color-mix(in oklab, var(--paper) 22%, transparent);
+html.dark .site-header {
+  border-bottom-color: color-mix(in oklab, var(--paper) 18%, transparent);
 }
 
 /* Editorial link underline */
@@ -448,16 +523,16 @@ html.light .site-header {
   content: "";
   position: absolute;
   inset: 13px;
-  border: 1px solid rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(7, 7, 7, 0.45);
   pointer-events: none;
   z-index: 2;
   border-radius: 1px;
 }
 
-html.light .gilt-frame::before,
-html.light .walnut-frame::before,
-html.light .dither-frame::before {
-  border-color: rgba(7, 7, 7, 0.45);
+html.dark .gilt-frame::before,
+html.dark .walnut-frame::before,
+html.dark .dither-frame::before {
+  border-color: rgba(0, 0, 0, 0.55);
 }
 
 /* ----- GILT (gold) ----- */
@@ -474,20 +549,20 @@ html.light .dither-frame::before {
       #5a4220 100%
     );
   box-shadow:
-    0 28px 60px -18px rgba(0, 0, 0, 0.55),
-    0 10px 22px -6px rgba(0, 0, 0, 0.40),
-    inset 0 0 0 1px rgba(60, 40, 14, 0.85),
-    inset 2px 2px 1px 0 rgba(255, 235, 175, 0.55),
-    inset -2px -2px 2px 0 rgba(40, 25, 8, 0.55);
-}
-
-html.light .gilt-frame {
-  box-shadow:
     0 18px 36px -14px rgba(40, 25, 8, 0.45),
     0 8px 16px -6px rgba(40, 25, 8, 0.32),
     inset 0 0 0 1px rgba(60, 40, 14, 0.75),
     inset 2px 2px 1px 0 rgba(255, 235, 175, 0.70),
     inset -2px -2px 2px 0 rgba(40, 25, 8, 0.50);
+}
+
+html.dark .gilt-frame {
+  box-shadow:
+    0 28px 60px -18px rgba(0, 0, 0, 0.55),
+    0 10px 22px -6px rgba(0, 0, 0, 0.40),
+    inset 0 0 0 1px rgba(60, 40, 14, 0.85),
+    inset 2px 2px 1px 0 rgba(255, 235, 175, 0.55),
+    inset -2px -2px 2px 0 rgba(40, 25, 8, 0.55);
 }
 
 /* ----- WALNUT (rich wood) — default frame ----- */
@@ -526,6 +601,17 @@ html.light .gilt-frame {
       #110602 100%
     );
   box-shadow:
+    0 22px 44px -16px rgba(20, 8, 2, 0.55),
+    0 10px 20px -6px rgba(20, 8, 2, 0.40),
+    inset 0 0 0 1px rgba(10, 4, 1, 0.90),
+    inset 2px 2px 1px 0 rgba(220, 160, 110, 0.45),
+    inset 1px 1px 0 0 rgba(255, 210, 165, 0.25),
+    inset -2px -2px 2px 0 rgba(6, 2, 0, 0.65);
+}
+
+html.dark .walnut-frame,
+html.dark .dither-frame {
+  box-shadow:
     /* deep drop */
     0 32px 64px -18px rgba(0, 0, 0, 0.65),
     0 12px 24px -6px rgba(0, 0, 0, 0.50),
@@ -538,17 +624,6 @@ html.light .gilt-frame {
     inset -2px -2px 2px 0 rgba(6, 2, 0, 0.70),
     /* inner well rim, just inside the mat */
     inset 0 0 0 13px rgba(30, 12, 4, 0.0);
-}
-
-html.light .walnut-frame,
-html.light .dither-frame {
-  box-shadow:
-    0 22px 44px -16px rgba(20, 8, 2, 0.55),
-    0 10px 20px -6px rgba(20, 8, 2, 0.40),
-    inset 0 0 0 1px rgba(10, 4, 1, 0.90),
-    inset 2px 2px 1px 0 rgba(220, 160, 110, 0.45),
-    inset 1px 1px 0 0 rgba(255, 210, 165, 0.25),
-    inset -2px -2px 2px 0 rgba(6, 2, 0, 0.65);
 }
 
 /* All inner children sit under the museum mat stroke */
@@ -566,7 +641,7 @@ html.light .dither-frame {
   pointer-events: none;
   font-family: var(--font-geist-pixel-square), var(--font-geist-mono), monospace;
   color: var(--paper);
-  opacity: 0.06;
+  opacity: 0.08;
   white-space: pre;
   overflow: hidden;
   user-select: none;
@@ -575,8 +650,8 @@ html.light .dither-frame {
   font-size: 0.75rem;
 }
 
-html.light .terminal-grid {
-  opacity: 0.08;
+html.dark .terminal-grid {
+  opacity: 0.06;
 }
 
 /* CRT scanline on primary CTA hover */
@@ -664,11 +739,18 @@ a:focus-visible,
 
 @media (prefers-contrast: more) {
   :root {
-    --rule: rgba(246, 241, 231, 0.3);
+    --rule: rgba(7, 7, 7, 0.3);
+    /* Hairlines and the muted label step up on both surfaces. */
+    --grid-line: color-mix(in srgb, var(--blueprint) 22%, transparent);
+    --rule-hair: #A8A8A4;
+    --label-muted: #4A4A46;
   }
 
-  html.light {
-    --rule: rgba(7, 7, 7, 0.3);
+  html.dark {
+    --rule: rgba(246, 241, 231, 0.3);
+    --grid-line: color-mix(in srgb, var(--blueprint) 40%, transparent);
+    --rule-hair: #4A5878;
+    --label-muted: #C7D2E8;
   }
 
   *:focus-visible {

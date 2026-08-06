@@ -27,12 +27,12 @@ export function ChapterMeta({
 }: ChapterMetaProps) {
   return (
     <p
-      className={`font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/55 ${
+      className={`font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60 ${
         className ?? ""
       }`}
     >
       {words.toLocaleString("en-US")} words
-      <span aria-hidden="true" className="mx-2 text-body-ink/30">
+      <span aria-hidden="true" className="mx-2 text-body-ink/50">
         |
       </span>
       <span className="sr-only">by </span>

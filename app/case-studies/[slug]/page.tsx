@@ -344,7 +344,7 @@ export default async function CaseStudyPage({
               ] as const
             ).map(([term, value]) => (
               <div key={term} className="bg-sheet p-5">
-                <dt className="font-mono text-[10px] uppercase tracking-[0.24em] text-body-ink/55">
+                <dt className="font-mono text-[10px] uppercase tracking-[0.24em] text-body-ink/60">
                   {term}
                 </dt>
                 <dd className="mt-2 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">

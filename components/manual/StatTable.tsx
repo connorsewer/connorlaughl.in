@@ -44,7 +44,7 @@ export function StatTable({ rows, caption, className }: StatTableProps) {
             data-stat-row
             className="flex items-baseline justify-between gap-6 py-2.5"
           >
-            <dt className="text-[color:#6B6B66]">{row.label}:</dt>
+            <dt className="text-label-muted">{row.label}:</dt>
             <dd className="m-0 text-right text-body-ink">
               {row.srText ? (
                 <>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { personSchema } from "@/components/JsonLd";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 /**
  * Manual masthead.
@@ -105,7 +106,10 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
           <Link href="/" aria-label="Connor Laughlin, cover" className="shrink-0">
             <Wordmark compact />
           </Link>
-          <Nav compact />
+          <div className="flex items-center gap-5">
+            <Nav compact />
+            <ThemeToggle />
+          </div>
         </div>
       ) : (
         <div className="flex flex-col gap-6 px-6 pb-5 pt-8 lg:flex-row lg:items-end lg:justify-between lg:px-10 lg:pt-10">
@@ -118,7 +122,10 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
                 {tagline}
               </div>
             ) : null}
-            <Nav compact={false} />
+            <div className="flex items-center gap-5">
+              <Nav compact={false} />
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}

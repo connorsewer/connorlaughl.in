@@ -24,7 +24,7 @@ export type TerminalFAQProps = {
 };
 
 const GUTTER =
-  "w-11 shrink-0 select-none font-mono text-[10px] uppercase tracking-[0.16em] text-[color:#6B6B66]";
+  "w-11 shrink-0 select-none font-mono text-[10px] uppercase tracking-[0.16em] text-label-muted";
 
 export function TerminalFAQ({ entries, className }: TerminalFAQProps) {
   return (

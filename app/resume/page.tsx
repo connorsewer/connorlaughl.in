@@ -205,7 +205,7 @@ export default function ResumePage() {
                   key={role.period}
                   className="grid gap-1 py-3.5 sm:grid-cols-[11rem_1fr] sm:gap-6"
                 >
-                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-body-ink/55">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-body-ink/60">
                     {role.period}
                   </span>
                   <div className="max-w-[62ch]">

@@ -63,7 +63,7 @@ export function ChapterHeader({
       {dinkus ? (
         <span
           aria-hidden="true"
-          className="mt-7 block font-mono text-[11px] tracking-[0.5em] text-body-ink/40"
+          className="mt-7 block font-mono text-[11px] tracking-[0.5em] text-body-ink/60"
         >
           -----
         </span>
