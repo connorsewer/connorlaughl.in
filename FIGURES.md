@@ -45,7 +45,7 @@ a new figure always takes the next free number.
 
 | FIG_020 | Portrait | `/about` | The desk in Chicago where the work in this manual was built | Photographic plate rather than a drawing. The desk illustration re-screened as a blueprint-on-paper halftone duotone so it sits in the same ink as the figures. |
 
-| FIG_021 | Layer stack | Chapter, revenue operating system | The operating layers as an assembly: each one defined and stacked in order, none of them free-standing | Rendered plate rather than a hand-drawn figure. Six flat plates exploded along one vertical axis on four guide posts, blueprint line work on flat paper, remapped to the site ink. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_008 and never replaces it. Renders as authored in both themes, with no duotone. |
+| FIG_021 | Layer stack | Chapter, revenue operating system | The operating layers as an assembly: each one defined and stacked in order, none of them free-standing | Rendered plate rather than a hand-drawn figure. Seven uniform flat plates exploded along one vertical axis on four guide posts above a wider base panel, eight slabs in all, no taper from bottom to top. Blueprint line work on flat paper, remapped to the site ink. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_008 and never replaces it. Renders as authored in both themes, with no duotone. |
 | FIG_022 | Gate | Chapter, governed AI operating layer | The human approval step every run passed, and the record each one left | Rendered plate rather than a hand-drawn figure. An intake tray, three sorting plates, a hinged gate block with a lever arm, and a release chute exploded above one long tray, blueprint line work on flat paper, remapped to the site ink. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_009 and never replaces it. Renders as authored in both themes, with no duotone. |
 
 ## Generation log
@@ -89,15 +89,30 @@ findings. What the pixels said, reproduced with `scripts/plate-measure.py`:
 The lesson is procedural, not cosmetic: an accept note that describes an image
 is not evidence. Accept notes from here carry measured values.
 
-| FIG_021 | v3 blueprint | 1 | Accepted | Ink hue 297.5° (ref 300.5°), chroma 86.2 after the remap with the darkest pixel exactly `#2E47F1`. Ground chroma 1.5, flatness 0.7%, corner falloff 0.0% across all four blocks. Stroke median 3.0px, coverage 2.17%, object 60.9% of frame width on symmetric margins. Checked at 1:1 on the raw generation before the remap: no glyph, no callout tick, no leader line, no arrow, no dimension mark, no light source, no cast shadow. |
+| FIG_021 | v3 blueprint | 1 | Accepted | Measured pre-encode; see the round-3 correction below for the shipped-file numbers. Ink hue 297.5° (ref 300.5°), chroma 86.2 after the remap with the darkest pixel exactly `#2E47F1`. Ground chroma 1.5, flatness 0.7%, corner falloff 0.0% across all four blocks. Stroke median 3.0px, coverage 2.17%, object 60.9% of frame width on symmetric margins. Checked at 1:1 on the raw generation before the remap: no glyph, no callout tick, no leader line, no arrow, no dimension mark, no light source, no cast shadow. |
 | FIG_022 | v3 blueprint | 1 | Rejected | Ground and type were clean, but the register missed the pair: stroke median 5.0px against FIG_021's 3.0px and object width 73.6% against 60.9%. Held to the same subject line and re-rolled for scale and line weight. |
-| FIG_022 | v3 blueprint | 2 | Accepted | Ink hue 296.7°, chroma 82.4 after the remap with the darkest pixel exactly `#2E47F1`. Ground chroma 1.5, flatness 1.0%, corner falloff 0.0%. Stroke median 3.0px, identical to FIG_021; coverage 1.95% against 2.17%; object 58.3% of frame width against 60.9%, margins symmetric. The pair locks on every axis. Checked at 1:1 on the raw generation: no glyph, no annotation mark, no light source, no cast shadow. The subject reads as intake tray, three sorting plates, hinged gate block with lever arm, chute, and the long tray beneath; a fourth plate-like form is the gate block's leading face rather than a fourth sorting plate. |
+| FIG_022 | v3 blueprint | 2 | Accepted | Measured pre-encode; see the round-3 correction below for the shipped-file numbers and for the fourth-face reading. Ink hue 296.7°, chroma 82.4 after the remap with the darkest pixel exactly `#2E47F1`. Ground chroma 1.5, flatness 1.0%, corner falloff 0.0%. Stroke median 3.0px, identical to FIG_021; coverage 1.95% against 2.17%; object 58.3% of frame width against 60.9%, margins symmetric. The pair locks on every axis. Checked at 1:1 on the raw generation: no glyph, no annotation mark, no light source, no cast shadow. The subject reads as intake tray, three sorting plates, hinged gate block with lever arm, chute, and the long tray beneath; a fourth plate-like form is the gate block's leading face rather than a fourth sorting plate. |
 
 Both v3 plates went through the two-ink remap in `scripts/plate-recolor.py`
 before encoding. It is a deterministic colour step and is recorded here because
 it is part of how these files were made: it moves the two endpoints and cannot
 add, remove, or reshape a mark. Zero-type, flat light, and subject were all
 judged on the raw generation, before the remap ran.
+
+**Correction, round 3.** A judge round re-ran the gates against the files in
+`public/case-studies/` rather than the pre-encode PNGs and found two things the
+accept notes above got wrong. The rows stay as written; these are the numbers
+and the readings that hold.
+
+| Note as written | Shipped file |
+|---|---|
+| FIG_021 "chroma 86.2, darkest pixel exactly `#2E47F1`" | True of the pre-encode PNG. The file first shipped was a lossy WebP at `-q 88`, a `VP8 ` chunk, and it measured a darkest pixel of `#4049C8` at chroma 72.8 — under the gate of 80. Re-encoded with `cwebp -lossless -m 6`: the shipped `VP8L` file now measures ink hue 297.5°, chroma 86.2, darkest pixel exactly `#2E47F1`, lightest exactly `#FBFBFB`, ground `#F7F8FB` at chroma 1.5, flatness 0.7%, corner falloff 0.0%, stroke median 3.0px, coverage 2.17%, object 60.9% of frame width. 113,758 bytes. |
+| FIG_022 "chroma 82.4, darkest pixel exactly `#2E47F1`" | Same failure, same fix. The lossy file measured `#3F49CC` at chroma 70.7. The shipped `VP8L` file measures ink hue 296.7°, chroma 82.4, darkest pixel exactly `#2E47F1`, lightest exactly `#FBFBFB`, ground `#F8F8FB` at chroma 1.5, flatness 1.0%, corner falloff 0.0%, stroke median 3.0px, coverage 1.95%, object 58.3% of frame width. 236,648 bytes. |
+| FIG_021 "six flat plates … widest at the bottom, smallest at the top" | The image carries seven uniform plates on four guide posts above a wider base panel, eight slabs in all, and there is no taper: every stacked plate is the same size. The registry row above is corrected to match. The subject line as written was not what the model returned, and the plate was accepted on the drawing rather than on the count. |
+| FIG_022 "a fourth plate-like form is the gate block's leading face" | It is the intake tray's raised back wall. The tray at the left of the frame has a tall panel standing up from its back edge, and that panel is what reads as a fourth sorting plate. The gate block sits further along the axis and its faces are part of the housing. Three sorting plates is still the correct count. |
+
+The procedural lesson, added to the spec: acceptance gates run on the file that
+ships. A pre-encode measurement describes an artifact no reader receives.
 
 ## Reserved
 

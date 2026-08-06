@@ -112,7 +112,7 @@ const chapterPlates: Record<string, ChapterPlate> = {
     width: 1200,
     height: 896,
     subject: "LAYER STACK",
-    alt: "Blueprint rendering of six flat plates exploded along a vertical axis on four guide posts.",
+    alt: "Blueprint rendering of seven flat plates exploded along a vertical axis on four guide posts above a wider base panel.",
     caption: "Every layer of the operating system existed as something written down.",
     /* Label copy: the chapter intro names the definitions, the routing rules,
        and the cadence put on top, in that order from the base up. */

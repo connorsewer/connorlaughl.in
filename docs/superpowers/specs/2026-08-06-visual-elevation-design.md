@@ -338,6 +338,25 @@ and figure labels are the same type at the same weight in the same ink.
   and that is the number a reader feels. **Repo weight** is all plates plus
   both loop variants, roughly 8.6MB, a repository-size concern rather than a
   page-performance one.
+- **Lossless, not "near-lossless".** `cwebp -lossless -m 6` is the encode. A
+  lossy WebP is a `VP8 ` chunk and it moves the ink: the round-3 pair shipped
+  at `-q 88` and the darkest pixel measured `#4049C8` and `#3F49CC` instead of
+  exactly `#2E47F1`, dropping chroma to 72.8 and 70.7 against a gate of 80. The
+  exact endpoints the remap sets are the thing being shipped, so the encoder
+  is not allowed to approximate them. Check the chunk: bytes 12–16 of the file
+  must read `VP8L`.
+
+### The post-encode measurement pass
+
+**Every acceptance gate runs on the file that ships, not on a pre-encode
+artifact.** The remap is exact and the pre-encode PNG will always measure
+clean; that is not evidence, because the reader never receives the PNG. A
+generation is judged on the raw output (zero-type, flat-light, subject), and
+the colour, ground, register, and size gates in the table above are then
+re-run on the encoded WebP sitting in `public/case-studies/`. A registry row
+records the **shipped-file** numbers. Round 3 accepted two plates on PNG
+measurements and shipped lossy WebPs that failed the ink-chroma gate, which is
+exactly the failure this rule closes.
 
 ### Accessibility contract
 
