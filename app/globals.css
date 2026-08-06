@@ -238,6 +238,12 @@ body:has(.manual-root)::after {
     text-justify: inter-word;
     -webkit-hyphens: auto;
     hyphens: auto;
+    /* Justification aligns advance edges, not ink edges, so a line closing on
+       a comma or a period stops a few pixels short of one closing on a digit.
+       Hanging the trailing mark puts the ink edges on the same line where the
+       engine supports it, and changes nothing where it does not. */
+    -webkit-hanging-punctuation: allow-end;
+    hanging-punctuation: allow-end;
   }
 }
 
