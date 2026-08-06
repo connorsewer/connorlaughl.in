@@ -20,7 +20,7 @@ import { useEffect, useState } from "react";
  *     which is one long document rather than a set of routes. Consumers in
  *     pure anchor mode pass `sections={[]}`.
  *
- * The scroll-spy is the `CaseStudyTOC` observer, unchanged: one
+ * The scroll-spy carries over the retired `CaseStudyTOC` observer: one
  * IntersectionObserver per id with a `-30% 0px -60% 0px` rootMargin, so a
  * heading lights up once it reaches the upper third of the viewport.
  *

@@ -1,64 +1,81 @@
-import { Suspense } from "react";
-import { Header } from "@/components/Header";
-import { CaseStudyArchive } from "@/components/CaseStudyArchive";
-import { SectionDivider } from "@/components/SectionDivider";
-import { audienceTags, caseStudies } from "@/content/case-studies";
 import type { Metadata } from "next";
 
+import {
+  CheckerBand,
+  ColophonFooter,
+  CoverTOC,
+  Masthead,
+  Sheet,
+  type CoverTocGroup,
+} from "@/components/manual";
+import { tocSections } from "@/content/cover";
+import { chapterWords } from "@/lib/word-counts";
+
+/**
+ * Section 1 index (spec §3: kept as a route, rendered in manual chrome).
+ *
+ * Introduces no claims of its own. Entries, deks, and order come from the
+ * cover contents, so the index and the cover can never disagree; word counts
+ * are build-computed from the rendered public projection. Copy is the approved
+ * deck's section 2, verbatim.
+ */
+
 export const metadata: Metadata = {
-  title: "Case studies | Connor J. Laughlin",
+  title: "Revenue systems | Connor J. Laughlin",
   description:
-    "Case studies in GTM systems Connor J. Laughlin built and ran: revenue infrastructure, RevOps reporting, governed AI workflows, signal-based demand, and post-acquisition GTM.",
+    "One chapter per system. Each one starts with the problem, then what I built, then what changed.",
 };
+
+const section1 = tocSections.find((section) => section.num === 1);
+
+const sections: CoverTocGroup[] = section1
+  ? [
+      {
+        num: section1.num,
+        title: section1.title,
+        entries: section1.entries.map((entry) => ({
+          num: entry.num,
+          title: entry.title,
+          href: entry.href,
+          dek: entry.dek,
+          words: entry.countKey ? chapterWords(entry.countKey) : undefined,
+        })),
+      },
+    ]
+  : [];
 
 export default function CaseStudiesIndex() {
   return (
-    <div className="selection:bg-accent selection:text-ink">
-      <Header />
+    <div className="manual-root min-h-screen bg-ground-grid">
+      <Masthead compact />
+      <CheckerBand />
 
-      <main id="main-content" className="min-h-screen pt-32 px-6">
-        <div className="mx-auto max-w-6xl">
-          <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-6 uppercase block">
-            Case studies
-          </span>
-          <h1 className="font-display text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[0.95] tracking-tight mb-8 text-balance">
-            Case studies in GTM systems I built and{" "}
-            <span className="text-accent italic">ran.</span>
-          </h1>
-          <p className="text-xl text-paper/70 max-w-3xl mb-6 leading-relaxed text-balance">
-            These are not campaign recaps. Each case shows the business problem, the system I built, what changed, and what it proves about how I operate.
-          </p>
-        </div>
+      <main className="mx-auto w-full max-w-[68rem] py-10 sm:px-6 lg:px-10 lg:py-16">
+        <Sheet
+          id="main-content"
+          as="section"
+          className="px-5 py-10 sm:px-10 lg:px-16 lg:py-14"
+        >
+          <header className="max-w-[68ch]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+              Section 1 / Revenue systems
+            </p>
+            <h1 className="mt-4 font-display text-[2rem] leading-tight text-body-ink sm:text-[2.75rem]">
+              Revenue systems
+            </h1>
+            <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
+              One chapter per system. Each one starts with the problem, then
+              what I built, then what changed.
+            </p>
+          </header>
 
-        <div className="-mx-6">
-          <SectionDivider
-            src="/dividers/blueprint.webp"
-            alt="Cropped technical blueprint of a mechanical assembly with dimension callouts and reference numbers"
-            fig="[Fig. 11]"
-            caption="Index, the file before the file"
-            aspect="16 / 3"
-          />
-        </div>
-
-        <div className="mx-auto max-w-6xl">
-          <Suspense
-            fallback={
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-paper/45">
-                Loading filters…
-              </p>
-            }
-          >
-            <CaseStudyArchive studies={caseStudies} audienceTags={audienceTags} />
-          </Suspense>
-        </div>
+          <div className="mt-10">
+            <CoverTOC sections={sections} />
+          </div>
+        </Sheet>
       </main>
 
-      <footer className="py-12 border-t border-rule px-6 mt-32">
-        <div className="mx-auto max-w-6xl flex justify-between items-center opacity-50 font-mono text-[9px] tracking-[0.3em] uppercase">
-          <span>© 2026 Connor J. Laughlin</span>
-          <span>Chicago</span>
-        </div>
-      </footer>
+      <ColophonFooter />
     </div>
   );
 }

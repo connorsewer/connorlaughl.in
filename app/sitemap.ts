@@ -22,14 +22,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: cs.signature ? 0.85 : 0.6,
   }));
 
-  const longformRoutes: MetadataRoute.Sitemap = caseStudies
-    .filter((cs) => cs.longformHref?.startsWith("/longform/"))
-    .map((cs) => ({
-      url: `${SITE}${cs.longformHref}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.65,
-    }));
+  /* More than one chapter can point at the same longform piece, so the hrefs
+     are deduped before they become sitemap entries. */
+  const longformHrefs = Array.from(
+    new Set(
+      caseStudies
+        .map((cs) => cs.longformHref)
+        .filter((href): href is string => Boolean(href?.startsWith("/longform/"))),
+    ),
+  );
+
+  const longformRoutes: MetadataRoute.Sitemap = longformHrefs.map((href) => ({
+    url: `${SITE}${href}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.65,
+  }));
 
   return [...staticRoutes, ...caseStudyRoutes, ...longformRoutes];
 }

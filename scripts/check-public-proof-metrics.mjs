@@ -16,6 +16,11 @@ const exists = (rel) => fs.existsSync(path.join(root, rel));
  *   app/case-studies/[slug]/opengraph-image.tsx
  *   components/CaseStudyArchive.tsx
  *
+ * Recounted 2026-08-06 after Task 15 retired CaseStudyArchive and added two
+ * renderers (5 files): app/page.tsx, app/case-studies/[slug]/page.tsx and its
+ * OG route, app/resume/page.tsx, app/about/page.tsx. The floor stays at 4
+ * because the count rose, not fell; it is never lowered.
+ *
  * A later task may change this number ONLY with a one-line justification in
  * docs/superpowers/2026-08-05-overnight-log.md (renderers are deleted, retired,
  * or added by the redesign). Never lower it silently.
