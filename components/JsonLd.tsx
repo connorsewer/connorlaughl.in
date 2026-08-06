@@ -2,10 +2,9 @@ type JsonLdProps = { data: unknown };
 
 /**
  * Renders a JSON-LD <script type="application/ld+json"> with safe
- * stringification. JSON-LD scripts are not executed, only parsed; the
- * production CSP uses strict-dynamic alongside unsafe-inline so modern
- * browsers ignore unsafe-inline for executable scripts but allow the
- * non-executable JSON-LD payload through.
+ * stringification. JSON-LD scripts are parsed, never executed, and the
+ * production CSP in `proxy.ts` allows `'self' 'unsafe-inline'` for scripts, so
+ * the payload passes through under prerender.
  */
 export function JsonLd({ data }: JsonLdProps) {
   return (
@@ -20,15 +19,21 @@ export function JsonLd({ data }: JsonLdProps) {
 
 const SITE = "https://www.connorlaughl.in";
 
+/**
+ * `name` and `description` are the copy deck section 12.4 metadata strings,
+ * shared with `app/layout.tsx`. Numeral-free by design: a structured-data
+ * string cannot carry the context an approval requires, so no magnitude claim
+ * goes here in any form.
+ */
 export const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Connor J. Laughlin",
   givenName: "Connor",
   familyName: "Laughlin",
-  jobTitle: "VP of Marketing & GTM (acting CMO), GTM Engineer",
+  jobTitle: "VP of Marketing & GTM (acting CMO)",
   description:
-    "Chicago-based VP of Marketing & GTM (acting CMO) and GTM Engineer. Built revenue infrastructure, RevOps systems, governed AI workflows, and executive reporting behind $159.4M in influenced pipeline.",
+    "Marketing executive and GTM systems engineer in Chicago. A manual of the revenue systems he has built: positioning, demand capture, CRM and attribution, pipeline inspection, and governed AI workflows.",
   url: SITE,
   email: "mailto:connor.laughlin@gmail.com",
   address: {

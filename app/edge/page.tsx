@@ -19,7 +19,7 @@ import { edgeWords } from "@/lib/word-counts";
  */
 
 export const metadata: Metadata = {
-  title: "The operator | Connor J. Laughlin",
+  title: "The operator",
   description:
     "How I work when the problem isn't defined yet. Eleven operating chapters in three acts.",
 };

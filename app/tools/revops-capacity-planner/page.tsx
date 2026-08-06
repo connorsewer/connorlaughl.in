@@ -14,7 +14,7 @@ import { tocSections } from "@/content/cover";
  */
 
 export const metadata: Metadata = {
-  title: "RevOps capacity planner | Connor J. Laughlin",
+  title: "RevOps capacity planner",
   description:
     "Reverse-funnel math, in the open. Turn a revenue target into the volume each funnel stage would have to carry.",
 };

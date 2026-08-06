@@ -25,7 +25,7 @@ import {
  */
 
 export const metadata: Metadata = {
-  title: "Resume | Connor J. Laughlin",
+  title: "Resume",
   description:
     "Resume of Connor J. Laughlin, VP of Marketing and GTM (acting CMO) and GTM systems engineer.",
 };

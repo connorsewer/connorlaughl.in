@@ -22,7 +22,7 @@ import { chapterWords } from "@/lib/word-counts";
  */
 
 export const metadata: Metadata = {
-  title: "Revenue systems | Connor J. Laughlin",
+  title: "Revenue systems",
   description:
     "One chapter per system. Each one starts with the problem, then what I built, then what changed.",
 };

@@ -69,9 +69,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const chapter = chapterAt(slug);
-  if (!chapter) return { title: "Chapter not found | Connor J. Laughlin" };
+  if (!chapter) return { title: "Chapter not found" };
   return {
-    title: `${chapter.entry.title} | Connor J. Laughlin`,
+    title: `${chapter.entry.title}`,
     description: chapter.entry.dek,
   };
 }

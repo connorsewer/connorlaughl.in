@@ -153,10 +153,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const cs = getCaseStudy(slug);
   if (!cs) {
-    return { title: "Chapter not in this manual | Connor J. Laughlin" };
+    return { title: "Chapter not in this manual" };
   }
   return {
-    title: `${cs.title} | Connor J. Laughlin`,
+    title: `${cs.title}`,
     description: cs.hook,
   };
 }

@@ -19,7 +19,7 @@ import { coverStats, proseProofClaims, renderableProofMetrics } from "@/content/
  */
 
 export const metadata: Metadata = {
-  title: "About | Connor J. Laughlin",
+  title: "About",
   description:
     "Writer, then marketer, then the person who builds the systems. The short version of how the work got here.",
 };

@@ -12,7 +12,7 @@ import { ColophonFooter, Masthead, Sheet } from "@/components/manual";
  */
 
 export const metadata: Metadata = {
-  title: "Page not in this manual | Connor J. Laughlin",
+  title: "Page not in this manual",
   robots: { index: false, follow: true },
 };
 

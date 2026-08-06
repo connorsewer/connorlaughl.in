@@ -37,7 +37,7 @@ const manualSections: TocSection[] = tocSections.map((section) => ({
 }));
 
 export const metadata: Metadata = {
-  title: `${CHAPTER_TITLE} | Connor J. Laughlin`,
+  title: `${CHAPTER_TITLE}`,
   description: DEK,
 };
 

@@ -21,6 +21,11 @@ const exists = (rel) => fs.existsSync(path.join(root, rel));
  * OG route, app/resume/page.tsx, app/about/page.tsx. The floor stays at 4
  * because the count rose, not fell; it is never lowered.
  *
+ * Recounted again 2026-08-06 by Task 17 (4 files): the case-study OG route no
+ * longer resolves metrics, because spec section 4 forbids a claim numeral on
+ * any OG surface, so that card now prints its chapter title and section line
+ * only. The floor is unchanged at 4 and was not lowered; the count sits on it.
+ *
  * A later task may change this number ONLY with a one-line justification in
  * docs/superpowers/2026-08-05-overnight-log.md (renderers are deleted, retired,
  * or added by the redesign). Never lower it silently.

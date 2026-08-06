@@ -61,10 +61,15 @@ const serifBody = localFont({
   fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
-const SITE_TITLE =
-  "Connor J. Laughlin | VP of Marketing & GTM (acting CMO), GTM Engineer";
+/**
+ * Metadata strings: copy deck section 12.4. Numeral-free by design. A metadata
+ * string cannot carry the context an approval requires, so no magnitude claim
+ * goes here in any form.
+ */
+const SITE_NAME = "Connor J. Laughlin";
+const SITE_TITLE_TEMPLATE = "%s | Connor J. Laughlin";
 const SITE_DESCRIPTION =
-  "Connor J. Laughlin is a Chicago-based VP of Marketing & GTM (acting CMO) and GTM Engineer who built revenue infrastructure, RevOps systems, governed AI workflows, and executive reporting behind $159.4M in influenced pipeline.";
+  "Marketing executive and GTM systems engineer in Chicago. A manual of the revenue systems he has built: positioning, demand capture, CRM and attribution, pipeline inspection, and governed AI workflows.";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -78,29 +83,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: SITE_TITLE,
+  // `default` is the cover title; child routes fill the template.
+  title: { default: SITE_NAME, template: SITE_TITLE_TEMPLATE },
   description: SITE_DESCRIPTION,
   metadataBase: new URL("https://www.connorlaughl.in"),
   openGraph: {
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    // `title` and `description` are deliberately absent: Next resolves them
+    // per route from the page's own metadata, so a chapter shares as its own
+    // chapter. Images come from the `opengraph-image` file convention, so each
+    // route family ships its own card instead of one static fallback.
     url: "https://www.connorlaughl.in",
-    siteName: "Connor J. Laughlin",
+    siteName: SITE_NAME,
     type: "website",
-    images: [
-      {
-        url: "/og/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Connor J. Laughlin, VP of Marketing & GTM (acting CMO), GTM Engineer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    images: ["/og/og.jpg"],
   },
 };
 
