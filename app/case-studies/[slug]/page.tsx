@@ -28,6 +28,8 @@ import {
   Fig016ClaimToApproval,
   Fig017TwoFunctionModel,
   Fig018SchemaToPage,
+  PlateLabels,
+  type PlateLabel,
 } from "@/components/figures";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
 import { cta } from "@/content/cover";
@@ -72,15 +74,25 @@ const chapterFigures: Record<string, React.ComponentType> = {
 };
 
 /**
- * Chapter halftone plates (Wave C §2). Keyed by slug, beside `chapterFigures`
- * and deliberately not a `CaseStudy` field: a plate is a property of the route,
- * not of the content module. A slug absent from this table renders
- * diagram-only, which stays legal.
+ * Chapter plates (Wave C §2, v3 art direction). Keyed by slug, beside
+ * `chapterFigures` and deliberately not a `CaseStudy` field: a plate is a
+ * property of the route, not of the content module. A slug absent from this
+ * table renders diagram-only, which stays legal.
+ *
+ * A plate is a label-free exploded rendering of the chapter's system as an
+ * object. Every word on it is DOM text placed by `PlateLabels`, so the type is
+ * real, selectable, and in the same mono as the figures. Label copy comes from
+ * that chapter's approved prose and never carries a numeral.
  *
  * Files are named by figure number rather than by slug, so no client or
  * employer name can reach a public path. The plate never carries a claim: `alt`
  * describes the object, the caption states the claim in words, and no numeral
  * appears in either.
+ *
+ * No `plate-duotone` here. Connor locked that at the pilot gate: a blueprint
+ * rendering is already the site's ink on the site's paper, so it renders as
+ * authored in both themes. The duotone rule stays for the `/about` portrait,
+ * which is a photograph.
  */
 type ChapterPlate = {
   fig: string;
@@ -90,6 +102,7 @@ type ChapterPlate = {
   subject: string;
   alt: string;
   caption: string;
+  labels: PlateLabel[];
 };
 
 const chapterPlates: Record<string, ChapterPlate> = {
@@ -98,18 +111,32 @@ const chapterPlates: Record<string, ChapterPlate> = {
     src: "/case-studies/plate-fig-021.webp",
     width: 1200,
     height: 896,
-    subject: "BINDER",
-    alt: "Halftone plate of a ring binder lying open flat on a desk beneath a lamp.",
+    subject: "LAYER STACK",
+    alt: "Blueprint rendering of six flat plates exploded along a vertical axis on four guide posts.",
     caption: "Every layer of the operating system existed as something written down.",
+    /* Label copy: the chapter intro names the definitions, the routing rules,
+       and the cadence put on top, in that order from the base up. */
+    labels: [
+      { x: 20, y: 14, dx: 22, dy: 5, text: "Cadence" },
+      { x: 80, y: 44, dx: -22, dy: 8, text: "Routing" },
+      { x: 24, y: 84, dx: 14, dy: -2, text: "Definitions" },
+    ],
   },
   "ai-native-gtm": {
     fig: "FIG_022",
     src: "/case-studies/plate-fig-022.webp",
     width: 1200,
     height: 896,
-    subject: "CHECKLIST",
-    alt: "Halftone plate of a printed checklist on a desk with a rubber stamp and an ink pad beside it.",
+    subject: "GATE",
+    alt: "Blueprint rendering of a gate mechanism exploded along one axis above a long flat tray.",
     caption: "Nothing released until a person approved it, and every run left a record.",
+    /* Label copy: the chapter intro says agents stage the work, humans approve
+       it, and every run leaves a trail somebody can audit. */
+    labels: [
+      { x: 44, y: 10, dx: -2, dy: 22, text: "Staged work" },
+      { x: 76, y: 24, dx: -8, dy: 18, text: "Approval" },
+      { x: 26, y: 88, dx: 14, dy: -2, text: "Audit trail" },
+    ],
   },
 };
 
@@ -313,7 +340,9 @@ export default async function CaseStudyPage({
             mechanism; the plate shows what the mechanism was made of. */}
         {plate ? (
           <figure className="mt-10 max-w-[26rem]">
-            <div className="border border-blueprint/40 p-2">
+            {/* `relative` so the label overlay can sit on `inset-2` and land on
+                the image box rather than on the frame's padding. */}
+            <div className="relative border border-blueprint/40 p-2">
               <Image
                 src={plate.src}
                 alt={plate.alt}
@@ -321,7 +350,12 @@ export default async function CaseStudyPage({
                 height={plate.height}
                 sizes="(min-width: 768px) 26rem, 100vw"
                 loading="lazy"
-                className="plate-duotone block h-auto w-full"
+                className="block h-auto w-full"
+              />
+              <PlateLabels
+                labels={plate.labels}
+                width={plate.width}
+                height={plate.height}
               />
             </div>
             <figcaption className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">

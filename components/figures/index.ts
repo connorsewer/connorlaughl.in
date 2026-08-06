@@ -9,6 +9,11 @@
 export { Figure, type FigureProps } from "@/components/figures/Figure";
 export { LeaderLabel, type LeaderLabelProps } from "@/components/figures/LeaderLabel";
 export {
+  PlateLabels,
+  type PlateLabel,
+  type PlateLabelsProps,
+} from "@/components/figures/PlateLabels";
+export {
   IsoBox,
   isoPoint,
   isoPolygon,
