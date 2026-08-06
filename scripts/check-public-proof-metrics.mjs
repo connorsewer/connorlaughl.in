@@ -27,7 +27,7 @@ const exists = (rel) => fs.existsSync(path.join(root, rel));
  * only. The floor is unchanged at 4 and was not lowered; the count sits on it.
  *
  * A later task may change this number ONLY with a one-line justification in
- * docs/superpowers/2026-08-05-overnight-log.md (renderers are deleted, retired,
+ * docs/archive/2026-08-05-overnight-log.md (renderers are deleted, retired,
  * or added by the redesign). Never lower it silently.
  */
 const PROOF_RENDERER_FLOOR = 4;

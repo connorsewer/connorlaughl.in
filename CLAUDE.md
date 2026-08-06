@@ -223,5 +223,5 @@ patterns:
 - [FIGURES.md](FIGURES.md): the append-only figure registry.
 - [voiceDNA.md](voiceDNA.md): voice rules and banned phrases.
 - [HANDOFF.md](HANDOFF.md): next session's scope.
-- `docs/superpowers/specs/2026-08-05-makingsoftware-redesign-design.md`: the redesign spec the current system was built to.
-- [MIDJOURNEY_PROMPTS.md](MIDJOURNEY_PROMPTS.md): historical. The generated-image system it documents was retired with the old design.
+- `docs/archive/2026-08-05-makingsoftware-redesign-design.md`: the redesign spec the current system was built to.
+- `docs/archive/`: superseded specs, plans, logs, and the retired generated-image system. Historical only; nothing there is authoritative.

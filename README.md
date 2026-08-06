@@ -74,7 +74,7 @@ Newsreader instancing commands.
 | [`voiceDNA.md`](voiceDNA.md) | Voice rules, banned phrases, anti-AI structural patterns |
 | [`CLAUDE.md`](CLAUDE.md) | Project guidance for AI agents working on this codebase |
 | [`HANDOFF.md`](HANDOFF.md) | What's next for the next session |
-| [`MIDJOURNEY_PROMPTS.md`](MIDJOURNEY_PROMPTS.md) | Historical. The generated-image system the redesign retired |
+| [`docs/archive/`](docs/archive/) | Superseded specs, plans, logs, and the retired generated-image system |
 
 ## Claim gating
 

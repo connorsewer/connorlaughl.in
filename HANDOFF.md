@@ -8,8 +8,8 @@
 > **Note on this file.** Your in-progress version of `HANDOFF.md` (the `/edge`
 > route handoff, refreshed 2026-06-16) was one of five dirty files at the start
 > of the overnight run. It is preserved verbatim in
-> `docs/superpowers/pre-redesign-dirty.patch` and can be restored with
-> `git apply --include=HANDOFF.md docs/superpowers/pre-redesign-dirty.patch`
+> `docs/archive/pre-redesign-dirty.patch` and can be restored with
+> `git apply --include=HANDOFF.md docs/archive/pre-redesign-dirty.patch`
 > against `c3715337`-era content. This rewrite is the single sanctioned touch of
 > that file, and it happened because the plan's final task owns it.
 
@@ -28,9 +28,9 @@ deck → the pages. No page copy was written fresh. Both upstream documents live
 in the vault under `Resume & Positioning/` and both passed adversarial review.
 
 Full narrative record, decision by decision, is in
-`docs/superpowers/2026-08-05-overnight-log.md`. The plan is
-`docs/superpowers/plans/2026-08-05-makingsoftware-redesign.md` and the spec is
-`docs/superpowers/specs/2026-08-05-makingsoftware-redesign-design.md` (v3.1).
+`docs/archive/2026-08-05-overnight-log.md`. The plan is
+`docs/archive/2026-08-05-makingsoftware-redesign-plan.md` and the spec is
+`docs/archive/2026-08-05-makingsoftware-redesign-design.md` (v3.1).
 
 ## 2. Branch and commit state
 
@@ -225,7 +225,7 @@ as part of this task and applied to nothing.
 
 ### D. Housekeeping
 
-20. **Dirty-file dispositions.** Four of the five files that were dirty at the start were rewritten by tasks the spec required: the operator route page, its OG image, the operator mobile chip (deleted, since the shared layout's disclosure replaces it), and one case-study markdown body (edited in the long-form claim pass). Every rewrite is logged. Your versions of all five, this file included, are in `docs/superpowers/pre-redesign-dirty.patch`. Nothing was lost, but nothing was merged either: if any of that in-progress work mattered, it needs re-applying by hand.
+20. **Dirty-file dispositions.** Four of the five files that were dirty at the start were rewritten by tasks the spec required: the operator route page, its OG image, the operator mobile chip (deleted, since the shared layout's disclosure replaces it), and one case-study markdown body (edited in the long-form claim pass). Every rewrite is logged. Your versions of all five, this file included, are in `docs/archive/pre-redesign-dirty.patch`. Nothing was lost, but nothing was merged either: if any of that in-progress work mattered, it needs re-applying by hand.
 
 21. **Fifty-one orphaned raster assets.** Chapter plates, the personal photo set from the old about page, old hero stills, divider bands, memo plates, plus five framework starter SVGs at the root of `public/`. Nothing was deleted. The full table is in the overnight log under "Orphaned assets for Connor's cleanup call". Two notes from there worth repeating: the about-page photo set is the only warm human imagery the site ever had, and the desk portrait in the hero directory is still live, so do not sweep that directory wholesale.
 
@@ -237,10 +237,10 @@ as part of this task and applied to nothing.
 
 | Path | What |
 |---|---|
-| `docs/superpowers/2026-08-05-overnight-log.md` | The full narrative record, phase by phase, with every decision and deviation |
-| `docs/superpowers/plans/2026-08-05-makingsoftware-redesign.md` | The 21-task plan as executed |
-| `docs/superpowers/specs/2026-08-05-makingsoftware-redesign-design.md` | The design spec, v3.1 |
-| `docs/superpowers/pre-redesign-dirty.patch` | Verbatim backup of the five dirty files |
+| `docs/archive/2026-08-05-overnight-log.md` | The full narrative record, phase by phase, with every decision and deviation |
+| `docs/archive/2026-08-05-makingsoftware-redesign-plan.md` | The 21-task plan as executed |
+| `docs/archive/2026-08-05-makingsoftware-redesign-design.md` | The design spec, v3.1 |
+| `docs/archive/pre-redesign-dirty.patch` | Verbatim backup of the five dirty files |
 | `FIGURES.md` | Append-only figure registry with ground truths |
 | `CLAUDE.md`, `DESIGN.md` | Rewritten to describe the manual system as built |
 | `content/proof-metrics.ts` | The claim gate. Every gated numeral resolves here |

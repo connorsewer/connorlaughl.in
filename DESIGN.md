@@ -12,6 +12,12 @@ Companion documents: [CLAUDE.md](CLAUDE.md) for working rules,
 [FIGURES.md](FIGURES.md) for the figure registry, [voiceDNA.md](voiceDNA.md) for
 voice.
 
+The spec this system was built to is archived at
+[`docs/archive/2026-08-05-makingsoftware-redesign-design.md`](docs/archive/2026-08-05-makingsoftware-redesign-design.md).
+Read it for the reasoning behind a decision, never as a requirement: where it
+and this file disagree, this file wins, and where this file and the code
+disagree, the code wins.
+
 ---
 
 ## 1. The idea
