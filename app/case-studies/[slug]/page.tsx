@@ -198,13 +198,22 @@ export default async function CaseStudyPage({
 
   const ChapterFigure = cs.figureSlug ? chapterFigures[cs.figureSlug] : undefined;
 
-  const caseLogic = [
-    ["01", "The problem", resolveClaims(cs.businessProblem)],
-    ["02", "What I built", resolveClaims(cs.whatIBuilt)],
-    ["03", "What changed", resolveClaims(cs.whatChanged)],
-    ["04", "Why it mattered", resolveClaims(cs.whyItMattered)],
-    ["05", "What it proves", resolveClaims(cs.whatItProves)],
-  ] as const;
+  /* `Why it mattered` is optional. Six chapters drop it because the slot
+     restated an earlier block; the numbering closes up behind it rather than
+     leaving a gap. */
+  const caseLogicBlocks: Array<[string, string]> = [
+    ["The problem", resolveClaims(cs.businessProblem)],
+    ["What I built", resolveClaims(cs.whatIBuilt)],
+    ["What changed", resolveClaims(cs.whatChanged)],
+  ];
+  if (cs.whyItMattered) {
+    caseLogicBlocks.push(["Why it mattered", resolveClaims(cs.whyItMattered)]);
+  }
+  caseLogicBlocks.push(["What it proves", resolveClaims(cs.whatItProves)]);
+
+  const caseLogic: Array<[string, string, string]> = caseLogicBlocks.map(
+    ([label, body], i) => [String(i + 1).padStart(2, "0"), label, body],
+  );
 
   return (
     <>

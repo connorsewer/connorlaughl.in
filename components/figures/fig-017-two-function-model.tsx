@@ -53,7 +53,7 @@ export function Fig017TwoFunctionModel() {
       num={17}
       title="Two function model"
       groundTruth="The two-function operating model: a demand function and a narrative function, each with the inputs it owns and the outputs it ships, and the single review gate they share."
-      caption="Two functions, separate inputs and outputs, one gate between them and the work leaving."
+      caption="Each function owns its inputs and outputs. One shared gate reviews the work before it ships."
       viewBox="-269 -31 1023 414"
     >
       {TIES.map(([tx, ty], i) => (

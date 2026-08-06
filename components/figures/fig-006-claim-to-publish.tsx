@@ -22,7 +22,7 @@ export function Fig006ClaimToPublish() {
       num={6}
       title="Claim to publish"
       groundTruth="The claim register lifecycle used on this site: a claim is written down, evidence is attached, a tier is assigned, an approval reference is recorded, and only then does the claim reach a publish surface."
-      caption="Claim, evidence, tier, approval, publish. In that order."
+      caption="The register lifecycle for a claim, from first draft through to the published sentence."
       viewBox="-186 -34 821 469"
     >
       <IsoChain nodes={STAGES} />

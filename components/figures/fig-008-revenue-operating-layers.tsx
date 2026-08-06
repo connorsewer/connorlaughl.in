@@ -46,7 +46,7 @@ export function Fig008RevenueOperatingLayers() {
       num={8}
       title="Revenue operating layers"
       groundTruth="The revenue operating system as built, drawn as an exploded stack: funnel definitions at the base, then lifecycle stages, routing rules, response windows, pipeline inspection, and the executive cadence on top. Each layer is named on the left and its written form on the right."
-      caption="Six layers, bottom up. Each one is a document before it is a system."
+      caption="The revenue stack at chapter scale, with the routing and inspection layers drawn out."
       viewBox="-316 -30 670 638"
     >
       <ExplodedStack layers={LAYERS} gap={GAP} labelSide="left" />

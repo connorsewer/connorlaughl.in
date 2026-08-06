@@ -24,7 +24,7 @@ export function Fig013IntegrationSequence() {
       num={13}
       title="Integration sequence"
       groundTruth="The marketing integration stages: brand consolidation, site merge, lifecycle mapping, a claims review that holds regulated copy until it clears, and the jurisdiction requirements the result has to satisfy."
-      caption="An acquired brand joins the motion in this order, and the claims review holds the line."
+      caption="An acquired brand gets folded in on this sequence, and the claims review comes before launch."
       viewBox="-292 -31 847 394"
     >
       <IsoChain nodes={STAGES} step={130} w={100} d={70} h={13} />

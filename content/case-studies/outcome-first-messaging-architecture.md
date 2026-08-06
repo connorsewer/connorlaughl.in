@@ -97,13 +97,13 @@ We were aiming at a lift in client payment rates and a reduction in their cost t
 
 RFP responses got materially faster once the pre-approved snippets existed. Website messaging was consistent across the whole site, and there was a single source of truth for go-to-market copy.
 
-> **📊 KEY STAT:** A complaint rate low enough to be a proof point in regulated deals, which only works as a headline when the messaging leads with outcomes rather than features.
+> A complaint rate low enough to be a proof point in regulated deals, which only works as a headline when the messaging leads with outcomes rather than features.
 
 ---
 
 ## Leadership angle: cross-functional orchestration
 
-This was an alignment problem wearing a marketing project's clothes. It required getting the following groups to the same place.
+This was filed as a marketing project, and the real work was alignment. It required getting the following groups to the same place.
 
 | Stakeholder group | What they needed | How I delivered |
 |-------------------|------------------|-----------------|

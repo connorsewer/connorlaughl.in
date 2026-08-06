@@ -21,7 +21,7 @@ export function Fig002SignalToTouch() {
       num={2}
       title="Signal to touch"
       groundTruth="The signal tiering model: buying-signal sources, the tier each signal is assigned, the routing path that tier selects, and the response window attached to that path."
-      caption="Buying signals are tiered, routed, and answered inside a defined window."
+      caption="Where a buying signal enters, which tier it lands in, and who has to answer it."
       viewBox="-256 -34 761 374"
     >
       <IsoChain nodes={STAGES} />

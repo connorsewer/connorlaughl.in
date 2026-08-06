@@ -91,7 +91,7 @@ export const tocSections: CoverTocSection[] = [
         title: "Ghost pipeline detector",
         href: "/case-studies/revenue-operations-pipeline-truth",
         countKey: "case-studies/revenue-operations-pipeline-truth",
-        dek: "Instrumenting close-date drift, stage aging, and dead activity so pipeline reviews stop rewarding optimism.",
+        dek: "Pipeline reviews stopped rewarding optimism once close-date drift and stage aging were instrumented.",
       },
       {
         num: "04",
@@ -105,7 +105,7 @@ export const tocSections: CoverTocSection[] = [
         title: "Platform narrative and ICP intelligence",
         href: "/case-studies/gtm-strategy-positioning",
         countKey: "case-studies/gtm-strategy-positioning",
-        dek: "A five-pillar positioning framework tied to proof, and the ICP work underneath it.",
+        dek: "I built the positioning framework on five pillars and the ICP research that justifies them.",
       },
       {
         num: "06",
@@ -133,7 +133,7 @@ export const tocSections: CoverTocSection[] = [
         title: "Outcome-first narrative architecture",
         href: "/case-studies/outcome-first-repositioning",
         countKey: "case-studies/outcome-first-repositioning",
-        dek: "A messaging architecture where every claim carries its proof and its approval state.",
+        dek: "Each claim in the messaging system carries its proof and its approval state.",
       },
       {
         num: "10",
@@ -147,7 +147,7 @@ export const tocSections: CoverTocSection[] = [
         title: "Enterprise digital presence rebuild",
         href: "/case-studies/enterprise-site-overhaul",
         countKey: "case-studies/enterprise-site-overhaul",
-        dek: "A web rebuild, a structured content system underneath it, and accessibility fixed in the templates.",
+        dek: "We rebuilt on one architecture, then put a schema under the content so pages stopped being hand-built.",
       },
       {
         num: "12",
@@ -165,19 +165,19 @@ export const tocSections: CoverTocSection[] = [
         num: "01",
         title: "How I move",
         href: "/edge#01-taste-applied-at-velocity",
-        dek: "The habits that keep speed and taste from trading against each other.",
+        dek: "Speed and taste usually trade against each other. These are the habits that keep both.",
       },
       {
         num: "02",
         title: "How I make ambiguity legible",
         href: "/edge#04-narrative-construction",
-        dek: "What it takes to turn a fog into something a team can act on.",
+        dek: "Turning fog into something a team can act on.",
       },
       {
         num: "03",
         title: "How I scale judgment",
         href: "/edge#08-delegation-to-non-humans",
-        dek: "Getting judgment out of my head and into something other people can run.",
+        dek: "How judgment gets out of my head and into something someone else can run.",
       },
     ],
   },

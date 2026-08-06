@@ -98,7 +98,7 @@ export default function Cover() {
     {
       label: statsLabels.chapters,
       value: String(listedChapters),
-      srText: `${listedChapters}. ${uncountedChapters} of them is set in code rather than markdown and carries no word count.`,
+      srText: `${listedChapters} chapters. ${uncountedChapters} of the ${listedChapters} is written in code rather than markdown, so it carries no word count.`,
     },
     { label: statsLabels.words, value: siteWordsPublished().toLocaleString("en-US") },
   ];

@@ -123,7 +123,7 @@ Both reps came through the program as lead generation specialists rather than te
 
 The pod created real pipeline from BDR-sourced meetings and closed deals inside the pilot period, all of them cross-sells of the acquired SaaS platform. The point of the pilot was to prove the model before spending on headcount, and it did.
 
-> **📊 KEY STAT:** A standing weekly meeting rate per BDR from a standing start, built without external hires, using repurposed talent and systematic enablement.
+> A standing weekly meeting rate per BDR from a standing start, built without external hires, using repurposed talent and systematic enablement.
 
 ---
 
@@ -176,7 +176,7 @@ Enablement was structured, measured, and iterated rather than left to the reps t
 
 Intent data meant the reps were calling accounts already researching the company, while the interest was still live.
 
-The two-hour Tier-A window meant we reached prospects while they were still in research mode, which is the only part of the cycle where a cold call reads as helpful.
+The two-hour Tier-A window meant we reached prospects while they were still in research mode, when a cold call still reads as helpful.
 
 ---
 

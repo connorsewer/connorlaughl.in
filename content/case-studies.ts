@@ -40,7 +40,8 @@ export type CaseStudy = {
   businessProblem: string;
   whatIBuilt: string;
   whatChanged: string;
-  whyItMattered: string;
+  /** Optional. Dropped on the chapters where it restated an earlier block. */
+  whyItMattered?: string;
   whatItProves: string;
   /** Chapter intro paragraphs, deck-verbatim. `{S6}` resolves through proof-metrics. */
   chapterIntro: string[];
@@ -84,9 +85,9 @@ export const caseStudies: CaseStudy[] = [
     whatChanged:
       "Pipeline influence, source quality, funnel movement, sales follow-through, and investment needs became easier to inspect from one shared system.",
     whyItMattered:
-      "Marketing earned credibility as revenue infrastructure because the work could be measured, challenged, and improved.",
+      "Once the lifecycle definitions were written down, marketing's numbers could be argued with in a leadership meeting instead of taken on faith.",
     whatItProves:
-      "I can operate at VP of Marketing & GTM and acting-CMO altitude while building the RevOps mechanics underneath the strategy.",
+      "The definitions, the KPI framework, and the reporting cadence all came from the same desk as the strategy.",
     /* Claim-scope pass 2026-08-06. The exact pipeline figure (P5,
        CJL-CLAIM-001) is scoped to the cover route by DECISIONS Gate 1, so it
        is gone from here; the softened form (P6) already carries the chapter in
@@ -125,7 +126,7 @@ export const caseStudies: CaseStudy[] = [
       "Board-ready reporting stays private; only the system narrative is public",
     ],
     interviewLine:
-      "I treat the revenue funnel as one inspectable system. If a number cannot be questioned, it cannot be improved.",
+      "I treat the revenue funnel as one inspectable system, which means every number in it has a definition someone can argue with.",
     sourceCrossrefs: [
       "candidate-profile-master-v3.md:379-409",
       "Proof Library.md:198-276",
@@ -167,10 +168,7 @@ export const caseStudies: CaseStudy[] = [
       "I self-taught Python, TypeScript, prompt engineering, and agentic workflow design to build a governed AI operating layer for GTM work: research, campaign briefing, content adaptation, RFP and RFX support, competitive intelligence, and executive reporting.",
     whatChanged:
       "The team got a repeatable production system with review gates, voice standards, source discipline, and faster output across high-context work.",
-    whyItMattered:
-      "AI became an operating system with quality control, not a shortcut around judgment.",
-    whatItProves:
-      "I can lead the function and build the technical layer myself.",
+    whatItProves: "I wrote the code and led the function at the same time.",
     /* Claim-scope pass 2026-08-06. Claim IDs corrected against REG: the agent
        count is CJL-CLAIM-021, the productivity multiple CJL-CLAIM-014, the
        proposal-workflow compression CJL-CLAIM-046. All three render in their
@@ -264,7 +262,7 @@ export const caseStudies: CaseStudy[] = [
     figureSlug: "fig-010",
     label: "GHOST PIPELINE DETECTOR",
     title: "Ghost pipeline detector",
-    hook: "Instrumenting close-date drift, stage aging, and dead activity so pipeline reviews stop rewarding optimism.",
+    hook: "Pipeline reviews stopped rewarding optimism once close-date drift and stage aging were instrumented.",
     chapterIntro: [
       "Three screens sit under the weekly pipeline review: deals whose close date keeps moving, deals aging past their stage definition, and deals with activity that never advanced anything. I built all three, plus the cadence that makes someone answer for what is on them.",
     ],
@@ -281,9 +279,9 @@ export const caseStudies: CaseStudy[] = [
     whatChanged:
       "Forecast calls stopped relying on rep optimism and started relying on what the system showed. Stale deals got worked or cleaned up. Real pipeline got attention.",
     whyItMattered:
-      "Forecast accuracy is a CFO and CEO concern, not a marketing courtesy. The detector made the conversation honest.",
+      "The three screens changed what the weekly review was about. Forecast accuracy is a CFO and CEO question, and the review started arguing about deals instead of about the number.",
     whatItProves:
-      "I can build the inspection layer that turns CRM data into accountability without crushing the team.",
+      "Three inspection screens and the weekly cadence that makes someone answer for what is on them.",
     proofMetrics: [
       {
         value: "35+",
@@ -321,7 +319,7 @@ export const caseStudies: CaseStudy[] = [
       "Rep-level views accessible only to managers and ops",
     ],
     interviewLine:
-      "I built pipeline truth. The system makes it harder to hide a soft quarter, and easier to fix it before it lands.",
+      "I built pipeline truth. The three screens surface a soft quarter while there is still time to work it.",
     sourceCrossrefs: ["candidate-profile-master-v3.md:379-409"],
 
     deck: "Weekly ghost-pipeline inspection so forecast calls stop relying on optimism.",
@@ -355,10 +353,8 @@ export const caseStudies: CaseStudy[] = [
       "I built a signal-based BDR pod from existing resources, with fit scoring, account-intent signals, enrichment, routing, a high-priority SLA, weekly signal review, playbooks, sequences, and a coaching cadence.",
     whatChanged:
       "Sales had a clearer way to prioritize interest, work the right accounts faster, and inspect whether signals became meetings and SQLs.",
-    whyItMattered:
-      "Demand generation became a managed operating motion tied to pipeline, not a pile of leads.",
     whatItProves:
-      "I can build pipeline motion without waiting for perfect budget or headcount.",
+      "A pipeline motion stood up on repurposed headcount, with the routing and the response window written down.",
     /* Claim-scope pass 2026-08-06. Claim IDs corrected against REG. The
        first-90-day pipeline row is CJL-CLAIM-028, internal-only and on the
        spine's excluded list, so it is gone rather than softened; the chapter's
@@ -404,7 +400,7 @@ export const caseStudies: CaseStudy[] = [
       "Meeting and SQL targets explicitly labeled as targets where forward-looking",
     ],
     interviewLine:
-      "I built a signal-driven BDR pod from existing resources. The system, not the budget, made the pipeline.",
+      "I built a signal-driven BDR pod from existing headcount. The pipeline came out of the system, and the pilot ran on repurposed people.",
     sourceCrossrefs: ["candidate-profile-master-v3.md:283-311"],
 
     deck: "Signal-driven BDR pod with SLA discipline and pipeline accountability.",
@@ -443,9 +439,9 @@ export const caseStudies: CaseStudy[] = [
     whatChanged:
       "Sales, marketing, RFP, and executive teams had a shared source of truth for what to say, what to avoid, and what proof supported each claim.",
     whyItMattered:
-      "In a regulated enterprise GTM motion, narrative without proof creates risk. Proof without narrative does not move buyers.",
+      "Compliance review reads every claim that leaves the building. A pillar with no evidence row attached does not survive that review.",
     whatItProves:
-      "I can make a messy multi-line business commercially legible.",
+      "A multi-line business made commercially legible, pillar by pillar, with the proof attached.",
     /* Claim-scope pass 2026-08-06. Claim IDs corrected against REG. The
        artifact line and word counts are CJL-CLAIM-034, internal-only, so both
        rows are gone and the exact sizes are withheld from source too. The
@@ -542,9 +538,9 @@ export const caseStudies: CaseStudy[] = [
     whatChanged:
       "The acquired capability became easier to position, sell, and connect to the broader platform story.",
     whyItMattered:
-      "Post-acquisition value depends on turning deal logic into GTM execution.",
+      "The deal thesis assumed cross-sell. Cross-sell needs a scoring model and a rep who knows what to do when it fires.",
     whatItProves:
-      "I can translate M&A complexity into product marketing, revenue architecture, and sales enablement.",
+      "Deal logic turned into positioning a rep can use and a scoring model that fires on real product usage.",
     /* Claim-scope pass 2026-08-06. This block carried the worst leak on the
        site: the cross-sell economics row is CJL-CLAIM-017, Red and
        internal-only, mis-labelled here as CJL-CLAIM-040 and approved-exact.
@@ -633,9 +629,9 @@ export const caseStudies: CaseStudy[] = [
     whatChanged:
       "Analytics became reliable enough to run RevOps off it. Lead source integrity held up to scrutiny.",
     whyItMattered:
-      "If attribution is wrong, every decision is wrong. The platform became trustworthy infrastructure.",
+      "Attribution errors do not stay in the report. They move into budget and headcount decisions, which is why this got rebuilt from first principles.",
     whatItProves:
-      "I treat analytics as revenue infrastructure, not a downstream report.",
+      "Analytics is revenue infrastructure here, sitting upstream of budget decisions.",
     /* Claim-scope pass 2026-08-06. The vertical count here (7) contradicted the
        operating-scope count the rest of the site publishes (P19, 5 regulated
        verticals) with no explanation of the different denominators, and it maps
@@ -685,7 +681,7 @@ export const caseStudies: CaseStudy[] = [
       "Measurement QA built into release steps",
     ],
     interviewLine:
-      "I treat analytics as infrastructure. If attribution is wrong, every decision built on it is wrong.",
+      "Attribution sits upstream of budget, so I treat analytics as infrastructure and rebuild it when it lies.",
 
     deck:
       "Measurement rebuilt from first principles: clean segmentation, event taxonomy, CRM capture.",
@@ -711,7 +707,7 @@ export const caseStudies: CaseStudy[] = [
     hook: "How a near-zero-budget function became a board-backed team with an international model.",
     chapterIntro: [
       "{S6}",
-      "None of that scaled on charisma. Scope, review gates, escalation rules, and a cadence people could plan around all got written down, which is the only reason the team could grow without me in every room.",
+      "None of that scaled on charisma. Scope, review gates, escalation rules, and a cadence people could plan around all got written down, which is how the team grew without me in every room.",
     ],
     audienceFit: ["Executive marketing leadership"],
     signature: false,
@@ -721,10 +717,8 @@ export const caseStudies: CaseStudy[] = [
       "I built two accountable lanes (demand generation and enablement), documented handoffs, intake and prioritization, QA gates, templates, cadence, and a coaching loop.",
     whatChanged:
       "Marketing ran like a product team. Execution speed went up. Rework went down.",
-    whyItMattered:
-      "Operating speed without governance creates churn. Governance without speed creates a slow team.",
     whatItProves:
-      "I lead by building systems with clear lanes, measurable SLAs, and review loops.",
+      "The lanes and the SLAs were written down, so the review loop kept running when I was not in the room.",
     proofMetrics: [
       {
         value: "2 lanes",
@@ -756,7 +750,7 @@ export const caseStudies: CaseStudy[] = [
       "Version control and escalation paths defined",
     ],
     interviewLine:
-      "I lead by building systems: clear lanes, measurable SLAs, review loops.",
+      "Clear lanes, measurable SLAs, and review loops are how I lead. The team could grow without me in every room.",
 
     deck: "Clear lanes, enforced SLAs, repeatable templates.",
     outcome: "",
@@ -788,10 +782,8 @@ export const caseStudies: CaseStudy[] = [
       "I mapped features to quantified outcomes across the business units, built sales talk tracks, a do and don't language guide, and a versioned messaging system.",
     whatChanged:
       "Sales started leading with outcomes. Buyer conversations got tighter and shorter.",
-    whyItMattered:
-      "Service language is invisible to a buyer with a target. Quantified outcomes earn the room.",
     whatItProves:
-      "I can rebuild a narrative around proof without losing the integrity of the claim.",
+      "A narrative rebuilt around proof, with every claim keeping its approval state.",
     proofMetrics: [
       /* The business-unit count is CJL-CLAIM-032, directional in REG and
          cleared nowhere. P11 carries the same idea without a count. */
@@ -864,10 +856,8 @@ export const caseStudies: CaseStudy[] = [
       "I split the team into two accountable lanes (demand generation and enablement), enforced a 7-day brief-to-ship SLA, set an output floor, governed Beautiful.ai version control, and segregated GA4 audiences so B2B reporting stayed clean.",
     whatChanged:
       "Output became countable. SLAs became enforceable. Reporting became honest.",
-    whyItMattered:
-      "An operating model is what turns a team into a function leadership can trust.",
     whatItProves:
-      "I can rebuild marketing into a product-team operating model with enforced cadence.",
+      "Marketing rebuilt as two functions on a product-team cadence, with one gate between them and the work.",
     /* Claim-scope pass 2026-08-06. Both rows are CJL-CLAIM-042, a `target` row
        in REG: the SLA and the output floor are targets, and the spine's rule
        for this chapter is to describe the operating model rather than the
@@ -891,7 +881,7 @@ export const caseStudies: CaseStudy[] = [
       "GA4 audience definitions versioned",
     ],
     interviewLine:
-      "I rebuilt marketing into two functions with one shared review gate. It runs like a product team.",
+      "Marketing became two functions with one shared review gate. It runs like a product team.",
     longformHref: "/longform/revenue-operating-system-from-zero",
 
     deck: "Marketing split into demand generation and enablement with enforced SLAs.",
@@ -924,10 +914,8 @@ export const caseStudies: CaseStudy[] = [
       "I rebuilt the information architecture for enterprise buyers, separated consumer routing, set up GA4 and GTM for high-intent events, and tuned the conversion experience.",
     whatChanged:
       "Qualified traffic improved. Conversion measurement stopped leaking across audiences.",
-    whyItMattered:
-      "An enterprise site is a sales asset. It should be designed and measured like one.",
     whatItProves:
-      "I can rebuild a digital presence so it routes the right traffic and measures the right conversions.",
+      "A digital presence that routes enterprise traffic and measures enterprise conversions.",
     /* Claim-scope pass 2026-08-06. All three rows are CJL-CLAIM-045,
        directional in REG, and the spine excludes traffic multiples from this
        chapter by name. P7 is the cleared form of the growth claim, so the three

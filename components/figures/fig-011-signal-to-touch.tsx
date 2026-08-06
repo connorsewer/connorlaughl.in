@@ -39,7 +39,7 @@ export function Fig011SignalToTouch() {
       num={11}
       title="Signal to touch"
       groundTruth="The signal tiering model as built: one row per signal tier, and every tier carrying a routing path and a response window. Tier thresholds and window lengths are held back."
-      caption="Every tier has a route and a window. Nothing waits for someone to notice it."
+      caption="A tier determines the routing path and the response window, and the system assigns both."
       viewBox="-381 -18 775 211"
     >
       <GridPlane cols={COLS} rows={ROWS} cell={CELL} cells={CELLS} />

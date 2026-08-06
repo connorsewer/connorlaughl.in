@@ -119,11 +119,11 @@ export const softSkills: SoftSkill[] = [
     name: "Taste applied at velocity",
     act: "move",
     definition:
-      "Recognizing what is good, true, sharp, useful, and on-brand fast enough to keep AI-native work from becoming polished mediocrity at scale.",
+      "Recognizing what is good, true, sharp, useful, and on-brand fast enough to keep AI-native work from becoming a high volume of competent, forgettable output.",
     whyNow:
-      "In the agentic era, generation is cheap. The bottleneck is recognition: choosing the right brief, the right angle, the right proof, the right level of finish, and the right thing not to ship.",
+      "Generation is cheap now. The bottleneck is recognition: knowing which brief, which angle, and which proof to spend the finish on.",
     connorRead:
-      "This is the umbrella skill. Judgment without slowness, speed without slop. I would rather pull a draft I have not sat with than ship one I cannot defend.",
+      "This is the umbrella skill. I would rather pull a draft I have not sat with than ship one I cannot defend.",
     proof: [
       {
         internalName: "22-Agent Marketing OS",
@@ -161,7 +161,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "The value is faster recognition. I can tell quickly whether an idea, a claim, or an output will land for a buyer, a board, or a sales team.",
       signature:
-        "GTM workflows that lift team throughput without surrendering executive-quality review, brand standards, or claim discipline.",
+        "The content review checkpoint reads the brief and the proof standard before anyone spends a day on finish work.",
     },
   },
 
@@ -212,7 +212,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "I am strongest where strategy has to become an operating spec: who owns what, which inputs matter, what the output must prove, and where human judgment stays in the loop.",
       signature:
-        "Briefs, schemas, workflows, SLAs, and review gates that translate ambiguous priorities into work an executive, a vendor, or an AI agent can execute.",
+        "The thing I write most often is an intake spec that says what the output has to prove and who signs off on it.",
     },
   },
 
@@ -226,7 +226,7 @@ export const softSkills: SoftSkill[] = [
     whyNow:
       "Executive work is rarely deterministic. AI sharpens this: outputs are probabilistic, source quality varies, and the leader has to decide when evidence is sufficient.",
     connorRead:
-      "I build decision layers before making claims. Attribution hygiene, proof governance, pipeline inspection, source maps, executive reporting that separates signal from noise. Dashboards are inputs, never the final read.",
+      "I build decision layers before making claims. Attribution hygiene, proof governance, pipeline inspection, source maps, executive reporting that separates signal from noise.",
     proof: [
       {
         internalName: "Attribution False-Negative and Instrumentation Audit",
@@ -258,9 +258,9 @@ export const softSkills: SoftSkill[] = [
     ],
     language: {
       principle:
-        "I do not treat dashboards as truth by default. I look for the instrumentation gaps, incentive problems, and false negatives that distort GTM decisions.",
+        "A dashboard is an input to me, and I read it looking for the instrumentation gaps, incentive problems, and false negatives that distort GTM decisions.",
       signature:
-        "Decision-grade reporting that separates actual performance from instrumentation gaps across attribution, routing, CRM follow-up, and pipeline inspection.",
+        "I built the ghost-pipeline detector after a forecast that looked fine while the deals underneath it stopped moving. It watches close-date drift and stage aging.",
     },
   },
 
@@ -272,9 +272,9 @@ export const softSkills: SoftSkill[] = [
     definition:
       "Making ambiguity legible so an organization can act: what is happening, why it matters, what to believe, what not to claim, and what to do next.",
     whyNow:
-      "Executive work is mostly creating the shared mental model that lets teams coordinate in uncertainty. Communicating decisions is the surface.",
+      "Executive work is mostly creating the shared mental model that lets teams coordinate in uncertainty.",
     connorRead:
-      "Narrative is infrastructure for me. The bridge between writing and systems building. Buyer economics, proof, market context, channels, and adoption paths all have to connect inside one frame.",
+      "The messaging work starts with what the buyer is actually purchasing, then the proof that survives a compliance read, then the words a rep can say out loud. I write it down so the story stops drifting by business unit.",
     proof: [
       {
         internalName: "Platform Narrative and ICP Intelligence System",
@@ -309,7 +309,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "I build narrative the way I build systems. Buyer economics, proof, constraints, claims, channels, and adoption paths all connect.",
       signature:
-        "Outcome-first narrative architecture across complex business lines, connecting buyer pain, proof, market context, and sales-ready messaging into one frame.",
+        "The messaging system is versioned, with a named owner on every claim and a change log for every rewrite.",
     },
   },
 
@@ -323,7 +323,7 @@ export const softSkills: SoftSkill[] = [
     whyNow:
       "AI-native executives need conviction to move and humility to avoid hallucinated certainty, vanity metrics, or overconfident strategy.",
     connorRead:
-      "I put a stake in the ground while building claim governance, evidence tiers, public-safe language, and review gates around the claim. The thesis can be loud. The proof has to keep pace.",
+      "I put a stake in the ground while building claim governance, evidence tiers, public-safe language, and review gates around the claim. The thesis can be loud as long as the evidence tier behind it is current.",
     proof: [
       {
         internalName: "Career Claims Register and Proof Library",
@@ -355,7 +355,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "My bias is to move with a clear thesis, but I do not let the thesis outrun the proof. That matters in regulated markets and matters more with AI-generated work.",
       signature:
-        "Claims governance and proof-library discipline that lets a team move fast without legal, compliance, or credibility exposure.",
+        "This site runs on a claims register: every number carries a tier and the name of whoever approved it.",
     },
   },
 
@@ -367,9 +367,9 @@ export const softSkills: SoftSkill[] = [
     definition:
       "Thinking in finance, sales, product, compliance, engineering, and RevOps frames rather than translating marketing language at the surface.",
     whyNow:
-      "Modern GTM leaders have to reason across functions. Translation is not enough. The executive has to understand what each function optimizes for and what proof they trust.",
+      "Modern GTM leaders have to reason across functions. The executive has to understand what each function optimizes for and what proof it trusts.",
     connorRead:
-      "Cross-functional communication is the surface. The work is building artifacts that finance, sales, executives, product, compliance, and technical teams can each use without translation.",
+      "Each function trusts different proof. The artifacts have to be usable by finance, sales, product, and compliance without a translation layer in between.",
     proof: [
       {
         internalName: "35+ KPI Revenue Funnel Architecture",
@@ -408,7 +408,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "I can move between the CRO question, the CFO question, the product question, and the operator question without losing the GTM thread.",
       signature:
-        "Operating artifacts that finance, sales, executives, product, compliance, and technical teams can each use without translation.",
+        "One funnel definition document sits under the CFO's model and the CRO's forecast, so both are arguing from the same denominator.",
     },
   },
 
@@ -420,9 +420,9 @@ export const softSkills: SoftSkill[] = [
     definition:
       "Knowing when to trust an AI output, dashboard, vendor, team member, or source. When to sample, when to verify, and when to throw it away.",
     whyNow:
-      "Over-trusting destroys credibility. Under-trusting destroys the productivity gain. The scarce skill is calibration.",
+      "Over-trusting an AI output costs credibility. Under-trusting it costs the productivity gain that justified the workflow.",
     connorRead:
-      "I design guardrails that preserve the productivity gain. Source-backed libraries, human review gates, audit trails, approval statuses, QA loops, pipeline inspection. The review loop is the unlock, not the brake.",
+      "I design guardrails that preserve the productivity gain. Source-backed libraries, human review gates, audit trails, approval statuses, QA loops, pipeline inspection. The review loop is what makes the productivity gain usable.",
     proof: [
       {
         internalName: "22-Agent Governed AI Marketing OS",
@@ -464,7 +464,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "The productivity gain from AI only matters if people can trust what ships. I design the review loops and source discipline that make that possible.",
       signature:
-        "AI and reporting workflows with trust calibration built in: source-backed inputs, sampling, human approval gates, auditability, and claim-status governance.",
+        "Proposal triage moved from a day-scale workflow to a minutes-scale one, and a person still releases every answer that leaves the building.",
     },
   },
 
@@ -476,9 +476,9 @@ export const softSkills: SoftSkill[] = [
     definition:
       "Treating AI agents as operating participants that need context, goals, constraints, feedback, memory, review cycles, and ownership boundaries.",
     whyNow:
-      "Leaders who treat agents as chatboxes get tool demos. Leaders who manage agents like junior team members get a repeatable operating system.",
+      "An agent needs the same things a new teammate needs: context, a defined output, an owner, and a review cycle.",
     connorRead:
-      "I have firsthand muscle here. Agent rosters, handoffs, task-specific workflows, source libraries, QA gates, review cycles. Each agent has a role, an owner, and a defined output, the same way I would onboard a teammate.",
+      "I keep an agent roster with handoffs, source libraries, and QA gates written down. Each agent has a role, an owner, and a defined output, the same way I would onboard a teammate.",
     proof: [
       {
         internalName: "22-Agent Marketing OS",
@@ -509,9 +509,9 @@ export const softSkills: SoftSkill[] = [
     ],
     language: {
       principle:
-        "I do not use agents as one-off tools. I give them context, constraints, review cycles, and operating roles, the same way I would onboard a new team member into a sensitive workflow.",
+        "I give agents context, constraints, review cycles, and operating roles, the same way I would onboard a new team member into a sensitive workflow.",
       signature:
-        "Multi-agent GTM workflows with role-specific context, templates, handoffs, QA gates, and human approval loops.",
+        "Each agent in the GTM layer has a role, an owner, a defined output, and a review cycle, which is the same onboarding a new teammate gets.",
     },
   },
 
@@ -521,11 +521,11 @@ export const softSkills: SoftSkill[] = [
     name: "Governance without drag",
     act: "build-systems",
     definition:
-      "Adding enough structure to make work safe, repeatable, and reviewable without turning the organization into a compliance swamp.",
+      "Adding enough structure to make work safe, repeatable, and reviewable without turning the organization into a review process nobody can ship through.",
     whyNow:
       "AI-native GTM will fail if governance is either absent or paralyzing. The executive skill is designing lightweight control systems.",
     connorRead:
-      "Strong regulated-market differentiator for me. Claim tiers, proof libraries, RFP gates, compliance-aware content systems, executive review loops. Light enough to keep velocity, structured enough that nobody ships an unsupported claim.",
+      "Claim tiers, proof libraries, proposal gates, compliance-aware content systems, executive review loops. The gates are thin. Nothing with an unsupported claim gets past them.",
     proof: [
       {
         internalName: "Governed RFP/RFX AI Answer Library",
@@ -557,7 +557,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "I am comfortable operating in markets where speed matters but the cost of an unsupported claim is high.",
       signature:
-        "Lightweight governance for regulated GTM work: proof tiers, approved-language libraries, review checkpoints, and public-safe claim boundaries.",
+        "An approved-language library sits next to the claim tiers. A rep looking for a defensible sentence finds one that already cleared review.",
     },
   },
 
@@ -571,7 +571,7 @@ export const softSkills: SoftSkill[] = [
     whyNow:
       "AI and dashboards can amplify bad measurement. The better leader asks whether the signal path is broken before making people optimize the wrong metric.",
     connorRead:
-      "My proof library is unusually strong here. Attribution false negatives, ghost pipeline, signal-to-touch SLAs, lead routing, lifecycle definitions. A lot of what looks like strategy failure is measurement failure wearing a strategy costume.",
+      "Attribution false negatives, ghost pipeline, signal-to-touch SLAs, lead routing, lifecycle definitions. A lot of what looks like strategy failure is measurement failure wearing a strategy costume.",
     proof: [
       {
         internalName: "Ghost Pipeline Detector",
@@ -604,9 +604,9 @@ export const softSkills: SoftSkill[] = [
     ],
     language: {
       principle:
-        "A lot of GTM underperformance comes from measurement failure, routing failure, or handoff failure wearing a strategy costume.",
+        "Before I ask a team to fix the strategy, I check whether the measurement and the handoff are doing what the diagram says they do.",
       signature:
-        "GTM measurement logic rebuilt around signal quality, attribution hygiene, lifecycle definitions, and sales follow-up inspection.",
+        "The attribution audit started with a report that said a channel produced nothing. The channel was producing. The hidden fields were empty.",
     },
   },
 
@@ -620,7 +620,7 @@ export const softSkills: SoftSkill[] = [
     whyNow:
       "The best GTM architecture fails if sales, marketing, proposal, finance, or executives do not adopt it. AI workflows make adoption more important because the process is new and psychologically unfamiliar.",
     connorRead:
-      "I turn systems into usable operating habits. Playbooks, cadence, team lanes, sales handoffs, dashboards, intake, QA. The system that nobody uses is a worse outcome than the messy process it replaced.",
+      "I turn systems into usable operating habits. Playbooks, cadence, team lanes, sales handoffs, dashboards, intake, QA. Adoption is the test. A system nobody opens on a Tuesday did not work.",
     proof: [
       {
         internalName: "Leadership and Team Development Operating System",
@@ -653,7 +653,7 @@ export const softSkills: SoftSkill[] = [
       principle:
         "I care less about whether a system looks impressive and more about whether the people closest to the work can use it every week.",
       signature:
-        "GTM strategy converted into adopted operating habits through playbooks, intake processes, review cadences, training loops, and role-specific artifacts.",
+        "The weekly operating review kept running after I stopped chairing it. That is the whole adoption test.",
     },
   },
 ];

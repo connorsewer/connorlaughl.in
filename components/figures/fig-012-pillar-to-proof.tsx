@@ -40,7 +40,7 @@ export function Fig012PillarToProof() {
       num={12}
       title="Pillar to proof"
       groundTruth="The five-pillar positioning framework as built. Columns are the pillars; the bands are what each pillar carries: a buyer outcome, the proof artifact behind it, and the approval state of that proof. Pillar names are withheld."
-      caption="Five pillars, and not one of them is allowed to stand without evidence."
+      caption="The five pillars, drawn with the buyer outcome, proof artifact, and approval state attached to each."
       viewBox="-462 -18 992 333"
     >
       <GridPlane cols={COLS} rows={BANDS.length} cell={CELL} cells={CELLS} />

@@ -22,7 +22,7 @@ export function Fig004AttributionJoin() {
       num={4}
       title="Attribution join"
       groundTruth="The performance ledger join path: web session and source capture, the lead record it lands on, the opportunity that lead becomes, the closed revenue behind it, and the single ledger row the join produces."
-      caption="One row per outcome, joined from web analytics and CRM."
+      caption="How a web session and a CRM record get joined into a single ledger row."
       viewBox="-348 -34 1003 469"
     >
       <IsoChain nodes={STAGES} />

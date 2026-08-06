@@ -31,7 +31,7 @@ Leadership wanted to use the platform to drive services growth, and the two orga
 
 I designed and executed a **three-tier hybrid GTM architecture**:
 
-1. **Preserve the product-led motion.** Do not fix what isn't broken.
+1. **Preserve the product-led motion.** It was working, so I left it alone.
 2. **Build a sales-assisted bridge.** A dedicated function with distinct skills.
 3. **Treat services as expansion.** Product usage becomes a services opportunity.
 
@@ -147,10 +147,10 @@ Accounts in the top band were flagged to the AE as an expansion opportunity. Acc
 
 | Metric | Result against target |
 |--------|-----------------------|
-| Net revenue retention | Landed above the target, with expansion outrunning churn |
-| Gross revenue retention | Landed above target |
-| Cross-sell pilot conversion | Beat the target conversion rate |
-| Sales-assist ACV | Came in above the target deal size |
+| Net revenue retention | Above target, with expansion outrunning churn |
+| Gross revenue retention | Held above the retention floor the plan set |
+| Cross-sell pilot conversion | Converted at a better rate than the pilot plan assumed |
+| Sales-assist ACV | Average deal came in larger than the sales-assist model assumed |
 
 ### Cross-sell success
 
@@ -233,23 +233,21 @@ I created a SaaS Success certification requiring completion of the six-week curr
 
 ## What I learned
 
-### Success factors
+### What worked
 
-1. **Specialization beats generalization.** Training every services rep on SaaS failed. The dedicated SaaS Success team worked.
+Training every services rep on SaaS failed. The dedicated SaaS Success team worked.
 
-2. **Product data is the best lead source.** Platform usage signals generated higher-quality services leads than any marketing campaign.
+Platform usage signals produced better services leads than any campaign we ran, and the two teams only stopped competing once their comp pointed at the same net revenue retention number.
 
-3. **Comp alignment is everything.** Until we tied SaaS and services comp to a shared net revenue retention number, the teams competed instead of collaborating.
+Moving from reactive support to proactive intervention is what made health scoring worth building.
 
-4. **Health scoring enables proactive success.** Moving from reactive support to proactive intervention improved retention measurably.
+### What went wrong
 
-### Challenges overcome
+Services reps dismissed the small SaaS deals for the first few months. Watching retention compound changed their minds.
 
-1. **Cultural resistance.** Services reps initially dismissed small SaaS deals. Watching retention compound changed their minds.
+The platform's analytics had no native path into the CRM, so we built custom middleware to sync PQL scores.
 
-2. **Tool integration.** The platform's analytics had no native path into the CRM, so we built custom middleware to sync PQL scores.
-
-3. **Pricing confusion.** Early bundling eroded margin. We moved to clear tiering with explicit cross-sell modules.
+Early bundling eroded margin. We moved to clear tiering with explicit cross-sell modules.
 
 ---
 

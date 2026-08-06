@@ -40,7 +40,7 @@ export function Fig003LifecycleStages() {
       num={3}
       title="Lifecycle stages"
       groundTruth="The CRM lifecycle model as built. Columns are the stage set; the three bands are what every stage in it carries: an entry definition, a named owner, and an exit definition."
-      caption="Every stage has a definition, an owner, and a way out."
+      caption="A lead enters a stage on one rule and leaves on another, and someone owns the handoff."
       viewBox="-405 -20 834 320"
     >
       <GridPlane cols={COLS} rows={ROWS} cell={CELL} cells={CELLS} />

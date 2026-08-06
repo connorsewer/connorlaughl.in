@@ -25,7 +25,7 @@ export function Fig005ApprovalGatePath() {
       num={5}
       title="Approval gate path"
       groundTruth="The governed proposal-triage workflow: intake, classification, retrieval, drafting, a human review gate that holds the work, release, and the audit log written on the way out."
-      caption="Agents stage the work. A human approves it before it leaves."
+      caption="The proposal workflow runs left to right and stops at the review gate until a person clears it."
       viewBox="-194 -32 916 490"
     >
       <IsoChain nodes={STAGES} step={120} w={90} d={65} h={12} />

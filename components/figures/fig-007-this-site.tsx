@@ -25,7 +25,7 @@ export function Fig007ThisSite() {
       num={7}
       title="This site"
       groundTruth="The portfolio's own build: typed content modules at the base, the proof-metrics gate above them, React components, the Tailwind token layer, Next.js App Router routes, and the prerendered HTML the build writes out."
-      caption="The manual you are reading, drawn as its own exploded stack."
+      caption="This site, taken apart. The content modules sit under the render layer, and copy passes a gate on the way out."
       viewBox="-333 -32 483 642"
     >
       <ExplodedStack layers={LAYERS} gap={92} labelSide="left" />

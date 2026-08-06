@@ -58,7 +58,7 @@ export function Fig014PerformanceLedgerJoin() {
       num={14}
       title="Performance ledger join"
       groundTruth="The performance ledger join path: session and source capture on the web side, the lead record, opportunity, and closed revenue on the CRM side, and the single ledger row the join writes."
-      caption="Two systems, one row. The reconciliation runs itself after that."
+      caption="The join writes one ledger row from both systems. The reconciliation then runs on its own."
       viewBox="-261 -31 984 474"
     >
       {TIES.map(([tx, ty], i) => (

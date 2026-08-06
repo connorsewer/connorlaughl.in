@@ -59,11 +59,11 @@ I built an AI-led BDR pod framework with a two-hour response window on the highe
 
 | Metric | What changed |
 |--------|--------------|
-| Net new prospects | A step change in volume once the funnel was instrumented and routing worked |
-| MQLs | Rose sharply as scoring and routing came online |
-| SQLs | Rose with MQLs, with quality held by the scoring model rather than diluted by volume |
-| Won opportunities | Materially more closed-won deals than the prior period |
-| Deal velocity | Deals moved through the funnel materially faster |
+| Net new prospects | Volume rose once the funnel was instrumented and routing worked |
+| MQLs | Grew as scoring and routing came online |
+| SQLs | Tracked MQL growth, with the scoring model holding quality as volume rose |
+| Won opportunities | A material increase in closed-won deals against the prior period |
+| Deal velocity | Deals cleared each stage faster once the stage definitions were enforced |
 
 ### Revenue impact
 

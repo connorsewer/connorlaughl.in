@@ -24,7 +24,7 @@ import { chapterWords } from "@/lib/word-counts";
 export const metadata: Metadata = {
   title: "Revenue systems",
   description:
-    "One chapter per system. Each one starts with the problem, then what I built, then what changed.",
+    "One chapter per system. Each opens on the problem and ends on what the work proves.",
 };
 
 const section1 = tocSections.find((section) => section.num === 1);
@@ -68,8 +68,8 @@ export default function CaseStudiesIndex() {
               {withPeriod("Revenue systems")}
             </h1>
             <p className="mt-5 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink/80">
-              One chapter per system. Each one starts with the problem, then
-              what I built, then what changed.
+              One chapter per system. Each opens on the problem and ends on what
+              the work proves.
             </p>
           </header>
 

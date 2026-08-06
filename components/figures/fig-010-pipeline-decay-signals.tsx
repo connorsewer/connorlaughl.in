@@ -50,7 +50,7 @@ export function Fig010PipelineDecaySignals() {
       num={10}
       title="Pipeline decay signals"
       groundTruth="The three pipeline inspection screens as instrumented: deals whose close date keeps moving, deals aging past their stage definition, and deals with activity that never advanced them. All three report into one weekly review."
-      caption="Three decay signals, instrumented separately, answered in one review."
+      caption="Close-date drift, stage aging, and dead activity, each instrumented on its own and read together."
       viewBox="-387 -32 1092 370"
     >
       {/* Ties first, so the slabs sit on top of them. */}
