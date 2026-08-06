@@ -3,6 +3,14 @@ import type { SoftSkill } from "@/content/soft-skills";
 
 type Props = {
   skill: SoftSkill;
+  /**
+   * Which treatment the principle and signature pair takes.
+   *
+   * Audit #16: eleven consecutive tinted boxes made the box the page's only
+   * texture. `EdgeChapters` alternates the two, so the pair reads as a
+   * recurring device rather than as a template.
+   */
+  language?: "box" | "quote";
 };
 
 /**
@@ -13,7 +21,7 @@ type Props = {
  * display name, serif body, proof list, then the principle and signature pair
  * as a bordered aside. Skill copy is the content module's, unchanged.
  */
-export function ChapterSection({ skill }: Props) {
+export function ChapterSection({ skill, language: variant = "box" }: Props) {
   const headingId = `heading-${skill.slug}`;
   const sectionId = `${skill.number}-${skill.slug}`;
 
@@ -45,7 +53,13 @@ export function ChapterSection({ skill }: Props) {
 
       <ProofBlock proof={skill.proof} />
 
-      <aside className="mt-6 border border-grid-line bg-ground px-5 py-4">
+      <aside
+        className={
+          variant === "box"
+            ? "mt-6 border border-grid-line bg-ground px-5 py-4"
+            : "mt-6 border-l-2 border-blueprint py-1 pl-5"
+        }
+      >
         <dl className="flex flex-col gap-3">
           {language.map((row) => (
             <div key={row.label} className="grid gap-1 sm:grid-cols-[6rem_1fr] sm:gap-4">

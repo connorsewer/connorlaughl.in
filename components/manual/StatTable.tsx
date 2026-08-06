@@ -35,9 +35,9 @@ export type StatTableProps = {
 
 export function StatTable({ rows, caption, className }: StatTableProps) {
   return (
-    <div className={`w-full font-mono text-[11px] uppercase tracking-[0.16em] ${className ?? ""}`}>
+    <div className={`w-full font-mono ${className ?? ""}`}>
       {caption ? (
-        <p className="border-b border-grid-line pb-2 text-[10px] tracking-[0.28em] text-body-ink/60">
+        <p className="border-b border-grid-line pb-2 text-[10px] uppercase tracking-[0.28em] text-body-ink/60">
           {caption}
         </p>
       ) : null}
@@ -46,14 +46,16 @@ export function StatTable({ rows, caption, className }: StatTableProps) {
           <div
             key={row.label}
             data-stat-row
-            className="flex items-baseline justify-between gap-6 py-2.5"
+            className="flex items-baseline justify-between gap-8 border-b border-grid-line py-3.5"
           >
-            <dt className="text-label-muted">{row.label}:</dt>
+            <dt className="text-[11px] uppercase tracking-[0.16em] text-label-muted">
+              {row.label}
+            </dt>
             <dd className="m-0 text-right text-body-ink">
               <span
                 data-stat-value
                 aria-hidden={row.srText ? "true" : undefined}
-                className="inline-block"
+                className="inline-block text-[1.25rem] leading-none tracking-[0.01em] [font-variant-numeric:lining-nums_tabular-nums] sm:text-[1.375rem]"
               >
                 {row.value}
               </span>

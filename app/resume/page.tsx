@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
 
 import { JsonLd, personSchema } from "@/components/JsonLd";
-import { Masthead, Sheet, ColophonFooter } from "@/components/manual";
+import {
+  Breadcrumb,
+  ChapterFootNav,
+  ColophonFooter,
+  Masthead,
+  RulerRail,
+  Sheet,
+  StatTable,
+  StatTableMotion,
+  type StatRow,
+} from "@/components/manual";
 import { PrintButton } from "@/components/PrintButton";
+import { cta, statsLabels } from "@/content/cover";
 import {
   coverStats,
   heroProofStrip,
@@ -13,10 +24,19 @@ import {
 /**
  * Resume (spec §3: Section 4, not appendix).
  *
- * Chrome-light by spec: compact masthead and a single sheet, no site-wide
- * sidebar and no word-count meta. Direct-link entry is the primary case, so
- * the header block is short enough that at 1440x900 the name, title, current
- * state, contact, and lane summary all sit above the fold.
+ * Chrome (audit #26). The page used to drop every piece of manual furniture,
+ * so the most-visited recruiter route did not read as part of the document. It
+ * now carries the breadcrumb rail and the ruler, and it closes on the
+ * continues band. The chrome is replicated here rather than composed from
+ * `ChapterLayout`, which hardcodes its own sheet padding and wraps nothing in
+ * `print:hidden`: composing it would have printed the masthead, the ruler and
+ * the colophon onto a printed resume, and `ChapterLayout` is not this wave's
+ * file to change. The widths below match its column so the two agree.
+ *
+ * No site-wide sidebar and no word-count meta: direct-link entry is the
+ * primary case, so the header block stays short enough that at 1440x900 the
+ * name, title, current state, contact, and lane summary all sit above the
+ * fold.
  *
  * Copy is the approved deck's section 6, verbatim. Claim discipline: every
  * gated numeral resolves through `renderableProofMetrics()`; the cover's exact
@@ -56,8 +76,21 @@ const proofRows = (
   "Material organic growth from SEO and content infrastructure.",
 ];
 
-/** Deck 6, "EXPERIENCE". `{S2}` in the first row resolves at render. */
-const EXPERIENCE: { period: string; title: string; detail?: string }[] = [
+/**
+ * Deck 6, "EXPERIENCE". `{S2}` in the first row resolves at render.
+ *
+ * `scope` is mono chrome for the rows that carry no description, so a short
+ * row reads as deliberate rather than as a gap against the empty right column
+ * (audit #26). Every tag is the role's own remit, restated in one or two
+ * words. No tag carries a numeral, a magnitude or an outcome, so none of them
+ * is a claim and none needs the gate.
+ */
+const EXPERIENCE: {
+  period: string;
+  title: string;
+  detail?: string;
+  scope?: string;
+}[] = [
   {
     period: "Feb 2022 to present",
     title: "VP of Marketing & GTM (acting CMO)",
@@ -68,18 +101,27 @@ const EXPERIENCE: { period: string; title: string; detail?: string }[] = [
     detail:
       "Built the first structured inbound demand program and led marketing integration for the first wave of acquisitions.",
   },
-  { period: "Jun 2017 to Aug 2017", title: "Senior Marketing Manager" },
+  { period: "Jun 2017 to Aug 2017", title: "Senior Marketing Manager", scope: "Marketing" },
   {
     period: "May 2015 to Jun 2017",
     title: "Digital Marketing Manager",
     detail:
       "The company's first dedicated digital marketing hire. No analytics, SEO, paid, email, or attribution existed before this.",
   },
-  { period: "2013 to 2015", title: "Writer and content creator, consumer deals platform" },
-  { period: "2012 to 2013", title: "Executive search associate, retained search firm" },
+  {
+    period: "2013 to 2015",
+    title: "Writer and content creator, consumer deals platform",
+    scope: "Editorial",
+  },
+  {
+    period: "2012 to 2013",
+    title: "Executive search associate, retained search firm",
+    scope: "Executive search",
+  },
   {
     period: "2009 to 2012",
     title: "Business development and marketing intern, arts patrons nonprofit",
+    scope: "Business development",
   },
 ];
 
@@ -109,6 +151,27 @@ export default function ResumePage() {
     kpiFramework.value,
   );
 
+  /* Audit #26: the resume carried no stat object at all. Same gate, same
+     component, same three metrics as the cover. */
+  const statRows: StatRow[] = [
+    {
+      label: statsLabels.years,
+      value: years.value,
+      srText: `${years.value}. ${years.context}.`,
+    },
+    {
+      label: statsLabels.verticals,
+      value: verticals.value,
+      srText: `${verticals.value}. ${verticals.context}.`,
+    },
+    {
+      /* The metric's own registered label, not a new one. */
+      label: promotions.label,
+      value: promotions.value,
+      srText: `${promotions.value} ${promotions.label}. ${promotions.context}.`,
+    },
+  ];
+
   return (
     <div className="manual-root min-h-screen bg-ground-grid">
       <JsonLd data={personSchema} />
@@ -117,7 +180,11 @@ export default function ResumePage() {
         <Masthead compact />
       </div>
 
-      <main className="mx-auto w-full max-w-[56rem] px-0 pb-16 md:px-6 lg:px-10">
+      <main className="mx-auto w-full max-w-[53rem] px-0 pb-16 md:px-6 lg:px-10">
+        <div className="px-4 py-3 md:px-0 md:py-4 print:hidden">
+          <Breadcrumb section="Section 4" sectionHref="/#contents" chapter="Resume" />
+        </div>
+
         <Sheet
           id="main-content"
           as="article"
@@ -172,6 +239,17 @@ export default function ResumePage() {
             </ul>
           </section>
 
+          <section aria-labelledby="site-figures" className="mt-10">
+            <h2 id="site-figures" className={HEADING_CLASS}>
+              By the numbers
+            </h2>
+            <div className="mt-4">
+              <StatTableMotion>
+                <StatTable rows={statRows} />
+              </StatTableMotion>
+            </div>
+          </section>
+
           <section aria-labelledby="selected-proof" className="mt-10 max-w-[68ch]">
             <h2 id="selected-proof" className={HEADING_CLASS}>
               Selected proof
@@ -208,10 +286,17 @@ export default function ResumePage() {
                   <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-body-ink/60">
                     {role.period}
                   </span>
-                  <div className="max-w-[62ch]">
-                    <p className="font-serif-body text-[0.9375rem] font-semibold leading-snug text-body-ink">
-                      {role.title}
-                    </p>
+                  <div className="max-w-[68ch]">
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                      <p className="font-serif-body text-[0.9375rem] font-semibold leading-snug text-body-ink">
+                        {role.title}
+                      </p>
+                      {role.scope ? (
+                        <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-body-ink/45">
+                          {role.scope}
+                        </span>
+                      ) : null}
+                    </div>
                     {role.period === "Feb 2022 to present" ? (
                       <p className="mt-1 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
                         Full marketing and GTM ownership across {verticals.value}{" "}
@@ -244,11 +329,39 @@ export default function ResumePage() {
               ))}
             </ul>
           </section>
+
+          <section aria-labelledby="contact" className="mt-10">
+            <h2 id="contact" className={HEADING_CLASS}>
+              Contact
+            </h2>
+            <div className="mt-4 flex flex-col items-start gap-4">
+              <a
+                href={cta.href}
+                className="inline-flex items-center border border-body-ink px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-body-ink transition-colors hover:bg-body-ink hover:text-sheet print:hidden"
+              >
+                {cta.label}
+              </a>
+              <p className="max-w-[46ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/75">
+                {cta.secondary}
+              </p>
+            </div>
+          </section>
+
+          <ChapterFootNav
+            className="mt-12 print:hidden"
+            label="Elsewhere in the manual"
+            items={[
+              { kicker: "Contents", title: "The full table of contents", href: "/#contents" },
+              { kicker: "Chapters", title: "Section 1, the revenue systems", href: "/case-studies" },
+              { kicker: "About", title: "How the work got here", href: "/about" },
+            ]}
+          />
         </Sheet>
       </main>
 
       <div className="print:hidden">
         <ColophonFooter />
+        <RulerRail />
       </div>
     </div>
   );

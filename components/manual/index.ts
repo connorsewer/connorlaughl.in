@@ -43,6 +43,11 @@ export {
 } from "@/components/manual/SidebarTOC";
 export { ChapterMeta, type ChapterMetaProps } from "@/components/manual/ChapterMeta";
 export {
+  ChapterFootNav,
+  type ChapterFootNavProps,
+  type FootNavItem,
+} from "@/components/manual/ChapterFootNav";
+export {
   ChapterHeader,
   withPeriod,
   type ChapterHeaderProps,

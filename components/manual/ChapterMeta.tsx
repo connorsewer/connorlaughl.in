@@ -17,16 +17,27 @@ export type ChapterMetaProps = {
   words: number;
   /** Byline. Defaults to the site owner. */
   author?: string;
+  /**
+   * Reading axis. Left by default, matching `ChapterHeader` after audit #39.
+   *
+   * Applied as an inline style rather than a class on purpose: `ChapterLayout`
+   * still passes a `text-center` utility in `className`, and a utility cannot
+   * reliably outrank another utility of the same specificity. The inline value
+   * settles it in one place while the chrome owner catches up.
+   */
+  align?: "left" | "center";
   className?: string;
 };
 
 export function ChapterMeta({
   words,
   author = "CONNOR J. LAUGHLIN",
+  align = "left",
   className,
 }: ChapterMetaProps) {
   return (
     <p
+      style={{ textAlign: align }}
       className={`font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60 ${
         className ?? ""
       }`}

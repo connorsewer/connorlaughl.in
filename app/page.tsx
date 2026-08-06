@@ -20,8 +20,6 @@ import {
   Fig001RevenueOperatingLayers,
   Fig002SignalToTouch,
   Fig003LifecycleStages,
-  Fig004AttributionJoin,
-  Fig005ApprovalGatePath,
   Fig006ClaimToPublish,
   Fig007ThisSite,
 } from "@/components/figures";
@@ -33,7 +31,6 @@ import {
   introInherited,
   introLede,
   masthead,
-  statsCaption,
   statsLabels,
   statsPreamble,
   tocSections,
@@ -146,7 +143,9 @@ export default function Cover() {
         <Sheet id="main-content" as="article" className="px-5 py-10 sm:px-10 lg:px-16 lg:py-12">
           {/* Intro (anatomy slot 3). Proof first, then chronology, then scope. */}
           <section aria-label="Opening" className="max-w-[68ch]">
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-blueprint">
+            {/* Audit #25: the headline proof read at 11px. It now sets at 13px,
+                which is the size the claim is worth on the first viewport. */}
+            <p className="font-mono text-[13px] uppercase tracking-[0.18em] text-blueprint">
               {introLede(pipeline.value)}
             </p>
 
@@ -185,18 +184,39 @@ export default function Cover() {
           </div>
         </Sheet>
 
-        {/* Cover figures (anatomy slot 4). Plates run at one width. */}
+        {/* Cover figures (anatomy slot 4).
+            Audit #3: the gallery used to run seven plates at one width, four of
+            them the same descending chain. Two things changed here, both
+            placement decisions and neither a registry change.
+
+            Register. FIG_001 opens the section across the full sheet, the two
+            plates that read as a pair share a 2-up row from lg, and FIG_007
+            closes at the reading measure. Three scales, one section.
+
+            Retired from the cover. FIG_004 [ ATTRIBUTION JOIN ] and FIG_005
+            [ APPROVAL GATE PATH ] came off this page because they repeat
+            FIG_002's chain at cover scale. Both subjects still render at
+            chapter scale: the attribution join as FIG_014 on
+            /case-studies/marketing-analytics-architecture, and the approval
+            gate path as FIG_009 on /case-studies/ai-native-gtm. FIGURES.md is
+            untouched and both cover plates stay in components/figures. */}
         <Sheet as="section" className="mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-14">
           <h2 className="font-serif-body text-[1.0625rem] font-semibold leading-snug text-body-ink">
             The systems, drawn.
           </h2>
-          <div className="mt-10 flex max-w-[40rem] flex-col gap-16">
+          <div className="mt-10 flex flex-col gap-16">
+            {/* Section opener, full sheet measure. */}
             <Fig001RevenueOperatingLayers />
-            <Fig003LifecycleStages />
-            <Fig004AttributionJoin />
-            <Fig005ApprovalGatePath />
-            <Fig006ClaimToPublish />
-            <Fig007ThisSite />
+
+            {/* The pair: a stage grid and a gated sequence, read side by side. */}
+            <div className="grid gap-x-10 gap-y-16 lg:grid-cols-2">
+              <Fig003LifecycleStages />
+              <Fig006ClaimToPublish />
+            </div>
+
+            <div className="max-w-[40rem]">
+              <Fig007ThisSite />
+            </div>
           </div>
         </Sheet>
 
@@ -205,12 +225,17 @@ export default function Cover() {
           <h2 className="font-serif-body text-[1.0625rem] font-semibold leading-snug text-body-ink">
             Site figures.
           </h2>
-          <p className="mt-4 max-w-[60ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
+          <p className="mt-4 max-w-[46ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
             {statsPreamble}
           </p>
-          <div className="mt-8 max-w-[26rem]">
+          {/* Audit #25: the strongest 30-second proof object on the site used to
+              run 416px wide inside a 1008px sheet under two headings that said
+              the same thing. It now runs the full sheet, and the serif heading
+              above carries the naming on its own, so `statsCaption` no longer
+              renders as a second one. */}
+          <div className="mt-8">
             <StatTableMotion>
-              <StatTable rows={statRows} caption={statsCaption} />
+              <StatTable rows={statRows} />
             </StatTableMotion>
           </div>
         </Sheet>
@@ -238,7 +263,7 @@ export default function Cover() {
             >
               {cta.label}
             </a>
-            <p className="max-w-[62ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/75">
+            <p className="max-w-[46ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/75">
               {cta.secondary}
             </p>
             <Link

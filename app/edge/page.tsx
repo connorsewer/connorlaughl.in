@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-import { ChapterHeader, ChapterLayout } from "@/components/manual";
+import { ChapterFootNav, ChapterHeader, ChapterLayout } from "@/components/manual";
 import { EdgeChapters } from "@/components/edge/EdgeChapters";
+import { cta } from "@/content/cover";
 import { softSkills } from "@/content/soft-skills";
 import { edgeWords } from "@/lib/word-counts";
 
@@ -48,6 +49,18 @@ export default function EdgePage() {
       />
 
       <EdgeChapters />
+
+      {/* Audit #2: the page ran 9,113px and terminated in a grey box. */}
+      <ChapterFootNav
+        className="mt-16"
+        label="Elsewhere in the manual"
+        items={[
+          { kicker: "Contents", title: "The full table of contents", href: "/#contents" },
+          { kicker: "Chapters", title: "Section 1, the revenue systems", href: "/case-studies" },
+          { kicker: "Resume", title: "Connor J. Laughlin, in one page", href: "/resume" },
+          { kicker: "Contact", title: "Email Connor", href: cta.href, external: true },
+        ]}
+      />
     </ChapterLayout>
   );
 }

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 import {
+  ChapterFootNav,
   ChapterHeader,
   ChapterLayout,
   StatTable,
@@ -136,6 +137,22 @@ function resolveClaims(text: string): string {
     .trim();
 }
 
+/**
+ * Splits a `Scope / Stack / Governance` cell into its items.
+ *
+ * Audit #43: the source strings separate items with `→` in one column and `•`
+ * in the other two, so one table showed two separator glyphs in adjacent
+ * cells. This is a rendering change, not a copy change — the words are
+ * untouched and the cell becomes a stacked list under one marker, which is the
+ * marker vocabulary the rest of the manual uses for an unordered list.
+ */
+function splitCell(value: string): string[] {
+  return value
+    .split(/\s*[→•|]\s*/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
 const SECTION_TITLE = "Revenue systems";
 const STRATEGY_MEMO = {
   title: "Strategy memo: how I think before I build",
@@ -265,8 +282,27 @@ export default async function CaseStudyPage({
           titleStyle={{ viewTransitionName: `case-title-${slug}` }}
         />
 
-        {/* The chapter plate runs ahead of the body, as on the reference
-            chapter: the reader sees the system before the prose about it. */}
+        {/* Audit #8: the outcome used to sit under a 640-715px plate, roughly
+            1.5 screens down, so a 30-second scan got a title and a drawing. It
+            now runs directly under the dek at reading weight with the blueprint
+            rule left, and the plate below it becomes evidence for a claim the
+            reader has already been given. That is also the right manual
+            grammar: state the result, then draw the system that produced it. */}
+        {resolveClaims(cs.outcome) ? (
+          <section
+            aria-label="Outcome"
+            className="mt-9 max-w-[68ch] border-l-2 border-blueprint pl-5"
+          >
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+              Outcome
+            </p>
+            <p className="mt-2.5 font-serif-body text-[1.1875rem] leading-relaxed text-body-ink">
+              {resolveClaims(cs.outcome)}
+            </p>
+          </section>
+        ) : null}
+
+        {/* The chapter plate follows the claim it evidences. */}
         {ChapterFigure ? (
           <div className="mt-10">
             <ChapterFigure />
@@ -286,20 +322,6 @@ export default async function CaseStudyPage({
           ))}
         </section>
 
-        {resolveClaims(cs.outcome) ? (
-          <section
-            aria-label="Outcome"
-            className="mt-10 max-w-[68ch] border-l-2 border-blueprint pl-5"
-          >
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/60">
-              Outcome
-            </p>
-            <p className="mt-2 font-serif-body text-[1.0625rem] leading-relaxed text-body-ink">
-              {resolveClaims(cs.outcome)}
-            </p>
-          </section>
-        ) : null}
-
         <hr className="mt-12 border-grid-line" />
 
         <section aria-labelledby="case-logic-heading" className="mt-10">
@@ -308,12 +330,16 @@ export default async function CaseStudyPage({
           </h2>
           <ol className="space-y-8">
             {caseLogic.map(([num, label, body]) => (
-              <li key={num} className="grid gap-2 md:grid-cols-[7rem_1fr] md:gap-6">
+              /* Audit #30: the label column ran at 7rem, so `WHY IT MATTERED`
+                 and `WHAT IT PROVES` wrapped while `THE PROBLEM` did not and
+                 the column read ragged. 9rem plus a balanced wrap holds the
+                 labels against the body's first lines. */
+              <li key={num} className="grid gap-2 md:grid-cols-[9rem_1fr] md:gap-6">
                 <div className="flex items-baseline gap-3 md:flex-col md:items-start md:gap-2">
                   <span className="font-mono text-[10px] tracking-[0.2em] text-blueprint">
                     {num}
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-body-ink/60">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-balance text-body-ink/60">
                     {label}
                   </span>
                 </div>
@@ -357,7 +383,7 @@ export default async function CaseStudyPage({
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="manual-body max-w-[64ch]">{resolveClaims(item)}</span>
+                <span className="manual-body max-w-[68ch]">{resolveClaims(item)}</span>
               </li>
             ))}
           </ol>
@@ -381,8 +407,23 @@ export default async function CaseStudyPage({
                 <dt className="font-mono text-[10px] uppercase tracking-[0.24em] text-body-ink/60">
                   {term}
                 </dt>
-                <dd className="mt-2 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
-                  {value}
+                <dd className="mt-3">
+                  <ul className="flex flex-col gap-2">
+                    {splitCell(value).map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-2.5 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-[0.45em] shrink-0 leading-none text-blueprint"
+                        >
+                          &middot;
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </dd>
               </div>
             ))}
@@ -418,7 +459,7 @@ export default async function CaseStudyPage({
           <SectionLabel>
             <span id="interview-heading">In the interview</span>
           </SectionLabel>
-          <blockquote className="mt-4 max-w-[62ch] border-l-2 border-blueprint pl-5 font-serif-body text-[1.0625rem] italic leading-relaxed text-body-ink/85">
+          <blockquote className="mt-4 max-w-[46ch] border-l-2 border-blueprint pl-5 font-serif-body text-[1.0625rem] italic leading-relaxed text-body-ink/85">
             {cs.interviewLine}
           </blockquote>
         </section>
@@ -452,16 +493,20 @@ export default async function CaseStudyPage({
           >
             {cta.label}
           </a>
-          <p className="max-w-[62ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/75">
+          <p className="max-w-[46ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/75">
             {cta.secondary}
           </p>
-          <Link
-            href="/case-studies"
-            className="font-mono text-[10px] uppercase tracking-[0.2em] text-blueprint underline underline-offset-4 transition-opacity hover:opacity-70"
-          >
-            Back to Section 1
-          </Link>
         </section>
+
+        {/* Audit #2: the chapter used to end on a 15px "Back to Section 1"
+            link. It now closes on the continues band, driven by the same
+            `chapterNeighbours()` data the breadcrumb chevrons read. */}
+        <ChapterFootNav
+          className="mt-12"
+          prev={prev}
+          next={next}
+          items={[{ kicker: "Contents", title: "All chapters in Section 1", href: "/case-studies" }]}
+        />
       </ChapterLayout>
     </>
   );

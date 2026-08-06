@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { JsonLd, personSchema } from "@/components/JsonLd";
-import { ChapterHeader, ChapterLayout, type TocSection } from "@/components/manual";
-import { tocSections } from "@/content/cover";
+import {
+  ChapterFootNav,
+  ChapterHeader,
+  ChapterLayout,
+  type TocSection,
+} from "@/components/manual";
+import { cta, tocSections } from "@/content/cover";
 import { coverStats, proseProofClaims, renderableProofMetrics } from "@/content/proof-metrics";
 
 /**
@@ -57,9 +62,40 @@ export default function AboutPage() {
         sections={manualSections}
         activeHref="/about"
       >
+        {/* No dek, so no ornament: audit #32 suppresses it rather than let it
+            sit directly under the title looking like an artifact. */}
         <ChapterHeader eyebrow="Appendix" title="About" />
 
-        <section aria-label="Opening" className="mt-2 max-w-[68ch]">
+        {/* Audit #37: FIG_020 is the manual's only duotone plate, its only
+            human presence and its only portrait proportion, and it used to sit
+            roughly a thousand pixels down this page. It now heads the chapter,
+            which is where a portrait belongs. It is still the only place it
+            renders; putting it on the cover is a masthead decision and sits
+            with the chrome owner, not here. */}
+        <figure className="mt-9 max-w-[22rem]">
+          <div className="border border-blueprint/40 p-2">
+            <Image
+              src={PORTRAIT.src}
+              alt={PORTRAIT.alt}
+              width={PORTRAIT.width}
+              height={PORTRAIT.height}
+              sizes="(min-width: 768px) 22rem, 100vw"
+              priority
+              className="plate-duotone block h-auto w-full"
+            />
+          </div>
+          <figcaption className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
+              FIG_020 [ PORTRAIT ]
+            </span>
+            <span className="max-w-[46ch] font-serif-body text-[0.875rem] leading-snug text-body-ink/70">
+              Connor J. Laughlin, at the desk in Chicago where most of this was
+              built.
+            </span>
+          </figcaption>
+        </figure>
+
+        <section aria-label="Opening" className="mt-10 max-w-[68ch]">
           <p className="manual-body manual-dropcap">
             I started as a writer. High-volume consumer editorial, testing
             headlines against traffic, learning that a sentence either earns
@@ -100,28 +136,20 @@ export default function AboutPage() {
           </p>
         </section>
 
-        <figure className="mt-12 max-w-[26rem]">
-          <div className="border border-blueprint/40 p-2">
-            <Image
-              src={PORTRAIT.src}
-              alt={PORTRAIT.alt}
-              width={PORTRAIT.width}
-              height={PORTRAIT.height}
-              sizes="(min-width: 768px) 26rem, 100vw"
-              priority
-              className="plate-duotone block h-auto w-full"
-            />
-          </div>
-          <figcaption className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-blueprint">
-              FIG_020 [ PORTRAIT ]
-            </span>
-            <span className="font-serif-body text-[0.875rem] leading-snug text-body-ink/70">
-              Connor J. Laughlin, at the desk in Chicago where most of this was
-              built.
-            </span>
-          </figcaption>
-        </figure>
+        <ChapterFootNav
+          className="mt-12"
+          label="Elsewhere in the manual"
+          items={[
+            { kicker: "Contents", title: "The full table of contents", href: "/#contents" },
+            { kicker: "Resume", title: "Connor J. Laughlin, in one page", href: "/resume" },
+            {
+              kicker: "Contact",
+              title: "Email Connor",
+              href: cta.href,
+              external: true,
+            },
+          ]}
+        />
       </ChapterLayout>
     </>
   );
