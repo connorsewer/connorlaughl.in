@@ -79,7 +79,7 @@ export function CoverTOC({
   showSectionHeaders = true,
 }: CoverTOCProps) {
   return (
-    <nav aria-label="Contents" className={`w-full ${className ?? ""}`}>
+    <nav aria-label="Contents" data-xray="toc" className={`w-full ${className ?? ""}`}>
       <ol className="m-0 flex list-none flex-col gap-14 p-0">
         {sections.map((section) => {
           const peak = sectionPeak(section.entries);
@@ -88,7 +88,7 @@ export function CoverTOC({
             {showSectionHeaders ? (
             /* `.font-pixel` carries the same stack and the tracking with it;
                the inline style this replaced silently dropped the tracking. */
-            <h3 className="font-pixel flex items-baseline gap-3 border-b border-rule-hair pb-2 text-[0.8125rem] uppercase tracking-[0.1em] text-body-ink">
+            <h3 data-xray="section" className="font-pixel flex items-baseline gap-3 border-b border-rule-hair pb-2 text-[0.8125rem] uppercase tracking-[0.1em] text-body-ink">
               <span>Section {section.num}</span>
               <span aria-hidden="true" className="text-body-ink/50">
                 /

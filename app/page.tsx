@@ -121,6 +121,9 @@ export default function Cover() {
 
       <WordmarkMotion>
         <Masthead
+          /* The cover has no title block, so the wordmark is its h1. Chapters
+             title themselves and leave this off. */
+          asHeading
           tagline={
             <>
               <span className="block font-display text-[1.15rem] leading-snug text-body-ink">

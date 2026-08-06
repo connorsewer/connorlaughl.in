@@ -38,6 +38,14 @@ export const MANUAL_NAV: NavLink[] = [
 export type MastheadProps = {
   /** Chapter mode: small wordmark, breadcrumb slot instead of the tagline. */
   compact?: boolean;
+  /**
+   * Cover only. Prints the wordmark line as the document's `h1`.
+   *
+   * Every chapter carries its own title heading, so the masthead stays a plain
+   * link there and the one-`h1`-per-page law in DESIGN.md §9 holds. The cover
+   * has no title block of its own, which left its outline starting at `h2`.
+   */
+  asHeading?: boolean;
   /** Full mode only. Serif tagline, right-aligned under the wordmark line. */
   tagline?: ReactNode;
   className?: string;
@@ -69,6 +77,27 @@ function Wordmark({ compact }: { compact: boolean }) {
       ))}
     </span>
   );
+}
+
+/**
+ * The wordmark line. A link home, optionally wrapped in the page's `h1`.
+ *
+ * The glyph spans are `aria-hidden` so the reveal cannot spell the name out
+ * one letter at a time, which leaves the link's own label carrying the text.
+ * On the cover that label is the heading text too, so it drops the `, cover`
+ * disambiguator it needs when it points away from where the reader is.
+ */
+function WordmarkLink({ compact, asHeading }: { compact: boolean; asHeading: boolean }) {
+  const link = (
+    <Link
+      href="/"
+      aria-label={asHeading ? "Connor J. Laughlin" : "Connor J. Laughlin, cover"}
+      className="shrink-0"
+    >
+      <Wordmark compact={compact} />
+    </Link>
+  );
+  return asHeading ? <h1 className="shrink-0 leading-none">{link}</h1> : link;
 }
 
 /**
@@ -130,7 +159,12 @@ function OperatorChip() {
   );
 }
 
-export function Masthead({ compact = false, tagline, className }: MastheadProps) {
+export function Masthead({
+  compact = false,
+  asHeading = false,
+  tagline,
+  className,
+}: MastheadProps) {
   return (
     <header className={`w-full ${className ?? ""}`}>
       <a
@@ -142,9 +176,7 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
 
       {compact ? (
         <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-4 lg:px-10">
-          <Link href="/" aria-label="Connor J. Laughlin, cover" className="shrink-0">
-            <Wordmark compact />
-          </Link>
+          <WordmarkLink compact asHeading={asHeading} />
           <div className="flex items-center gap-5">
             <Nav compact />
             <ThemeToggle />
@@ -154,9 +186,7 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
         </div>
       ) : (
         <div className="flex flex-col gap-6 px-6 pb-5 pt-8 lg:flex-row lg:items-end lg:justify-between lg:px-10 lg:pt-10">
-          <Link href="/" aria-label="Connor J. Laughlin, cover" className="shrink-0">
-            <Wordmark compact={false} />
-          </Link>
+          <WordmarkLink compact={false} asHeading={asHeading} />
           <div className="flex flex-col items-start gap-3 lg:items-end">
             {tagline ? (
               /* Balanced so the role line stops leaving `CHICAGO.` alone on a

@@ -156,6 +156,7 @@ export function Terminal({ className }: TerminalProps) {
 
   return (
     <div
+      data-xray="shell"
       className={`border border-body-ink bg-ground ${className ?? ""}`}
       onMouseUp={(event) => {
         if ((event.target as HTMLElement).closest("a")) return;
@@ -185,10 +186,24 @@ export function Terminal({ className }: TerminalProps) {
       </div>
 
       <form
-        className="manual-shell-row flex items-baseline gap-2 overflow-x-auto border-t border-grid-line px-4 py-3 font-mono text-[13px] leading-[1.65]"
+        className="manual-shell-row flex min-h-11 items-baseline gap-2 overflow-x-auto border-t border-grid-line px-4 py-3 font-mono text-[13px] leading-[1.65]"
         onSubmit={(event) => {
           event.preventDefault();
           submit();
+        }}
+        /* The row is the tap target, not the caret. The field is one character
+           wide at rest, so a thumb aimed at the prompt line lands on padding
+           and the keyboard never opens. Pointerdown rather than click, because
+           a programmatic focus only opens a soft keyboard inside the gesture
+           that asked for it, and preventDefault so the browser does not walk
+           focus somewhere else on its way. There is nothing selectable on this
+           row; the scrollback above keeps its selection-aware handler. */
+        onPointerDown={(event) => {
+          const target = event.target as HTMLElement;
+          if (target === inputRef.current) return;
+          if (target.closest("a")) return;
+          event.preventDefault();
+          inputRef.current?.focus();
         }}
       >
         <label htmlFor="manual-shell-input" className="sr-only">

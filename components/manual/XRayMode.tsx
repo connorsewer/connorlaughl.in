@@ -44,6 +44,12 @@ const ROOT_CLASS = "xray";
 const MIN_WIDTH = 768;
 /** Double-tap window for the `x` hotkey, milliseconds. */
 const DOUBLE_TAP_MS = 400;
+/** Most annotations drawn at once. A drawing that labels everything labels nothing. */
+const MAX_NODES = 12;
+/** Quiet after a scroll before the target set is resolved again, milliseconds. */
+const SETTLE_MS = 140;
+/** Closest two leader labels may print on the same side, px. */
+const LABEL_GAP = 15;
 
 let active = false;
 const listeners = new Set<() => void>();
@@ -145,6 +151,20 @@ type Leader = {
   label: string;
 };
 
+/**
+ * One thing worth annotating, resolved once per scroll settle. `label` is the
+ * finished string for a leader; the two dimension kinds compute theirs from
+ * live geometry because that is what they are measuring.
+ */
+type Target = {
+  id: string;
+  el: Element;
+  kind: "sheet" | "measure" | "ground" | "leader";
+  label: string;
+  /** `measure` only: width of one `ch` in the column's own font. */
+  ch?: number;
+};
+
 type Plan = {
   w: number;
   h: number;
@@ -157,16 +177,21 @@ function clamp(value: number, lo: number, hi: number): number {
   return value < lo ? lo : value > hi ? hi : value;
 }
 
-/** The first instance of a target that is on screen and has a box. */
-function pick(selector: string): { el: Element; rect: DOMRect } | null {
-  const found = document.querySelectorAll(selector);
-  for (const el of Array.from(found)) {
+/** Every instance of a target that is on screen and has a box. */
+function seen(selector: string): { el: Element; rect: DOMRect }[] {
+  const out: { el: Element; rect: DOMRect }[] = [];
+  for (const el of Array.from(document.querySelectorAll(selector))) {
     const rect = el.getBoundingClientRect();
     if (rect.width <= 0 || rect.height <= 0) continue;
     if (rect.bottom < 0 || rect.top > window.innerHeight) continue;
-    return { el, rect };
+    out.push({ el, rect });
   }
-  return null;
+  return out;
+}
+
+/** Distance from the middle of the viewport. The sort key for what to keep. */
+function fromMiddle(rect: DOMRect): number {
+  return Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
 }
 
 /**
@@ -186,6 +211,16 @@ function chPixels(el: Element): number {
   const width = probe.getBoundingClientRect().width / 10;
   probe.remove();
   return width;
+}
+
+/**
+ * A named face at the size it computes, read off the element inside that
+ * actually sets it rather than the wrapper the annotation hangs on.
+ */
+function faceLabel(face: string, el: Element, inner?: string): string {
+  const target = (inner ? el.querySelector(inner) : null) ?? el;
+  const size = Number.parseFloat(getComputedStyle(target).fontSize);
+  return Number.isFinite(size) ? `${face} ${Math.round(size)}px` : face;
 }
 
 /** Body type as it computes: family name, size over leading, and its rag. */
@@ -260,79 +295,251 @@ function leader(id: string, rect: DOMRect, label: string, w: number, h: number):
   };
 }
 
-function measure(): Plan {
+/**
+ * Resolves what is worth annotating right now. The expensive half.
+ *
+ * Everything that reads the stylesheet, computes type, or puts a probe in the
+ * document happens here, and here runs once when the mode opens and once each
+ * time a scroll settles. The cheap half, `layout`, re-reads only boxes.
+ *
+ * Every match on screen is a candidate, not just the first: the manual repeats
+ * its sheet, its plates and its rules the whole way down, and a mode that
+ * annotates one of each is a masthead gag rather than a mode. Candidates sort
+ * by distance from the middle of the viewport and the nearest `MAX_NODES`
+ * survive, so the drawing stays a drawing.
+ */
+function resolveTargets(): Target[] {
+  const h = window.innerHeight;
+  const found: { target: Target; dist: number }[] = [];
+  const add = (target: Target, rect: DOMRect) => {
+    found.push({ target, dist: fromMiddle(rect) });
+  };
+
+  /* The paper the whole manual prints on. It runs the length of the document,
+     so it is the one annotation that holds wherever the reader has stopped,
+     and it is sorted first for that reason. Its pitch is read back out of the
+     gradient that paints it, like the others. */
+  const ground = document.querySelector(".bg-ground-grid");
+  if (ground) {
+    const pitch = gridPitch(ground);
+    found.push({
+      target: {
+        id: "ground",
+        el: ground,
+        kind: "ground",
+        label: pitch ? `Paper grid / ${pitch}px` : "Paper grid",
+      },
+      dist: 0,
+    });
+  }
+
+  /* Sheets are dimensioned off their top edge, so a sheet only gets the full
+     dimension line while that edge is on screen and two readouts can never
+     stack. A sheet the reader is inside still gets named, with a leader into
+     the margin, because that is the part under everything else on the page. */
+  for (const { el, rect } of seen('[data-xray="sheet"]')) {
+    const edge = rect.top >= 24 && rect.top <= h - 24;
+    add(
+      edge
+        ? { id: `sheet-${found.length}`, el, kind: "sheet", label: "" }
+        : {
+            id: `sheet-${found.length}`,
+            el,
+            kind: "leader",
+            label: `Sheet / ${Math.round(rect.width)}px`,
+          },
+      rect,
+    );
+  }
+
+  /* Body copy carries `.manual-body` on every paragraph, so the measure and the
+     type spec go on the nearest column only. Printing one number a dozen times
+     is not density. */
+  const body = seen(".manual-body").sort((a, b) => fromMiddle(a.rect) - fromMiddle(b.rect))[0];
+  if (body) {
+    const ch = chPixels(body.el);
+    if (ch > 0) add({ id: "measure", el: body.el, kind: "measure", label: "", ch }, body.rect);
+    add({ id: "body", el: body.el, kind: "leader", label: typeLabel(body.el) }, body.rect);
+  }
+
+  for (const { el, rect } of seen('[data-xray="wordmark"]')) {
+    add({ id: "wordmark", el, kind: "leader", label: "Geist Pixel / wordmark" }, rect);
+  }
+
+  for (const { el, rect } of seen('[data-xray="plate"]')) {
+    const num = el.getAttribute("data-xray-plate");
+    const name = num ? `FIG_${num}` : "Plate";
+    const pitch = gridPitch(el);
+    add(
+      {
+        id: `plate-${num ?? found.length}`,
+        el,
+        kind: "leader",
+        label: pitch ? `${name} / ${pitch}px drafting grid` : name,
+      },
+      rect,
+    );
+  }
+
+  /* Every caption states its plate's claim in words. Annotating it says which
+     part of a figure is doing the load-bearing work. */
+  let caption = 0;
+  for (const { el, rect } of seen('[data-xray="caption"]')) {
+    add({ id: `caption-${caption++}`, el, kind: "leader", label: "Caption / claim in words" }, rect);
+  }
+
+  for (const { el, rect } of seen('[data-xray="ruler"]')) {
+    add({ id: "ruler", el, kind: "leader", label: "Reading progress" }, rect);
+  }
+
+  /* A band prints a tile either side of its label. Annotate the band. */
+  const bands = new Set<number>();
+  for (const { el, rect } of seen('[data-xray="checker"]')) {
+    const band = Math.round(rect.top / 8);
+    if (bands.has(band)) continue;
+    bands.add(band);
+    const pitch = checkerPitch(el);
+    add(
+      {
+        id: `checker-${band}`,
+        el,
+        kind: "leader",
+        label: pitch ? `Halftone rule / ${pitch}px pitch` : "Halftone rule",
+      },
+      rect,
+    );
+  }
+
+  for (const { el, rect } of seen('[data-xray="toc"]')) {
+    add({ id: "toc", el, kind: "leader", label: "Contents / dotted leaders" }, rect);
+  }
+
+  /* Section headers repeat down the contents, and a drawing that names the
+     first one and skips the rest is not annotating the page it is on. */
+  let section = 0;
+  for (const { el, rect } of seen('[data-xray="section"]')) {
+    add(
+      {
+        id: `section-${section++}`,
+        el,
+        kind: "leader",
+        label: `${faceLabel("Geist Pixel", el)} / section header`,
+      },
+      rect,
+    );
+  }
+
+  for (const { el, rect } of seen('[data-xray="stats"]')) {
+    add(
+      {
+        id: `stats-${found.length}`,
+        el,
+        kind: "leader",
+        label: `Stat table / ${faceLabel("Geist Mono", el, "dt")}`,
+      },
+      rect,
+    );
+  }
+
+  for (const { el, rect } of seen('[data-xray="shell"]')) {
+    add(
+      {
+        id: `shell-${found.length}`,
+        el,
+        kind: "leader",
+        label: `Shell / ${faceLabel("Geist Mono", el, ".manual-shell-row")}`,
+      },
+      rect,
+    );
+  }
+
+  return found
+    .sort((a, b) => a.dist - b.dist)
+    .slice(0, MAX_NODES)
+    .map((entry) => entry.target);
+}
+
+/**
+ * Pushes label rows apart so two leaders on the same side never print over each
+ * other. The elbow lengthens and the dot stays where it is, which is how a real
+ * drawing stacks callouts on a crowded part.
+ */
+function decollide(leaders: Leader[], h: number): Leader[] {
+  const lanes = new Map<Leader["anchor"], number>();
+  return [...leaders]
+    .sort((a, b) => a.ey - b.ey)
+    .map((line) => {
+      const last = lanes.get(line.anchor);
+      if (last === undefined || line.ey - last >= LABEL_GAP) {
+        lanes.set(line.anchor, line.ey);
+        return line;
+      }
+      const ey = clamp(last + LABEL_GAP, 30, h - 30);
+      lanes.set(line.anchor, ey);
+      return { ...line, ey, ly: ey + 3 };
+    });
+}
+
+/**
+ * Turns the resolved targets into a frame of geometry. The cheap half: one
+ * read pass over boxes already known to be worth drawing, nothing written to
+ * the document, no style resolved. This is what runs while a scroll is moving,
+ * because an annotation pinned to the viewport has to follow the part it names.
+ */
+function layout(targets: Target[]): Plan {
   const w = window.innerWidth;
   const h = window.innerHeight;
   const dims: Dim[] = [];
   const leaders: Leader[] = [];
 
-  /* The sheet, dimensioned above itself the way a drawing dimensions a part:
-     extension ticks at both ends, arrowheads turned inward, readout centred
-     over the run. */
-  const sheet = pick('[data-xray="sheet"]');
-  if (sheet) {
-    dims.push({
-      id: "sheet",
-      x1: clamp(sheet.rect.left, 12, w - 12),
-      x2: clamp(sheet.rect.right, 12, w - 12),
-      y: clamp(sheet.rect.top - 14, 28, h - 28),
-      label: `${Math.round(sheet.rect.width)}px`,
-    });
-  }
-
-  const body = pick(".manual-body");
-  if (body) {
-    const ch = chPixels(body.el);
-    if (ch > 0) {
-      dims.push({
-        id: "measure",
-        x1: clamp(body.rect.left, 12, w - 12),
-        x2: clamp(body.rect.right, 12, w - 12),
-        /* Floored below the sheet's own dimension so the two never stack. */
-        y: clamp(body.rect.top - 10, 48, h - 28),
-        label: `${Math.round(body.rect.width / ch)}ch`,
-      });
+  for (const target of targets) {
+    /* The ground has no edge in the viewport to point at, so its callout is
+       placed in the left margin at reading height, which is where a drawing
+       puts a note about the material rather than about a part. */
+    if (target.kind === "ground") {
+      leaders.push(
+        leader(target.id, new DOMRect(0, h * 0.62, 96, 40), target.label, w, h),
+      );
+      continue;
     }
-    leaders.push(leader("body", body.rect, typeLabel(body.el), w, h));
+
+    const rect = target.el.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) continue;
+    if (rect.bottom < 0 || rect.top > h) continue;
+
+    /* The sheet, dimensioned above itself the way a drawing dimensions a part:
+       extension ticks at both ends, arrowheads turned inward, readout centred
+       over the run. */
+    if (target.kind === "sheet") {
+      dims.push({
+        id: target.id,
+        x1: clamp(rect.left, 12, w - 12),
+        x2: clamp(rect.right, 12, w - 12),
+        y: clamp(rect.top - 14, 28, h - 28),
+        label: `${Math.round(rect.width)}px`,
+      });
+      continue;
+    }
+
+    if (target.kind === "measure") {
+      const ch = target.ch ?? 0;
+      if (ch <= 0) continue;
+      dims.push({
+        id: target.id,
+        x1: clamp(rect.left, 12, w - 12),
+        x2: clamp(rect.right, 12, w - 12),
+        /* Floored below the sheet's own dimension so the two never stack. */
+        y: clamp(rect.top - 10, 48, h - 28),
+        label: `${Math.round(rect.width / ch)}ch`,
+      });
+      continue;
+    }
+
+    leaders.push(leader(target.id, rect, target.label, w, h));
   }
 
-  const wordmark = pick('[data-xray="wordmark"]');
-  if (wordmark) {
-    leaders.push(leader("wordmark", wordmark.rect, "Geist Pixel / wordmark", w, h));
-  }
-
-  const plate = pick('[data-xray="plate"]');
-  if (plate) {
-    const pitch = gridPitch(plate.el);
-    leaders.push(
-      leader(
-        "plate",
-        plate.rect,
-        pitch ? `Plate / ${pitch}px drafting grid` : "Plate",
-        w,
-        h,
-      ),
-    );
-  }
-
-  const ruler = pick('[data-xray="ruler"]');
-  if (ruler) leaders.push(leader("ruler", ruler.rect, "Reading progress", w, h));
-
-  const checker = pick('[data-xray="checker"]');
-  if (checker) {
-    const pitch = checkerPitch(checker.el);
-    leaders.push(
-      leader(
-        "checker",
-        checker.rect,
-        pitch ? `Halftone rule / ${pitch}px pitch` : "Halftone rule",
-        w,
-        h,
-      ),
-    );
-  }
-
-  return { w, h, dims, leaders, nodes: dims.length + leaders.length };
+  const spread = decollide(leaders, h);
+  return { w, h, dims, leaders: spread, nodes: dims.length + spread.length };
 }
 
 /* ───────────────────────────── overlay draw ────────────────────────── */
@@ -470,35 +677,56 @@ export function XRayOverlay() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  /* Measurement. Coalesced into one frame, and re-run on resize and on scroll
-     because the annotations are pinned to the viewport while the parts they
-     annotate are not. This is the one place on the site that reads geometry on
-     scroll; it is a diagnostic mode a reader opted into, it runs one pass over
-     six elements, and it stops the moment the mode is off. */
+  /* Measurement, split in two so scrolling stays cheap.
+
+     Resolving what to annotate reads the stylesheet, computes type and puts a
+     probe in the document, so it runs once on open and once per scroll settle.
+     Between settles only `layout` runs: one coalesced read pass over the boxes
+     already chosen, no style resolved and nothing written, which is what keeps
+     an annotation on the part it names while the page is moving. The whole
+     thing stops the moment the mode is off. */
   useEffect(() => {
     if (!on) return;
+    let targets: Target[] = [];
     let frame = 0;
+    let settle = 0;
 
-    const run = () => {
+    const paint = () => {
       frame = 0;
       if (!wideEnough()) {
         setActive(false);
         return;
       }
-      setPlan(measure());
+      setPlan(layout(targets));
     };
 
     const request = () => {
-      if (frame === 0) frame = window.requestAnimationFrame(run);
+      if (frame === 0) frame = window.requestAnimationFrame(paint);
     };
 
-    run();
-    window.addEventListener("resize", request, { passive: true });
-    window.addEventListener("scroll", request, { passive: true });
+    const resolve = () => {
+      targets = resolveTargets();
+      request();
+    };
+
+    const later = () => {
+      window.clearTimeout(settle);
+      settle = window.setTimeout(resolve, SETTLE_MS);
+    };
+
+    const onMove = () => {
+      request();
+      later();
+    };
+
+    resolve();
+    window.addEventListener("resize", onMove, { passive: true });
+    window.addEventListener("scroll", onMove, { passive: true });
     return () => {
       if (frame !== 0) window.cancelAnimationFrame(frame);
-      window.removeEventListener("resize", request);
-      window.removeEventListener("scroll", request);
+      window.clearTimeout(settle);
+      window.removeEventListener("resize", onMove);
+      window.removeEventListener("scroll", onMove);
     };
   }, [on]);
 

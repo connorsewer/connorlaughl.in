@@ -35,7 +35,7 @@ export type StatTableProps = {
 
 export function StatTable({ rows, caption, className }: StatTableProps) {
   return (
-    <div className={`w-full font-mono ${className ?? ""}`}>
+    <div data-xray="stats" className={`w-full font-mono ${className ?? ""}`}>
       {caption ? (
         <p className="border-b border-grid-line pb-2 text-[10px] uppercase tracking-[0.28em] text-body-ink/60">
           {caption}

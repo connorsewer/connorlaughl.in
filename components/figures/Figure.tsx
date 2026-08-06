@@ -280,7 +280,14 @@ export function Figure({
       {/* The drawing sits on a gridded white plate; the page ground stays
           plain paper. See the reference cover, where every figure is drafted
           on graph paper inside the sheet. */}
-      <div ref={plateRef} data-xray="plate" className="figure-plate flex items-stretch gap-2 p-4">
+      {/* `data-xray-plate` carries the registry number so x-ray can name which
+          plate it is annotating instead of repeating "plate" down the page. */}
+      <div
+        ref={plateRef}
+        data-xray="plate"
+        data-xray-plate={id}
+        className="figure-plate flex items-stretch gap-2 p-4"
+      >
         <span
           aria-hidden="true"
           className="hidden shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] rotate-180 lg:block"
@@ -318,7 +325,7 @@ export function Figure({
         ) : null}
       </div>
 
-      <figcaption className="mt-4 flex flex-col gap-1.5">
+      <figcaption data-xray="caption" className="mt-4 flex flex-col gap-1.5">
         <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint">
           FIG_{id} [ {title} ]
         </span>
