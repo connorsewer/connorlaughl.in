@@ -10,6 +10,7 @@ import {
   Sheet,
   StatTable,
   StatTableMotion,
+  Terminal,
   TerminalFAQ,
   WordmarkMotion,
   type CoverTocGroup,
@@ -219,8 +220,11 @@ export default function Cover() {
           <h2 className="font-display text-[1.75rem] leading-tight text-body-ink sm:text-[2rem]">
             Questions I get asked.
           </h2>
+          {/* The static exchange, then a live one. `Terminal` renders only
+              after hydration, so the server HTML here is the FAQ alone. */}
           <div className="mt-8">
             <TerminalFAQ entries={faqEntries} />
+            <Terminal className="-mt-px" />
           </div>
         </Sheet>
 

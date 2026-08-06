@@ -27,6 +27,7 @@ export {
   type TerminalFAQProps,
   type TerminalFAQEntry,
 } from "@/components/manual/TerminalFAQ";
+export { Terminal, type TerminalProps } from "@/components/manual/Terminal";
 
 /* Chapter chrome. */
 export {
