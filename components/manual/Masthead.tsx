@@ -10,7 +10,8 @@ import { personSchema } from "@/components/JsonLd";
  * pixel wordmark set large in blueprint at the left, right-aligned serif
  * tagline stacked over a second line, thin rule underneath. The compact mode
  * matches `chapter-1440.png` top-left, where the wordmark shrinks to a link
- * and the right slot carries the breadcrumb instead of the tagline.
+ * and the tagline drops. The breadcrumb is NOT in here: it is its own rail
+ * above the sheet (see `Breadcrumb`), which is where the reference puts it.
  *
  * Server component. The wordmark is pre-split into `data-glyph` spans so a
  * client caller can run `wordmarkReveal()` from lib/motion-manual.ts over it
@@ -35,8 +36,6 @@ export type MastheadProps = {
   compact?: boolean;
   /** Full mode only. Serif tagline, right-aligned under the wordmark line. */
   tagline?: ReactNode;
-  /** Compact mode only. Breadcrumb node for the right slot. */
-  breadcrumb?: ReactNode;
   className?: string;
 };
 
@@ -45,6 +44,12 @@ function Wordmark({ compact }: { compact: boolean }) {
     <span
       aria-hidden="true"
       data-wordmark
+      // Explicit stack so the bitmap face can never silently fall through to
+      // mono if the font variable is ever unregistered.
+      style={{
+        fontFamily:
+          "var(--font-geist-pixel-square), var(--font-geist-mono), ui-monospace, monospace",
+      }}
       className={
         compact
           ? "font-pixel text-[0.95rem] leading-none tracking-[0.14em] text-blueprint"
@@ -83,7 +88,7 @@ function Nav({ compact }: { compact: boolean }) {
   );
 }
 
-export function Masthead({ compact = false, tagline, breadcrumb, className }: MastheadProps) {
+export function Masthead({ compact = false, tagline, className }: MastheadProps) {
   return (
     <header className={`w-full ${className ?? ""}`}>
       <a
@@ -98,10 +103,7 @@ export function Masthead({ compact = false, tagline, breadcrumb, className }: Ma
           <Link href="/" aria-label="Connor Laughlin, cover" className="shrink-0">
             <Wordmark compact />
           </Link>
-          <div className="flex flex-1 items-center justify-end gap-6">
-            {breadcrumb ? <div className="min-w-0">{breadcrumb}</div> : null}
-            <Nav compact />
-          </div>
+          <Nav compact />
         </div>
       ) : (
         <div className="flex flex-col gap-6 px-6 pb-5 pt-8 lg:flex-row lg:items-end lg:justify-between lg:px-10 lg:pt-10">

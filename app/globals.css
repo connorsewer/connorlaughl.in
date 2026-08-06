@@ -223,15 +223,21 @@ body:has(.manual-root)::after {
   font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--body-ink);
+  max-width: 68ch;
   text-align: left;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  -webkit-hyphens: none;
+  hyphens: none;
 }
 
-@media (min-width: 48rem) {
+/* Justified setting needs a measure wide enough to absorb the word spacing it
+   creates. Below this the column opens rivers, so it stays ragged right and
+   unhyphenated. */
+@media (min-width: 68rem) {
   .manual-body {
     text-align: justify;
     text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 }
 
@@ -276,16 +282,6 @@ body:has(.manual-root)::after {
   background-image:
     repeating-linear-gradient(
       to right,
-      color-mix(in srgb, var(--blueprint) 8%, transparent) 0 1px,
-      transparent 1px 64px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--blueprint) 8%, transparent) 0 1px,
-      transparent 1px 64px
-    ),
-    repeating-linear-gradient(
-      to right,
       color-mix(in srgb, var(--grid-line) 55%, transparent) 0 1px,
       transparent 1px 8px
     ),
@@ -296,15 +292,25 @@ body:has(.manual-root)::after {
     );
 }
 
+/* Figure plate: white paper with the same 8px rule. In the reference the
+   drawings sit ON gridded plates while the page ground stays plain paper, so
+   the grid reads as the surface a figure is drafted on. */
+.figure-plate {
+  background-color: var(--sheet);
+  background-image:
+    repeating-linear-gradient(to right, var(--grid-line) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(to bottom, var(--grid-line) 0 1px, transparent 1px 8px);
+}
+
 /* Dither checker band. A 3px checker on a 6px tile, blueprint at low alpha
    over the ground, so the band reads as a halftone rule rather than a solid
    line. The drift is 6px over 14s: below the threshold of perceived motion,
    enough to keep the dither from looking printed on. */
 .manual-checker {
-  height: 14px;
+  height: 8px;
   background-color: var(--ground);
   background-image: repeating-conic-gradient(
-    color-mix(in srgb, var(--blueprint) 26%, transparent) 0% 25%,
+    color-mix(in srgb, var(--blueprint) 9%, transparent) 0% 25%,
     transparent 0% 50%
   );
   background-size: 6px 6px;

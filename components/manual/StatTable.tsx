@@ -24,29 +24,28 @@ export type StatRow = {
 
 export type StatTableProps = {
   rows: StatRow[];
-  /** Table caption. Visually hidden; required for a labelled table. */
+  /** Mono heading above the rows, with a rule under it. */
   caption?: string;
   className?: string;
 };
 
 export function StatTable({ rows, caption, className }: StatTableProps) {
   return (
-    <table
-      className={`w-full border-collapse border border-grid-line font-mono text-[11px] uppercase tracking-[0.16em] ${
-        className ?? ""
-      }`}
-    >
-      {caption ? <caption className="sr-only">{caption}</caption> : null}
-      <tbody>
+    <div className={`w-full font-mono text-[11px] uppercase tracking-[0.16em] ${className ?? ""}`}>
+      {caption ? (
+        <p className="border-b border-grid-line pb-2 text-[10px] tracking-[0.28em] text-body-ink/60">
+          {caption}
+        </p>
+      ) : null}
+      <dl className="m-0">
         {rows.map((row) => (
-          <tr key={row.label} data-stat-row className="border-b border-grid-line last:border-b-0">
-            <th
-              scope="row"
-              className="w-1/2 px-4 py-3 text-left font-normal text-body-ink/60"
-            >
-              {row.label}
-            </th>
-            <td className="px-4 py-3 text-right text-body-ink">
+          <div
+            key={row.label}
+            data-stat-row
+            className="flex items-baseline justify-between gap-6 py-2.5"
+          >
+            <dt className="text-[color:#6B6B66]">{row.label}:</dt>
+            <dd className="m-0 text-right text-body-ink">
               {row.srText ? (
                 <>
                   <span aria-hidden="true">{row.value}</span>
@@ -55,10 +54,10 @@ export function StatTable({ rows, caption, className }: StatTableProps) {
               ) : (
                 row.value
               )}
-            </td>
-          </tr>
+            </dd>
+          </div>
         ))}
-      </tbody>
-    </table>
+      </dl>
+    </div>
   );
 }

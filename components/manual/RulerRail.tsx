@@ -20,9 +20,10 @@ import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
  * not, and no scroll listener is attached.
  */
 
-const TICKS = 56;
-/** Every Nth tick is drawn longer, the way a rule marks its units. */
-const MAJOR_EVERY = 5;
+/** Tick pitch in px. Fine enough to read as a rule rather than as a list. */
+const PITCH = 10;
+/** Neutral tick ink: the rule is furniture, not blueprint working ink. */
+const TICK = "color-mix(in srgb, var(--body-ink) 27%, transparent)";
 
 export function RulerRail() {
   const reduced = usePrefersReducedMotion();
@@ -61,15 +62,15 @@ export function RulerRail() {
       aria-hidden="true"
       className="pointer-events-none fixed right-0 top-0 z-30 hidden h-screen w-16 select-none lg:block"
     >
-      <div className="relative flex h-full flex-col justify-between pr-4">
-        {Array.from({ length: TICKS }).map((_, i) => (
-          <span
-            key={i}
-            className={`ml-auto block h-px bg-body-ink/25 ${
-              i % MAJOR_EVERY === 0 ? "w-4" : "w-2"
-            }`}
-          />
-        ))}
+      <div className="relative h-full pr-4">
+        {/* Ticks as a repeating rule: fixed pitch at any viewport height, and
+            no continuous hairline down the rail. */}
+        <span
+          className="absolute right-4 top-0 block h-full w-2.5"
+          style={{
+            backgroundImage: `repeating-linear-gradient(to bottom, ${TICK} 0 1px, transparent 1px ${PITCH}px)`,
+          }}
+        />
 
         {!reduced ? (
           <div

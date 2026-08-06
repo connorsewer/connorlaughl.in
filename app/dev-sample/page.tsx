@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   CheckerBand,
   ColophonFooter,
+  Breadcrumb,
   Masthead,
   RulerRail,
   Sheet,
@@ -58,36 +59,37 @@ export default function DevSamplePage() {
   return (
     <div className="manual-root min-h-screen bg-ground-grid">
       {/* Right padding clears the fixed RulerRail, which overlaps the nav at lg. */}
-      <Masthead
-        compact
-        className="lg:pr-14"
-        breadcrumb={
-          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-blueprint">
-            Appendix / Specimen
-          </span>
-        }
-      />
+      <Masthead compact className="lg:pr-14" />
 
       <CheckerBand label="Specimen sheet" />
 
       <RulerRail />
 
-      <main className="mx-auto w-full max-w-[64rem] px-4 py-10 sm:px-6 lg:px-10 lg:py-16">
+      <main className="mx-auto w-full max-w-[64rem] py-10 sm:px-6 lg:px-10 lg:py-16">
+        <Breadcrumb section="Appendix" chapter="Specimen" className="mb-3 px-4 sm:px-0" />
+
         <Sheet id="main-content" as="article" className="px-5 py-10 sm:px-10 lg:px-16 lg:py-16">
-          <p className="font-pixel text-[11px] uppercase tracking-[0.3em] text-blueprint">
-            Appendix
-          </p>
+          <div className="text-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/55">
+              Specimen | Connor Laughlin
+            </p>
 
-          <h1 className="mt-5 font-display text-[2.4rem] leading-[1.08] text-body-ink sm:text-[3.1rem]">
-            Type and figure specimen.
-          </h1>
+            <h1 className="mt-4 font-display text-[2.4rem] leading-[1.08] text-body-ink sm:text-[3.1rem]">
+              Type and figure specimen.
+            </h1>
 
-          <p className="mx-auto mt-6 max-w-[46ch] text-center font-display text-[1.15rem] leading-snug text-body-ink/75">
-            A working page for the manual system: ground, sheet, type roles, and one
-            figure drawn from the stack that renders it.
-          </p>
+            <p className="mx-auto mt-4 max-w-[46ch] font-display text-[1.15rem] leading-snug text-body-ink/75">
+              A working page for the manual system: ground, sheet, type roles, and one
+              figure drawn from the stack that renders it.
+            </p>
 
-          <div className="mt-10 h-px w-full bg-grid-line" />
+            <p
+              aria-hidden="true"
+              className="mt-8 font-mono text-[12px] tracking-[0.4em] text-body-ink/35"
+            >
+              ***
+            </p>
+          </div>
 
           <div className="mt-10 max-w-[68ch]">
             <p className="manual-body manual-dropcap">
@@ -110,7 +112,7 @@ export default function DevSamplePage() {
             </p>
           </div>
 
-          <h2 className="mt-14 font-display text-[1.6rem] leading-tight text-body-ink">
+          <h2 className="mt-14 font-serif-body text-[1.0625rem] font-semibold leading-snug text-body-ink">
             The stack that renders this page.
           </h2>
 
@@ -120,15 +122,40 @@ export default function DevSamplePage() {
               title="Site stack"
               groundTruth="The build layers of this repository: Next.js App Router routes, React components, the Tailwind v4 token layer, and the prerendered HTML the build writes out."
               caption="Placeholder plate. Each slab names a layer present in this repository's build, and the lattice below stands for the route files the build writes to disk."
-              viewBox="-330 -45 700 720"
+              viewBox="-330 -45 700 620"
             >
               <ExplodedStack layers={STACK_LAYERS} gap={92} labelSide="left" />
 
-              <GridPlane x={0} y={500} cols={6} rows={6} cell={24} fill="blue" />
+              {/* Dashed ties carry the eye from the bottom slab down to the
+                  lattice, the way the exploded slabs tie to each other. */}
+              <line
+                data-no-draw
+                x1={-95}
+                y1={331}
+                x2={-95}
+                y2={455}
+                stroke="var(--blueprint)"
+                strokeWidth={1.25}
+                strokeDasharray="5 6"
+                strokeOpacity={0.7}
+              />
+              <line
+                data-no-draw
+                x1={130}
+                y1={351}
+                x2={130}
+                y2={475}
+                stroke="var(--blueprint)"
+                strokeWidth={1.25}
+                strokeDasharray="5 6"
+                strokeOpacity={0.7}
+              />
+
+              <GridPlane x={0} y={400} cols={6} rows={6} cell={24} fill="blue" />
 
               <LeaderLabel
                 x={250}
-                y={556}
+                y={456}
                 dx={-90}
                 dy={0}
                 text="Route output"
@@ -145,7 +172,7 @@ export default function DevSamplePage() {
             </p>
           </div>
 
-          <h2 className="mt-14 font-display text-[1.6rem] leading-tight text-body-ink">
+          <h2 className="mt-14 font-serif-body text-[1.0625rem] font-semibold leading-snug text-body-ink">
             Specimen table.
           </h2>
 

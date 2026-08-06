@@ -52,7 +52,7 @@ Rule reminder: no gated value or private vendor/system name may appear in this f
 - [x] Phase 0 (c) reference captures (cover-1440/390, chapter-1440/390 in docs/superpowers/reference/, local-only)
 - [x] Phase 1a spine + IA lock (adversarial gate PASSED round 2, 9/10; residuals in morning decisions)
 - [ ] Phase 2 foundation
-- [ ] Phase 1b copy deck
+- [x] Phase 1b copy deck (gate PASSED round 2, 8/10)
 - [ ] Phase 3 cover
 - [ ] Phase 4 chapter chrome + case studies
 - [ ] Phase 5 remaining routes
@@ -62,3 +62,11 @@ Rule reminder: no gated value or private vendor/system name may appear in this f
 ## Morning decisions (running)
 
 - Spine round-2 residuals (all sub-BLOCKER, recorded in the spine's self-audit): (1) FAQ Q2's verticals count must render through the stats row's metrics entry or be dropped from Q2 — carried into Task 8 instructions; (2) one sourceNote cites a weaker approval sentence than the authoritative one; (3) one proof row's where-used omits /resume though the message map includes it; (4) a label collision ("a sixth row" vs the S6 entry id); (5) one editing artifact sentence lost its concessive clause. Plus the five decisions from the spine self-audit (employer naming, legacy public surfaces carrying held names, value-form mismatch, metrics module showing more than the spine clears, build-volume evidence unlock).
+
+## Phase 1b — Copy deck
+
+- Deck written to the vault (all routes, OG strings, 20 figures with ground truths). Adversarial gate: round 1 CHANGES REQUIRED (2 blocker: gated headcounts hard-coded, colophon mirroring the banned author-line construction; both fixed), round 2 PASS 8/10. Mechanical residuals applied post-gate; Section 3 TOC titles duplicating Section 1 chapter titles left for Connor's morning call. One authorized spine FAQ amendment recorded in the spine changelog. Site copy total ~2.8k words plus token expansions.
+
+- **Task 6 fidelity round 1 (fixes applied):** ground grid reduced to the 8px rule alone and the 64px major layer deleted; figures now sit on gridded white plates (`.figure-plate`) so the page ground reads as plain paper; `.manual-body` capped at a 68ch measure, ragged and unhyphenated by default, justified with hyphenation only above 68rem. StatTable lost its box and row dividers for a two-column list under a single rule; the checker band dropped to 8px at roughly a fifth of its previous contrast; the ruler went to a 10px tick pitch in neutral ink with no continuous hairline; figure captions moved to serif body; the sheet goes full bleed below 768px; and the breadcrumb moved out of the masthead into its own rail above the sheet as a new minimal `Breadcrumb` component that Task 11 will compose.
+- Gate finding on the wordmark was a misread, verified rather than assumed: the computed font stack on the wordmark resolves `GeistPixelSquare` first and the browser reports that face as loaded, so it was never falling back to mono. Geist Pixel Square is a fine pixel-grid face, not the heavy bitmap of the reference, which spec §1b already permits. The stack is now written explicitly on the element so it cannot silently fall through.
+- Screenshot capture note: `devIndicators` was set to false in `next.config.ts` for the capture only and reverted before the commit, so the dev badge is absent from both captures and the config is unchanged in the tree.

@@ -24,7 +24,9 @@ export function Sheet({ children, as, className, id }: SheetProps) {
   return (
     <Tag
       id={id}
-      className={`border border-grid-line bg-sheet shadow-[0_1px_2px_rgba(23,23,21,0.04),0_12px_32px_-24px_rgba(23,23,21,0.35)] ${
+      // Full bleed below 768px: no border, no shadow, no ground showing at the
+      // edges. A phone screen is the sheet.
+      className={`bg-sheet max-md:border-0 max-md:shadow-none md:border md:border-grid-line md:shadow-[0_1px_2px_rgba(23,23,21,0.04),0_12px_32px_-24px_rgba(23,23,21,0.35)] ${
         className ?? ""
       }`}
     >

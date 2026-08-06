@@ -61,7 +61,10 @@ export function Figure({
 
   return (
     <figure className={`w-full ${className ?? ""}`}>
-      <div className="flex items-stretch gap-2">
+      {/* The drawing sits on a gridded white plate; the page ground stays
+          plain paper. See the reference cover, where every figure is drafted
+          on graph paper inside the sheet. */}
+      <div className="figure-plate flex items-stretch gap-2 p-4">
         <span
           aria-hidden="true"
           className="shrink-0 self-start font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint/70 [writing-mode:vertical-rl] rotate-180"
@@ -95,7 +98,7 @@ export function Figure({
         <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-blueprint">
           FIG_{id} [ {title} ]
         </span>
-        <span className="font-mono text-[11px] leading-relaxed text-body-ink/75">
+        <span className="font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
           {caption}
         </span>
       </figcaption>

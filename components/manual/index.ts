@@ -5,6 +5,7 @@
  */
 
 export { Masthead, type MastheadProps } from "@/components/manual/Masthead";
+export { Breadcrumb, type BreadcrumbProps } from "@/components/manual/Breadcrumb";
 export { Sheet, type SheetProps } from "@/components/manual/Sheet";
 export { CheckerBand, type CheckerBandProps } from "@/components/manual/CheckerBand";
 export { RulerRail } from "@/components/manual/RulerRail";
