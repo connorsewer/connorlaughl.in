@@ -13,13 +13,13 @@ import {
  * claim-safe. Every case-study chapter sits in section 1 of the manual
  * (`tocSections` in `content/cover.ts`), so the meta line is a constant.
  */
-const WORDMARK = "CONNOR LAUGHLIN";
+const WORDMARK = "CONNOR J. LAUGHLIN";
 const META = "SECTION 1 / REVENUE SYSTEMS";
 const FALLBACK_TITLE = "Revenue systems";
 
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
-export const alt = "Connor Laughlin. Section 1, revenue systems.";
+export const alt = "Connor J. Laughlin. Section 1, revenue systems.";
 
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));

@@ -19,7 +19,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
  * without re-rendering the markup.
  */
 
-const WORDMARK = "CONNOR LAUGHLIN";
+const WORDMARK = "CONNOR J. LAUGHLIN";
 
 /** Contact target, reused from the schema module so there is one email in the tree. */
 const CONTACT_HREF = personSchema.email;
@@ -103,7 +103,7 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
 
       {compact ? (
         <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-4 lg:px-10">
-          <Link href="/" aria-label="Connor Laughlin, cover" className="shrink-0">
+          <Link href="/" aria-label="Connor J. Laughlin, cover" className="shrink-0">
             <Wordmark compact />
           </Link>
           <div className="flex items-center gap-5">
@@ -113,7 +113,7 @@ export function Masthead({ compact = false, tagline, className }: MastheadProps)
         </div>
       ) : (
         <div className="flex flex-col gap-6 px-6 pb-5 pt-8 lg:flex-row lg:items-end lg:justify-between lg:px-10 lg:pt-10">
-          <Link href="/" aria-label="Connor Laughlin, cover" className="shrink-0">
+          <Link href="/" aria-label="Connor J. Laughlin, cover" className="shrink-0">
             <Wordmark compact={false} />
           </Link>
           <div className="flex flex-col items-start gap-3 lg:items-end">

@@ -22,7 +22,7 @@ export type ChapterMetaProps = {
 
 export function ChapterMeta({
   words,
-  author = "Connor Laughlin",
+  author = "CONNOR J. LAUGHLIN",
   className,
 }: ChapterMetaProps) {
   return (

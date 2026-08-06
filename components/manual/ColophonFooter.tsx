@@ -24,7 +24,7 @@ export function ColophonFooter({ className }: ColophonFooterProps) {
       <CheckerBand />
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-6 py-12 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/70">
-          Connor Laughlin · Chicago
+          Connor J. Laughlin · Chicago
         </p>
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/60">
           Design language after{" "}

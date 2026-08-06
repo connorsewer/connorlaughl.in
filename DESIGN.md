@@ -311,7 +311,7 @@ typed content modules through their rendered-text fields. Drafts, stubs and
 `publicUse: "hide"` fields are excluded by construction, which is a leak guard
 as much as an accuracy one.
 
-The chapter meta line is `N WORDS | CONNOR LAUGHLIN` on case-study and longform
+The chapter meta line is `N WORDS | CONNOR J. LAUGHLIN` on case-study and longform
 chapters only. Bespoke TSX pages (resume, about, the planner) carry no
 word-count meta, because there is no single rendered source to count.
 

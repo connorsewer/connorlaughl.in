@@ -125,7 +125,7 @@ lands in the cyanotype negative, and `ThemeToggle` overrides either way.
 - `ChapterLayout`: chapter shell. Wraps everything in `.manual-root` and composes header, sidebar, meta and ruler.
 - `SidebarTOC`: chapter sidebar with scroll-spy over in-page anchors.
 - `CoverTOC`: the cover table of contents with dotted leaders and build-time word counts.
-- `ChapterHeader`, `ChapterMeta`, `Breadcrumb`: title block, `N WORDS | CONNOR LAUGHLIN` meta line, and trail.
+- `ChapterHeader`, `ChapterMeta`, `Breadcrumb`: title block, `N WORDS | CONNOR J. LAUGHLIN` meta line, and trail.
 - `RulerRail`: the fixed reading-progress ruler. Needs gutter clearance from the masthead at desktop.
 - `CheckerBand`: the pure-CSS checker between movements.
 - `StatTable`, `TerminalFAQ`: cover stats and the `IN:/OUT:` FAQ.

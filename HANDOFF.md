@@ -211,7 +211,7 @@ as part of this task and applied to nothing.
 
 13. **Focus-ring contract.** The written contract asks for a blueprint ring everywhere. In practice the contents links and a couple of buttons ring in body ink, which is comfortably visible and looks deliberate. Either tighten the contract to match the build or make the ring one colour.
 
-14. **Chapter meta separator.** The meta line renders as "N words by Connor Laughlin" where the deck specifies the mono pipe form. The component is shared by every chapter, so it was not changed under a single route.
+14. **Chapter meta separator.** The meta line renders as "N words by CONNOR J. LAUGHLIN" where the deck specifies the mono pipe form. The component is shared by every chapter, so it was not changed under a single route.
 
 15. **Figure leader labels at phone width** render at roughly four pixels, which matches the reference but is unreadable. The visible serif caption under every plate states the claim in words, so nothing is lost, but you may want the labels dropped below a breakpoint rather than shrunk.
 
