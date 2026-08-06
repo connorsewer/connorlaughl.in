@@ -145,7 +145,7 @@ export function RevOpsPlanner() {
             </span>
             <div className="flex items-baseline gap-2 border-b border-grid-line py-1.5 transition-colors hover:border-blueprint">
               {f.prefix ? (
-                <span className="font-display text-2xl text-body-ink/50">
+                <span className="font-display text-2xl text-body-ink/65">
                   {f.prefix}
                 </span>
               ) : null}
@@ -164,7 +164,7 @@ export function RevOpsPlanner() {
                 className="flex-1 bg-transparent font-display text-2xl text-body-ink focus:outline-none"
               />
               {f.suffix ? (
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-body-ink/50">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-body-ink/65">
                   {f.suffix}
                 </span>
               ) : null}
