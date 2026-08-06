@@ -10,18 +10,17 @@ const exists = (rel) => fs.existsSync(path.join(root, rel));
 /**
  * Minimum number of proof-metric renderers the tree must still contain.
  *
- * Measured 2026-08-05 against the pre-redesign tree (5 files):
+ * Measured 2026-08-05 after Task 9 retired ImpactLedger (4 files):
  *   app/page.tsx
  *   app/case-studies/[slug]/page.tsx
  *   app/case-studies/[slug]/opengraph-image.tsx
  *   components/CaseStudyArchive.tsx
- *   components/ImpactLedger.tsx
  *
  * A later task may change this number ONLY with a one-line justification in
  * docs/superpowers/2026-08-05-overnight-log.md (renderers are deleted, retired,
  * or added by the redesign). Never lower it silently.
  */
-const PROOF_RENDERER_FLOOR = 5;
+const PROOF_RENDERER_FLOOR = 4;
 
 /** Directories searched for renderers. */
 const RENDERER_SCAN_ROOTS = ["app", "components"];

@@ -1,543 +1,236 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { Header } from "@/components/Header";
-import { HeroSignature } from "@/components/HeroSignature";
-import { SplitText } from "@/components/SplitText";
-import { ImpactLedger } from "@/components/ImpactLedger";
-import { FigureMarquee } from "@/components/FigureMarquee";
-import { Magnetic } from "@/components/Magnetic";
-import { SectionDivider } from "@/components/SectionDivider";
-import { EdgeEcho } from "@/components/edge/EdgeEcho";
+import Link from "next/link";
+
 import { JsonLd, personSchema } from "@/components/JsonLd";
-import { CountUp } from "@/components/CountUp";
-import { HireSignal } from "@/components/HireSignal";
-import { NowFeed } from "@/components/NowFeed";
 import {
-  hero,
-  whatIBuild,
-  impactLedgerCopy,
-  signatureSystems,
-  contact,
-  timeline,
-} from "@/content/homepage-copy";
-import { heroProofStrip, renderableProofMetrics } from "@/content/proof-metrics";
-import { getSignatureCaseStudies } from "@/content/case-studies";
+  CheckerBand,
+  ColophonFooter,
+  CoverTOC,
+  Masthead,
+  RulerRail,
+  Sheet,
+  StatTable,
+  TerminalFAQ,
+  type CoverTocGroup,
+  type StatRow,
+} from "@/components/manual";
+import {
+  Fig001RevenueOperatingLayers,
+  Fig002SignalToTouch,
+  Fig003LifecycleStages,
+  Fig004AttributionJoin,
+  Fig005ApprovalGatePath,
+  Fig006ClaimToPublish,
+  Fig007ThisSite,
+} from "@/components/figures";
+import {
+  coverMeta,
+  cta,
+  faqEntries,
+  introChronology,
+  introInherited,
+  introLede,
+  masthead,
+  statsCaption,
+  statsLabels,
+  statsPreamble,
+  tocSections,
+} from "@/content/cover";
+import {
+  coverProofLede,
+  coverStats,
+  proseProofClaims,
+  renderableProofMetrics,
+} from "@/content/proof-metrics";
+import { chaptersPublished, chapterWords, siteWordsPublished } from "@/lib/word-counts";
+
+/**
+ * Cover (spec §3 cover anatomy).
+ *
+ * Order, top to bottom: masthead, dither band, proof-first intro with the
+ * page's single drop cap, cover figures, contents, stats, questions, contact,
+ * colophon. Copy is the approved deck's, verbatim; see `content/cover.ts`.
+ *
+ * Claim discipline: every gated numeral on this page resolves through
+ * `renderableProofMetrics()`, and the two counts resolve from the rendered
+ * public projection via `lib/word-counts.ts`. Nothing is typed as a literal.
+ */
 
 export const metadata: Metadata = {
-  title:
-    "Connor J. Laughlin | VP of Marketing & GTM (acting CMO), GTM Engineer",
-  description:
-    "Connor J. Laughlin is a Chicago-based VP of Marketing & GTM (acting CMO) and GTM Engineer who built revenue infrastructure, RevOps systems, governed AI workflows, and executive reporting behind $159.4M in influenced pipeline.",
+  title: coverMeta.title,
+  description: coverMeta.description,
 };
 
 export const revalidate = 60;
 
-/**
- * Hero plate. Single-slide static hero (the rolodex API still drives the
- * shader, with one slide it renders without crossfade). The mouse-driven
- * dither swell + ambient sin wave continue to apply. Reduced-motion
- * users see the same plate as a plain <img>.
- *
- * Hoisted to module scope so the reference is stable across renders.
- */
-const HERO_SLIDES = [
-  {
-    src: "/hero/desk-portrait.webp",
-    alt: "Connor at his standing desk with Henry the dog, looking out a window onto Lincoln Park, Chicago. Hand-drawn ink illustration",
-    fig: "[Fig. 01]",
-    caption: "Connor and Henry hard at work - Chicago, IL",
-  },
-];
+export default function Cover() {
+  /* P5. Cover route only: this value travels to no other page or image. */
+  const [pipeline] = renderableProofMetrics(coverProofLede);
+  /* S1, S2, S3, in deck order. */
+  const [years, verticals, acquisitions] = renderableProofMetrics(coverStats);
+  /* S6. Rendered as its whole progression sentence pair, never split. */
+  const [progression] = renderableProofMetrics(proseProofClaims);
 
-export default function Home() {
-  const signatureCases = getSignatureCaseStudies();
-  const heroStats = renderableProofMetrics(heroProofStrip);
+  const statRows: StatRow[] = [
+    {
+      label: statsLabels.years,
+      value: years.value,
+      srText: `${years.value}. ${years.context}.`,
+    },
+    {
+      label: statsLabels.verticals,
+      value: verticals.value,
+      srText: `${verticals.value}. ${verticals.context}.`,
+    },
+    {
+      label: statsLabels.acquisitions,
+      value: acquisitions.value,
+      srText: `${acquisitions.value}. ${acquisitions.context}.`,
+    },
+    { label: statsLabels.chapters, value: String(chaptersPublished()) },
+    { label: statsLabels.words, value: siteWordsPublished().toLocaleString("en-US") },
+  ];
+
+  const sections: CoverTocGroup[] = tocSections.map((section) => ({
+    num: section.num,
+    title: section.title,
+    entries: section.entries.map((entry) => ({
+      num: entry.num,
+      title: entry.title,
+      href: entry.href,
+      dek: entry.dek,
+      words: entry.countKey ? chapterWords(entry.countKey) : undefined,
+    })),
+  }));
 
   return (
-    <div className="selection:bg-accent selection:text-ink">
+    <div className="manual-root min-h-screen bg-ground-grid">
       <JsonLd data={personSchema} />
-      <Header />
 
-      <main id="main-content">
-        {/* HERO ============================================== */}
-        <section
-          aria-labelledby="hero-heading"
-          className="min-h-screen px-6 pt-32 pb-20 relative overflow-hidden"
-        >
-          <div className="mx-auto max-w-6xl w-full relative">
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
-              {/* Text, cols 1-6 */}
-              <div className="lg:col-span-6 flex flex-col gap-10">
-                <div className="animate-fade-in">
-                  <span className="font-mono text-[10px] tracking-[0.4em] text-accent uppercase">
-                    {hero.eyebrow}
-                  </span>
-                </div>
-
-                <h1
-                  id="hero-heading"
-                  className="font-display text-[clamp(2.75rem,7.5vw,5.5rem)] leading-[0.92] tracking-tight text-balance"
-                >
-                  <SplitText
-                    as="span"
-                    granularity="word"
-                    className="font-display font-black block"
-                  >
-                    {hero.headlinePart1}
-                  </SplitText>
-                  <SplitText
-                    as="span"
-                    granularity="word"
-                    delay={0.45}
-                    className="font-display font-medium italic block text-paper/85"
-                  >
-                    {hero.headlinePart2}
-                  </SplitText>
-                </h1>
-
-                <div className="space-y-5 animate-slide-up delay-200">
-                  <p className="text-lg md:text-xl text-paper/75 max-w-xl leading-relaxed text-balance">
-                    {hero.subheadPart1}
-                  </p>
-                  <p className="text-base md:text-lg text-paper/60 max-w-xl leading-relaxed">
-                    {hero.subheadPart2}
-                  </p>
-                </div>
-
-                {/* 6-stat proof strip with count-up motion. Lays out as 3x2
-                    at md+ for a balanced grid. */}
-                <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6 mt-2 animate-slide-up delay-300">
-                  {heroStats.map((stat, idx) => (
-                    <li
-                      key={stat.label}
-                      className="border-l-2 border-rule pl-4 hover:border-accent transition-colors"
-                    >
-                      <span className="font-display text-2xl md:text-3xl block leading-tight tabular-nums">
-                        <CountUp value={stat.value} delayMs={idx * 90} />
-                      </span>
-                      <span className="font-mono text-[10px] tracking-[0.18em] text-paper/55 uppercase block mt-1 leading-snug">
-                        {stat.label}
-                      </span>
-                      <span className="font-mono text-[9px] tracking-[0.15em] text-paper/40 block mt-1 leading-snug">
-                        {stat.context}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-wrap gap-4 mt-4 animate-slide-up delay-400">
-                  <Magnetic>
-                    <a
-                      href={hero.primaryCta.href}
-                      data-cursor="talk"
-                      className="cta-scan font-mono text-[11px] tracking-[0.2em] uppercase bg-accent text-ink px-7 py-3.5 rounded-full hover:bg-paper transition-colors inline-block"
-                    >
-                      {hero.primaryCta.text}
-                    </a>
-                  </Magnetic>
-                  <Magnetic>
-                    <a
-                      href={hero.secondaryCta.href}
-                      data-cursor="read"
-                      className="font-mono text-[11px] tracking-[0.2em] uppercase border border-paper/30 px-7 py-3.5 rounded-full hover:border-accent transition-colors inline-block"
-                    >
-                      {hero.secondaryCta.text}
-                    </a>
-                  </Magnetic>
-                </div>
-              </div>
-
-              {/* Signature WebGL plate, cols 7-12. Mouse-driven dither swell
-                  on the desk portrait. Single-slide hero; the WebGL shader
-                  still applies the swell, vignette, and dither overlay.
-                  Reduced motion shows the plate as a plain static image. */}
-              <div className="lg:col-span-6 lg:col-start-7 animate-fade-in delay-500">
-                <HeroSignature aspect="2 / 3" slides={HERO_SLIDES} />
-              </div>
-            </div>
-          </div>
-
-          {/* Scroll indicator */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-fade-in delay-1000 hidden lg:block">
-            <div className="w-px h-14 bg-gradient-to-b from-paper/40 to-transparent" />
-          </div>
-        </section>
-
-        {/* FIGURE MARQUEE ===========================================
-            Press-release ticker of the work and the numbers underneath
-            it. Stock-ticker cadence, paused on hover, reduced-motion safe. */}
-        <FigureMarquee
-          durationSec={42}
-          items={[
-            { fig: "$159.4M", label: "marketing-influenced pipeline" },
-            { fig: "$52.5M", label: "net-new revenue contribution" },
-            { fig: "[Fig. 04]", label: "BDR Pod, signal to meeting in 2h" },
-            { fig: "$25M+", label: "margin contribution" },
-            { fig: "+1,073%", label: "MQL growth from baseline" },
-            { fig: "[Fig. 08]", label: "AI operating system, 22 agents" },
-            { fig: "35+", label: "KPI revenue funnel framework" },
-            { fig: "7", label: "acquisitions integrated" },
-            { fig: "[Fig. 06]", label: "Marketing org, near-$0 to board" },
-            { fig: "+757%", label: "SQL growth, CRM-defined" },
-            { fig: "Multi-million", label: "first-90-day signal pipeline" },
-            { fig: "[Fig. 05]", label: "Outcome-first messaging architecture" },
-          ]}
-        />
-
-        {/* WHAT I BUILD ============================================= */}
-        <section
-          aria-labelledby="what-i-build-heading"
-          className="px-6 py-24 border-t border-rule"
-        >
-          <div className="mx-auto max-w-6xl">
-            <div className="grid lg:grid-cols-12 gap-12 mb-14">
-              <div className="lg:col-span-5">
-                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-5 uppercase block">
-                  {whatIBuild.eyebrow}
-                </span>
-                <h2
-                  id="what-i-build-heading"
-                  className="font-display text-4xl md:text-5xl leading-[1.05] text-balance"
-                >
-                  {whatIBuild.heading}
-                </h2>
-              </div>
-              <p className="lg:col-span-6 lg:col-start-7 text-paper/70 text-lg leading-relaxed self-end">
-                {whatIBuild.intro}
-              </p>
-            </div>
-
-            <ol className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-rule">
-              {whatIBuild.cards.map((card, i) => (
-                <li
-                  key={card.title}
-                  className="bg-ink p-7 hover:bg-paper/[0.02] transition-colors flex flex-col gap-4"
-                >
-                  <span className="font-pixel text-[11px] tracking-[0.2em] text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-display text-xl leading-snug">
-                    {card.title}
-                  </h3>
-                  <p className="text-paper/60 text-sm leading-relaxed">
-                    {card.body}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        {/* IMPACT LEDGER ===========================================
-            The prior "Built from zero" section was deleted in B.4: its
-            four bullets duplicated content the impact ledger and case
-            studies already carry. The body line below preserves the
-            "from near-zero" framing as a tight editorial intro. */}
-        <section
-          id="impact-ledger"
-          aria-labelledby="impact-ledger-heading"
-          className="px-6 py-28"
-        >
-          <div className="mx-auto max-w-6xl">
-            <div className="grid lg:grid-cols-12 gap-12 mb-14">
-              <div className="lg:col-span-6">
-                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-5 uppercase block">
-                  {impactLedgerCopy.eyebrow}
-                </span>
-                <h2
-                  id="impact-ledger-heading"
-                  className="font-display text-4xl md:text-5xl leading-[1.05] text-balance"
-                >
-                  {impactLedgerCopy.heading}
-                </h2>
-              </div>
-              <p className="lg:col-span-5 lg:col-start-8 text-paper/65 text-lg leading-relaxed self-end">
-                {impactLedgerCopy.intro}
-              </p>
-            </div>
-
-            <ImpactLedger />
-          </div>
-        </section>
-
-        <SectionDivider
-          src="/dividers/control-panel.webp"
-          alt="Vintage analog control panel with labeled dials, rocker switches, and toggle banks"
-          fig="[Fig. 10]"
-          caption="Control panel, the operating layer underneath the numbers"
-        />
-
-        {/* SIGNATURE SYSTEMS ======================================= */}
-        <section
-          id="systems"
-          aria-labelledby="systems-heading"
-          className="px-6 py-28 bg-paper/[0.02] border-y border-rule"
-        >
-          <div className="mx-auto max-w-6xl">
-            <div className="grid lg:grid-cols-12 gap-12 mb-14">
-              <div className="lg:col-span-6">
-                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-5 uppercase block">
-                  {signatureSystems.eyebrow}
-                </span>
-                <h2
-                  id="systems-heading"
-                  className="font-display text-4xl md:text-5xl leading-[1.05] text-balance"
-                >
-                  {signatureSystems.heading}
-                </h2>
-              </div>
-              <p className="lg:col-span-5 lg:col-start-8 text-paper/65 text-lg leading-relaxed self-end">
-                {signatureSystems.intro}
-              </p>
-            </div>
-
-            <ol className="grid md:grid-cols-2 gap-5">
-              {signatureCases.map((cs, i) => (
-                <li key={cs.slug}>
-                  <Link
-                    href={`/case-studies/${cs.slug}`}
-                    data-cursor={`file-${String(i + 1).padStart(2, "0")}`}
-                    className="group flex flex-col gap-5 p-7 border border-rule hover:border-accent transition-colors h-full"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="font-pixel text-[11px] tracking-[0.2em] text-accent">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="status-pill pixel-flicker">
-                        {cs.label}
-                      </span>
-                    </div>
-                    <h3
-                      className="font-display text-2xl md:text-[1.65rem] group-hover:text-accent transition-colors text-balance leading-tight"
-                      style={{ viewTransitionName: `case-title-${cs.slug}` }}
-                    >
-                      {cs.title}
-                    </h3>
-                    <p className="text-paper/75 text-base leading-relaxed italic">
-                      {cs.hook}
-                    </p>
-                    <dl className="grid grid-cols-1 gap-3 text-sm">
-                      <div>
-                        <dt className="font-mono text-[10px] tracking-[0.22em] text-paper/45 uppercase mb-1">
-                          The problem
-                        </dt>
-                        <dd className="text-paper/70 leading-relaxed">
-                          {cs.businessProblem}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="font-mono text-[10px] tracking-[0.22em] text-paper/45 uppercase mb-1">
-                          What I built
-                        </dt>
-                        <dd className="text-paper/70 leading-relaxed">
-                          {cs.whatIBuilt}
-                        </dd>
-                      </div>
-                    </dl>
-                    <ul className="mt-1 flex flex-wrap gap-2 pt-2 border-t border-rule/60">
-                      {renderableProofMetrics(cs.proofMetrics).slice(0, 3).map((m) => (
-                        <li
-                          key={`${cs.slug}-${m.label}`}
-                          className="font-mono text-[10px] tracking-[0.12em] text-accent border border-rule/80 px-2.5 py-1 rounded-full"
-                        >
-                          {m.value} {m.label}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-auto pt-3 flex items-center justify-between">
-                      <span className="font-mono text-[10px] tracking-[0.22em] text-paper/55 uppercase">
-                        What it proves
-                      </span>
-                      <span className="font-mono text-[10px] tracking-[0.22em] text-accent">
-                        Open <span aria-hidden="true">→</span>
-                      </span>
-                    </div>
-                    <p className="text-paper/65 text-sm leading-relaxed -mt-3">
-                      {cs.whatItProves}
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ol>
-
-            <div className="mt-12 flex justify-end">
-              <Link
-                href="/case-studies"
-                className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent hover:text-paper transition-colors inline-flex items-center gap-2 link-editorial"
-              >
-                See all case studies <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* EDGE ECHO ============================================== */}
-        <EdgeEcho />
-
-        <SectionDivider
-          src="/dividers/grid.webp"
-          alt="Abstract ASCII grid pattern with varying density across the field"
-          fig="[Fig. 09]"
-          caption="The grid, what the work runs on"
-        />
-
-        {/* ABOUT TEASER ============================================ */}
-        <section
-          id="about"
-          aria-labelledby="about-heading"
-          className="py-28 px-6"
-        >
-          <div className="mx-auto max-w-6xl">
-            <div className="grid lg:grid-cols-12 gap-12">
-              <div className="lg:col-span-4">
-                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-5 uppercase block">
-                  About
-                </span>
-                <h2
-                  id="about-heading"
-                  className="font-display text-4xl md:text-5xl leading-[1.05] text-balance"
-                >
-                  Connor J. Laughlin.
-                </h2>
-                <p className="font-mono text-[10px] tracking-[0.3em] text-paper/45 uppercase mt-6">
-                  Chicago · VP of Marketing & GTM (acting CMO)
-                </p>
-              </div>
-
-              <div className="lg:col-span-7 lg:col-start-6 space-y-6 text-paper/75 text-lg leading-relaxed">
-                <p>
-                  Santa Clara Finance taught me how to build the model. Northwestern Journalism taught me how to tell the story. Together they let me design revenue architectures that hold up under analytical pressure and read well to a buyer.
-                </p>
-                <p>
-                  The path was not a straight line. Business development at the Vatican Museums. Executive search at Reilly Partners. Content at Brad&apos;s Deals when it had 10 million monthly visitors. Then more than a decade at TSI inside a roughly $460M PE-backed enterprise, building the GTM operating layer from first digital hire to VP of Marketing & GTM (acting CMO).
-                </p>
-                <p>
-                  <Link href="/about" className="text-accent link-editorial">
-                    The personal version lives here
-                  </Link>
-                  . Kristin. Three dogs. A big family. Football, golf, cooking, travel.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid lg:grid-cols-12 gap-12 mt-16">
-              <div className="lg:col-span-4">
-                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-5 uppercase block">
-                  Education
-                </span>
-                <ul className="space-y-5 text-sm">
-                  <li className="border-l-2 border-rule pl-4">
-                    <p className="font-display text-lg leading-tight">Santa Clara University</p>
-                    <p className="text-paper/55 mt-1">B.S., Finance · Leavey School of Business</p>
-                    <p className="font-mono text-[10px] tracking-[0.2em] text-paper/40 uppercase mt-1">2006 to 2009</p>
-                  </li>
-                  <li className="border-l-2 border-rule pl-4">
-                    <p className="font-display text-lg leading-tight">Northwestern University</p>
-                    <p className="text-paper/55 mt-1">Medill School of Journalism · coursework</p>
-                  </li>
-                </ul>
-                <ul className="flex flex-wrap gap-2 mt-6">
-                  {["English (native)", "Italian", "Spanish"].map((lang) => (
-                    <li key={lang} className="status-pill">
-                      {lang}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="lg:col-span-7 lg:col-start-6">
-                <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-5 uppercase block">
-                  Career timeline
-                </span>
-                <ol className="space-y-px bg-rule">
-                  {timeline.map((t, i) => (
-                    <li
-                      key={`${t.year}-${t.role}`}
-                      className="bg-ink p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-6 hover:bg-paper/[0.02] transition-colors"
-                    >
-                      <span className="font-pixel text-[11px] tracking-[0.15em] text-accent shrink-0 md:w-12">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="font-mono text-[11px] tracking-[0.2em] text-paper/55 uppercase shrink-0 md:w-32">
-                        {t.year}
-                      </span>
-                      <span className="font-display text-base md:text-lg flex-1">
-                        {t.role}
-                      </span>
-                      <span className="font-mono text-[11px] tracking-[0.2em] text-paper/55 uppercase">
-                        {t.company}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* NOW ============================================= */}
-        <NowFeed />
-
-        {/* HIRE SIGNAL ============================================= */}
-        <HireSignal />
-
-        {/* CONTACT ================================================== */}
-        <section
-          id="contact"
-          aria-labelledby="contact-heading"
-          className="py-28 px-6 bg-paper/[0.02] border-t border-rule"
-        >
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="font-mono text-[10px] tracking-[0.4em] text-accent mb-8 uppercase block">
-              {contact.eyebrow}
+      {/* Right padding clears the fixed RulerRail, which overlaps the nav at lg. */}
+      <Masthead
+        className="lg:pr-14"
+        tagline={
+          <>
+            <span className="block font-display text-[1.15rem] leading-snug text-body-ink">
+              {masthead.tagline}
             </span>
-            <h2
-              id="contact-heading"
-              className="font-display text-5xl md:text-6xl mb-8 leading-[1.05] text-balance"
-            >
-              {contact.heading}
-            </h2>
-            <p className="text-paper/70 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-              {contact.body}
-            </p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <a
-                href={contact.primaryCta.href}
-                className="cta-scan font-mono text-[11px] tracking-[0.2em] uppercase bg-accent text-ink px-10 py-4 rounded-full hover:bg-paper transition-colors"
-              >
-                {contact.primaryCta.text}
-              </a>
-              <a
-                href={contact.secondaryCta.href}
-                className="font-mono text-[11px] tracking-[0.2em] uppercase text-paper/70 hover:text-accent transition-colors px-6 py-4"
-              >
-                {contact.secondaryCta.text} <span aria-hidden="true">→</span>
-              </a>
-            </div>
-            <p className="mt-8 text-paper/55 text-sm leading-relaxed max-w-xl mx-auto">
-              {contact.advisoryLine}
-            </p>
-            <p className="mt-3 font-mono text-[10px] tracking-[0.2em] uppercase text-paper/40">
-              <a
-                href={contact.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
-              >
-                LinkedIn <span aria-hidden="true">→</span>
-              </a>
-            </p>
-          </div>
-        </section>
+            <span className="mt-1.5 block font-serif-body text-[0.9375rem] leading-snug text-body-ink/75">
+              {masthead.identity}
+            </span>
+            <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-body-ink/55">
+              {masthead.role}
+            </span>
+          </>
+        }
+      />
 
-        <footer className="py-12 border-t border-rule px-6">
-          <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-4 opacity-60 font-mono text-[9px] tracking-[0.3em] uppercase">
-            <span>© 2026 Connor J. Laughlin</span>
-            <span>Chicago</span>
-            <span>Built in 2026</span>
+      <CheckerBand />
+
+      <RulerRail />
+
+      <main className="mx-auto w-full max-w-[68rem] py-10 sm:px-6 lg:px-10 lg:py-16">
+        <Sheet id="main-content" as="article" className="px-5 py-10 sm:px-10 lg:px-16 lg:py-16">
+          {/* Intro (anatomy slot 3). Proof first, then chronology, then scope. */}
+          <section aria-label="Opening" className="max-w-[68ch]">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-blueprint">
+              {introLede(pipeline.value)}
+            </p>
+
+            <p className="manual-body manual-dropcap mt-6">{introInherited}</p>
+
+            <p className="manual-body mt-5">
+              {introChronology(years.value, verticals.value)}
+            </p>
+          </section>
+
+          <div className="mt-12">
+            <Fig001RevenueOperatingLayers />
           </div>
-        </footer>
+
+          <section aria-label="Scope" className="mt-12 max-w-[68ch]">
+            <p className="manual-body">
+              {progression.value} {progression.label}. {progression.context}.
+            </p>
+          </section>
+
+          {/* Cover figures (anatomy slot 4). */}
+          <section aria-label="Plates" className="mt-16 flex flex-col gap-16">
+            <Fig002SignalToTouch />
+            <Fig003LifecycleStages />
+            <Fig004AttributionJoin />
+            <Fig005ApprovalGatePath />
+            <Fig006ClaimToPublish />
+            <Fig007ThisSite />
+          </section>
+        </Sheet>
+
+        {/* Contents (anatomy slot 5). */}
+        <div className="mt-12 sm:mt-16">
+          <CheckerBand label="Contents" />
+        </div>
+
+        <Sheet
+          id="contents"
+          as="section"
+          className="mt-8 scroll-mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-16"
+        >
+          <h2 className="font-display text-[2rem] leading-tight text-body-ink sm:text-[2.5rem]">
+            Contents.
+          </h2>
+          <div className="mt-10">
+            <CoverTOC sections={sections} />
+          </div>
+        </Sheet>
+
+        {/* Stats (anatomy slot 6). */}
+        <Sheet as="section" className="mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-14">
+          <h2 className="sr-only">Site figures</h2>
+          <p className="max-w-[60ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80">
+            {statsPreamble}
+          </p>
+          <div className="mt-8 max-w-[46rem]">
+            <StatTable rows={statRows} caption={statsCaption} />
+          </div>
+        </Sheet>
+
+        {/* Questions (anatomy slot 7). */}
+        <Sheet as="section" className="mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-14">
+          <h2 className="font-display text-[1.75rem] leading-tight text-body-ink sm:text-[2rem]">
+            Questions I get asked.
+          </h2>
+          <div className="mt-8">
+            <TerminalFAQ entries={faqEntries} />
+          </div>
+        </Sheet>
+
+        {/* Contact (anatomy slot 8). */}
+        <Sheet as="section" className="mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-14">
+          <h2 className="sr-only">Contact</h2>
+          <div className="flex flex-col items-start gap-5">
+            <a
+              href={cta.href}
+              className="inline-flex items-center border border-body-ink px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-body-ink transition-colors hover:bg-body-ink hover:text-sheet"
+            >
+              {cta.label}
+            </a>
+            <p className="max-w-[62ch] font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/75">
+              {cta.secondary}
+            </p>
+            <Link
+              href="/resume"
+              className="font-mono text-[10px] uppercase tracking-[0.2em] text-blueprint underline underline-offset-4 transition-opacity hover:opacity-70"
+            >
+              Read the resume
+            </Link>
+          </div>
+        </Sheet>
       </main>
+
+      {/* Colophon (anatomy slot 9). */}
+      <div id="colophon" className="scroll-mt-8">
+        <ColophonFooter />
+      </div>
     </div>
   );
 }

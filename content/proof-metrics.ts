@@ -106,23 +106,42 @@ const regulatedVerticals: ProofMetric = {
   label: "regulated GTM operating scope",
   context:
     "Regulated business lines run as one GTM operating system, with an international footprint",
+  /* The manual cover sets this count beside its own noun, in a stat row
+     labelled "regulated verticals" and in a sentence that supplies the same
+     word. The bare numeral is the public-safe render there; the approval's
+     context requirement travels with it through `context` (stat-row screen
+     reader text) and through the surrounding sentence in prose. */
+  publicValue: "5",
+  publicLabel: "regulated verticals",
   posture: "approved-exact-with-context",
   publicUse: "show",
   sourceNote:
     "BUILDER 2026-05-13 initiative-facts approval; ground truth candidate-profile-master-v3.md Company Context.",
 };
 
+/**
+ * Spine row P5. Amber with standing approval, cover route only.
+ *
+ * One object, referenced by both the legacy hero strip and the manual cover's
+ * proof lede, so the two surfaces can never drift. Per the copy deck it
+ * travels to no other page, no OG image, and no metadata string.
+ */
+const influencedPipeline: ProofMetric = {
+  value: "$159.4M",
+  label: "marketing-influenced pipeline FY25",
+  context: "GTM infrastructure built from zero",
+  claimId: "CJL-CLAIM-001",
+  posture: "approved-exact-with-context",
+  publicUse: "show",
+  sourceNote: "candidate-profile-master-v3.md:96-103; approved with context.",
+};
+
+/** P5, exported for the cover proof lede. Cover route only. */
+export const coverProofLede: ProofMetric[] = [influencedPipeline];
+
 /** Six hero proof statistics rendered above the fold. */
 export const heroProofStrip: ProofMetric[] = [
-  {
-    value: "$159.4M",
-    label: "marketing-influenced pipeline FY25",
-    context: "GTM infrastructure built from zero",
-    claimId: "CJL-CLAIM-001",
-    posture: "approved-exact-with-context",
-    publicUse: "show",
-    sourceNote: "candidate-profile-master-v3.md:96-103; approved with context.",
-  },
+  influencedPipeline,
   {
     value: "$52.5M",
     label: "net-new revenue contribution FY25",

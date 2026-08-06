@@ -14,6 +14,17 @@ export {
   ColophonFooter,
   type ColophonFooterProps,
 } from "@/components/manual/ColophonFooter";
+export {
+  CoverTOC,
+  type CoverTOCProps,
+  type CoverTocGroup,
+  type CoverTocLink,
+} from "@/components/manual/CoverTOC";
+export {
+  TerminalFAQ,
+  type TerminalFAQProps,
+  type TerminalFAQEntry,
+} from "@/components/manual/TerminalFAQ";
 
 /* Chapter chrome. */
 export {
