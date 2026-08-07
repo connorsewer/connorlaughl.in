@@ -90,11 +90,6 @@ const BUILDS = [
     paths: [path.join(home, "projects/mcOS")],
   },
   {
-    id: "hermes-agent",
-    paths: [],
-    recorded: { era: "2026", source: "Experiment year; runs off-repo against a hosted agent" },
-  },
-  {
     id: "this-site",
     paths: [root],
   },

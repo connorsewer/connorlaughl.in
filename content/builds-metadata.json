@@ -29,10 +29,6 @@
       "era": "2026-02",
       "source": "git"
     },
-    "hermes-agent": {
-      "era": "2026",
-      "source": "Experiment year; runs off-repo against a hosted agent"
-    },
     "this-site": {
       "era": "2026-02 → 2026-08",
       "source": "git"

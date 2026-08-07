@@ -17,6 +17,7 @@ import buildsMetadata from "@/content/builds-metadata.json";
  * GitHub repositories, verified 2026-08-06. jobos and the analytics platform
  * are private repositories and the employer systems are internal, so those
  * cards carry no link; their PROVES line names the constraint instead.
+ * Eight cards, not the deck's nine: hermes-agent was cut (see below).
  */
 
 export type BuildStatus = "operating" | "shipped" | "open-source" | "you-are-here";
@@ -96,13 +97,10 @@ export const buildCards: BuildCard[] = [
     href: "https://github.com/connorsewer/mcOS",
     hrefLabel: "Repository",
   },
-  {
-    id: "hermes-agent",
-    name: "hermes-agent",
-    status: "open-source",
-    body: "An experiment in personal AI that accumulates context and grows with its operator. Open source.",
-    proves: "Curiosity with a commit history.",
-  },
+  /* hermes-agent was card 8 in deck 17.5 and was cut by Connor on
+     2026-08-06: the only public repository under his account is an untouched
+     fork, which fails the section's own points-at-a-real-artifact rule. The
+     cut is recorded in the deck change log. */
   {
     id: "this-site",
     name: "This site",
