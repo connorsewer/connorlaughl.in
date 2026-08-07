@@ -27,10 +27,14 @@ const CONTACT_HREF = personSchema.email;
 
 type NavLink = { href: string; label: string };
 
-/** The manual's three standing links. Exported so the chapter shell can fold
-    them into its contents disclosure at widths where the masthead nav hides. */
+/** The manual's standing links (re-story design, decision 5). Exported so the
+    chapter shell can fold them into its contents disclosure at widths where
+    the masthead nav hides. */
 export const MANUAL_NAV: NavLink[] = [
-  { href: "/#contents", label: "Contents" },
+  { href: "/work", label: "Work" },
+  { href: "/builds", label: "Builds" },
+  { href: "/writing", label: "Writing" },
+  { href: "/story", label: "Story" },
   { href: "/resume", label: "Resume" },
   { href: CONTACT_HREF, label: "Contact" },
 ];

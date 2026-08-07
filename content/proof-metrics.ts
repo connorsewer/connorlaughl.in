@@ -330,6 +330,7 @@ export const proseProofClaims: ProofMetric[] = [
  */
 export const proseClaimTokens: Record<string, ProofMetric> = {
   S6: proseProofClaims[0],
+  S8: proseProofClaims[2],
   V5: regulatedVerticals,
   P6: influencedPipelineSoftened,
   P2: highPriorityResponseRule,

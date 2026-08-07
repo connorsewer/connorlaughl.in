@@ -366,7 +366,7 @@ export function runCommand(raw: string, ctx: TerminalContext): CommandResult {
       return gotoResult("/resume", "the resume");
 
     case "about":
-      return gotoResult("/about", "the appendix on who");
+      return gotoResult("/story", "the story of who");
 
     case "edge":
       return gotoResult("/edge", "how the work gets done");

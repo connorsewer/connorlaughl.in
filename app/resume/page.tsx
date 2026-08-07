@@ -353,7 +353,7 @@ export default function ResumePage() {
             items={[
               { kicker: "Contents", title: "The full table of contents", href: "/#contents" },
               { kicker: "Chapters", title: "Section 1, the revenue systems", href: "/case-studies" },
-              { kicker: "About", title: "How the work got here", href: "/about" },
+              { kicker: "Story", title: "How the work got here", href: "/story" },
             ]}
           />
         </Sheet>

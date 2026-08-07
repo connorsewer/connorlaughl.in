@@ -47,6 +47,14 @@ export type CoverTOCProps = {
    * does not print twice.
    */
   showSectionHeaders?: boolean;
+  /**
+   * Cover diet (re-story design, decision 7): each section folds behind its
+   * header as a native disclosure, section 1 open by default. Native
+   * details/summary, so reduced motion and keyboard access come for free and
+   * the collapsed state hides nothing from a find-in-page reader on browsers
+   * that auto-expand matches. Index pages keep the flat list.
+   */
+  collapsible?: boolean;
 };
 
 
@@ -73,30 +81,37 @@ function sectionPeak(entries: CoverTocLink[]): number {
   );
 }
 
+function SectionHeader({ section, entryCount }: { section: CoverTocGroup; entryCount?: number }) {
+  return (
+    /* `.font-pixel` carries the same stack and the tracking with it;
+       the inline style this replaced silently dropped the tracking. */
+    <h3 data-xray="section" className="font-pixel flex items-baseline gap-3 text-[0.8125rem] uppercase tracking-[0.1em] text-body-ink">
+      <span>Section {section.num}</span>
+      <span aria-hidden="true" className="text-body-ink/50">
+        /
+      </span>
+      <span>{section.title}</span>
+      {typeof entryCount === "number" ? (
+        <span className="ml-auto font-mono text-[10px] tracking-[0.18em] text-body-ink/50">
+          {entryCount} {entryCount === 1 ? "entry" : "entries"}
+        </span>
+      ) : null}
+    </h3>
+  );
+}
+
 export function CoverTOC({
   sections,
   className,
   showSectionHeaders = true,
+  collapsible = false,
 }: CoverTOCProps) {
   return (
     <nav aria-label="Contents" data-xray="toc" className={`w-full ${className ?? ""}`}>
-      <ol className="m-0 flex list-none flex-col gap-14 p-0">
+      <ol className={`m-0 flex list-none flex-col p-0 ${collapsible ? "gap-6" : "gap-14"}`}>
         {sections.map((section) => {
           const peak = sectionPeak(section.entries);
-          return (
-          <li key={section.num}>
-            {showSectionHeaders ? (
-            /* `.font-pixel` carries the same stack and the tracking with it;
-               the inline style this replaced silently dropped the tracking. */
-            <h3 data-xray="section" className="font-pixel flex items-baseline gap-3 border-b border-rule-hair pb-2 text-[0.8125rem] uppercase tracking-[0.1em] text-body-ink">
-              <span>Section {section.num}</span>
-              <span aria-hidden="true" className="text-body-ink/50">
-                /
-              </span>
-              <span>{section.title}</span>
-            </h3>
-            ) : null}
-
+          const entryRows = (
             <ol className="m-0 flex list-none flex-col p-0">
               {section.entries.map((entry) => (
                 /* The whole row is the target. In a printed contents the leader
@@ -165,7 +180,38 @@ export function CoverTOC({
                 </li>
               ))}
             </ol>
-          </li>
+          );
+
+          if (collapsible) {
+            return (
+              <li key={section.num}>
+                <details open={section.num === 1} className="group/toc">
+                  <summary className="flex cursor-pointer list-none items-baseline gap-3 border-b border-rule-hair pb-2 [&::-webkit-details-marker]:hidden">
+                    <span
+                      aria-hidden="true"
+                      className="font-mono text-[10px] text-body-ink/50 transition-transform group-open/toc:rotate-90"
+                    >
+                      ▸
+                    </span>
+                    <div className="flex-1">
+                      <SectionHeader section={section} entryCount={section.entries.length} />
+                    </div>
+                  </summary>
+                  <div className="pt-2">{entryRows}</div>
+                </details>
+              </li>
+            );
+          }
+
+          return (
+            <li key={section.num}>
+              {showSectionHeaders ? (
+                <div className="border-b border-rule-hair pb-2">
+                  <SectionHeader section={section} />
+                </div>
+              ) : null}
+              {entryRows}
+            </li>
           );
         })}
       </ol>

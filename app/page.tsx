@@ -16,29 +16,25 @@ import {
   type CoverTocGroup,
   type StatRow,
 } from "@/components/manual";
+import { Fig002SignalToTouch } from "@/components/figures";
 import {
-  Fig001RevenueOperatingLayers,
-  Fig002SignalToTouch,
-  Fig003LifecycleStages,
-  Fig006ClaimToPublish,
-  Fig007ThisSite,
-} from "@/components/figures";
-import {
+  coverFaqEntries,
   coverMeta,
   cta,
-  faqEntries,
-  introChronology,
-  introInherited,
+  introHook,
+  introHookLink,
   introLede,
+  introStory,
   masthead,
   statsLabels,
   statsPreamble,
+  threeDoors,
   tocSections,
 } from "@/content/cover";
 import {
   coverProofLede,
   coverStats,
-  proseProofClaims,
+  proseClaimTokens,
   renderableProofMetrics,
 } from "@/content/proof-metrics";
 import { chaptersPublished, chapterWords, siteWordsPublished } from "@/lib/word-counts";
@@ -67,8 +63,12 @@ export default function Cover() {
   const [pipeline] = renderableProofMetrics(coverProofLede);
   /* S1, S2, S3, in deck order. */
   const [years, verticals, acquisitions] = renderableProofMetrics(coverStats);
-  /* S6. Rendered as its whole progression sentence pair, never split. */
-  const [progression] = renderableProofMetrics(proseProofClaims);
+  /* S8 and P6 for the deck-17 intro. Both resolve through the gate; the array
+     form drops nothing here because both postures render. */
+  const [promotions, pipelineSoft] = renderableProofMetrics([
+    proseClaimTokens.S8,
+    proseClaimTokens.P6,
+  ]);
 
   /* The stats row has to survive a reader counting the contents by hand, so
      it reports the chapters the contents actually lists (sections 1 and 3).
@@ -152,14 +152,18 @@ export default function Cover() {
               {introLede(pipeline.value)}
             </p>
 
-            <p className="manual-body manual-dropcap mt-6">{introInherited}</p>
-
-            <p className="manual-body mt-5">
-              {introChronology(years.value, verticals.value)}
+            <p className="manual-body manual-dropcap mt-6">
+              {introStory(years.value, promotions.value)}
             </p>
 
             <p className="manual-body mt-5">
-              {progression.value} {progression.label}. {progression.context}.
+              {introHook(pipelineSoft.value)}{" "}
+              <Link
+                href="/story"
+                className="text-blueprint underline decoration-blueprint/40 underline-offset-4 transition-colors hover:decoration-blueprint"
+              >
+                {introHookLink}
+              </Link>
             </p>
           </section>
 
@@ -167,6 +171,27 @@ export default function Cover() {
             <Fig002SignalToTouch />
           </div>
 
+          {/* The three doors (deck 17.2): the 30-second, 60-second, and
+              3-minute reads, each a whole-card link. */}
+          <nav aria-label="Start here" className="mt-12 grid gap-4 sm:grid-cols-3">
+            {threeDoors.map((door) => (
+              <Link
+                key={door.href}
+                href={door.href}
+                className="group flex flex-col gap-2 border border-rule-hair p-5 transition-colors hover:border-blueprint focus-visible:border-blueprint"
+              >
+                <span className="font-pixel text-[0.8125rem] uppercase tracking-[0.1em] text-blueprint">
+                  {door.label}
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-body-ink/60">
+                  {door.time}
+                </span>
+                <span className="font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80 transition-colors group-hover:text-body-ink">
+                  {door.line}
+                </span>
+              </Link>
+            ))}
+          </nav>
         </Sheet>
 
         {/* Contents (anatomy slot 5). */}
@@ -183,48 +208,14 @@ export default function Cover() {
             Contents.
           </h2>
           <div className="mt-10">
-            <CoverTOC sections={sections} />
+            <CoverTOC sections={sections} collapsible />
           </div>
         </Sheet>
 
-        {/* Cover figures (anatomy slot 4).
-            Audit #3: the gallery used to run seven plates at one width, four of
-            them the same descending chain. Two things changed here, both
-            placement decisions and neither a registry change.
-
-            Register. FIG_001 opens the section across the full sheet, the two
-            plates that read as a pair share a 2-up row from lg, and FIG_007
-            closes at the reading measure. Three scales, one section.
-
-            Retired from the cover. FIG_004 [ ATTRIBUTION JOIN ] and FIG_005
-            [ APPROVAL GATE PATH ] came off this page because they repeat
-            FIG_002's chain at cover scale. Both subjects still render at
-            chapter scale: the attribution join as FIG_014 on
-            /case-studies/marketing-analytics-architecture, and the approval
-            gate path as FIG_009 on /case-studies/ai-native-gtm. FIGURES.md is
-            untouched and both cover plates stay in components/figures. */}
-        <Sheet as="section" className="mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-14">
-          <h2 className="font-serif-body text-[1.0625rem] font-semibold leading-snug text-body-ink">
-            The systems, drawn.
-          </h2>
-          <div className="mt-10 flex flex-col gap-16">
-            {/* Section opener, full sheet measure. The subject rail is off
-                across this section: each plate's `<figcaption>` names the same
-                subject a line below the drawing, so the rotated copy is a
-                second reading of a word the reader already has. */}
-            <Fig001RevenueOperatingLayers showSubjectRail={false} />
-
-            {/* The pair: a stage grid and a gated sequence, read side by side. */}
-            <div className="grid gap-x-10 gap-y-16 lg:grid-cols-2">
-              <Fig003LifecycleStages showSubjectRail={false} />
-              <Fig006ClaimToPublish showSubjectRail={false} />
-            </div>
-
-            <div className="max-w-[40rem]">
-              <Fig007ThisSite showSubjectRail={false} />
-            </div>
-          </div>
-        </Sheet>
+        {/* Cover figures (re-story design, decision 7): the cover keeps one
+            signature plate, FIG_002, inline with the intro above. FIG_001,
+            FIG_003, FIG_006, and FIG_007 retired to chapter scale where their
+            subjects already render; FIGURES.md untouched, components kept. */}
 
         {/* Stats (anatomy slot 6). */}
         <Sheet as="section" className="mt-8 px-5 py-10 sm:px-10 lg:px-16 lg:py-14">
@@ -254,7 +245,7 @@ export default function Cover() {
           {/* The static exchange, then a live one. `Terminal` renders only
               after hydration, so the server HTML here is the FAQ alone. */}
           <div className="mt-8">
-            <TerminalFAQ entries={faqEntries} />
+            <TerminalFAQ entries={coverFaqEntries} />
             <Terminal className="-mt-px" />
           </div>
         </Sheet>

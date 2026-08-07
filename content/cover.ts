@@ -17,8 +17,8 @@
 /* ------------------------------------------------------------------ */
 
 export const masthead = {
-  /** Serif tagline, right-aligned. */
-  tagline: "I build the revenue systems that make GTM strategy real.",
+  /** Serif tagline, right-aligned. Deck 17.1, thesis A. */
+  tagline: "I tell stories people remember, and I build the systems that make them true.",
   /** Identity lockup. */
   identity: "Marketing executive. GTM systems engineer.",
   /** Mono role and location line. */
@@ -34,14 +34,53 @@ export function introLede(pipeline: string): string {
   return `${pipeline} influenced pipeline, built from zero infrastructure.`;
 }
 
-/** Canonical phrasing. Reuse verbatim, do not paraphrase. */
-export const introInherited =
-  "Nothing here was inherited. No infrastructure, no team, no playbooks, no pipeline. The systems in this manual started as blank pages.";
-
-/** `years` is S1, `verticals` is S2. Both resolved by the caller. */
-export function introChronology(years: string, verticals: string): string {
-  return `I came in as the first digital marketing hire. ${years} years later I run marketing and GTM across ${verticals} regulated verticals as VP and acting CMO.`;
+/**
+ * Deck 17.1 intro, paragraph one. `years` is S1, `promotions` is S8, both
+ * resolved by the caller. Employer naming per bank A6.
+ */
+export function introStory(years: string, promotions: string): string {
+  return `I came in as TSI's first digital marketing hire and stayed ${years} years, ${promotions} promotions, and one acting-CMO seat. Everything in this manual is a system I built and still run: positioning, demand, attribution, pipeline inspection, governed AI. Every number resolves from a governed claim register, and the largest one is on this page.`;
 }
+
+/**
+ * Deck 17.1 intro, paragraph two. `pipelineSoft` is P6, the softened
+ * order-of-magnitude form, resolved by the caller. The trailing sentence is
+ * rendered by the page as a link to /story.
+ */
+export function introHook(pipelineSoft: string): string {
+  return `The story of how a comic-book kid ended up running a ${pipelineSoft} takes three minutes.`;
+}
+
+/** Deck 17.1. The linked closer of the intro hook. */
+export const introHookLink =
+  "It starts with a Palm Pilot and a man named Tom Bedecarre.";
+
+/* ------------------------------------------------------------------ */
+/* 1.3 Three doors (deck 17.2)                                         */
+/* ------------------------------------------------------------------ */
+
+export type Door = { label: string; time: string; line: string; href: string };
+
+export const threeDoors: Door[] = [
+  {
+    label: "The proof",
+    time: "Thirty seconds.",
+    line: "The flagship chapter and the numbers that survived the register.",
+    href: "/work",
+  },
+  {
+    label: "The builds",
+    time: "Sixty seconds.",
+    line: "The software I ship, named and dated.",
+    href: "/builds",
+  },
+  {
+    label: "The story",
+    time: "Three minutes.",
+    line: "Palm Pilots, Dylan records, and the founder of AKQA.",
+    href: "/story",
+  },
+];
 
 /* ------------------------------------------------------------------ */
 /* 1.4 Table of contents                                               */
@@ -233,8 +272,8 @@ export const tocSections: CoverTocSection[] = [
     entries: [
       {
         num: "01",
-        title: "About",
-        href: "/about",
+        title: "Story",
+        href: "/story",
         dek: "Writer, then builder, then executive, and how those three keep feeding each other.",
       },
       {
@@ -278,16 +317,16 @@ export const statsLabels = {
 
 export type FaqEntry = { question: string; answer: string };
 
-export const faqEntries: FaqEntry[] = [
+/**
+ * Deck 17.6: the cover keeps three entries (availability, identity, AI
+ * practice). The other three render on /story as "asked and answered" in
+ * phase 4; they live in `storyFaqEntries` below so no approved copy is lost.
+ */
+export const coverFaqEntries: FaqEntry[] = [
   {
     question: "Why leave after more than a decade in one place?",
     answer:
       "I built the machine there from the ground up, and I've run out of ceiling. The next chapter should be somewhere AI-native or software-led, where GTM systems and hands-on building are central to the strategy instead of a side effect of it.",
-  },
-  {
-    question: "You built in regulated services. Does that transfer to SaaS?",
-    answer:
-      "The category is different. The GTM complexity is harder. A PE-backed enterprise, regulated verticals, multiple acquisitions, long enterprise cycles, and compliance review on every claim that leaves the building. I also ran the GTM bridge for an acquired software product and built the AI systems myself. What transfers is building GTM infrastructure under constraint.",
   },
   {
     question: "Are you technical enough to call yourself a GTM engineer?",
@@ -298,6 +337,15 @@ export const faqEntries: FaqEntry[] = [
     question: "Are you too senior to still build?",
     answer:
       "I do both. I've operated at acting-CMO level and still write the workflows, prompts, dashboards, and automations when speed or clarity needs it.",
+  },
+];
+
+/** Held for /story, phase 4. Approved deck copy, verbatim. */
+export const storyFaqEntries: FaqEntry[] = [
+  {
+    question: "You built in regulated services. Does that transfer to SaaS?",
+    answer:
+      "The category is different. The GTM complexity is harder. A PE-backed enterprise, regulated verticals, multiple acquisitions, long enterprise cycles, and compliance review on every claim that leaves the building. I also ran the GTM bridge for an acquired software product and built the AI systems myself. What transfers is building GTM infrastructure under constraint.",
   },
   {
     question: "Have you built a RevOps function from the ground up?",
