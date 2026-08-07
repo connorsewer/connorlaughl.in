@@ -1,3 +1,16 @@
+# ADDENDUM 2026-08-06 (queued): the builds product-page plan is written
+
+Next build session: execute
+`docs/superpowers/plans/2026-08-06-builds-product-pages.md` — per-build
+product pages with data plates, develop-treatment product shots, two new
+figures (FIG_024 jobos, FIG_025 mcOS), and index cards becoming doors. Two
+gates sit with Connor and are marked in the plan: G1 releases per-build
+commit telemetry (needs a one-line bank ruling, A9), G2 supplies sanitized
+screenshots for the five internal builds. Neither blocks shipping the
+system. Separately queued: a voice/humanize pass across all manual copy; the
+session prompt for it was delivered in chat on 2026-08-06 and the journal
+essays are the voice corpus.
+
 # ADDENDUM 2026-08-06 (the port): the personal content came home
 
 Connor ruled on the porting sheet (story bank A8 records all of it): the
