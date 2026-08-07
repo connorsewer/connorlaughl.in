@@ -1,3 +1,15 @@
+# ADDENDUM 2026-08-06 (night): the re-story is approved
+
+Connor approved the re-story design in session. Read
+`docs/superpowers/specs/2026-08-06-restory-design.md` first: it records the
+thesis, the identity arc, the naming unlocks (details in the vault story bank
+A4-A6), the six-item nav, the route renames, and the cover diet. Upstream copy
+is written and final in Spine v2 and copy deck section 17 (vault). Phase 1
+(spine, deck, bank) is done. Next session starts Phase 2 (recomposition), then
+Phase 3 (`/builds`, the showpiece, wants a fresh context), then Phase 4 (warm
+pass). HANDOFF section 4A item 3 (employer naming) is resolved by bank A6;
+item 4 (build-count unlock) is still open and gates the `/builds` headline.
+
 # ADDENDUM 2026-08-06 (evening): elevation + wow session
 
 Ten commits, `2d2247f0..411c0ac4`, on `redesign/manual`. Connor's standing
