@@ -274,8 +274,24 @@ export const tocSections: CoverTocSection[] = [
       },
     ],
   },
+  /* Re-story port, bank A8 decision D1: the Journal enters the contents as
+     its own section, like Builds a single index entry so the sidebars stay
+     readable. The essays list themselves on /journal with their own dates
+     and read times, which is why no count key rides here. */
   {
     num: 5,
+    title: "Journal",
+    entries: [
+      {
+        num: "01",
+        title: "Notes from a working life",
+        href: "/journal",
+        dek: "Personal essays: work, Chicago, dogs, football, and what AI is doing to all of it.",
+      },
+    ],
+  },
+  {
+    num: 6,
     title: "Resume",
     entries: [
       {
@@ -287,7 +303,7 @@ export const tocSections: CoverTocSection[] = [
     ],
   },
   {
-    num: 6,
+    num: 7,
     title: "Appendix",
     entries: [
       {
@@ -298,12 +314,24 @@ export const tocSections: CoverTocSection[] = [
       },
       {
         num: "02",
+        title: "Now",
+        href: "/now",
+        dek: "A snapshot of right now: reading, watching, playing, building.",
+      },
+      {
+        num: "03",
+        title: "Plates",
+        href: "/plates",
+        dek: "A few rolls of film, screened to the manual's ink until pressed.",
+      },
+      {
+        num: "04",
         title: "RevOps capacity planner",
         href: "/tools/revops-capacity-planner",
         dek: "A working reverse-funnel calculator that turns a revenue target into the volume you would need.",
       },
       {
-        num: "03",
+        num: "05",
         title: "Colophon",
         href: "#colophon",
         dek: "Type, stack, and the design language this manual borrows from.",

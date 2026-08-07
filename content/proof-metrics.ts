@@ -300,6 +300,29 @@ const highPriorityResponseRule: ProofMetric = {
 };
 
 /**
+ * Bank A8, decision D6. The Brad's Deals audience, softened to its shape.
+ *
+ * Pre-TSI biographical scope: Connor wrote high-volume consumer editorial at
+ * Brad's Deals, and his previous site stated the audience as a monthly
+ * visitor count. Per the D6 ruling the exact numeral stays out of source;
+ * only this order-of-magnitude form exists anywhere in the repo. Naming the
+ * employer is authorized by the same ruling.
+ */
+const bradsDealsAudience: ProofMetric = {
+  value: "eight-figure monthly audience",
+  label: "consumer editorial audience, order of magnitude",
+  context: "High-volume consumer editorial at Brad's Deals, headlines graded by live traffic",
+  publicValue: "eight-figure monthly audience",
+  publicLabel: "consumer editorial audience, order of magnitude",
+  publicContext:
+    "High-volume consumer editorial at Brad's Deals, headlines graded by live traffic",
+  posture: "verified",
+  publicUse: "soften",
+  sourceNote:
+    "Bank A8 decision D6, Connor 2026-08-06: Brad's Deals may be named; the traffic figure renders only as this eight-figure shape and the exact value is withheld from source. Provenance: Connor's own previous site stated the exact figure publicly.",
+};
+
+/**
  * Magnitude numerals that ship as prose on `/`, `/about`, `/resume` and the
  * case-study chapters rather than as stats rows. They are claims, so they
  * resolve through the same gate.
@@ -344,6 +367,8 @@ export const proseProofClaims: ProofMetric[] = [
   influencedPipelineSoftened,
   /* P2. Response rule on the top signal tier, chapter outcome line. */
   highPriorityResponseRule,
+  /* A8/D6. Brad's Deals audience shape, /story writer years. */
+  bradsDealsAudience,
 ];
 
 /**
@@ -358,6 +383,7 @@ export const proseClaimTokens: Record<string, ProofMetric> = {
   V5: regulatedVerticals,
   P6: influencedPipelineSoftened,
   P2: highPriorityResponseRule,
+  BD: bradsDealsAudience,
 };
 
 /*

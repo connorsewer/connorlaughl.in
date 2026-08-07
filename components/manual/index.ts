@@ -17,6 +17,7 @@ export {
   ColophonFooter,
   type ColophonFooterProps,
 } from "@/components/manual/ColophonFooter";
+export { DevelopPlate } from "@/components/manual/DevelopPlate";
 export {
   CoverTOC,
   type CoverTOCProps,

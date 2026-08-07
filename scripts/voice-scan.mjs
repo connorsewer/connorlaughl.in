@@ -177,7 +177,19 @@ function writeBaselineFile(findings) {
 
 const { base, writeBaseline } = parseArgs(process.argv.slice(2));
 
-const routes = [...new Set([...(await sitemapRoutes(base)), ...EXTRA_ROUTES])].sort();
+/**
+ * Personal-register exemption (story bank A8, decision D2, 2026-08-06):
+ * journal entries are Connor's own published essays and render verbatim, so
+ * the banned-phrase and em-dash checks do not apply to their routes. The
+ * claim gate still does, and the port-time review found no ungated business
+ * numeral in them. The /journal index stays scanned: its chrome is manual
+ * copy, and the deks and titles it repeats were checked clean.
+ */
+const JOURNAL_ENTRY = /^\/journal\/./;
+
+const routes = [...new Set([...(await sitemapRoutes(base)), ...EXTRA_ROUTES])]
+  .filter((route) => !JOURNAL_ENTRY.test(route))
+  .sort();
 
 /** @type {Record<string, string[]>} */
 const findings = {};

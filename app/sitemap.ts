@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/content/case-studies";
+import { journalSlugs } from "@/lib/journal";
 
 const SITE = "https://www.connorlaughl.in";
 
@@ -14,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/edge`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE}/case-studies/strategy-memo`, lastModified: now, changeFrequency: "monthly", priority: 0.65 },
     { url: `${SITE}/resume`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE}/now`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
+    { url: `${SITE}/plates`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
     { url: `${SITE}/tools/revops-capacity-planner`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 
@@ -41,5 +44,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }));
 
-  return [...staticRoutes, ...caseStudyRoutes, ...longformRoutes];
+  const journalRoutes: MetadataRoute.Sitemap = [
+    { url: `${SITE}/journal`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    ...journalSlugs().map((slug) => ({
+      url: `${SITE}/journal/${slug}`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
+    })),
+  ];
+
+  return [...staticRoutes, ...caseStudyRoutes, ...longformRoutes, ...journalRoutes];
 }

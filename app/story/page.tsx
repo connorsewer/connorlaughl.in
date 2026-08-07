@@ -12,7 +12,12 @@ import {
   type TocSection,
 } from "@/components/manual";
 import { cta, storyFaqEntries, tocSections } from "@/content/cover";
-import { coverStats, proseProofClaims, renderableProofMetrics } from "@/content/proof-metrics";
+import {
+  coverStats,
+  proseClaimTokens,
+  proseProofClaims,
+  renderableProofMetrics,
+} from "@/content/proof-metrics";
 
 /**
  * Story (deck 17.3, re-story phase 4).
@@ -48,6 +53,78 @@ const manualSections: TocSection[] = tocSections.map((section) => ({
   })),
 }));
 
+/** Rooms, ported near-verbatim from the previous site (bank A8, D4). */
+const ROOMS: { label: string; state: string; title: string; body: string[] }[] = [
+  {
+    label: "Home",
+    state: "ON · 2025",
+    title: "Married Kristin in Rome.",
+    body: [
+      "We got married in Rome in November 2025. Italian weddings have a way of stretching across days, and ours did, in the best way.",
+      "Most of what's good in my life now traces back to Kristin. The easy stuff and the hard stuff, both.",
+    ],
+  },
+  {
+    label: "Dogs",
+    state: "Active",
+    title: "A three-dog household.",
+    body: [
+      "Sophie is 16 and dignified. Henry is 2 and convinced he's the protagonist. Lulu is 3 months and learning that gravity exists.",
+      "The energy ranges from wise elder to tiny chaos gremlin, sometimes inside the same hour.",
+    ],
+  },
+  {
+    label: "Family",
+    state: "Constant",
+    title: "Oldest of five.",
+    body: [
+      "I have four siblings and two parents who live a short drive away in the North Shore. Big family means a packed table at every holiday and someone always in the group chat.",
+      "My nephew George is 5, and we've started building Lego sets together. Turns out 5 is the right age to be slightly competitive about following the instructions.",
+    ],
+  },
+  {
+    label: "Course",
+    state: "7.8 · GHIN",
+    title: "Golf at a 7.8 index.",
+    body: [
+      "Currently playing to a 7.8. Look me up on GHIN. Just put the new Titleist T-100 irons in the bag and they're already finding fairways I didn't know about.",
+      "Best round? Doesn't matter much. Worst round? Healing slowly.",
+    ],
+  },
+  {
+    label: "Kitchen",
+    state: "Daily",
+    title: "Most nights, dinner.",
+    body: [
+      "I cook for Kristin and me almost every night. It's the part of the day I get to slow down without trying.",
+      "We also eat our way around Chicago when we can. There's no shortage of good rooms in this city, and we're making a small dent.",
+    ],
+  },
+  {
+    label: "Field",
+    state: "On rotation",
+    title: "Sport and the gym.",
+    body: [
+      "Liverpool FC and Chicago sports, with all the unreasonable hope that requires.",
+      "Lifting clears my head and keeps the rest of the machine from getting weird. The gym is calendar armor.",
+    ],
+  },
+];
+
+/** Travel, folded in per D7. The previous site's list, verbatim. */
+const STAMPS: { place: string; line: string }[] = [
+  {
+    place: "Rome, Florence, Milan, the Dolomites · Italy",
+    line: "Wedding territory, plus where I started at the Vatican Museums.",
+  },
+  { place: "Banff · Canada", line: "Mountains big enough to make you quiet." },
+  {
+    place: "London, Cambridge, Liverpool · UK",
+    line: "Football and libraries. A lot of walking in between.",
+  },
+  { place: "Paris · France", line: "Eat slow. Walk slower." },
+];
+
 const PORTRAIT = {
   src: "/about/portrait-plate.webp",
   width: 848,
@@ -60,6 +137,8 @@ export default function StoryPage() {
   const [, , acquisitions] = renderableProofMetrics(coverStats);
   /* S6. Rendered as its whole progression sentence pair, never split. */
   const [progression] = renderableProofMetrics(proseProofClaims);
+  /* A8/D6. The Brad's Deals audience shape for the writer years. */
+  const [audience] = renderableProofMetrics([proseClaimTokens.BD]);
 
   return (
     <>
@@ -126,17 +205,21 @@ export default function StoryPage() {
             The writer years
           </h2>
 
+          {/* Vatican Museums and Brad's Deals named per bank A8, D6. The
+              audience figure is the softened BD shape, resolved above. */}
           <p className="manual-body mt-6">
-            The writing came first, professionally. I packaged executive
-            candidates for boards, which meant building a case somebody else
-            had to defend in a room I wasn&apos;t in. A story with evidence
-            attached, or it didn&apos;t work.
+            The first stamp in the passport was the Vatican Museums, a college
+            internship in Rome that stretched into something longer. Then
+            executive search: packaging candidates for boards, building a case
+            somebody else had to defend in a room I wasn&apos;t in. A story
+            with evidence attached, or it didn&apos;t work.
           </p>
 
           <p className="manual-body mt-5">
-            Then high-volume consumer editorial: headlines tested against live
-            traffic, all day, every day. A sentence either earns attention or
-            it doesn&apos;t, and the numbers are never polite about which.
+            Then high-volume consumer editorial at Brad&apos;s Deals, writing
+            headlines for an {audience.value} with live traffic grading every
+            one of them. A sentence either earns attention or it doesn&apos;t,
+            and the numbers are never polite about which.
           </p>
 
           <p className="manual-body mt-5">
@@ -206,6 +289,63 @@ export default function StoryPage() {
             </Link>
             , in eleven operating chapters.
           </p>
+        </section>
+
+        {/* Rooms and travel, ported from the previous site per bank A8
+            decisions D4 and D7. Connor's copy, near-verbatim: the only edits
+            are paragraph splits where a body ran past three sentences. */}
+        <section aria-labelledby="off-the-clock" className="mt-12 max-w-[68ch]">
+          <h2
+            id="off-the-clock"
+            className="border-b border-grid-line pb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/60"
+          >
+            Off the clock
+          </h2>
+
+          <ul className="mt-6 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+            {ROOMS.map((room) => (
+              <li key={room.label}>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-blueprint">
+                  [ {room.label} · {room.state} ]
+                </p>
+                <h3 className="mt-2 font-display text-[1.125rem] leading-snug text-body-ink">
+                  {room.title}
+                </h3>
+                {room.body.map((para) => (
+                  <p
+                    key={para.slice(0, 24)}
+                    className="mt-2 font-serif-body text-[0.9375rem] leading-relaxed text-body-ink/80"
+                  >
+                    {para}
+                  </p>
+                ))}
+              </li>
+            ))}
+          </ul>
+
+          <p className="manual-body mt-8">
+            The rest of it is photographs:{" "}
+            <Link href="/plates" className="text-blueprint underline-offset-4 hover:underline">
+              a few rolls of film
+            </Link>
+            , screened into the manual&apos;s ink until you press one.
+          </p>
+
+          <h3 className="mt-10 border-b border-grid-line pb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/60">
+            Stamps
+          </h3>
+          <ul className="mt-4 flex flex-col gap-2">
+            {STAMPS.map((stamp) => (
+              <li key={stamp.place} className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-blueprint">
+                  {stamp.place}
+                </span>
+                <span className="font-serif-body text-[0.9375rem] text-body-ink/70">
+                  {stamp.line}
+                </span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Deck 17.6: the three FAQ entries that moved off the cover. */}

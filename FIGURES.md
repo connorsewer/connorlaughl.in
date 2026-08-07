@@ -50,6 +50,21 @@ a new figure always takes the next free number.
 
 | FIG_023 | Build fleet | `/builds` | The eight systems the builds section lists, one box per card in card order, grouped by where they run: five on the employer stack, one published in the open, two in the operator's own toolchain, ending with this site | Drawn SVG. Three shallow grid-plane shelves, one per rank, with an isometric box standing on each cell. Fills mark the rank (blue for the employer stack, teal for open source, lavender for operator tooling). Four leader labels: the three rank names and a callout on the last box, which is the page the reader is on. Amended 2026-08-06: drawn with nine boxes, then the open shelf went from two to one when the hermes-agent card was cut by Connor's decision the same day. |
 
+## Photographic plate series
+
+Registered 2026-08-06 under the personal-content port (story bank A8,
+decision D5). A separate `PLATE_NN` series so photographs never collide with
+FIG numbers. Plates render on `/plates` through the blueprint duotone screen
+and develop to color on press; captions are the previous site's, verbatim,
+and keep their year marks because a photograph is a dated artifact. Source of
+record for the series is `content/plates.ts`, which carries each plate's
+file, caption, and alt text; this section registers the series rather than
+repeating its rows.
+
+| Series | Count | Page | Treatment |
+|---|---|---|---|
+| PLATE_01 through PLATE_11 | 11 | `/plates` | CSS blueprint duotone at rest, full color on press, instant under reduced motion. Files under `public/about/`, unchanged from the previous site. |
+
 ## Generation log
 
 Every generation attempt on a plate, accepted or rejected, with its reason.

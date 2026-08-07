@@ -1,3 +1,23 @@
+# ADDENDUM 2026-08-06 (the port): the personal content came home
+
+Connor ruled on the porting sheet (story bank A8 records all of it): the
+origin drift is resolved by merge, with the manual winning every conflict and
+the old site's personal content arriving as raw material. What shipped on top
+of the re-story: `/journal` (16 essays, verbatim, original URLs, contents
+section 5, banned-word scan exempt for entry bodies per D2 with a port-time
+claim review finding them clean), `/now` (the Currently block as a status
+board, appendix), "Off the clock" and "Stamps" on `/story` (Rooms and travel,
+near-verbatim), `/plates` (11 photographs through a blueprint duotone that
+develops to color on press, PLATE_NN series registered in FIGURES.md), and
+the writer years now name the Vatican Museums and Brad's Deals with the
+audience figure softened to its eight-figure shape (new BD register row).
+Resume is section 6, Appendix 7. hermes-agent came off /builds by Connor's
+direction. C1 is confirmed and C2 keeps the slug, so section 4A items 3 and 4
+are fully closed. Verified: build green at 66 pages, proof:guard 6 renderers
+over floor 4, voice scan 0 findings on 29 scanned routes, headers intact.
+Deploy posture per C4: no production deploy; a Vercel preview is authorized
+for review.
+
 # ADDENDUM 2026-08-06 (later still): phase 4 shipped, the re-story is complete
 
 The warm pass landed and every DRAFT-AT-BUILD slot in deck 17 is closed
