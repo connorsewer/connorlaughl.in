@@ -31,8 +31,9 @@ build plan; copy lives in the deck, never here.
    to their chapters.
 8. **`/edge` register shift.** Titles rewritten to spoken register, content
    unchanged.
-9. **Still open.** The build-count unlock (HANDOFF 4A item 4) was not ruled
-   on and stays closed. `/builds` ships without that headline until it is.
+9. **Build-count unlock.** Approved by Connor 2026-08-06 (bank A7). The count
+   enters the register with a named source file in phase 3 and becomes the
+   `/builds` headline. Until that row exists, no numeral renders.
 
 ## Phases
 
