@@ -1,3 +1,18 @@
+# ADDENDUM 2026-08-06 (later still): phase 4 shipped, the re-story is complete
+
+The warm pass landed and every DRAFT-AT-BUILD slot in deck 17 is closed
+(recorded in the deck's change log). `/story` now runs the full 17.3
+structure: deck-final opening, Mr. B, and operator-now blocks verbatim, the
+writer years redrafted from the old /about facts in a warmer register, a
+pointer to `/edge`, and the three relocated FAQ entries as "Asked and
+answered". The eleven `/edge` chapters carry spoken-register titles (slugs
+and anchors unchanged, deep links survive); the four longform display titles
+stopped shadowing their chapter counterparts (slugs untouched). Verified:
+build green, proof:guard 6 renderers over floor 4, voice scan 0 findings on
+26 routes against a self-owned prod server, headers intact. All four re-story
+phases are done; what remains open is section 4A as amended (item 4's
+confirmation half, item 3's slug question) and the program decisions below.
+
 # ADDENDUM 2026-08-06 (late night): phase 3 shipped, `/builds` is live
 
 The Builds section replaced its reserved page. The bank-A7 count entered

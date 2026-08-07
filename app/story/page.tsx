@@ -1,32 +1,40 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import Link from "next/link";
+
 import { JsonLd, personSchema } from "@/components/JsonLd";
 import {
   ChapterFootNav,
   ChapterHeader,
   ChapterLayout,
+  TerminalFAQ,
   type TocSection,
 } from "@/components/manual";
-import { cta, tocSections } from "@/content/cover";
+import { cta, storyFaqEntries, tocSections } from "@/content/cover";
 import { coverStats, proseProofClaims, renderableProofMetrics } from "@/content/proof-metrics";
 
 /**
- * About (spec §3: appendix chapter, and the portrait plate's home).
+ * Story (deck 17.3, re-story phase 4).
+ *
+ * Structure per the deck: origins, the writer years, Mr. B, the operator now,
+ * a pointer to /edge as "how I work", then the asked-and-answered block that
+ * moved off the cover. The opening, Mr. B, and operator-now blocks are deck
+ * copy verbatim (the four-sentence operator block renders as two paragraphs
+ * for the three-sentence rule; no word changed). The writer years are the
+ * deck's DRAFT-AT-BUILD slot, written here from the old /about paragraphs
+ * with the same facts in a warmer register. Claims resolve through the gate.
  *
  * Chapter chrome with no word-count meta: the page is bespoke TSX, which spec
- * §3 excludes from the count. Copy is the approved deck's section 7, verbatim
- * apart from one word noted in the overnight log.
- *
- * The portrait is the halftone plate: the desk illustration re-screened as a
- * blueprint-on-paper duotone so it belongs to the same drawing system as the
- * figures, in a plain `next/image` inside a blueprint border.
+ * §3 excludes from the count. The portrait is the halftone plate: the desk
+ * illustration re-screened as a blueprint-on-paper duotone so it belongs to
+ * the same drawing system as the figures.
  */
 
 export const metadata: Metadata = {
   title: "Story",
   description:
-    "Writer, then marketer, then the person who builds the systems. The short version of how the work got here.",
+    "The story: a comic-book kid, a Palm Pilot, the founder of AKQA, and the operator the three of them made.",
 };
 
 const manualSections: TocSection[] = tocSections.map((section) => ({
@@ -48,8 +56,8 @@ const PORTRAIT = {
 };
 
 export default function StoryPage() {
-  /* S1 and S3, in the order `coverStats` declares them. */
-  const [years, , acquisitions] = renderableProofMetrics(coverStats);
+  /* S3, in the order `coverStats` declares them. */
+  const [, , acquisitions] = renderableProofMetrics(coverStats);
   /* S6. Rendered as its whole progression sentence pair, never split. */
   const [progression] = renderableProofMetrics(proseProofClaims);
 
@@ -95,45 +103,120 @@ export default function StoryPage() {
           </figcaption>
         </figure>
 
-        <section aria-label="Opening" className="mt-10 max-w-[68ch]">
+        {/* Deck 17.3 opening, verbatim. */}
+        <section aria-label="Origins" className="mt-10 max-w-[68ch]">
           <p className="manual-body manual-dropcap">
-            I started as a writer. High-volume consumer editorial, testing
-            headlines against traffic, learning that a sentence either earns
-            attention or it doesn&apos;t. Before that I packaged executive
-            candidates for boards, which is where I learned to build a case
-            somebody else has to defend in a room I&apos;m not in.
+            I was the kid who fixed the neighborhood&apos;s computers. Ten
+            years old, deep in Macworld and Wired, weirdly obsessed with Palm
+            Pilots. The other half of me lived in comic books and Dylan
+            records, learning how a story holds a person still.
           </p>
 
           <p className="manual-body mt-5">
-            I came into marketing through the search and content door in 2015,
-            as the first dedicated digital hire at a company with no analytics,
-            no attribution, and no demand program. {years.value} years later I
-            run marketing and GTM as VP and acting CMO.
+            Marketing turned out to be the job where both halves count.
+          </p>
+        </section>
+
+        {/* Deck 17.3 DRAFT-AT-BUILD slot: the old /about facts, told warmer. */}
+        <section aria-labelledby="writer-years" className="mt-12 max-w-[68ch]">
+          <h2
+            id="writer-years"
+            className="border-b border-grid-line pb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/60"
+          >
+            The writer years
+          </h2>
+
+          <p className="manual-body mt-6">
+            The writing came first, professionally. I packaged executive
+            candidates for boards, which meant building a case somebody else
+            had to defend in a room I wasn&apos;t in. A story with evidence
+            attached, or it didn&apos;t work.
           </p>
 
           <p className="manual-body mt-5">
-            The middle of that is the part I&apos;d rather talk about.{" "}
-            {progression.value} {progression.label}. {progression.context}.
+            Then high-volume consumer editorial: headlines tested against live
+            traffic, all day, every day. A sentence either earns attention or
+            it doesn&apos;t, and the numbers are never polite about which.
+          </p>
+
+          <p className="manual-body mt-5">
+            In 2015 I came through the search-and-content door as the first
+            dedicated digital marketing hire, into a company that had no
+            analytics to argue with yet. The middle of what followed is the
+            part I like telling. {progression.value} {progression.label}.{" "}
+            {progression.context}.
           </p>
 
           <p className="manual-body mt-5">
             Along the way I ran marketing integration for {acquisitions.value}{" "}
-            acquisitions, including a regulated Canadian business unit where I
-            learned the compliance and market requirements and then
-            operationalized them.
+            acquisitions, including a regulated Canadian business unit whose
+            compliance requirements I learned and then operationalized.
+            Somewhere in the middle I taught myself to code, which changed the
+            job more than any promotion did. Where I once wrote a requirements
+            doc and waited two quarters, I now build the workflow myself, with
+            human approval gates and audit trails attached.
+          </p>
+        </section>
+
+        {/* Deck 17.3 Mr. B block, verbatim. */}
+        <section aria-labelledby="mr-b" className="mt-12 max-w-[68ch]">
+          <h2
+            id="mr-b"
+            className="border-b border-grid-line pb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/60"
+          >
+            Mr. B
+          </h2>
+
+          <p className="manual-body mt-6">
+            Tom Bedecarre, the founder of AKQA, was my mentor and something
+            like a second father. He wrote radio spots and print ads that ran
+            in The New York Times, then turned around and built digital
+            campaigns for Nike and the Halo games. I watched him and understood
+            the job I wanted: tell great stories, and build the machinery that
+            carries them.
+          </p>
+        </section>
+
+        {/* Deck 17.3 closing, verbatim; split at the sentence pair for the
+            three-sentence rule. It restates the thesis, so the page ends on
+            the tagline the cover opens with. */}
+        <section aria-labelledby="operator-now" className="mt-12 max-w-[68ch]">
+          <h2
+            id="operator-now"
+            className="border-b border-grid-line pb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/60"
+          >
+            The operator now
+          </h2>
+
+          <p className="manual-body mt-6">
+            The latest chapter is the one this site documents. I run marketing
+            and GTM for TSI as acting CMO, and I build the AI operating layer
+            underneath it with my own hands.
           </p>
 
           <p className="manual-body mt-5">
-            Somewhere in there I taught myself to code, which turned out to be
-            the thing that changed the job. Now I build governed AI workflows
-            with human approval gates and audit trails instead of writing a
-            requirements doc and waiting two quarters.
+            I still tell stories people remember. The systems are how I make
+            them true.
           </p>
 
           <p className="manual-body mt-5">
-            Marketing executive. GTM systems engineer. Both halves are real, and
-            I like the days that need both.
+            The mechanics have their own chapter:{" "}
+            <Link href="/edge" className="text-blueprint underline-offset-4 hover:underline">
+              how I work
+            </Link>
+            , in eleven operating chapters.
           </p>
+        </section>
+
+        {/* Deck 17.6: the three FAQ entries that moved off the cover. */}
+        <section aria-labelledby="asked-and-answered" className="mt-12 max-w-[68ch]">
+          <h2
+            id="asked-and-answered"
+            className="border-b border-grid-line pb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-body-ink/60"
+          >
+            Asked and answered
+          </h2>
+          <TerminalFAQ className="mt-6" entries={storyFaqEntries} />
         </section>
 
         <ChapterFootNav

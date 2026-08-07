@@ -12,8 +12,9 @@ import { longformWords } from "@/lib/word-counts";
  *
  * Chapter chrome from `ChapterLayout`, with prev/next drawn from the Section 4
  * order in `content/cover.ts` so the contents and the chapter rail can never
- * disagree. Titles and deks are the approved deck's section 8, verbatim; the
- * bodies stay in markdown and render through `lib/markdown.tsx`.
+ * disagree. Display titles are the re-story phase-4 set (slugs unchanged);
+ * deks are the approved deck's section 8, verbatim; the bodies stay in
+ * markdown and render through `lib/markdown.tsx`.
  */
 
 const SECTION_TITLE = "Writing";

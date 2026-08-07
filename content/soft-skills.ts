@@ -16,6 +16,12 @@
  * Render rule: a proof anchor renders its `internalName` only when
  * `publicUse === "show"`. Otherwise the public surface gets the
  * `categoricalPhrase`. Anchors with `publicUse === "hide"` are dropped.
+ *
+ * Chapter names are the deck-17.4 register shift (re-story phase 4,
+ * approved 2026-08-06): each title is something Connor would say out loud
+ * to a colleague. Bodies, slugs, and anchors are unchanged, so every
+ * existing deep link survives; the two titles the deck confirmed verbatim
+ * are 08 and 10.
  */
 import type { ClaimPosture, PublicUse } from "./proof-metrics";
 
@@ -116,7 +122,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "01",
     slug: "taste-applied-at-velocity",
-    name: "Taste applied at velocity",
+    name: "Moving fast without losing taste",
     act: "move",
     definition:
       "Recognizing what is good, true, sharp, useful, and on-brand fast enough to keep AI-native work from becoming a high volume of competent, forgettable output.",
@@ -168,7 +174,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "02",
     slug: "specification-clarity",
-    name: "Specification clarity",
+    name: "Writing briefs a team can build from",
     act: "move",
     definition:
       "Defining what good looks like with enough precision that a human team, vendor, or AI agent can execute without inventing the missing strategy.",
@@ -219,7 +225,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "03",
     slug: "decision-quality-under-uncertainty",
-    name: "Decision quality under uncertainty",
+    name: "Making the call with half the data",
     act: "move",
     definition:
       "Making useful decisions when data is incomplete, incentives are mixed, and waiting for certainty would itself be a bad decision.",
@@ -267,7 +273,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "04",
     slug: "narrative-construction",
-    name: "Narrative construction and sensemaking",
+    name: "Giving the team a story it can act on",
     act: "make-sense",
     definition:
       "Making ambiguity legible so an organization can act: what is happening, why it matters, what to believe, what not to claim, and what to do next.",
@@ -316,7 +322,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "05",
     slug: "epistemic-humility-with-conviction",
-    name: "Epistemic humility with conviction",
+    name: "Changing my mind when the evidence says to",
     act: "make-sense",
     definition:
       "Holding a strong point of view while staying willing to update it when the evidence, source quality, or operating reality changes.",
@@ -362,7 +368,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "06",
     slug: "cross-functional-frame-fluency",
-    name: "Cross-functional frame fluency",
+    name: "Speaking finance, sales, and engineering",
     act: "make-sense",
     definition:
       "Thinking in finance, sales, product, compliance, engineering, and RevOps frames rather than translating marketing language at the surface.",
@@ -415,7 +421,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "07",
     slug: "trust-calibration",
-    name: "Trust calibration",
+    name: "Deciding what to trust, and how much",
     act: "make-sense",
     definition:
       "Knowing when to trust an AI output, dashboard, vendor, team member, or source. When to sample, when to verify, and when to throw it away.",
@@ -471,7 +477,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "08",
     slug: "delegation-to-non-humans",
-    name: "Delegation to non-humans",
+    name: "Managing a team that includes agents",
     act: "build-systems",
     definition:
       "Treating AI agents as operating participants that need context, goals, constraints, feedback, memory, review cycles, and ownership boundaries.",
@@ -518,7 +524,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "09",
     slug: "governance-without-drag",
-    name: "Governance without drag",
+    name: "Guardrails a team can ship through",
     act: "build-systems",
     definition:
       "Adding enough structure to make work safe, repeatable, and reviewable without turning the organization into a review process nobody can ship through.",
@@ -564,7 +570,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "10",
     slug: "signal-detection-and-instrumentation-skepticism",
-    name: "Signal detection and instrumentation skepticism",
+    name: "Knowing when a dashboard is lying",
     act: "build-systems",
     definition:
       "Finding the hidden signal in messy GTM data while questioning whether the system is measuring the right thing at all.",
@@ -613,7 +619,7 @@ export const softSkills: SoftSkill[] = [
   {
     number: "11",
     slug: "operator-empathy-and-adoption-design",
-    name: "Operator empathy and adoption design",
+    name: "Building systems people keep using",
     act: "build-systems",
     definition:
       "Designing systems people keep using: clear ownership, low-friction handoffs, feedback loops, and enough training to make the new behavior stick.",

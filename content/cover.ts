@@ -239,31 +239,35 @@ export const tocSections: CoverTocSection[] = [
   {
     num: 4,
     title: "Writing",
+    /* Display titles per re-story phase 4 (HANDOFF item 10, approved
+       "display titles only"): the long-form pieces stop shadowing their
+       case-study counterparts in the contents. Slugs, hrefs, count keys,
+       and deks are untouched, so links and word counts do not move. */
     entries: [
       {
         num: "01",
-        title: "Revenue operating system from zero",
+        title: "Building the machine while running it",
         href: "/longform/revenue-operating-system-from-zero",
         countKey: "longform/revenue-operating-system-from-zero",
         dek: "The long version, written while the system was still being built.",
       },
       {
         num: "02",
-        title: "Signal-based demand engine",
+        title: "What happens after the signal fires",
         href: "/longform/signal-based-demand-engine",
         countKey: "longform/signal-based-demand-engine",
         dek: "How buying signals became a routing model with response windows attached.",
       },
       {
         num: "03",
-        title: "Outcome-first narrative architecture",
+        title: "Messaging that survives scrutiny",
         href: "/longform/outcome-first-narrative-architecture",
         countKey: "longform/outcome-first-narrative-architecture",
         dek: "Why messaging falls apart when the proof behind it isn't governed.",
       },
       {
         num: "04",
-        title: "Post-acquisition SaaS bridge",
+        title: "Absorbing an acquisition without breaking it",
         href: "/longform/post-acquisition-saas-bridge",
         countKey: "longform/post-acquisition-saas-bridge",
         dek: "What it takes to merge an acquired product into a GTM motion that already exists.",
