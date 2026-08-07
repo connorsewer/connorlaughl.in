@@ -171,7 +171,7 @@ resolves through `content/proof-metrics.ts`.
 - `renderableProofMetrics()` and `renderableProofMetric()` are the only legal way to render a `ProofMetric`. They apply the metric's `publicUse` posture (`show`, `soften`, `hide`, `label-as-target`) and drop what must not appear.
 - `proseProofClaims` carries claims that appear inside sentences rather than in a stat table. `proseClaimTokens` maps a stable token to its metric so prose can name a claim without hardcoding its value. Prose claims go through the same gate as everything else.
 - `npm run proof:guard` enforces it: it discovers every renderer, asserts each resolves through the gate, forbids known direct-access patterns, and holds a floor on the renderer count. **The floor is never lowered.** If your change drops the count, you removed a renderer and need to say so.
-- Never put a gated value, a private vendor name, or a private system name in repo markdown. That includes FIGURES.md, the overnight log, and this file.
+- Never put a gated value, a private vendor name, or a private system name in repo markdown. That includes FIGURES.md, the overnight log, and this file. TSI (Transworld Systems Inc.) and DebtNext are no longer private names: Connor authorized naming both in site copy on 2026-08-06 (story bank A6). Gated values keep their postures; the unlock is names, not numbers.
 
 ### Word counts
 

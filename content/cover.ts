@@ -196,8 +196,24 @@ export const tocSections: CoverTocSection[] = [
       },
     ],
   },
+  /* Re-story phase 3: Builds enters the contents as section 2, matching the
+     nav order (WORK, BUILDS, WRITING, STORY, RESUME). Downstream sections
+     renumbered; every route that names its own section number was updated in
+     the same commit. The dek is the deck-17.2 door line, verbatim. */
   {
     num: 2,
+    title: "Builds",
+    entries: [
+      {
+        num: "01",
+        title: "Builds",
+        href: "/builds",
+        dek: "The software I ship, named and dated.",
+      },
+    ],
+  },
+  {
+    num: 3,
     title: "The operator",
     entries: [
       {
@@ -221,7 +237,7 @@ export const tocSections: CoverTocSection[] = [
     ],
   },
   {
-    num: 3,
+    num: 4,
     title: "Writing",
     entries: [
       {
@@ -255,7 +271,7 @@ export const tocSections: CoverTocSection[] = [
     ],
   },
   {
-    num: 4,
+    num: 5,
     title: "Resume",
     entries: [
       {
@@ -267,7 +283,7 @@ export const tocSections: CoverTocSection[] = [
     ],
   },
   {
-    num: 5,
+    num: 6,
     title: "Appendix",
     entries: [
       {

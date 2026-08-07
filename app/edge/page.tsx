@@ -7,7 +7,7 @@ import { softSkills } from "@/content/soft-skills";
 import { edgeWords } from "@/lib/word-counts";
 
 /**
- * The operator (spec §3: Section 2, one scroll document).
+ * The operator (re-story: Section 3, one scroll document).
  *
  * Single page by design, so it stands alone on a direct link. Chapter chrome
  * runs in-page: `ChapterLayout` takes the eleven chapter ids `ChapterSection`
@@ -36,14 +36,14 @@ const anchors = softSkills.map((skill) => ({
 export default function EdgePage() {
   return (
     <ChapterLayout
-      section="Section 2"
+      section="Section 3"
       sectionHref="/#contents"
       chapter="The operator"
       words={edgeWords()}
       anchors={anchors}
     >
       <ChapterHeader
-        eyebrow="Section 2 / The operator"
+        eyebrow="Section 3 / The operator"
         title="The operator"
         dek="How I work when the problem isn&rsquo;t defined yet."
       />

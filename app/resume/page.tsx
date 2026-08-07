@@ -22,7 +22,7 @@ import {
 } from "@/content/proof-metrics";
 
 /**
- * Resume (spec §3: Section 4, not appendix).
+ * Resume (re-story: Section 5, not appendix).
  *
  * Chrome (audit #26). The page used to drop every piece of manual furniture,
  * so the most-visited recruiter route did not read as part of the document. It
@@ -182,7 +182,7 @@ export default function ResumePage() {
 
       <main className="mx-auto w-full max-w-[53rem] px-0 pb-16 md:px-6 lg:px-10">
         <div className="px-4 py-3 md:px-0 md:py-4 print:hidden">
-          <Breadcrumb section="Section 4" sectionHref="/#contents" chapter="Resume" />
+          <Breadcrumb section="Section 5" sectionHref="/#contents" chapter="Resume" />
         </div>
 
         <Sheet

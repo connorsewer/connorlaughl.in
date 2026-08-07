@@ -8,9 +8,9 @@ import { renderMarkdown } from "@/lib/markdown";
 import { longformWords } from "@/lib/word-counts";
 
 /**
- * Longform chapter (spec §3: Section 3).
+ * Longform chapter (re-story: Section 4).
  *
- * Chapter chrome from `ChapterLayout`, with prev/next drawn from the Section 3
+ * Chapter chrome from `ChapterLayout`, with prev/next drawn from the Section 4
  * order in `content/cover.ts` so the contents and the chapter rail can never
  * disagree. Titles and deks are the approved deck's section 8, verbatim; the
  * bodies stay in markdown and render through `lib/markdown.tsx`.
@@ -18,10 +18,10 @@ import { longformWords } from "@/lib/word-counts";
 
 const SECTION_TITLE = "Writing";
 
-/** Section 3, in contents order. */
-const section3 = tocSections.find((section) => section.num === 3);
+/** Section 4, in contents order. */
+const section4 = tocSections.find((section) => section.num === 4);
 
-const chapterOrder = (section3?.entries ?? []).map((entry) => ({
+const chapterOrder = (section4?.entries ?? []).map((entry) => ({
   title: entry.title,
   href: entry.href,
   dek: entry.dek,
@@ -100,7 +100,7 @@ export default async function LongformPage({
       activeHref={entry.href}
     >
       <ChapterHeader
-        eyebrow="Section 3 / Writing"
+        eyebrow="Section 4 / Writing"
         title={entry.title}
         dek={entry.dek}
       />

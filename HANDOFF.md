@@ -1,3 +1,23 @@
+# ADDENDUM 2026-08-06 (late night): phase 3 shipped, `/builds` is live
+
+The Builds section replaced its reserved page. The bank-A7 count entered
+`content/proof-metrics.ts` as `buildsHeadline` (sourced to the build-evidence
+file, scoped to the `/builds` headline) and HANDOFF 4A item 4's unlock is
+resolved; the confirmation half of item 4 (the eight kept chapter values) is
+still open. Nine cards render deck 17.5 verbatim over FIG_023, with statuses
+and eras from `content/builds-metadata.json` (regenerate:
+`node scripts/builds-metadata.mjs`). Builds is contents section 2; The
+operator, Writing, Resume and the Appendix renumbered to 3, 4, 5, 6, and every
+route that names its own section number was updated in the same commit.
+CLAUDE.md's naming rule now records the A6 unlock. Verified: build green,
+proof:guard 6 renderers over floor 4, voice scan 0 findings on 26 routes
+against a self-owned prod server, headers intact, dark tokens confirmed on the
+new route. One flag for Connor: the only public hermes-agent repository under
+his account is an unmodified fork of NousResearch/hermes-agent, so that card
+(approved copy, rendered verbatim) carries no repository link; the mcOS,
+DebtNext and this-site cards link to their public repos, verified 2026-08-06.
+Phase 4 (warm pass) is next.
+
 # ADDENDUM 2026-08-06 (night): the re-story is approved
 
 Connor approved the re-story design in session. Read

@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-08-07",
+  "builds": {
+    "jobos": {
+      "era": "2026-04 → 2026-08",
+      "source": "git"
+    },
+    "tsi-marketing-machine": {
+      "era": "2026-04 → 2026-08",
+      "source": "Agent session store, active period per AI-Native Build Evidence - 2026-08-04.md; the workspace is not a git repository"
+    },
+    "tsi-marketing-analytics": {
+      "era": "2026-07 → 2026-08",
+      "source": "git"
+    },
+    "tsi-video-studio": {
+      "era": "2026",
+      "source": "Delivery year; no measurable git history"
+    },
+    "tsi-interactive-tools": {
+      "era": "2026",
+      "source": "Delivery year; shipped inside employer properties"
+    },
+    "debtnext-rebuild": {
+      "era": "2026-05 → 2026-07",
+      "source": "git"
+    },
+    "mcos": {
+      "era": "2026-02",
+      "source": "git"
+    },
+    "hermes-agent": {
+      "era": "2026",
+      "source": "Experiment year; runs off-repo against a hosted agent"
+    },
+    "this-site": {
+      "era": "2026-02 → 2026-08",
+      "source": "git"
+    }
+  }
+}

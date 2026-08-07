@@ -72,3 +72,4 @@ export { Fig015OperatingCadence } from "@/components/figures/fig-015-operating-c
 export { Fig016ClaimToApproval } from "@/components/figures/fig-016-claim-to-approval";
 export { Fig017TwoFunctionModel } from "@/components/figures/fig-017-two-function-model";
 export { Fig018SchemaToPage } from "@/components/figures/fig-018-schema-to-page";
+export { Fig023BuildFleet } from "@/components/figures/fig-023-build-fleet";

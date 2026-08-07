@@ -71,11 +71,11 @@ export default function Cover() {
   ]);
 
   /* The stats row has to survive a reader counting the contents by hand, so
-     it reports the chapters the contents actually lists (sections 1 and 3).
+     it reports the chapters the contents actually lists (sections 1 and 4).
      One of them is set in code rather than markdown and so carries no word
      count; the screen-reader text says so. */
   const listedChapters = tocSections
-    .filter((section) => section.num === 1 || section.num === 3)
+    .filter((section) => section.num === 1 || section.num === 4)
     .reduce((total, section) => total + section.entries.length, 0);
   const uncountedChapters = listedChapters - chaptersPublished();
 

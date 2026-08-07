@@ -240,6 +240,30 @@ export const coverStats: ProofMetric[] = [
 ];
 
 /**
+ * Bank A7. The 2026 build count, released by Connor on 2026-08-06.
+ *
+ * The one register row whose ground truth is git history rather than a
+ * business system: every commit in the count is enumerable from the
+ * repositories the source file names. The count's own denominator travels in
+ * the label because the /builds section lists systems beyond the six with
+ * measurable git history, and the two totals must never read as the same
+ * number. Route scope: the /builds headline. No card renders it.
+ */
+const buildCommits2026: ProofMetric = {
+  value: "695",
+  label: "commits across 6 codebases in 2026",
+  context:
+    "Measured from git history on 2026-08-04, nothing estimated, shipped while serving as VP of Marketing and GTM, acting CMO",
+  posture: "verified",
+  publicUse: "show",
+  sourceNote:
+    "AI-Native Build Evidence - 2026-08-04.md, section 1 'Shipped codebases' (measured from the local filesystem and git history) and the section 2 governed claim. Released for the site, the FAQ, and cover letters by Connor 2026-08-06, recorded in the story bank as A7. First surface: the /builds headline, re-story phase 3.",
+};
+
+/** A7, exported for the /builds headline. That route only. */
+export const buildsHeadline: ProofMetric[] = [buildCommits2026];
+
+/**
  * Spine row P6. The approved softened form of the pipeline row: order of
  * magnitude, no figure. A separate object from `influencedPipeline` so the
  * exact numeral has exactly one home and cannot ride along here. The copy deck
