@@ -66,11 +66,14 @@ const LANES = [
 const proofRows = (
   pipelineSoftened: string,
   responseRule: string,
-  kpiFramework: string,
+  wikiArticles: string,
 ) => [
   `Built the GTM infrastructure behind a ${pipelineSoftened}.`,
-  `Designed a ${kpiFramework} funnel architecture from awareness through revenue and unit economics.`,
+  /* The KPI framework runs unnumbered: the v4 resume cut the KPI count as an
+     AI-tell (parity handoff 2026-08-19), so no numeral, no gate needed. */
+  "Designed the full-funnel KPI framework, from awareness through revenue and unit economics.",
   `Built tiered signal-to-touch SLAs, including a ${responseRule}.`,
+  `Built a governed LLM wiki that people and AI agents read together: ${wikiArticles} with provenance, an owner, and an approval tier on every page.`,
   "Built a multi-business-unit messaging architecture with proof governance and outcome-first positioning.",
   "Led marketing integration across multiple acquisitions, acquired brands, web properties, and Canadian regulatory jurisdictions.",
   "Material organic growth from SEO and content infrastructure.",
@@ -99,7 +102,7 @@ const EXPERIENCE: {
     period: "Aug 2017 to Jan 2022",
     title: "Director of Marketing",
     detail:
-      "Built the first structured inbound demand program and led marketing integration for the first wave of acquisitions.",
+      "Built the first structured inbound demand program and led marketing integration for the first wave of acquisitions. Oversaw the creation and 2018 launch of Rocket Receivables, TSI's first direct-to-buyer e-commerce product and the first of its kind in the ARM industry.",
   },
   { period: "Jun 2017 to Aug 2017", title: "Senior Marketing Manager", scope: "Marketing" },
   {
@@ -127,7 +130,8 @@ const EXPERIENCE: {
 
 /** Deck 6, "EDUCATION". Never write any school other than these two. */
 const EDUCATION = [
-  "Santa Clara University, Leavey School of Business. B.S. Finance, 2006 to 2009.",
+  /* No education dates anywhere: parity handoff 2026-08-19, standing rule. */
+  "Santa Clara University, Leavey School of Business. B.S. Finance.",
   "Northwestern University, journalism coursework.",
 ];
 
@@ -140,15 +144,15 @@ export default function ResumePage() {
   /* S6, S7, S8 in deck order; P6 + P2 appended by the phase 4 claim registration. */
   const [progression, architecture, promotions, pipelineSoftened, responseRule] =
     renderableProofMetrics(proseProofClaims);
-  /* The funnel KPI framework, resolved by label rather than by position so a
+  /* The wiki article count, resolved by label rather than by position so a
      reordered registry cannot silently swap the value. */
-  const [kpiFramework] = renderableProofMetrics(
-    heroProofStrip.filter((metric) => metric.label === "RevOps reporting framework"),
+  const [wiki] = renderableProofMetrics(
+    heroProofStrip.filter((metric) => metric.label === "governed LLM wiki"),
   );
   const PROOF = proofRows(
     pipelineSoftened.value,
     responseRule.value,
-    kpiFramework.value,
+    wiki.value,
   );
 
   /* Audit #26: the resume carried no stat object at all. Same gate, same

@@ -2,7 +2,7 @@
 
 ## Repositioning the company from collections vendor to strategic cash flow partner
 
-**Role:** VP of Marketing (acting CMO)  
+**Role:** VP of Marketing & GTM (acting CMO)  
 **Timeline:** 2024-2025  
 **Team size:** Four direct reports, agency partners, and stakeholder groups across the business  
 **Challenge:** Fragmented messaging across the business units, feature-centric positioning, inconsistent sales narratives

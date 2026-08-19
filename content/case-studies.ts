@@ -81,7 +81,7 @@ export const caseStudies: CaseStudy[] = [
     businessProblem:
       "Marketing, sales, CRM, attribution, and reporting were not operating as one revenue system. Leadership needed pipeline truth, not activity summaries.",
     whatIBuilt:
-      "I built the operating layer: lifecycle definitions, attribution logic, 35+ KPI funnel architecture, reverse-funnel math, close-date movement tracking, CRM and data governance, executive dashboards, and a board-ready reporting cadence.",
+      "I built the operating layer: lifecycle definitions, attribution logic, a full-funnel KPI architecture, reverse-funnel math, close-date movement tracking, CRM and data governance, executive dashboards, and a board-ready reporting cadence.",
     whatChanged:
       "Pipeline influence, source quality, funnel movement, sales follow-through, and investment needs became easier to inspect from one shared system.",
     whyItMattered:
@@ -97,19 +97,20 @@ export const caseStudies: CaseStudy[] = [
        dropped rather than softened. */
     proofMetrics: [
       {
-        value: "35+",
-        label: "KPI revenue funnel framework",
+        value: "Full-funnel",
+        label: "KPI revenue framework",
         context: "awareness through revenue with unit economics",
         claimId: "CJL-CLAIM-025",
         posture: "verified",
         publicUse: "show",
-        sourceNote: "Spine P1, Green, CJL-CLAIM-025 verified in REG.",
+        sourceNote:
+          "Spine P1, Green, CJL-CLAIM-025 verified in REG. KPI count removed 2026-08-19: the v4 resume cut it as an AI-tell and the parity handoff ordered it off the site.",
       },
     ],
     systemsBuilt: [
       "Lifecycle definitions and disposition codes",
       "Multi-touch attribution with hidden-field capture",
-      "35+ KPI revenue funnel framework",
+      "Full-funnel KPI revenue framework",
       "Reverse-funnel capacity planning",
       "Close-date movement and ghost-pipeline inspection",
       "Board-ready monthly and quarterly reporting cadence",
@@ -136,13 +137,13 @@ export const caseStudies: CaseStudy[] = [
     deck: "The operating layer behind a nine-figure influenced pipeline: definitions, KPIs, attribution, cadence.",
     outcome: "Built the GTM infrastructure behind a {P6}.",
     scope:
-      "Lifecycle definitions → attribution → 35+ KPI framework → reverse-funnel math → close-date movement → executive reporting cadence.",
+      "Lifecycle definitions → attribution → full-funnel KPI framework → reverse-funnel math → close-date movement → executive reporting cadence.",
     stack: "CRM (Zoho/Salesforce concepts) • Dashboards • GA4 • Reporting",
     governance:
       "Lifecycle definitions • disposition codes • change control • weekly operating review",
     bullets: [
       "Outcome: nine-figure marketing-influenced pipeline built from zero at a PE-backed enterprise.",
-      "System: 35+ KPI revenue funnel framework covering awareness through revenue plus unit economics.",
+      "System: Full-funnel KPI revenue framework covering awareness through revenue plus unit economics.",
       "System: Reverse-funnel capacity planner that translates quota into required leads, meetings, and capacity.",
       "Governance: Lifecycle definitions, disposition codes, and SLA enforcement keep CRM data trustworthy for forecasting.",
       "Governance: Board-ready monthly and quarterly reporting cadence built for CEO, CRO, and PE sponsor context.",
@@ -222,6 +223,9 @@ export const caseStudies: CaseStudy[] = [
     systemsBuilt: [
       "Agentic workflow design with human review gates",
       "RAG knowledge base for governed RFP and outbound drafting",
+      /* A14. Karpathy naming approved; architecture and adoption, never
+         contents, never a usage or answered-RFP claim. */
+      "Governed LLM wiki on Karpathy's compile-once pattern, read by humans and agents",
       "Voice standards, source discipline, audit logs",
       "Prompt libraries and regression-check loops",
       "MCP-style tool integrations and n8n orchestration",
@@ -252,6 +256,7 @@ export const caseStudies: CaseStudy[] = [
     bullets: [
       "Outcome: multi-agent governed AI GTM operating layer across research, content, RFP, intel, and reporting.",
       "Outcome: proposal triage compressed from a day-scale workflow to a minutes-scale workflow.",
+      "System: Governed LLM wiki, built on Karpathy's compile-once pattern, that humans and AI agents read for RFP response, content, internal FAQ, and agent context.",
       "System: RAG-backed knowledge base for proposal and outbound drafting.",
       "Governance: Every AI artifact gated by human approval with audit logs and drift reviews.",
       "Outcome: material productivity lift from the governed AI operating layer.",
@@ -284,12 +289,14 @@ export const caseStudies: CaseStudy[] = [
       "Three inspection screens and the weekly cadence that makes someone answer for what is on them.",
     proofMetrics: [
       {
-        value: "35+",
+        value: "Full-funnel",
         label: "KPI RevOps framework",
         context: "funnel, attribution, unit economics, pipeline movement",
         claimId: "CJL-CLAIM-025",
         posture: "verified",
         publicUse: "show",
+        sourceNote:
+          "KPI count removed 2026-08-19 per the v4 resume cut and the parity handoff.",
       },
       {
         value: "Board-ready",
@@ -323,12 +330,12 @@ export const caseStudies: CaseStudy[] = [
     sourceCrossrefs: ["candidate-profile-master-v3.md:379-409"],
 
     deck: "Weekly ghost-pipeline inspection so forecast calls stop relying on optimism.",
-    outcome: "Designed a 35+ KPI funnel architecture from awareness through revenue and unit economics, the inspection layer inside the GTM infrastructure behind a {P6}.",
+    outcome: "Designed the full-funnel KPI architecture from awareness through revenue and unit economics, the inspection layer inside the GTM infrastructure behind a {P6}.",
     scope: "Close-date movement → stage aging → activity ratios → rep accountability → executive package.",
     stack: "CRM • Dashboards • SQL • BI",
     governance: "Versioned KPI definitions • weekly review cadence • access controls",
     bullets: [
-      "Outcome: 35+ KPI revenue funnel framework with close-date movement and stage aging baked in.",
+      "Outcome: Full-funnel KPI revenue framework with close-date movement and stage aging baked in.",
       "Outcome: Board-ready executive reporting cadence for CEO, CRO, and PE sponsor context.",
       "System: Activity-to-opportunity ratios and rep accountability views.",
       "Governance: Versioned KPI definitions and access controls keep the system honest.",

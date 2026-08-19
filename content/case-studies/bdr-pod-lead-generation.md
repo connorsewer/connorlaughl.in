@@ -2,7 +2,7 @@
 
 ## Building a signal-based outbound engine from zero
 
-**Role:** VP of Marketing (acting CMO)  
+**Role:** VP of Marketing & GTM (acting CMO)  
 **Timeline:** 90-day pilot (2024)  
 **Team size:** Two BDRs repurposed from telesales, one manager, and sales ops support  
 **Challenge:** Zero proactive lead generation, a reactive inbound-only model, underutilized telesales capacity

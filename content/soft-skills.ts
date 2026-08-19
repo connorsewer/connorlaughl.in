@@ -378,7 +378,8 @@ export const softSkills: SoftSkill[] = [
       "Each function trusts different proof. The artifacts have to be usable by finance, sales, product, and compliance without a translation layer in between.",
     proof: [
       {
-        internalName: "35+ KPI Revenue Funnel Architecture",
+        /* KPI count removed 2026-08-19 per the v4 resume cut. */
+        internalName: "Full-Funnel KPI Revenue Architecture",
         categoricalPhrase: "the revenue funnel KPI architecture",
         posture: "verified",
         publicUse: "soften",
@@ -499,6 +500,17 @@ export const softSkills: SoftSkill[] = [
         categoricalPhrase: "a governed proposal AI workflow",
         posture: "internal-only",
         publicUse: "soften",
+      },
+      {
+        /* A14 + inventory 2026-08-19. Structure and governance only; never
+           contents, usage counts, or an answers-RFPs claim. */
+        internalName: "TSI Governed LLM Wiki",
+        categoricalPhrase:
+          "a governed LLM wiki that humans and agents read for the same context",
+        posture: "verified",
+        publicUse: "soften",
+        sourceNote:
+          "LLM Wiki and Knowledge Base Inventory - 2026-08-19.md; Story Bank A14 + addendum.",
       },
       {
         internalName: "Multi-Agent SEO/GEO Content Workflow",

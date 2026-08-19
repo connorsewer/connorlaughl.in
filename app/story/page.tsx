@@ -139,6 +139,8 @@ export default function StoryPage() {
   const [progression] = renderableProofMetrics(proseProofClaims);
   /* A8/D6. The Brad's Deals audience shape for the writer years. */
   const [audience] = renderableProofMetrics([proseClaimTokens.BD]);
+  /* A9 addendum. Rocket Receivables first-year shape, softened. */
+  const [rocket] = renderableProofMetrics([proseClaimTokens.RR]);
 
   return (
     <>
@@ -228,6 +230,16 @@ export default function StoryPage() {
             analytics to argue with yet. The middle of what followed is the
             part I like telling. {progression.value} {progression.label}.{" "}
             {progression.context}.
+          </p>
+
+          {/* A9 + addendum: the Director-era build, Connor-attested
+              2026-08-19. The revenue shape resolves through the gate; the
+              exact figure never renders on this site. */}
+          <p className="manual-body mt-5">
+            The building started well before the AI era. As Director I
+            oversaw the creation and 2018 launch of Rocket Receivables,
+            TSI&apos;s first direct-to-buyer e-commerce product and the first
+            of its kind in the ARM industry. It earned {rocket.value}.
           </p>
 
           <p className="manual-body mt-5">

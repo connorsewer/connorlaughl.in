@@ -181,13 +181,14 @@ export const heroProofStrip: ProofMetric[] = [
       "Spine P10 gates the agent count. Softened 2026-08-06 so the count has no home in source either.",
   },
   {
-    value: "35+ KPI",
-    label: "RevOps reporting framework",
-    context: "funnel, attribution, unit economics, pipeline movement",
-    claimId: "CJL-CLAIM-025",
+    value: "157 articles",
+    label: "governed LLM wiki",
+    context:
+      "3,300+ source records compiled into interlinked, machine-readable articles across 18 domains; humans and AI agents read the same pages",
     posture: "verified",
     publicUse: "show",
-    sourceNote: "candidate-profile-master-v3.md:379-409; verified.",
+    sourceNote:
+      "LLM Wiki and Knowledge Base Inventory - 2026-08-19.md (fact-finder read from disk: 157 articles, 18 domain folders, 3,342 corpus records) and Story Bank A14 + addendum. Wording rules: architecture and adoption, never contents; never claim it answers RFPs (the approval ledger is empty) and never claim usage counts. Karpathy naming approved. This row replaced the KPI-count row on 2026-08-19: the v4 resume cut that count as an AI-tell and the parity handoff ordered it off the site.",
   },
   {
     value: "Multi-million",
@@ -323,6 +324,31 @@ const bradsDealsAudience: ProofMetric = {
 };
 
 /**
+ * Bank A9 + round-3 addendum (2026-08-19). Rocket Receivables, softened to
+ * its first-year revenue shape.
+ *
+ * Connor attested the 2018 launch and the first-year figure in the resume
+ * story rebuild. The exact value renders on the resume master only; the
+ * handoff's public metric posture withholds it from this repo, so only this
+ * seven-figure shape exists anywhere in source. Product naming rides the A6
+ * unlock (TSI naming approved).
+ */
+const rocketReceivablesFirstYear: ProofMetric = {
+  value: "seven-figure revenue in its first year",
+  label: "Rocket Receivables launch, order of magnitude",
+  context:
+    "TSI's first direct-to-buyer e-commerce product, launched 2018, the first of its kind in the ARM industry",
+  publicValue: "seven-figure revenue in its first year",
+  publicLabel: "Rocket Receivables launch, order of magnitude",
+  publicContext:
+    "TSI's first direct-to-buyer e-commerce product, launched 2018, the first of its kind in the ARM industry",
+  posture: "verified",
+  publicUse: "soften",
+  sourceNote:
+    "Story Bank A9 addendum, Connor-attested and approved for resume use 2026-08-19; corroborated by the 2026-05-12 source-mining spotlight (Director era, SMB flat-fee product). Exact first-year figure withheld from source as well as from render.",
+};
+
+/**
  * Magnitude numerals that ship as prose on `/`, `/about`, `/resume` and the
  * case-study chapters rather than as stats rows. They are claims, so they
  * resolve through the same gate.
@@ -369,6 +395,8 @@ export const proseProofClaims: ProofMetric[] = [
   highPriorityResponseRule,
   /* A8/D6. Brad's Deals audience shape, /story writer years. */
   bradsDealsAudience,
+  /* A9 addendum. Rocket Receivables first-year shape, /story writer years. */
+  rocketReceivablesFirstYear,
 ];
 
 /**
@@ -384,6 +412,7 @@ export const proseClaimTokens: Record<string, ProofMetric> = {
   P6: influencedPipelineSoftened,
   P2: highPriorityResponseRule,
   BD: bradsDealsAudience,
+  RR: rocketReceivablesFirstYear,
 };
 
 /*

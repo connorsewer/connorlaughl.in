@@ -415,7 +415,7 @@ export const cta = {
   label: "Email Connor",
   href: "mailto:connor.laughlin@gmail.com",
   secondary:
-    "Open to VP Marketing, Head of GTM, VP Revenue Operations, and GTM engineering roles at AI-native B2B SaaS and PE-backed growth companies. Chicago, hybrid or remote.",
+    "Open to VP of Marketing & GTM, Head of GTM, VP Revenue Operations, and GTM engineering roles at AI-native B2B SaaS and PE-backed growth companies that build the tools of change. Chicago, hybrid or remote.",
 } as const;
 
 /* ------------------------------------------------------------------ */

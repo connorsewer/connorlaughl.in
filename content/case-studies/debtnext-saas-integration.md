@@ -1,7 +1,7 @@
 # Case study: integrating an acquired SaaS platform
 ## Bridging product-led growth and enterprise services sales
 
-**Role:** VP Marketing / GTM integration lead  
+**Role:** VP of Marketing & GTM (acting CMO)  
 **Timeline:** 2024 to 2025  
 **Context:** A PE-backed enterprise services business acquired a SaaS platform  
 **Challenge:** Integrate two fundamentally different go-to-market motions without destroying either

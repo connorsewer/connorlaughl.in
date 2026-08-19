@@ -1,7 +1,7 @@
 # Case study: digital transformation at a PE-backed enterprise
 ## Building one revenue infrastructure across the acquired brands
 
-**Role:** VP of Marketing (acting CMO)
+**Role:** VP of Marketing & GTM (acting CMO)
 **Timeline:** 2024-2025
 **Challenge:** Acquired brands operating independently, a fragmented tech stack, no attribution, declining organic visibility
 

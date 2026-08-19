@@ -65,6 +65,18 @@ export const buildCards: BuildCard[] = [
     body: "The analytics platform behind TSI's marketing decisions: attribution, funnel inspection, and the reporting leadership runs the week from.",
     proves: "The instrumentation half of the pipeline-truth chapter, as software.",
   },
+  /* A14 + LLM Wiki inventory 2026-08-19. Card wording rules: architecture
+     and adoption, never contents; never a usage count or an answers-RFPs
+     claim (the approval ledger is empty). Karpathy naming approved. The
+     article and domain counts stay off the card per this section's
+     no-gated-numeral rule; the counted form lives in `proof-metrics.ts`. */
+  {
+    id: "tsi-llm-wiki",
+    name: "TSI LLM wiki",
+    status: "operating",
+    body: "A governed knowledge base on Karpathy's compile-once pattern: source records compiled into interlinked, machine-readable articles, each carrying provenance, an owner, and an approval tier. Humans and AI agents read the same pages for RFP response, content, internal FAQ, and agent context.",
+    proves: "Builds the knowledge layer before pointing agents at the work.",
+  },
   {
     id: "tsi-video-studio",
     name: "TSI video studio",

@@ -72,6 +72,15 @@ const BUILDS = [
     paths: [path.join(home, "projects/tsi-marketing-analytics")],
   },
   {
+    id: "tsi-llm-wiki",
+    paths: [],
+    recorded: {
+      era: "2026-06",
+      source:
+        "Build date from the wiki's own index (built 2026-06-17), per LLM Wiki and Knowledge Base Inventory - 2026-08-19.md; the workspace is not a git repository",
+    },
+  },
+  {
     id: "tsi-video-studio",
     paths: [path.join(home, "projects/tsi-video-remotion")],
     recorded: { era: "2026", source: "Delivery year; no measurable git history" },
