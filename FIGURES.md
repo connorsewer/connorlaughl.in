@@ -49,6 +49,7 @@ a new figure always takes the next free number.
 | FIG_022 | Gate | Chapter, governed AI operating layer | The human approval step every run passed, and the record each one left | Rendered plate rather than a hand-drawn figure. An intake tray, three sorting plates, a hinged gate block with a lever arm, and a release chute exploded above one long tray, blueprint line work on flat paper, remapped to the site ink. Generated label-free; the three labels are DOM text placed by `PlateLabels`. Pairs with FIG_009 and never replaces it. Renders as authored in both themes, with no duotone. |
 
 | FIG_023 | Build fleet | `/builds` | The nine systems the builds section lists, one box per card in card order, grouped by where they run: six on the employer stack, one published in the open, two in the operator's own toolchain, ending with this site | Drawn SVG. Three shallow grid-plane shelves, one per rank, with an isometric box standing on each cell. Fills mark the rank (blue for the employer stack, teal for open source, lavender for operator tooling). Four leader labels: the three rank names and a callout on the last box, which is the page the reader is on. Amended 2026-08-06: drawn with nine boxes, then the open shelf went from two to one when the hermes-agent card was cut by Connor's decision the same day. Amended 2026-08-19: the employer shelf went from five to six when the TSI LLM wiki card landed (parity handoff, Story Bank A14). |
+| FIG_024 | Compile-once path | Chapter, governed LLM wiki | The wiki's build pipeline per Story Bank A14 and the 2026-08-19 LLM Wiki inventory: source corpus extracted, compiled into interlinked machine-readable articles, verified before a build ships, then read by humans and AI agents from the same pages | Drawn SVG. A five-slab sequence with the verify step drawn as a gate, because a build with broken wikilinks or bad source IDs stops there. Two extra leader labels (human readers, agent readers) converge on the wiki slab, which is the system's argument in one drawing. Article and record counts stay off the plate and render through the claim gate in the chapter's proof table. |
 
 ## Photographic plate series
 
@@ -148,8 +149,12 @@ index. It was never drawn, and the numbering ran past it to `FIG_020` and then
 to the plate program. Do not reuse this number for anything else.
 
 `FIG_023` through `FIG_031` were allotted to the nine chapter plates and
-`FIG_032` to the cover ambient loop. Both are held as of 2026-08-06, so none of
-those numbers was used and none is available for reuse while the hold stands.
+`FIG_032` to the cover ambient loop. Both were held as of 2026-08-06.
+Amendment 2026-08-19: the hold note had already drifted from the table, which
+registers `FIG_023` as the drawn build-fleet plate. `FIG_023` and `FIG_024`
+are spent on drawn figures per the rows above; the plate-program hold now
+covers `FIG_025` through `FIG_032`, and a lifted hold takes the next free
+numbers rather than reclaiming these.
 `FIG_021` and `FIG_022` are spent: their plates exist on disk and are unwired.
 
 Whether `FIG_019` is released or stays reserved is settled together with the

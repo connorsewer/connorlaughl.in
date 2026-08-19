@@ -73,3 +73,4 @@ export { Fig016ClaimToApproval } from "@/components/figures/fig-016-claim-to-app
 export { Fig017TwoFunctionModel } from "@/components/figures/fig-017-two-function-model";
 export { Fig018SchemaToPage } from "@/components/figures/fig-018-schema-to-page";
 export { Fig023BuildFleet } from "@/components/figures/fig-023-build-fleet";
+export { Fig024CompileOncePath } from "@/components/figures/fig-024-compile-once-path";

@@ -263,6 +263,115 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    /* Full chapter approved by Connor 2026-08-19 ("Build it"). Sources:
+       Story Bank A14 + addendum and the LLM Wiki inventory 2026-08-19.
+       Wording rules from both: architecture and adoption, never contents;
+       never claim it answers RFPs (the approval ledger is empty); no usage
+       counts. Karpathy naming approved. Exact counts render only through the
+       proofMetrics rows below, per the chapter-route claim policy. */
+    slug: "governed-llm-wiki",
+    figureSlug: "fig-024",
+    label: "GOVERNED LLM WIKI",
+    title: "The wiki humans and agents share",
+    hook: "A knowledge base compiled once from the company's sources, with provenance, an owner, and an approval tier on every page.",
+    chapterIntro: [
+      "Standard RAG re-reads the raw pile on every question and trusts whatever it grabs. I built the other thing, on Karpathy's compile-once pattern: the company's source records compiled once into interlinked, machine-readable articles with an index, then maintained by governed refresh builds.",
+      "People browse it as documents. Agents read the same files for context, under written instructions that tell them to start there. One set of pages, two kinds of reader.",
+    ],
+    audienceFit: ["AI GTM systems", "Executive marketing leadership"],
+    signature: false,
+    businessProblem:
+      "Every function kept re-deriving the same answers from scattered sources: proposal responses, content, internal FAQ, and now agents that need context. The knowledge existed, but it lived in thousands of records nobody could safely hand to an AI.",
+    whatIBuilt:
+      "A governed LLM wiki: an extraction pass over the source corpus, a compiler that builds interlinked articles across the company's knowledge domains, and a verifier that stops any build with broken links or bad source IDs. Every article carries provenance, an owner, a verifier, and an approval tier from external-safe to internal-only, with a canonical-facts registry underneath.",
+    whatChanged:
+      "Humans and AI agents now start from the same governed pages. The wiki feeds RFP response, content, internal FAQ, and agent context across the business.",
+    whyItMattered:
+      "Pointing an agent at raw sources means re-deriving truth on every query. Compiling once means the organization argues about a page, approves it, and everything downstream inherits the decision.",
+    whatItProves:
+      "Before I point an agent at work, I build the knowledge it needs: governed, indexed, machine-readable, and shared with the humans doing the same job.",
+    proofMetrics: [
+      {
+        value: "157",
+        label: "interlinked articles",
+        context:
+          "machine-readable pages across 18 domain folders, compiled in one pass and maintained by refresh builds",
+        posture: "verified",
+        publicUse: "show",
+        sourceNote:
+          "LLM Wiki and Knowledge Base Inventory - 2026-08-19.md, read from the wiki's own index on disk. Same ground truth as the hero-strip row.",
+      },
+      {
+        value: "3,300+",
+        label: "source records compiled",
+        context: "the corpus the wiki is built from, extracted and chunked for retrieval",
+        posture: "verified",
+        publicUse: "show",
+        sourceNote:
+          "Inventory 2026-08-19: 3,342 corpus records into 3,517 retrieval chunks per the wiki index. Rendered in the approved 3,300+ form.",
+      },
+      {
+        value: "1,772",
+        label: "canonical facts in the registry",
+        context:
+          "mined from the most-reused proposal answers, each with a stable ID and a status tag",
+        posture: "verified",
+        publicUse: "show",
+        sourceNote:
+          "Inventory 2026-08-19, Fact Vault section. The 821 most-reused answers detail stays off the page; the registry count is the approved resume form.",
+      },
+      {
+        value: "0",
+        label: "broken links at build",
+        context: "build verification holds a release until wikilinks and source IDs check clean",
+        posture: "verified",
+        publicUse: "show",
+        sourceNote:
+          "Inventory 2026-08-19: build_verification.md reports 0 broken wikilinks, 0 bad source IDs.",
+      },
+    ],
+    systemsBuilt: [
+      "Corpus extraction over the company's source records",
+      "Wiki compiler producing interlinked, machine-readable articles with per-article frontmatter",
+      "Build verifier and a governed refresh flow that archives the prior build and preserves sign-offs",
+      "Governance layer: canonical-facts registry, claims and proof registry, approval gates, source register",
+      "Fact-vault intake that consolidates reused proposal answers into canonical facts",
+      "Agent read instructions that point AI consumers at the wiki first",
+    ],
+    artifactIdeas: [
+      "Wiki index and domain map",
+      "Per-article frontmatter schema",
+      "Verification report (links, source IDs)",
+    ],
+    governanceNotes: [
+      "Architecture and adoption only: wiki contents stay internal",
+      "No usage counts and no answered-proposal claims; the build's own self-assessment records the external-approval ledger as unexercised",
+      "Every article names its owner, verifier, sources, and approval tier",
+    ],
+    interviewLine:
+      "I compile the company's knowledge once, govern it, and point people and agents at the same pages.",
+    sourceCrossrefs: [
+      "LLM Wiki and Knowledge Base Inventory - 2026-08-19.md",
+      "Career Story Bank and Armory Proof Blocks.md, A14 + addendum",
+    ],
+
+    deck: "A compile-once knowledge base with provenance, owners, and approval tiers, read by people and by agents.",
+    outcome:
+      "Built a governed LLM wiki on Karpathy's compile-once pattern. Humans and AI agents read the same pages for RFP response, content, internal FAQ, and agent context.",
+    scope:
+      "Corpus extraction → canonical facts → compiled wiki → verification → governed refresh.",
+    stack: "Python • Markdown + YAML frontmatter • Wikilinks • Agent context files",
+    governance:
+      "Provenance and owners • approval tiers • canonical-facts registry • verification ledger",
+    bullets: [
+      "System: interlinked, machine-readable articles compiled once from the company's source corpus.",
+      "System: per-article provenance, owner, verifier, and approval tier from external-safe to internal-only.",
+      "System: canonical-facts registry consolidating the most-reused proposal answers.",
+      "Governance: builds verify clean before they ship, and refreshes preserve prior sign-offs.",
+      "Outcome: humans and AI agents read the same governed pages for RFP response, content, FAQ, and agent context.",
+    ],
+  },
+  {
     slug: "revenue-operations-pipeline-truth",
     figureSlug: "fig-010",
     label: "GHOST PIPELINE DETECTOR",

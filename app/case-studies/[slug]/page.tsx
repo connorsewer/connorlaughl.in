@@ -28,6 +28,7 @@ import {
   Fig016ClaimToApproval,
   Fig017TwoFunctionModel,
   Fig018SchemaToPage,
+  Fig024CompileOncePath,
   type PlateLabel,
 } from "@/components/figures";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
@@ -70,6 +71,7 @@ const chapterFigures: Record<string, React.ComponentType> = {
   "fig-016": Fig016ClaimToApproval,
   "fig-017": Fig017TwoFunctionModel,
   "fig-018": Fig018SchemaToPage,
+  "fig-024": Fig024CompileOncePath,
 };
 
 /**
